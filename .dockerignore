@@ -1,9 +1,10 @@
 # Only the stack's own files go into the image (LICENSE, NOTICE and
-# docs/licences.md's summary travel with it; the docs, eval data and the
+# docs/licences.md travel with it; the other docs, eval data and the
 # developer tools in tools/ do not).
 .git/
 .github/
-docs/
+docs/*
+!docs/licences.md
 eval/
 tools/
 voices/*

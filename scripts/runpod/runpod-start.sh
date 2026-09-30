@@ -32,9 +32,24 @@ SCRIPTS="$(cd "$DIR/.." && pwd)"               # scripts
 ROOT="$(cd "$DIR/../.." && pwd)"               # the repository (/workspace/translation-open-stack)
 STACK_SIGNING_KEY="${STACK_SIGNING_KEY:-$(cat /workspace/.stack-signing-key 2>/dev/null || true)}"
 STACK_TOKEN="${STACK_TOKEN:-$(cat /workspace/.stack-token 2>/dev/null || true)}"
+# No credential at all: make a random token once, keep it on the volume, and
+# print it here (the pod's log, which only its owner sees). The RunPod template
+# relies on this so a deploy needs no setup; the stack is never open.
 if [ -z "$STACK_SIGNING_KEY" ] && [ -z "$STACK_TOKEN" ]; then
-  echo "no STACK_SIGNING_KEY or STACK_TOKEN — refusing: the stack is reachable from the internet on RunPod" >&2
-  exit 1
+  if [ -n "${RUNPOD_POD_ID:-}" ] && [ -d /workspace ]; then
+    STACK_TOKEN=$(python3 -c "import secrets; print(secrets.token_hex(32))")
+    (umask 077; printf '%s\n' "$STACK_TOKEN" > /workspace/.stack-token)
+    echo "== no STACK_TOKEN set: made one, saved in /workspace/.stack-token (it's reused on every start)"
+    MADE_TOKEN=1
+  else
+    echo "no STACK_SIGNING_KEY or STACK_TOKEN — refusing: the stack is reachable from the internet on RunPod" >&2
+    exit 1
+  fi
+fi
+if [ -n "${RUNPOD_POD_ID:-}" ]; then
+  echo "== connect: wss://${RUNPOD_POD_ID}-8790.proxy.runpod.net"
+  # Printed only the time it's made; later: cat /workspace/.stack-token in the pod's terminal.
+  [ "${MADE_TOKEN:-0}" = 1 ] && echo "== access key: $STACK_TOKEN"
 fi
 export STACK_SIGNING_KEY STACK_TOKEN HF_HOME=/workspace/hf-cache
 LANGS="${LANGS:-en,es,fr,pt,de,ru,uk,zh,ja,km,lo,ht,ar,hi,vi,ko,tl,fa,id,tr,bn,ur,it,sw,ro}"

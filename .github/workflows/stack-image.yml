@@ -4,9 +4,12 @@
 # credential or a GPU. No GPU here, so models are never loaded; that needs a
 # real card (see README.md).
 #
-# The image is NOT published anywhere. Publishing is a deliberate decision (a
-# public image redistributes the stack; check the model licences first); the
-# commented step at the end shows how, once decided.
+# Published only when asked: run it with "publish" ticked and a version, and
+# after every check below passes the image goes to
+#   ghcr.io/lithsec/translation-open-stack:<version>  (and :latest)
+# the image the RunPod template runs (docs/user-guide.md). It holds no model
+# weights; the GPL programs in it ship with their licence and source
+# (/opt/stack/licences, scripts/collect-gpl-source.sh).
 name: Stack image
 
 # Manual only (Actions → Stack image → Run workflow). The image is ~23 GB and
@@ -15,6 +18,15 @@ name: Stack image
 # shell syntax) run on every push and PR in checks.yml.
 on:
   workflow_dispatch:
+    inputs:
+      publish:
+        description: Push to ghcr.io after the checks pass
+        type: boolean
+        default: false
+      version:
+        description: Image tag when publishing, e.g. 2026.09.30 (also tagged latest)
+        type: string
+        default: ''
 
 concurrency:
   group: stack-image-${{ github.ref }}
@@ -22,6 +34,7 @@ concurrency:
 
 permissions:
   contents: read
+  packages: write   # used only by the publish step, and only when it's ticked
 
 jobs:
   build:
@@ -117,6 +130,9 @@ jobs:
             python3 tests/test_engines.py
             python3 tests/test_capacity.py
             python3 server/stack_config.py check
+            # What a published image owes: the GPL licence and source, and the licence page.
+            test -s licences/GPL-3.0.txt && test -s licences/README.txt && test -s docs/licences.md
+            ls licences/source/espeak-ng_* licences/source/piper_tts-*.tar.gz licences/source/phonemizer_fork-*.tar.gz
             VOICES_DIR=/tmp/v bash scripts/fetch-voices.sh km >/dev/null && echo "fetch-voices.sh runs"
             # The imports server.py makes, as it makes them (find_spec is not enough:
             # a module can be present and still fail to import).
@@ -156,13 +172,18 @@ jobs:
           out=$(docker run --rm -e STACK_TOKEN=ci lithos-stack:ci 2>&1); code=$?
           echo "$out"; [ $code -ne 0 ] && grep -q "No NVIDIA GPU" <<< "$out" || exit 1
 
-      # Publishing: disabled on purpose. To enable, decide where (and check the
-      # licences in docs/licences.md), add `packages: write` to the
-      # permissions above, and uncomment:
-      #
-      # - name: Push to GHCR
-      #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      #   run: |
-      #     echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
-      #     docker tag lithos-stack:ci ghcr.io/${{ github.repository_owner }}/lithos-stack:${{ github.sha }}
-      #     docker push ghcr.io/${{ github.repository_owner }}/lithos-stack:${{ github.sha }}
+      - name: Publish to GHCR
+        if: inputs.publish
+        env:
+          VERSION: ${{ inputs.version }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          [[ "$VERSION" =~ ^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$ ]] || { echo "set a version (e.g. 2026.09.30)"; exit 1; }
+          img="ghcr.io/${GITHUB_REPOSITORY,,}"
+          echo "$GH_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          for t in "$VERSION" latest; do
+            docker tag lithos-stack:ci "$img:$t"
+            docker push "$img:$t"
+          done
+          digest=$(docker image inspect "$img:$VERSION" --format '{{index .RepoDigests 0}}')
+          echo "published $img:$VERSION ($digest)" | tee -a "$GITHUB_STEP_SUMMARY"

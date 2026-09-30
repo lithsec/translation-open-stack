@@ -23,6 +23,11 @@
 ARG BASE_IMAGE=runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404@sha256:0a360022e8de4375af99430f84e8b38951acc397252163a37ceac7204d01be35
 FROM ${BASE_IMAGE}
 
+LABEL org.opencontainers.image.title="Translation Open Stack" \
+      org.opencontainers.image.description="Self-hosted live speech translation: recognition, translation and voices on one GPU. No model weights inside; they download to /workspace on first start." \
+      org.opencontainers.image.source="https://github.com/lithsec/translation-open-stack" \
+      org.opencontainers.image.licenses="Apache-2.0 AND GPL-3.0-or-later"
+
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
@@ -68,6 +73,11 @@ exit('MISSING: '+', '.join(missing)) if missing else print('all runtime imports 
  && python3 -c "import spacy; spacy.load('en_core_web_sm'); print('spacy model ok')" \
  && python3 -c "import transformers; assert transformers.__version__.startswith('4.'), transformers.__version__" \
  && command -v ct2-transformers-converter
+
+# GPL-3.0 programs ship in this image (espeak-ng, piper-tts, phonemizer-fork):
+# their licence and complete source go in with them, /opt/stack/licences/.
+COPY scripts/collect-gpl-source.sh scripts/
+RUN bash scripts/collect-gpl-source.sh /opt/stack/licences
 
 # The stack itself (.dockerignore keeps local voices and caches out).
 COPY . ./
