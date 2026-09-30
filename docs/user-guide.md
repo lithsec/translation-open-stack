@@ -17,6 +17,7 @@ the [reference](reference.md); licences are in [licences.md](licences.md).
 - [Replace a model or a revision](#replace-a-model-or-a-revision)
 - [GPUs and capacity](#gpus-and-capacity)
 - [Hardware profiles: other GPUs, two GPUs, AMD, Mac](#hardware-profiles-other-gpus-two-gpus-amd-mac)
+  - [Create a profile](#create-a-profile)
 - [Verify with the smoke test](#verify-with-the-smoke-test)
 - [Update](#update)
 - [Troubleshooting](#troubleshooting)
@@ -611,20 +612,92 @@ STACK_PROFILE=cuda-2gpu                             # in .env, or the pod's envi
 | `cuda-2gpu` | two NVIDIA GPUs, 24 GB+ each | translators on GPU 0, recognition and voices on GPU 1 |
 | `radeon-32+16` | AMD R9700 32 GB + RX 9060 XT 16 GB | **preview, not yet run**; needs a ROCm build (below) |
 
-**Your own split.** Copy a profile to `profiles/<yours>.toml` and edit it, or
-move single models without a file: `STACK_DEVICES=kokoro=cuda:0,mms=cpu`. At
-start the log shows each model's share of its card
-(`[stack] whisper on cuda:1: +3.3 GB`); plan from those. The format:
-[reference, "Profiles and devices"](reference.md#profiles-and-devices).
+### Create a profile
 
-**Swap a model for the hardware.** A profile's `[models.<name>]` replaces a
-model only when that profile is in use, e.g. a lighter Whisper for a small card:
+A profile is one small TOML file. Every table in it is optional; leave out
+what you don't change.
 
-```toml
-[models.whisper]
-model = "large-v3-turbo"
-revision = ""        # or the commit you tested
-```
+1. **Start from the closest one.** Profiles live in `profiles/` (Docker mounts
+   that folder, so a new file there is seen without a rebuild):
+
+   ```bash
+   cp profiles/cuda-2gpu.toml profiles/my-box.toml
+   ```
+
+   The name is the file name without `.toml`: letters, digits and `. _ + -`.
+   `STACK_PROFILE` also takes a path, for a profile kept elsewhere.
+
+2. **Edit it.** A complete example, for two cards where the second is small:
+
+   ```toml
+   # One line, shown by `stack_config.py profiles`.
+   description = "RTX 4090 24 GB + RTX 4060 Ti 16 GB"
+
+   # Defaults for the start scripts' variables. A value already set in the
+   # environment (.env, the pod's variables) wins over these.
+   [env]
+   VOXCPM_GPUS = "0"          # the VoxCPM2 voice service on the big card
+   MADLAD = "3b"              # the smaller fallback translator
+
+   # Which card each model loads on. "default" is everything not listed.
+   # Values: auto, cpu, cuda, cuda:<n>, mps. AMD cards are cuda:<n> too.
+   [devices]
+   default = "cuda:0"
+   whisper = "cuda:1"
+   omni = "cuda:1"
+   kokoro = "cuda:1"
+   lid = "cpu"
+
+   # A different model, only while this profile is in use (merged key by key
+   # over languages.toml's [models]).
+   [models.whisper]
+   model = "large-v3-turbo"
+   revision = ""              # or the commit you tested; "" = unpinned
+
+   # Language routes for this hardware (merged key by key over the language's
+   # table), e.g. Khmer through Whisper where Omnilingual can't run.
+   [languages.km]
+   asr = "whisper"
+   ```
+
+   The keys `[devices]` accepts: `default`, `lid` (language ID) and every
+   engine name (`python3 server/stack_config.py engines` lists them). The
+   `[models.<name>]` keys are in the
+   [reference](reference.md#modelsname), the language keys in
+   [Route a language](#route-a-language-to-another-recogniser-or-translator).
+
+3. **Check it** before starting anything. Both commands stop with a message
+   naming the mistake (an unknown engine, a device like `gpu1`, a typo in a
+   table name):
+
+   ```bash
+   python3 server/stack_config.py profile my-box   # exactly what it changes
+   STACK_PROFILE=my-box python3 server/stack_config.py check
+   ```
+
+4. **Use it:** `STACK_PROFILE=my-box` in `.env` (Docker) or the pod's
+   environment (RunPod), then restart. The start log begins with
+   `profile: my-box`, and `[stack] device=cuda:0, whisper=cuda:1, ...`.
+
+5. **Measure, then adjust.** While loading, the log prints each model's share
+   of its card:
+
+   ```
+   [stack] whisper on cuda:1: +3.3 GB (3.6 GB in use there)
+   [stack] hymt on cuda:0: +5.6 GB (12.0 GB in use there)
+   ```
+
+   Keep a few GB free on each card for activations under load, then run the
+   [smoke test](#verify-with-the-smoke-test). To try a change without editing
+   the file, `STACK_DEVICES=kokoro=cuda:0` wins over the profile for that
+   start. A card that isn't there (`cuda:2` on a two-GPU machine) stops the
+   start with a message.
+
+A model that isn't a PyTorch or CTranslate2 model the stack already runs
+needs an engine, not a profile: [adding-an-engine.md](dev/adding-an-engine.md).
+The full format: [reference, "Profiles and devices"](reference.md#profiles-and-devices).
+
+### AMD and Mac
 
 **AMD (ROCm), today.** Nothing in this repository installs a ROCm build yet,
 so it takes work by hand, on Linux with ROCm 7.2 or later:

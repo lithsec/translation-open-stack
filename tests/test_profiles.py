@@ -148,6 +148,21 @@ def test_cli():
     assert r.returncode != 0 and "reached" not in r.stdout
 
 
+def test_the_user_guide_example_profile_is_valid():
+    """docs/user-guide.md "Create a profile" shows a complete profile; it must load."""
+    import re
+    guide = open(os.path.join(ROOT, "docs", "user-guide.md"), encoding="utf-8").read()
+    sec = guide[guide.index("### Create a profile"):guide.index("### AMD and Mac")]
+    blocks = [b for b in re.findall(r"```toml\n(.*?)```", sec, re.S) if "[devices]" in b]
+    assert len(blocks) == 1, "expected one example profile in the section"
+    p = _write("\n".join(line[3:] if line.startswith("   ") else line for line in blocks[0].splitlines()))
+    _clean_env()
+    prof = c.load_profile(p)
+    assert prof["devices"]["whisper"] == "cuda:1" and prof["env"]["MADLAD"] == "3b"
+    assert c.load(profile=p)[0]["km"]["asr"] == "whisper"
+    assert c.load_models(profile=p)[0]["whisper"]["model"] == "large-v3-turbo"
+
+
 def test_engines_load_on_their_device():
     ctx = Context(device="cuda:0", devices={"whisper": "cuda:1", "lid": "cpu"})
 
