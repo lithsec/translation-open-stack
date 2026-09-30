@@ -1,0 +1,578 @@
+[
+ {
+  "lang": "en",
+  "i": 0,
+  "voxcpm": 4,
+  "current": 5,
+  "winner": "current",
+  "note": "B's voice has a more natural resonance and texture, making it sound more human."
+ },
+ {
+  "lang": "en",
+  "i": 1,
+  "voxcpm": 2,
+  "current": 4,
+  "winner": "current",
+  "note": "Voice A is highly artificial and cartoonish, while voice B has much more natural human prosody and voice quality."
+ },
+ {
+  "lang": "en",
+  "i": 2,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "Voice B has more natural prosody and rhythm, while A sounds a bit flat and robotic."
+ },
+ {
+  "lang": "en",
+  "i": 3,
+  "voxcpm": 4,
+  "current": 4,
+  "winner": "current",
+  "note": "A has a more natural and varied intonation, making it sound slightly more human than B."
+ },
+ {
+  "lang": "en",
+  "i": 4,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "Voice A has more natural intonation and flow, while B sounds slightly more robotic."
+ },
+ {
+  "lang": "en",
+  "i": 5,
+  "voxcpm": 3,
+  "current": 5,
+  "winner": "current",
+  "note": "B has much more natural, human-like intonation and rhythm. A sounds comparatively flat and robotic."
+ },
+ {
+  "lang": "en",
+  "i": 6,
+  "voxcpm": 5,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "A sounds completely natural and human. B has a slightly stilted rhythm and a more synthetic voice quality."
+ },
+ {
+  "lang": "en",
+  "i": 7,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording A has a much more natural and relaxed prosody. Recording B sounds slightly rushed and has a more noticeable synthetic quality."
+ },
+ {
+  "lang": "es",
+  "i": 0,
+  "voxcpm": 4,
+  "current": 5,
+  "winner": "current",
+  "note": "A has a very natural, human-like prosody. B sounds slightly rushed and has a more artificial, exaggerated intonation."
+ },
+ {
+  "lang": "es",
+  "i": 1,
+  "voxcpm": 3,
+  "current": 5,
+  "winner": "current",
+  "note": "A sounds perfectly natural and human. B has a noticeable synthetic, slightly robotic quality to the voice."
+ },
+ {
+  "lang": "es",
+  "i": 2,
+  "voxcpm": 4,
+  "current": 5,
+  "winner": "current",
+  "note": "Recording A has a more natural and human-like prosody and rhythm. B sounds slightly more robotic and has a less natural cadence."
+ },
+ {
+  "lang": "es",
+  "i": 3,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording A has much more natural prosody and intonation; B sounds more robotic."
+ },
+ {
+  "lang": "es",
+  "i": 4,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "B has a more natural intonation and flow. A sounds a bit flat and monotonous."
+ },
+ {
+  "lang": "es",
+  "i": 5,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "B has a much more natural prosody and rhythm, while A sounds slightly robotic and stilted."
+ },
+ {
+  "lang": "es",
+  "i": 6,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording A has a more natural intonation and rhythm, while B sounds slightly more robotic and has a less natural cadence."
+ },
+ {
+  "lang": "es",
+  "i": 7,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "A has a much more natural prosody and intonation. B sounds more robotic and staccato in its delivery."
+ },
+ {
+  "lang": "fr",
+  "i": 0,
+  "voxcpm": 3,
+  "current": 5,
+  "winner": "current",
+  "note": "B has a much more natural and appropriate rising intonation for a question, while A sounds flatter and more robotic."
+ },
+ {
+  "lang": "fr",
+  "i": 1,
+  "voxcpm": 4,
+  "current": 2,
+  "winner": "voxcpm",
+  "note": "B mispronounces '17h' by reading the letter 'h' ('ache') instead of the word 'heures' (hours), which is a major error."
+ },
+ {
+  "lang": "fr",
+  "i": 2,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "B has a more natural intonation and rhythm. A sounds more monotonous and robotic."
+ },
+ {
+  "lang": "fr",
+  "i": 3,
+  "voxcpm": 4,
+  "current": 2,
+  "winner": "voxcpm",
+  "note": "B mispronounces the time '15h30' very robotically as 'quinze H trente', while A's pronunciation and prosody are much more natural."
+ },
+ {
+  "lang": "fr",
+  "i": 4,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording A has a more natural and fluid intonation. B sounds slightly flatter and more robotic in its delivery."
+ },
+ {
+  "lang": "fr",
+  "i": 5,
+  "voxcpm": 4,
+  "current": 5,
+  "winner": "current",
+  "note": "A has a more natural, human-like prosody and rhythm. B sounds slightly more robotic and the intonation is less natural."
+ },
+ {
+  "lang": "fr",
+  "i": 6,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "A has a more natural and fluid prosody. B sounds slightly more robotic and choppy in its delivery."
+ },
+ {
+  "lang": "fr",
+  "i": 7,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording B has an unnatural, breathy voice quality and a slightly flatter intonation. Recording A sounds much more natural and clear."
+ },
+ {
+  "lang": "de",
+  "i": 0,
+  "voxcpm": 5,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "A has a very natural, human-like prosody and flow. B sounds slightly robotic and choppy in comparison."
+ },
+ {
+  "lang": "de",
+  "i": 1,
+  "voxcpm": 2,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording B has a very unnatural, sing-song intonation and a strange hesitation sound at the start."
+ },
+ {
+  "lang": "de",
+  "i": 2,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording A has a much more natural prosody and intonation, while B sounds more robotic and slightly rushed."
+ },
+ {
+  "lang": "de",
+  "i": 3,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "Voice A has a more natural rhythm and intonation, while B sounds slightly more robotic and flat."
+ },
+ {
+  "lang": "de",
+  "i": 4,
+  "voxcpm": 4,
+  "current": 2,
+  "winner": "voxcpm",
+  "note": "A has much more natural prosody and intonation, while B sounds robotic and flat."
+ },
+ {
+  "lang": "de",
+  "i": 5,
+  "voxcpm": 5,
+  "current": 4,
+  "winner": "voxcpm",
+  "note": "A has a more natural, conversational intonation and rhythm. B sounds slightly flatter and more like a standard announcement."
+ },
+ {
+  "lang": "de",
+  "i": 6,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "A has a much more natural intonation and flow, while B sounds flatter and more robotic."
+ },
+ {
+  "lang": "de",
+  "i": 7,
+  "voxcpm": 5,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "A has superior, human-like prosody and intonation, while B sounds flatter and more synthetic."
+ },
+ {
+  "lang": "pt",
+  "i": 0,
+  "voxcpm": 2,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording A has a much more natural and conversational intonation, while B sounds exaggerated and has a more synthetic voice quality."
+ },
+ {
+  "lang": "pt",
+  "i": 1,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "Voice B has a much more natural prosody and intonation, whereas A sounds very flat and robotic."
+ },
+ {
+  "lang": "pt",
+  "i": 2,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording B has a more natural intonation and flow, while A sounds slightly flatter and more robotic."
+ },
+ {
+  "lang": "pt",
+  "i": 3,
+  "voxcpm": 2,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording B has a very strong and unnatural echo/reverb, making it sound robotic and recorded in a large hall. A is much cleaner and more natural."
+ },
+ {
+  "lang": "pt",
+  "i": 4,
+  "voxcpm": 5,
+  "current": 4,
+  "winner": "voxcpm",
+  "note": "Recording A has a more natural prosody and flow, while B sounds slightly more robotic and declarative."
+ },
+ {
+  "lang": "pt",
+  "i": 5,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "A has a more natural and relaxed rhythm, while B sounds slightly rushed."
+ },
+ {
+  "lang": "pt",
+  "i": 6,
+  "voxcpm": 3,
+  "current": 5,
+  "winner": "current",
+  "note": "B has a much more natural, human-like intonation and flow. A sounds flatter and more robotic in comparison."
+ },
+ {
+  "lang": "pt",
+  "i": 7,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "Voice B has a much more natural and expressive intonation, while A sounds flatter and more robotic."
+ },
+ {
+  "lang": "ru",
+  "i": 0,
+  "voxcpm": 3,
+  "current": 5,
+  "winner": "current",
+  "note": "A has a very natural, human-like intonation and flow. B sounds slightly rushed and has a more noticeable synthetic quality."
+ },
+ {
+  "lang": "ru",
+  "i": 1,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "Recording A has more natural prosody and intonation, while B sounds slightly flatter and more robotic."
+ },
+ {
+  "lang": "ru",
+  "i": 2,
+  "voxcpm": 3,
+  "current": 5,
+  "winner": "current",
+  "note": "Recording A has very natural, human-like prosody and pacing. Recording B sounds slightly rushed and more robotic in its intonation."
+ },
+ {
+  "lang": "ru",
+  "i": 3,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "Voice B has a more natural intonation and rhythm, whereas A sounds flatter and more monotonous."
+ },
+ {
+  "lang": "ru",
+  "i": 4,
+  "voxcpm": 3,
+  "current": 5,
+  "winner": "current",
+  "note": "Recording B has much more natural intonation and flow, while A sounds robotic and flat."
+ },
+ {
+  "lang": "ru",
+  "i": 5,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "A has much more natural prosody and intonation, while B sounds flatter and more robotic."
+ },
+ {
+  "lang": "ru",
+  "i": 6,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "Recording A has a much more natural and reassuring intonation, while B sounds flatter and more robotic."
+ },
+ {
+  "lang": "ru",
+  "i": 7,
+  "voxcpm": 3,
+  "current": 2,
+  "winner": "voxcpm",
+  "note": "Recording A has a more natural and consistent rhythm, while B's intonation and pacing sound more artificial."
+ },
+ {
+  "lang": "zh",
+  "i": 0,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording B has much more natural intonation and prosody, making it sound like a genuine question. A sounds flatter and more robotic."
+ },
+ {
+  "lang": "zh",
+  "i": 1,
+  "voxcpm": 5,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "Recording A has much more natural prosody and intonation, while B sounds slightly robotic and flat."
+ },
+ {
+  "lang": "zh",
+  "i": 2,
+  "voxcpm": 3,
+  "current": 5,
+  "winner": "current",
+  "note": "A has a much more natural and human-like prosody and rhythm. B sounds slightly rushed and more robotic in comparison."
+ },
+ {
+  "lang": "zh",
+  "i": 3,
+  "voxcpm": 4,
+  "current": 5,
+  "winner": "current",
+  "note": "B has more natural prosody and intonation, while A sounds slightly more robotic and evenly paced."
+ },
+ {
+  "lang": "zh",
+  "i": 4,
+  "voxcpm": 5,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "A has much more natural prosody and intonation, sounding very human. B is flatter and sounds more robotic."
+ },
+ {
+  "lang": "zh",
+  "i": 5,
+  "voxcpm": 3,
+  "current": 5,
+  "winner": "current",
+  "note": "A has much more natural prosody and intonation. B sounds more robotic and slightly rushed."
+ },
+ {
+  "lang": "zh",
+  "i": 6,
+  "voxcpm": 4,
+  "current": 5,
+  "winner": "current",
+  "note": "Voice A has a more natural and fluid prosody, making it sound more human."
+ },
+ {
+  "lang": "zh",
+  "i": 7,
+  "voxcpm": 2,
+  "current": 4,
+  "winner": "current",
+  "note": "B has much more natural prosody and rhythm. A sounds flat and robotic."
+ },
+ {
+  "lang": "ja",
+  "i": 0,
+  "voxcpm": 3,
+  "current": 5,
+  "winner": "current",
+  "note": "A has much more natural prosody and rhythm, while B sounds rushed and slightly robotic."
+ },
+ {
+  "lang": "ja",
+  "i": 1,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "A has much more natural, human-like prosody and intonation, while B sounds flatter and more robotic."
+ },
+ {
+  "lang": "ja",
+  "i": 2,
+  "voxcpm": 5,
+  "current": 4,
+  "winner": "voxcpm",
+  "note": "Voice A has a more natural, subdued intonation suitable for an instruction. Voice B sounds slightly more synthesized and has a less natural rhythm."
+ },
+ {
+  "lang": "ja",
+  "i": 3,
+  "voxcpm": 4,
+  "current": 4,
+  "winner": "voxcpm",
+  "note": "Both are very good, but A has a slightly more natural and fluid intonation."
+ },
+ {
+  "lang": "ja",
+  "i": 4,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "Recording B has much more natural intonation and pacing, whereas A sounds more robotic and monotonous."
+ },
+ {
+  "lang": "ja",
+  "i": 5,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "Voice A has a more natural intonation and rhythm, whereas B sounds slightly more robotic and has a flatter delivery."
+ },
+ {
+  "lang": "ja",
+  "i": 6,
+  "voxcpm": 3,
+  "current": 5,
+  "winner": "current",
+  "note": "Recording A has much more natural prosody and a more human-like voice quality. B sounds more robotic and has a slightly sing-song intonation."
+ },
+ {
+  "lang": "ja",
+  "i": 7,
+  "voxcpm": 4,
+  "current": 5,
+  "winner": "current",
+  "note": "Recording A has a much more natural and human-like prosody. B sounds slightly flatter and more robotic in its intonation."
+ },
+ {
+  "lang": "km",
+  "i": 0,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "Recording A has a more natural, human-like intonation and flow, whereas B sounds slightly more robotic and staccato."
+ },
+ {
+  "lang": "km",
+  "i": 1,
+  "voxcpm": 3,
+  "current": 4,
+  "winner": "current",
+  "note": "B has more natural intonation and pacing, while A sounds flatter and more robotic."
+ },
+ {
+  "lang": "km",
+  "i": 2,
+  "voxcpm": 4,
+  "current": 3,
+  "winner": "voxcpm",
+  "note": "B has a more natural rhythm and intonation. A sounds more robotic and stilted."
+ },
+ {
+  "lang": "km",
+  "i": 3,
+  "voxcpm": 4,
+  "current": 2,
+  "winner": "voxcpm",
+  "note": "B has much more natural intonation and flow. A sounds robotic and monotonous."
+ },
+ {
+  "lang": "km",
+  "i": 4,
+  "voxcpm": 4,
+  "current": 2,
+  "winner": "voxcpm",
+  "note": "A has a much more natural and human-like prosody, while B sounds robotic and has unnatural pacing."
+ },
+ {
+  "lang": "km",
+  "i": 5,
+  "voxcpm": 4,
+  "current": 2,
+  "winner": "voxcpm",
+  "note": "Voice B has much more natural intonation and rhythm. Voice A sounds robotic and flat."
+ },
+ {
+  "lang": "km",
+  "i": 6,
+  "voxcpm": 3,
+  "current": 2,
+  "winner": "voxcpm",
+  "note": "Recording A has clearer pronunciation and a more natural rhythm. B sounds more robotic and slightly slurred."
+ },
+ {
+  "lang": "km",
+  "i": 7,
+  "voxcpm": 4,
+  "current": 2,
+  "winner": "voxcpm",
+  "note": "Recording B sounds robotic and has unnatural pauses, while A has a much more natural flow and intonation."
+ }
+]

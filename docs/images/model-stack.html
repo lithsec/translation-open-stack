@@ -1,0 +1,160 @@
+<!doctype html>
+<!-- Source of model-stack.png. Regenerate with:
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --hide-scrollbars \
+    --force-device-scale-factor=2 --window-size=1600,1262 --screenshot=model-stack.png model-stack.html -->
+<html><head><meta charset="utf-8"><title>Lithos stack — recommended models</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;600;800&family=Chivo+Mono:wght@400;500&display=swap">
+<style>
+:root{--ground:#F3F5F4;--panel:#FFFFFF;--ink:#16201D;--muted:#5B6763;--rule:#D3DBD8;--gpu:#5B3FD6;--gpu-t:#EEEAFD;--cpu:#0E7C68;--cpu-t:#E3F3EF;--nc:#B3261E;--nc-t:#FCE9E7;--com:#1D6FB8;--com-t:#E6F0FA;--warn:#A8661A;--warn-t:#FBF0E1}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:Chivo,system-ui,sans-serif;width:1600px}
+.wrap{padding:36px 40px 34px;display:grid;gap:18px}
+h1{margin:0;font-size:34px;font-weight:800;letter-spacing:-.01em}
+.sub{margin:4px 0 0;color:var(--muted);font-size:16px}
+.stages{display:grid;grid-template-columns:1fr 1.15fr 1.25fr 1.6fr;gap:14px;align-items:start}
+.stage{display:grid;gap:10px}
+.sh{display:flex;align-items:baseline;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.sh b{font-size:19px;font-weight:800}
+.sh span{font-family:"Chivo Mono",monospace;font-size:12px;color:var(--muted)}
+.card{background:var(--panel);border:1.5px solid var(--rule);border-radius:10px;padding:10px 12px;display:grid;gap:4px}
+.card.gpu{border-left:6px solid var(--gpu)} .card.cpu{border-left:6px solid var(--cpu)}
+.name{font-weight:800;font-size:16px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.mem{font-family:"Chivo Mono",monospace;font-size:12px;color:var(--muted);white-space:nowrap}
+.role{font-size:13px;color:var(--ink)}
+.langs{font-family:"Chivo Mono",monospace;font-size:11.5px;color:var(--muted);line-height:1.45}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.tag{font-family:"Chivo Mono",monospace;font-size:10.5px;padding:1px 7px;border-radius:99px;border:1px solid}
+.lic{color:var(--cpu);border-color:var(--cpu);background:var(--cpu-t)}
+.nc{color:var(--nc);border-color:var(--nc);background:var(--nc-t)}
+.drop{color:var(--warn);border-color:var(--warn);background:var(--warn-t)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.col h3{margin:0 0 6px;font-size:13px;font-family:"Chivo Mono",monospace;text-transform:uppercase;letter-spacing:.06em;padding:4px 8px;border-radius:6px}
+.col.com h3{background:var(--com-t);color:var(--com)} .col.np h3{background:var(--nc-t);color:var(--nc)}
+.col{display:grid;gap:8px;align-content:start}
+.flow{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.flow i{flex:1;height:2px;background:var(--rule)}
+.bottom{display:grid;grid-template-columns:1.05fr 1fr;gap:16px}
+.panel{background:var(--panel);border:1.5px solid var(--rule);border-radius:10px;padding:14px 16px;display:grid;gap:10px}
+.panel h2{margin:0;font-size:18px;font-weight:800}
+.bar{display:flex;height:34px;border-radius:6px;overflow:hidden;border:1.5px solid var(--ink);position:relative}
+.seg{display:flex;align-items:center;justify-content:center;font-family:"Chivo Mono",monospace;font-size:11px;color:#fff;white-space:nowrap;overflow:hidden}
+.axis{display:flex;justify-content:space-between;font-family:"Chivo Mono",monospace;font-size:11px;color:var(--muted)}
+.brow{display:grid;grid-template-columns:118px 1fr;gap:10px;align-items:center}
+.brow b{font-size:13px}
+.lim{position:absolute;top:-6px;bottom:-6px;border-left:2.5px dashed var(--ink)}
+ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.5}
+li{margin:2px 0}
+.note{font-size:12px;color:var(--muted)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);align-items:center}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:5px}
+.route{background:var(--warn-t);border:1.5px solid var(--warn);border-radius:10px;padding:9px 12px;font-size:13px}
+</style></head><body><div class="wrap">
+<header>
+  <h1>Lithos live-translation stack — recommended models</h1>
+  <p class="sub">Self-hosted, one GPU. Chosen from blind-graded tests, 26–27 Sep 2026 (see docs/dev/model-evaluation.md). Recognition and translation are identical for both editions; only the voices differ.</p>
+</header>
+
+<div class="flow"><span>Room microphone</span><i></i><span>listen</span><i></i><span>recognise</span><i></i><span>translate (all target languages in one batch)</span><i></i><span>speak, per listener language</span></div>
+
+<div class="stages">
+  <div class="stage">
+    <div class="sh"><b>1 · Listen</b><span>speech? which language?</span></div>
+    <div class="card cpu"><div class="name">Silero VAD<span class="mem">CPU</span></div>
+      <div class="role">Finds where speech starts and ends; cuts long speeches at sentence ends.</div>
+      <div class="langs">language-independent</div><div class="tags"><span class="tag lic">MIT</span></div></div>
+    <div class="card gpu"><div class="name">VoxLingua107<span class="mem">&lt;0.2 GB</span></div>
+      <div class="role">Identifies each utterance's language, so the right recogniser and translator are used.</div>
+      <div class="langs">107 languages</div><div class="tags"><span class="tag lic">Apache 2.0</span></div></div>
+  </div>
+
+  <div class="stage">
+    <div class="sh"><b>2 · Recognise</b><span>speech → text</span></div>
+    <div class="card gpu"><div class="name">Whisper large-v3<span class="mem">~3 GB</span></div>
+      <div class="role">Transcribes every language except the four below.</div>
+      <div class="langs">~99 languages · useless for Khmer and Lao (99–173% error)</div><div class="tags"><span class="tag lic">MIT</span></div></div>
+    <div class="card gpu"><div class="name">Omnilingual ASR 300M (v1)<span class="mem">~3.5 GB</span></div>
+      <div class="role">Transcribes the low-resource languages. Beat Qwen3-ASR-Khmer, a Lao Whisper fine-tune, MMS-1B and its own v2/1B/3B/7B end to end.</div>
+      <div class="langs">used for: Khmer · Lao · Haitian Creole · Swahili</div><div class="tags"><span class="tag lic">Apache 2.0</span></div></div>
+  </div>
+
+  <div class="stage">
+    <div class="sh"><b>3 · Translate</b><span>text → text</span></div>
+    <div class="card gpu"><div class="name">Hy-MT2 7B · 4-bit<span class="mem">~7.5 GB peak</span></div>
+      <div class="role">Main translator: 95% blind-graded through the stack's own ASR vs Gemini Live 79%. 4-bit = full precision (92.7 vs 93.0%).</div>
+      <div class="langs">36 + English: ar bn bo cs de en es fa fr gu he hi id it ja kk km ko mn mr ms my nl pl pt ru ta te th tl tr ug uk ur vi yue zh</div>
+      <div class="tags"><span class="tag lic">Apache 2.0 (Tencent)</span></div></div>
+    <div class="card gpu"><div class="name">MADLAD-400 7B · int8<span class="mem">~8 GB</span></div>
+      <div class="role">Every language Hy-MT2 lacks. Haitian Creole 81%, tied with NLLB (83%).</div>
+      <div class="langs">400+ languages · used for: Haitian Creole · Lao · Swahili · Bulgarian · Greek · Romanian … (the rest)</div>
+      <div class="tags"><span class="tag lic">Apache 2.0 (Google)</span></div></div>
+  </div>
+
+  <div class="stage">
+    <div class="sh"><b>4 · Speak</b><span>text → voice, per listener language</span></div>
+    <div class="split">
+      <div class="col com"><h3>Commercial</h3>
+        <div class="card gpu"><div class="name">Kokoro 82M<span class="mem">~0.5 GB</span></div>
+          <div class="langs">en es fr it pt ja zh hi</div><div class="tags"><span class="tag lic">Apache 2.0</span></div></div>
+        <div class="card cpu"><div class="name">Piper<span class="mem">CPU</span></div>
+          <div class="langs">de ru uk + ~45 more</div><div class="tags"><span class="tag lic">per-voice licences</span></div></div>
+        <div class="card gpu"><div class="name">VoxCPM2 2B<span class="mem">6.2 GB</span></div>
+          <div class="role">Khmer · Lao (also Burmese, Malay, Tagalog…). Clearest Khmer tested; ~2 voices at once per GPU.</div>
+          <div class="tags"><span class="tag lic">Apache 2.0</span></div></div>
+        <div class="card gpu"><div class="name">Coqui VITS OpenBible<span class="mem">~1 GB</span></div>
+          <div class="langs">Haitian Creole</div><div class="tags"><span class="tag lic">CC-BY-SA</span></div></div>
+        <div class="note">~20 languages have no commercial voice: text only.</div>
+      </div>
+      <div class="col np"><h3>Non-profit</h3>
+        <div class="card gpu"><div class="name">Kokoro 82M<span class="mem">~0.5 GB</span></div>
+          <div class="langs">en es fr it pt ja zh hi</div><div class="tags"><span class="tag lic">Apache 2.0</span></div></div>
+        <div class="card cpu"><div class="name">Piper<span class="mem">CPU</span></div>
+          <div class="langs">de ru uk + ~45 more</div><div class="tags"><span class="tag lic">per-voice licences</span></div></div>
+        <div class="card gpu"><div class="name">VoxCPM2 2B<span class="mem">6.2 GB</span></div>
+          <div class="role">Khmer · Lao</div><div class="tags"><span class="tag lic">Apache 2.0</span></div></div>
+        <div class="card gpu"><div class="name">MMS-TTS<span class="mem">small</span></div>
+          <div class="role">Haitian Creole (clearer than Coqui: 10% vs 21% error) and ~1,100 languages with no other voice.</div>
+          <div class="tags"><span class="tag nc">CC-BY-NC</span></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="route"><b>Routing.</b> Where privacy allows, Lao and Haitian Creole go to Gemini Live, which won both (Lao→English 72% vs 67%; English→Haitian Creole 92% vs 78%). Confidential rooms stay on this stack, with a quality notice. End to end through the real server the stack beat Gemini in 16 of 17 directions; the one loss was English→Haitian Creole.</div>
+
+<div class="bottom">
+  <div class="panel"><h2>GPU memory</h2>
+    <div class="brow"><b>Full stack</b><div>
+      <div class="bar" style="width:100%">
+        <div class="seg" style="width:9.4%;background:#7B61E8">ASR 3</div>
+        <div class="seg" style="width:10.9%;background:#6A50DE">Omni 3.5</div>
+        <div class="seg" style="width:23.4%;background:#4E35C2">Hy-MT2 7.5</div>
+        <div class="seg" style="width:25%;background:#3D2A9C">MADLAD 7B 8</div>
+        <div class="seg" style="width:12.5%;background:#8F80C9">other 4</div>
+        <div class="seg" style="width:19.4%;background:#A8661A">VoxCPM2 6.2</div>
+        <div class="lim" style="left:75%"></div>
+      </div></div></div>
+    <div class="brow"><b>24 GB fit</b><div>
+      <div class="bar" style="width:100%">
+        <div class="seg" style="width:9.4%;background:#7B61E8">ASR 3</div>
+        <div class="seg" style="width:10.9%;background:#6A50DE">Omni 3.5</div>
+        <div class="seg" style="width:23.4%;background:#4E35C2">Hy-MT2 7.5</div>
+        <div class="seg" style="width:9.4%;background:#3D2A9C">3B 3</div>
+        <div class="seg" style="width:12.5%;background:#8F80C9">other 4</div>
+        <div class="lim" style="left:75%"></div>
+      </div></div></div>
+    <div class="brow"><span></span><div class="axis"><span>0</span><span>8</span><span>16</span><span>24 GB</span><span>32 GB</span></div></div>
+    <p class="note">Measured: the real server with everything except VoxCPM2 used 24.8 GB ready and 26 GB serving four rooms. With VoxCPM2 (+6.2 GB measured) ≈ 31–32 GB: at the limit of a 32 GB card. The 24 GB figure (~21 GB) is an estimate. ASR = Whisper large-v3; Omni = Omnilingual; 3B = MADLAD 3B; other = VoxLingua, Kokoro, Coqui/MMS and CUDA working memory. Dashed line = 24 GB.</p>
+  </div>
+  <div class="panel"><h2>What the 24 GB card costs you</h2>
+    <ul>
+      <li><b>No VoxCPM2.</b> Commercial: Khmer and Lao become text-only. Non-profit: back to MMS voices (Khmer recognised at 22.8% error instead of 8.5%).</li>
+      <li><b>MADLAD 3B instead of 7B</b> for languages outside Hy-MT2: Haitian Creole 81% → 67%, English→Lao 74% → 54%, more critical errors.</li>
+      <li><b>Unchanged:</b> recognition, and translation for Hy-MT2's 36 languages (the bulk of use): 95%.</li>
+      <li>Fewer simultaneous rooms before latency rises (less headroom).</li>
+    </ul>
+    <p class="note">Alternative 24 GB trade: keep MADLAD 7B and drop Omnilingual; that loses speech input for Khmer, Lao, Haitian Creole and Swahili entirely, so it is not recommended.</p>
+  </div>
+</div>
+
+<div class="legend"><span><i class="sw" style="background:var(--gpu)"></i>GPU model</span><span><i class="sw" style="background:var(--cpu)"></i>CPU</span><span><span class="tag lic">licence allows commercial use</span></span><span><span class="tag nc">non-commercial only</span></span><span>Synthetic-speech tests; real speakers not yet tested.</span></div>
+</div></body></html>

@@ -1,0 +1,48 @@
+{
+ "T10/km": {
+  "rtf": 0.475,
+  "first_chunk_ms_median": 41,
+  "first_chunk_ms_p90": 54,
+  "chunks_per_s": null
+ },
+ "T10/lo": {
+  "rtf": 0.488,
+  "first_chunk_ms_median": 39,
+  "first_chunk_ms_p90": 42,
+  "chunks_per_s": null
+ },
+ "T6/km": {
+  "rtf": 0.447,
+  "first_chunk_ms_median": 35,
+  "first_chunk_ms_p90": 48,
+  "chunks_per_s": null
+ },
+ "T6/lo": {
+  "rtf": 0.449,
+  "first_chunk_ms_median": 34,
+  "first_chunk_ms_p90": 37,
+  "chunks_per_s": null
+ },
+ "T4/km": {
+  "rtf": 0.427,
+  "first_chunk_ms_median": 33,
+  "first_chunk_ms_p90": 46,
+  "chunks_per_s": null
+ },
+ "T4/lo": {
+  "rtf": 0.427,
+  "first_chunk_ms_median": 31,
+  "first_chunk_ms_p90": 34,
+  "chunks_per_s": null
+ },
+ "T10/km/whole": {
+  "rtf": 0.455
+ },
+ "T6/km/whole": {
+  "rtf": 0.429
+ },
+ "T4/km/whole": {
+  "rtf": 0.415
+ },
+ "vram_gb": 6.2
+}

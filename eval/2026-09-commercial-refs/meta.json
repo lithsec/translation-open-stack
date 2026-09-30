@@ -1,0 +1,1698 @@
+{
+ "ko/cand_A.wav": {
+  "text": "안녕하세요. 오늘 모임에 와 주셔서 진심으로 감사합니다. 잠시 후에 시작하겠습니다.",
+  "engine": "voxcpm",
+  "gen_s": 1.723175287246704,
+  "audio_s": 6.24,
+  "heard": "안녕하세요. 오늘 모임에 와주셔서 진심으로 감사합니다. 잠시 후에 시작하겠습니다.",
+  "cer": 0.0,
+  "f0": 271.1864406779661
+ },
+ "ko/vox_A_s1.wav": {
+  "text": "기차역이 어디에 있는지 알려 주실 수 있나요?",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 3.172149658203125,
+  "audio_s": 2.56,
+  "heard": "기차역이 어디에 있는지 알려주실 수 있나요?",
+  "cer": 0.0,
+  "f0": 266.6666666666667
+ },
+ "ko/vox_A_s2.wav": {
+  "text": "회의는 오전 열 시에 본당에서 시작됩니다.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.7219488620758057,
+  "audio_s": 2.56,
+  "heard": "회의는 오전 10시에 본당에서 시작됩니다.",
+  "cer": 0.11764705882352941,
+  "f0": 246.15384615384616
+ },
+ "ko/vox_A_s3.wav": {
+  "text": "도움이 필요하시면 언제든지 말씀해 주세요.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.8145856857299805,
+  "audio_s": 2.88,
+  "heard": "도움이 필요하시면 언제든지 말씀해주세요.",
+  "cer": 0.0,
+  "f0": 253.96825396825398
+ },
+ "ko/cand_B.wav": {
+  "text": "안녕하세요. 오늘 모임에 와 주셔서 진심으로 감사합니다. 잠시 후에 시작하겠습니다.",
+  "engine": "voxcpm",
+  "gen_s": 1.2379229068756104,
+  "audio_s": 4.48,
+  "heard": "안녕하세요. 오늘 모임에 와주셔서 진심으로 감사합니다. 잠시 후에 시작하겠습니다.",
+  "cer": 0.0,
+  "f0": 133.33333333333334
+ },
+ "ko/vox_B_s1.wav": {
+  "text": "기차역이 어디에 있는지 알려 주실 수 있나요?",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.812457799911499,
+  "audio_s": 2.88,
+  "heard": "이 차역이 어디에 있는지 알려주실 수 있나요?",
+  "cer": 0.05555555555555555,
+  "f0": 125.0
+ },
+ "ko/vox_B_s2.wav": {
+  "text": "회의는 오전 열 시에 본당에서 시작됩니다.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.6881997585296631,
+  "audio_s": 2.4,
+  "heard": "회의는 오전 10시에 본당에서 시작됩니다.",
+  "cer": 0.11764705882352941,
+  "f0": 128.0
+ },
+ "ko/vox_B_s3.wav": {
+  "text": "도움이 필요하시면 언제든지 말씀해 주세요.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.7758398056030273,
+  "audio_s": 2.72,
+  "heard": "도움이 필요하시면 언제든지 말씀해주세요.",
+  "cer": 0.0,
+  "f0": 170.2127659574468
+ },
+ "ko/cand_C.wav": {
+  "text": "안녕하세요. 오늘 모임에 와 주셔서 진심으로 감사합니다. 잠시 후에 시작하겠습니다.",
+  "engine": "voxcpm",
+  "gen_s": 1.6687793731689453,
+  "audio_s": 6.08,
+  "heard": "안녕하세요. 오늘 모임에 와주셔서 진심으로 감사합니다.  잠시 후에 시작하겠습니다.",
+  "cer": 0.0,
+  "f0": 148.14814814814815
+ },
+ "ko/vox_C_s1.wav": {
+  "text": "기차역이 어디에 있는지 알려 주실 수 있나요?",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.7702927589416504,
+  "audio_s": 2.72,
+  "heard": "기차역이 어디에 있는지 알려주실 수 있나요?",
+  "cer": 0.0,
+  "f0": 146.78899082568807
+ },
+ "ko/vox_C_s2.wav": {
+  "text": "회의는 오전 열 시에 본당에서 시작됩니다.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 1.0435893535614014,
+  "audio_s": 3.68,
+  "heard": "회의는 오전 10시에 본당에서 시작됩니다",
+  "cer": 0.11764705882352941,
+  "f0": 152.38095238095238
+ },
+ "ko/vox_C_s3.wav": {
+  "text": "도움이 필요하시면 언제든지 말씀해 주세요.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.8655834197998047,
+  "audio_s": 3.04,
+  "heard": "도움이 필요하시면 언제든지 말씀해주세요.",
+  "cer": 0.0,
+  "f0": 162.4407338693053
+ },
+ "ko/cand_D.wav": {
+  "text": "안녕하세요. 오늘 모임에 와 주셔서 진심으로 감사합니다. 잠시 후에 시작하겠습니다.",
+  "engine": "voxcpm",
+  "gen_s": 1.629786729812622,
+  "audio_s": 5.92,
+  "heard": "안녕하세요. 오늘 모임에 와주셔서 진심으로 감사합니다. 잠시 후에 시작하겠습니다.",
+  "cer": 0.0,
+  "f0": 177.77777777777777
+ },
+ "ko/vox_D_s1.wav": {
+  "text": "기차역이 어디에 있는지 알려 주실 수 있나요?",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.7250752449035645,
+  "audio_s": 2.56,
+  "heard": "기차역이 어디에 있는지 알려주실 수 있나요.",
+  "cer": 0.0,
+  "f0": 172.04301075268816
+ },
+ "ko/vox_D_s2.wav": {
+  "text": "회의는 오전 열 시에 본당에서 시작됩니다.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.7199246883392334,
+  "audio_s": 2.56,
+  "heard": "회의는 오전 10시에 본당에서 시작됩니다.",
+  "cer": 0.11764705882352941,
+  "f0": 172.04301075268816
+ },
+ "ko/vox_D_s3.wav": {
+  "text": "도움이 필요하시면 언제든지 말씀해 주세요.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.6879839897155762,
+  "audio_s": 2.4,
+  "heard": "도움이 필요하시면 언제든지 말씀해 주세요",
+  "cer": 0.0,
+  "f0": 181.8181818181818
+ },
+ "tr/cand_A.wav": {
+  "text": "Merhaba. Bugün buraya geldiğiniz için hepinize çok teşekkür ederiz. Toplantı birazdan başlayacak.",
+  "engine": "voxcpm",
+  "gen_s": 1.5896992683410645,
+  "audio_s": 5.76,
+  "heard": "Merhaba. Bugün buraya geldiğiniz için hepinize çok teşekkür ederiz.  Toplantı birazdan başlayacak.",
+  "cer": 0.0,
+  "f0": 250.0
+ },
+ "tr/vox_A_s1.wav": {
+  "text": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.8155643939971924,
+  "audio_s": 2.88,
+  "heard": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "cer": 0.0,
+  "f0": 253.96825396825398
+ },
+ "tr/vox_A_s2.wav": {
+  "text": "Toplantı sabah saat onda ana salonda başlayacak.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.762343168258667,
+  "audio_s": 2.72,
+  "heard": "Toplantı sabah saat 10'da ana salonda başlayacak.",
+  "cer": 0.04878048780487805,
+  "f0": 285.7142857142857
+ },
+ "tr/vox_A_s3.wav": {
+  "text": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.9510881900787354,
+  "audio_s": 3.36,
+  "heard": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "cer": 0.0,
+  "f0": 246.15384615384616
+ },
+ "tr/cand_B.wav": {
+  "text": "Merhaba. Bugün buraya geldiğiniz için hepinize çok teşekkür ederiz. Toplantı birazdan başlayacak.",
+  "engine": "voxcpm",
+  "gen_s": 1.6995139122009277,
+  "audio_s": 6.24,
+  "heard": "Merhaba, bugün buraya geldiğiniz için hepinize çok teşekkür ederiz.  Toplantı birazdan başlayacak.",
+  "cer": 0.0,
+  "f0": 140.35087719298247
+ },
+ "tr/vox_B_s1.wav": {
+  "text": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.9032692909240723,
+  "audio_s": 3.2,
+  "heard": "Ören istasyonun nerede olduğunu söyleyebilir misiniz?",
+  "cer": 0.061224489795918366,
+  "f0": 143.5006435006435
+ },
+ "tr/vox_B_s2.wav": {
+  "text": "Toplantı sabah saat onda ana salonda başlayacak.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.8488442897796631,
+  "audio_s": 3.04,
+  "heard": "Toplantı sabah saat 10'da ana salonda başlayacak.",
+  "cer": 0.04878048780487805,
+  "f0": 139.1304347826087
+ },
+ "tr/vox_B_s3.wav": {
+  "text": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.9342870712280273,
+  "audio_s": 3.36,
+  "heard": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "cer": 0.0,
+  "f0": 128.0
+ },
+ "tr/cand_C.wav": {
+  "text": "Merhaba. Bugün buraya geldiğiniz için hepinize çok teşekkür ederiz. Toplantı birazdan başlayacak.",
+  "engine": "voxcpm",
+  "gen_s": 1.701146125793457,
+  "audio_s": 6.24,
+  "heard": "Merhaba, bugün buraya geldiğiniz için hepinize çok teşekkür ederiz.  Toplantı birazdan başlayacak.",
+  "cer": 0.0,
+  "f0": 202.53164556962025
+ },
+ "tr/vox_C_s1.wav": {
+  "text": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.9402124881744385,
+  "audio_s": 3.2,
+  "heard": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "cer": 0.0,
+  "f0": 246.15384615384616
+ },
+ "tr/vox_C_s2.wav": {
+  "text": "Toplantı sabah saat onda ana salonda başlayacak.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.9883174896240234,
+  "audio_s": 3.52,
+  "heard": "Toplantı sabah saat 10'da ana salonda başlayacak.",
+  "cer": 0.04878048780487805,
+  "f0": 228.57142857142858
+ },
+ "tr/vox_C_s3.wav": {
+  "text": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.7166962623596191,
+  "audio_s": 2.56,
+  "heard": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "cer": 0.0,
+  "f0": 225.35211267605635
+ },
+ "tr/cand_D.wav": {
+  "text": "Merhaba. Bugün buraya geldiğiniz için hepinize çok teşekkür ederiz. Toplantı birazdan başlayacak.",
+  "engine": "voxcpm",
+  "gen_s": 1.5698072910308838,
+  "audio_s": 5.76,
+  "heard": "Merhaba. Bugün buraya geldiğiniz için hepinize çok teşekkür ederiz.  Toplantı birazdan başlayacak.",
+  "cer": 0.0,
+  "f0": 210.52631578947367
+ },
+ "tr/vox_D_s1.wav": {
+  "text": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.8036527633666992,
+  "audio_s": 2.88,
+  "heard": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "cer": 0.0,
+  "f0": 250.0
+ },
+ "tr/vox_D_s2.wav": {
+  "text": "Toplantı sabah saat onda ana salonda başlayacak.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.8034060001373291,
+  "audio_s": 2.88,
+  "heard": "Toplantı sabah saat 10'da ana salonda başlayacak.",
+  "cer": 0.04878048780487805,
+  "f0": 202.53164556962025
+ },
+ "tr/vox_D_s3.wav": {
+  "text": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.7161569595336914,
+  "audio_s": 2.56,
+  "heard": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "cer": 0.0,
+  "f0": 210.52631578947367
+ },
+ "ru/cand_A.wav": {
+  "text": "Здравствуйте. Спасибо всем, что пришли сегодня. Собрание скоро начнётся.",
+  "engine": "voxcpm",
+  "gen_s": 1.5683090686798096,
+  "audio_s": 5.76,
+  "heard": "Здравствуйте! Спасибо всем, что пришли сегодня. Собрание скоро начнется.",
+  "cer": 0.016666666666666666,
+  "f0": 207.7922077922078
+ },
+ "ru/vox_A_s1.wav": {
+  "text": "Не подскажете, где находится железнодорожный вокзал?",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.8019368648529053,
+  "audio_s": 2.88,
+  "heard": "Не подскажете, где находится железнодорожный вокзал?",
+  "cer": 0.0,
+  "f0": 205.12820512820514
+ },
+ "ru/vox_A_s2.wav": {
+  "text": "Собрание начнётся в десять часов утра в главном зале.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.8442912101745605,
+  "audio_s": 3.04,
+  "heard": "Собрание начнется в 10 часов утра в главном зале.",
+  "cer": 0.1590909090909091,
+  "f0": 216.21621621621622
+ },
+ "ru/vox_A_s3.wav": {
+  "text": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.888615608215332,
+  "audio_s": 3.2,
+  "heard": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "cer": 0.0,
+  "f0": 222.22222222222223
+ },
+ "ru/cand_B.wav": {
+  "text": "Здравствуйте. Спасибо всем, что пришли сегодня. Собрание скоро начнётся.",
+  "engine": "voxcpm",
+  "gen_s": 1.402205228805542,
+  "audio_s": 5.12,
+  "heard": "Здравствуйте. Спасибо всем, что пришли сегодня. Собрание скоро начнется.",
+  "cer": 0.016666666666666666,
+  "f0": 166.66666666666666
+ },
+ "ru/vox_B_s1.wav": {
+  "text": "Не подскажете, где находится железнодорожный вокзал?",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.8088936805725098,
+  "audio_s": 2.88,
+  "heard": "Не подскажете, где находится железнодорожный вокзал?",
+  "cer": 0.0,
+  "f0": 164.94845360824743
+ },
+ "ru/vox_B_s2.wav": {
+  "text": "Собрание начнётся в десять часов утра в главном зале.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.8449740409851074,
+  "audio_s": 3.04,
+  "heard": "Собрание начнется в 10 часов утра в главном зале.",
+  "cer": 0.1590909090909091,
+  "f0": 151.66217430368374
+ },
+ "ru/vox_B_s3.wav": {
+  "text": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.6873488426208496,
+  "audio_s": 2.4,
+  "heard": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "cer": 0.0,
+  "f0": 162.4407338693053
+ },
+ "ru/cand_C.wav": {
+  "text": "Здравствуйте. Спасибо всем, что пришли сегодня. Собрание скоро начнётся.",
+  "engine": "voxcpm",
+  "gen_s": 1.5648133754730225,
+  "audio_s": 5.6,
+  "heard": "Здравствуйте!  Спасибо всем, что пришли сегодня.  Собрание скоро начнётся.",
+  "cer": 0.0,
+  "f0": 192.7710843373494
+ },
+ "ru/vox_C_s1.wav": {
+  "text": "Не подскажете, где находится железнодорожный вокзал?",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.6932625770568848,
+  "audio_s": 2.4,
+  "heard": "Не подскажете, где находится железнодорожный вокзал?",
+  "cer": 0.0,
+  "f0": 195.1219512195122
+ },
+ "ru/vox_C_s2.wav": {
+  "text": "Собрание начнётся в десять часов утра в главном зале.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.9351253509521484,
+  "audio_s": 3.36,
+  "heard": "Собрание начнётся в 10 часов утра в главном зале.",
+  "cer": 0.13636363636363635,
+  "f0": 205.12820512820514
+ },
+ "ru/vox_C_s3.wav": {
+  "text": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.6790158748626709,
+  "audio_s": 2.4,
+  "heard": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "cer": 0.0,
+  "f0": 207.7922077922078
+ },
+ "ru/cand_D.wav": {
+  "text": "Здравствуйте. Спасибо всем, что пришли сегодня. Собрание скоро начнётся.",
+  "engine": "voxcpm",
+  "gen_s": 1.3211734294891357,
+  "audio_s": 4.8,
+  "heard": "Здравствуйте. Спасибо всем, что пришли сегодня.  Собрание скоро начнется.",
+  "cer": 0.016666666666666666,
+  "f0": 216.21621621621622
+ },
+ "ru/vox_D_s1.wav": {
+  "text": "Не подскажете, где находится железнодорожный вокзал?",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.647564172744751,
+  "audio_s": 2.24,
+  "heard": "подскажете, где находится железнодорожный вокзал.",
+  "cer": 0.044444444444444446,
+  "f0": 216.21621621621622
+ },
+ "ru/vox_D_s2.wav": {
+  "text": "Собрание начнётся в десять часов утра в главном зале.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.7665905952453613,
+  "audio_s": 2.72,
+  "heard": "Собрание начнется в 10 часов утра в главном зале.",
+  "cer": 0.1590909090909091,
+  "f0": 225.35211267605635
+ },
+ "ru/vox_D_s3.wav": {
+  "text": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.6749606132507324,
+  "audio_s": 2.4,
+  "heard": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "cer": 0.0,
+  "f0": 225.35211267605635
+ },
+ "ar/cand_A.wav": {
+  "text": "مرحبا بكم. شكرا لكم جميعا على حضوركم اليوم. سيبدأ الاجتماع بعد قليل.",
+  "engine": "voxcpm",
+  "gen_s": 1.6574058532714844,
+  "audio_s": 6.08,
+  "heard": "مرحبا بكم. شكرا لكم جميعا على حضوركم اليوم. سيبدأ الاجتماع بعد قليل.",
+  "cer": 0.0,
+  "f0": 197.53086419753086
+ },
+ "ar/vox_A_s1.wav": {
+  "text": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.8047277927398682,
+  "audio_s": 2.88,
+  "heard": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "cer": 0.0,
+  "f0": 197.53086419753086
+ },
+ "ar/vox_A_s2.wav": {
+  "text": "سيبدأ الاجتماع في الساعة العاشرة صباحا في القاعة الرئيسية.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 1.2062630653381348,
+  "audio_s": 4.32,
+  "heard": "مبيساكي سابداء الاجتماع في الساعة العاشرة صباحا في القاعة الرئيسية",
+  "cer": 0.1836734693877551,
+  "f0": 216.21621621621622
+ },
+ "ar/vox_A_s3.wav": {
+  "text": "إذا كنت بحاجة إلى مساعدة، فأخبرنا من فضلك.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 1.020768165588379,
+  "audio_s": 3.68,
+  "heard": "اشتركوا في القناة",
+  "cer": 0.8181818181818182,
+  "f0": 222.22222222222223
+ },
+ "ar/cand_B.wav": {
+  "text": "مرحبا بكم. شكرا لكم جميعا على حضوركم اليوم. سيبدأ الاجتماع بعد قليل.",
+  "engine": "voxcpm",
+  "gen_s": 1.4924986362457275,
+  "audio_s": 5.44,
+  "heard": "مرحبا بكم. شكرا لكم جميعا على حضوركم اليوم. سيبدأ الاجتماع بعد قليل.",
+  "cer": 0.0,
+  "f0": 104.57516339869281
+ },
+ "ar/vox_B_s1.wav": {
+  "text": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.8952994346618652,
+  "audio_s": 3.2,
+  "heard": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "cer": 0.0,
+  "f0": 111.8881118881119
+ },
+ "ar/vox_B_s2.wav": {
+  "text": "سيبدأ الاجتماع في الساعة العاشرة صباحا في القاعة الرئيسية.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.8907995223999023,
+  "audio_s": 3.2,
+  "heard": "سبدأ الاجتماع في الساعة العاشرة صباحاً في القاعة الرئيسية.",
+  "cer": 0.04081632653061224,
+  "f0": 119.40298507462687
+ },
+ "ar/vox_B_s3.wav": {
+  "text": "إذا كنت بحاجة إلى مساعدة، فأخبرنا من فضلك.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.8927555084228516,
+  "audio_s": 3.2,
+  "heard": "إذا كنت بحاجة إلى مساعدة، فأخبرنا من فضلك.",
+  "cer": 0.0,
+  "f0": 119.40298507462687
+ },
+ "ar/cand_C.wav": {
+  "text": "مرحبا بكم. شكرا لكم جميعا على حضوركم اليوم. سيبدأ الاجتماع بعد قليل.",
+  "engine": "voxcpm",
+  "gen_s": 1.8509399890899658,
+  "audio_s": 6.08,
+  "heard": "مرحبا بكم. شكرا لكم جميعا على حضوركم اليوم. سيبدأ الاجتماع بعد قليل.",
+  "cer": 0.0,
+  "f0": 101.91082802547771
+ },
+ "ar/vox_C_s1.wav": {
+  "text": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 1.5060162544250488,
+  "audio_s": 3.2,
+  "heard": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "cer": 0.0,
+  "f0": 112.28208411307003
+ },
+ "ar/vox_C_s2.wav": {
+  "text": "سيبدأ الاجتماع في الساعة العاشرة صباحا في القاعة الرئيسية.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 1.5870466232299805,
+  "audio_s": 4.16,
+  "heard": "سيبدأ الاجتماع في الساعة العاشرة صباحاً في القاعة الرئيسية",
+  "cer": 0.02040816326530612,
+  "f0": 116.78832116788321
+ },
+ "ar/vox_C_s3.wav": {
+  "text": "إذا كنت بحاجة إلى مساعدة، فأخبرنا من فضلك.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 1.0193052291870117,
+  "audio_s": 3.68,
+  "heard": "إذا كنت بحاجة إلى مساعدة فأخبرنا من فضلك",
+  "cer": 0.0,
+  "f0": 107.38255033557047
+ },
+ "ar/cand_D.wav": {
+  "text": "مرحبا بكم. شكرا لكم جميعا على حضوركم اليوم. سيبدأ الاجتماع بعد قليل.",
+  "engine": "voxcpm",
+  "gen_s": 1.9649999141693115,
+  "audio_s": 7.2,
+  "heard": "مرحبا بكم. شكرا لكم جميعا على حضوركم اليوم. سيبدأ الاجتماع بعد قليل.",
+  "cer": 0.0,
+  "f0": 69.26536731634184
+ },
+ "ar/vox_D_s1.wav": {
+  "text": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 1.1550750732421875,
+  "audio_s": 4.16,
+  "heard": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "cer": 0.0,
+  "f0": 74.07407407407408
+ },
+ "ar/vox_D_s2.wav": {
+  "text": "سيبدأ الاجتماع في الساعة العاشرة صباحا في القاعة الرئيسية.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 1.3774619102478027,
+  "audio_s": 4.96,
+  "heard": "سيبدأ الاجتماع في الساعة العاشرة صباحا في القاعة الرئيسية",
+  "cer": 0.0,
+  "f0": 67.94330844963756
+ },
+ "ar/vox_D_s3.wav": {
+  "text": "إذا كنت بحاجة إلى مساعدة، فأخبرنا من فضلك.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 1.151867151260376,
+  "audio_s": 4.16,
+  "heard": "إذا كنت بحاجة إلى مساعدة  فأخبرنا من فضلك",
+  "cer": 0.0,
+  "f0": 68.6695278969957
+ },
+ "id/cand_A.wav": {
+  "text": "Selamat datang. Terima kasih kepada Anda semua yang telah hadir hari ini. Pertemuan akan segera dimulai.",
+  "engine": "voxcpm",
+  "gen_s": 1.527418851852417,
+  "audio_s": 5.6,
+  "heard": "Selamat datang. Terima kasih kepada Anda semua yang telah hadir hari ini. Pertemuan akan segera dimulai.",
+  "cer": 0.0,
+  "f0": 197.53086419753086
+ },
+ "id/vox_A_s1.wav": {
+  "text": "Bisakah Anda memberi tahu saya di mana stasiun kereta api?",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.9222691059112549,
+  "audio_s": 2.88,
+  "heard": "Bisakah Anda memberi tahu saya di mana stasiun kereta api?",
+  "cer": 0.0,
+  "f0": 197.53086419753086
+ },
+ "id/vox_A_s2.wav": {
+  "text": "Pertemuan akan dimulai pukul sepuluh pagi di aula utama.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.7205219268798828,
+  "audio_s": 2.56,
+  "heard": "Pertemuan akan dimulai pukul 10 pagi di aula utama.",
+  "cer": 0.14893617021276595,
+  "f0": 200.0
+ },
+ "id/vox_A_s3.wav": {
+  "text": "Jika Anda membutuhkan bantuan, silakan beri tahu kami.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.8878962993621826,
+  "audio_s": 3.2,
+  "heard": "Jika Anda membutuhkan bantuan, silakan beritahu kami.",
+  "cer": 0.0,
+  "f0": 200.0
+ },
+ "id/cand_B.wav": {
+  "text": "Selamat datang. Terima kasih kepada Anda semua yang telah hadir hari ini. Pertemuan akan segera dimulai.",
+  "engine": "voxcpm",
+  "gen_s": 1.7462868690490723,
+  "audio_s": 6.4,
+  "heard": "Selamat datang, terima kasih kepada Anda semua yang telah hadir hari ini.  Pertemuan akan segera dimulai.",
+  "cer": 0.0,
+  "f0": 161.6161616161616
+ },
+ "id/vox_B_s1.wav": {
+  "text": "Bisakah Anda memberi tahu saya di mana stasiun kereta api?",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 1.0974183082580566,
+  "audio_s": 3.36,
+  "heard": "Bisakah Anda memberi tahu saya di mana stasiun kereta api?",
+  "cer": 0.0,
+  "f0": 146.78899082568807
+ },
+ "id/vox_B_s2.wav": {
+  "text": "Pertemuan akan dimulai pukul sepuluh pagi di aula utama.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.8466618061065674,
+  "audio_s": 3.04,
+  "heard": "Pertemuan akan dimulai pukul 10 pagi di Aula Utama.",
+  "cer": 0.14893617021276595,
+  "f0": 172.04301075268816
+ },
+ "id/vox_B_s3.wav": {
+  "text": "Jika Anda membutuhkan bantuan, silakan beri tahu kami.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 1.6873657703399658,
+  "audio_s": 3.36,
+  "heard": "Jika Anda membutuhkan bantuan, silakan beritahu kami.",
+  "cer": 0.0,
+  "f0": 188.23529411764707
+ },
+ "id/cand_C.wav": {
+  "text": "Selamat datang. Terima kasih kepada Anda semua yang telah hadir hari ini. Pertemuan akan segera dimulai.",
+  "engine": "voxcpm",
+  "gen_s": 3.9986491203308105,
+  "audio_s": 6.24,
+  "heard": "Selamat datang, terima kasih kepada Anda semua yang telah hadir hari ini, pertemuan akan segera dimulai.",
+  "cer": 0.0,
+  "f0": 112.67605633802818
+ },
+ "id/vox_C_s1.wav": {
+  "text": "Bisakah Anda memberi tahu saya di mana stasiun kereta api?",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 2.4008584022521973,
+  "audio_s": 3.52,
+  "heard": "Bisakah Anda memberitahu saya di mana stasiun kereta api?",
+  "cer": 0.0,
+  "f0": 112.67605633802818
+ },
+ "id/vox_C_s2.wav": {
+  "text": "Pertemuan akan dimulai pukul sepuluh pagi di aula utama.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 2.400587320327759,
+  "audio_s": 3.36,
+  "heard": "Pertemuan akan dimulai pukul 10 pagi di Aula Utama.",
+  "cer": 0.14893617021276595,
+  "f0": 135.59322033898306
+ },
+ "id/vox_C_s3.wav": {
+  "text": "Jika Anda membutuhkan bantuan, silakan beri tahu kami.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 2.2978413105010986,
+  "audio_s": 3.2,
+  "heard": "Dan setiap di Badan Bantuan, silakan beritahu kami.",
+  "cer": 0.3333333333333333,
+  "f0": 128.51612903225805
+ },
+ "id/cand_D.wav": {
+  "text": "Selamat datang. Terima kasih kepada Anda semua yang telah hadir hari ini. Pertemuan akan segera dimulai.",
+  "engine": "voxcpm",
+  "gen_s": 1.9824507236480713,
+  "audio_s": 7.2,
+  "heard": "Selamat datang. Terima kasih kepada Anda semua yang telah hadir hari ini. Pertemuan akan segera dimulai.",
+  "cer": 0.0,
+  "f0": 161.6161616161616
+ },
+ "id/vox_D_s1.wav": {
+  "text": "Bisakah Anda memberi tahu saya di mana stasiun kereta api?",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.899604320526123,
+  "audio_s": 3.2,
+  "heard": "Bisakah Anda memberi tahu saya di mana stasiun kereta api?",
+  "cer": 0.0,
+  "f0": 181.8181818181818
+ },
+ "id/vox_D_s2.wav": {
+  "text": "Pertemuan akan dimulai pukul sepuluh pagi di aula utama.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.9601030349731445,
+  "audio_s": 3.36,
+  "heard": "Pertemuan akan dimulai pukul 10 pagi di Aula Utama.",
+  "cer": 0.14893617021276595,
+  "f0": 163.26530612244898
+ },
+ "id/vox_D_s3.wav": {
+  "text": "Jika Anda membutuhkan bantuan, silakan beri tahu kami.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.7981021404266357,
+  "audio_s": 2.56,
+  "heard": "Jika Anda membutuhkan bantuan, silakan beritahu kami.",
+  "cer": 0.0,
+  "f0": 216.21621621621622
+ },
+ "sw/cand_A.wav": {
+  "text": "Karibuni. Asanteni nyote kwa kuja leo. Mkutano utaanza baada ya muda mfupi.",
+  "engine": "voxcpm",
+  "gen_s": 1.2738227844238281,
+  "audio_s": 4.64,
+  "heard": "Karibuni, asante ni nyoche kwa kuja leo. Mukutano utaanza bada ya muda mfupi.",
+  "cer": 0.06557377049180328,
+  "f0": 222.22222222222223
+ },
+ "sw/vox_A_s1.wav": {
+  "text": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.7198712825775146,
+  "audio_s": 2.56,
+  "heard": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "cer": 0.0,
+  "f0": 238.80597014925374
+ },
+ "sw/vox_A_s2.wav": {
+  "text": "Mkutano utaanza saa nne asubuhi katika ukumbi mkuu.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.9096052646636963,
+  "audio_s": 3.2,
+  "heard": "Mkutana utaanza saa inne asubuhi katika ukumbi mkuu.",
+  "cer": 0.046511627906976744,
+  "f0": 231.8840579710145
+ },
+ "sw/vox_A_s3.wav": {
+  "text": "Kama unahitaji msaada, tafadhali tuambie.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.6422829627990723,
+  "audio_s": 2.24,
+  "heard": "Kama onaitaji msaada, tafadhali tuambie.",
+  "cer": 0.05714285714285714,
+  "f0": 216.21621621621622
+ },
+ "sw/cand_B.wav": {
+  "text": "Karibuni. Asanteni nyote kwa kuja leo. Mkutano utaanza baada ya muda mfupi.",
+  "engine": "voxcpm",
+  "gen_s": 1.446507215499878,
+  "audio_s": 5.28,
+  "heard": "Karibu ni. Asante ni nyote kwa kuja leo. Mkutano utanza baada ya muda mfupi.",
+  "cer": 0.01639344262295082,
+  "f0": 133.33333333333334
+ },
+ "sw/vox_B_s1.wav": {
+  "text": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.8468093872070312,
+  "audio_s": 2.88,
+  "heard": "Unaweza kuniambia kituo cha treni kiko wapi.",
+  "cer": 0.0,
+  "f0": 153.84615384615384
+ },
+ "sw/vox_B_s2.wav": {
+  "text": "Mkutano utaanza saa nne asubuhi katika ukumbi mkuu.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.997805118560791,
+  "audio_s": 3.52,
+  "heard": "Mkutano utaanza saa nine asubuhi katika ukumbi mkuu.",
+  "cer": 0.023255813953488372,
+  "f0": 128.0
+ },
+ "sw/vox_B_s3.wav": {
+  "text": "Kama unahitaji msaada, tafadhali tuambie.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.6741504669189453,
+  "audio_s": 2.4,
+  "heard": "Kama unaitaji msaada, tafadhali tuambie.",
+  "cer": 0.02857142857142857,
+  "f0": 100.62893081761007
+ },
+ "sw/cand_C.wav": {
+  "text": "Karibuni. Asanteni nyote kwa kuja leo. Mkutano utaanza baada ya muda mfupi.",
+  "engine": "voxcpm",
+  "gen_s": 1.54010009765625,
+  "audio_s": 5.6,
+  "heard": "Karibuni, asante ni nyote kwa kujaleo. Mkutano utaanza bada ya muda mfupi.",
+  "cer": 0.01639344262295082,
+  "f0": 135.59322033898306
+ },
+ "sw/vox_C_s1.wav": {
+  "text": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.6749522686004639,
+  "audio_s": 2.4,
+  "heard": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "cer": 0.0,
+  "f0": 149.53271028037383
+ },
+ "sw/vox_C_s2.wav": {
+  "text": "Mkutano utaanza saa nne asubuhi katika ukumbi mkuu.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.9319214820861816,
+  "audio_s": 3.36,
+  "heard": "Mkutano utanza saa ine ya subuhi katika ukumbi mkuu.",
+  "cer": 0.06976744186046512,
+  "f0": 135.02350092579405
+ },
+ "sw/vox_C_s3.wav": {
+  "text": "Kama unahitaji msaada, tafadhali tuambie.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.8434786796569824,
+  "audio_s": 2.72,
+  "heard": "Kama unaitaji msaada, tafadhali tuambie.",
+  "cer": 0.02857142857142857,
+  "f0": 131.14754098360655
+ },
+ "sw/cand_D.wav": {
+  "text": "Karibuni. Asanteni nyote kwa kuja leo. Mkutano utaanza baada ya muda mfupi.",
+  "engine": "voxcpm",
+  "gen_s": 1.3185303211212158,
+  "audio_s": 4.64,
+  "heard": "Karibuni. Asante ni nyote kwa kuja leo. Mkutano taanza baada ya muda mfupi.",
+  "cer": 0.01639344262295082,
+  "f0": 164.94845360824743
+ },
+ "sw/vox_D_s1.wav": {
+  "text": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.7551381587982178,
+  "audio_s": 2.56,
+  "heard": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "cer": 0.0,
+  "f0": 152.38095238095238
+ },
+ "sw/vox_D_s2.wav": {
+  "text": "Mkutano utaanza saa nne asubuhi katika ukumbi mkuu.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 1.117774248123169,
+  "audio_s": 3.52,
+  "heard": "Mkutano utanza sa nne ya subuhi katika ukumbi mkuu.",
+  "cer": 0.06976744186046512,
+  "f0": 173.91304347826087
+ },
+ "sw/vox_D_s3.wav": {
+  "text": "Kama unahitaji msaada, tafadhali tuambie.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 1.0058581829071045,
+  "audio_s": 2.4,
+  "heard": "Kama unaitaji msaada, tafadhali tuambie.",
+  "cer": 0.02857142857142857,
+  "f0": 170.2127659574468
+ },
+ "vi/cand_A.wav": {
+  "text": "Xin chào quý vị. Cảm ơn tất cả mọi người đã đến hôm nay. Buổi họp sẽ bắt đầu trong giây lát.",
+  "engine": "voxcpm",
+  "gen_s": 1.847870111465454,
+  "audio_s": 5.6,
+  "heard": "Xin chào quý vị, cảm ơn tất cả mọi người đã đến hôm nay.  Buổi họp sẽ bắt đầu trong giây lát.",
+  "cer": 0.0,
+  "f0": 173.91304347826087
+ },
+ "vi/vox_A_s1.wav": {
+  "text": "Bạn có thể cho tôi biết ga tàu ở đâu không?",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.7582335472106934,
+  "audio_s": 2.56,
+  "heard": "Bạn có thể cho tôi biết gà tàu ở đâu không?",
+  "cer": 0.03125,
+  "f0": 183.90804597701148
+ },
+ "vi/vox_A_s2.wav": {
+  "text": "Buổi họp sẽ bắt đầu lúc mười giờ sáng tại hội trường chính.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.8469178676605225,
+  "audio_s": 3.04,
+  "heard": "Buổi họp sẽ bắt đầu lúc 10 giờ sáng tại hội trường chính.",
+  "cer": 0.08695652173913043,
+  "f0": 166.66666666666666
+ },
+ "vi/vox_A_s3.wav": {
+  "text": "Nếu bạn cần giúp đỡ, xin vui lòng cho chúng tôi biết.",
+  "engine": "voxcpm",
+  "cand": "A",
+  "gen_s": 0.9309980869293213,
+  "audio_s": 3.36,
+  "heard": "Nếu bạn cần giúp đỡ, xin vui lòng cho chúng tôi biết.",
+  "cer": 0.0,
+  "f0": 190.47619047619048
+ },
+ "vi/cand_B.wav": {
+  "text": "Xin chào quý vị. Cảm ơn tất cả mọi người đã đến hôm nay. Buổi họp sẽ bắt đầu trong giây lát.",
+  "engine": "voxcpm",
+  "gen_s": 1.4812307357788086,
+  "audio_s": 5.44,
+  "heard": "Xin chào quý vị. Cảm ơn tất cả mọi người đã đến hôm nay. Buổi họp sẽ bắt đầu trong giây lát.",
+  "cer": 0.0,
+  "f0": 125.0
+ },
+ "vi/vox_B_s1.wav": {
+  "text": "Bạn có thể cho tôi biết ga tàu ở đâu không?",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.7584741115570068,
+  "audio_s": 2.72,
+  "heard": "Bạn có thể cho tôi biết ga tàu ở đâu không?",
+  "cer": 0.0,
+  "f0": 146.78899082568807
+ },
+ "vi/vox_B_s2.wav": {
+  "text": "Buổi họp sẽ bắt đầu lúc mười giờ sáng tại hội trường chính.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.8881242275238037,
+  "audio_s": 3.2,
+  "heard": "Buổi họp sẽ bắt đầu lúc 10 giờ sáng tại hội trường chính.",
+  "cer": 0.08695652173913043,
+  "f0": 110.34482758620689
+ },
+ "vi/vox_B_s3.wav": {
+  "text": "Nếu bạn cần giúp đỡ, xin vui lòng cho chúng tôi biết.",
+  "engine": "voxcpm",
+  "cand": "B",
+  "gen_s": 0.8015813827514648,
+  "audio_s": 2.88,
+  "heard": "Nếu bạn cần giúp đỡ, xin vui lòng cho chúng tôi biết.",
+  "cer": 0.0,
+  "f0": 134.45378151260505
+ },
+ "vi/cand_C.wav": {
+  "text": "Xin chào quý vị. Cảm ơn tất cả mọi người đã đến hôm nay. Buổi họp sẽ bắt đầu trong giây lát.",
+  "engine": "voxcpm",
+  "gen_s": 1.9908406734466553,
+  "audio_s": 7.04,
+  "heard": "Xin chào quý vị, cảm ơn tất cả mọi người đã đến hôm nay.  Buổi họp sẽ bắt đầu trong giây lát.",
+  "cer": 0.0,
+  "f0": 207.7922077922078
+ },
+ "vi/vox_C_s1.wav": {
+  "text": "Bạn có thể cho tôi biết ga tàu ở đâu không?",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.8092844486236572,
+  "audio_s": 2.88,
+  "heard": "Bạn có thể cho tôi biết ga tàu ở đâu không?",
+  "cer": 0.0,
+  "f0": 202.53164556962025
+ },
+ "vi/vox_C_s2.wav": {
+  "text": "Buổi họp sẽ bắt đầu lúc mười giờ sáng tại hội trường chính.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 0.9332199096679688,
+  "audio_s": 3.36,
+  "heard": "Buổi họp sẽ bắt đầu lúc 10 giờ sáng tại hội trường chính.",
+  "cer": 0.08695652173913043,
+  "f0": 195.1219512195122
+ },
+ "vi/vox_C_s3.wav": {
+  "text": "Nếu bạn cần giúp đỡ, xin vui lòng cho chúng tôi biết.",
+  "engine": "voxcpm",
+  "cand": "C",
+  "gen_s": 1.0754809379577637,
+  "audio_s": 3.68,
+  "heard": "Nếu bạn cần giúp đỡ, xin vui lòng cho chúng tôi biết.",
+  "cer": 0.0,
+  "f0": 226.96177062374247
+ },
+ "vi/cand_D.wav": {
+  "text": "Xin chào quý vị. Cảm ơn tất cả mọi người đã đến hôm nay. Buổi họp sẽ bắt đầu trong giây lát.",
+  "engine": "voxcpm",
+  "gen_s": 1.791006326675415,
+  "audio_s": 6.56,
+  "heard": "Xin chào quý vị. Cảm ơn tất cả mọi người đã đến hôm nay. Buổi họp sẽ bắt đầu trong giây lát.",
+  "cer": 0.0,
+  "f0": 250.0
+ },
+ "vi/vox_D_s1.wav": {
+  "text": "Bạn có thể cho tôi biết ga tàu ở đâu không?",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 0.8083467483520508,
+  "audio_s": 2.88,
+  "heard": "Bạn có thể cho tôi biết ca tàu ở đâu không?",
+  "cer": 0.03125,
+  "f0": 262.2950819672131
+ },
+ "vi/vox_D_s2.wav": {
+  "text": "Buổi họp sẽ bắt đầu lúc mười giờ sáng tại hội trường chính.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 1.0199527740478516,
+  "audio_s": 3.68,
+  "heard": "Buổi họp sẽ bắt đầu lúc 10 giờ sáng tại hội trường chính.",
+  "cer": 0.08695652173913043,
+  "f0": 238.80597014925374
+ },
+ "vi/vox_D_s3.wav": {
+  "text": "Nếu bạn cần giúp đỡ, xin vui lòng cho chúng tôi biết.",
+  "engine": "voxcpm",
+  "cand": "D",
+  "gen_s": 1.01939058303833,
+  "audio_s": 3.68,
+  "heard": "Nếu bạn cần giúp đỡ, xin vui lòng cho chúng tôi biết.",
+  "cer": 0.0,
+  "f0": 250.0
+ },
+ "ko/cb_A_s1.wav": {
+  "text": "기차역이 어디에 있는지 알려 주실 수 있나요?",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 3.839134693145752,
+  "audio_s": 3.36,
+  "heard": "기차역이 어디에 있는지 알려주실 수 있나요?",
+  "cer": 0.0,
+  "f0": 238.80597014925374
+ },
+ "ko/cb_A_s2.wav": {
+  "text": "회의는 오전 열 시에 본당에서 시작됩니다.",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 5.0075695514678955,
+  "audio_s": 4.24,
+  "heard": "회의는 오전 10시에 본당에서 시작됩니다.",
+  "cer": 0.11764705882352941,
+  "f0": 248.0769230769231
+ },
+ "ko/cb_A_s3.wav": {
+  "text": "도움이 필요하시면 언제든지 말씀해 주세요.",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 7.186347484588623,
+  "audio_s": 4.64,
+  "heard": "도움이 필요하시면 언제든지 말씀해 주세요.",
+  "cer": 0.0,
+  "f0": 250.0
+ },
+ "ko/cb_B_s1.wav": {
+  "text": "기차역이 어디에 있는지 알려 주실 수 있나요?",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 6.3830037117004395,
+  "audio_s": 3.6,
+  "heard": "기차역이 어디에 있는지 알려주실 수 있나요?",
+  "cer": 0.0,
+  "f0": 129.03225806451613
+ },
+ "ko/cb_B_s2.wav": {
+  "text": "회의는 오전 열 시에 본당에서 시작됩니다.",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 5.906659841537476,
+  "audio_s": 3.96,
+  "heard": "회의는 오전 10시에 본당에서 시작됩니다.",
+  "cer": 0.11764705882352941,
+  "f0": 152.38095238095238
+ },
+ "ko/cb_B_s3.wav": {
+  "text": "도움이 필요하시면 언제든지 말씀해 주세요.",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 5.310387134552002,
+  "audio_s": 3.56,
+  "heard": "도움이 필요하시면 언제든지 말씀해주세요.",
+  "cer": 0.0,
+  "f0": 141.5929203539823
+ },
+ "ko/cb_C_s1.wav": {
+  "text": "기차역이 어디에 있는지 알려 주실 수 있나요?",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 5.900338411331177,
+  "audio_s": 4.2,
+  "heard": "기차역이 어디에 있는지 알려주실 수 있나요?",
+  "cer": 0.0,
+  "f0": 142.85714285714286
+ },
+ "ko/cb_C_s2.wav": {
+  "text": "회의는 오전 열 시에 본당에서 시작됩니다.",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 9.30468225479126,
+  "audio_s": 6.32,
+  "heard": "회의는 오전 10시에 봉당에서 시작됩니다.",
+  "cer": 0.17647058823529413,
+  "f0": 147.4685694869181
+ },
+ "ko/cb_C_s3.wav": {
+  "text": "도움이 필요하시면 언제든지 말씀해 주세요.",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 7.800689935684204,
+  "audio_s": 4.88,
+  "heard": "도움이 필요하시면 언제든지 말씀해주세요.",
+  "cer": 0.0,
+  "f0": 177.77777777777777
+ },
+ "ko/cb_D_s1.wav": {
+  "text": "기차역이 어디에 있는지 알려 주실 수 있나요?",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 3.904848575592041,
+  "audio_s": 3.0,
+  "heard": "차역이 어디에 있는지 알려주실 수 있나요?",
+  "cer": 0.05555555555555555,
+  "f0": 164.94845360824743
+ },
+ "ko/cb_D_s2.wav": {
+  "text": "회의는 오전 열 시에 본당에서 시작됩니다.",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 9.887519359588623,
+  "audio_s": 5.08,
+  "heard": "회의는 오전 10시에 본당에서 시작됩니다.",
+  "cer": 0.11764705882352941,
+  "f0": 160.0
+ },
+ "ko/cb_D_s3.wav": {
+  "text": "도움이 필요하시면 언제든지 말씀해 주세요.",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 5.601380348205566,
+  "audio_s": 3.72,
+  "heard": "도움이 필요하시면 언제든지 말씀해 주세요.",
+  "cer": 0.0,
+  "f0": 173.91304347826087
+ },
+ "tr/cb_A_s1.wav": {
+  "text": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 4.38035774230957,
+  "audio_s": 3.92,
+  "heard": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "cer": 0.0,
+  "f0": 231.8840579710145
+ },
+ "tr/cb_A_s2.wav": {
+  "text": "Toplantı sabah saat onda ana salonda başlayacak.",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 5.106916904449463,
+  "audio_s": 3.72,
+  "heard": "Toplantı sabah saat 10'da ana salonda başlayacak.",
+  "cer": 0.04878048780487805,
+  "f0": 216.21621621621622
+ },
+ "tr/cb_A_s3.wav": {
+  "text": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 5.505799770355225,
+  "audio_s": 4.2,
+  "heard": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "cer": 0.0,
+  "f0": 222.22222222222223
+ },
+ "tr/cb_B_s1.wav": {
+  "text": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 4.547161102294922,
+  "audio_s": 4.2,
+  "heard": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "cer": 0.0,
+  "f0": 140.35087719298247
+ },
+ "tr/cb_B_s2.wav": {
+  "text": "Toplantı sabah saat onda ana salonda başlayacak.",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 3.390315294265747,
+  "audio_s": 3.16,
+  "heard": "Toplantı sabah saat 10'da ana salonda başlayacak.",
+  "cer": 0.04878048780487805,
+  "f0": 130.61442089830734
+ },
+ "tr/cb_B_s3.wav": {
+  "text": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 3.31390118598938,
+  "audio_s": 3.52,
+  "heard": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "cer": 0.0,
+  "f0": 125.0
+ },
+ "tr/cb_C_s1.wav": {
+  "text": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 3.4486892223358154,
+  "audio_s": 3.28,
+  "heard": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "cer": 0.0,
+  "f0": 200.0
+ },
+ "tr/cb_C_s2.wav": {
+  "text": "Toplantı sabah saat onda ana salonda başlayacak.",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 6.198193311691284,
+  "audio_s": 4.32,
+  "heard": "Toplantı sabah saat 10'da ana salonda başlayacak.",
+  "cer": 0.04878048780487805,
+  "f0": 213.33333333333334
+ },
+ "tr/cb_C_s3.wav": {
+  "text": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 3.2110791206359863,
+  "audio_s": 3.36,
+  "heard": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "cer": 0.0,
+  "f0": 207.7922077922078
+ },
+ "tr/cb_D_s1.wav": {
+  "text": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 5.969459533691406,
+  "audio_s": 4.4,
+  "heard": "Tren istasyonunun nerede olduğunu söyleyebilir misiniz?",
+  "cer": 0.0,
+  "f0": 216.21621621621622
+ },
+ "tr/cb_D_s2.wav": {
+  "text": "Toplantı sabah saat onda ana salonda başlayacak.",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 3.7824738025665283,
+  "audio_s": 3.52,
+  "heard": "Toplantı sabah saat 10'da ana salonunda başlayacak.",
+  "cer": 0.0975609756097561,
+  "f0": 186.04651162790697
+ },
+ "tr/cb_D_s3.wav": {
+  "text": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 5.1156861782073975,
+  "audio_s": 4.2,
+  "heard": "Yardıma ihtiyacınız olursa lütfen bize haber verin.",
+  "cer": 0.0,
+  "f0": 192.7710843373494
+ },
+ "ru/cb_A_s1.wav": {
+  "text": "Не подскажете, где находится железнодорожный вокзал?",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 4.053013801574707,
+  "audio_s": 3.52,
+  "heard": "Не подскажете, где находится железнодорожный вокзал?",
+  "cer": 0.0,
+  "f0": 190.47619047619048
+ },
+ "ru/cb_A_s2.wav": {
+  "text": "Собрание начнётся в десять часов утра в главном зале.",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 5.785856008529663,
+  "audio_s": 4.08,
+  "heard": "Собрание начнется в 10 часов утра в главном зале.",
+  "cer": 0.1590909090909091,
+  "f0": 195.1219512195122
+ },
+ "ru/cb_A_s3.wav": {
+  "text": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 3.60262131690979,
+  "audio_s": 3.12,
+  "heard": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "cer": 0.0,
+  "f0": 197.53086419753086
+ },
+ "ru/cb_B_s1.wav": {
+  "text": "Не подскажете, где находится железнодорожный вокзал?",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 4.3895790576934814,
+  "audio_s": 3.84,
+  "heard": "Не подскажите, где находится железнодорожный вокзал?",
+  "cer": 0.022222222222222223,
+  "f0": 179.77528089887642
+ },
+ "ru/cb_B_s2.wav": {
+  "text": "Собрание начнётся в десять часов утра в главном зале.",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 3.397777557373047,
+  "audio_s": 3.44,
+  "heard": "Собрание начнется в 10 часов утра в главном зале.",
+  "cer": 0.1590909090909091,
+  "f0": 158.41584158415841
+ },
+ "ru/cb_B_s3.wav": {
+  "text": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 3.6003758907318115,
+  "audio_s": 3.44,
+  "heard": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "cer": 0.0,
+  "f0": 187.14090287277702
+ },
+ "ru/cb_C_s1.wav": {
+  "text": "Не подскажете, где находится железнодорожный вокзал?",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 4.307813882827759,
+  "audio_s": 3.44,
+  "heard": "Не подскажете, где находится железнодорожный вокзал?",
+  "cer": 0.0,
+  "f0": 182.86311389759663
+ },
+ "ru/cb_C_s2.wav": {
+  "text": "Собрание начнётся в десять часов утра в главном зале.",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 5.200717449188232,
+  "audio_s": 4.36,
+  "heard": "Собрание начнется в 10 часов утра в главном зале.",
+  "cer": 0.1590909090909091,
+  "f0": 188.23529411764707
+ },
+ "ru/cb_C_s3.wav": {
+  "text": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 6.7085280418396,
+  "audio_s": 5.0,
+  "heard": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "cer": 0.0,
+  "f0": 202.53164556962025
+ },
+ "ru/cb_D_s1.wav": {
+  "text": "Не подскажете, где находится железнодорожный вокзал?",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 3.6125032901763916,
+  "audio_s": 3.2,
+  "heard": "Не подскажете, где находится железнодорожный вокзал?",
+  "cer": 0.0,
+  "f0": 213.33333333333334
+ },
+ "ru/cb_D_s2.wav": {
+  "text": "Собрание начнётся в десять часов утра в главном зале.",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 5.189820766448975,
+  "audio_s": 4.6,
+  "heard": "Собрание начнется в 10 часов утра в главном зале.",
+  "cer": 0.1590909090909091,
+  "f0": 219.17808219178082
+ },
+ "ru/cb_D_s3.wav": {
+  "text": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 3.006976366043091,
+  "audio_s": 2.8,
+  "heard": "Если вам нужна помощь, пожалуйста, скажите нам.",
+  "cer": 0.0,
+  "f0": 228.57142857142858
+ },
+ "ar/cb_A_s1.wav": {
+  "text": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 4.543818712234497,
+  "audio_s": 4.08,
+  "heard": "هل يمكنك أن تخبرني أين تقع محطة البطار؟",
+  "cer": 0.03225806451612903,
+  "f0": 225.35211267605635
+ },
+ "ar/cb_A_s2.wav": {
+  "text": "سيبدأ الاجتماع في الساعة العاشرة صباحا في القاعة الرئيسية.",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 4.0028181076049805,
+  "audio_s": 3.88,
+  "heard": "سيبدأ الاجتماع في الساعة العاشرة صباحاً في القاعة الرئيسية",
+  "cer": 0.02040816326530612,
+  "f0": 188.23529411764707
+ },
+ "ar/cb_A_s3.wav": {
+  "text": "إذا كنت بحاجة إلى مساعدة، فأخبرنا من فضلك.",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 5.099159002304077,
+  "audio_s": 4.24,
+  "heard": "إذا كنت بحاجة إلى مساعدة فأخبرنا من فضلك",
+  "cer": 0.0,
+  "f0": 190.47619047619048
+ },
+ "ar/cb_B_s1.wav": {
+  "text": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 6.299953937530518,
+  "audio_s": 4.84,
+  "heard": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "cer": 0.0,
+  "f0": 121.21212121212122
+ },
+ "ar/cb_B_s2.wav": {
+  "text": "سيبدأ الاجتماع في الساعة العاشرة صباحا في القاعة الرئيسية.",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 4.502706289291382,
+  "audio_s": 4.2,
+  "heard": "سيبدأ الاجتماع في الساعة العاشرة صباحاً في القاعة الرئيسية",
+  "cer": 0.02040816326530612,
+  "f0": 115.10791366906474
+ },
+ "ar/cb_B_s3.wav": {
+  "text": "إذا كنت بحاجة إلى مساعدة، فأخبرنا من فضلك.",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 3.9894914627075195,
+  "audio_s": 3.6,
+  "heard": "إذا كنت بحاجة إلى مساعدة، فأخبرنا من فضلك.",
+  "cer": 0.0,
+  "f0": 125.0
+ },
+ "ar/cb_C_s1.wav": {
+  "text": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 5.542840480804443,
+  "audio_s": 4.56,
+  "heard": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "cer": 0.0,
+  "f0": 109.58904109589041
+ },
+ "ar/cb_C_s2.wav": {
+  "text": "سيبدأ الاجتماع في الساعة العاشرة صباحا في القاعة الرئيسية.",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 4.697648525238037,
+  "audio_s": 4.48,
+  "heard": "سيبدأ الاجتماع في الساعة العاشرة صباحاً في القاعة الرئيسية",
+  "cer": 0.02040816326530612,
+  "f0": 104.57516339869281
+ },
+ "ar/cb_C_s3.wav": {
+  "text": "إذا كنت بحاجة إلى مساعدة، فأخبرنا من فضلك.",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 6.689740180969238,
+  "audio_s": 5.36,
+  "heard": "إذا كنت بحاجة إلى مساعدة فأهبرنا من فضلك",
+  "cer": 0.030303030303030304,
+  "f0": 104.57516339869281
+ },
+ "ar/cb_D_s1.wav": {
+  "text": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 5.29653525352478,
+  "audio_s": 4.8,
+  "heard": "هل يمكنك أن تخبرني أين تقع محطة القطار؟",
+  "cer": 0.0,
+  "f0": 99.079754601227
+ },
+ "ar/cb_D_s2.wav": {
+  "text": "سيبدأ الاجتماع في الساعة العاشرة صباحا في القاعة الرئيسية.",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 5.38760232925415,
+  "audio_s": 4.72,
+  "heard": "سيبدأ الاجتماع في الساعة العاشرة صباحاً في القاعة الرئيسية",
+  "cer": 0.02040816326530612,
+  "f0": 400.0
+ },
+ "ar/cb_D_s3.wav": {
+  "text": "إذا كنت بحاجة إلى مساعدة، فأخبرنا من فضلك.",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 4.602804183959961,
+  "audio_s": 4.2,
+  "heard": "إذا كنت بحاجة إلى مساعدة  فأخبرنا من فضلك",
+  "cer": 0.0,
+  "f0": 87.91208791208791
+ },
+ "sw/cb_A_s1.wav": {
+  "text": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 3.9998862743377686,
+  "audio_s": 3.56,
+  "heard": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "cer": 0.0,
+  "f0": 219.17808219178082
+ },
+ "sw/cb_A_s2.wav": {
+  "text": "Mkutano utaanza saa nne asubuhi katika ukumbi mkuu.",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 5.587028980255127,
+  "audio_s": 4.44,
+  "heard": "Mkutano utaanza saane asubui katika ukumbi mkuu.",
+  "cer": 0.046511627906976744,
+  "f0": 213.33333333333334
+ },
+ "sw/cb_A_s3.wav": {
+  "text": "Kama unahitaji msaada, tafadhali tuambie.",
+  "engine": "chatterbox",
+  "cand": "A",
+  "gen_s": 2.99971604347229,
+  "audio_s": 2.96,
+  "heard": "Kama unahitaji msaada, tafadhali tuambie.",
+  "cer": 0.0,
+  "f0": 207.7922077922078
+ },
+ "sw/cb_B_s1.wav": {
+  "text": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 3.4045515060424805,
+  "audio_s": 3.16,
+  "heard": "Unaweza kuniambia kituo cha treni kikuwapi?",
+  "cer": 0.02702702702702703,
+  "f0": 137.93103448275863
+ },
+ "sw/cb_B_s2.wav": {
+  "text": "Mkutano utaanza saa nne asubuhi katika ukumbi mkuu.",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 4.388622522354126,
+  "audio_s": 3.6,
+  "heard": "Mkutana utanza sani asubui katika ukumbi mkuu.",
+  "cer": 0.13953488372093023,
+  "f0": 114.28571428571429
+ },
+ "sw/cb_B_s3.wav": {
+  "text": "Kama unahitaji msaada, tafadhali tuambie.",
+  "engine": "chatterbox",
+  "cand": "B",
+  "gen_s": 3.295215606689453,
+  "audio_s": 2.92,
+  "heard": "Kamo onaitaji msaada, tafadhali tuambie.",
+  "cer": 0.08571428571428572,
+  "f0": 112.67605633802818
+ },
+ "sw/cb_C_s1.wav": {
+  "text": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 3.335069179534912,
+  "audio_s": 2.76,
+  "heard": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "cer": 0.0,
+  "f0": 127.4920634920635
+ },
+ "sw/cb_C_s2.wav": {
+  "text": "Mkutano utaanza saa nne asubuhi katika ukumbi mkuu.",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 5.601666212081909,
+  "audio_s": 4.4,
+  "heard": "Mkutano utahanza saanene asubui katika ukumbi mko.",
+  "cer": 0.11627906976744186,
+  "f0": 131.14754098360655
+ },
+ "sw/cb_C_s3.wav": {
+  "text": "Kama unahitaji msaada, tafadhali tuambie.",
+  "engine": "chatterbox",
+  "cand": "C",
+  "gen_s": 3.508418321609497,
+  "audio_s": 3.24,
+  "heard": "Kama unaitaji msaada, tafadhali tuambie.",
+  "cer": 0.02857142857142857,
+  "f0": 116.78832116788321
+ },
+ "sw/cb_D_s1.wav": {
+  "text": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 3.3595473766326904,
+  "audio_s": 3.12,
+  "heard": "Unaweza kuniambia kituo cha treni kiko wapi?",
+  "cer": 0.0,
+  "f0": 149.53271028037383
+ },
+ "sw/cb_D_s2.wav": {
+  "text": "Mkutano utaanza saa nne asubuhi katika ukumbi mkuu.",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 3.7977325916290283,
+  "audio_s": 3.68,
+  "heard": "Mkutano utaanza saane ya subui katika ukumbi mkuu.",
+  "cer": 0.06976744186046512,
+  "f0": 158.41584158415841
+ },
+ "sw/cb_D_s3.wav": {
+  "text": "Kama unahitaji msaada, tafadhali tuambie.",
+  "engine": "chatterbox",
+  "cand": "D",
+  "gen_s": 3.0004255771636963,
+  "audio_s": 2.8,
+  "heard": "Kama unaitaji msaada, tafadhali tuambi.",
+  "cer": 0.05714285714285714,
+  "f0": 140.35087719298247
+ },
+ "_chatterbox": {
+  "load_s": 17.7141273021698,
+  "peak_gb": 3.685517824
+ }
+}

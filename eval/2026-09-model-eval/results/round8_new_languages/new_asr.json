@@ -1,0 +1,127 @@
+{
+ "clarity": {
+  "kokoro-hf_alpha/hi": {
+   "whisper": 0.052,
+   "omni": 0.031
+  },
+  "kokoro-if_sara/it": {
+   "whisper": 0.076
+  },
+  "piper-ar_JO-kareem-medium/ar": {
+   "whisper": 0.044
+  },
+  "piper-bn_BD-google-medium/bn": {
+   "whisper": 0.253,
+   "omni": 0.11
+  },
+  "piper-fa_IR-amir-medium/fa": {
+   "whisper": 0.16,
+   "omni": 0.187
+  },
+  "piper-fa_IR-gyro-medium/fa": {
+   "whisper": 0.091,
+   "omni": 0.076
+  },
+  "piper-fa_IR-reza_ibrahim-medium/fa": {
+   "whisper": 0.143,
+   "omni": 0.14
+  },
+  "piper-hi_IN-priyamvada-medium/hi": {
+   "whisper": 0.066,
+   "omni": 0.042
+  },
+  "piper-hi_IN-rohan-medium/hi": {
+   "whisper": 0.049,
+   "omni": 0.04
+  },
+  "piper-id_ID-news_tts-medium/id": {
+   "whisper": 0.128
+  },
+  "piper-it_IT-serena-high/it": {
+   "whisper": 0.09
+  },
+  "piper-ko_KR-kss-medium/ko": {
+   "whisper": 0.154
+  },
+  "piper-sw_CD-lanfrica-medium/sw": {
+   "whisper": 0.132,
+   "omni": 0.042
+  },
+  "piper-tr_TR-dfki-medium/tr": {
+   "whisper": 0.12
+  },
+  "piper-ur_PK-aegis_female-medium/ur": {
+   "whisper": 0.032,
+   "omni": 0.05
+  },
+  "piper-ur_PK-fasih-medium/ur": {
+   "whisper": 0.078,
+   "omni": 0.116
+  },
+  "piper-vi_VN-vais1000-medium/vi": {
+   "whisper": 0.153
+  },
+  "voxcpm/ar": {
+   "whisper": 0.046
+  },
+  "voxcpm/hi": {
+   "whisper": 0.094,
+   "omni": 0.04
+  },
+  "voxcpm/id": {
+   "whisper": 0.125
+  },
+  "voxcpm/it": {
+   "whisper": 0.062
+  },
+  "voxcpm/ko": {
+   "whisper": 0.399
+  },
+  "voxcpm/sw": {
+   "whisper": 0.085,
+   "omni": 0.036
+  },
+  "voxcpm/tl": {
+   "whisper": 0.141,
+   "omni": 0.057
+  },
+  "voxcpm/tr": {
+   "whisper": 0.134
+  },
+  "voxcpm/vi": {
+   "whisper": 0.221
+  }
+ },
+ "fleurs": {
+  "hi": {
+   "n": 25,
+   "whisper": 0.095,
+   "omni": 0.044
+  },
+  "tl": {
+   "n": 25,
+   "whisper": 0.046,
+   "omni": 0.085
+  },
+  "fa": {
+   "n": 25,
+   "whisper": 0.078,
+   "omni": 0.05
+  },
+  "bn": {
+   "n": 25,
+   "whisper": 0.349,
+   "omni": 0.031
+  },
+  "ur": {
+   "n": 25,
+   "whisper": 0.077,
+   "omni": 0.067
+  },
+  "sw": {
+   "n": 25,
+   "whisper": 0.088,
+   "omni": 0.053
+  }
+ }
+}

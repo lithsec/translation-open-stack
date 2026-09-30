@@ -1,0 +1,358 @@
+# Which model serves each language, and ([models]) the exact revision of every model
+# the languages share. server/server.py and the scripts read this file (or the
+# one STACK_CONFIG points at); without it, the built-in defaults in
+# server/stack_config.py apply, and those are exactly what is written here.
+# tests/test_stack_config.py fails if the two drift apart.
+#
+# Check a change before restarting:   python3 server/stack_config.py check
+#
+# Per-language keys, all optional:
+#   kokoro      "<lang_code>:<voice>"      Kokoro 82M (GPU, Apache 2.0). Catalogue: hexgrad/Kokoro-82M
+#   voxcpm      true                       VoxCPM2 (GPU, Apache 2.0), via server/voxcpm_service.py
+#   coqui       "<hugging face repo>"      a Coqui VITS checkpoint (EDITION=commercial)
+#   piper       "<voice name>"             Piper (CPU). Catalogue:
+#               https://huggingface.co/rhasspy/piper-voices/resolve/main/voices.json
+#               scripts/fetch-voices.sh downloads the voice named here on the next start.
+#   mms         "<hugging face repo>"      Meta MMS-TTS (CC-BY-NC; EDITION=nonprofit only)
+#   asr         "whisper" | "omni:<code>"  recogniser when this language is SPOKEN
+#   translator  "hymt" | "madlad"          translator INTO this language. Hy-MT2 covers 36
+#               languages (stack_config.HYMT_LANGS); anything else must be "madlad".
+#   madlad      "<code>"                   MADLAD's language tag, when it differs from the code
+#
+# Voices are a fallback chain, tried in this order: kokoro, voxcpm, coqui, piper,
+# mms. The first one that is running and succeeds speaks; a language with none
+# is served as text only. A [section] here REPLACES that language's defaults
+# entirely, so keep every key you still want. A new language needs at least a
+# voice (or it is text only) and, if MADLAD's code differs, madlad.
+#
+# ---- Editions and licences ----------------------------------------------------
+# EDITION=commercial (scripts/run.sh) loads only voices and models that
+# server/licences.py classifies as permissive (✅), attribution or share-alike
+# (⚠️, printed with the credit they need). Non-commercial ones (⛔) never load;
+# unclear ones (❓) only after your own review, below. `check --edition commercial`
+# shows the result per language, including which become TEXT ONLY.
+#
+#   [<lang>.commercial]   the voice keys (kokoro, voxcpm, piper, ..., voice) that
+#                         replace the language's voices in commercial; asr,
+#                         translator and madlad still come from [<lang>]. Without
+#                         one, commercial keeps the language's own voices minus
+#                         any it may not load (pt zh ja hi keep Kokoro only;
+#                         fa and ro get eSpeak NG only).
+#
+#   [licence_review]      an informed opt-in for an unclear (❓) item after YOUR
+#                         OWN review of its licence. One line per item: the voice
+#                         name, repo or engine, and who reviewed it, when and why.
+#                         There is no override for ⛔. (COMMERCIAL_ALLOW_UNCLEAR=1
+#                         admits every ❓ item at once, with a loud warning.)
+#   [licence_review]
+#   "ro_RO-mihai-medium" = "reviewed 2026-10-01 by <org>: CC0 data; we accept the lessac fine-tune"
+
+# ---- Models ------------------------------------------------------------------
+# Every model that is NOT chosen per language, with the exact upstream revision
+# the stack runs. (Per-language voices, and the MMS and Coqui repos, are in the
+# language tables below.) Unlike a language table, a [models.<name>] table is
+# merged key by key over the built-in default, so you may give just the key you
+# change. How to swap one, and what must be rebuilt: docs/user-guide.md,
+# "Replace a model or a revision". Check with `python3 server/stack_config.py check`; scripts
+# read single values with `python3 server/stack_config.py get models.hymt.revision`.
+
+# Speech recognition (faster-whisper), for every source Omnilingual doesn't take.
+# model: a faster-whisper size or Hugging Face repo (scripts/run.sh --asr-model).
+# multi_model: for non-English sources; "" = the same model, loaded once.
+# revision: a commit of model's repo (large-v3 is Systran/faster-whisper-large-v3);
+# "" = unpinned. Change it together with model.
+[models.whisper]
+model = "large-v3"
+multi_model = ""
+# multi_revision: the revision of multi_model when it differs from model ("" = unpinned: avoid).
+multi_revision = ""
+revision = "edaa852ec7e145841d8ffdb056a99866b5f0a478"
+
+# Meta Omnilingual ASR for the asr = "omni:<code>" languages. A fairseq2 model
+# card names one fixed checkpoint; there is no revision.
+[models.omnilingual]
+card = "omniASR_LLM_300M"
+
+# Spoken-language identification for src=auto (VoxLingua107, SpeechBrain).
+[models.lid]
+repo = "speechbrain/lang-id-voxlingua107-ecapa"
+revision = "0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9"
+
+# Silero VAD, loaded through torch.hub: ref is a git tag, branch or commit. A
+# commit is pinned (a tag can be moved); torch.hub accepts one that is the head of
+# a branch or tag. 5cd79456... is tag v6.2.3.
+[models.vad]
+repo = "snakers4/silero-vad"
+ref = "5cd7945676eb32225748052e2e6a0580e4686a08"
+
+# Translators, built once onto the volume by scripts/prepare-mt.sh (Hy-MT2 to
+# 4-bit, MADLAD to CTranslate2 int8). A new revision there is rebuilt on the
+# next prepare-mt.sh run; revisions are required.
+[models.hymt]
+repo = "tencent/Hy-MT2-7B"
+revision = "9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223"
+
+[models.madlad]
+repo = "google/madlad400-7b-mt"
+revision = "1ff63ce7ddd571a69d45cad9672c553428419671"
+
+# MADLAD=3b (a 32 GB card) uses this one instead.
+[models.madlad3b]
+repo = "google/madlad400-3b-mt"
+revision = "fa184c675da0b5c9e1c8694fccd4e12e2d422094"
+
+# Kokoro 82M (the kokoro = "..." voices below). revision "" = unpinned.
+[models.kokoro]
+repo = "hexgrad/Kokoro-82M"
+revision = "f3ff3571791e39611d31c381e3a41a3af07b4987"
+
+# VoxCPM2 (the voxcpm = true languages), in its own venv (scripts/prepare-voices.sh).
+# VOXCPM_REV in the environment still wins over this.
+[models.voxcpm]
+repo = "openbmb/VoxCPM2"
+revision = "32279effe8c19989596f05d353d1447f51d9e915"
+
+# ---- Languages ---------------------------------------------------------------
+# Kokoro (82M, Apache 2.0) was picked over Piper by ear on identical sentences:
+# 24 kHz native (the pipeline's own rate, no resample), and on the GPU ~98x real
+# time. Piper stays behind it as the fallback.
+[en]
+kokoro = "a:am_michael"
+piper = "en_US-lessac-medium"
+asr = "whisper"
+translator = "hymt"
+
+# EDITION=commercial: lessac's data is research-only (⛔). norman: public-domain
+# LibriVox recordings, trained from scratch (✅), male like am_michael.
+[en.commercial]
+kokoro = "a:am_michael"
+piper = "en_US-norman-medium"
+
+[es]
+kokoro = "e:ef_dora"
+piper = "es_ES-davefx-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "es"
+
+# davefx is fine-tuned from lessac (❓). carlfm: public domain, from scratch; x_low
+# (16 kHz) is the only licence-clean Spanish Piper voice, and only Kokoro's fallback.
+[es.commercial]
+kokoro = "e:ef_dora"
+piper = "es_ES-carlfm-x_low"
+
+[fr]
+kokoro = "f:ff_siwis"
+piper = "fr_FR-siwis-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "fr"
+
+# siwis is fine-tuned from lessac (❓). mls: Multilingual LibriSpeech (CC-BY 4.0,
+# credit it), trained from scratch.
+[fr.commercial]
+kokoro = "f:ff_siwis"
+piper = "fr_FR-mls-medium"
+
+[pt]
+kokoro = "p:pf_dora"
+piper = "pt_BR-faber-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "pt"
+
+[it]
+kokoro = "i:if_sara"
+piper = "it_IT-serena-high"
+asr = "whisper"
+translator = "hymt"
+madlad = "it"
+
+# thorsten is the one German voice at `high`; Kokoro has no German.
+[de]
+piper = "de_DE-thorsten-high"
+asr = "whisper"
+translator = "hymt"
+madlad = "de"
+
+# thorsten is fine-tuned from lessac (❓). mls: CC-BY 4.0, trained from scratch.
+[de.commercial]
+piper = "de_DE-mls-medium"
+
+[ru]
+piper = "ru_RU-irina-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "ru"
+
+# Commercial: irina: unknown data licence, lessac-derived (❓); no clean Russian Piper voice. VoxCPM2
+# (Apache 2.0) instead, in its fixed reference voice voices/voxcpm/ru.wav.
+[ru.commercial]
+voxcpm = true
+
+[uk]
+piper = "uk_UA-ukrainian_tts-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "uk"
+
+# Japanese and Mandarin: Kokoro's own G2P (misaki[ja] / misaki[zh]). Piper's
+# Japanese needs pyopenjtalk and runs at 2.4x real time, ~15x the cost of any
+# other voice, so it is only the fallback.
+[zh]
+kokoro = "z:zf_xiaobei"
+piper = "zh_CN-huayan-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "zh"
+
+[ja]
+kokoro = "j:jf_alpha"
+piper = "ja_JP-hi_fi_captain-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "ja"
+
+[ko]
+piper = "ko_KR-kss-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "ko"
+
+# Commercial: kss: CC-BY-NC-SA data (⛔); no other Korean Piper voice. VoxCPM2
+# (Apache 2.0) instead, in its fixed reference voice voices/voxcpm/ko.wav.
+[ko.commercial]
+voxcpm = true
+
+[vi]
+piper = "vi_VN-vais1000-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "vi"
+
+# Commercial: vais1000 is lessac-derived (❓), vivos is CC-BY-NC-SA (⛔). VoxCPM2
+# (Apache 2.0) instead, in its fixed reference voice voices/voxcpm/vi.wav.
+[vi.commercial]
+voxcpm = true
+
+# ar fa id tr bn ur hi: added 2026-09-28, each Piper voice picked on blind
+# naturalness + round-trip clarity (eval/2026-09-model-eval round 8). Piper runs
+# on the CPU, so these cost no GPU memory; VoxCPM2 sounded better for ar and sw
+# but is kept for languages that have nothing else (km, lo, tl).
+# Omnilingual recognises bn/hi/fa/ur/sw far better than Whisper (FLEURS CER,
+# Whisper large-v3 -> Omnilingual 300M): bn 34.9% -> 3.1%, hi 9.5 -> 4.4,
+# fa 7.8 -> 5.0, sw 8.8 -> 5.3, ur 7.7 -> 6.7. tl stays on Whisper (4.6 vs 8.5).
+[ar]
+piper = "ar_JO-kareem-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "ar"
+
+# Commercial: kareem: dataset without a licence, lessac-derived (❓). VoxCPM2
+# (Apache 2.0) instead, in its fixed reference voice voices/voxcpm/ar.wav.
+[ar.commercial]
+voxcpm = true
+
+[fa]
+piper = "fa_IR-gyro-medium"
+asr = "omni:pes_Arab"
+translator = "hymt"
+madlad = "fa"
+
+[id]
+piper = "id_ID-news_tts-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "id"
+
+# Commercial: news_tts: the card's dataset link is wrong, lessac-derived (❓). VoxCPM2
+# (Apache 2.0) instead, in its fixed reference voice voices/voxcpm/id.wav.
+[id.commercial]
+voxcpm = true
+
+[tr]
+piper = "tr_TR-dfki-medium"
+asr = "whisper"
+translator = "hymt"
+madlad = "tr"
+
+# Commercial: dfki: CC-BY-NC-SA data (⛔); no other Turkish Piper voice. VoxCPM2
+# (Apache 2.0) instead, in its fixed reference voice voices/voxcpm/tr.wav.
+[tr.commercial]
+voxcpm = true
+
+[bn]
+piper = "bn_BD-google-medium"
+asr = "omni:ben_Beng"
+translator = "hymt"
+madlad = "bn"
+
+[ur]
+piper = "ur_PK-aegis_female-medium"
+asr = "omni:urd_Arab"
+translator = "hymt"
+madlad = "ur"
+
+# Hindi: Kokoro was the most natural candidate (4.0 vs Piper 3.5 vs VoxCPM2 1.8, blind).
+[hi]
+kokoro = "h:hf_alpha"
+piper = "hi_IN-rohan-medium"
+asr = "omni:hin_Deva"
+translator = "hymt"
+madlad = "hi"
+
+# Hy-MT2 does not support Swahili, Haitian Creole or Lao: MADLAD 7B translates them.
+[sw]
+piper = "sw_CD-lanfrica-medium"
+asr = "omni:swh_Latn"
+translator = "madlad"
+madlad = "sw"
+
+# Commercial: lanfrica: no dataset licence found, lessac-derived (❓). VoxCPM2
+# (Apache 2.0) instead, in its fixed reference voice voices/voxcpm/sw.wav.
+[sw.commercial]
+voxcpm = true
+
+# Romanian: Hy-MT2 does not support it either, so MADLAD 7B translates into it;
+# a Romanian speaker pivots through MADLAD <2en> (server.py). Whisper large-v3
+# recognises it (FLEURS, see docs/dev/model-evaluation.md).
+[ro]
+piper = "ro_RO-mihai-medium"
+asr = "whisper"
+translator = "madlad"
+madlad = "ro"
+
+# Haitian Creole has no Piper or Kokoro voice. Coqui's OpenBible VITS (CC-BY-SA)
+# with EDITION=commercial; MMS (CC-BY-NC, the clearer of the two) with nonprofit.
+[ht]
+coqui = "multilingual-tts/VITS-OpenBible-Haitian-Creole"
+mms = "facebook/mms-tts-hat"
+asr = "omni:hat_Latn"
+translator = "madlad"
+madlad = "ht"
+
+# Khmer, Lao, Tagalog: VoxCPM2, the clearest tested (Khmer 8.5% / Lao 10%
+# character error against MMS's 22.8% / 15%), in the fixed reference voice
+# voices/voxcpm/<lang>.wav. It sustains ~2 real-time voices per GPU, so it is kept
+# for languages with nothing else. MMS is the nonprofit fallback.
+[km]
+voxcpm = true
+mms = "facebook/mms-tts-khm"
+asr = "omni:khm_Khmr"
+translator = "hymt"
+madlad = "km"
+
+[lo]
+voxcpm = true
+mms = "facebook/mms-tts-lao"
+asr = "omni:lao_Laoo"
+translator = "madlad"
+madlad = "lo"
+
+# MADLAD's code for Tagalog is fil (<2tl> is not in its vocabulary).
+[tl]
+voxcpm = true
+mms = "facebook/mms-tts-tgl"
+asr = "whisper"
+translator = "hymt"
+madlad = "fil"

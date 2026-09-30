@@ -1,0 +1,168 @@
+# Builds the stack's Docker image (the repository root) and smoke-tests
+# it on the CPU: every import the server makes, `server.py --help`, the unit
+# tests, the language config, and the entrypoint's refusal to start without a
+# credential or a GPU. No GPU here, so models are never loaded; that needs a
+# real card (see README.md).
+#
+# The image is NOT published anywhere. Publishing is a deliberate decision (a
+# public image redistributes the stack; check the model licences first); the
+# commented step at the end shows how, once decided.
+name: Stack image
+
+# Manual only (Actions → Stack image → Run workflow). The image is ~23 GB and
+# the build is long; running it on every push spent Actions minutes nobody
+# asked for. Build it when you mean to. The quick checks (unit tests, config,
+# shell syntax) run on every push and PR in checks.yml.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: stack-image-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint shell scripts
+        run: |
+          for f in scripts/*.sh scripts/runpod/*.sh tools/*.sh; do bash -n "$f"; done
+          shellcheck -S warning scripts/*.sh scripts/runpod/*.sh tools/*.sh
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit tests (host)
+        run: |
+          python tests/test_stack_auth.py
+          python tests/test_stack_config.py
+          python tests/test_nonspeech.py
+          python tests/test_streaming.py
+          python tests/test_engines.py
+          python server/stack_config.py check
+
+      # The base image is ~10 GB compressed (~25 GB unpacked) and the packages
+      # add several more: more than a runner has free until the preinstalled
+      # SDKs this job doesn't use are removed.
+      - name: Free disk space
+        working-directory: /
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/.ghcup \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/boost /usr/share/swift
+          docker system prune -af >/dev/null
+          df -h /
+
+      - name: Build
+        run: docker build --progress=plain -t lithos-stack:ci .
+
+      - name: Image size
+        run: |
+          docker image inspect lithos-stack:ci --format 'image size: {{.Size}} bytes' | tee -a "$GITHUB_STEP_SUMMARY"
+          docker history lithos-stack:ci --format '{{.Size}}\t{{.CreatedBy}}' | cut -c1-160 | head -20
+
+      # What the image actually holds: the source for constraints.txt when the
+      # pins are refreshed, and the evidence when they are not honoured.
+      - name: Installed packages
+        run: |
+          mkdir -p packages
+          # --entrypoint: skip the base image's CUDA banner on stdout.
+          run() { docker run --rm --entrypoint bash lithos-stack:ci -c "$1"; }
+          run 'pip freeze' > packages/stack.txt
+          run '"$VOXCPM_VENV/bin/pip" freeze --local' > packages/voxcpm-venv.txt
+          run 'pip check; echo "pip check exit $?"' > packages/pip-check.txt 2>&1 || true
+          run 'python3 --version' > packages/python.txt
+          cat packages/pip-check.txt
+          # Every pin in constraints.txt that the image holds must be the version
+          # it holds (a line the build ignored would be a silent float).
+          python3 - <<'PY'
+          import re
+          norm = lambda n: re.sub(r"[-_.]+", "-", n).lower()
+          def pins(path):
+              out = {}
+              for line in open(path):
+                  m = re.fullmatch(r"([A-Za-z0-9_.\-]+)==(\S+)", line.strip())
+                  if m:
+                      out[norm(m[1])] = m[2].split("+")[0]
+              return out
+          bad = []
+          for want_f, got_f in (("constraints.txt", "packages/stack.txt"),
+                                ("constraints-voxcpm.txt", "packages/voxcpm-venv.txt")):
+              want, got = pins(want_f), pins(got_f)
+              bad += [f"{want_f}: {n} pinned {v}, image has {got[n]}" for n, v in want.items() if n in got and got[n] != v]
+              bad += [f"{got_f}: {n}=={v} is not in {want_f}" for n, v in got.items() if n not in want]
+          print("\n".join(bad) or "every installed package matches its pin")
+          raise SystemExit(1 if bad else 0)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: installed-packages
+          path: packages/
+
+      - name: Smoke test (CPU)
+        run: |
+          docker run --rm lithos-stack:ci bash -euo pipefail -c '
+            python3 server/server.py --help >/dev/null && echo "server.py --help ok"
+            python3 tests/test_stack_auth.py
+            python3 tests/test_stack_config.py
+            python3 tests/test_nonspeech.py
+            python3 tests/test_streaming.py
+            python3 tests/test_engines.py
+            python3 tests/test_capacity.py
+            python3 server/stack_config.py check
+            VOICES_DIR=/tmp/v bash scripts/fetch-voices.sh km >/dev/null && echo "fetch-voices.sh runs"
+            # The imports server.py makes, as it makes them (find_spec is not enough:
+            # a module can be present and still fail to import).
+            python3 -c "
+          import torch, torchaudio, numpy, scipy, websockets, onnxruntime, ctranslate2, transformers
+          from faster_whisper import WhisperModel
+          from speechbrain.inference.classifiers import EncoderClassifier
+          from omnilingual_asr.models.inference.pipeline import ASRInferencePipeline
+          from kokoro import KPipeline
+          from TTS.utils.synthesizer import Synthesizer
+          from piper import PiperVoice
+          import pyopenjtalk, misaki, spacy, bitsandbytes, accelerate, sentencepiece
+          spacy.load(\"en_core_web_sm\")
+          assert transformers.__version__.startswith(\"4.\"), transformers.__version__
+          print(\"imports ok: torch\", torch.__version__, \"transformers\", transformers.__version__,
+                \"numpy\", numpy.__version__, \"scipy\", scipy.__version__)
+          "
+            "$VOXCPM_VENV/bin/python" -c "import voxcpm, soundfile; print(\"voxcpm ok\")"
+          '
+
+      # docker-compose.yml runs the stack as the image's unprivileged user; the
+      # image's default user stays root for RunPod (see the Dockerfile).
+      - name: Runs as the unprivileged user
+        run: |
+          docker run --rm -u 10001:10001 lithos-stack:ci bash -euo pipefail -c '
+            [ "$(id -un)" = stack ] && [ -w "$HOME" ] && [ -w /workspace ]
+            python3 server/server.py --help >/dev/null && echo "server.py --help ok as $(id -un)"
+            VOICES_DIR=/workspace/voices bash scripts/fetch-voices.sh en && ls -l /workspace/voices
+            "$VOXCPM_VENV/bin/python" -c "import voxcpm" && echo "voxcpm ok as $(id -un)"
+          '
+
+      - name: Entrypoint refuses without a credential or a GPU
+        run: |
+          set +e
+          out=$(docker run --rm lithos-stack:ci 2>&1); code=$?
+          echo "$out"; [ $code -ne 0 ] && grep -q "STACK_TOKEN" <<< "$out" || exit 1
+          out=$(docker run --rm -e STACK_TOKEN=ci lithos-stack:ci 2>&1); code=$?
+          echo "$out"; [ $code -ne 0 ] && grep -q "No NVIDIA GPU" <<< "$out" || exit 1
+
+      # Publishing: disabled on purpose. To enable, decide where (and check the
+      # licences in docs/licences.md), add `packages: write` to the
+      # permissions above, and uncomment:
+      #
+      # - name: Push to GHCR
+      #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      #   run: |
+      #     echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+      #     docker tag lithos-stack:ci ghcr.io/${{ github.repository_owner }}/lithos-stack:${{ github.sha }}
+      #     docker push ghcr.io/${{ github.repository_owner }}/lithos-stack:${{ github.sha }}

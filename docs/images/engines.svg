@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="640" viewBox="0 0 1400 640" font-family="Helvetica, Arial, sans-serif">
+  <!-- Source of engines.png. Render: rsvg-convert -z 2 engines.svg -o engines.png -->
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#16201D"/>
+    </marker>
+  </defs>
+  <rect x="4" y="4" width="1392" height="632" rx="22" fill="#FFFFFF" stroke="#D3DBD8" stroke-width="2"/>
+
+  <text x="40" y="58" font-size="30" font-weight="700" fill="#16201D">Engines: one file per model, chosen per language</text>
+  <text x="40" y="90" font-size="17" fill="#5B6763">server.py runs the pipeline and never names a model; languages.toml picks the engine, server/engines/ holds them.</text>
+
+  <!-- server.py -->
+  <rect x="30" y="130" width="330" height="440" rx="14" fill="#F3F5F4" stroke="#16201D" stroke-width="2"/>
+  <text x="50" y="165" font-size="19" font-weight="700" fill="#16201D">server/server.py</text>
+  <text x="50" y="190" font-size="14" fill="#5B6763">the pipeline (unchanged)</text>
+  <g font-size="15" fill="#16201D">
+    <text x="50" y="228">WebSocket protocol, auth, limits</text>
+    <text x="50" y="256">Silero VAD, endpointing, forced cuts</text>
+    <text x="50" y="284">VoxLingua107 language ID</text>
+    <text x="50" y="312">rooms, priority decode, passthrough</text>
+    <text x="50" y="340">simultaneous mode (LocalAgreement)</text>
+    <text x="50" y="368">route=to, cands</text>
+  </g>
+  <rect x="50" y="400" width="290" height="150" rx="10" fill="#FFFFFF" stroke="#5B6763" stroke-width="1.5"/>
+  <text x="66" y="428" font-size="15" font-weight="700" fill="#16201D">Pipeline asks:</text>
+  <g font-size="12.5" fill="#16201D" font-family="Menlo, monospace">
+    <text x="66" y="456">transcribe(pcm, src)</text>
+    <text x="66" y="480">translate_batch(text, langs, src)</text>
+    <text x="66" y="504">synthesise_futures(text, lang)</text>
+    <text x="66" y="528">sentence_cut(pcm, src)</text>
+  </g>
+
+  <line x1="362" y1="350" x2="438" y2="350" stroke="#16201D" stroke-width="2.4" marker-end="url(#arr)"/>
+
+  <!-- EngineSet -->
+  <rect x="440" y="130" width="330" height="440" rx="14" fill="#F3F5F4" stroke="#16201D" stroke-width="2"/>
+  <text x="460" y="165" font-size="19" font-weight="700" fill="#16201D">engines/manager.py</text>
+  <text x="460" y="190" font-size="14" fill="#5B6763">EngineSet: routing and fallbacks</text>
+  <g font-size="15" fill="#16201D">
+    <text x="460" y="232" font-weight="700">recognise</text>
+    <text x="460" y="254">asr of the source, else whisper</text>
+    <text x="460" y="294" font-weight="700">translate</text>
+    <text x="460" y="316">one batch per translator; madlad</text>
+    <text x="460" y="338">pivots unknown sources to English</text>
+    <text x="460" y="360">and fills any target left out</text>
+    <text x="460" y="400" font-weight="700">speak</text>
+    <text x="460" y="422">the voice chain, first audio wins;</text>
+    <text x="460" y="444">a streaming voice goes first</text>
+    <text x="460" y="484" font-weight="700">locks</text>
+    <text x="460" y="506">one per language (--serial-tts: one)</text>
+  </g>
+
+  <line x1="772" y1="350" x2="848" y2="350" stroke="#16201D" stroke-width="2.4" marker-end="url(#arr)"/>
+
+  <!-- engines -->
+  <rect x="850" y="130" width="520" height="440" rx="14" fill="#FFFFFF" stroke="#16201D" stroke-width="2" stroke-dasharray="6 5"/>
+  <text x="870" y="165" font-size="19" font-weight="700" fill="#16201D">engines/*.py  +  $STACK_ENGINES_PATH</text>
+  <text x="870" y="190" font-size="14" fill="#5B6763">@register, discovered at start; named in languages.toml</text>
+
+  <rect x="870" y="210" width="480" height="92" rx="10" fill="#FFFFFF" stroke="#5B3FD9" stroke-width="2"/>
+  <rect x="870" y="210" width="8" height="92" fill="#5B3FD9"/>
+  <text x="892" y="238" font-size="15" font-weight="700" fill="#5B3FD9">Recognizer   asr = "…"</text>
+  <text x="892" y="264" font-size="15" fill="#16201D">whisper · omni:&lt;code&gt;</text>
+  <text x="892" y="288" font-size="13" fill="#5B6763">transcribe(pcm16k, lang) · words() for sentence cuts</text>
+
+  <rect x="870" y="316" width="480" height="92" rx="10" fill="#FFFFFF" stroke="#5B3FD9" stroke-width="2"/>
+  <rect x="870" y="316" width="8" height="92" fill="#5B3FD9"/>
+  <text x="892" y="344" font-size="15" font-weight="700" fill="#5B3FD9">Translator   translator = "…"</text>
+  <text x="892" y="370" font-size="15" fill="#16201D">hymt · madlad · echo (tests)</text>
+  <text x="892" y="394" font-size="13" fill="#5B6763">translate(sentences, src, targets) -&gt; {lang: text}</text>
+
+  <rect x="870" y="422" width="480" height="128" rx="10" fill="#FFFFFF" stroke="#A65F12" stroke-width="2"/>
+  <rect x="870" y="422" width="8" height="128" fill="#A65F12"/>
+  <text x="892" y="450" font-size="15" font-weight="700" fill="#A65F12">Voice   kokoro = … · piper = … · voice = […]</text>
+  <text x="892" y="476" font-size="15" fill="#16201D">kokoro · voxcpm · coqui · piper · mms · cosyvoice</text>
+  <text x="892" y="500" font-size="13" fill="#5B6763">synthesise(text, lang) -&gt; 24 kHz PCM16 · stream() (VoxCPM2)</text>
+  <text x="892" y="522" font-size="13" fill="#5B6763">lock_policy · priority in the default chain</text>
+  <text x="892" y="542" font-size="13" fill="#5B6763">shared: engines/common.py (to_pcm16, peak_normalise, is_nonspeech)</text>
+
+  <text x="40" y="606" font-size="15" fill="#16201D"><tspan font-weight="700">Add one:</tspan> copy engines/_template.py to engines/&lt;name&gt;.py, name it in languages.toml, run stack_config.py check and tools/smoke.py (docs/dev/adding-an-engine.md).</text>
+</svg>

@@ -1,0 +1,18 @@
+# The CPU protocol tests (tests/test_protocol.py): the real server.py with
+# stand-in models. Install CPU torch first (the default Linux wheel is the
+# ~2.5 GB CUDA build):
+#
+#   pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+#   pip install -r requirements-test.txt
+#
+# transformers stays below 5, as in scripts/install-deps.sh.
+faster-whisper
+transformers==4.57.6
+sentencepiece
+websockets
+scipy
+numpy
+piper-tts
+onnxruntime
+speechbrain
+pytest

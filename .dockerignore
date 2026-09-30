@@ -1,0 +1,18 @@
+# Only the stack's own files go into the image (LICENSE, NOTICE and
+# docs/licences.md's summary travel with it; the docs, eval data and the
+# developer tools in tools/ do not).
+.git/
+.github/
+docs/
+eval/
+tools/
+voices/*
+!voices/voxcpm/
+**/__pycache__/
+**/*.pyc
+.env
+.env.*
+!.env.example
+**/*.wav
+!voices/voxcpm/*.wav
+out-*/

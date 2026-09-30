@@ -1,0 +1,54 @@
+{
+ "en-lo": {
+  "hymt7b": [
+   0,
+   0
+  ],
+  "nllb3b": [
+   56,
+   0
+  ],
+  "madlad7b": [
+   53,
+   2
+  ],
+  "gemini_live": [
+   62,
+   2
+  ],
+  "madlad3b": [
+   39,
+   8
+  ]
+ },
+ "lo-en": {
+  "stack_audio (Omnilingual + NLLB)": [
+   36,
+   6
+  ],
+  "gemini_live": [
+   53,
+   7
+  ],
+  "stack_audio (Omnilingual + MADLAD 7B)": [
+   47,
+   6
+  ],
+  "nllb3b": [
+   55,
+   2
+  ],
+  "madlad3b": [
+   56,
+   4
+  ],
+  "madlad7b": [
+   65,
+   2
+  ],
+  "hymt7b": [
+   8,
+   9
+  ]
+ }
+}

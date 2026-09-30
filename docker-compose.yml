@@ -1,0 +1,73 @@
+# The stack on your own NVIDIA GPU (Linux, or Windows with WSL2):
+#
+#   cp .env.example .env      # then set STACK_TOKEN (and LANGS, EDITION, ...)
+#   docker compose up -d --build
+#   docker compose logs -f    # ready when it logs "ready on :8790"
+#
+# SECURITY: the stack has no accounts; the token is what keeps strangers out.
+# Never publish port 8790 beyond your LAN without STACK_TOKEN or
+# STACK_SIGNING_KEY set (the container refuses to start without one unless you
+# set STACK_OPEN=1, which is for a private LAN only). To reach it from outside,
+# put it behind TLS (a reverse proxy or tunnel) and keep the token.
+#
+# The named volume holds every model (~38 GB): the first start downloads and
+# builds them (30-60 min), every start after that takes a few minutes.
+#
+# The stack runs as the image's unprivileged user `stack` (uid 10001), not root.
+# volume-init hands the model volume to that user first: a fresh volume needs
+# nothing, one filled by an older root container has its files re-owned once
+# (later starts find nothing to change and finish at once).
+services:
+  volume-init:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: lithos-stack:local
+    user: root
+    command: ["bash", "-c", "find /workspace -xdev \\( ! -user 10001 -o ! -group 10001 \\) -exec chown -h 10001:10001 {} +"]
+    volumes:
+      - lithos-models:/workspace
+    restart: "no"
+
+  stack:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: lithos-stack:local
+    user: "10001:10001"
+    depends_on:
+      volume-init:
+        condition: service_completed_successfully
+    ports:
+      - "${STACK_PORT:-8790}:8790"
+    volumes:
+      - lithos-models:/workspace
+      # Per-language model choices: edit languages.toml, then
+      # `docker compose up -d --force-recreate` (a plain restart can keep the old file).
+      - ./languages.toml:/opt/stack/languages.toml:ro
+    # Every variable in .env reaches the container, so the other knobs in the
+    # README's table (STACK_MAX_*, VOXCPM_LANGS, ...) work too.
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      STACK_TOKEN: "${STACK_TOKEN:-}"
+      STACK_SIGNING_KEY: "${STACK_SIGNING_KEY:-}"
+      STACK_OPEN: "${STACK_OPEN:-0}"
+      # Target languages the room can listen in, and languages a guest may speak.
+      LANGS: "${LANGS:-en,es,fr,pt,de,ru,uk,zh,ja,km,lo,ht,ar,hi,vi,ko,tl,fa,id,tr,bn,ur,it,sw,ro}"
+      SRCS: "${SRCS:-en,es,fr,pt,de,ru,uk,it,zh,ja,ko,sw,km,lo,ht,ar,hi,vi,tl,fa,id,tr,bn,ur,ro}"
+      # nonprofit: Meta MMS voices (CC-BY-NC). commercial: no non-commercial weights.
+      EDITION: "${EDITION:-nonprofit}"
+      MADLAD: "${MADLAD:-7b}"
+      VOXCPM: "${VOXCPM:-1}"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    restart: unless-stopped
+volumes:
+  lithos-models:

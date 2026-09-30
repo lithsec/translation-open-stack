@@ -1,0 +1,204 @@
+{
+ "ar-en": {
+  "pct": 94,
+  "critical": 1,
+  "notes": [
+   "5: The translation gets the time wrong. 'الساعة الثانية عشرة إلا ربعًا' means 'a quarter to twelve' (11:45), not 'twelve forty-five' (12:45)."
+  ]
+ },
+ "bn-en": {
+  "pct": 74,
+  "critical": 6,
+  "notes": [
+   "3: The time '3:30' (সাড়ে তিনটে) was translated as '3'.",
+   "5: The verb 'leaves' (ছাড়ে) was incorrectly translated as 'arrived'.",
+   "6: 'Twenty minutes' (মিনিট কুড়ি) was translated as 'a few minutes'.",
+   "15: The duration 'an hour and a half' (দেড় ঘণ্টা) was incorrectly translated as 'two hours'.",
+   "16: The phrase 'in pairs?' was added, which is not present in the source.",
+   "17: The pronoun is wrong. The original specifies 'She', but the translation uses 'He'. Bengali 'ওর' is gender-neutral.",
+   "20: The word 'twice' was added at the end, which is not in the source.",
+   "21: The pronoun is wrong. The original specifies 'He', but the translation uses 'She'. Bengali 'ওর' is gender-neutral.",
+   "23: The translation incorrectly adds 'our Baji' (a term for older sister), which is not in the source sentence."
+  ]
+ },
+ "en-ar": {
+  "pct": 94,
+  "critical": 1,
+  "notes": [
+   "5: The time 'a quarter to twelve' is translated as 'في الربع ساعة قبل الثانية عشرة' which is very unnatural and literally 'in the quarter hour before twelve'. A native speaker would say 'الساعة الثانية عشرة إلا ربعاً'."
+  ]
+ },
+ "en-bn": {
+  "pct": 96,
+  "critical": 1,
+  "notes": [
+   "5: The translation for 'a quarter to twelve' (11:45) is incorrect and confusing ('বারোটার এক চতুর্থাংশ সময়ে'). The correct term is 'পৌনে বারোটায়'. Also, 'not at noon' should be 'দুপুর বারোটায় নয়', not 'দুপুর নয়'."
+  ]
+ },
+ "en-fa": {
+  "pct": 92,
+  "critical": 1,
+  "notes": [
+   "5: The time 'a quarter to twelve' (11:45) was incorrectly translated as 'نیمه‌ی دوازده' (half past eleven, 11:30). The correct term is 'یک ربع به دوازده'."
+  ]
+ },
+ "en-hi": {
+  "pct": 89,
+  "critical": 1,
+  "notes": [
+   "5: The translation for 'a quarter to twelve' is incorrect. 'बारह बजने से पहले ही' (just before twelve) is vague and loses the specific time of 11:45. The correct phrase is 'पौने बारह बजे'."
+  ]
+ },
+ "en-id": {
+  "pct": 94,
+  "critical": 1,
+  "notes": [
+   "5: The time is wrong. 'A quarter to twelve' (11:45) was translated as 'setengah sebelas' (10:30)."
+  ]
+ },
+ "en-it": {
+  "pct": 94,
+  "critical": 1,
+  "notes": [
+   "20: The verb 'mandatemi' is the plural 'you' (voi) form. The source implies a singular 'you', so it should be 'mandami' (informal) or 'mi mandi' (formal)."
+  ]
+ },
+ "en-ko": {
+  "pct": 96,
+  "critical": 1,
+  "notes": [
+   "5: The translation incorrectly states the time as 12:15 (a quarter past twelve) instead of 11:45 (a quarter to twelve)."
+  ]
+ },
+ "en-sw": {
+  "pct": 69,
+  "critical": 5,
+  "notes": [
+   "3: Incorrect verb agreement. \"Mkutano\" (meeting) is inanimate and should be \"ulihamishwa\" or \"umehamishwa\", not \"alihamia\" (which is for a person).",
+   "5: The time is translated incorrectly. \"A quarter to twelve\" is \"saa sita kasorobo\" (for noon) or \"saa kumi na mbili kasorobo\". \"robo ya kumi na mbili\" is not a standard way to tell time.",
+   "7: Critical error in time. \"Juzi\" means \"the day before yesterday\". The correct word for \"yesterday\" is \"jana\".",
+   "8: Incorrect verb conjugation. \"Mimi aliuliza\" is wrong; it should be \"niliuliza\". Also, \"chaguo vegetarian\" is an awkward, literal translation.",
+   "12: Incorrect word choice. \"aina\" is a noun meaning \"type/kind\". The adjective for \"kind\" is \"-karimu\". It should be \"umekuwa mkarimu sana\".",
+   "18: The grammar is incorrect. \"Kama mvua kesho\" should be \"Kama mvua itanyesha kesho\". \"sisi hoja picnic\" should be \"tutahamisha picnic\". \"hoja\" is a noun, not a verb.",
+   "21: Incorrect translation of a key medical term. \"maumivu ya kichwa\" means \"headache\", not \"dizzy\". The correct term for dizzy is \"kizunguzungu\".",
+   "23: The phrase \"kuwa na wewe zaidi\" is a nonsensical literal translation of \"have you over\". A correct phrasing would be \"kukukaribisha\" (to welcome you)."
+  ]
+ },
+ "en-tl": {
+  "pct": 89,
+  "critical": 1,
+  "notes": [
+   "5: The verb \"Umalis\" is in the past tense (\"left\"), which is incorrect. The source \"leaves\" refers to a schedule, so the future tense \"Aalis\" (\"will leave\") should have been used."
+  ]
+ },
+ "en-tr": {
+  "pct": 97,
+  "critical": 0,
+  "notes": []
+ },
+ "en-ur": {
+  "pct": 89,
+  "critical": 2,
+  "notes": [
+   "1: The translation incorrectly specifies 'صبح' (morning) for '5 o'clock', which is not in the source. It could be 5 pm.",
+   "3: The translation incorrectly states the meeting moved to 'بدھ' (Wednesday) instead of Thursday."
+  ]
+ },
+ "en-vi": {
+  "pct": 100,
+  "critical": 0,
+  "notes": []
+ },
+ "fa-en": {
+  "pct": 81,
+  "critical": 4,
+  "notes": [
+   "1: The translation says \"at the airport\" instead of \"to the airport\", which changes the meaning of the destination.",
+   "3: The translation incorrectly implies the session lasts from Tuesday to Thursday. The Persian means the meeting was rescheduled *from* Tuesday *to* Thursday.",
+   "5: The translation gets the time wrong. \"یک ربع به دوازده\" is 11:45 (a quarter to twelve), not 12:15.",
+   "14: The translation incorrectly renders the Persian word for \"monthly\" (ماهی) as \"for the fish\".",
+   "17: The date is wrong. \"سوم مارس\" is March 3rd, not March 13th. The pronoun is also changed from \"She\" (in the original) to \"He\".",
+   "21: The pronoun is incorrect. The original specifies \"He\", but the translation uses \"She\"."
+  ]
+ },
+ "hi-en": {
+  "pct": 93,
+  "critical": 2,
+  "notes": [
+   "17: The translation incorrectly uses 'He' when the original specifies 'She'. The Hindi 'उसका' is ambiguous, but the translation makes a choice that contradicts the intended meaning.",
+   "21: The translation incorrectly uses 'She' when the original specifies 'He'. The Hindi 'उसने'/'उसे' is ambiguous, but the translation makes a choice that contradicts the intended meaning."
+  ]
+ },
+ "id-en": {
+  "pct": 86,
+  "critical": 3,
+  "notes": [
+   "3: The time is wrong. 'Jam setengah empat' means 3:30, not 4:30.",
+   "17: The pronoun is wrong. The original specifies 'She', but the translation uses 'He'.",
+   "21: The pronoun is wrong. The original specifies 'He', but the translation uses 'She'."
+  ]
+ },
+ "it-en": {
+  "pct": 93,
+  "critical": 1,
+  "notes": [
+   "5: The time is wrong. 'Dodici meno un quarto' is 11:45 (a quarter to twelve), not 12:15."
+  ]
+ },
+ "ko-en": {
+  "pct": 88,
+  "critical": 3,
+  "notes": [
+   "17: The year is incorrect. The source says 2019 (이천십구 년), but the translation says 2119.",
+   "20: The phone number is transliterated ('OOO’s Gongilsa') instead of being translated into digits (555-0142), making it useless.",
+   "21: The subject is wrong. The Korean source '-대요' indicates reported speech (he/she said), but the translation uses the first person 'I'."
+  ]
+ },
+ "sw-en": {
+  "pct": 78,
+  "critical": 5,
+  "notes": [
+   "1: The time is wrong. 'Saa kumi na moja' in Swahili timekeeping refers to 5 o'clock, not 11 o'clock.",
+   "3: The days and times are wrong. The source says from Tuesday at 3:30 PM to Thursday at 10 AM. The translation gives completely different days and times.",
+   "5: The times are wrong. 'Saa sita kasorobo' is 11:45 (a quarter to twelve), and 'saa sita kamili' is 12:00 (noon). The translation gives 6:45 PM and 6:00 AM.",
+   "13: The first part of the question is mistranslated. 'Hapa pamekaliwa?' means 'Is this place/seat taken?', not 'Are you here by yourself?'.",
+   "15: The start time is wrong. 'Saa tatu' in Swahili timekeeping is 9 o'clock, not 3 o'clock.",
+   "17: The pronoun is wrong. The original specifies 'She', but the translation uses 'He'. Swahili 'Alizaliwa' is gender-neutral."
+  ]
+ },
+ "tl-en": {
+  "pct": 90,
+  "critical": 1,
+  "notes": [
+   "6: The time is incorrect. The source \"mga beinteng minuto\" means \"about twenty minutes,\" not \"a few minutes.\"",
+   "8: \"Ayaw ko po nung manok\" refers to not wanting the specific chicken dish served, whereas \"I don’t like chicken\" is a general statement of preference. This changes the meaning."
+  ]
+ },
+ "tr-en": {
+  "pct": 88,
+  "critical": 3,
+  "notes": [
+   "3: The translation incorrectly uses 'was scheduled from... to...' which implies a duration, instead of 'was moved from... to...' which correctly reflects the change in time.",
+   "10: The translation incorrectly uses 'wife' when the intended meaning was 'husband'. The Turkish source 'eşim' is gender-neutral for 'spouse'.",
+   "21: The translation incorrectly uses 'She' when the intended meaning was 'He'. The Turkish source is gender-neutral."
+  ]
+ },
+ "ur-en": {
+  "pct": 89,
+  "critical": 2,
+  "notes": [
+   "5: The translation completely misunderstands the time. \"پونے بارہ بجے\" (paune barah baje) means \"a quarter to twelve\" (11:45), not \"twelve o'clock in Pune\".",
+   "18: The translation adds \"all day\", which is not present in the source text.",
+   "21: The translation incorrectly changes the gender of the subject from male (\"He\") to female (\"She\"). The Urdu source is ambiguous, but the translation contradicts the English original."
+  ]
+ },
+ "vi-en": {
+  "pct": 89,
+  "critical": 2,
+  "notes": [
+   "5: The source \"mười hai giờ kém mười lăm\" means 11:45 (a quarter to twelve), but the translation says \"twelve fifteen\" (12:15). This is a critical time error.",
+   "7: The translation incorrectly says \"our three children\" instead of \"her three children\". This changes who the children belong to.",
+   "15: The translation incorrectly uses the past tense (\"started\", \"lasted\") for a statement that should be in the present tense (\"starts\", \"lasts\")."
+  ]
+ }
+}

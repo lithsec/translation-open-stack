@@ -1,0 +1,58 @@
+# Quick checks on every push and pull request: the unit tests, the language
+# config, and shell syntax. No models, no GPU, no Docker build (that is
+# stack-image.yml, run on demand).
+name: Checks
+
+on:
+  push:
+  pull_request:
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # numpy/scipy: the voices' audio helpers (tests/test_capacity.py); espeak-ng:
+      # the last-resort voice, tested for real, on the same Ubuntu package the pods use.
+      - name: Test dependencies
+        run: |
+          pip install numpy scipy
+          sudo apt-get install -y --no-install-recommends espeak-ng
+          espeak-ng --version
+
+      - name: Unit tests
+        run: |
+          python tests/test_stack_auth.py
+          python tests/test_stack_config.py
+          python tests/test_nonspeech.py
+          python tests/test_streaming.py
+          python tests/test_engines.py
+          python tests/test_licences.py
+          python tests/test_capacity.py
+          python tests/test_doc_links.py
+
+      - name: Language config (both editions)
+        run: |
+          python server/stack_config.py check
+          python server/stack_config.py check --edition commercial
+
+      - name: Shell syntax
+        run: |
+          for f in scripts/*.sh scripts/runpod/*.sh tools/*.sh; do echo "bash -n $f"; bash -n "$f"; done
+          shellcheck -S warning scripts/*.sh scripts/runpod/*.sh tools/*.sh
+
+      - name: Compose file
+        run: docker compose config --quiet
