@@ -27,9 +27,6 @@ who starts it.
 2. **Your own RunPod pod.** Rent a 48 GB GPU by the hour,
    keep the models on a network volume, and connect to
    `wss://<pod-id>-8790.proxy.runpod.net`. The pod stops itself when idle.
-3. **The Lithos-hosted launcher.** The Lithos apps can use Lithos's launcher at
-   `lithostalk.com`, which starts a pod on demand and hands the app a
-   short-lived token; there is nothing to install.
 
 ![Three ways to run it: your own GPU box with Docker, your own RunPod pod, or the Lithos launcher](docs/images/deployment.png)
 
@@ -62,9 +59,8 @@ step in between: the [user guide](docs/user-guide.md).
 
 ## Licence
 
-Copyright 2026 lithsec. Licensed under the [Apache License, Version 2.0](LICENSE);
-see [NOTICE](NOTICE). This code was developed inside the Lithos Live Translation
-repository, extracted into this one, and is published here under Apache 2.0 by
+Copyright 2026 Vortas, LLC. Licensed under the [Apache License, Version 2.0](LICENSE);
+see [NOTICE](NOTICE). This code was developed for Lithos Live Translation (translate.lithos.community), extracted into this one, and is published here under Apache 2.0 by
 its copyright holder.
 
 The third-party models, voices and libraries it downloads are under their own
