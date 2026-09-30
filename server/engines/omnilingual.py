@@ -17,7 +17,7 @@ import os
 
 from engines import register
 from engines.base import Recognizer, VAD_RATE
-from engines.common import is_gpu, is_nonspeech, on_device
+from engines.common import is_nonspeech, on_device
 
 
 @register
@@ -45,11 +45,14 @@ class Omnilingual(Recognizer):
             from omnilingual_asr.models.inference.pipeline import ASRInferencePipeline
             card = self.ctx.models["omnilingual"]["card"]
             print(f"[stack] loading Omnilingual ASR ({card}) on {self.device}…")
-            # The pipeline picks "cuda" itself when there is a GPU; on_device makes
-            # that the configured card, and a CPU placement is passed explicitly.
+            # The configured device, passed explicitly: the pipeline moves its
+            # inputs to its own `device`, and left to itself that is "cuda", read
+            # as card 0, while the weights followed the current card (a 2-GPU pod
+            # failed every Khmer utterance that way, 2026-09-30). on_device covers
+            # fairseq2 code that still says plain "cuda".
             import inspect
             kw = {}
-            if not is_gpu(self.device) and "device" in inspect.signature(ASRInferencePipeline).parameters:
+            if "device" in inspect.signature(ASRInferencePipeline).parameters:
                 kw["device"] = self.device
             with on_device(self.device):
                 self.omni = ASRInferencePipeline(model_card=card, **kw)
