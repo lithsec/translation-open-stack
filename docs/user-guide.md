@@ -16,6 +16,7 @@ the [reference](reference.md); licences are in [licences.md](licences.md).
 - [Route a language to another recogniser or translator](#route-a-language-to-another-recogniser-or-translator)
 - [Replace a model or a revision](#replace-a-model-or-a-revision)
 - [GPUs and capacity](#gpus-and-capacity)
+- [Hardware profiles: other GPUs, two GPUs, AMD, Mac](#hardware-profiles-other-gpus-two-gpus-amd-mac)
 - [Verify with the smoke test](#verify-with-the-smoke-test)
 - [Update](#update)
 - [Troubleshooting](#troubleshooting)
@@ -574,7 +575,8 @@ and ro are text only in commercial.
 ### Fitting a 32 GB card
 
 The ~33 GB idle footprint is past a 32 GB card (RTX PRO 4500, RTX 5090) before
-anyone speaks. To use one anyway:
+anyone speaks. `STACK_PROFILE=cuda-32gb` makes the usual choice (`MADLAD=3b`)
+for you. The options:
 
 | Option | Saves | Costs |
 |---|---|---|
@@ -588,6 +590,60 @@ With `MADLAD=3b` the start builds MADLAD 3B into `/workspace/madlad-ct2`
 per hour than a 48 GB card of the same generation; check RunPod's current
 prices. Measurements behind these numbers:
 [model-evaluation.md §5](dev/model-evaluation.md#5-fitting-on-a-24-gb-card).
+
+## Hardware profiles: other GPUs, two GPUs, AMD, Mac
+
+The languages and the edition say *what* is served; a **profile** says *on
+what*. One variable picks it, and it can move each model to a chosen card,
+swap a model for a smaller one, set the scripts' defaults, and reroute a
+language whose recogniser can't run on that hardware:
+
+```bash
+python3 server/stack_config.py profiles             # what ships
+python3 server/stack_config.py profile cuda-2gpu    # exactly what it changes
+STACK_PROFILE=cuda-2gpu                             # in .env, or the pod's environment
+```
+
+| Profile | Hardware | Status |
+|---|---|---|
+| `cuda-48gb` | one 48 GB NVIDIA GPU | the reference; same as no profile |
+| `cuda-32gb` | one 32 GB NVIDIA GPU | `MADLAD=3b` ([above](#fitting-a-32-gb-card)) |
+| `cuda-2gpu` | two NVIDIA GPUs, 24 GB+ each | translators on GPU 0, recognition and voices on GPU 1 |
+| `radeon-32+16` | AMD R9700 32 GB + RX 9060 XT 16 GB | **preview, not yet run**; needs a ROCm build (below) |
+
+**Your own split.** Copy a profile to `profiles/<yours>.toml` and edit it, or
+move single models without a file: `STACK_DEVICES=kokoro=cuda:0,mms=cpu`. At
+start the log shows each model's share of its card
+(`[stack] whisper on cuda:1: +3.3 GB`); plan from those. The format:
+[reference, "Profiles and devices"](reference.md#profiles-and-devices).
+
+**Swap a model for the hardware.** A profile's `[models.<name>]` replaces a
+model only when that profile is in use, e.g. a lighter Whisper for a small card:
+
+```toml
+[models.whisper]
+model = "large-v3-turbo"
+revision = ""        # or the commit you tested
+```
+
+**AMD (ROCm), today.** Nothing in this repository installs a ROCm build yet,
+so it takes work by hand, on Linux with ROCm 7.2 or later:
+
+- PyTorch for ROCm, in place of the CUDA build.
+- CTranslate2's ROCm wheel (Whisper and MADLAD) from its
+  [GitHub releases](https://github.com/OpenNMT/CTranslate2/releases)
+  (`rocm-python-wheels-Linux.zip`); it is built for RDNA 2-4 cards including
+  the R9700 (gfx1201) and RX 9060 XT (gfx1200), not for Instinct cards.
+- Hy-MT2's 4-bit build needs bitsandbytes with ROCm support for your card;
+  untested.
+- Omnilingual (fairseq2) publishes no ROCm packages: route its languages to
+  Whisper in the profile (`[languages.km] asr = "whisper"`, and so on), at
+  lower quality for them.
+- Then `STACK_PROFILE=radeon-32+16`. Please report what worked.
+
+**Mac.** Not yet: Docker on a Mac cannot reach the GPU, and CTranslate2 and
+Omnilingual have no Apple GPU support. A native Apple Silicon setup (Whisper
+and Hy-MT2 through MLX, fewer languages) is planned.
 
 ## Verify with the smoke test
 

@@ -85,7 +85,7 @@ class Kokoro(Voice):
         argument, so it gets them as paths); one model per pipeline, as before."""
         from kokoro import KModel, KPipeline
         repo, rev = self.ctx.models["kokoro"]["repo"], self.ctx.models["kokoro"]["revision"]
-        device = self.ctx.device
+        device = self.device
         if not rev:
             return KPipeline(lang_code=code, repo_id=repo, device=device), None
         weights = KModel.MODEL_NAMES.get(repo, "kokoro-v1_0.pth")

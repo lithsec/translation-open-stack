@@ -8,7 +8,7 @@ obligation, but a redistributable one.
 """
 from engines import register
 from engines.base import Voice
-from engines.common import peak_normalise, to_pcm16
+from engines.common import is_gpu, on_device, peak_normalise, to_pcm16
 
 
 @register
@@ -53,12 +53,14 @@ class Coqui(Voice):
                     spk = hf_hub_download(repo, "speakers.pth")
                 except Exception:
                     spk = None
-                self.synths[lang] = Synthesizer(
-                    tts_checkpoint=ckpt, tts_config_path=cfg,
-                    tts_speakers_file=spk, use_cuda=(self.ctx.device == "cuda"))
+                # Coqui only ever says "cuda": on_device makes that the configured card.
+                with on_device(self.device):
+                    self.synths[lang] = Synthesizer(
+                        tts_checkpoint=ckpt, tts_config_path=cfg,
+                        tts_speakers_file=spk, use_cuda=is_gpu(self.device))
                 print(f"[stack] {lang}: {repo}", flush=True)
             syn = self.synths[lang]
-            with self.lock(lang):
+            with self.lock(lang), on_device(self.device):
                 pcm = np.asarray(syn.tts(text), dtype="float32").squeeze()
             # This model pads roughly a SECOND of dead air onto each end —
             # measured 3.86s of audio for 1.68s of speech. Left in, every

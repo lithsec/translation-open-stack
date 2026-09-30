@@ -209,8 +209,10 @@ every key you still want.
 3. **Load.** `load()` runs once, before the server says "ready", in a fixed
    order: the built-ins as they always loaded (Whisper, then language ID, then
    Omnilingual, CosyVoice, Coqui, VoxCPM2, Hy-MT2, Kokoro, MADLAD, Piper, MMS),
-   then new engines by name. It gets `self.ctx`: `device` (`"cuda"` or
-   `"cpu"`), `models` (the merged `[models]`), `table` (the language tables),
+   then new engines by name. Load onto `self.device` (`"cuda"`, `"cuda:1"`,
+   `"mps"` or `"cpu"`: its `[devices]` entry, else the default; see
+   [Profiles and devices](../reference.md#profiles-and-devices)), not a fixed
+   `"cuda"`. It gets `self.ctx`: `models` (the merged `[models]`), `table` (the language tables),
    `langs`, `srcs`, `options` (the server's flags) and `engine(kind, name)`
    (another loaded engine). Set `self.available = True` when ready. Raise to
    stop the server when the engine is essential; for an optional one, catch,

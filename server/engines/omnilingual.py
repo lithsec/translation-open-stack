@@ -17,7 +17,7 @@ import os
 
 from engines import register
 from engines.base import Recognizer, VAD_RATE
-from engines.common import is_nonspeech
+from engines.common import is_gpu, is_nonspeech, on_device
 
 
 @register
@@ -44,8 +44,15 @@ class Omnilingual(Recognizer):
         try:
             from omnilingual_asr.models.inference.pipeline import ASRInferencePipeline
             card = self.ctx.models["omnilingual"]["card"]
-            print(f"[stack] loading Omnilingual ASR ({card})…")
-            self.omni = ASRInferencePipeline(model_card=card)
+            print(f"[stack] loading Omnilingual ASR ({card}) on {self.device}…")
+            # The pipeline picks "cuda" itself when there is a GPU; on_device makes
+            # that the configured card, and a CPU placement is passed explicitly.
+            import inspect
+            kw = {}
+            if not is_gpu(self.device) and "device" in inspect.signature(ASRInferencePipeline).parameters:
+                kw["device"] = self.device
+            with on_device(self.device):
+                self.omni = ASRInferencePipeline(model_card=card, **kw)
             self.available = True
         except Exception as e:
             print(f"[stack] Omnilingual unavailable ({e}) — ht/km/lo/sw fall back to whisper (poor)")
@@ -62,7 +69,8 @@ class Omnilingual(Recognizer):
                 with _wave.open(fh, "wb") as w:
                     w.setnchannels(1); w.setsampwidth(2); w.setframerate(VAD_RATE)
                     w.writeframes((_np.clip(pcm16k, -1, 1) * 32767).astype("<i2").tobytes())
-            out = self.omni.transcribe([path], lang=[self.codes[lang]], batch_size=1)
+            with on_device(self.device):
+                out = self.omni.transcribe([path], lang=[self.codes[lang]], batch_size=1)
         finally:
             os.unlink(path)
         text = (out[0] if out else "").strip()

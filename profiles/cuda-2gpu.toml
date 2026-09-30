@@ -1,0 +1,24 @@
+# Two NVIDIA cards of 24 GB or more (e.g. 2x RTX 4090, 2x A5000): the
+# translators on the first, speech recognition and the voices on the second.
+# Neither card needs to hold the whole ~33 GB stack.
+#
+#   STACK_PROFILE=cuda-2gpu
+#
+# Docker: give the container both cards (docker-compose.yml, `count: all`).
+#
+# Each model's share is printed at start ("[stack] hymt on cuda:0: +5.6 GB");
+# move one with STACK_DEVICES=kokoro=cuda:0 without editing this file.
+description = "Two NVIDIA GPUs (24 GB+ each): translators on GPU 0, recognition and voices on GPU 1"
+
+[env]
+VOXCPM_GPUS = "1"
+
+[devices]
+default = "cuda:0"
+hymt = "cuda:0"
+madlad = "cuda:0"
+whisper = "cuda:1"
+omni = "cuda:1"
+kokoro = "cuda:1"
+coqui = "cuda:1"
+mms = "cuda:1"

@@ -45,6 +45,8 @@ services:
       # Per-language model choices: edit languages.toml, then
       # `docker compose up -d --force-recreate` (a plain restart can keep the old file).
       - ./languages.toml:/opt/stack/languages.toml:ro
+      # Hardware profiles (STACK_PROFILE); yours can go here too.
+      - ./profiles:/opt/stack/profiles:ro
     # Every variable in .env reaches the container, so the other knobs in the
     # README's table (STACK_MAX_*, VOXCPM_LANGS, ...) work too.
     env_file:
@@ -59,7 +61,9 @@ services:
       SRCS: "${SRCS:-en,es,fr,pt,de,ru,uk,it,zh,ja,ko,sw,km,lo,ht,ar,hi,vi,tl,fa,id,tr,bn,ur,ro}"
       # nonprofit: Meta MMS voices (CC-BY-NC). commercial: no non-commercial weights.
       EDITION: "${EDITION:-nonprofit}"
-      MADLAD: "${MADLAD:-7b}"
+      # The hardware profile (profiles/*.toml). MADLAD is not defaulted here, so a
+      # profile can choose it; set it in .env to override the profile.
+      STACK_PROFILE: "${STACK_PROFILE:-}"
       VOXCPM: "${VOXCPM:-1}"
     deploy:
       resources:

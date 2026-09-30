@@ -1,0 +1,10 @@
+# One 32 GB NVIDIA card (RTX 5090, RTX PRO 4500). The full stack holds ~33 GB
+# before anyone speaks, so the fallback translator drops to MADLAD 3B (~5 GB
+# less). Swahili, Haitian Creole, Lao and Romanian, which only MADLAD
+# translates, get somewhat worse: docs/user-guide.md, "Fitting a 32 GB card".
+#
+#   STACK_PROFILE=cuda-32gb
+description = "One 32 GB NVIDIA GPU: MADLAD 3B instead of 7B"
+
+[env]
+MADLAD = "3b"

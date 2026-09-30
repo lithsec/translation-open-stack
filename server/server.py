@@ -113,6 +113,9 @@ _T = stack_config.tables(LANG_CONFIG)
 # [models] (Silero, language ID, Omnilingual, Kokoro here; Whisper, the
 # translators and VoxCPM2 arrive as flags from scripts/run.sh).
 MODELS, _ = stack_config.load_models()
+# Which device each model loads on: [devices] in languages.toml, the profile
+# (STACK_PROFILE), STACK_DEVICES. Unset: everything on the first GPU, as always.
+DEVICES = stack_config.load_devices()
 # [licence_review]: unclear (❓) items the operator reviewed and admits in
 # EDITION=commercial (docs/licences.md §2). The EngineSet enforces the edition.
 LICENCE_REVIEW = stack_config.load_reviews()
@@ -262,8 +265,19 @@ class Pipeline:
         from transformers import T5ForConditionalGeneration, T5Tokenizer  # noqa: F401
 
         self.langs = list(langs)   # the target languages a client may ask for (?lang=)
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
-        print(f"[stack] device={self.device}")
+        from engines.common import resolve_device
+        devices = {k: resolve_device(v) for k, v in DEVICES.items()}
+        self.device = devices.pop("default")
+        n_gpu = torch.cuda.device_count() if torch.cuda.is_available() else 0
+        for name, dev in [("default", self.device)] + sorted(devices.items()):
+            kind, _, idx = dev.partition(":")
+            # Loud: a model placed on a card that isn't there would otherwise
+            # fail deep inside a library, or land on the CPU unnoticed.
+            if kind == "cuda" and int(idx or 0) >= n_gpu:
+                raise SystemExit(f"[stack] [devices] {name} = {dev}, but this machine has {n_gpu} GPU(s)")
+            if kind == "mps" and not (hasattr(torch.backends, "mps") and torch.backends.mps.is_available()):
+                raise SystemExit(f"[stack] [devices] {name} = mps, but PyTorch sees no Apple GPU")
+        print(f"[stack] device={self.device}" + "".join(f", {k}={v}" for k, v in sorted(devices.items())))
         vad = MODELS["vad"]
         hub = f"{vad['repo']}:{vad['ref']}" if vad["ref"] else vad["repo"]
         print(f"[stack] loading Silero VAD ({hub})…")
@@ -272,7 +286,7 @@ class Pipeline:
         self.srcs = srcs or ["en"]
 
         ctx = Context(
-            device=self.device, models=MODELS, table=LANG_CONFIG, tables=_T, langs=langs, srcs=self.srcs,
+            device=self.device, devices=devices, models=MODELS, table=LANG_CONFIG, tables=_T, langs=langs, srcs=self.srcs,
             options=dict(xeng=xeng, clone_ref=clone_ref, omni=omni, mms=mms, asr_model=asr_model,
                          asr_multi_model=asr_multi_model, asr_revision=asr_revision,
                          asr_multi_revision=asr_multi_revision, mt_model=mt_model,
@@ -295,6 +309,9 @@ class Pipeline:
             try:
                 from speechbrain.inference.classifiers import EncoderClassifier
                 lid = MODELS["lid"]
+                # On the CPU unless [devices] lid names a device (as before: it is small,
+                # and one classification per utterance).
+                lid_opts = {"device": devices["lid"]} if "lid" in devices else None
                 pin = f" @ {lid['revision']}" if lid["revision"] else ""
                 print(f"[stack] loading {lid['repo']}{pin} for src=auto…")
                 if lid["revision"]:
@@ -303,9 +320,11 @@ class Pipeline:
                     # its checkpoints, so point that at the snapshot too.
                     local = hf_snapshot(lid["repo"], lid["revision"])
                     self.lid = EncoderClassifier.from_hparams(
-                        source=local, savedir="/tmp/voxlingua-ecapa", overrides={"pretrained_path": local})
+                        source=local, savedir="/tmp/voxlingua-ecapa", overrides={"pretrained_path": local},
+                        run_opts=lid_opts)
                 else:
-                    self.lid = EncoderClassifier.from_hparams(source=lid["repo"], savedir="/tmp/voxlingua-ecapa")
+                    self.lid = EncoderClassifier.from_hparams(source=lid["repo"], savedir="/tmp/voxlingua-ecapa",
+                                                              run_opts=lid_opts)
                 enc = self.lid.hparams.label_encoder
                 for lg in self.srcs:
                     for k in enc.lab2ind:

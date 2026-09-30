@@ -15,6 +15,8 @@ set -euo pipefail
 python3 -c "import hf_transfer" 2>/dev/null || export HF_HUB_ENABLE_HF_TRANSFER=0
 DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$DIR/.." && pwd)"
+# shellcheck source=profile-env.sh
+. "$DIR/profile-env.sh"   # STACK_PROFILE's [env] defaults
 
 if [ -z "${STACK_SIGNING_KEY:-}" ] && [ -z "${STACK_TOKEN:-}" ]; then
   if [ "${STACK_OPEN:-0}" != 1 ]; then
