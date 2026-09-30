@@ -24,9 +24,12 @@ who starts it.
 1. **Your own GPU, with Docker.** A 48 GB NVIDIA card (32 GB with a smaller
    translator), Linux or Windows WSL2, Docker with the NVIDIA Container
    Toolkit. No per-hour bill, and audio never leaves your network.
-2. **Your own RunPod pod.** Rent a 48 GB GPU by the hour,
-   keep the models on a network volume, and connect to
-   `wss://<pod-id>-8790.proxy.runpod.net`. The pod stops itself when idle.
+2. **Your own RunPod pod.** Rent a 48 GB GPU by the hour: one click on
+   **[Deploy on RunPod](https://console.runpod.io/deploy?template=dftcc24b6q)**
+   (the prebuilt image `ghcr.io/lithsec/translation-open-stack`), then connect to
+   `wss://<pod-id>-8790.proxy.runpod.net` with the access key the pod prints in
+   its log. The pod stops itself when idle. Steps:
+   [user guide](docs/user-guide.md#one-click-the-runpod-template).
 
 ![Three ways to run it: your own GPU box with Docker, your own RunPod pod, or the Lithos launcher](docs/images/deployment.png)
 

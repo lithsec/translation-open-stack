@@ -121,6 +121,41 @@ only while a pod runs. The models live on a **network volume** that outlives
 the pods, so after the first start a pod is serving in about 5-8 minutes.
 Everything here is in RunPod's web console; nothing depends on Lithos servers.
 
+### One click: the RunPod template
+
+The quickest way (tested 2026-09-30 on an RTX A6000: first start to ready in
+14 minutes, smoke test all passed). The template runs the published image
+`ghcr.io/lithsec/translation-open-stack` (every package installed; no model
+weights, which download on first start; the GPL programs inside ship with their
+licence and source in `/opt/stack/licences`).
+
+1. Open the template: **[Deploy on RunPod](https://console.runpod.io/deploy?template=dftcc24b6q)**.
+2. Pick a **48 GB GPU** (see [GPUs and capacity](#gpus-and-capacity)).
+   Optional, under **Edit template**: `EDITION` (`nonprofit` or `commercial`),
+   `STACK_IDLE_MIN`, and new variables such as `LANGS` / `SRCS` or your own
+   `STACK_TOKEN`. The pod's own 60 GB volume holds the models. Optional: attach a **network volume** of
+   60 GB+ instead of the pod's own volume, so the models outlive the pod and
+   any new pod in that data center starts in minutes.
+3. **Deploy.** Open the pod's **Logs**. Near the top:
+
+   ```
+   == connect: wss://<pod-id>-8790.proxy.runpod.net
+   == access key: <64 hex characters>
+   ```
+
+   With no `STACK_TOKEN` set, the pod makes a random one, saves it in
+   `/workspace/.stack-token` and prints it once; later,
+   `cat /workspace/.stack-token` in the pod's terminal shows it again.
+4. **Wait** 30-60 minutes the first time (~60 GB of downloads and the
+   translator build), a few minutes after that. It is ready at
+   `[stack] ready on :8790`.
+5. Put the URL and the access key in your app ([Connect apps](#connect-apps)).
+
+The pod stops itself when idle, as in step 7 below. The rest of this section
+is the same setup by hand, on the stock image.
+
+### By hand
+
 1. **Create a network volume**, 60 GB, in a data center that has 48 GB GPUs
    (Storage -> Network Volumes; billed monthly by size). The models take ~38 GB. A
    volume can only be attached when a pod is created, and only to a pod in its
