@@ -1598,17 +1598,39 @@ def warmup(pipe, langs):
     """First calls compile CUDA kernels and build caches — measured as
     seconds of the FIRST utterance's latency (Spanish paid ~3s of it in the
     first bench). Pay it at boot instead, before "ready" is printed, so no
-    listener ever does."""
+    listener ever does.
+
+    The voices warm in parallel, one thread per voice ENGINE (the first in each
+    language's chain), each going through its own languages in turn: every
+    language is still warmed, but no engine is ever called by two warm-up
+    threads at once (VoxCPM2 takes one sentence at a time, and a second would
+    overflow to eSpeak). Sequentially this took ~34 s on a GPU with 25 languages.
+    STACK_WARM_LANGS=en,es limits it to those languages (the rest then pay their
+    first-call cost, a few seconds, on their first sentence)."""
     import numpy as np, time
+    from concurrent.futures import ThreadPoolExecutor
     t0 = time.time()
+    only = [l.strip() for l in os.environ.get("STACK_WARM_LANGS", "").split(",") if l.strip()]
+    langs = [l for l in langs if l in only] if only else list(langs)
     silence = np.zeros(VAD_RATE, dtype=np.float32)
     pipe.transcribe(silence, "en")
     if pipe.asr_multi is not None:
         pipe.transcribe(silence, "es")
-    texts = pipe.translate_batch("Hello, welcome to the service.", langs)
+    texts = pipe.translate_batch("Hello, welcome to the service.", langs) if langs else []
+    by_engine = {}
     for lg, tr in zip(langs, texts):
-        pipe.synthesise(tr, lg)
-    print(f"[stack] warm in {time.time() - t0:.1f}s — first utterance pays nothing")
+        chain = pipe.engines.chain(lg)
+        by_engine.setdefault(chain[0].name if chain else "", []).append((lg, tr))
+
+    def warm(pairs):
+        for lg, tr in pairs:
+            pipe.synthesise(tr, lg)
+
+    with ThreadPoolExecutor(max(1, len(by_engine)), thread_name_prefix="warm") as pool:
+        for f in [pool.submit(warm, pairs) for pairs in by_engine.values()]:
+            f.result()
+    print(f"[stack] warm in {time.time() - t0:.1f}s ({len(langs)} languages, "
+          f"{len(by_engine)} voice engines in parallel) — first utterance pays nothing")
 
 
 async def main():
