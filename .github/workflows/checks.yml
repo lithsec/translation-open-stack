@@ -44,6 +44,7 @@ jobs:
           python tests/test_capacity.py
           python tests/test_doc_links.py
           python tests/test_profiles.py
+          python tests/test_mlx_backends.py
 
       - name: Language config (both editions)
         run: |

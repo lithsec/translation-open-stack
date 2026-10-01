@@ -51,6 +51,11 @@ MODELS_BEFORE = {
     "kokoro": {"repo": "hexgrad/Kokoro-82M", "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987"},
     "voxcpm": {"repo": "openbmb/VoxCPM2", "revision": "32279effe8c19989596f05d353d1447f51d9e915"},
 }
+# Added 2026-09-30 for Macs (used only when [devices] puts whisper or hymt on "mps").
+MLX_MODELS = {
+    "whisper_mlx": {"repo": "mlx-community/whisper-large-v3-turbo", "revision": "a4aaeec0636e6fef84abdcbe3544cb2bf7e9f6fb"},
+    "hymt_mlx": {"repo": "mlx-community/Hy-MT2-7B-4bit", "revision": "9b7204bdb161490a8ce49ce607c1310cc3fd03ad"},
+}
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 
 
@@ -116,7 +121,7 @@ def test_bad_entries_fail_loudly():
 
 
 def test_model_defaults_are_the_deployed_models():
-    assert c.MODEL_DEFAULTS == MODELS_BEFORE
+    assert c.MODEL_DEFAULTS == {**MODELS_BEFORE, **MLX_MODELS}
 
 
 def test_vad_is_pinned_to_a_commit():
@@ -138,7 +143,7 @@ def test_models_absent_file_means_defaults():
         models, src = c.load_models()
     finally:
         c.DEFAULT_FILE = shipped
-    assert src == "built-in defaults" and models == MODELS_BEFORE
+    assert src == "built-in defaults" and models == {**MODELS_BEFORE, **MLX_MODELS}
 
 
 def test_models_override_merges_per_key():

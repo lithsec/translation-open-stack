@@ -277,6 +277,19 @@ MODELS = {
     "google/madlad400-3b-mt": ENGINES["madlad"]._replace(url="https://huggingface.co/google/madlad400-3b-mt"),
     "hexgrad/Kokoro-82M": ENGINES["kokoro"],
     "openbmb/VoxCPM2": ENGINES["voxcpm"],
+    # MLX conversions (Apple GPU) of the same weights, by mlx-community; the
+    # licence travels with the weights (LICENSE.txt is in the Hy-MT2 repos).
+    "mlx-community/whisper-large-v3-turbo": Lic(
+        PERMISSIVE, "MIT", "OpenAI Whisper large-v3-turbo (MIT), converted to MLX",
+        "https://huggingface.co/mlx-community/whisper-large-v3-turbo"),
+    "mlx-community/Hy-MT2-7B-4bit": ENGINES["hymt"]._replace(
+        revision="9b7204bdb161490a8ce49ce607c1310cc3fd03ad",
+        reason="tencent/Hy-MT2-7B (Apache 2.0, LICENSE.txt included), quantized to 4-bit MLX",
+        url="https://huggingface.co/mlx-community/Hy-MT2-7B-4bit"),
+    "mlx-community/Hy-MT2-1.8B-4bit": ENGINES["hymt"]._replace(
+        revision="e5c6fe56c7b3bc77fae5ae92db31f2178f1e6912",
+        reason="tencent/Hy-MT2-1.8B (Apache 2.0), quantized to 4-bit MLX",
+        url="https://huggingface.co/mlx-community/Hy-MT2-1.8B-4bit"),
 }
 # Which key of a [models.<name>] table names the model.
 MODEL_KEYS = ("repo", "model", "card")

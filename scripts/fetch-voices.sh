@@ -17,11 +17,13 @@
 # does not list) is an error, and this script exits non-zero after trying the
 # rest. A voice not yet locked: python3 scripts/lock-voices.py <voice>.
 set -euo pipefail
+# STACK_HOME: where models, voices and caches live (a pod's volume; a folder on a Mac).
+W="${STACK_HOME:-/workspace}"
 DIR="$(cd "$(dirname "$0")" && pwd)"
 SERVER="$(cd "$DIR/../server" && pwd)"   # stack_config.py
 LOCK="${VOICES_LOCK:-$DIR/../voices.lock}"
 LANGS="${1:-en,es,fr,pt}"
-DEST="${VOICES_DIR:-/workspace/voices}"
+DEST="${VOICES_DIR:-$W/voices}"
 [ -f "$LOCK" ] || { echo "ERROR: $LOCK missing: voices are only fetched pinned" >&2; exit 1; }
 REPO="$(awk '$1 == "repo" { print $2 }' "$LOCK")"
 REV="$(awk '$1 == "revision" { print $2 }' "$LOCK")"

@@ -40,6 +40,11 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 CONSTRAINTS="${CONSTRAINTS:-$ROOT/constraints.txt}"
 [ -f "$CONSTRAINTS" ] || { echo "ERROR: $CONSTRAINTS missing: packages are only installed pinned" >&2; exit 1; }
 pipi() { pip -q install --break-system-packages -c "$CONSTRAINTS" "$@"; }
+# macOS (Apple Silicon; scripts/mac/install.sh runs this inside its virtualenv):
+# no bitsandbytes (CUDA-only 4-bit) and no Omnilingual (fairseq2 has no Apple
+# GPU support); MLX instead, for Whisper and Hy-MT2 on the Apple GPU.
+MAC=0; [ "$(uname -s)" = Darwin ] && MAC=1
+sha256_ok() { if command -v sha256sum >/dev/null; then echo "$1  $2" | sha256sum -c --quiet -; else echo "$1  $2" | shasum -a 256 -c --quiet -; fi; }
 # transformers is PINNED below 5. Reproduced on 2026-08-28 against 5.16.1:
 # MADLAD generates degenerate output — "ll ll ll ll…", "ty u u e je je ij…" —
 # the same failure first seen as "ue ue ue".
@@ -62,7 +67,13 @@ pipi() { pip -q install --break-system-packages -c "$CONSTRAINTS" "$@"; }
 # (--mt-ct2), so transformers is off the hot path entirely.
 #
 # accelerate + bitsandbytes: the 4-bit Hy-MT2 translator (prepare-mt.sh).
-pipi faster-whisper 'transformers==4.57.6' sentencepiece websockets scipy numpy piper-tts speechbrain accelerate bitsandbytes
+if [ "$MAC" = 1 ]; then
+  pipi faster-whisper 'transformers==4.57.6' sentencepiece websockets scipy numpy piper-tts speechbrain accelerate \
+    torch torchaudio
+  pip -q install -c "$CONSTRAINTS" -c "$ROOT/constraints-mac.txt" mlx mlx-lm mlx-whisper
+else
+  pipi faster-whisper 'transformers==4.57.6' sentencepiece websockets scipy numpy piper-tts speechbrain accelerate bitsandbytes
+fi
 
 # ---- Kokoro TTS (en/es/fr/it/pt) ---------------------------------------------
 # 82M, Apache 2.0, and it emits 24kHz — the pipeline's own rate, so those
@@ -81,7 +92,7 @@ UNIDIC_URL=https://cotonoha-dic.s3-ap-northeast-1.amazonaws.com/unidic-3.1.0.zip
 UNIDIC_SHA256=638718c4c63625ab300de4c92c67925d54c0e9e3830009eaa992f29819d59c43
 unidic_zip="$(mktemp)"
 curl -sL --fail "$UNIDIC_URL" -o "$unidic_zip"
-echo "$UNIDIC_SHA256  $unidic_zip" | sha256sum -c --quiet - ||
+sha256_ok "$UNIDIC_SHA256" "$unidic_zip" ||
   { echo "ERROR: $UNIDIC_URL does not match its pinned sha256" >&2; rm -f "$unidic_zip"; exit 1; }
 python3 -c 'import sys, unidic.download as d; d.download_and_clean("3.1.0+2021-08-31", "file://" + sys.argv[1])' "$unidic_zip"
 rm -f "$unidic_zip"
@@ -133,6 +144,10 @@ rm -f "$coqui_c"
 # numpy, which strands scipy — "module 'numpy' has no attribute 'long'" at T5
 # import — and repins torch, which breaks the torchaudio pairing. Install all
 # three together so pip resolves them in one pass.
+# On a Mac Omnilingual is skipped, but its scipy pin still matters: coqui-tts above
+# brought scipy 1.18 (numpy 2), and everything else runs on numpy 1.26.4.
+[ "$MAC" = 1 ] && echo "macOS: skipping Omnilingual (its languages use Whisper; profiles/mac.toml)" &&
+  pipi 'scipy==1.13.1' ||
 pipi omnilingual-asr 'torchaudio==2.8.0' 'scipy==1.13.1' ||
   warn "omnilingual-asr failed to install — ht/km/lo/sw will fall back to whisper, which produces fluent nonsense for them."
 

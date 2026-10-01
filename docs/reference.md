@@ -672,7 +672,7 @@ python3 tests/test_stack_auth.py && python3 tests/test_stack_config.py
 python3 tests/test_nonspeech.py && python3 tests/test_streaming.py
 python3 tests/test_engines.py && python3 tests/test_licences.py
 python3 tests/test_doc_links.py && python3 tests/test_capacity.py
-python3 tests/test_profiles.py
+python3 tests/test_profiles.py && python3 tests/test_mlx_backends.py
 python3 server/stack_config.py check
 ```
 

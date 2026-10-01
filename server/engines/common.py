@@ -2,6 +2,7 @@
 non-speech filter. Moved here unchanged from server.py (2026-09-29), so every
 engine gets the same seams, the same levels and the same filtering."""
 import re
+import threading
 
 from engines.base import RATE, VAD_RATE  # noqa: F401  (re-exported for engines)
 
@@ -49,6 +50,24 @@ def on_device(device):
         return contextlib.nullcontext()
     import torch
     return torch.cuda.device(int(index))
+
+
+_MLX = []
+_MLX_GUARD = threading.Lock()
+
+
+def mlx_run(fn, *args, **kw):
+    """Run fn on THE MLX thread and return its result. MLX keeps its GPU stream
+    per thread: a model loaded on one thread and called from the server's worker
+    threads fails ("There is no Stream(gpu, 0) in current thread"; every Hy-MT2
+    translation fell back to MADLAD on the first Mac run, 2026-09-30). One
+    thread loads and runs every MLX model (Whisper and Hy-MT2), which also
+    serialises them on the one GPU."""
+    from concurrent.futures import ThreadPoolExecutor
+    with _MLX_GUARD:
+        if not _MLX:
+            _MLX.append(ThreadPoolExecutor(1, thread_name_prefix="mlx"))
+    return _MLX[0].submit(fn, *args, **kw).result()
 
 
 def gpu_used_mb(device):

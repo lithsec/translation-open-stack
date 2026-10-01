@@ -1,0 +1,9 @@
+# macOS (Apple Silicon) only: the MLX packages for Whisper and Hy-MT2 on the
+# Apple GPU, used with constraints.txt by scripts/install-deps.sh on a Mac.
+# Their own dependencies are pinned in constraints.txt where they overlap.
+mlx==0.32.3
+mlx-metal==0.32.3
+# 0.29.1: the last release that accepts transformers 4.x (0.30+ needs 5.x; the stack pins
+# 4.57.6 for the CTranslate2 converter). It already runs Hy-MT2 (hunyuan_v1_dense).
+mlx-lm==0.29.1
+mlx-whisper==0.4.3

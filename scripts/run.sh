@@ -24,6 +24,8 @@
 # Reads models from the warm cache on /workspace, so on a pod with the network
 # volume attached this starts in about a minute.
 set -euo pipefail
+# STACK_HOME: where models, voices and caches live (a pod's volume; a folder on a Mac).
+W="${STACK_HOME:-/workspace}"
 # RunPod's PyTorch image sets HF_HUB_ENABLE_HF_TRANSFER=1 without the hf_transfer package,
 # and then EVERY Hugging Face download fails ("hf_transfer ... not available"). That quietly
 # disabled language ID on launcher-started pods: every source was served as English (2026-09-29).
@@ -35,7 +37,7 @@ ROOT="$(cd "$DIR/.." && pwd)"   # the repository: server/ lives there
 . "$DIR/profile-env.sh"
 LANGS="${1:-${LANGS:-en,es,fr,pt,de,ru,uk,zh,ja,km,lo,ht,ar,hi,vi,ko,tl,fa,id,tr,bn,ur,it,sw,ro}}"
 SRCS="${2:-${SRCS:-en,es,fr,pt,de,ru,uk,it,zh,ja,ko,sw,km,lo,ht,ar,hi,vi,tl,fa,id,tr,bn,ur,ro}}"
-export HF_HOME="${HF_HOME:-/workspace/hf-cache}"
+export HF_HOME="${HF_HOME:-$W/hf-cache}"
 # Less fragmentation: the default allocator holds on to blocks it cannot reuse, and the full stack
 # (25 languages + VoxCPM2) sits right at a 32 GB card's limit.
 export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
@@ -74,18 +76,18 @@ stamp() {
 MT_ARGS=()
 # MADLAD=3b: the smaller fallback translator, to fit a 32 GB card (docs/user-guide.md,
 # "Fitting a 32 GB card"): ~5 GB less, at some cost to Swahili and Haitian Creole.
-if [ "${MADLAD:-7b}" = 3b ] && [ -f /workspace/madlad-ct2/model.bin ]; then
-  MT_ARGS+=(--mt-ct2 /workspace/madlad-ct2); stamp /workspace/madlad-ct2 madlad3b
-elif [ -f /workspace/mt/madlad7b-ct2/model.bin ]; then
-  MT_ARGS+=(--mt-ct2 /workspace/mt/madlad7b-ct2); stamp /workspace/mt/madlad7b-ct2 madlad
-elif [ -f /workspace/madlad-ct2/model.bin ]; then
+if [ "${MADLAD:-7b}" = 3b ] && [ -f "$W/madlad-ct2/model.bin" ]; then
+  MT_ARGS+=(--mt-ct2 "$W/madlad-ct2"); stamp "$W/madlad-ct2" madlad3b
+elif [ -f "$W/mt/madlad7b-ct2/model.bin" ]; then
+  MT_ARGS+=(--mt-ct2 "$W/mt/madlad7b-ct2"); stamp "$W/mt/madlad7b-ct2" madlad
+elif [ -f "$W/madlad-ct2/model.bin" ]; then
   echo "note: MADLAD 7B not built (bash scripts/prepare-mt.sh) — using MADLAD 3B"
-  MT_ARGS+=(--mt-ct2 /workspace/madlad-ct2); stamp /workspace/madlad-ct2 madlad3b
+  MT_ARGS+=(--mt-ct2 "$W/madlad-ct2"); stamp "$W/madlad-ct2" madlad3b
 else
   echo "note: no CTranslate2 model — MT will run through transformers (slower)"
 fi
-if [ -f /workspace/mt/hymt2-7b-nf4/config.json ]; then
-  MT_ARGS+=(--hymt /workspace/mt/hymt2-7b-nf4); stamp /workspace/mt/hymt2-7b-nf4 hymt
+if [ -f "$W/mt/hymt2-7b-nf4/config.json" ]; then
+  MT_ARGS+=(--hymt "$W/mt/hymt2-7b-nf4"); stamp "$W/mt/hymt2-7b-nf4" hymt
 else
   echo "note: Hy-MT2 not built (bash scripts/prepare-mt.sh) — MADLAD translates every language"
 fi
@@ -103,8 +105,8 @@ fi
 #     VOXCPM_QUEUE_S (2 s), then goes to the next voice in its chain (eSpeak NG at the end of
 #     every commercial chain); with no voice after VoxCPM2 (km lo tl) up to VOXCPM_WAIT_S (15 s).
 # Instances listen on 8791, 8792, ...; the server gets every URL that came up.
-VOXCPM_VENV="${VOXCPM_VENV:-/workspace/venv_voxcpm}"
-VOXCPM_LOG="${VOXCPM_LOG:-/workspace/voxcpm.log}"
+VOXCPM_VENV="${VOXCPM_VENV:-$W/venv_voxcpm}"
+VOXCPM_LOG="${VOXCPM_LOG:-$W/voxcpm.log}"
 # nvidia-smi numbers GPUs by PCI bus, CUDA by default fastest first: make CUDA_VISIBLE_DEVICES mean
 # the same GPU to both.
 export CUDA_DEVICE_ORDER="${CUDA_DEVICE_ORDER:-PCI_BUS_ID}"
@@ -194,7 +196,7 @@ exec python3 -u "$ROOT/server/server.py" \
   --langs "$LANGS" --srcs "$SRCS" \
   "${ASR_ARGS[@]}" \
   --xeng --omni --kokoro "${VOICE_ARGS[@]}" --edition "$EDITION" \
-  --voices-dir "${VOICES_DIR:-/workspace/voices}" \
+  --voices-dir "${VOICES_DIR:-$W/voices}" \
   --endpoint-ms 900 --max-utterance-s 12 \
   "${MT_ARGS[@]}" \
   --port 8790

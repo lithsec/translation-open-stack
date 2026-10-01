@@ -17,10 +17,18 @@
 # disk for the full-precision downloads (they don't fit the network volume);
 # the results are ~5 GB + ~8 GB.
 set -euo pipefail
+# STACK_HOME: where models, voices and caches live (a pod's volume; a folder on a Mac).
+W="${STACK_HOME:-/workspace}"
 DIR="$(cd "$(dirname "$0")" && pwd)"
 CFG="$DIR/../server/stack_config.py"
-DEST="${MT_DIR:-/workspace/mt}"
+DEST="${MT_DIR:-$W/mt}"
 SCRATCH="${MT_SCRATCH:-/root/mt-build}"
+# A Mac: no /root, no CUDA. Hy-MT2 runs from a ready MLX build there (downloaded
+# by the server, [models.hymt_mlx]), so only MADLAD is converted, loading the
+# weights once rather than twice (MADLAD 3B is ~12 GB in fp32; a 16 GB Mac is tight).
+MAC=0; [ "$(uname -s)" = Darwin ] && MAC=1
+[ "$MAC" = 1 ] && SCRATCH="${MT_SCRATCH:-$W/.mt-build}"
+CT2_MEM=(); [ "$MAC" = 1 ] && CT2_MEM=(--low_cpu_mem_usage)
 # Pinned upstream revisions (languages.toml [models]): change them deliberately, never float to "main".
 HYMT_REPO="$(python3 "$CFG" get models.hymt.repo)";         HYMT_REV="$(python3 "$CFG" get models.hymt.revision)"
 MADLAD_REPO="$(python3 "$CFG" get models.madlad.repo)";     MADLAD_REV="$(python3 "$CFG" get models.madlad.revision)"
@@ -46,17 +54,22 @@ print(s(sys.argv[1], revision=sys.argv[2], allow_patterns=["*.json", "*.safetens
 mkdir -p "$DEST" "$SCRATCH"
 export HF_HOME="$SCRATCH/hf"
 # The Docker image already has these; a bare pod needs them.
-python3 -c "import bitsandbytes, accelerate, ctranslate2, sentencepiece" 2>/dev/null ||
-  pip -q install --break-system-packages -c "$DIR/../constraints.txt" bitsandbytes accelerate ctranslate2 "transformers==4.57.6" sentencepiece
+if [ "$MAC" = 1 ]; then
+  python3 -c "import accelerate, ctranslate2, sentencepiece" ||
+    { echo "ERROR: run scripts/mac/install.sh first" >&2; exit 1; }
+else
+  python3 -c "import bitsandbytes, accelerate, ctranslate2, sentencepiece" 2>/dev/null ||
+    pip -q install --break-system-packages -c "$DIR/../constraints.txt" bitsandbytes accelerate ctranslate2 "transformers==4.57.6" sentencepiece
+fi
 
 # MADLAD=3b (run.sh): the smaller fallback translator, for a 32 GB card. Built
 # where run.sh (and older pods, via provision-runpod.sh) keep it; the 7B is then
 # not needed, which saves ~33 GB of download.
-M3="${MADLAD3_DIR:-/workspace/madlad-ct2}"
+M3="${MADLAD3_DIR:-$W/madlad-ct2}"
 if [ "${MADLAD:-7b}" = 3b ] && ! built "$M3" "$MADLAD3_REPO" "$MADLAD3_REV" model.bin; then
   echo "== MADLAD-400 3B -> CTranslate2 int8"
   src=$(snapshot "$MADLAD3_REPO" "$MADLAD3_REV")
-  ct2-transformers-converter --model "$src" --quantization int8 --output_dir "$M3.tmp" \
+  ct2-transformers-converter --model "$src" --quantization int8 --output_dir "$M3.tmp" "${CT2_MEM[@]}" \
     --copy_files spiece.model tokenizer_config.json special_tokens_map.json added_tokens.json --force
   printf '%s @ %s\nApache 2.0. Converted with ct2-transformers-converter --quantization int8.\n' "$MADLAD3_REPO" "$MADLAD3_REV" \
     > "$M3.tmp/PROVENANCE.txt"
@@ -66,14 +79,16 @@ fi
 if [ "${MADLAD:-7b}" != 3b ] && ! built "$DEST/madlad7b-ct2" "$MADLAD_REPO" "$MADLAD_REV" model.bin; then
   echo "== MADLAD-400 7B -> CTranslate2 int8"
   src=$(snapshot "$MADLAD_REPO" "$MADLAD_REV")
-  ct2-transformers-converter --model "$src" --quantization int8 --output_dir "$DEST/madlad7b-ct2.tmp" \
+  ct2-transformers-converter --model "$src" --quantization int8 --output_dir "$DEST/madlad7b-ct2.tmp" "${CT2_MEM[@]}" \
     --copy_files spiece.model tokenizer_config.json special_tokens_map.json added_tokens.json --force
   printf '%s @ %s\nApache 2.0. Converted with ct2-transformers-converter --quantization int8.\n' "$MADLAD_REPO" "$MADLAD_REV" \
     > "$DEST/madlad7b-ct2.tmp/PROVENANCE.txt"
   install_build "$DEST/madlad7b-ct2.tmp" "$DEST/madlad7b-ct2"
 fi
 
-if ! built "$DEST/hymt2-7b-nf4" "$HYMT_REPO" "$HYMT_REV" config.json; then
+if [ "$MAC" = 1 ]; then
+  echo "macOS: Hy-MT2 comes as a ready MLX build ([models.hymt_mlx]), nothing to build"
+elif ! built "$DEST/hymt2-7b-nf4" "$HYMT_REPO" "$HYMT_REV" config.json; then
   echo "== Hy-MT2 7B -> 4-bit NF4"
   # Quoted heredoc: the values come from the environment, not spliced into the source.
   HYMT_OUT="$DEST/hymt2-7b-nf4" HYMT_REPO="$HYMT_REPO" HYMT_REV="$HYMT_REV" python3 - <<'PY'
@@ -93,7 +108,7 @@ open(os.path.join(out, "PROVENANCE.txt"), "w").write(
 PY
   install_build "$DEST/hymt2-7b-nf4.tmp" "$DEST/hymt2-7b-nf4"
 fi
-du -sh "$DEST"/*
+du -sh "$DEST"/* 2>/dev/null || true
 # The full-precision downloads (~45 GB) are only needed to build the two above.
 rm -rf "$SCRATCH"
 echo "Done."

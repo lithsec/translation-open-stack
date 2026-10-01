@@ -29,7 +29,7 @@ the [reference](reference.md); licences are in [licences.md](licences.md).
 | | |
 |---|---|
 | GPU | **NVIDIA, 48 GB** (RTX 6000 Ada, RTX PRO 5000/6000, L40, L40S, A6000) for all 25 languages: the stack holds ~33 GB before anyone speaks. **32 GB** (RTX 5090, RTX PRO 4500) works with `MADLAD=3b` or without VoxCPM2; see [Fitting a 32 GB card](#fitting-a-32-gb-card). Smaller cards aren't supported. |
-| OS | Linux with the NVIDIA driver (570 or newer, for CUDA 12.8), or Windows 11 with **WSL2** and the NVIDIA driver for WSL. **Macs can't run it** (no NVIDIA GPU; Apple GPUs don't run these models' CUDA code). |
+| OS | Linux with the NVIDIA driver (570 or newer, for CUDA 12.8), or Windows 11 with **WSL2** and the NVIDIA driver for WSL. An **Apple Silicon Mac** runs a smaller setup natively: [Mac](#mac-apple-silicon). |
 | Software | Docker Engine with the Compose plugin (or Docker Desktop on Windows) and the **NVIDIA Container Toolkit**. |
 | Disk | ~23 GB for the image, **~38 GB** for the models (kept), and ~48 GB more *during the first start only*, while the translators are built. ~150 GB free is comfortable. |
 | CPU / RAM | 8+ cores (Piper voices run on the CPU), 32 GB+ RAM. |
@@ -714,9 +714,42 @@ so it takes work by hand, on Linux with ROCm 7.2 or later:
   lower quality for them.
 - Then `STACK_PROFILE=radeon-32+16`. Please report what worked.
 
-**Mac.** Not yet: Docker on a Mac cannot reach the GPU, and CTranslate2 and
-Omnilingual have no Apple GPU support. A native Apple Silicon setup (Whisper
-and Hy-MT2 through MLX, fewer languages) is planned.
+### Mac (Apple Silicon)
+
+> **Status (2026-09-30): work in progress, not yet verified.** Everything
+> installs and loads on an M2 Pro with 16 GB, and the MLX models translate
+> correctly, but with all 25 languages and other apps open the machine swapped
+> heavily and most test connections timed out. Expect to need a Mac with 32 GB
+> or more for the full setup; a lighter 16 GB setup (fewer languages, the 1.8B
+> translator) is still to be tested.
+
+An M1 or later Mac with 16 GB of memory or more runs the stack natively, for a
+conversation or a small room. Docker can't reach a Mac's GPU, so this is a
+plain install into a folder (`~/translation-open-stack-data`, or `STACK_HOME`).
+
+```bash
+git clone https://github.com/lithsec/translation-open-stack.git && cd translation-open-stack
+bash scripts/mac/install.sh                                    # Python packages, ~10 minutes
+STACK_TOKEN=$(openssl rand -hex 32) bash scripts/mac/run.sh    # keep the token for your apps
+```
+
+The first start downloads and converts the models (~12 GB kept; it needs ~25
+GB free while MADLAD is converted). It is ready at `[stack] ready on :8790`.
+Apps on the same network connect to `ws://<the Mac's address>:8790` with the
+token; beyond your network, put TLS in front as for any install.
+
+The `mac` profile (`profiles/mac.toml`) is what makes it fit:
+
+| | On a Mac | On an NVIDIA GPU |
+|---|---|---|
+| Speech recognition | Whisper large-v3-turbo, MLX on the GPU | Whisper large-v3 |
+| Translation | Hy-MT2 7B 4-bit (MLX, GPU); MADLAD 3B (CPU) | Hy-MT2 7B; MADLAD 7B |
+| ht km lo sw hi fa bn ur, spoken | Whisper: fine for hi fa bn ur, **weak for ht km lo sw** | Omnilingual |
+| Voices | Kokoro, Piper, MMS (non-profit), eSpeak NG | the same, plus VoxCPM2 |
+| km lo tl, spoken *to* | MMS (non-profit) or text (commercial) | VoxCPM2 |
+
+On an 8 GB Mac, use the 1.8B translator; on 32 GB or more, `MADLAD=7b`. The
+profile's comments show both.
 
 ## Verify with the smoke test
 

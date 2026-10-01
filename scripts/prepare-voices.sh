@@ -9,10 +9,12 @@
 # The stack's Docker image already has the venv (VOXCPM_VENV=/opt/venv_voxcpm),
 # so there this only fetches the weights and the reference voices.
 set -euo pipefail
+# STACK_HOME: where models, voices and caches live (a pod's volume; a folder on a Mac).
+W="${STACK_HOME:-/workspace}"
 DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$DIR/.." && pwd)"   # the repository: voices/voxcpm/ lives there
-VENV="${VOXCPM_VENV:-/workspace/venv_voxcpm}"
-export HF_HOME="${HF_HOME:-/workspace/hf-cache}"
+VENV="${VOXCPM_VENV:-$W/venv_voxcpm}"
+export HF_HOME="${HF_HOME:-$W/hf-cache}"
 if [ ! -x "$VENV/bin/python" ] || ! "$VENV/bin/python" -c "import voxcpm" 2>/dev/null; then
   echo "== VoxCPM2 venv -> $VENV"
   # --system-site-packages: reuse the pod's CUDA torch instead of downloading another.
@@ -36,7 +38,7 @@ REPO="$VOXCPM_REPO" REV="$VOXCPM_REV" "$VENV/bin/python" -c \
 # The fixed voice each VoxCPM2 language speaks in (server/voxcpm_service.py clones
 # <lang>.wav). Copied from the repo only where the volume has none, so a
 # reference chosen on the volume is never overwritten.
-REF_DIR="${VOXCPM_REF_DIR:-/workspace/voices/voxcpm}"
+REF_DIR="${VOXCPM_REF_DIR:-$W/voices/voxcpm}"
 if compgen -G "$ROOT/voices/voxcpm/*.wav" >/dev/null; then
   mkdir -p "$REF_DIR"
   for f in "$ROOT"/voices/voxcpm/*.wav; do

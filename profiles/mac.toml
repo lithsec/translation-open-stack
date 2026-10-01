@@ -1,0 +1,52 @@
+# An Apple Silicon Mac (M1 or later, 16 GB memory or more), natively: install
+# with scripts/mac/install.sh, start with scripts/mac/run.sh (which picks this
+# profile). Docker on a Mac can't reach the GPU, so no Docker here.
+#
+# What runs where:
+#   Whisper large-v3-turbo and Hy-MT2 7B (4-bit)   Apple GPU, through MLX
+#   MADLAD 3B, language ID, Piper, eSpeak NG       CPU
+#   Kokoro                                         Apple GPU (PyTorch MPS)
+#   Omnilingual, VoxCPM2                           not on a Mac (below)
+#
+# Omnilingual has no Apple GPU support, so the languages it recognises (ht km
+# lo sw hi fa bn ur) are heard by Whisper instead: fine for Hindi, Persian,
+# Bengali and Urdu, weak for Haitian Creole, Khmer, Lao and Swahili. VoxCPM2 is
+# off (CUDA only): Khmer, Lao and Tagalog speak through MMS (non-profit edition)
+# or are text only (commercial).
+#
+# Other Macs: 8 GB, use the 1.8B translator, in profiles/<yours>.toml:
+#   [models.hymt_mlx]
+#   repo = "mlx-community/Hy-MT2-1.8B-4bit"
+#   revision = "e5c6fe56c7b3bc77fae5ae92db31f2178f1e6912"
+# 32 GB or more: MADLAD=7b in the environment (better ht lo ro sw; slower on the CPU).
+# STATUS (2026-09-30): work in progress. On an M2 Pro with 16 GB the full set of
+# 25 languages swapped heavily and most smoke-test connections timed out; not yet
+# verified on a 32 GB+ Mac.
+description = "PREVIEW: Apple Silicon Mac via MLX (unverified; 32 GB+ likely needed for all languages)"
+
+[env]
+MADLAD = "3b"
+VOXCPM = "0"
+
+[devices]
+default = "cpu"
+whisper = "mps"
+hymt = "mps"
+kokoro = "mps"
+
+[languages.ht]
+asr = "whisper"
+[languages.km]
+asr = "whisper"
+[languages.lo]
+asr = "whisper"
+[languages.sw]
+asr = "whisper"
+[languages.hi]
+asr = "whisper"
+[languages.fa]
+asr = "whisper"
+[languages.bn]
+asr = "whisper"
+[languages.ur]
+asr = "whisper"

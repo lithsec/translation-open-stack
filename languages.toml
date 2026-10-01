@@ -112,6 +112,15 @@ revision = "f3ff3571791e39611d31c381e3a41a3af07b4987"
 repo = "openbmb/VoxCPM2"
 revision = "32279effe8c19989596f05d353d1447f51d9e915"
 
+# MLX builds for a Mac's GPU, used instead of Whisper / Hy-MT2 above when
+# [devices] puts whisper or hymt on "mps" (profiles/mac.toml).
+[models.whisper_mlx]
+repo = "mlx-community/whisper-large-v3-turbo"
+revision = "a4aaeec0636e6fef84abdcbe3544cb2bf7e9f6fb"
+[models.hymt_mlx]
+repo = "mlx-community/Hy-MT2-7B-4bit"
+revision = "9b7204bdb161490a8ce49ce607c1310cc3fd03ad"
+
 # ---- Languages ---------------------------------------------------------------
 # Kokoro (82M, Apache 2.0) was picked over Piper by ear on identical sentences:
 # 24 kHz native (the pipeline's own rate, no resample), and on the GPU ~98x real

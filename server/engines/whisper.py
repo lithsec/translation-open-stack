@@ -7,9 +7,15 @@ English and mis-transcribes everything else with confidence, so the
 multilingual slot must be a full model; scripts/run.sh loads large-v3 once and
 shares it (languages.toml [models.whisper], multi_model = "").
 
-MIT (weights and faster-whisper).
+On a Mac ([devices] whisper = "mps", profiles/mac.toml) the same engine runs
+an MLX build on the Apple GPU instead ([models.whisper_mlx]; large-v3-turbo):
+one model for every source, the same speech-only input (faster-whisper's own
+Silero VAD, as vad_filter does) and the same segment gates below.
+
+MIT (weights, faster-whisper and mlx-whisper).
 """
 import os
+from types import SimpleNamespace
 
 from engines import register
 from engines.base import Recognizer
@@ -25,6 +31,7 @@ class Whisper(Recognizer):
     name = "whisper"
     title = "faster-whisper"
     licence = "MIT"
+    mlx = None            # the MLX model path, when [devices] whisper = "mps"
 
     @classmethod
     def enabled(cls, ctx):
@@ -34,6 +41,9 @@ class Whisper(Recognizer):
         return True
 
     def load(self):
+        self.mlx = None
+        if self.device == "mps":
+            return self._load_mlx()
         from faster_whisper import WhisperModel
         o = self.ctx.options
         asr_model = o.get("asr_model") or "distil-large-v3"
@@ -65,6 +75,54 @@ class Whisper(Recognizer):
                                               revision=asr_multi_revision or None, compute_type=compute)
         self.available = True
 
+    def _load_mlx(self):
+        import mlx_whisper  # noqa: F401  (fails here, at start, if it is missing)
+        from engines.common import hf_snapshot
+        m = self.ctx.models["whisper_mlx"]
+        print(f"[stack] loading Whisper (MLX, Apple GPU) {m['repo']} @ {m['revision'][:12] or 'unpinned'}…")
+        self.mlx = hf_snapshot(m["repo"], m["revision"] or None)
+        self.asr = "mlx"
+        # One multilingual model serves English and every other source.
+        self.asr_multi = "mlx" if self.ctx.options.get("xeng") else None
+        self.available = True
+
+    def _mlx_segments(self, pcm16k, language, word_timestamps=False):
+        """mlx-whisper over the speech in pcm16k only (what vad_filter does for
+        faster-whisper), as segment objects with the same fields, times mapped
+        back onto the original audio."""
+        import numpy as np
+        import mlx_whisper
+        from faster_whisper.vad import VadOptions, get_speech_timestamps
+        audio = np.asarray(pcm16k, dtype=np.float32)
+        spans = get_speech_timestamps(audio, VadOptions(min_silence_duration_ms=300))
+        if not spans:
+            return []
+        parts, where, at = [], [], 0          # (start in the cut audio, start in the original)
+        for sp in spans:
+            parts.append(audio[sp["start"]:sp["end"]])
+            where.append((at, sp["start"]))
+            at += sp["end"] - sp["start"]
+        cut = np.concatenate(parts)
+
+        def orig(t):
+            n = int(t * 16000)
+            base = max((w for w in where if w[0] <= n), default=where[0])
+            return (base[1] + n - base[0]) / 16000
+
+        from engines.common import mlx_run
+        # On the MLX thread (engines.common.mlx_run), which also serialises decodes.
+        out = mlx_run(mlx_whisper.transcribe, cut, path_or_hf_repo=self.mlx, language=language,
+                      temperature=0.0, condition_on_previous_text=False, no_speech_threshold=0.6,
+                      word_timestamps=word_timestamps, verbose=None)
+        segs = []
+        for sg in out.get("segments", []):
+            words = [SimpleNamespace(word=w["word"], end=orig(w["end"])) for w in sg.get("words") or []]
+            segs.append(SimpleNamespace(text=sg["text"], start=orig(sg["start"]), end=orig(sg["end"]),
+                                        no_speech_prob=sg.get("no_speech_prob", 0.0),
+                                        avg_logprob=sg.get("avg_logprob", 0.0),
+                                        compression_ratio=sg.get("compression_ratio", 0.0), words=words))
+        return segs
+
     @property
     def multilingual(self):
         return self.asr_multi is not None
@@ -79,6 +137,9 @@ class Whisper(Recognizer):
             model, language = self.asr, "en"
         else:
             model, language = self.asr_multi, lang
+        if self.mlx:
+            return [(w.word, w.end) for sg in self._mlx_segments(pcm16k, language, word_timestamps=True)
+                    for w in sg.words]
         segs, _ = model.transcribe(pcm16k, language=language, beam_size=1,
                                    condition_on_previous_text=False, temperature=0, vad_filter=True,
                                    vad_parameters=dict(min_silence_duration_ms=300), word_timestamps=True)
@@ -100,7 +161,9 @@ class Whisper(Recognizer):
                     no_speech_threshold=0.6, temperature=0,
                     vad_filter=True,
                     vad_parameters=dict(min_silence_duration_ms=300))
-        if lang == "en" or self.asr_multi is None:
+        if self.mlx:
+            segs = self._mlx_segments(pcm16k, "en" if lang == "en" or self.asr_multi is None else lang)
+        elif lang == "en" or self.asr_multi is None:
             segs, _ = self.asr.transcribe(pcm16k, language="en", **opts)
         else:
             segs, _ = self.asr_multi.transcribe(pcm16k, language=lang, **opts)

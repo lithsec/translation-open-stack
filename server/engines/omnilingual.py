@@ -29,7 +29,8 @@ class Omnilingual(Recognizer):
 
     @classmethod
     def enabled(cls, ctx):
-        return bool(ctx.options.get("omni"))
+        # Only when a served language routes to it (a Mac profile routes them all to Whisper).
+        return bool(ctx.options.get("omni")) and bool(ctx.tables.get("OMNI_LANGS"))
 
     def __init__(self, ctx):
         super().__init__(ctx)

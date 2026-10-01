@@ -170,6 +170,11 @@ MODEL_DEFAULTS = {
     # Voices that are not per-language repos (those are in each language's table).
     "kokoro": {"repo": "hexgrad/Kokoro-82M", "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987"},
     "voxcpm": {"repo": "openbmb/VoxCPM2", "revision": "32279effe8c19989596f05d353d1447f51d9e915"},
+    # MLX builds for the Apple GPU: used instead of the two above when [devices]
+    # puts whisper or hymt on "mps" (profiles/mac.toml). Downloaded at start.
+    "whisper_mlx": {"repo": "mlx-community/whisper-large-v3-turbo",
+                    "revision": "a4aaeec0636e6fef84abdcbe3544cb2bf7e9f6fb"},
+    "hymt_mlx": {"repo": "mlx-community/Hy-MT2-7B-4bit", "revision": "9b7204bdb161490a8ce49ce607c1310cc3fd03ad"},
 }
 # Built from a revision, so they need one: a floating "main" would change the
 # model under a build stamped with it.
