@@ -54,6 +54,11 @@ if [ -n "${RUNPOD_POD_ID:-}" ]; then
   [ "${MADE_TOKEN:-0}" = 1 ] && echo "== access key: $STACK_TOKEN"
 fi
 export STACK_SIGNING_KEY STACK_TOKEN HF_HOME=/workspace/hf-cache
+# Caches that otherwise land on the container disk, wiped on every stop, and are
+# downloaded again on every start: Omnilingual's weights (fairseq2, ~3 GB) and
+# Silero VAD (torch hub). On the volume, as the Docker entrypoint keeps them.
+export TORCH_HOME="${TORCH_HOME:-/workspace/torch-cache}"
+export FAIRSEQ2_CACHE_DIR="${FAIRSEQ2_CACHE_DIR:-/workspace/fairseq2-cache}"
 LANGS="${LANGS:-en,es,fr,pt,de,ru,uk,zh,ja,km,lo,ht,ar,hi,vi,ko,tl,fa,id,tr,bn,ur,it,sw,ro}"
 SRCS="${SRCS:-en,es,fr,pt,de,ru,uk,it,zh,ja,ko,sw,km,lo,ht,ar,hi,vi,tl,fa,id,tr,bn,ur,ro}"
 echo "== $(date -u) provisioning"

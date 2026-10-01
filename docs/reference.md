@@ -67,6 +67,12 @@ environment (RunPod).
 | `ESPEAK` | `1` | `0` = no eSpeak NG last-resort voice (VoxCPM2 overflow is then silent; fa, ro text only in commercial). |
 | `ESPEAK_SPEED` | `160` | eSpeak NG speaking rate, words per minute. |
 
+### Start-up
+
+| Variable | Default | Meaning |
+|---|---|---|
+| `STACK_WARM_LANGS` | all served languages | Languages warmed before "ready" (e.g. `en,es`). Each voice engine warms its languages in parallel with the others; a language left out pays its first-call cost (a few seconds) on its first sentence. |
+
 ### Connection limits
 
 | Variable | Default | Meaning |
@@ -88,7 +94,7 @@ environment (RunPod).
 | Variable | Default | Meaning |
 |---|---|---|
 | `HF_HOME` | `/workspace/hf-cache` | Hugging Face cache on the volume. |
-| `TORCH_HOME`, `FAIRSEQ2_CACHE_DIR` | `/workspace/torch-cache`, `/workspace/fairseq2-cache` (Docker) | Silero VAD's and Omnilingual's caches on the volume. |
+| `TORCH_HOME`, `FAIRSEQ2_CACHE_DIR` | `/workspace/torch-cache`, `/workspace/fairseq2-cache` (Docker and RunPod) | Silero VAD's and Omnilingual's caches on the volume, so a start doesn't download them again (~3 GB). |
 | `VOICES_DIR` | `/workspace/voices` | Piper voices. |
 | `VOICES_LOCK` | `voices.lock` at the repository root | The lock `fetch-voices.sh` checks against. |
 | `MT_SCRATCH` | `/root/mt-build` (`/workspace/.mt-build` under Docker) | Scratch for the translator build's full-precision downloads (~45 GB), deleted afterwards. |
