@@ -99,18 +99,20 @@ def _espeak_dir():
     return d
 
 
-@pytest.fixture(scope="module")
-def stack():
+def _start_stack(edition=None, voices_needed=("en_US-lessac-medium.onnx", "es_ES-davefx-medium.onnx")):
+    """Start server.py on CPU with stand-in models; yield its address, stop it after."""
     voices = os.path.join(CACHE, "voices")
     fetched = subprocess.run(["bash", os.path.join(ROOT, "scripts", "fetch-voices.sh"), "en,es"],
-                             env={**os.environ, "VOICES_DIR": voices}, capture_output=True, text=True)
+                             env={**os.environ, "VOICES_DIR": voices, **({"EDITION": edition} if edition else {})},
+                             capture_output=True, text=True)
     if not all(os.path.getsize(os.path.join(voices, f)) > 0 if os.path.exists(os.path.join(voices, f)) else False
-               for f in ("en_US-lessac-medium.onnx", "es_ES-davefx-medium.onnx")):
+               for f in voices_needed):
         pytest.skip(f"SKIP protocol tests: could not fetch Piper voices ({fetched.stdout[-200:]})")
     port = _free_port()
     env = {**os.environ, "STACK_TOKEN": TOKEN, "STACK_SIGNING_KEY": SIGNING_KEY,
            "STACK_MAX_PER_CLIENT": "2", "HF_HUB_DISABLE_IMPLICIT_TOKEN": "1", "PYTHONUNBUFFERED": "1"}
     env.pop("STACK_OPEN", None)
+    env.pop("EDITION", None)
     esp = _espeak_dir()
     if esp:
         env["ESPEAK_DATA_PATH"] = esp
@@ -119,7 +121,7 @@ def stack():
         [PY, "-u", os.path.join(ROOT, "server", "server.py"),
          "--langs", "es", "--srcs", "en,es,fr", "--xeng",
          "--asr-model", "tiny", "--asr-multi-model", "tiny", "--mt-model", "t5-small",
-         "--voices-dir", voices, "--port", str(port)],
+         "--voices-dir", voices, "--port", str(port)] + (["--edition", edition] if edition else []),
         stdout=log, stderr=subprocess.STDOUT, env=env, cwd=ROOT)
     deadline = time.time() + float(os.environ.get("LITHOS_PROTOCOL_START_S", "900"))
     try:
@@ -151,6 +153,17 @@ def stack():
             log.seek(0)
             print(log.read()[-4000:])
         log.close()
+
+@pytest.fixture(scope="module")
+def stack():
+    yield from _start_stack()
+
+
+@pytest.fixture(scope="module")
+def stack_both():
+    """EDITION=both: a voice set per edition (Spanish: Piper davefx for non-profit
+    connections, carlfm for commercial ones)."""
+    yield from _start_stack("both", ("es_ES-davefx-medium.onnx", "es_ES-carlfm-x_low.onnx"))
 
 
 # ---------------------------------------------------------------- helpers
@@ -336,7 +349,8 @@ def test_per_client_limit(stack):
 def test_hello_shape(stack):
     kind, hello = run(first_message(f"{stack['base']}/translate?lang=es&src=auto", signed("hello")))
     assert kind == "hello"
-    assert hello == {"type": "hello", "lang": "es", "src": "auto", "rate": 24000, "mode": "utterance"}
+    assert hello == {"type": "hello", "lang": "es", "src": "auto", "rate": 24000, "mode": "utterance",
+                     "edition": "nonprofit"}
     kind, hello = run(first_message(f"{stack['base']}/translate?lang=es", signed("hello")))
     assert hello["src"] == "en"
 
@@ -515,3 +529,26 @@ def test_solo_utterance_is_cut_at_the_maximum(stack):
     with open(stack["log"]) as f:
         assert f.read().count("solo: forced cut") > before
     assert r["said"].strip(), r
+
+
+def test_commercial_token_refused_by_a_nonprofit_stack(stack):
+    """A paid app's token must never be served non-commercial voices: refused (4403)."""
+    u = f"{stack['base']}/translate?lang=es&src=en"
+    tok = stack_auth.sign(SIGNING_KEY, "talk:x", 600, ed="commercial")
+    assert run(first_message(u, tok)) == ("closed", 4403)
+    np_tok = stack_auth.sign(SIGNING_KEY, "lt:x", 600, ed="nonprofit")
+    assert run(first_message(u, np_tok))[1]["edition"] == "nonprofit"
+
+
+def test_both_editions_on_one_stack(stack_both):
+    """EDITION=both: each connection gets its token's edition, and both hear audio."""
+    base = stack_both["base"]
+    u = f"{base}/translate?lang=es&src=en"
+    assert run(first_message(u, signed("plain")))[1]["edition"] == "commercial"      # no claim: strict
+    for ed in ("nonprofit", "commercial"):
+        tok = stack_auth.sign(SIGNING_KEY, f"both-{ed}", 600, ed=ed)
+        r = run(converse(base, "lang=es&src=en", tok))
+        assert r["hello"]["edition"] == ed, r["hello"]
+        assert r["said"].strip() and r["frames"], (ed, r)
+    log = open(stack_both["log"], encoding="utf-8").read()
+    assert "commercial voices: sharing" in log, log[-2000:]
