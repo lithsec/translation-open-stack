@@ -1,0 +1,28 @@
+# PREVIEW, NOT YET RUN: an AMD Radeon AI PRO R9700 (32 GB) with a Radeon RX 9060
+# XT (16 GB), under ROCm 7.2+ on Linux. Needs a ROCm build of the stack
+# (PyTorch for ROCm, and CTranslate2's ROCm wheels, which are built for these
+# two cards: gfx1201 and gfx1200); the image in this repository is CUDA only.
+#
+#   STACK_PROFILE=radeon-32+16
+#
+# The split: the translators and VoxCPM2 on the R9700 (card 0), speech
+# recognition and the GPU voices on the 9060 XT (card 1). Under ROCm, PyTorch
+# and CTranslate2 still call the cards "cuda:0" and "cuda:1". If your system
+# numbers them the other way round, swap them with HIP_VISIBLE_DEVICES=1,0.
+# Open questions until someone runs it: Hy-MT2's 4-bit build (bitsandbytes on
+# RDNA4) and Omnilingual (fairseq2 publishes no ROCm packages; without it,
+# Khmer, Lao and the other Omnilingual sources fall back to Whisper).
+description = "PREVIEW: AMD R9700 32 GB + RX 9060 XT 16 GB under ROCm (not yet run)"
+
+[env]
+VOXCPM_GPUS = "0"
+
+[devices]
+default = "cuda:0"
+hymt = "cuda:0"
+madlad = "cuda:0"
+whisper = "cuda:1"
+omni = "cuda:1"
+kokoro = "cuda:1"
+coqui = "cuda:1"
+mms = "cuda:1"

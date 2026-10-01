@@ -30,6 +30,8 @@ python3 -c "import hf_transfer" 2>/dev/null || export HF_HUB_ENABLE_HF_TRANSFER=
 DIR="$(cd "$(dirname "$0")" && pwd)"          # scripts/runpod
 SCRIPTS="$(cd "$DIR/.." && pwd)"               # scripts
 ROOT="$(cd "$DIR/../.." && pwd)"               # the repository (/workspace/translation-open-stack)
+# shellcheck source=../profile-env.sh
+. "$SCRIPTS/profile-env.sh"                    # STACK_PROFILE's [env] defaults
 STACK_SIGNING_KEY="${STACK_SIGNING_KEY:-$(cat /workspace/.stack-signing-key 2>/dev/null || true)}"
 STACK_TOKEN="${STACK_TOKEN:-$(cat /workspace/.stack-token 2>/dev/null || true)}"
 # No credential at all: make a random token once, keep it on the volume, and

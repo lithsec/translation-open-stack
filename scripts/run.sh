@@ -30,8 +30,11 @@ set -euo pipefail
 python3 -c "import hf_transfer" 2>/dev/null || export HF_HUB_ENABLE_HF_TRANSFER=0
 DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$DIR/.." && pwd)"   # the repository: server/ lives there
-LANGS="${1:-en,es,fr,pt,de,ru,uk,zh,ja,km,lo,ht,ar,hi,vi,ko,tl,fa,id,tr,bn,ur,it,sw,ro}"
-SRCS="${2:-en,es,fr,pt,de,ru,uk,it,zh,ja,ko,sw,km,lo,ht,ar,hi,vi,tl,fa,id,tr,bn,ur,ro}"
+# STACK_PROFILE: the hardware profile's script defaults (profiles/<name>.toml [env]).
+# shellcheck source=profile-env.sh
+. "$DIR/profile-env.sh"
+LANGS="${1:-${LANGS:-en,es,fr,pt,de,ru,uk,zh,ja,km,lo,ht,ar,hi,vi,ko,tl,fa,id,tr,bn,ur,it,sw,ro}}"
+SRCS="${2:-${SRCS:-en,es,fr,pt,de,ru,uk,it,zh,ja,ko,sw,km,lo,ht,ar,hi,vi,tl,fa,id,tr,bn,ur,ro}}"
 export HF_HOME="${HF_HOME:-/workspace/hf-cache}"
 # Less fragmentation: the default allocator holds on to blocks it cannot reuse, and the full stack
 # (25 languages + VoxCPM2) sits right at a 32 GB card's limit.

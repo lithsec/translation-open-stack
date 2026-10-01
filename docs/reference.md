@@ -41,6 +41,8 @@ environment (RunPod).
 | `COMMERCIAL_ALLOW_UNCLEAR` | unset | `1` = admit every ❓ item in commercial at once, with a loud warning at start-up and in `check`. Prefer `[licence_review]`. |
 | `MADLAD` | `7b` | `3b` = the smaller fallback translator, for a 32 GB card (`[models.madlad3b]`). |
 | `STACK_CONFIG` | `languages.toml` at the repository root | Another model file (languages and `[models]`). |
+| `STACK_PROFILE` | unset | A hardware profile: `profiles/<name>.toml`, or a path ([Profiles](#profiles-and-devices)). |
+| `STACK_DEVICES` | unset | Per-model devices, winning over `[devices]` and the profile: `whisper=cuda:1,hymt=cuda:0`. |
 | `STACK_ENGINES_PATH` | unset | Directories (`:`-separated) of extra engine files ([adding-an-engine.md](dev/adding-an-engine.md)). |
 
 ### VoxCPM2 and eSpeak NG
@@ -195,6 +197,40 @@ by `tests/test_stack_config.py`. A plug-in engine may declare its own
 `[models.<name>]` table. How to change one and what must be rebuilt:
 [user guide, "Replace a model or a revision"](user-guide.md#replace-a-model-or-a-revision).
 
+### Profiles and devices
+
+A **profile** is the hardware half of a setup, kept apart from the languages
+and the edition: `profiles/<name>.toml`, chosen with `STACK_PROFILE=<name>`.
+It wins over `languages.toml`. Every table is optional:
+
+| Table | What | Merged |
+|---|---|---|
+| `description = "..."` | One line, for `stack_config.py profiles`. | |
+| `[env]` | Defaults for the scripts' variables (`MADLAD`, `VOXCPM_GPUS`, `LANGS`, …), applied by `scripts/profile-env.sh` at the start of `run.sh`, the Docker entrypoint and `runpod-start.sh`. | the environment wins |
+| `[devices]` | Which device each model loads on (below). | key by key |
+| `[models.<name>]` | As in `languages.toml`. | key by key over the file's |
+| `[languages.<lang>]` | Keys of a language table, e.g. `asr = "whisper"` where Omnilingual can't run. | key by key over the language's table |
+
+Shipped profiles:
+
+| Profile | For |
+|---|---|
+| `cuda-48gb` | One 48 GB NVIDIA GPU, all 25 languages. The reference; the same as no profile. |
+| `cuda-32gb` | One 32 GB NVIDIA GPU: `MADLAD=3b`. |
+| `cuda-2gpu` | Two NVIDIA GPUs of 24 GB or more: translators on GPU 0, recognition and voices (and VoxCPM2) on GPU 1. |
+| `radeon-32+16` | **Preview, not yet run:** AMD Radeon AI PRO R9700 32 GB + RX 9060 XT 16 GB under ROCm. Needs a ROCm build (the image is CUDA only). |
+
+**`[devices]`** (in `languages.toml`, a profile, or `STACK_DEVICES`, each
+winning over the one before): keys `default`, any engine name (`whisper`,
+`omni`, `hymt`, `madlad`, `kokoro`, `coqui`, `mms`, `cosyvoice`, a plug-in's
+name) and `lid` (language ID, on the CPU unless set). Values: `auto` (the first
+GPU, or the CPU), `cpu`, `cuda`, `cuda:<n>`, `mps`. AMD cards under ROCm are
+`cuda` too: PyTorch and CTranslate2 keep the name. VoxCPM2 runs in processes of
+its own, placed by `VOXCPM_GPUS`. A device that isn't there stops the start.
+While loading, the server prints each model's share of its card
+(`[stack] hymt on cuda:0: +5.6 GB (12.0 GB in use there)`), the numbers to
+plan a split from.
+
 ## Command line
 
 ### `server/stack_config.py`
@@ -210,6 +246,9 @@ heavy imports out of module level).
 | `docs [--write]` | The generated tables of [licences.md](licences.md) (§3 and §7); `--write` updates them in place. `tests/test_licences.py` fails when they drift. |
 | `voxcpm-plan [--edition …]` | Where VoxCPM2 instances would run on this machine: one `<gpu> <port>` line each (ports 8791, 8792, …; `-` = no `CUDA_VISIBLE_DEVICES`), with the summary on stderr. |
 | `piper <langs>` | `<lang> <piper voice>` per line, for the edition (used by `fetch-voices.sh`). |
+| `profiles` | The profiles in `profiles/`, with their descriptions. |
+| `profile [<name>]` | What a profile changes: `[env]` (and which the environment overrides), devices, models, language routes. Default: `$STACK_PROFILE`. |
+| `profile-env` | `export` lines for `$STACK_PROFILE`'s `[env]` values the environment lacks (for `scripts/profile-env.sh`). |
 
 ### Scripts
 
@@ -610,6 +649,7 @@ don't hand it out ([licences.md §10](licences.md#10-before-you-deploy-commercia
 | Path | What |
 |---|---|
 | `languages.toml` | Which model serves each language, and every shared model's pinned revision (`[models]`); edit this one. |
+| `profiles/` | Hardware profiles: devices, smaller models and script defaults per setup ([Profiles](#profiles-and-devices)). |
 | `Dockerfile`, `docker-compose.yml`, `.env.example` | The Docker path. |
 | `constraints.txt`, `constraints-voxcpm.txt`, `voices.lock` | The pins ([Pins and the supply chain](#pins-and-the-supply-chain)). |
 | `server/server.py` | The server: the pipeline (VAD, language ID, rooms, streaming) and the WebSocket protocol. |
@@ -632,6 +672,7 @@ python3 tests/test_stack_auth.py && python3 tests/test_stack_config.py
 python3 tests/test_nonspeech.py && python3 tests/test_streaming.py
 python3 tests/test_engines.py && python3 tests/test_licences.py
 python3 tests/test_doc_links.py && python3 tests/test_capacity.py
+python3 tests/test_profiles.py
 python3 server/stack_config.py check
 ```
 

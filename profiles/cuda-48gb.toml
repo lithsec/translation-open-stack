@@ -1,0 +1,6 @@
+# The reference setup: one 48 GB NVIDIA card (L40S, RTX 6000 Ada, A6000, RTX PRO
+# 5000/6000), every model on it. The same as running with no profile; it is
+# here so the list of profiles names every tested setup.
+#
+#   STACK_PROFILE=cuda-48gb
+description = "One 48 GB NVIDIA GPU, all 25 languages (the reference; same as no profile)"

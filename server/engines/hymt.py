@@ -58,7 +58,7 @@ class HyMT(Translator):
         tok = AutoTokenizer.from_pretrained(path, local_files_only=True)
         tok.padding_side = "left"
         model = AutoModelForCausalLM.from_pretrained(path, local_files_only=True,
-                                                     device_map=self.ctx.device).eval()
+                                                     device_map=self.device).eval()
         self.hymt = (tok, model)
         self.available = True
 

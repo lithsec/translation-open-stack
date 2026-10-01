@@ -13,7 +13,7 @@ import os
 
 from engines import register
 from engines.base import Recognizer
-from engines.common import is_nonspeech, content_units, SHORT_NOISE_P, SHORT_NOISE_UNITS
+from engines.common import is_nonspeech, content_units, ct2_device, SHORT_NOISE_P, SHORT_NOISE_UNITS
 
 # LITHOS_SEG_STATS=1 prints every segment's confidence numbers (the data the
 # gates below were tuned on).
@@ -40,10 +40,11 @@ class Whisper(Recognizer):
         asr_multi_model = o.get("asr_multi_model") or "large-v3"
         asr_revision = o.get("asr_revision")
         asr_multi_revision = o.get("asr_multi_revision")
-        device = self.ctx.device
-        print(f"[stack] loading faster-whisper {asr_model}{f' @ {asr_revision}' if asr_revision else ''}…")
-        self.asr = WhisperModel(asr_model, device=device, revision=asr_revision or None,
-                                compute_type="float16" if device == "cuda" else "int8")
+        kind, index = ct2_device(self.device)
+        compute = "float16" if kind == "cuda" else "int8"
+        print(f"[stack] loading faster-whisper {asr_model}{f' @ {asr_revision}' if asr_revision else ''} on {self.device}…")
+        self.asr = WhisperModel(asr_model, device=kind, device_index=index, revision=asr_revision or None,
+                                compute_type=compute)
         # X->eng needs the FULL multilingual model: distil-large-v3 is distilled
         # for English and mis-transcribes everything else with confidence.
         self.asr_multi = None
@@ -60,8 +61,8 @@ class Whisper(Recognizer):
             else:
                 pin = f" @ {asr_multi_revision}" if asr_multi_revision else " (UNPINNED: set [models.whisper] multi_revision)"
                 print(f"[stack] loading whisper {asr_multi_model}{pin} (multilingual, for --xeng)…")
-                self.asr_multi = WhisperModel(asr_multi_model, device=device, revision=asr_multi_revision or None,
-                                              compute_type="float16" if device == "cuda" else "int8")
+                self.asr_multi = WhisperModel(asr_multi_model, device=kind, device_index=index,
+                                              revision=asr_multi_revision or None, compute_type=compute)
         self.available = True
 
     @property

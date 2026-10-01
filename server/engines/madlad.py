@@ -16,7 +16,7 @@ import os
 
 from engines import register
 from engines.base import Translator
-from engines.common import join_sentences
+from engines.common import ct2_device, is_gpu, join_sentences
 
 # Beam width for MT. Greedy decoding took a local trap on short courtesies:
 # "Thank you." came out "Gracias por tu comentario." because after "Gracias"
@@ -56,7 +56,7 @@ class Madlad(Translator):
         o = self.ctx.options
         mt_ct2 = o.get("mt_ct2")
         mt_model = o.get("mt_model") or "google/madlad400-3b-mt"
-        device = self.ctx.device
+        device = self.device
         # MADLAD's SentencePiece vocabulary is the same at every size; prepare-mt.sh
         # copies it next to the converted model so no hub download is needed.
         tok_src = mt_ct2 if mt_ct2 and os.path.exists(os.path.join(mt_ct2, "spiece.model")) else mt_model
@@ -68,9 +68,10 @@ class Madlad(Translator):
         #     --output_dir /workspace/madlad-ct2 --quantization int8
         if mt_ct2:
             import ctranslate2
+            kind, index = ct2_device(device)
             self.ct2 = ctranslate2.Translator(
-                mt_ct2, device=device,
-                compute_type="int8_float16" if device == "cuda" else "int8")
+                mt_ct2, device=kind, device_index=index,
+                compute_type="int8_float16" if kind == "cuda" else "int8")
             print(f"[stack] MT via CTranslate2: {mt_ct2}", flush=True)
         # Only when CTranslate2 is NOT carrying MT. The decode goes through
         # CTranslate2 whenever it exists, so with --mt-ct2 set this bf16 copy
@@ -88,7 +89,7 @@ class Madlad(Translator):
             from transformers import T5ForConditionalGeneration
             self.mt = T5ForConditionalGeneration.from_pretrained(
                 mt_model,
-                torch_dtype=torch.bfloat16 if device == "cuda" else None,
+                torch_dtype=torch.bfloat16 if is_gpu(device) else None,
             ).to(device).eval()
         else:
             print("[stack] MT is CTranslate2 only — bf16 copy not loaded", flush=True)
@@ -137,7 +138,7 @@ class Madlad(Translator):
     def generate(self, prompts):
         """MADLAD over a batch of prompts, one output per prompt."""
         import torch
-        inp = self.mt_tok(prompts, return_tensors="pt", padding=True).to(self.ctx.device)
+        inp = self.mt_tok(prompts, return_tensors="pt", padding=True).to(self.device)
         # Bounded by the input: translation is roughly length-preserving, and a
         # flat 256 let a degenerate generation burn 12s before giving up.
         max_new = min(160, int(inp["input_ids"].shape[1] * 2) + 24)

@@ -40,9 +40,9 @@ class MMS(Voice):
                 from transformers import VitsModel, AutoTokenizer
                 print(f"[stack] loading {mid}…")
                 self.cache[lang] = (AutoTokenizer.from_pretrained(mid),
-                                    VitsModel.from_pretrained(mid).eval().to(self.ctx.device))
+                                    VitsModel.from_pretrained(mid).eval().to(self.device))
             tok, model = self.cache[lang]
-            inputs = tok(text, return_tensors="pt").to(self.ctx.device)
+            inputs = tok(text, return_tensors="pt").to(self.device)
             # MMS tokenizers are script-specific (Khmer, Lao…): text in the
             # wrong script maps to NOTHING, and an empty id tensor crashes
             # VITS with "narrow(): length must be non-negative". Skip instead

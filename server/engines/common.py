@@ -12,6 +12,57 @@ def hf_snapshot(repo, revision, **kw):
     return snapshot_download(repo, revision=revision, **kw)
 
 
+# ---------------------------------------------------------------- devices
+
+def resolve_device(spec):
+    """A [devices] value -> the device to load on: "auto" is the first GPU when
+    torch sees one, else the CPU. AMD GPUs under ROCm are "cuda" too (PyTorch's
+    HIP build keeps the name), so "cuda:1" is the second card on either vendor."""
+    spec = (spec or "auto").strip()
+    if spec != "auto":
+        return spec
+    import torch
+    return "cuda" if torch.cuda.is_available() else "cpu"
+
+
+def ct2_device(device):
+    """"cuda:1" -> ("cuda", 1) for CTranslate2 (faster-whisper, MADLAD), which
+    takes the kind and the index separately. Anything but cuda -> ("cpu", 0):
+    CTranslate2 has no Apple GPU backend."""
+    kind, _, index = device.partition(":")
+    if kind != "cuda":
+        return "cpu", 0
+    return "cuda", int(index or 0)
+
+
+def is_gpu(device):
+    return device.startswith("cuda")
+
+
+def on_device(device):
+    """Make `device` the current GPU for this thread, for libraries that only
+    ever say "cuda" (Coqui, Omnilingual): inside it, "cuda" means that card.
+    A no-op for the CPU and for plain "cuda"."""
+    import contextlib
+    kind, _, index = device.partition(":")
+    if kind != "cuda" or not index:
+        return contextlib.nullcontext()
+    import torch
+    return torch.cuda.device(int(index))
+
+
+def gpu_used_mb(device):
+    """Memory in use on a CUDA/ROCm device, in MB, by every process and library
+    (CTranslate2's allocations included); None for the CPU."""
+    if not is_gpu(device):
+        return None
+    import torch
+    if not torch.cuda.is_available():
+        return None
+    free, total = torch.cuda.mem_get_info(torch.device(device))
+    return (total - free) // (1024 * 1024)
+
+
 # ---------------------------------------------------------------- audio
 
 def to_pcm16(pcm, native):

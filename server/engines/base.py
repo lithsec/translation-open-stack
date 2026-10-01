@@ -41,7 +41,10 @@ class Context:
     """What an engine is given: the device, the configuration, the server's
     flags and the pipeline's shared services.
 
-    device    "cuda" or "cpu"
+    device    the default device: "cuda", "cuda:<n>", "mps" or "cpu"
+    devices   {engine name: device}, from [devices] / the profile (resolved;
+              "default" is `device`). An engine loads on self.device, which
+              reads this; ctx.device_for(name) is the same for any name.
     models    languages.toml [models], merged over the defaults (every model's repo/revision)
     table     languages.toml's language tables ({lang: {key: value}})
     tables    stack_config.tables(table): the derived lookups (KOKORO_VOICES, ...)
@@ -53,8 +56,9 @@ class Context:
               on one that is already loaded (engines/_template.py uses MADLAD)
     """
     def __init__(self, device="cpu", models=None, table=None, tables=None, langs=(), srcs=(),
-                 options=None, voice_lock=None):
+                 options=None, voice_lock=None, devices=None):
         self.device = device
+        self.devices = dict(devices or {})
         self.models = models or {}
         self.table = table or {}
         self.tables = tables or {}
@@ -66,6 +70,10 @@ class Context:
         # with nothing behind it waits for capacity instead of handing the sentence to silence.
         self.voice_after = lambda lang, name: True
         self.engine = lambda kind, name: None
+
+    def device_for(self, name):
+        """Where engine `name` loads: its [devices] entry, else the default."""
+        return self.devices.get(name) or self.device
 
     def option(self, key, default=None):
         v = self.options.get(key, default)
@@ -109,6 +117,12 @@ class Engine:
     def check_lang(cls, lang, value):
         """An error message for a bad per-language value, or None."""
         return None
+
+    @property
+    def device(self):
+        """The device this engine loads on ([devices] in languages.toml or the
+        profile; the server's default otherwise). Use this, not ctx.device."""
+        return self.ctx.device_for(self.name)
 
     def load(self):
         """Load weights. Set self.available when the engine can serve."""

@@ -62,6 +62,12 @@ default, so `[models.hymt]` with only `revision = "..."` keeps the repo.
     python3 server/stack_config.py get models.hymt.revision   # one value, for scripts
     python3 server/stack_config.py engines          # the registered engines, and their files
     python3 server/stack_config.py voxcpm-plan --edition commercial   # "<gpu> <port>" per VoxCPM2 instance
+    python3 server/stack_config.py profiles         # the hardware profiles in profiles/
+    python3 server/stack_config.py profile cuda-32gb   # what a profile changes (default: $STACK_PROFILE)
+
+A profile (profiles/<name>.toml, STACK_PROFILE=<name>) is the hardware half:
+which device each model loads on ([devices]), smaller models, script defaults
+([env]) and per-language route changes. See "Profiles and devices" below.
 """
 import copy
 import os
@@ -600,36 +606,204 @@ def _source(path):
         return None, "built-in defaults"
 
 
-def load(path=None):
+# Top-level tables of languages.toml that are not languages.
+NOT_LANGUAGES = ("models", "licence_review", "devices")
+
+
+def load(path=None, profile=None):
     """(table, source). Per language, the file REPLACES the default entry: a
     [de] section without piper means German has no Piper voice. Languages the
-    file does not mention keep their defaults. ([models] is load_models().)"""
+    file does not mention keep their defaults. ([models] is load_models().)
+    Then the profile's [languages.<lang>] tables, merged key by key."""
     table = copy.deepcopy(DEFAULTS)
     data, src = _source(path)
-    if data is None:
-        return table, src
-    table.update(validate({k: dict(v) if isinstance(v, dict) else v for k, v in data.items()
-                           if k not in ("models", "licence_review")}))
+    if data is not None:
+        table.update(validate({k: dict(v) if isinstance(v, dict) else v for k, v in data.items()
+                               if k not in NOT_LANGUAGES}))
+    prof = load_profile(profile)
+    if prof.get("languages"):
+        for lang, over in prof["languages"].items():
+            table[lang] = {**table.get(lang, {}), **over}
+        validate(table)
+        src = f"{src} + profile {prof['name']}"
     return table, src
 
 
-def load_models(path=None):
-    """(models, source): MODEL_DEFAULTS (and any engine's own [models.<name>]
-    defaults) with the file's [models.<name>] tables merged over them key by key."""
-    models = model_defaults()
-    data, src = _source(path)
-    if data is None:
-        return models, src
-    given = data.get("models", {})
+def _merge_models(models, given, where):
     if not isinstance(given, dict):
-        raise ValueError("[models] must be a table of [models.<name>] tables")
+        raise ValueError(f"{where}[models] must be a table of [models.<name>] tables")
     for name, entry in given.items():
         if name not in models:
-            raise ValueError(f"[models.{name}] unknown model (known: {', '.join(models)})")
+            raise ValueError(f"{where}[models.{name}] unknown model (known: {', '.join(models)})")
         if not isinstance(entry, dict):
-            raise ValueError(f"[models.{name}] must be a table of keys")
+            raise ValueError(f"{where}[models.{name}] must be a table of keys")
         models[name].update(entry)
+
+
+def load_models(path=None, profile=None):
+    """(models, source): MODEL_DEFAULTS (and any engine's own [models.<name>]
+    defaults) with the file's [models.<name>] tables merged over them key by
+    key, then the profile's the same way."""
+    models = model_defaults()
+    data, src = _source(path)
+    if data is not None:
+        _merge_models(models, data.get("models", {}), "")
+    prof = load_profile(profile)
+    if prof.get("models"):
+        _merge_models(models, prof["models"], f"profile {prof['name']}: ")
+        src = f"{src} + profile {prof['name']}"
     return validate_models(models), src
+
+
+# ---- Profiles and devices ------------------------------------------------------
+# A profile is the hardware half of a deployment, kept apart from the languages
+# and the edition: profiles/<name>.toml, chosen with STACK_PROFILE=<name> (or a
+# path). It may hold
+#
+#   description = "..."          one line, for `stack_config.py profiles`
+#   [env]                        defaults for the scripts' variables (MADLAD,
+#                                VOXCPM_GPUS, LANGS, ...); the environment wins
+#   [devices]                    which device each model loads on (below)
+#   [models.<name>]              merged over languages.toml's, key by key
+#   [languages.<lang>]           merged over that language's table, key by key
+#                                (e.g. asr = "whisper" where Omnilingual can't run)
+#
+# and wins over languages.toml, so one line switches the whole setup:
+# `STACK_PROFILE=cuda-32gb`. `stack_config.py profile` prints what it changes.
+#
+# [devices] (in languages.toml, a profile, or STACK_DEVICES="whisper=cuda:1,hymt=cuda:0"):
+# "default" and any engine name (whisper, omni, hymt, madlad, kokoro, coqui,
+# mms, cosyvoice), plus "lid" (language ID). Values: "auto" (the first GPU, or
+# the CPU), "cpu", "cuda", "cuda:<n>", "mps". AMD cards under ROCm are "cuda"
+# too. VoxCPM2 runs in its own processes: its GPUs are VOXCPM_GPUS.
+
+PROFILES_DIR = os.path.join(os.path.dirname(HERE), "profiles")
+PROFILE_KEYS = {"description", "env", "devices", "models", "languages"}
+DEVICE_PSEUDO = {"default", "lid"}
+
+
+def _valid_device(v):
+    import re
+    return isinstance(v, str) and re.fullmatch(r"auto|cpu|mps|cuda(:\d+)?", v) is not None
+
+
+def profile_path(name):
+    """profiles/<name>.toml, or `name` itself when it is a path."""
+    import re
+    if os.sep in name or name.endswith(".toml"):
+        return name
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.+-]*", name):
+        raise ValueError(f"STACK_PROFILE={name!r}: a profile name is letters, digits and . _ + -")
+    return os.path.join(PROFILES_DIR, f"{name}.toml")
+
+
+def list_profiles():
+    """[(name, description)] of the shipped profiles."""
+    out = []
+    for f in sorted(os.listdir(PROFILES_DIR)) if os.path.isdir(PROFILES_DIR) else []:
+        if f.endswith(".toml"):
+            out.append((f[:-5], str(_read_toml(os.path.join(PROFILES_DIR, f)).get("description", ""))))
+    return out
+
+
+def load_profile(name=None):
+    """The profile as a dict (with "name"), {} when none is chosen. Loud on any
+    mistake: a typo in a profile must not quietly run the wrong hardware setup."""
+    import re
+    name = name if name is not None else os.environ.get("STACK_PROFILE", "")
+    if not name:
+        return {}
+    path = profile_path(name)
+    if not os.path.exists(path):
+        have = ", ".join(n for n, _ in list_profiles()) or "none"
+        raise FileNotFoundError(f"STACK_PROFILE={name}: no {path} (profiles: {have})")
+    data = _read_toml(path)
+    where = f"profile {name}"
+    bad = set(data) - PROFILE_KEYS
+    if bad:
+        raise ValueError(f"{where}: unknown table(s) {', '.join(sorted(bad))} (known: {', '.join(sorted(PROFILE_KEYS))})")
+    env = data.get("env", {})
+    if not isinstance(env, dict):
+        raise ValueError(f"{where}: [env] must be a table")
+    for k, v in env.items():
+        if not re.fullmatch(r"[A-Z_][A-Z0-9_]*", k) or not isinstance(v, (str, int, bool)):
+            raise ValueError(f"{where}: [env] {k} must be an UPPER_CASE name with a string or number")
+    langs = data.get("languages", {})
+    if not isinstance(langs, dict) or not all(isinstance(v, dict) for v in langs.values()):
+        raise ValueError(f"{where}: [languages] must hold [languages.<lang>] tables")
+    validate_devices(data.get("devices", {}), where)
+    return {**data, "name": name, "path": path}
+
+
+def validate_devices(devices, where="[devices]"):
+    if not isinstance(devices, dict):
+        raise ValueError(f"{where}: [devices] must be a table")
+    names = set(DEVICE_PSEUDO)
+    for reg in _engines().registry().values():
+        names |= set(reg)
+    for k, v in devices.items():
+        if k not in names:
+            raise ValueError(f"{where}: [devices] unknown {k!r} (known: {', '.join(sorted(names))})")
+        if not _valid_device(v):
+            raise ValueError(f"{where}: [devices] {k} = {v!r}: use auto, cpu, mps, cuda or cuda:<n>")
+    return devices
+
+
+def load_devices(path=None, profile=None):
+    """{name: device spec} ("default" always present): languages.toml's
+    [devices], then the profile's, then STACK_DEVICES. Specs are unresolved
+    ("auto" stays "auto"); the server resolves them (engines.common.resolve_device)."""
+    devices = {"default": "auto"}
+    data, _ = _source(path)
+    if data is not None:
+        devices.update(validate_devices(data.get("devices", {}), "languages.toml"))
+    devices.update(load_profile(profile).get("devices", {}))
+    raw = os.environ.get("STACK_DEVICES", "")
+    if raw.strip():
+        env = {}
+        for part in raw.split(","):
+            k, sep, v = part.partition("=")
+            if not sep:
+                raise ValueError(f"STACK_DEVICES: {part!r} is not name=device")
+            env[k.strip()] = v.strip()
+        devices.update(validate_devices(env, "STACK_DEVICES"))
+    return devices
+
+
+def profile_env_lines(profile=None):
+    """Shell lines that set the profile's [env] for every variable the
+    environment leaves unset (scripts/profile-env.sh evals them)."""
+    import shlex
+    prof = load_profile(profile)
+    out = []
+    for k, v in prof.get("env", {}).items():
+        v = ("1" if v else "0") if isinstance(v, bool) else str(v)
+        if k not in os.environ:
+            out.append(f"export {k}={shlex.quote(v)}")
+    return out
+
+
+def profile_lines(profile=None):
+    """What a profile changes, for `stack_config.py profile [<name>]`."""
+    prof = load_profile(profile)
+    if not prof:
+        return ["no profile (STACK_PROFILE unset): languages.toml as it is, every model on the default device"]
+    lines = [f"profile {prof['name']}: {prof.get('description', '')}", f"  file: {prof['path']}"]
+    for k, v in prof.get("env", {}).items():
+        now = os.environ.get(k)
+        tail = f"  (environment has {k}={now}, which wins)" if now is not None and now != str(v) else ""
+        lines.append(f"  env      {k}={v}{tail}")
+    devices = load_devices(profile=profile)
+    for k, v in sorted(devices.items(), key=lambda kv: (kv[0] != "default", kv[0])):
+        lines.append(f"  device   {k:10} {v}")
+    defaults = model_defaults()
+    models, _ = load_models(profile=profile)
+    for name, entry in prof.get("models", {}).items():
+        for key, val in entry.items():
+            lines.append(f"  model    {name}.{key} = {val!r} (default {defaults.get(name, {}).get(key)!r})")
+    for lang, over in prof.get("languages", {}).items():
+        lines.append(f"  language {lang}: " + ", ".join(f"{k} = {v!r}" for k, v in over.items()))
+    return lines
 
 
 def get(models, dotted):
@@ -836,7 +1010,11 @@ if __name__ == "__main__":
         ed = edition(ed_arg)
     except ValueError as e:
         sys.exit(str(e))
-    t, src = load()
+    try:
+        t, src = load()
+        load_devices()
+    except (ValueError, FileNotFoundError) as e:
+        sys.exit(f"stack_config: {e}")
     reviews = load_reviews()
     if cmd == "piper":
         # What scripts/fetch-voices.sh downloads: the edition's voices only, so a
@@ -864,8 +1042,26 @@ if __name__ == "__main__":
             print(gpu if gpu is not None else "-", port)
         for line in [plan["message"]] + plan["notes"]:
             print(line, file=sys.stderr)
+    elif cmd == "profile-env":
+        # For scripts/profile-env.sh: `export K=v` for each [env] value the environment lacks.
+        try:
+            print("\n".join(profile_env_lines()))
+        except (ValueError, FileNotFoundError) as e:
+            sys.exit(f"stack_config: {e}")
+    elif cmd == "profiles":
+        for name, desc in list_profiles():
+            print(f"  {name:14} {desc}")
+    elif cmd == "profile":
+        try:
+            print("\n".join(profile_lines(argv[1] if len(argv) > 1 else None)))
+        except (ValueError, FileNotFoundError) as e:
+            sys.exit(f"stack_config: {e}")
     elif cmd == "check":
         print(f"config: {src}")
+        prof = load_profile()
+        if prof:
+            print(f"profile: {prof['name']} ({prof.get('description', '')}); details: stack_config.py profile")
+        print("devices: " + ", ".join(f"{k}={v}" for k, v in load_devices().items()))
         models, _ = load_models()
         for line in check_lines(t, ed, reviews, models):
             print(line)
@@ -903,4 +1099,4 @@ if __name__ == "__main__":
                 print(f"  {kind:10} {name:10} {cls.title or '':18} {cls.licence or '':12} {cl:16} {where}")
     else:
         sys.exit(f"usage: {sys.argv[0]} check | engines | docs | piper <langs> | uses <engine> | get models.<name>.<key>"
-                 " | voxcpm-plan [--edition nonprofit|commercial]")
+                 " | voxcpm-plan [--edition nonprofit|commercial] | profiles | profile [<name>] | profile-env")

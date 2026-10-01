@@ -37,7 +37,7 @@ from concurrent.futures import Future
 import engines
 import licences
 from engines.base import AudioStream
-from engines.common import split_sentences, voice_sentences
+from engines.common import gpu_used_mb, split_sentences, voice_sentences
 
 # The fallbacks: always loaded, and what serves a language whose configured
 # engine is not running.
@@ -145,7 +145,14 @@ class EngineSet:
             if name not in rank:
                 print(f"[stack] loading {kind} {name} ({type(eng).__module__})…", flush=True)
             eng._loaded = True
+            dev = self.ctx.device_for(name)
+            before = gpu_used_mb(dev)
             eng.load()
+            after = gpu_used_mb(dev)
+            # Per model and card: the numbers a [devices] split is planned from.
+            if before is not None and after is not None and after != before:
+                print(f"[stack] {name} on {dev}: +{(after - before) / 1024:.1f} GB "
+                      f"({after / 1024:.1f} GB in use there)", flush=True)
         if names is None:
             self._report()
             self._licence_log()

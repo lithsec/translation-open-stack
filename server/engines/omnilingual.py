@@ -17,7 +17,7 @@ import os
 
 from engines import register
 from engines.base import Recognizer, VAD_RATE
-from engines.common import is_nonspeech
+from engines.common import is_nonspeech, on_device
 
 
 @register
@@ -44,8 +44,18 @@ class Omnilingual(Recognizer):
         try:
             from omnilingual_asr.models.inference.pipeline import ASRInferencePipeline
             card = self.ctx.models["omnilingual"]["card"]
-            print(f"[stack] loading Omnilingual ASR ({card})…")
-            self.omni = ASRInferencePipeline(model_card=card)
+            print(f"[stack] loading Omnilingual ASR ({card}) on {self.device}…")
+            # The configured device, passed explicitly: the pipeline moves its
+            # inputs to its own `device`, and left to itself that is "cuda", read
+            # as card 0, while the weights followed the current card (a 2-GPU pod
+            # failed every Khmer utterance that way, 2026-09-30). on_device covers
+            # fairseq2 code that still says plain "cuda".
+            import inspect
+            kw = {}
+            if "device" in inspect.signature(ASRInferencePipeline).parameters:
+                kw["device"] = self.device
+            with on_device(self.device):
+                self.omni = ASRInferencePipeline(model_card=card, **kw)
             self.available = True
         except Exception as e:
             print(f"[stack] Omnilingual unavailable ({e}) — ht/km/lo/sw fall back to whisper (poor)")
@@ -62,7 +72,8 @@ class Omnilingual(Recognizer):
                 with _wave.open(fh, "wb") as w:
                     w.setnchannels(1); w.setsampwidth(2); w.setframerate(VAD_RATE)
                     w.writeframes((_np.clip(pcm16k, -1, 1) * 32767).astype("<i2").tobytes())
-            out = self.omni.transcribe([path], lang=[self.codes[lang]], batch_size=1)
+            with on_device(self.device):
+                out = self.omni.transcribe([path], lang=[self.codes[lang]], batch_size=1)
         finally:
             os.unlink(path)
         text = (out[0] if out else "").strip()
