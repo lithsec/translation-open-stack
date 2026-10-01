@@ -3,7 +3,7 @@
 # chosen against a number, not a preference — see docs/dev/lessons-learned.md,
 # "Latency and throughput".
 #
-#   EDITION=nonprofit|commercial bash scripts/run.sh [langs] [srcs]
+#   EDITION=nonprofit|commercial|both bash scripts/run.sh [langs] [srcs]
 #
 # EDITION picks the voices whose licences fit the deployment (docs/licences.md §2):
 #   nonprofit  (default) every configured voice, including Meta's MMS (CC-BY-NC)
@@ -46,7 +46,10 @@ EDITION="${EDITION:-nonprofit}"
 case "$EDITION" in
   nonprofit)  VOICE_ARGS=(--mms) ;;
   commercial) VOICE_ARGS=(--coqui) ;;
-  *) echo "EDITION must be nonprofit or commercial (got '$EDITION')" >&2; exit 1 ;;
+  # One server for both kinds of client (Lithos Talk and Live Translation): each
+  # connection gets the voices its token's edition allows (server.py, connection_edition).
+  both)       VOICE_ARGS=(--mms --coqui) ;;
+  *) echo "EDITION must be nonprofit, commercial or both (got '$EDITION')" >&2; exit 1 ;;
 esac
 echo "edition: $EDITION"
 # What this edition serves, per language, with licences (and a non-zero exit if

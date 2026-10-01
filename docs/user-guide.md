@@ -290,6 +290,30 @@ same in both; only the voices differ.
 | Korean, Turkish, Russian, Arabic, Indonesian, Swahili, Vietnamese | Piper | VoxCPM2 (GPU); eSpeak NG when every instance is busy past 2 s or VoxCPM2 is not running |
 | German; en/es/fr fallbacks | Piper `thorsten`; `lessac`, `davefx`, `siwis` | Piper `mls`; `norman`, `carlfm`, `mls` |
 | Persian, Romanian | Piper | **eSpeak NG only** (robotic; no commercially licensed voice) |
+
+### One server for both editions
+
+`EDITION=both` serves commercial and non-profit clients from one GPU, for
+example a paid app and a non-profit's event app. The server keeps a set of
+voices per edition and gives each connection the set its token names:
+
+- A signed token's `ed` claim (`"commercial"` or `"nonprofit"`) picks the
+  edition. With no claim (the static `STACK_TOKEN`, or an issuer that doesn't
+  set one), a connection gets **commercial**, the stricter set.
+- Recognition and translation are shared. A voice configured the same in both
+  editions (Kokoro, eSpeak NG) is one model; Piper loads each edition's voices;
+  MMS serves only non-profit connections and Coqui only commercial ones.
+  VoxCPM2's services are shared, with one slot count across both.
+- Rooms are per edition: two editions never share a room's voices.
+- A commercial client is refused (close code 4403) by a stack running
+  `EDITION=nonprofit`, so it can't be served voices it may not use. A
+  non-profit client on a commercial stack simply gets commercial voices.
+- The `hello` message names the edition each connection got.
+
+Whether running non-commercial models on a server that also serves paying
+clients is acceptable for your organisation is a licensing question: the
+non-commercial voices only ever speak for non-profit connections, but read
+the licences ([licences.md](licences.md)) with that set-up in mind.
 | Non-commercial weights loaded | yes (MMS, several Piper voices) | none |
 | VoxCPM2 instances | one | one per GPU with room ([GPUs and capacity](#gpus-and-capacity)) |
 
