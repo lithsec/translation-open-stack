@@ -99,7 +99,7 @@ def _espeak_dir():
     return d
 
 
-def _start_stack(edition=None, voices_needed=("en_US-lessac-medium.onnx", "es_ES-davefx-medium.onnx")):
+def _start_stack(edition=None, voices_needed=("en_US-lessac-medium.onnx", "es_ES-davefx-medium.onnx"), extra_env=None):
     """Start server.py on CPU with stand-in models; yield its address, stop it after."""
     voices = os.path.join(CACHE, "voices")
     fetched = subprocess.run(["bash", os.path.join(ROOT, "scripts", "fetch-voices.sh"), "en,es"],
@@ -113,6 +113,7 @@ def _start_stack(edition=None, voices_needed=("en_US-lessac-medium.onnx", "es_ES
            "STACK_MAX_PER_CLIENT": "2", "HF_HUB_DISABLE_IMPLICIT_TOKEN": "1", "PYTHONUNBUFFERED": "1"}
     env.pop("STACK_OPEN", None)
     env.pop("EDITION", None)
+    env.update(extra_env or {})
     esp = _espeak_dir()
     if esp:
         env["ESPEAK_DATA_PATH"] = esp
@@ -163,7 +164,10 @@ def stack():
 def stack_both():
     """EDITION=both: a voice set per edition (Spanish: Piper davefx for non-profit
     connections, carlfm for commercial ones)."""
-    yield from _start_stack("both", ("es_ES-davefx-medium.onnx", "es_ES-carlfm-x_low.onnx"))
+    # The stand-in models (Whisper tiny, t5-small) have no licence entry, so the commercial
+    # start-up check would refuse them: admitted for this test server only, with its warning.
+    yield from _start_stack("both", ("es_ES-davefx-medium.onnx", "es_ES-carlfm-x_low.onnx"),
+                            {"COMMERCIAL_ALLOW_UNCLEAR": "1"})
 
 
 # ---------------------------------------------------------------- helpers
