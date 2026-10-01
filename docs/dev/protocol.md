@@ -51,6 +51,7 @@ most `STACK_MAX_SESSION_MIN` minutes (360).
 |---|---|
 | 4401 | bad or missing token (including a token for another audience) |
 | 4429 | too many connections for this subject, or for the server |
+| 4403 | the token names an edition this stack doesn't serve (`ed: "commercial"` on an `EDITION=nonprofit` stack) |
 | 4408 | the connection reached `STACK_MAX_SESSION_MIN` |
 | 4400 | a query parameter the server does not accept (an `error` message says which, first) |
 | 4413 | audio sent faster than 2x real time |
@@ -82,10 +83,13 @@ Audio frames are at most 64 KB; a long sentence arrives in several.
 The server replies immediately:
 
 ```json
-{"type":"hello","lang":"es","src":"auto","rate":24000,"mode":"utterance"}
+{"type":"hello","lang":"es","src":"auto","rate":24000,"mode":"utterance","edition":"commercial"}
 ```
 
-`rate` is authoritative — use it rather than assuming 24000.
+`rate` is authoritative — use it rather than assuming 24000. `edition` is the
+voice set this connection is served in (`EDITION=both` picks it from the
+token's `ed` claim; a client that must not hear non-commercial voices can check
+it says `commercial`).
 
 ## Send
 

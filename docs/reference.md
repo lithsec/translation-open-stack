@@ -37,7 +37,7 @@ environment (RunPod).
 |---|---|---|
 | `LANGS` | all 25 | Languages people listen in (voices are fetched for these). |
 | `SRCS` | all 25 | Languages people may speak. |
-| `EDITION` | `nonprofit` | `nonprofit` or `commercial` ([licences.md §2](licences.md#2-editions-what-edition-changes)). |
+| `EDITION` | `nonprofit` | `nonprofit`, `commercial` or `both` ([licences.md §2](licences.md#2-editions-what-edition-changes); `both`: [user guide](user-guide.md#one-server-for-both-editions)). |
 | `COMMERCIAL_ALLOW_UNCLEAR` | unset | `1` = admit every ❓ item in commercial at once, with a loud warning at start-up and in `check`. Prefer `[licence_review]`. |
 | `MADLAD` | `7b` | `3b` = the smaller fallback translator, for a 32 GB card (`[models.madlad3b]`). |
 | `STACK_CONFIG` | `languages.toml` at the repository root | Another model file (languages and `[models]`). |

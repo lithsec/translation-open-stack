@@ -116,7 +116,19 @@ class VoxCPM(Voice):
     def __init__(self, ctx, clock=time.monotonic):
         super().__init__(ctx)
         urls = [u.strip() for u in str(ctx.options.get("voxcpm") or "").split(",") if u.strip()]
-        self.instances = [Instance(u) for u in urls]
+        # EDITION=both builds one VoxCPM2 engine per edition (they speak different
+        # languages) over the SAME services: ctx.options["voxcpm_shared"], one dict
+        # for both, makes them share the instances and the slot accounting, so the
+        # two can never put more on a service than its cap between them.
+        shared = ctx.options.get("voxcpm_shared")
+        if shared is not None and "instances" in shared:
+            self.instances, self._guard, self._freed = shared["instances"], shared["guard"], shared["freed"]
+        else:
+            self.instances = [Instance(u) for u in urls]
+            self._guard = threading.Lock()
+            self._freed = threading.Condition(self._guard)
+            if shared is not None:
+                shared.update(instances=self.instances, guard=self._guard, freed=self._freed)
         self.url = self.instances[0].url if self.instances else None
         langs = ctx.options.get("voxcpm_langs")
         self.langs = set(langs) if langs else set(ctx.tables.get("VOXCPM_LANGS", set()))
@@ -127,8 +139,6 @@ class VoxCPM(Voice):
         self.retry_s = float(os.environ.get("VOXCPM_RETRY_S", "15"))
         self.timeout = float(os.environ.get("VOXCPM_TIMEOUT_S", "30"))
         self._clock = clock
-        self._guard = threading.Lock()
-        self._freed = threading.Condition(self._guard)
         # How long a sentence waits for a slot when every healthy instance is full: a language with
         # no voice after VoxCPM2 (Khmer, Lao, Tagalog in commercial) waits up to wait_s instead of
         # going text only (2026-09-30: Khmer went silent under an 8-language room load); one with a

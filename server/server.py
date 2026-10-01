@@ -285,16 +285,28 @@ class Pipeline:
         self.get_speech_ts = utils[0]
         self.srcs = srcs or ["en"]
 
-        ctx = Context(
-            device=self.device, devices=devices, models=MODELS, table=LANG_CONFIG, tables=_T, langs=langs, srcs=self.srcs,
-            options=dict(xeng=xeng, clone_ref=clone_ref, omni=omni, mms=mms, asr_model=asr_model,
-                         asr_multi_model=asr_multi_model, asr_revision=asr_revision,
-                         asr_multi_revision=asr_multi_revision, mt_model=mt_model,
-                         mt_ct2=mt_ct2, kokoro=kokoro, coqui=coqui, voices_dir=voices_dir, hymt=hymt,
-                         voxcpm=voxcpm, voxcpm_langs=voxcpm_langs, edition=edition,
-                         voxcpm_max_inflight=voxcpm_max_inflight, espeak=espeak,
-                         licence_review=LICENCE_REVIEW))
-        self.engines = EngineSet(ctx, serial_tts=serial_tts)
+        # One voice set per edition this server serves (EDITION=both: two, see
+        # build_voice_sets). The first set also owns recognition and translation.
+        self.edition = edition
+        self.editions = stack_config.editions_of(edition)
+        # The edition of a connection whose token names none: the stricter one.
+        self.default_edition = "commercial" if "commercial" in self.editions else self.editions[0]
+        voxcpm_shared = {}
+
+        def ctx_for(ed):
+            return Context(
+                device=self.device, devices=devices, models=MODELS, table=copy.deepcopy(LANG_CONFIG), tables=_T,
+                langs=langs, srcs=self.srcs,
+                options=dict(xeng=xeng, clone_ref=clone_ref, omni=omni, mms=mms, asr_model=asr_model,
+                             asr_multi_model=asr_multi_model, asr_revision=asr_revision,
+                             asr_multi_revision=asr_multi_revision, mt_model=mt_model,
+                             mt_ct2=mt_ct2, kokoro=kokoro, coqui=coqui, voices_dir=voices_dir, hymt=hymt,
+                             voxcpm=voxcpm, voxcpm_langs=voxcpm_langs, edition=ed,
+                             voxcpm_max_inflight=voxcpm_max_inflight, espeak=espeak,
+                             licence_review=LICENCE_REVIEW, voxcpm_shared=voxcpm_shared))
+        self._ctx_for, self._serial_tts = ctx_for, serial_tts
+        self.engines = EngineSet(ctx_for(self.editions[0]), serial_tts=serial_tts)
+        self.voice_sets = {self.editions[0]: self.engines}
         # Whisper first (it decides whether other sources work at all), then
         # language ID, then everything else: the order the stack always loaded in.
         self.engines.load(["whisper"])
@@ -340,6 +352,25 @@ class Pipeline:
                 raise SystemExit(f"[stack] language ID failed to load ({e}); fix it or drop --xeng")
 
         self.engines.load()
+        for ed in self.editions[1:]:
+            self.voice_sets[ed] = self.build_voice_set(ed)
+            self.voice_sets[ed].load()
+
+    def build_voice_set(self, ed):
+        """The voice set for a second edition (EDITION=both): recognisers and
+        translators from the first set, and every voice engine whose settings
+        are the same in both editions' tables (Kokoro, eSpeak NG) shared with
+        it; the rest (Piper's per-edition voices, Coqui, MMS, VoxCPM2's language
+        list) its own. VoxCPM2 shares its services' slots across both sets."""
+        first = self.engines
+        mine = stack_config.apply_edition(LANG_CONFIG, ed, first.reviews, first.unclear_ok)[0]
+        names = first.shareable_voices(mine)
+        print(f"[stack] {ed} voices: sharing {', '.join(sorted(names)) or 'none'} with {first.edition}", flush=True)
+        return EngineSet(self._ctx_for(ed), serial_tts=self._serial_tts, share_from=first, share_voices=names)
+
+    def voices(self, edition=None):
+        """The EngineSet that speaks for a connection in `edition` (None: the default)."""
+        return self.voice_sets[edition or self.default_edition]
 
     @property
     def asr_multi(self):
@@ -443,13 +474,14 @@ class Pipeline:
         """Every target language at once, one batch per translator (engines/manager.py)."""
         return self.engines.translate_batch(text, langs, src)
 
-    def synthesise_futures(self, text, lang):
-        """This utterance's audio, one future per sentence, in order (engines/manager.py)."""
-        return self.engines.synthesise_futures(text, lang, TTS_POOL)
+    def synthesise_futures(self, text, lang, edition=None):
+        """This utterance's audio, one future per sentence, in order (engines/manager.py),
+        in the connection's edition."""
+        return self.voices(edition).synthesise_futures(text, lang, TTS_POOL)
 
-    def synthesise(self, text, lang):
+    def synthesise(self, text, lang, edition=None):
         """24 kHz mono PCM16 bytes, or None when this language is text-only."""
-        return self.engines.synthesise(text, lang)
+        return self.voices(edition).synthesise(text, lang)
 
 
 def quietest_cut(buf, window_s=2.0, frame_ms=20):
@@ -490,7 +522,7 @@ def common_prefix_words(a, b):
     return out
 
 
-async def handle_streaming(ws, pipe, src, lang):
+async def handle_streaming(ws, pipe, src, lang, edition=None):
     """Translate WHILE the speaker talks.
 
     Every second the whole current utterance is re-transcribed; words identical
@@ -533,7 +565,7 @@ async def handle_streaming(ws, pipe, src, lang):
         translated_n += clause_end
         translated = await loop.run_in_executor(None, pipe.translate, segment, lang, src)
         await ws.send(json.dumps({"type": "transcript", "delta": translated + " "}))
-        await speak_to(ws, pipe, translated, lang)
+        await speak_to(ws, pipe, translated, lang, edition)
 
     async for msg in ws:
         if not meter.take(len(msg)):
@@ -590,7 +622,8 @@ class Room:
     listen to the same language; each gets the output, and one leaving takes
     only itself out."""
 
-    def __init__(self):
+    def __init__(self, edition=None):
+        self.edition = edition     # whose voices the room speaks with (EDITION=both: per room)
         self.members = {}          # ws -> lang, in joining order
         self.primary = None        # the connection whose audio we process
         import numpy as np
@@ -738,9 +771,9 @@ async def send_speech(w, audio):
             await w.send(audio[i:i + (1 << 16)])
 
 
-async def speak_to(ws, pipe, text, lang):
+async def speak_to(ws, pipe, text, lang, edition=None):
     """One listener: each sentence's audio the moment it is ready, in order."""
-    for fut in pipe.synthesise_futures(text, lang):
+    for fut in pipe.synthesise_futures(text, lang, edition):
         try:
             audio = await asyncio.wrap_future(fut)
         except Exception as e:
@@ -894,7 +927,7 @@ async def room_utterance(pipe, room, utterance, src):
         """Send each sentence the moment it is ready, in order, to everyone
         listening to lg (w: their connections)."""
         out = Fanout(w)
-        for i, fut in enumerate(pipe.synthesise_futures(tr, lg)):
+        for i, fut in enumerate(pipe.synthesise_futures(tr, lg, room.edition)):
             try:
                 audio = await asyncio.wrap_future(fut)
             except Exception as e:
@@ -1060,7 +1093,7 @@ async def room_flush(pipe, room, words, final):
             await out.send(json.dumps({"type": "transcript", "delta": tr + " "}))
         except Exception:
             return
-        for fut in pipe.synthesise_futures(tr, lg):
+        for fut in pipe.synthesise_futures(tr, lg, room.edition):
             try:
                 audio = await asyncio.wrap_future(fut)
             except Exception as e:
@@ -1219,7 +1252,8 @@ async def forced_cut(pipe, buf, src, fallback_src="en", only=None):
 
 
 async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False):
-    """One connection in the room `key`: (token subject, ?room= id)."""
+    """One connection in the room `key`: (token subject, ?room= id, edition). The
+    edition is part of the key, so a room's voices are always its members' edition."""
     import numpy as np
     import torch
     from scipy.signal import resample_poly
@@ -1227,7 +1261,7 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False):
     room_id = f"{clean(key[0], 24)}/{key[1]}"   # for the log; the id itself is validated
     room = ROOMS.get(key)
     if room is None:
-        room = ROOMS[key] = Room()
+        room = ROOMS[key] = Room(key[2] if len(key) > 2 else None)
     room.members[ws] = lang
     if priority:
         room.priority_ws.add(ws)
@@ -1430,8 +1464,9 @@ def parse_request(q, pipe):
             "stream": flag("stream"), "priority": flag("priority")}
 
 
-async def handle(ws, pipe, sub="open"):
-    """One connection, from the subject guarded() admitted."""
+async def handle(ws, pipe, sub="open", edition=None):
+    """One connection, from the subject guarded() admitted, served in `edition`
+    (connection_edition: whose voices it hears)."""
     import numpy as np
     import torch
     from scipy.signal import resample_poly
@@ -1460,13 +1495,14 @@ async def handle(ws, pipe, sub="open"):
         await ws.close()
         return
     await ws.send(json.dumps({"type": "hello", "lang": lang, "src": src, "rate": RATE,
-                              "mode": "streaming" if getattr(pipe, "streaming", False) else "utterance"}))
+                              "mode": "streaming" if getattr(pipe, "streaming", False) else "utterance",
+                              "edition": edition or pipe.default_edition}))
     print(f"[stack] client: {src} -> {lang}")
 
     if req["room"]:
         # Shared-pipeline mode (see Room). src is fixed per room. The room is
         # this subject's: another token's ?room=main is a different room.
-        await handle_room(ws, pipe, (sub, req["room"]), lang, src, req["stream"], req["priority"])
+        await handle_room(ws, pipe, (sub, req["room"], edition), lang, src, req["stream"], req["priority"])
         return
 
     if getattr(pipe, "streaming", False):
@@ -1477,7 +1513,7 @@ async def handle(ws, pipe, sub="open"):
             await ws.send(json.dumps({"type": "error", "detail": "--streaming needs a fixed ?src"}))
             await ws.close()
             return
-        await handle_streaming(ws, pipe, src, lang)
+        await handle_streaming(ws, pipe, src, lang, edition)
         return
 
     # route=to (Lithos Talk): translate whatever is spoken INTO `lang`, and skip
@@ -1552,10 +1588,30 @@ async def handle(ws, pipe, sub="open"):
         translated = await loop.run_in_executor(None, pipe.translate, text, this_lang, this_src)
         await ws.send(json.dumps({"type": "transcript", "delta": translated}))
         print(f"[stack] solo {this_src}->{this_lang}: {len(text)} chars heard, {len(translated)} out", flush=True)
-        await speak_to(ws, pipe, translated, this_lang)
+        await speak_to(ws, pipe, translated, this_lang, edition)
 
 
 LIMITS = None  # stack_auth.Limits, made in main()
+
+
+# A token for an edition this stack doesn't serve (a commercial client on a
+# non-profit-only stack): refused rather than served with voices it may not use.
+CLOSE_EDITION = 4403
+
+
+def connection_edition(served, claim):
+    """The edition a connection is served in, or None to refuse it.
+
+    served: the server's editions (["nonprofit"], ["commercial"] or both).
+    claim: the token's "ed" (None for the static token, an open stack, or an
+    issuer that doesn't say). No claim: the strictest edition served. A
+    non-profit client on a commercial-only stack gets commercial voices (only
+    stricter); a commercial client is never served by a non-profit-only stack."""
+    if claim is None:
+        return "commercial" if "commercial" in served else served[0]
+    if claim in served:
+        return claim
+    return "commercial" if claim == "nonprofit" and "commercial" in served else None
 
 
 async def guarded(ws, pipe):
@@ -1570,12 +1626,18 @@ async def guarded(ws, pipe):
     from urllib.parse import urlparse, parse_qs
     import stack_auth
     url = urlparse(ws.request.path)
-    sub, via = stack_auth.subject_for(ws.request.headers, url.path, parse_qs(url.query))
+    sub, via, claim = stack_auth.credentials_for(ws.request.headers, url.path, parse_qs(url.query))
     if sub is None:
         print(f"[stack] refused: bad or missing token (via {clean(via, 12)})", flush=True)
         await ws.close(code=4401, reason="unauthorized")
         return
     who = clean(sub, 24)    # the subject comes from the token: printable, bounded
+    edition = connection_edition(pipe.editions, claim)
+    if edition is None:
+        print(f"[stack] refused {who}: its token is for the {claim} edition; this stack serves "
+              f"{'/'.join(pipe.editions)}", flush=True)
+        await ws.close(code=CLOSE_EDITION, reason=f"this stack does not serve the {claim} edition")
+        return
     why = LIMITS.admit(sub)
     if why:
         print(f"[stack] refused {who}: {why}", flush=True)
@@ -1584,7 +1646,7 @@ async def guarded(ws, pipe):
     if via in ("path", "query"):
         print(f"[stack] {who} sent its token in the URL — clients should use the Authorization header", flush=True)
     try:
-        await asyncio.wait_for(handle(ws, pipe, sub), LIMITS.session_s)
+        await asyncio.wait_for(handle(ws, pipe, sub, edition), LIMITS.session_s)
     except asyncio.TimeoutError:
         print(f"[stack] {who}: session time limit reached", flush=True)
         await ws.close(code=4408, reason="session time limit")
@@ -1617,14 +1679,20 @@ def warmup(pipe, langs):
     if pipe.asr_multi is not None:
         pipe.transcribe(silence, "es")
     texts = pipe.translate_batch("Hello, welcome to the service.", langs) if langs else []
-    by_engine = {}
-    for lg, tr in zip(langs, texts):
-        chain = pipe.engines.chain(lg)
-        by_engine.setdefault(chain[0].name if chain else "", []).append((lg, tr))
+    # Grouped by the engine object, so a voice shared by both editions' sets
+    # (EDITION=both) is one group, and each of its languages is warmed once.
+    by_engine, seen = {}, set()
+    for ed, vs in pipe.voice_sets.items():
+        for lg, tr in zip(langs, texts):
+            chain = vs.chain(lg)
+            key = id(chain[0]) if chain else None
+            if (key, lg) not in seen:
+                seen.add((key, lg))
+                by_engine.setdefault(key, []).append((lg, tr, ed))
 
-    def warm(pairs):
-        for lg, tr in pairs:
-            pipe.synthesise(tr, lg)
+    def warm(items):
+        for lg, tr, ed in items:
+            pipe.synthesise(tr, lg, ed)
 
     with ThreadPoolExecutor(max(1, len(by_engine)), thread_name_prefix="warm") as pool:
         for f in [pool.submit(warm, pairs) for pairs in by_engine.values()]:
@@ -1690,7 +1758,9 @@ async def main():
     ap.add_argument("--edition", default=os.environ.get("EDITION") or "nonprofit",
                     choices=stack_config.EDITIONS,
                     help="nonprofit: every configured voice; commercial: only voices and models licensed for "
-                         "commercial use (server/licences.py, docs/licences.md). Default: $EDITION or nonprofit")
+                         "commercial use (server/licences.py, docs/licences.md); both: each connection in the "
+                         "edition its token names (claim \"ed\"), commercial when it names none. "
+                         "Default: $EDITION or nonprofit")
     ap.add_argument("--hymt", default=None,
                     help="directory of the 4-bit Hy-MT2 7B built by prepare-mt.sh; translates into "
                          "the 36 languages it supports, MADLAD the rest")
@@ -1716,7 +1786,7 @@ async def main():
     srcs = [l.strip() for l in args.srcs.split(",") if l.strip()]
     print(f"[stack] language config: {LANG_CONFIG_SRC}")
     print(f"[stack] edition: {args.edition}", flush=True)
-    if args.edition == "commercial":
+    if args.edition in ("commercial", "both"):
         # The shared models (and the Whisper flags, which can differ from
         # [models.whisper]) must be commercially licensed, or nothing starts.
         models = copy.deepcopy(MODELS)

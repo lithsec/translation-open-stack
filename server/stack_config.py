@@ -284,10 +284,20 @@ def _validate_commercial(lang, comm, known):
 
 # ------------------------------------------------------------------ editions
 
-EDITIONS = ("nonprofit", "commercial")
+EDITIONS = ("nonprofit", "commercial", "both")
+# "both": one server for both kinds of client (Lithos Talk, commercial, and Live
+# Translation, non-profit, on one GPU). The server builds a voice set per edition
+# and each connection gets the one its token names (claim "ed"; none: commercial,
+# the strict one). Recognisers and translators are the same in both editions.
+BOTH = "both"
 # Voice engines scripts/run.sh does NOT start in an edition (--mms is nonprofit
 # only, --coqui commercial only). Licence enforcement is separate and stricter.
-EDITION_OFF = {"nonprofit": {"coqui"}, "commercial": {"mms"}}
+EDITION_OFF = {"nonprofit": {"coqui"}, "commercial": {"mms"}, BOTH: set()}
+
+
+def editions_of(ed):
+    """The real editions a server edition serves: both -> [nonprofit, commercial]."""
+    return ["nonprofit", "commercial"] if ed == BOTH else [ed]
 
 
 def _licences():
@@ -299,7 +309,7 @@ def edition(value=None):
     """The edition: `value`, else $EDITION, else nonprofit. Anything else is an error."""
     ed = value or os.environ.get("EDITION") or "nonprofit"
     if ed not in EDITIONS:
-        raise ValueError(f"EDITION must be nonprofit or commercial (got {ed!r})")
+        raise ValueError(f"EDITION must be nonprofit, commercial or both (got {ed!r})")
     return ed
 
 
@@ -469,7 +479,8 @@ def voxcpm_plan(ed, gpus, instances=None, devices=None, max_instances=None, min_
       exactly these GPUs, in this order (instances, if a number, takes the first n).
     Raises ValueError for a bad setting."""
     ed = edition(ed)
-    raw = (instances or "").strip() or ("auto" if ed == "commercial" else "1")
+    # both: commercial's ten VoxCPM2 languages are in it, so size it as commercial.
+    raw = (instances or "").strip() or ("auto" if ed in ("commercial", BOTH) else "1")
     default = not (instances or "").strip()
     if raw != "auto" and not raw.isdigit():
         raise ValueError(f"VOXCPM_INSTANCES must be auto or a number (got {raw!r})")
@@ -1019,16 +1030,19 @@ if __name__ == "__main__":
     if cmd == "piper":
         # What scripts/fetch-voices.sh downloads: the edition's voices only, so a
         # commercial install never even fetches a non-commercial one.
-        eff, _ = apply_edition(t, ed, reviews)
+        # both: each edition's voice (a language may have two).
+        effs = [apply_edition(t, e, reviews)[0] for e in editions_of(ed)]
         for lang in [l.strip() for l in (argv[1] if len(argv) > 1 else "").split(",") if l.strip()]:
-            if eff.get(lang, {}).get("piper"):
-                print(lang, eff[lang]["piper"])
+            for voice in dict.fromkeys(eff.get(lang, {}).get("piper") for eff in effs):
+                if voice:
+                    print(lang, voice)
     elif cmd == "uses":
         # The languages that name an engine in this edition, e.g. `uses voxcpm`
         # (scripts/run.sh and prepare-voices.sh: which services to start).
         name = argv[1] if len(argv) > 1 else ""
-        eff, _ = apply_edition(t, ed, reviews)
-        print(",".join(l for l in sorted(eff) if eff[l].get(name) or name in (eff[l].get("voice") or [])))
+        effs = [apply_edition(t, e, reviews)[0] for e in editions_of(ed)]
+        print(",".join(l for l in sorted(t) if any(eff.get(l, {}).get(name) or name in (eff.get(l, {}).get("voice") or [])
+                                                   for eff in effs)))
     elif cmd == "voxcpm-plan":
         # For scripts/run.sh: one "<gpu> <port>" line per VoxCPM2 instance to
         # start ("-" = no CUDA_VISIBLE_DEVICES), the summary on stderr.
@@ -1063,10 +1077,11 @@ if __name__ == "__main__":
             print(f"profile: {prof['name']} ({prof.get('description', '')}); details: stack_config.py profile")
         print("devices: " + ", ".join(f"{k}={v}" for k, v in load_devices().items()))
         models, _ = load_models()
-        for line in check_lines(t, ed, reviews, models):
-            print(line)
+        for e in editions_of(ed):
+            for line in check_lines(t, e, reviews, models):
+                print(line)
         print("engines: " + "; ".join(f"{k} {', '.join(sorted(r))}" for k, r in _engines().registry().items()))
-        if ed == "commercial":
+        if ed in ("commercial", BOTH):
             bad = commercial_problems(models, reviews)
             if bad:
                 sys.exit("not allowed with EDITION=commercial:\n  " + "\n  ".join(bad))
@@ -1099,4 +1114,4 @@ if __name__ == "__main__":
                 print(f"  {kind:10} {name:10} {cls.title or '':18} {cls.licence or '':12} {cl:16} {where}")
     else:
         sys.exit(f"usage: {sys.argv[0]} check | engines | docs | piper <langs> | uses <engine> | get models.<name>.<key>"
-                 " | voxcpm-plan [--edition nonprofit|commercial] | profiles | profile [<name>] | profile-env")
+                 " | voxcpm-plan [--edition nonprofit|commercial|both] | profiles | profile [<name>] | profile-env")

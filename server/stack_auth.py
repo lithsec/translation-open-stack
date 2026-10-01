@@ -49,17 +49,22 @@ def _b64d(s):
 # Audiences: what a signed token is for.
 AUD_STACK = "stack"      # open a connection to this stack
 AUD_REPORT = "report"    # the pod's ready report to the Lithos server (never a connection)
+# The edition a connection is served in, when the issuer says (claim "ed"): a server
+# with EDITION=both picks that connection's voices by it (server.py, connection_edition).
+EDITION_CLAIMS = ("nonprofit", "commercial")
 # The longest a signed token may live (Live Translation's are 12 h).
 MAX_TOKEN_TTL_S = 24 * 3600
 
 
-def sign(key, sub, ttl_s, now=None, aud=AUD_STACK):
+def sign(key, sub, ttl_s, now=None, aud=AUD_STACK, ed=None):
     """A token for `sub`, valid for ttl_s seconds (tests and tools; the Lithos server signs its own).
-    aud=None leaves the audience out (the pre-audience format, for tests)."""
+    aud=None leaves the audience out (the pre-audience format, for tests); ed names the edition."""
     now = int(now if now is not None else time.time())
     claims = {"sub": sub, "iat": now, "exp": now + ttl_s}
     if aud is not None:
         claims["aud"] = aud
+    if ed is not None:
+        claims["ed"] = ed
     payload = base64.urlsafe_b64encode(json.dumps(claims).encode()).rstrip(b"=").decode()
     sig = base64.urlsafe_b64encode(hmac.new(key.encode(), payload.encode(), hashlib.sha256).digest()).rstrip(b"=").decode()
     return f"{payload}.{sig}"
@@ -80,6 +85,12 @@ def _number(v):
 
 def _signed_subject(token, signing_key, now, audience, legacy):
     """(signature_ok, subject or None) for a "<payload>.<signature>" token."""
+    ok, claims = _signed_claims(token, signing_key, now, audience, legacy)
+    return ok, (claims["sub"][:80] if claims else None)
+
+
+def _signed_claims(token, signing_key, now, audience, legacy):
+    """(signature_ok, claims or None) for a "<payload>.<signature>" token."""
     payload, sig = token.split(".")
     want = hmac.new(signing_key.encode(), payload.encode(), hashlib.sha256).digest()
     try:
@@ -106,7 +117,27 @@ def _signed_subject(token, signing_key, now, audience, legacy):
             return True, None
     elif aud != audience:
         return True, None
-    return True, claims["sub"][:80]
+    # An edition the stack doesn't know is a malformed token, not a default.
+    if "ed" in claims and claims["ed"] not in EDITION_CLAIMS:
+        return True, None
+    return True, claims
+
+
+def verify_claims(token, signing_key="", static_token="", now=None, audience=AUD_STACK, legacy=None):
+    """(subject, edition claim or None) if the token is valid now for `audience`, else (None, None).
+    The static token and an open stack carry no edition."""
+    if not token:
+        return None, None
+    now = now if now is not None else time.time()
+    if legacy is None:
+        legacy = accept_legacy_tokens()
+    if signing_key and token.count(".") == 1:
+        sig_ok, claims = _signed_claims(token, signing_key, now, audience, legacy)
+        if sig_ok:
+            return (claims["sub"][:80], claims.get("ed")) if claims else (None, None)
+    if static_token and hmac.compare_digest(token.encode(), static_token.encode()):
+        return "static", None
+    return None, None
 
 
 def verify(token, signing_key="", static_token="", now=None, audience=AUD_STACK, legacy=None):
@@ -176,7 +207,14 @@ def auth_required():
 
 def subject_for(headers, path, query):
     """(subject, via) for a request, or (None, via) when it must be refused. Open when no credential is configured."""
+    sub, via, _ = credentials_for(headers, path, query)
+    return sub, via
+
+
+def credentials_for(headers, path, query):
+    """(subject, via, edition claim or None); subject None when the request must be refused."""
     token, via = presented_token(headers, path, query)
     if not auth_required():
-        return "open", via
-    return verify(token, os.environ.get("STACK_SIGNING_KEY", ""), os.environ.get("STACK_TOKEN", "")), via
+        return "open", via, None
+    sub, ed = verify_claims(token, os.environ.get("STACK_SIGNING_KEY", ""), os.environ.get("STACK_TOKEN", ""))
+    return sub, via, ed

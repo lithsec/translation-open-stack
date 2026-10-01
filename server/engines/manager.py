@@ -52,8 +52,15 @@ LOAD_ORDER = ["whisper", "omni", "cosyvoice", "coqui", "voxcpm", "hymt", "kokoro
 
 
 class EngineSet:
-    def __init__(self, ctx, serial_tts=False, classes=None):
-        """classes: {kind: {name: class}} to use instead of the registry (tests)."""
+    def __init__(self, ctx, serial_tts=False, classes=None, share_from=None, share_voices=()):
+        """classes: {kind: {name: class}} to use instead of the registry (tests).
+
+        share_from: another EngineSet, in the other edition, on the same server
+        (EDITION=both, server.py). This one then uses its recognisers and
+        translators (the same in both editions), the voices named in
+        share_voices (those configured identically in both), and its voice
+        locks, so a shared model is never called by both sets at once. Every
+        other voice is this set's own, built from this edition's table."""
         self.ctx = ctx
         # One lock PER MODEL, not one lock for the GPU.
         #
@@ -73,9 +80,14 @@ class EngineSet:
         # single lock. (Keyed by language: each language has its own model or
         # pipeline in every locked engine.)
         self._serial_tts = serial_tts
-        self._tts_locks = {}
-        self._tts_locks_guard = threading.Lock()
-        self.gpu_tts_lock = threading.Lock()  # used only when --serial-tts
+        if share_from is not None:
+            self._tts_locks = share_from._tts_locks
+            self._tts_locks_guard = share_from._tts_locks_guard
+            self.gpu_tts_lock = share_from.gpu_tts_lock
+        else:
+            self._tts_locks = {}
+            self._tts_locks_guard = threading.Lock()
+            self.gpu_tts_lock = threading.Lock()  # used only when --serial-tts
         ctx.voice_lock = self.voice_lock
         ctx.voice_after = self.voice_after
         ctx.engine = self.get
@@ -83,17 +95,34 @@ class EngineSet:
         self._apply_edition(ctx)
         self.engines = {k: {} for k in engines.KINDS}
         for kind in engines.KINDS:
+            if share_from is not None and kind != "voice":
+                self.engines[kind] = share_from.engines[kind]
+                continue
             for name, cls in classes.get(kind, {}).items():
-                if not cls.enabled(ctx):
+                shared = share_from is not None and name in share_voices and name in share_from.engines["voice"]
+                if not shared and not cls.enabled(ctx):
                     continue
                 if name not in licences.PER_ITEM and not self._allowed(name, None, cls):
                     li = licences.lookup(name, cls=cls)
                     print(f"[licence] {self.edition}: NOT loading {kind} {name} "
                           f"({licences.SYMBOL[li.cls]} {li.licence}: {li.reason})", flush=True)
                     continue
-                self.engines[kind][name] = cls(ctx)
+                # A shared voice passes the same licence check: share_voices can't smuggle one in.
+                self.engines[kind][name] = share_from.engines["voice"][name] if shared else cls(ctx)
         self._chains = {}
         self._assert_clean()
+
+    def shareable_voices(self, table):
+        """The voice engines of this set that a set for another edition, whose
+        effective table is `table`, can use as they are: configured the same
+        for every language in both (Kokoro, eSpeak NG). VoxCPM2 never: its
+        language list differs by edition, and it shares its services' slots
+        instead (engines/voxcpm.py). The other set still licence-checks them."""
+        mine = self.ctx.table
+        langs = set(mine) | set(table)
+        return [n for n in self.engines["voice"] if n != "voxcpm"
+                and all(mine.get(l, {}).get(n) == table.get(l, {}).get(n)
+                        and mine.get(l, {}).get("voice") == table.get(l, {}).get("voice") for l in langs)]
 
     # ------------------------------------------------------------ licences
 
