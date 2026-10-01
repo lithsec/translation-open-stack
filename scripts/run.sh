@@ -114,7 +114,6 @@ vox_log() { if [ "$1" = 8791 ]; then echo "$VOXCPM_LOG"; else echo "${VOXCPM_LOG
 if [ "${VOXCPM:-1}" = 1 ] && [ -x "$VOXCPM_VENV/bin/python" ]; then
   VOX_PLAN="$(python3 "$ROOT/server/stack_config.py" voxcpm-plan --edition "$EDITION")"
   VOX_PORTS=()
-  VOX_STARTED=$SECONDS
   while read -r gpu port; do
     [ -n "$port" ] || continue
     VOX_PORTS+=("$port")
@@ -132,39 +131,18 @@ if [ "${VOXCPM:-1}" = 1 ] && [ -x "$VOXCPM_VENV/bin/python" ]; then
       --revision "${VOXCPM_REV:-$(cfg models.voxcpm.revision)}" > "$(vox_log "$port")" 2>&1 &
     echo "starting VoxCPM2 on :$port, GPU ${gpu/-/(default)} (log: $(vox_log "$port"))"
   done <<< "$VOX_PLAN"
-  # Warm-up compiles kernels: ~2 min on a fast host, measured 472 s on a slow one (2026-09-29).
-  # Capped at 10 min for all of them together, by the clock (a count of rounds overran: each
-  # health check may take 5 s per port): the Lithos launcher gives a pod 25 min to report
-  # ready, models included. The cap may be passed by at most one health check (5 s).
-  # An instance that is neither healthy nor still running is given up on.
-  # The first minute counts as "starting" even when pgrep can't see the process yet: right
-  # after `&` it may still be the forked shell or `env`, and taking that for "gone" made
-  # run.sh give up on every instance at once and serve without VoxCPM2 (2026-09-29).
-  VOX_DEADLINE=$((VOX_STARTED + 600))
-  while [ "$SECONDS" -lt "$VOX_DEADLINE" ]; do
-    waiting=0
-    young=$(( SECONDS - VOX_STARTED < 60 ))
-    for port in "${VOX_PORTS[@]}"; do
-      [ "$SECONDS" -ge "$VOX_DEADLINE" ] && break
-      vox_health "$port" || { { vox_running "$port" || [ "$young" = 1 ]; } && waiting=1; }
-    done
-    [ "$waiting" = 0 ] && break
-    sleep 2
-  done
-  VOX_URLS=()
-  for port in "${VOX_PORTS[@]}"; do
-    if vox_health "$port"; then VOX_URLS+=("http://127.0.0.1:$port")
-    else echo "note: VoxCPM2 on :$port did not start (see $(vox_log "$port"))"; fi
-  done
-  if [ "${#VOX_URLS[@]}" -gt 0 ]; then
-    # The plan said "VoxCPM2: N instances (GPU 0, GPU 1)" above; this is what came up.
-    [ "${#VOX_URLS[@]}" -lt "${#VOX_PORTS[@]}" ] && echo "VoxCPM2: only ${#VOX_URLS[@]} of ${#VOX_PORTS[@]} instances up"
-    [ "${#VOX_URLS[@]}" = 1 ] && echo "VoxCPM2: 1 instance serving; overflow → fallback voices"
+  # No waiting here. The server starts loading its own models now, alongside VoxCPM2's
+  # warm-up (~2 min on a fast host, 472 s on a slow one, 2026-09-29), and waits for the
+  # services itself after its models and before warm-up and "ready" (engines/voxcpm.py,
+  # wait_ready: up to VOXCPM_START_WAIT_S, 600 s from the server's start; an instance whose
+  # process has gone is given up on, as this script used to). Waiting here first added the
+  # two together: 2 min 40 s of every start (2026-10-01).
+  if [ "${#VOX_PORTS[@]}" -gt 0 ]; then
+    VOX_URLS=()
+    for port in "${VOX_PORTS[@]}"; do VOX_URLS+=("http://127.0.0.1:$port"); done
     VOICE_ARGS+=(--voxcpm "$(IFS=,; echo "${VOX_URLS[*]}")")
     # Which languages it speaks: `voxcpm = true` in languages.toml for the edition, or VOXCPM_LANGS.
     [ -n "${VOXCPM_LANGS:-}" ] && VOICE_ARGS+=(--voxcpm-langs "$VOXCPM_LANGS")
-  elif [ "${#VOX_PORTS[@]}" -gt 0 ]; then
-    echo "note: VoxCPM2 did not start (see $VOXCPM_LOG) — its languages use the fallback voice or text"
   fi
 fi
 

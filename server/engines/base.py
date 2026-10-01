@@ -128,6 +128,11 @@ class Engine:
         """Load weights. Set self.available when the engine can serve."""
         self.available = True
 
+    def wait_ready(self):
+        """Called once every engine has loaded, before warm-up and "ready": for
+        an engine whose backend starts beside the server (VoxCPM2's services)
+        to wait for it, overlapping the other engines' loading. Default: nothing."""
+
     def setting(self, lang, default=None):
         """This engine's per-language value (`<name> = ...` in [lang])."""
         return self.ctx.table.get(lang, {}).get(self.name, default)

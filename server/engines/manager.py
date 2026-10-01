@@ -154,6 +154,8 @@ class EngineSet:
                 print(f"[stack] {name} on {dev}: +{(after - before) / 1024:.1f} GB "
                       f"({after / 1024:.1f} GB in use there)", flush=True)
         if names is None:
+            for kind, name, eng in pending:
+                eng.wait_ready()
             self._report()
             self._licence_log()
 

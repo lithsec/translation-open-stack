@@ -41,7 +41,7 @@ class FakeService:
     answer's status and X-Sample-Rate; `truncate` breaks the stream after its
     first chunk (the connection drops without the end marker)."""
 
-    def __init__(self, chunks=1, delay=0.0, status=200, rate=str(RATE), truncate=False):
+    def __init__(self, chunks=1, delay=0.0, status=200, rate=str(RATE), truncate=False, port=0):
         self.gate = threading.Event()
         self.gate.set()
         self.served = []
@@ -92,7 +92,7 @@ class FakeService:
                     self.end_headers()
                     self.wfile.write(pcm)
 
-        self.httpd = ThreadingHTTPServer(("127.0.0.1", 0), H)
+        self.httpd = ThreadingHTTPServer(("127.0.0.1", port), H)
         self.httpd.daemon_threads = True
         self.httpd.handle_error = lambda *a: None       # a client that hung up (tested on purpose)
         self.port = self.httpd.server_address[1]
@@ -330,6 +330,53 @@ def test_unreachable_instance_is_skipped_then_retried():
         assert all(i["down"] for i in v.stats()["instances"]) and v.stats()["overflow"] == 1
     finally:
         a.close()
+
+
+def test_server_waits_for_a_service_that_starts_after_it():
+    """run.sh starts the services and the server together; the server loads its own
+    models, then waits for VoxCPM2 before warm-up and "ready" (wait_ready)."""
+    import engines.voxcpm as vx
+    url = _dead_url()
+    v = make_vox([url])
+    assert v.instances[0].down_until > 0            # not up yet at load()
+    port = int(url.rsplit(":", 1)[1])
+    late = []
+    threading.Timer(1.5, lambda: late.append(FakeService(port=port))).start()
+    t0 = time.time()
+    with contextlib.redirect_stdout(io.StringIO()) as out:
+        v.wait_ready()
+    assert 1.0 < time.time() - t0 < 8, time.time() - t0
+    assert v.instances[0].down_until == 0 and "1 of 1 instance up" in out.getvalue()
+    late[0].close()
+    assert vx.START <= time.time()
+
+
+def test_server_gives_up_on_a_service_whose_process_has_gone():
+    import engines.voxcpm as vx
+    v = make_vox([_dead_url()])
+    saved, vx.START = vx.START, time.time() - 120     # past the 60 s grace; no such process
+    try:
+        t0 = time.time()
+        with contextlib.redirect_stdout(io.StringIO()) as out:
+            v.wait_ready()
+    finally:
+        vx.START = saved
+    assert time.time() - t0 < 10 and v.instances[0].down_until > 0
+    assert "process has exited" in out.getvalue() and "0 of 1 instance up" in out.getvalue()
+
+
+def test_server_stops_waiting_at_the_deadline():
+    import engines.voxcpm as vx
+    v = make_vox(["http://192.0.2.1:8791"])            # remote (TEST-NET): never given up on by process
+    os.environ["VOXCPM_START_WAIT_S"] = "0"
+    try:
+        t0 = time.time()
+        with contextlib.redirect_stdout(io.StringIO()):
+            v.wait_ready()
+    finally:
+        del os.environ["VOXCPM_START_WAIT_S"]
+    assert time.time() - t0 < 2 and v.instances[0].down_until > 0
+    assert vx.START > 0
 
 
 def test_thread_safety_under_load():
