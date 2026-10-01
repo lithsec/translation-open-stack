@@ -226,6 +226,10 @@ every key you still want.
    Kokoro, Coqui and MMS do) happens there too.
 5. **Serve.** Methods are called from worker threads for as long as the server
    runs. There is no unload.
+   An engine whose backend starts in its own process beside the server (as
+   VoxCPM2's services do) can also define `wait_ready()`: it runs once every
+   engine has loaded, before warm-up and "ready", so that start overlaps the
+   other engines' loading instead of coming before it.
 
 ## 5. Threads and locks
 

@@ -64,6 +64,25 @@ OVERFLOW_LOG_S = 10.0
 STATS_LOG_S = float(os.environ.get("VOXCPM_STATS_S", "60"))
 
 
+# When this server started: VOXCPM_START_WAIT_S counts from here, as run.sh's
+# wait used to count from launching the services.
+START = time.time()
+
+
+def _local_service_alive(inst):
+    """False only when a service on this machine has no process left (pgrep, as
+    run.sh's check). A remote one, or no pgrep, counts as alive: wait it out.
+    The first 60 s always count as alive: a just-forked process can miss pgrep."""
+    if inst.host not in ("127.0.0.1", "localhost") or time.time() - START < 60:
+        return True
+    import shutil, subprocess
+    if not shutil.which("pgrep"):
+        return True
+    r = subprocess.run(["pgrep", "-f", f"voxcpm_service[.]py --port {inst.port}( |$)"],
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return r.returncode == 0
+
+
 class Instance:
     """One voxcpm_service.py: its URL and what this server has in flight there."""
 
@@ -133,7 +152,7 @@ class VoxCPM(Voice):
             try:
                 urllib.request.urlopen(f"{inst.url}/health", timeout=5).read()
             except Exception as e:
-                print(f"[stack] VoxCPM2 instance {inst.name} not answering ({e}) — retried in {self.retry_s:.0f}s",
+                print(f"[stack] VoxCPM2 instance {inst.name} not up yet — waited for after the other models",
                       flush=True)
                 inst.down_until = self._clock() + self.retry_s
         n = len(self.instances)
@@ -142,6 +161,39 @@ class VoxCPM(Voice):
               f"when all are busy a sentence waits up to {self.queue_s:g}s for a slot ({self.wait_s:g}s with no "
               "voice after VoxCPM2), then goes to the next voice in its chain", flush=True)
         self.available = True
+
+    def wait_ready(self):
+        """Wait for instances that weren't up at load(). scripts/run.sh starts the
+        services and the server together (VoxCPM2 takes ~2.5 min to load, about as
+        long as everything else), so this runs after every other model is loaded
+        and before warm-up and "ready": the start overlaps both instead of adding
+        them up (2026-10-01; run.sh used to wait for VoxCPM2 before starting the
+        server). Gives up on an instance at VOXCPM_START_WAIT_S (600) from the
+        server's start, or as soon as a local one's process has gone; one that
+        never came up stays retried every VOXCPM_RETRY_S, as before."""
+        down = [i for i in self.instances if i.down_until > 0]
+        if not down:
+            return
+        import urllib.request
+        deadline = START + float(os.environ.get("VOXCPM_START_WAIT_S", "600"))
+        print(f"[stack] waiting for VoxCPM2 ({', '.join(i.name for i in down)})…", flush=True)
+        t0 = self._clock()
+        while down and time.time() < deadline:
+            for inst in list(down):
+                try:
+                    urllib.request.urlopen(f"{inst.url}/health", timeout=5).read()
+                    inst.down_until = 0.0
+                    down.remove(inst)
+                except Exception:
+                    if not _local_service_alive(inst):
+                        print(f"[stack] VoxCPM2 {inst.name}: its process has exited (see its log)", flush=True)
+                        down.remove(inst)
+            if down:
+                time.sleep(2)
+        up = len(self.instances) - sum(1 for i in self.instances if i.down_until > 0)
+        print(f"[stack] VoxCPM2: {up} of {len(self.instances)} instance{'s' * (len(self.instances) > 1)} up "
+              f"({self._clock() - t0:.0f}s waited)" + ("" if up else
+              " — its languages use the next voice in their chain, or text"), flush=True)
 
     # ------------------------------------------------------------ balancing
 

@@ -59,6 +59,7 @@ environment (RunPod).
 | `VOXCPM_QUEUE_S` | `2` | How long a sentence waits for a free instance before the next voice in its chain (eSpeak NG) speaks it. |
 | `VOXCPM_WAIT_S` | `15` | The same for a language with no voice after VoxCPM2 (km lo tl in commercial), before it is text only. |
 | `VOXCPM_RETRY_S` | `15` | An unreachable instance is skipped this long, then tried again. |
+| `VOXCPM_START_WAIT_S` | `600` | At start, how long the server waits for its VoxCPM2 services (counted from its own start). They load alongside the server's other models; the wait comes after those and before warm-up and "ready". A local service whose process has exited is given up on at once. |
 | `VOXCPM_TIMEOUT_S` | `30` | Connect/read timeout for one request to an instance. |
 | `VOXCPM_STATS_S` | `60` | Most frequent `VoxCPM2 stats` log line (per instance: served, peak in flight, errors; overflow), while there is traffic. |
 | `VOXCPM_VENV` | `/workspace/venv_voxcpm` (`/opt/venv_voxcpm` in the image) | VoxCPM2's own virtualenv. |
