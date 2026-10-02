@@ -39,6 +39,33 @@ fi
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 CONSTRAINTS="${CONSTRAINTS:-$ROOT/constraints.txt}"
 [ -f "$CONSTRAINTS" ] || { echo "ERROR: $CONSTRAINTS missing: packages are only installed pinned" >&2; exit 1; }
+
+# Python 3.10-3.12 only: the Kokoro voice's packages (kokoro, misaki) don't install on 3.13+, and several pins
+# (numpy 1.26.4, fairseq2) have no wheels past 3.12, so pip falls back to building them from source and asks
+# for compilers and system libraries (openblas, cairo, glib, ...). Stop here instead (issue #8).
+python3 -c 'import sys; sys.exit(0 if (3, 10) <= sys.version_info[:2] <= (3, 12) else 1)' || {
+  echo "ERROR: $(python3 -V 2>&1): the stack needs Python 3.10-3.12 (3.12 recommended; kokoro and misaki don't" >&2
+  echo "install on 3.13+). E.g. 'uv venv --python 3.12', then activate it and run this again." >&2
+  echo "docs/user-guide.md, \"Install without Docker\"." >&2
+  exit 1
+}
+
+# A GPU build of PyTorch already installed that isn't the pinned CUDA 2.8 (ROCm, for AMD cards): keep it.
+# constraints.txt is the CUDA image's lock (torch 2.8.0 with NVIDIA's packages); followed as it is, pip would try
+# to replace your PyTorch. So: those lines out, your torch and torchaudio pinned as installed, and the steps
+# that need CUDA torch 2.8 (bitsandbytes' 4-bit Hy-MT2, Omnilingual's fairseq2) skipped.
+TORCH_VER="$(python3 -c 'import torch; print(torch.__version__)' 2>/dev/null || true)"
+ROCM=0
+case "$TORCH_VER" in *rocm*) ROCM=1 ;; esac
+if [ "$ROCM" = 1 ]; then
+  rocm_c="$(mktemp)"
+  grep -vE '^(torch|torchaudio|torchvision|triton|pytorch-triton[a-z-]*|nvidia-[a-z0-9-]+)==' "$CONSTRAINTS" > "$rocm_c"
+  echo "torch==$TORCH_VER" >> "$rocm_c"
+  TA_VER="$(python3 -c 'import torchaudio; print(torchaudio.__version__)' 2>/dev/null || true)"
+  [ -n "$TA_VER" ] && echo "torchaudio==$TA_VER" >> "$rocm_c"
+  CONSTRAINTS="$rocm_c"
+  echo "PyTorch $TORCH_VER (ROCm): kept; NVIDIA-only steps skipped (Hy-MT2 runs at full precision: HYMT_QUANT=bf16)"
+fi
 pipi() { pip -q install --break-system-packages -c "$CONSTRAINTS" "$@"; }
 # transformers is PINNED below 5. Reproduced on 2026-08-28 against 5.16.1:
 # MADLAD generates degenerate output — "ll ll ll ll…", "ty u u e je je ij…" —
@@ -62,7 +89,11 @@ pipi() { pip -q install --break-system-packages -c "$CONSTRAINTS" "$@"; }
 # (--mt-ct2), so transformers is off the hot path entirely.
 #
 # accelerate + bitsandbytes: the 4-bit Hy-MT2 translator (prepare-mt.sh).
-pipi faster-whisper 'transformers==4.57.6' sentencepiece websockets scipy numpy piper-tts speechbrain accelerate bitsandbytes
+if [ "$ROCM" = 1 ]; then
+  pipi faster-whisper 'transformers==4.57.6' sentencepiece websockets scipy numpy piper-tts speechbrain accelerate
+else
+  pipi faster-whisper 'transformers==4.57.6' sentencepiece websockets scipy numpy piper-tts speechbrain accelerate bitsandbytes
+fi
 
 # ---- Kokoro TTS (en/es/fr/it/pt) ---------------------------------------------
 # 82M, Apache 2.0, and it emits 24kHz — the pipeline's own rate, so those
@@ -133,6 +164,10 @@ rm -f "$coqui_c"
 # numpy, which strands scipy — "module 'numpy' has no attribute 'long'" at T5
 # import — and repins torch, which breaks the torchaudio pairing. Install all
 # three together so pip resolves them in one pass.
+# ROCm: fairseq2 is built for CUDA torch 2.8 only, so Omnilingual can't run; its languages use Whisper. Its
+# scipy pin still matters (Coqui above brought scipy 1.18 for numpy 2).
+[ "$ROCM" = 1 ] && echo "ROCm: skipping Omnilingual (no ROCm build of fairseq2); its languages use Whisper" &&
+  pipi 'scipy==1.13.1' ||
 pipi omnilingual-asr 'torchaudio==2.8.0' 'scipy==1.13.1' ||
   warn "omnilingual-asr failed to install — ht/km/lo/sw will fall back to whisper, which produces fluent nonsense for them."
 

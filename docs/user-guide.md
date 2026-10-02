@@ -129,7 +129,11 @@ git clone https://github.com/lithsec/translation-open-stack.git && cd translatio
 export STACK_HOME=$HOME/tos-data && mkdir -p $STACK_HOME
 ```
 
-**1. A Python 3.12 virtualenv, with PyTorch for your GPU first:**
+**1. A Python 3.12 virtualenv, with PyTorch for your GPU first.** Python
+3.10-3.12 only: the Kokoro voice's packages don't install on 3.13 or later,
+and `install-deps.sh` stops with a message if it finds another version. If
+your system ships a newer Python (Ubuntu 26.04 has 3.14), [uv](https://docs.astral.sh/uv/)
+fetches 3.12 for you: `uv venv --python 3.12 ~/tos-venv`.
 
 ```bash
 python3.12 -m venv ~/tos-venv && . ~/tos-venv/bin/activate
@@ -141,18 +145,33 @@ python -c "import torch; print(torch.cuda.is_available(), [torch.cuda.get_device
 ```
 
 It must print `True` and your cards (under ROCm, PyTorch still calls them
-`cuda`).
+`cuda`). On AMD, a newer ROCm build of PyTorch than 2.8 also works:
+`install-deps.sh` keeps whatever ROCm PyTorch it finds instead of replacing it.
 
-**2. The stack's packages:** `bash scripts/install-deps.sh`. It keeps the
-PyTorch you installed (its version pin matches). It needs `espeak-ng`
-(`sudo apt install espeak-ng`).
+**2. The stack's packages:** `bash scripts/install-deps.sh`. It needs
+`espeak-ng` (`sudo apt install espeak-ng`); with Python 3.12 everything else
+comes as ready-built wheels, so no compilers or `-dev` packages. Run the script,
+not `pip install -r constraints.txt`: that file is the Docker image's complete
+lock, Ubuntu's and NVIDIA's packages included, and the script only uses it to
+pin versions (`-c`), in steps that settle a few known conflicts.
 
 **AMD only, 3. CTranslate2's ROCm build** (Whisper and MADLAD run on it), in
 place of the NVIDIA one from PyPI: download `rocm-python-wheels-Linux.zip` from
 [CTranslate2 v4.8.2](https://github.com/OpenNMT/CTranslate2/releases/tag/v4.8.2),
 then `pip install --force-reinstall --no-deps <the cp312 wheel in it>`. It is
 built against ROCm 7.2 for RDNA 2-4 cards (the R9700 is gfx1201, the RX 9060 XT
-gfx1200), not Instinct cards.
+gfx1200), not Instinct cards, and loads the ROCm 7 libraries from `/opt/rocm`.
+Check it sees your cards:
+
+```bash
+python -c "import ctranslate2; print(ctranslate2.get_cuda_device_count())"
+```
+
+It should print `2`. With another ROCm major version installed system-wide, it
+may fail to load (a missing `libamdhip64.so.7`): install the ROCm 7.2 runtime
+alongside (ROCm installs side by side under `/opt/rocm-<version>`) and point
+`LD_LIBRARY_PATH` at its `lib`, or build CTranslate2 from source against your
+ROCm ([its install guide](https://opennmt.net/CTranslate2/installation.html)).
 
 **4. Choose your profile**, so every script below uses its defaults:
 
