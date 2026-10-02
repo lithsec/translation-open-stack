@@ -36,60 +36,60 @@
     <text x="64" y="566" font-size="13" fill="#5B6763">Access key = your STACK_TOKEN</text>
   </g>
 
-  <!-- B: own RunPod -->
+  <!-- B: own machine, no Docker -->
   <g>
-    <rect x="490" y="120" width="420" height="470" rx="16" fill="#F3F5F4" stroke="#5B3FD6" stroke-width="2"/>
-    <rect x="490" y="120" width="420" height="64" rx="16" fill="#5B3FD6"/>
-    <rect x="490" y="160" width="420" height="24" fill="#5B3FD6"/>
-    <text x="514" y="162" font-size="21" font-weight="700" fill="#FFFFFF">B · Your own RunPod pod</text>
+    <rect x="490" y="120" width="420" height="470" rx="16" fill="#F3F5F4" stroke="#A8661A" stroke-width="2"/>
+    <rect x="490" y="120" width="420" height="64" rx="16" fill="#A8661A"/>
+    <rect x="490" y="160" width="420" height="24" fill="#A8661A"/>
+    <text x="514" y="162" font-size="21" font-weight="700" fill="#FFFFFF">B · Your own machine, no Docker</text>
 
     <g font-size="15" fill="#16201D">
       <rect x="514" y="206" width="372" height="58" rx="10" fill="#FFFFFF" stroke="#D3DBD8"/>
-      <text x="530" y="230" font-weight="700">Network volume, 60 GB</text>
-      <text x="530" y="251" fill="#5B6763" font-size="14">/workspace: this repo, models, token</text>
+      <text x="530" y="230" font-weight="700">NVIDIA (CUDA) or AMD (ROCm), Linux</text>
+      <text x="530" y="251" fill="#5B6763" font-size="14">a Python venv · STACK_HOME for the models</text>
       <rect x="514" y="284" width="372" height="92" rx="10" fill="#FFFFFF" stroke="#D3DBD8"/>
-      <text x="530" y="308" font-weight="700">48 GB pod, expose HTTP port 8790</text>
-      <text x="530" y="330" fill="#5B6763" font-size="14">start command: runpod-start.sh</text>
-      <text x="530" y="352" fill="#5B6763" font-size="14">stops itself after 15 idle minutes</text>
-      <rect x="514" y="396" width="372" height="58" rx="10" fill="#FFFFFF" stroke="#5B3FD6" stroke-width="2"/>
-      <text x="530" y="420" font-weight="700" font-size="14">wss://&lt;pod-id&gt;-8790.proxy.runpod.net</text>
-      <text x="530" y="441" fill="#5B6763" font-size="14">type it in the app; RunPod's proxy does TLS</text>
+      <text x="530" y="308" font-weight="700">install-deps → voices → translators</text>
+      <text x="530" y="330" fill="#5B6763" font-size="14">STACK_PROFILE picks cards and models</text>
+      <text x="530" y="352" fill="#5B6763" font-size="14">then scripts/run.sh</text>
+      <rect x="514" y="396" width="372" height="58" rx="10" fill="#FFFFFF" stroke="#D3DBD8"/>
+      <text x="530" y="420" font-weight="700">ws://&lt;machine-ip&gt;:8790</text>
+      <text x="530" y="441" fill="#5B6763" font-size="14">LAN; wss:// behind your own TLS proxy</text>
     </g>
     <g stroke="#16201D" stroke-width="2" marker-end="url(#arr)"><line x1="700" y1="264" x2="700" y2="282"/><line x1="700" y1="376" x2="700" y2="394"/></g>
-    <text x="514" y="490" font-size="14" font-weight="700" fill="#5B3FD6">Good for</text>
-    <text x="514" y="512" font-size="14" fill="#16201D">no GPU of your own; pay by the hour</text>
-    <text x="514" y="532" font-size="14" fill="#16201D">while running, plus a small volume fee</text>
+    <text x="514" y="490" font-size="14" font-weight="700" fill="#A8661A">Good for</text>
+    <text x="514" y="512" font-size="14" fill="#16201D">AMD cards, two smaller GPUs, or a machine</text>
+    <text x="514" y="532" font-size="14" fill="#16201D">where you'd rather not run Docker</text>
     <text x="514" y="566" font-size="13" fill="#5B6763">Access key = your STACK_TOKEN</text>
   </g>
 
-  <!-- C: Lithos launcher -->
+  <!-- C: own RunPod -->
   <g>
-    <rect x="940" y="120" width="420" height="470" rx="16" fill="#F3F5F4" stroke="#A8661A" stroke-width="2"/>
-    <rect x="940" y="120" width="420" height="64" rx="16" fill="#A8661A"/>
-    <rect x="940" y="160" width="420" height="24" fill="#A8661A"/>
-    <text x="964" y="162" font-size="21" font-weight="700" fill="#FFFFFF">C · Lithos launcher (on demand)</text>
+    <rect x="940" y="120" width="420" height="470" rx="16" fill="#F3F5F4" stroke="#5B3FD6" stroke-width="2"/>
+    <rect x="940" y="120" width="420" height="64" rx="16" fill="#5B3FD6"/>
+    <rect x="940" y="160" width="420" height="24" fill="#5B3FD6"/>
+    <text x="964" y="162" font-size="21" font-weight="700" fill="#FFFFFF">C · Your own RunPod pod</text>
 
     <g font-size="15" fill="#16201D">
       <rect x="964" y="206" width="372" height="58" rx="10" fill="#FFFFFF" stroke="#D3DBD8"/>
-      <text x="980" y="230" font-weight="700">App presses Start server</text>
-      <text x="980" y="251" fill="#5B6763" font-size="14">Launcher: https://lithostalk.com</text>
+      <text x="980" y="230" font-weight="700">One click: Deploy on RunPod</text>
+      <text x="980" y="251" fill="#5B6763" font-size="14">prebuilt image · 48 GB GPU · 60 GB volume</text>
       <rect x="964" y="284" width="372" height="92" rx="10" fill="#FFFFFF" stroke="#D3DBD8"/>
-      <text x="980" y="308" font-weight="700">Launcher resumes or creates the pod</text>
-      <text x="980" y="330" fill="#5B6763" font-size="14">first region with a free 48 GB card</text>
-      <text x="980" y="352" fill="#5B6763" font-size="14">pod reports ready; phone gets a push</text>
-      <rect x="964" y="396" width="372" height="58" rx="10" fill="#FFFFFF" stroke="#D3DBD8"/>
-      <text x="980" y="420" font-weight="700">Short-lived signed tokens</text>
-      <text x="980" y="441" fill="#5B6763" font-size="14">2 h (Talk) or 12 h (Live Translation)</text>
+      <text x="980" y="308" font-weight="700">First start 15-60 min, then minutes</text>
+      <text x="980" y="330" fill="#5B6763" font-size="14">models download to the volume once</text>
+      <text x="980" y="352" fill="#5B6763" font-size="14">stops itself after 15 idle minutes</text>
+      <rect x="964" y="396" width="372" height="58" rx="10" fill="#FFFFFF" stroke="#5B3FD6" stroke-width="2"/>
+      <text x="980" y="420" font-weight="700" font-size="14">wss://&lt;pod-id&gt;-8790.proxy.runpod.net</text>
+      <text x="980" y="441" fill="#5B6763" font-size="14">type it in the app; RunPod's proxy does TLS</text>
     </g>
     <g stroke="#16201D" stroke-width="2" marker-end="url(#arr)"><line x1="1150" y1="264" x2="1150" y2="282"/><line x1="1150" y1="376" x2="1150" y2="394"/></g>
-    <text x="964" y="490" font-size="14" font-weight="700" fill="#A8661A">Good for</text>
-    <text x="964" y="512" font-size="14" fill="#16201D">Lithos's own service: nobody keeps a pod</text>
-    <text x="964" y="532" font-size="14" fill="#16201D">running or opens the RunPod console</text>
-    <text x="964" y="566" font-size="13" fill="#5B6763">Access key = the app's client key</text>
+    <text x="964" y="490" font-size="14" font-weight="700" fill="#5B3FD6">Good for</text>
+    <text x="964" y="512" font-size="14" fill="#16201D">no GPU of your own; pay by the hour</text>
+    <text x="964" y="532" font-size="14" fill="#16201D">while running, plus a small volume fee</text>
+    <text x="964" y="566" font-size="13" fill="#5B6763">Access key = printed in the pod's log</text>
   </g>
 
   <!-- clients -->
   <rect x="40" y="614" width="1320" height="80" rx="14" fill="#E6F0FA" stroke="#1D6FB8" stroke-width="2"/>
   <text x="64" y="646" font-size="17" font-weight="700" fill="#1D6FB8">Clients</text>
-  <text x="64" y="674" font-size="15" fill="#16201D">Lithos Live Translation (Local stack URL + Access key)  ·  Lithos Talk (through the launcher)  ·  any app that speaks docs/dev/protocol.md</text>
+  <text x="64" y="674" font-size="15" fill="#16201D">Lithos Live Translation (Local stack URL + Access key)  ·  any app that speaks docs/dev/protocol.md</text>
 </svg>

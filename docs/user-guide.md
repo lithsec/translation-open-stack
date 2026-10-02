@@ -23,7 +23,7 @@ the [reference](reference.md); licences are in [licences.md](licences.md).
 - [Update](#update)
 - [Troubleshooting](#troubleshooting)
 
-![Three ways to run it: your own GPU box with Docker, your own RunPod pod, or the Lithos launcher](images/deployment.png)
+![Three ways to run it: your own GPU box with Docker, your own machine without Docker (NVIDIA or AMD), or your own RunPod pod](images/deployment.png)
 
 ## Before you start
 
