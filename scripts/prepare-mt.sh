@@ -5,6 +5,11 @@
 #
 #   bash scripts/prepare-mt.sh            # -> /workspace/mt/{hymt2-7b-nf4,madlad7b-ct2}
 #   MADLAD=3b bash scripts/prepare-mt.sh  # MADLAD 3B instead of 7B (32 GB cards), -> /workspace/madlad-ct2
+#   HYMT_QUANT=bf16 bash scripts/prepare-mt.sh   # Hy-MT2 at full precision (~15 GB of GPU memory), no
+#                                         # bitsandbytes: AMD cards, where its 4-bit build may not run
+#
+# STACK_PROFILE: the hardware profile's defaults apply here too (radeon-32+16 sets MADLAD=3b and
+# HYMT_QUANT=bf16). STACK_HOME moves /workspace.
 #
 # Which repo and revision: languages.toml [models.hymt], [models.madlad] and
 # [models.madlad3b]. Each build records its source in PROVENANCE.txt
@@ -17,10 +22,19 @@
 # disk for the full-precision downloads (they don't fit the network volume);
 # the results are ~5 GB + ~8 GB.
 set -euo pipefail
+# STACK_HOME: where models, voices and caches live (a pod's volume, /workspace by default;
+# any folder on your own machine).
+W="${STACK_HOME:-/workspace}"
 DIR="$(cd "$(dirname "$0")" && pwd)"
+# shellcheck source=profile-env.sh
+. "$DIR/profile-env.sh"
 CFG="$DIR/../server/stack_config.py"
-DEST="${MT_DIR:-/workspace/mt}"
-SCRATCH="${MT_SCRATCH:-/root/mt-build}"
+DEST="${MT_DIR:-$W/mt}"
+# The full-precision downloads: the container disk on a pod (/root); beside the models elsewhere.
+if [ -w /root ]; then SCRATCH="${MT_SCRATCH:-/root/mt-build}"; else SCRATCH="${MT_SCRATCH:-$W/.mt-build}"; fi
+# nf4: 4-bit with bitsandbytes (~5.5 GB of GPU memory; NVIDIA). bf16: full precision, no bitsandbytes (~15 GB).
+HYMT_QUANT="${HYMT_QUANT:-nf4}"
+case "$HYMT_QUANT" in nf4|bf16) ;; *) echo "HYMT_QUANT must be nf4 or bf16 (got '$HYMT_QUANT')" >&2; exit 1 ;; esac
 # Pinned upstream revisions (languages.toml [models]): change them deliberately, never float to "main".
 HYMT_REPO="$(python3 "$CFG" get models.hymt.repo)";         HYMT_REV="$(python3 "$CFG" get models.hymt.revision)"
 MADLAD_REPO="$(python3 "$CFG" get models.madlad.repo)";     MADLAD_REV="$(python3 "$CFG" get models.madlad.revision)"
@@ -46,13 +60,18 @@ print(s(sys.argv[1], revision=sys.argv[2], allow_patterns=["*.json", "*.safetens
 mkdir -p "$DEST" "$SCRATCH"
 export HF_HOME="$SCRATCH/hf"
 # The Docker image already has these; a bare pod needs them.
-python3 -c "import bitsandbytes, accelerate, ctranslate2, sentencepiece" 2>/dev/null ||
-  pip -q install --break-system-packages -c "$DIR/../constraints.txt" bitsandbytes accelerate ctranslate2 "transformers==4.57.6" sentencepiece
+if [ "$HYMT_QUANT" = nf4 ]; then
+  python3 -c "import bitsandbytes, accelerate, ctranslate2, sentencepiece" 2>/dev/null ||
+    pip -q install --break-system-packages -c "$DIR/../constraints.txt" bitsandbytes accelerate ctranslate2 "transformers==4.57.6" sentencepiece
+else
+  python3 -c "import accelerate, ctranslate2, sentencepiece" ||
+    pip -q install --break-system-packages -c "$DIR/../constraints.txt" accelerate ctranslate2 "transformers==4.57.6" sentencepiece
+fi
 
 # MADLAD=3b (run.sh): the smaller fallback translator, for a 32 GB card. Built
 # where run.sh (and older pods, via provision-runpod.sh) keep it; the 7B is then
 # not needed, which saves ~33 GB of download.
-M3="${MADLAD3_DIR:-/workspace/madlad-ct2}"
+M3="${MADLAD3_DIR:-$W/madlad-ct2}"
 if [ "${MADLAD:-7b}" = 3b ] && ! built "$M3" "$MADLAD3_REPO" "$MADLAD3_REV" model.bin; then
   echo "== MADLAD-400 3B -> CTranslate2 int8"
   src=$(snapshot "$MADLAD3_REPO" "$MADLAD3_REV")
@@ -73,7 +92,25 @@ if [ "${MADLAD:-7b}" != 3b ] && ! built "$DEST/madlad7b-ct2" "$MADLAD_REPO" "$MA
   install_build "$DEST/madlad7b-ct2.tmp" "$DEST/madlad7b-ct2"
 fi
 
-if ! built "$DEST/hymt2-7b-nf4" "$HYMT_REPO" "$HYMT_REV" config.json; then
+if [ "$HYMT_QUANT" = bf16 ] && ! built "$DEST/hymt2-7b-bf16" "$HYMT_REPO" "$HYMT_REV" config.json; then
+  echo "== Hy-MT2 7B -> bfloat16 (full precision, no bitsandbytes)"
+  HYMT_OUT="$DEST/hymt2-7b-bf16" HYMT_REPO="$HYMT_REPO" HYMT_REV="$HYMT_REV" python3 - <<'PY'
+import os, shutil, torch
+from huggingface_hub import snapshot_download
+from transformers import AutoModelForCausalLM, AutoTokenizer
+repo, rev = os.environ["HYMT_REPO"], os.environ["HYMT_REV"]
+src = snapshot_download(repo, revision=rev)
+out = os.environ["HYMT_OUT"] + ".tmp"
+# On the CPU, once: no GPU (or bitsandbytes) needed to write it.
+AutoModelForCausalLM.from_pretrained(src, torch_dtype=torch.bfloat16, low_cpu_mem_usage=True).save_pretrained(out)
+AutoTokenizer.from_pretrained(src).save_pretrained(out)
+shutil.copy(os.path.join(src, "LICENSE.txt"), out)
+open(os.path.join(out, "PROVENANCE.txt"), "w").write(f"{repo} @ {rev}\nApache 2.0 (LICENSE.txt). Saved in bfloat16.\n")
+PY
+  install_build "$DEST/hymt2-7b-bf16.tmp" "$DEST/hymt2-7b-bf16"
+fi
+
+if [ "$HYMT_QUANT" = nf4 ] && ! built "$DEST/hymt2-7b-nf4" "$HYMT_REPO" "$HYMT_REV" config.json; then
   echo "== Hy-MT2 7B -> 4-bit NF4"
   # Quoted heredoc: the values come from the environment, not spliced into the source.
   HYMT_OUT="$DEST/hymt2-7b-nf4" HYMT_REPO="$HYMT_REPO" HYMT_REV="$HYMT_REV" python3 - <<'PY'

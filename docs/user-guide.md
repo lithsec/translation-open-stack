@@ -8,6 +8,7 @@ the [reference](reference.md); licences are in [licences.md](licences.md).
 
 - [Before you start](#before-you-start)
 - [Install on your own GPU (Docker)](#install-on-your-own-gpu-docker)
+- [Install without Docker (Linux: NVIDIA or AMD)](#install-without-docker-linux-nvidia-or-amd)
 - [Run on your own RunPod pod](#run-on-your-own-runpod-pod)
 - [Connect apps](#connect-apps)
 - [Choose the edition](#choose-the-edition)
@@ -114,6 +115,86 @@ two (see [GPUs and capacity](#gpus-and-capacity)), change `count: 1` to
 
 `docker compose down -v` deletes the model volume: the next start downloads
 and builds everything again.
+
+## Install without Docker (Linux: NVIDIA or AMD)
+
+For a machine where Docker doesn't fit: an AMD card (the image is NVIDIA-only),
+or you'd rather run it directly. The same scripts the image and the pods use,
+in order: **packages, voices, translators, start, smoke test.**
+
+**0. A folder for the models**, about 60 GB; `STACK_HOME` (default `/workspace`):
+
+```bash
+git clone https://github.com/lithsec/translation-open-stack.git && cd translation-open-stack
+export STACK_HOME=$HOME/tos-data && mkdir -p $STACK_HOME
+```
+
+**1. A Python 3.12 virtualenv, with PyTorch for your GPU first:**
+
+```bash
+python3.12 -m venv ~/tos-venv && . ~/tos-venv/bin/activate
+# NVIDIA:
+pip install torch==2.8.0 torchaudio==2.8.0
+# AMD (ROCm):
+pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/rocm6.4
+python -c "import torch; print(torch.cuda.is_available(), [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())])"
+```
+
+It must print `True` and your cards (under ROCm, PyTorch still calls them
+`cuda`).
+
+**2. The stack's packages:** `bash scripts/install-deps.sh`. It keeps the
+PyTorch you installed (its version pin matches). It needs `espeak-ng`
+(`sudo apt install espeak-ng`).
+
+**AMD only, 3. CTranslate2's ROCm build** (Whisper and MADLAD run on it), in
+place of the NVIDIA one from PyPI: download `rocm-python-wheels-Linux.zip` from
+[CTranslate2 v4.8.2](https://github.com/OpenNMT/CTranslate2/releases/tag/v4.8.2),
+then `pip install --force-reinstall --no-deps <the cp312 wheel in it>`. It is
+built against ROCm 7.2 for RDNA 2-4 cards (the R9700 is gfx1201, the RX 9060 XT
+gfx1200), not Instinct cards.
+
+**4. Choose your profile**, so every script below uses its defaults:
+
+```bash
+export STACK_PROFILE=radeon-32+16     # or cuda-48gb, cuda-32gb, cuda-2gpu, your own
+python3 server/stack_config.py profile
+```
+
+**5. Voices and translators** (the first time only; about an hour, mostly
+downloads):
+
+```bash
+bash scripts/fetch-voices.sh       # Piper voices
+bash scripts/prepare-voices.sh     # VoxCPM2: its own virtualenv and ~5 GB of weights
+bash scripts/prepare-mt.sh         # MADLAD, and Hy-MT2 (4-bit, or bf16 with HYMT_QUANT=bf16)
+```
+
+On AMD, `radeon-32+16` sets `HYMT_QUANT=bf16`: Hy-MT2 at full precision, which
+needs no bitsandbytes (its 4-bit build may not run on RDNA4).
+
+**6. Start:**
+
+```bash
+export STACK_TOKEN=$(openssl rand -hex 32)    # keep it: your apps need it
+bash scripts/run.sh
+```
+
+The log shows where each model landed (`[stack] hymt on cuda:0: +15.5 GB`) and
+says `[stack] ready on :8790` when it is. If your cards come up the other way
+round, `HIP_VISIBLE_DEVICES=1,0` (AMD) or `CUDA_VISIBLE_DEVICES=1,0` swaps them.
+
+**7. Smoke test**, from another terminal in the same virtualenv:
+
+```bash
+STACK_TOKEN=<the token> python tools/smoke.py --url ws://127.0.0.1:8790
+```
+
+**On AMD, expect** Omnilingual not to load (fairseq2 publishes no ROCm builds):
+its languages (ht km lo sw hi fa bn ur) are heard by Whisper instead, weaker for
+ht km lo sw. If anything fails, the last ~50 lines of `run.sh`'s output say
+which step. This path has not yet been run end to end on AMD; please report what
+happens.
 
 ## Run on your own RunPod pod
 
@@ -634,7 +715,7 @@ STACK_PROFILE=cuda-2gpu                             # in .env, or the pod's envi
 | `cuda-48gb` | one 48 GB NVIDIA GPU | the reference; same as no profile |
 | `cuda-32gb` | one 32 GB NVIDIA GPU | `MADLAD=3b` ([above](#fitting-a-32-gb-card)) |
 | `cuda-2gpu` | two NVIDIA GPUs, 24 GB+ each | translators on GPU 0, recognition and voices on GPU 1 |
-| `radeon-32+16` | AMD R9700 32 GB + RX 9060 XT 16 GB | **preview, not yet run**; needs a ROCm build (below) |
+| `radeon-32+16` | AMD R9700 32 GB + RX 9060 XT 16 GB | **preview, not yet run**; [install without Docker](#install-without-docker-linux-nvidia-or-amd) |
 
 ### Create a profile
 
@@ -723,20 +804,9 @@ The full format: [reference, "Profiles and devices"](reference.md#profiles-and-d
 
 ### AMD and Mac
 
-**AMD (ROCm), today.** Nothing in this repository installs a ROCm build yet,
-so it takes work by hand, on Linux with ROCm 7.2 or later:
-
-- PyTorch for ROCm, in place of the CUDA build.
-- CTranslate2's ROCm wheel (Whisper and MADLAD) from its
-  [GitHub releases](https://github.com/OpenNMT/CTranslate2/releases)
-  (`rocm-python-wheels-Linux.zip`); it is built for RDNA 2-4 cards including
-  the R9700 (gfx1201) and RX 9060 XT (gfx1200), not for Instinct cards.
-- Hy-MT2's 4-bit build needs bitsandbytes with ROCm support for your card;
-  untested.
-- Omnilingual (fairseq2) publishes no ROCm packages: route its languages to
-  Whisper in the profile (`[languages.km] asr = "whisper"`, and so on), at
-  lower quality for them.
-- Then `STACK_PROFILE=radeon-32+16`. Please report what worked.
+**AMD (ROCm).** A native install with the `radeon-32+16` profile (or your own):
+[Install without Docker](#install-without-docker-linux-nvidia-or-amd). Preview:
+not yet run end to end on AMD.
 
 **Mac.** Not yet: Docker on a Mac cannot reach the GPU, and CTranslate2 and
 Omnilingual have no Apple GPU support. A native Apple Silicon setup (Whisper
