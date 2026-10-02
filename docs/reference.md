@@ -332,8 +332,7 @@ HMAC-SHA256(`STACK_SIGNING_KEY`, payload); the payload is
   without `aud` is refused unless `STACK_ACCEPT_LEGACY_TOKENS=1`, and even then
   a `pod:` subject is refused.
 - `exp` must be a finite number, and a token may live at most **24 hours**
-  (`exp - iat` and `exp - now`). Lithos's launcher issues 2-hour tokens for
-  Lithos Talk and 12-hour ones for Live Translation.
+  (`exp - iat` and `exp - now`). A few hours, renewed by the client, is typical.
 
 `stack_auth.sign(key, sub, ttl_s)` makes one (tests and tools). A static
 `STACK_TOKEN` has subject `static`; both credentials may be set at once.

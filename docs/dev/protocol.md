@@ -26,13 +26,13 @@ Authorization: Bearer <token>
 ```
 
 The token is either the server's static `STACK_TOKEN`, or a short-lived token
-signed with `STACK_SIGNING_KEY` (see `server/stack_auth.py`; a Lithos launcher issues
-these). A signed token's payload is `{"sub", "iat", "exp", "aud"}`:
+signed with `STACK_SIGNING_KEY` (see `server/stack_auth.py`; issued by whatever
+starts the stack for your apps). A signed token's payload is `{"sub", "iat", "exp", "aud"}`:
 
-- `aud` must be `"stack"`. The pod's ready report to the Lithos launcher is
+- `aud` must be `"stack"`. The pod's optional ready report (`STACK_REPORT_URL`) is
   signed with the same key but carries `"aud": "report"`, and never opens a
-  connection. A token with no `aud` (issued by a Lithos server from before
-  audiences) is refused unless the stack runs with `STACK_ACCEPT_LEGACY_TOKENS=1`,
+  connection. A token with no `aud` (issued before audiences
+  existed) is refused unless the stack runs with `STACK_ACCEPT_LEGACY_TOKENS=1`,
   a switch meant only for a transition; even then a `pod:` subject is refused.
 - `exp` must be a finite number, and the token may live at most 24 hours
   (`exp - iat`, and `exp - now`). For clients that can't set headers, the token also works as the first
