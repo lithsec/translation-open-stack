@@ -9,13 +9,16 @@
 # recognition and the GPU voices on the 9060 XT (card 1). Under ROCm, PyTorch
 # and CTranslate2 still call the cards "cuda:0" and "cuda:1". If your system
 # numbers them the other way round, swap them with HIP_VISIBLE_DEVICES=1,0.
-# Open questions until someone runs it: Hy-MT2's 4-bit build (bitsandbytes on
-# RDNA4) and Omnilingual (fairseq2 publishes no ROCm packages; without it,
+# Open question until someone runs it: Omnilingual (fairseq2 publishes no ROCm packages; without it,
 # Khmer, Lao and the other Omnilingual sources fall back to Whisper).
 description = "PREVIEW: AMD R9700 32 GB + RX 9060 XT 16 GB under ROCm (not yet run)"
 
+# On the R9700: Hy-MT2 at full precision (~15.5 GB; its 4-bit build needs bitsandbytes,
+# which may not run on RDNA4), MADLAD 3B (~3.5 GB) and VoxCPM2 (~6.7 GB): ~26 GB of 32.
 [env]
 VOXCPM_GPUS = "0"
+HYMT_QUANT = "bf16"
+MADLAD = "3b"
 
 [devices]
 default = "cuda:0"

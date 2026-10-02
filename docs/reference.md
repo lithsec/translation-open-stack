@@ -94,8 +94,10 @@ environment (RunPod).
 
 | Variable | Default | Meaning |
 |---|---|---|
+| `STACK_HOME` | `/workspace` | Where models, voices and caches live: a pod's volume, or any folder on your own machine ([install without Docker](user-guide.md#install-without-docker-linux-nvidia-or-amd)). The paths below default to folders in it. |
+| `HYMT_QUANT` | `nf4` | How `prepare-mt.sh` builds Hy-MT2 and `run.sh` loads it: `nf4` (4-bit, bitsandbytes, ~5.5 GB of GPU memory) or `bf16` (full precision, ~15 GB, no bitsandbytes: AMD). |
 | `HF_HOME` | `/workspace/hf-cache` | Hugging Face cache on the volume. |
-| `TORCH_HOME`, `FAIRSEQ2_CACHE_DIR` | `/workspace/torch-cache`, `/workspace/fairseq2-cache` (Docker and RunPod) | Silero VAD's and Omnilingual's caches on the volume, so a start doesn't download them again (~3 GB). |
+| `TORCH_HOME`, `FAIRSEQ2_CACHE_DIR` | `/workspace/torch-cache`, `/workspace/fairseq2-cache` | Silero VAD's and Omnilingual's caches on the volume, so a start doesn't download them again (~3 GB). |
 | `VOICES_DIR` | `/workspace/voices` | Piper voices. |
 | `VOICES_LOCK` | `voices.lock` at the repository root | The lock `fetch-voices.sh` checks against. |
 | `MT_SCRATCH` | `/root/mt-build` (`/workspace/.mt-build` under Docker) | Scratch for the translator build's full-precision downloads (~45 GB), deleted afterwards. |
@@ -225,7 +227,7 @@ Shipped profiles:
 | `cuda-48gb` | One 48 GB NVIDIA GPU, all 25 languages. The reference; the same as no profile. |
 | `cuda-32gb` | One 32 GB NVIDIA GPU: `MADLAD=3b`. |
 | `cuda-2gpu` | Two NVIDIA GPUs of 24 GB or more: translators on GPU 0, recognition and voices (and VoxCPM2) on GPU 1. |
-| `radeon-32+16` | **Preview, not yet run:** AMD Radeon AI PRO R9700 32 GB + RX 9060 XT 16 GB under ROCm. Needs a ROCm build (the image is CUDA only). |
+| `radeon-32+16` | **Preview, not yet run:** AMD Radeon AI PRO R9700 32 GB + RX 9060 XT 16 GB under ROCm, installed without Docker (the image is CUDA only). Sets `HYMT_QUANT=bf16` and `MADLAD=3b`. |
 
 **`[devices]`** (in `languages.toml`, a profile, or `STACK_DEVICES`, each
 winning over the one before): keys `default`, any engine name (`whisper`,
