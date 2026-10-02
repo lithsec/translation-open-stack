@@ -1,3 +1,6 @@
+# NOT a requirements file: don't `pip install -r` it. Use scripts/install-deps.sh,
+# which pins with it (`-c`). It lists Ubuntu's and NVIDIA's packages too.
+#
 # Every Python package in the stack's image, at the version a real build
 # resolved: the stack-image workflow's "installed-packages" artifact (pip freeze
 # of the image built from runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404,
