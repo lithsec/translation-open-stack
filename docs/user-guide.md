@@ -315,16 +315,6 @@ command and must `exec /start.sh`, whose SSH server needs root, and RunPod
 mounts the network volume at `/workspace` owned by root. The Docker path runs
 as uid 10001; the RunPod path stays root.
 
-### The Lithos launcher
-
-The Lithos apps can also use Lithos's hosted launcher at `lithostalk.com`,
-which starts a pod on demand when a service needs one and gives the app a
-short-lived signed token instead of a long-lived one; nobody keeps a pod
-running or opens the RunPod console. It runs this same repository with the
-start command above. To run your own launcher, you would issue tokens signed
-with the pods' `STACK_SIGNING_KEY` ([reference](reference.md#signed-tokens))
-and start pods with your own RunPod key.
-
 ## Connect apps
 
 **Lithos Live Translation**: Operator page -> **Settings -> Advanced provider
@@ -334,14 +324,9 @@ settings -> Local stack setup**:
   TLS, or `wss://<pod-id>-8790.proxy.runpod.net` on RunPod.
 - **Access key**: your `STACK_TOKEN`. The app sends it as an
   `Authorization: Bearer` header.
-- **Launcher**: leave it empty for your own stack. With the Lithos launcher
-  instead, set it to `https://lithostalk.com` and use the access key Lithos
-  gave you; then **Start server** (or just go live: it starts itself).
+- **Launcher**: leave it empty.
 - Press **Test**: it should report the server's hello. Then, under
   **Languages**, set each language's provider to **Local stack**.
-
-**Lithos Talk** reaches the stack through the Lithos launcher; there is
-nothing to configure in the app.
 
 **Any other client**: open one WebSocket per listening language, send PCM16
 audio, receive JSON captions and PCM16 speech. The whole contract, with a
