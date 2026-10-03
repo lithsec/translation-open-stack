@@ -265,7 +265,7 @@ class Pipeline:
         from transformers import T5ForConditionalGeneration, T5Tokenizer  # noqa: F401
 
         self.langs = list(langs)   # the target languages a client may ask for (?lang=)
-        from engines.common import resolve_device
+        from engines.common import is_gpu, resolve_device
         devices = {k: resolve_device(v) for k, v in DEVICES.items()}
         self.device = devices.pop("default")
         n_gpu = torch.cuda.device_count() if torch.cuda.is_available() else 0
@@ -278,6 +278,12 @@ class Pipeline:
             if kind == "mps" and not (hasattr(torch.backends, "mps") and torch.backends.mps.is_available()):
                 raise SystemExit(f"[stack] [devices] {name} = mps, but PyTorch sees no Apple GPU")
         print(f"[stack] device={self.device}" + "".join(f", {k}={v}" for k, v in sorted(devices.items())))
+        if n_gpu == 0 and not any(is_gpu(d) for d in [self.device, *devices.values()]):
+            # Not an error (a CPU-only test is legitimate), but rarely what anyone meant.
+            print("[stack] WARNING: PyTorch sees no GPU, so every model runs on the CPU. Check, in this shell: "
+                  "the virtualenv is active; python -c \"import torch; print(torch.cuda.is_available())\" "
+                  "prints True (on AMD: your user is in the render and video groups); "
+                  "STACK_PROFILE is exported if you use one.")
         vad = MODELS["vad"]
         hub = f"{vad['repo']}:{vad['ref']}" if vad["ref"] else vad["repo"]
         print(f"[stack] loading Silero VAD ({hub})…")

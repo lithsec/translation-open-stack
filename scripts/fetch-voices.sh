@@ -23,7 +23,8 @@ W="${STACK_HOME:-/workspace}"
 DIR="$(cd "$(dirname "$0")" && pwd)"
 SERVER="$(cd "$DIR/../server" && pwd)"   # stack_config.py
 LOCK="${VOICES_LOCK:-$DIR/../voices.lock}"
-LANGS="${1:-en,es,fr,pt}"
+# The same default languages as run.sh, so every voice it loads is here.
+LANGS="${1:-${LANGS:-en,es,fr,pt,de,ru,uk,zh,ja,km,lo,ht,ar,hi,vi,ko,tl,fa,id,tr,bn,ur,it,sw,ro}}"
 DEST="${VOICES_DIR:-$W/voices}"
 [ -f "$LOCK" ] || { echo "ERROR: $LOCK missing: voices are only fetched pinned" >&2; exit 1; }
 REPO="$(awk '$1 == "repo" { print $2 }' "$LOCK")"

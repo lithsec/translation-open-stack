@@ -196,7 +196,7 @@ python3 server/stack_config.py profile
 downloads):
 
 ```bash
-bash scripts/fetch-voices.sh       # Piper voices
+bash scripts/fetch-voices.sh       # Piper voices, for run.sh's default languages
 bash scripts/prepare-voices.sh     # VoxCPM2: its own virtualenv and ~5 GB of weights
 bash scripts/prepare-mt.sh         # MADLAD, and Hy-MT2 (4-bit, or bf16 with HYMT_QUANT=bf16)
 ```
@@ -204,12 +204,19 @@ bash scripts/prepare-mt.sh         # MADLAD, and Hy-MT2 (4-bit, or bf16 with HYM
 On AMD, `radeon-32+16` sets `HYMT_QUANT=bf16`: Hy-MT2 at full precision, which
 needs no bitsandbytes (its 4-bit build may not run on RDNA4).
 
-**6. Start:**
+**6. Start**, in a shell with the virtualenv active and `STACK_HOME` and
+`STACK_PROFILE` exported (a new terminal needs all three again):
 
 ```bash
+. ~/tos-venv/bin/activate && export STACK_HOME=$HOME/tos-data STACK_PROFILE=radeon-32+16
 export STACK_TOKEN=$(openssl rand -hex 32)    # keep it: your apps need it
 bash scripts/run.sh
 ```
+
+Near the top, `run.sh` prints `profile: radeon-32+16` and the devices it
+chose. `devices: default=auto` means no profile reached it; with a profile,
+a card PyTorch can't see stops the start with a message, and with none,
+`[stack] WARNING: PyTorch sees no GPU` says every model is on the CPU.
 
 The log shows where each model landed (`[stack] hymt on cuda:0: +15.5 GB`) and
 says `[stack] ready on :8790` when it is. If your cards come up the other way
