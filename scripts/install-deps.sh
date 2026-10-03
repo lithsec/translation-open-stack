@@ -235,7 +235,7 @@ if bad:
     sys.exit(1)
 print("  every required import works")
 PY
-known='^(librosa .* requires (numpy|scipy)|contourpy .* requires numpy)'
+known='^(librosa .* (requires|has requirement) (numpy|scipy)|contourpy .* (requires|has requirement) numpy)'
 others="$(pip check 2>&1 | grep -vE "$known|^No broken requirements" || true)"
 if [ -n "$others" ]; then
   echo "  pip check, beyond the three known conflicts (worth a look):"
