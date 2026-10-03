@@ -145,8 +145,11 @@ python -c "import torch; print(torch.cuda.is_available(), [torch.cuda.get_device
 ```
 
 It must print `True` and your cards (under ROCm, PyTorch still calls them
-`cuda`). On AMD, a newer ROCm build of PyTorch than 2.8 also works:
-`install-deps.sh` keeps whatever ROCm PyTorch it finds instead of replacing it.
+`cuda`). On AMD, PyTorch's ROCm builds bring their own ROCm runtime, so the
+build's ROCm version needn't match your system's: `2.8.0` exists only for
+`rocm6.4`, and it runs on a ROCm 7.x system. A newer ROCm build (e.g. from the
+`rocm7.2` index, without a version) works too: `install-deps.sh` keeps whatever
+ROCm PyTorch it finds instead of replacing it.
 
 **2. The stack's packages:** `bash scripts/install-deps.sh`. It needs
 `espeak-ng` (`sudo apt install espeak-ng`); with Python 3.12 everything else
@@ -154,6 +157,15 @@ comes as ready-built wheels, so no compilers or `-dev` packages. Run the script,
 not `pip install -r constraints.txt`: that file is the Docker image's complete
 lock, Ubuntu's and NVIDIA's packages included, and the script only uses it to
 pin versions (`-c`), in steps that settle a few known conflicts.
+
+pip prints three of those conflicts on the way, as `ERROR:` lines (it means
+warnings): `librosa ... requires numpy>=2.1.0` (and `scipy>=1.15.0`) and
+`contourpy ... requires numpy>=2.0`. They are expected: the stack runs numpy
+1.26.4 for Omnilingual, and both packages work with it. The script ends with a
+check of every import the server needs and says `every required import works`
+and `Done.`; anything else wrong is listed there. `VERBOSE=1 bash
+scripts/install-deps.sh` shows pip's full output and every command, for
+troubleshooting.
 
 **AMD only, 3. CTranslate2's ROCm build** (Whisper and MADLAD run on it), in
 place of the NVIDIA one from PyPI: download `rocm-python-wheels-Linux.zip` from

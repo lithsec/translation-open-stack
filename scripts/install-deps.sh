@@ -7,8 +7,16 @@
 #
 #   bash scripts/install-deps.sh            # warnings for the optional extras
 #   STRICT=1 bash scripts/install-deps.sh   # any failure fails (the image build)
+#   VERBOSE=1 bash scripts/install-deps.sh  # pip's full output and every command (troubleshooting)
+#
+# It ends with a check of every import the server makes; pip's three known
+# conflict lines (librosa, contourpy and numpy 1.26.4) are expected: see
+# constraints.txt's header.
 set -euo pipefail
 warn() { if [ "${STRICT:-0}" = 1 ]; then echo "ERROR: $*" >&2; exit 1; fi; echo "WARNING: $*"; }
+step() { echo "== $*"; }
+PIP_Q=(-q)
+if [ "${VERBOSE:-0}" = 1 ]; then PIP_Q=(); set -x; fi
 
 # eSpeak NG, the program: the last-resort voice (server/engines/espeak.py; VoxCPM2's overflow,
 # fa and ro in commercial). The Dockerfile installs it with the other system packages; a bare
@@ -66,7 +74,7 @@ if [ "$ROCM" = 1 ]; then
   CONSTRAINTS="$rocm_c"
   echo "PyTorch $TORCH_VER (ROCm): kept; NVIDIA-only steps skipped (Hy-MT2 runs at full precision: HYMT_QUANT=bf16)"
 fi
-pipi() { pip -q install --break-system-packages -c "$CONSTRAINTS" "$@"; }
+pipi() { pip "${PIP_Q[@]}" install --break-system-packages -c "$CONSTRAINTS" "$@"; }
 # transformers is PINNED below 5. Reproduced on 2026-08-28 against 5.16.1:
 # MADLAD generates degenerate output — "ll ll ll ll…", "ty u u e je je ij…" —
 # the same failure first seen as "ue ue ue".
@@ -89,6 +97,7 @@ pipi() { pip -q install --break-system-packages -c "$CONSTRAINTS" "$@"; }
 # (--mt-ct2), so transformers is off the hot path entirely.
 #
 # accelerate + bitsandbytes: the 4-bit Hy-MT2 translator (prepare-mt.sh).
+step "core: speech recognition, translation runtime, Piper, language ID"
 if [ "$ROCM" = 1 ]; then
   pipi faster-whisper 'transformers==4.57.6' sentencepiece websockets scipy numpy piper-tts speechbrain accelerate
 else
@@ -102,6 +111,7 @@ fi
 # of TTS onto the idle GPU). Piper stays for everything Kokoro does not cover.
 # misaki's ja/zh extras are Kokoro's Japanese and Mandarin G2P; without them
 # those two languages fall back to Piper.
+step "Kokoro voices"
 pipi kokoro 'misaki[ja,zh]'
 # MeCab's dictionary: without it misaki[ja] (and Coqui, which imports the same
 # tokenizer) fail at load with "Failed initializing MeCab". `python3 -m unidic
@@ -126,6 +136,7 @@ rm -f "$unidic_zip"
 # is loud).
 SPACY_EN=https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
 SPACY_EN_SHA256=1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85
+step "spaCy English model (Kokoro English)"
 pipi spacy && pipi "en_core_web_sm @ $SPACY_EN#sha256=$SPACY_EN_SHA256" || {
   warn "spaCy model missing — Kokoro English will fail at synthesis"
 }
@@ -149,7 +160,8 @@ pipi spacy && pipi "en_core_web_sm @ $SPACY_EN#sha256=$SPACY_EN_SHA256" || {
 # step then settles numpy/scipy on the constrained 1.26.4/1.13.1.
 coqui_c="$(mktemp)"
 grep -vE '^(numpy|scipy)==' "$CONSTRAINTS" > "$coqui_c"
-pip -q install --break-system-packages -c "$coqui_c" coqui-tts 'numpy==2.5.3' 'scipy==1.18.1' ||
+step "Coqui (the commercial Haitian Creole voice)"
+pip "${PIP_Q[@]}" install --break-system-packages -c "$coqui_c" coqui-tts 'numpy==2.5.3' 'scipy==1.18.1' ||
   warn "coqui-tts missing — Haitian falls back to MMS (CC-BY-NC)"
 rm -f "$coqui_c"
 
@@ -164,6 +176,7 @@ rm -f "$coqui_c"
 # numpy, which strands scipy — "module 'numpy' has no attribute 'long'" at T5
 # import — and repins torch, which breaks the torchaudio pairing. Install all
 # three together so pip resolves them in one pass.
+step "Omnilingual (rare languages' recogniser)"
 # ROCm: fairseq2 is built for CUDA torch 2.8 only, so Omnilingual can't run; its languages use Whisper. Its
 # scipy pin still matters (Coqui above brought scipy 1.18 for numpy 2).
 [ "$ROCM" = 1 ] && echo "ROCm: skipping Omnilingual (no ROCm build of fairseq2); its languages use Whisper" &&
@@ -174,4 +187,60 @@ pipi omnilingual-asr 'torchaudio==2.8.0' 'scipy==1.13.1' ||
 # ---- Japanese Piper voice -----------------------------------------------------
 # Japanese is phonemised by pyopenjtalk, not espeak-ng like every other Piper
 # voice — without it the voice loads and then throws at synthesis time.
+step "Japanese Piper voice"
 pipi pyopenjtalk || warn "pyopenjtalk missing — the Japanese Piper voice can't speak"
+
+# ---- Check ----------------------------------------------------------------------
+# What a successful install looks like, stated, instead of a last line of pip
+# output that may be the expected conflict warnings. Every import server.py makes
+# (as the Dockerfile checks); Omnilingual and Coqui are optional (and Omnilingual
+# absent on ROCm). pip's conflicts: the three known ones are expected (numpy
+# 1.26.4 for fairseq2, below librosa's and contourpy's declared minimums; both
+# work), anything else is reported.
+{ set +x; } 2>/dev/null
+step "check"
+python3 - "$ROCM" <<'PY'
+import importlib, sys
+rocm = sys.argv[1] == "1"
+need = ["torch", "torchaudio", "transformers", "faster_whisper", "ctranslate2", "onnxruntime", "speechbrain",
+        "kokoro", "misaki", "piper", "numpy", "scipy", "websockets", "sentencepiece", "accelerate", "spacy"]
+optional = {"TTS": "Coqui (commercial Haitian Creole voice)", "pyopenjtalk": "the Japanese Piper voice"}
+if not rocm:
+    optional["omnilingual_asr"] = "Omnilingual (ht km lo sw hi fa bn ur fall back to Whisper)"
+    need.append("bitsandbytes")
+bad = []
+for m in need:
+    try:
+        importlib.import_module(m)
+    except Exception as e:
+        bad.append(f"{m}: {type(e).__name__}: {e}")
+for m, what in optional.items():
+    try:
+        importlib.import_module(m)
+    except Exception as e:
+        print(f"  optional, not available: {what} ({m}: {type(e).__name__})")
+try:
+    import torch
+    gpus = [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())] if torch.cuda.is_available() else []
+    print(f"  torch {torch.__version__}, GPUs: {', '.join(gpus) or 'none visible'}")
+except Exception as e:
+    print(f"  torch: {type(e).__name__}: {e}")
+try:
+    import ctranslate2
+    print(f"  CTranslate2 {ctranslate2.__version__}, GPUs it sees: {ctranslate2.get_cuda_device_count()}")
+except Exception as e:
+    print(f"  CTranslate2: {e}")
+if bad:
+    print("FAILED: missing or broken imports:\n  " + "\n  ".join(bad))
+    sys.exit(1)
+print("  every required import works")
+PY
+known='^(librosa .* requires (numpy|scipy)|contourpy .* requires numpy)'
+others="$(pip check 2>&1 | grep -vE "$known|^No broken requirements" || true)"
+if [ -n "$others" ]; then
+  echo "  pip check, beyond the three known conflicts (worth a look):"
+  echo "$others" | sed 's/^/    /'
+else
+  echo "  pip check: only the known numpy/scipy conflicts (expected; constraints.txt's header)"
+fi
+echo "Done."
