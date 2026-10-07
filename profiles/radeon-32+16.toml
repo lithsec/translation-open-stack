@@ -11,19 +11,24 @@
 # numbers them the other way round, swap them with HIP_VISIBLE_DEVICES=1,0.
 # Open question until someone runs it: Omnilingual (fairseq2 publishes no ROCm packages; without it,
 # Khmer, Lao and the other Omnilingual sources fall back to Whisper).
-description = "PREVIEW: AMD R9700 32 GB + RX 9060 XT 16 GB under ROCm (not yet run)"
+description = "PREVIEW: AMD R9700 32 GB + RX 9060 XT 16 GB under ROCm (partly run, issue #8)"
 
 # On the R9700: Hy-MT2 at full precision (~15.5 GB; its 4-bit build needs bitsandbytes,
-# which may not run on RDNA4), MADLAD 3B (~3.5 GB) and VoxCPM2 (~6.7 GB): ~26 GB of 32.
+# which may not run on RDNA4) and VoxCPM2 (~6.7 GB). MADLAD 3B (~3.5 GB) was there too
+# and the card ran out of memory at start (issue #8), so it is on the RX 9060 XT.
 [env]
 VOXCPM_GPUS = "0"
 HYMT_QUANT = "bf16"
 MADLAD = "3b"
+# PyTorch's hipBLASLt doesn't support some of these cards' matrix shapes: it warns
+# "HIPBLAS_STATUS_NOT_SUPPORTED ... Will attempt to recover" on every call and falls
+# back to hipBLAS. Use hipBLAS from the start.
+TORCH_BLAS_PREFER_HIPBLASLT = "0"
 
 [devices]
 default = "cuda:0"
 hymt = "cuda:0"
-madlad = "cuda:0"
+madlad = "cuda:1"
 whisper = "cuda:1"
 omni = "cuda:1"
 kokoro = "cuda:1"

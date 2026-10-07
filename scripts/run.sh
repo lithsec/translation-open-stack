@@ -36,6 +36,9 @@ ROOT="$(cd "$DIR/.." && pwd)"   # the repository: server/ lives there
 # STACK_PROFILE: the hardware profile's script defaults (profiles/<name>.toml [env]).
 # shellcheck source=profile-env.sh
 . "$DIR/profile-env.sh"
+# A crash inside a native library (a GPU runtime, a model loader) prints the Python
+# stack of every thread instead of only "Segmentation fault".
+export PYTHONFAULTHANDLER="${PYTHONFAULTHANDLER:-1}"
 LANGS="${1:-${LANGS:-en,es,fr,pt,de,ru,uk,zh,ja,km,lo,ht,ar,hi,vi,ko,tl,fa,id,tr,bn,ur,it,sw,ro}}"
 SRCS="${2:-${SRCS:-en,es,fr,pt,de,ru,uk,it,zh,ja,ko,sw,km,lo,ht,ar,hi,vi,tl,fa,id,tr,bn,ur,ro}}"
 export HF_HOME="${HF_HOME:-$W/hf-cache}"

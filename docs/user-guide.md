@@ -185,6 +185,17 @@ alongside (ROCm installs side by side under `/opt/rocm-<version>`) and point
 `LD_LIBRARY_PATH` at its `lib`, or build CTranslate2 from source against your
 ROCm ([its install guide](https://opennmt.net/CTranslate2/installation.html)).
 
+**One copy of ROCm per process.** PyTorch's ROCm wheels bring their own ROCm
+libraries, and CTranslate2 loads the system's. Two copies in one process crash:
+`Option '...' registered more than once!` and `LLVM ERROR` (converting MADLAD in
+`prepare-mt.sh`), or a segmentation fault at start. Put PyTorch's copy first so
+both use it, in every shell that runs the scripts. With AMD's wheels (as used in
+[issue #8](https://github.com/lithsec/translation-open-stack/issues/8), ROCm 10):
+
+```bash
+export LD_LIBRARY_PATH=$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib:$LD_LIBRARY_PATH
+```
+
 **4. Choose your profile**, so every script below uses its defaults:
 
 ```bash
