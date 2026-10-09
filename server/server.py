@@ -92,6 +92,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 import stack_config
 from engines.base import Context, AudioStream, RATE, VAD_RATE  # noqa: F401
+from audio_in import AudioIn, vad_block
 from engines.manager import EngineSet
 # The shared helpers moved into engines/common.py with the engines; these names
 # stay importable from server.py (tests/test_nonspeech.py uses them).
@@ -541,7 +542,6 @@ async def handle_streaming(ws, pipe, src, lang, edition=None):
     """
     import numpy as np
     import torch
-    from scipy.signal import resample_poly
 
     buf = np.zeros(0, dtype=np.float32)
     quiet_ms = 0.0
@@ -553,6 +553,7 @@ async def handle_streaming(ws, pipe, src, lang, edition=None):
     vad = pipe.new_vad()
     meter = AudioMeter()
     loop = asyncio.get_running_loop()
+    conn_in = AudioIn("streaming client")
 
     async def flush(words, force=False):
         nonlocal translated_n
@@ -579,38 +580,38 @@ async def handle_streaming(ws, pipe, src, lang, edition=None):
             return
         if not isinstance(msg, bytes):
             continue
-        pcm = np.frombuffer(msg, "<i2").astype(np.float32) / 32768
-        pcm16 = resample_poly(pcm, VAD_RATE, RATE)
-        buf = np.concatenate([buf, pcm16])
-        chunk_ms = len(pcm16) / VAD_RATE * 1000
-        prob = vad_prob(vad, pcm16)
-        quiet_ms = 0.0 if prob > 0.5 else quiet_ms + chunk_ms
-        since_asr_ms += chunk_ms
+        # Fixed 96 ms blocks, whatever size of message the client sends (audio_in.py, issue #13).
+        for pcm16 in conn_in.feed(msg):
+            buf = np.concatenate([buf, pcm16])
+            chunk_ms = len(pcm16) / VAD_RATE * 1000
+            prob = vad_block(vad, pcm16)
+            quiet_ms = 0.0 if prob > 0.5 else quiet_ms + chunk_ms
+            since_asr_ms += chunk_ms
 
-        # The turn ends on a pause, or at MAX_UTTERANCE_S whatever the speaker
-        # does (the buffer is re-transcribed every pass, so it must stay short).
-        forced = len(buf) / VAD_RATE >= MAX_UTTERANCE_S
-        if forced or (quiet_ms >= ENDPOINT_MS and len(buf) >= VAD_RATE // 2):
-            # Turn over: everything not yet committed is now final.
-            cut = quietest_cut(buf) if forced else len(buf)
-            text = await loop.run_in_executor(None, pipe.transcribe, buf[:cut], src)
-            words = text.split()
-            if words:
-                await ws.send(json.dumps({"type": "inputTranscript", "text": text}))
-                await flush(words, force=True)
-            buf = buf[cut:]
-            last_pass, committed_n, translated_n, quiet_ms = "", 0, 0, 0.0
-            continue
+            # The turn ends on a pause, or at MAX_UTTERANCE_S whatever the speaker
+            # does (the buffer is re-transcribed every pass, so it must stay short).
+            forced = len(buf) / VAD_RATE >= MAX_UTTERANCE_S
+            if forced or (quiet_ms >= ENDPOINT_MS and len(buf) >= VAD_RATE // 2):
+                # Turn over: everything not yet committed is now final.
+                cut = quietest_cut(buf) if forced else len(buf)
+                text = await loop.run_in_executor(None, pipe.transcribe, buf[:cut], src)
+                words = text.split()
+                if words:
+                    await ws.send(json.dumps({"type": "inputTranscript", "text": text}))
+                    await flush(words, force=True)
+                buf = buf[cut:]
+                last_pass, committed_n, translated_n, quiet_ms = "", 0, 0, 0.0
+                continue
 
-        if since_asr_ms < 1000 or len(buf) < VAD_RATE:
-            continue
-        since_asr_ms = 0.0
-        text = await loop.run_in_executor(None, pipe.transcribe, buf, src)
-        agreed = common_prefix_words(last_pass, text)
-        last_pass = text
-        if len(agreed) > committed_n:
-            committed_n = len(agreed)
-            await flush(agreed)
+            if since_asr_ms < 1000 or len(buf) < VAD_RATE:
+                continue
+            since_asr_ms = 0.0
+            text = await loop.run_in_executor(None, pipe.transcribe, buf, src)
+            agreed = common_prefix_words(last_pass, text)
+            last_pass = text
+            if len(agreed) > committed_n:
+                committed_n = len(agreed)
+                await flush(agreed)
 
 
 class Room:
@@ -732,19 +733,6 @@ async def send_json(targets, obj):
 # language could not START until another finished, which hid the benefit of
 # running the voices concurrently and made that look like a dead end.
 TTS_POOL = ThreadPoolExecutor(max_workers=int(os.environ.get("LITHOS_TTS_WORKERS", "8")))
-
-
-def vad_prob(vad, pcm16):
-    """Speech probability of the newest 512 samples (Silero v5 requires exactly
-    512 at 16 kHz; a shorter final frame is padded, not passed through, which
-    raised and dropped the connection)."""
-    import numpy as np
-    import torch
-    tail = pcm16[-512:]
-    if len(tail) < 512:
-        tail = np.pad(tail, (512 - len(tail), 0))
-    with torch.inference_mode():
-        return vad(torch.tensor(tail, dtype=torch.float32), VAD_RATE).item()
 
 
 async def send_speech(w, audio):
@@ -1262,7 +1250,6 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False):
     edition is part of the key, so a room's voices are always its members' edition."""
     import numpy as np
     import torch
-    from scipy.signal import resample_poly
 
     room_id = f"{clean(key[0], 24)}/{key[1]}"   # for the log; the id itself is validated
     room = ROOMS.get(key)
@@ -1272,6 +1259,7 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False):
     if priority:
         room.priority_ws.add(ws)
     meter = AudioMeter()
+    conn_in = AudioIn(f"room {room_id}")
     is_primary = room.primary is None
     if is_primary:
         room.primary = ws
@@ -1297,82 +1285,82 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False):
             # driving the room immediately.
             if ws is not room.primary:
                 continue  # same audio as the primary — drain and discard
-            pcm = np.frombuffer(msg, "<i2").astype(np.float32) / 32768
-            pcm16 = resample_poly(pcm, VAD_RATE, RATE)
-            room.buf = np.concatenate([room.buf, pcm16])
-            chunk_ms = len(pcm16) / VAD_RATE * 1000
-            if room.vad is None:
-                room.vad = pipe.new_vad()
-            prob = vad_prob(room.vad, pcm16)
-            if prob > 0.5:
-                room.speech_seen = True
-                room.quiet_ms = 0.0
-            else:
-                room.quiet_ms += chunk_ms
-            if not room.speech_seen:
-                # Idle mic: keep only a half-second pre-roll so the eventual
-                # first word arrives with its onset, not with minutes of room
-                # tone in front of it.
-                room.buf = room.buf[-(VAD_RATE // 2):]
-                room.turn_gen += 1   # origin moved: no stale trim may land
-                continue
-            if room.stream and room.speech_seen:
-                room.since_asr_ms += chunk_ms
-                # Coalesce: never stack passes behind a slow one, or the
-                # commits fall further behind the speaker every second.
-                if (room.since_asr_ms >= STREAM_PASS_MS
-                        and len(room.buf) >= VAD_RATE and room.queue.empty()):
+            # Fixed 96 ms blocks, whatever size of message the client sends (audio_in.py, issue #13).
+            for pcm16 in conn_in.feed(msg):
+                room.buf = np.concatenate([room.buf, pcm16])
+                chunk_ms = len(pcm16) / VAD_RATE * 1000
+                if room.vad is None:
+                    room.vad = pipe.new_vad()
+                prob = vad_block(room.vad, pcm16)
+                if prob > 0.5:
+                    room.speech_seen = True
+                    room.quiet_ms = 0.0
+                else:
+                    room.quiet_ms += chunk_ms
+                if not room.speech_seen:
+                    # Idle mic: keep only a half-second pre-roll so the eventual
+                    # first word arrives with its onset, not with minutes of room
+                    # tone in front of it.
+                    room.buf = room.buf[-(VAD_RATE // 2):]
+                    room.turn_gen += 1   # origin moved: no stale trim may land
+                    continue
+                if room.stream and room.speech_seen:
+                    room.since_asr_ms += chunk_ms
+                    # Coalesce: never stack passes behind a slow one, or the
+                    # commits fall further behind the speaker every second.
+                    if (room.since_asr_ms >= STREAM_PASS_MS
+                            and len(room.buf) >= VAD_RATE and room.queue.empty()):
+                        room.since_asr_ms = 0.0
+                        room.queue.put_nowait(("pass", room.buf.copy(), False,
+                                               {"gen": room.turn_gen,
+                                                "fixed": list(room.fixed_words)}))
+                buf_s = len(room.buf) / VAD_RATE
+                # Long buffer -> settle for a clause gap; very long -> cut anyway.
+                need_ms = ENDPOINT_MS if buf_s < LONG_UTTERANCE_S else LONG_ENDPOINT_MS
+                forced = buf_s >= MAX_UTTERANCE_S
+                if not forced and (room.quiet_ms < need_ms or len(room.buf) < VAD_RATE):
+                    continue
+                if forced:
+                    # No pause for MAX_UTTERANCE_S (a speech, a reading): cut after the
+                    # last sentence the recogniser heard, carrying the unfinished one
+                    # into the next utterance, so the translation gets whole
+                    # sentences. Awaited here on purpose: audio arriving meanwhile
+                    # waits in the socket, so the carry stays in order. Without a
+                    # sentence or clause end, the least bad instant as before.
+                    cut, how = await forced_cut(pipe, room.buf, src, room.last_src)
+                    print(f"[stack] room {room_id}: forced cut at {cut / VAD_RATE:.1f}s of "
+                          f"{len(room.buf) / VAD_RATE:.1f}s ({how})", flush=True)
+                    utterance, room.buf = room.buf[:cut], room.buf[cut:]
+                    room.quiet_ms = 0.0
+                else:
+                    # Hand over the SPEECH, not the pause that ended it. Whisper
+                    # fills silence with polite filler it has seen at the end of
+                    # captioned video — "gracias por su comentario", "thanks for
+                    # watching" — and MADLAD dutifully translates the invention.
+                    # The endpoint already measured the trailing quiet; drop all
+                    # but a short tail so no word loses its release.
+                    trail = int(VAD_RATE * max(0.0, room.quiet_ms - TRAILING_KEEP_MS) / 1000)
+                    utterance = room.buf[:-trail] if 0 < trail < len(room.buf) else room.buf
+                    room.buf, room.quiet_ms = np.zeros(0, dtype=np.float32), 0.0
+                room.speech_seen = forced  # still talking: keep listening, no pre-roll trim
+                # The turn is over: snapshot what trimming carried for the final
+                # pass, then start the next turn clean. The gen bump also voids
+                # any in-flight interim pass's right to trim the new buffer.
+                trim_ctx = {"gen": room.turn_gen, "fixed": room.fixed_words,
+                            "raw": room.trimmed_audio}
+                room.fixed_words, room.trimmed_audio = [], []
+                room.turn_gen += 1
+                if room.stream:
+                    room.queue.put_nowait(("pass", utterance, True, trim_ctx))
                     room.since_asr_ms = 0.0
-                    room.queue.put_nowait(("pass", room.buf.copy(), False,
-                                           {"gen": room.turn_gen,
-                                            "fixed": list(room.fixed_words)}))
-            buf_s = len(room.buf) / VAD_RATE
-            # Long buffer -> settle for a clause gap; very long -> cut anyway.
-            need_ms = ENDPOINT_MS if buf_s < LONG_UTTERANCE_S else LONG_ENDPOINT_MS
-            forced = buf_s >= MAX_UTTERANCE_S
-            if not forced and (room.quiet_ms < need_ms or len(room.buf) < VAD_RATE):
-                continue
-            if forced:
-                # No pause for MAX_UTTERANCE_S (a speech, a reading): cut after the
-                # last sentence the recogniser heard, carrying the unfinished one
-                # into the next utterance, so the translation gets whole
-                # sentences. Awaited here on purpose: audio arriving meanwhile
-                # waits in the socket, so the carry stays in order. Without a
-                # sentence or clause end, the least bad instant as before.
-                cut, how = await forced_cut(pipe, room.buf, src, room.last_src)
-                print(f"[stack] room {room_id}: forced cut at {cut / VAD_RATE:.1f}s of "
-                      f"{len(room.buf) / VAD_RATE:.1f}s ({how})", flush=True)
-                utterance, room.buf = room.buf[:cut], room.buf[cut:]
-                room.quiet_ms = 0.0
-            else:
-                # Hand over the SPEECH, not the pause that ended it. Whisper
-                # fills silence with polite filler it has seen at the end of
-                # captioned video — "gracias por su comentario", "thanks for
-                # watching" — and MADLAD dutifully translates the invention.
-                # The endpoint already measured the trailing quiet; drop all
-                # but a short tail so no word loses its release.
-                trail = int(VAD_RATE * max(0.0, room.quiet_ms - TRAILING_KEEP_MS) / 1000)
-                utterance = room.buf[:-trail] if 0 < trail < len(room.buf) else room.buf
-                room.buf, room.quiet_ms = np.zeros(0, dtype=np.float32), 0.0
-            room.speech_seen = forced  # still talking: keep listening, no pre-roll trim
-            # The turn is over: snapshot what trimming carried for the final
-            # pass, then start the next turn clean. The gen bump also voids
-            # any in-flight interim pass's right to trim the new buffer.
-            trim_ctx = {"gen": room.turn_gen, "fixed": room.fixed_words,
-                        "raw": room.trimmed_audio}
-            room.fixed_words, room.trimmed_audio = [], []
-            room.turn_gen += 1
-            if room.stream:
-                room.queue.put_nowait(("pass", utterance, True, trim_ctx))
-                room.since_asr_ms = 0.0
-                continue
-            if room.queue.qsize() >= MAX_PENDING_UTTERANCES:
-                # Never silently: a drop here is the pipeline losing to a
-                # talker, and the operator needs to see it in the log.
-                dropped = await room.queue.get()
-                print(f"[stack] room {room_id}: pipeline behind, dropped "
-                      f"{len(dropped[1]) / VAD_RATE:.1f}s utterance", flush=True)
-            room.queue.put_nowait(("utt", utterance))
+                    continue
+                if room.queue.qsize() >= MAX_PENDING_UTTERANCES:
+                    # Never silently: a drop here is the pipeline losing to a
+                    # talker, and the operator needs to see it in the log.
+                    dropped = await room.queue.get()
+                    print(f"[stack] room {room_id}: pipeline behind, dropped "
+                          f"{len(dropped[1]) / VAD_RATE:.1f}s utterance", flush=True)
+                room.queue.put_nowait(("utt", utterance))
     finally:
         # Only this connection leaves: another listener of the same language stays.
         room.members.pop(ws, None)
@@ -1475,7 +1463,6 @@ async def handle(ws, pipe, sub="open", edition=None):
     (connection_edition: whose voices it hears)."""
     import numpy as np
     import torch
-    from scipy.signal import resample_poly
     from urllib.parse import urlparse, parse_qs
 
     url = urlparse(ws.request.path)
@@ -1535,6 +1522,7 @@ async def handle(ws, pipe, sub="open", edition=None):
     speech_seen = False
     vad = pipe.new_vad()
     meter = AudioMeter()
+    conn_in = AudioIn(clean(sub, 24))
 
     async for msg in ws:
         if not meter.take(len(msg)):
@@ -1542,59 +1530,59 @@ async def handle(ws, pipe, sub="open", edition=None):
             return
         if not isinstance(msg, bytes):
             continue
-        pcm = np.frombuffer(msg, "<i2").astype(np.float32) / 32768
-        pcm16 = resample_poly(pcm, VAD_RATE, RATE)
-        buf = np.concatenate([buf, pcm16])
-        # Endpoint on Silero: an utterance ends after 700 ms without speech.
-        chunk_ms = len(pcm16) / VAD_RATE * 1000
-        prob = vad_prob(vad, pcm16)
-        if prob > 0.5:
-            speech_seen = True
-            quiet_ms = 0.0
-        else:
-            quiet_ms += chunk_ms
-        if not speech_seen:
-            buf = buf[-(VAD_RATE // 2):]  # idle mic: pre-roll only (see Room)
-            continue
-        # No pause for MAX_UTTERANCE_S: cut anyway, as rooms do. Without this
-        # a client that never paused grew one buffer without limit.
-        buf_s = len(buf) / VAD_RATE
-        forced = buf_s >= MAX_UTTERANCE_S
-        if not forced and (quiet_ms < ENDPOINT_MS or len(buf) < VAD_RATE):  # not ended, or under 1 s of audio
-            continue
-
-        if forced:
-            cut, how = await forced_cut(pipe, buf, src, "en", cands)
-            print(f"[stack] solo: forced cut at {cut / VAD_RATE:.1f}s of {buf_s:.1f}s ({how})", flush=True)
-            utterance, buf, quiet_ms = buf[:cut], buf[cut:], 0.0   # still talking: speech_seen stays
-        else:
-            utterance, buf, quiet_ms = buf, np.zeros(0, dtype=np.float32), 0.0
-            speech_seen = False
-        loop = asyncio.get_running_loop()
-
-        # Auto-route per utterance: English in -> the requested language out;
-        # anything else in -> ENGLISH out. That is the app's PA behaviour
-        # (roomMicOrOtherLang) expressed as routing.
-        this_src, this_lang = src, lang
-        if src == "auto":
-            detected = await loop.run_in_executor(None, pipe.identify, utterance, cands)
-            this_src = detected or "en"
-            if route_to:
-                await ws.send(json.dumps({"type": "route", "src": this_src, "lang": lang}))
-                if this_src == lang:
-                    continue  # already in this direction's language: the other direction's job
+        # Fixed 96 ms blocks, whatever size of message the client sends (audio_in.py, issue #13).
+        for pcm16 in conn_in.feed(msg):
+            buf = np.concatenate([buf, pcm16])
+            # Endpoint on Silero: an utterance ends after 700 ms without speech.
+            chunk_ms = len(pcm16) / VAD_RATE * 1000
+            prob = vad_block(vad, pcm16)
+            if prob > 0.5:
+                speech_seen = True
+                quiet_ms = 0.0
             else:
-                this_lang = lang if this_src == "en" else "en"
-                await ws.send(json.dumps({"type": "route", "src": this_src, "lang": this_lang}))
+                quiet_ms += chunk_ms
+            if not speech_seen:
+                buf = buf[-(VAD_RATE // 2):]  # idle mic: pre-roll only (see Room)
+                continue
+            # No pause for MAX_UTTERANCE_S: cut anyway, as rooms do. Without this
+            # a client that never paused grew one buffer without limit.
+            buf_s = len(buf) / VAD_RATE
+            forced = buf_s >= MAX_UTTERANCE_S
+            if not forced and (quiet_ms < ENDPOINT_MS or len(buf) < VAD_RATE):  # not ended, or under 1 s of audio
+                continue
 
-        text = await loop.run_in_executor(None, pipe.transcribe, utterance, this_src)
-        if not text:
-            continue
-        await ws.send(json.dumps({"type": "inputTranscript", "text": text}))
-        translated = await loop.run_in_executor(None, pipe.translate, text, this_lang, this_src)
-        await ws.send(json.dumps({"type": "transcript", "delta": translated}))
-        print(f"[stack] solo {this_src}->{this_lang}: {len(text)} chars heard, {len(translated)} out", flush=True)
-        await speak_to(ws, pipe, translated, this_lang, edition)
+            if forced:
+                cut, how = await forced_cut(pipe, buf, src, "en", cands)
+                print(f"[stack] solo: forced cut at {cut / VAD_RATE:.1f}s of {buf_s:.1f}s ({how})", flush=True)
+                utterance, buf, quiet_ms = buf[:cut], buf[cut:], 0.0   # still talking: speech_seen stays
+            else:
+                utterance, buf, quiet_ms = buf, np.zeros(0, dtype=np.float32), 0.0
+                speech_seen = False
+            loop = asyncio.get_running_loop()
+
+            # Auto-route per utterance: English in -> the requested language out;
+            # anything else in -> ENGLISH out. That is the app's PA behaviour
+            # (roomMicOrOtherLang) expressed as routing.
+            this_src, this_lang = src, lang
+            if src == "auto":
+                detected = await loop.run_in_executor(None, pipe.identify, utterance, cands)
+                this_src = detected or "en"
+                if route_to:
+                    await ws.send(json.dumps({"type": "route", "src": this_src, "lang": lang}))
+                    if this_src == lang:
+                        continue  # already in this direction's language: the other direction's job
+                else:
+                    this_lang = lang if this_src == "en" else "en"
+                    await ws.send(json.dumps({"type": "route", "src": this_src, "lang": this_lang}))
+
+            text = await loop.run_in_executor(None, pipe.transcribe, utterance, this_src)
+            if not text:
+                continue
+            await ws.send(json.dumps({"type": "inputTranscript", "text": text}))
+            translated = await loop.run_in_executor(None, pipe.translate, text, this_lang, this_src)
+            await ws.send(json.dumps({"type": "transcript", "delta": translated}))
+            print(f"[stack] solo {this_src}->{this_lang}: {len(text)} chars heard, {len(translated)} out", flush=True)
+            await speak_to(ws, pipe, translated, this_lang, edition)
 
 
 LIMITS = None  # stack_auth.Limits, made in main()
