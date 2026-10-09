@@ -92,7 +92,6 @@ from concurrent.futures import ThreadPoolExecutor
 
 import stack_config
 from engines.base import Context, AudioStream, RATE, VAD_RATE  # noqa: F401
-from audio_in import AudioIn, vad_block
 from engines.manager import EngineSet
 # The shared helpers moved into engines/common.py with the engines; these names
 # stay importable from server.py (tests/test_nonspeech.py uses them).
@@ -553,6 +552,7 @@ async def handle_streaming(ws, pipe, src, lang, edition=None):
     vad = pipe.new_vad()
     meter = AudioMeter()
     loop = asyncio.get_running_loop()
+    from audio_in import AudioIn, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn("streaming client")
 
     async def flush(words, force=False):
@@ -1259,6 +1259,7 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False):
     if priority:
         room.priority_ws.add(ws)
     meter = AudioMeter()
+    from audio_in import AudioIn, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn(f"room {room_id}")
     is_primary = room.primary is None
     if is_primary:
@@ -1522,6 +1523,7 @@ async def handle(ws, pipe, sub="open", edition=None):
     speech_seen = False
     vad = pipe.new_vad()
     meter = AudioMeter()
+    from audio_in import AudioIn, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn(clean(sub, 24))
 
     async for msg in ws:
