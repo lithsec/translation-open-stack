@@ -378,6 +378,18 @@ def test_utterance_short_frames_and_frame_size(stack):
     assert sum(r["frames"]) / 2 / RATE > 0.5
 
 
+def test_tiny_messages_heard_as_well_as_100ms_ones(stack):
+    """Issue #13: the same speech in ~5 ms messages (256 bytes, as a dsnoop capture with 5 ms
+    periods forwards it) is heard as well as in 100 ms ones. Each message used to be resampled
+    and VAD-scored on its own, and the stack heard noise."""
+    pcm = clip()
+    frames = [pcm[i:i + 256] for i in range(0, len(pcm), 256)]
+    r = run(converse(stack["base"], "lang=es&src=en", signed("tiny"), frames))
+    assert not r["errors"] and r["closed"] is None, r
+    assert heard_ok(r["heard"], EN_TEXT), r["heard"]
+    assert r["said"].strip(), "no translation"
+
+
 def test_route_to_skips_its_own_language(stack):
     r = run(converse(stack["base"], "lang=en&src=auto&route=to&cands=en,es", signed("route-en"),
                      expect_output=False))

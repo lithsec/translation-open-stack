@@ -45,6 +45,7 @@ jobs:
           python tests/test_doc_links.py
           python tests/test_profiles.py
           python tests/test_editions.py
+          python tests/test_audio_in.py
 
       - name: Language config (both editions)
         run: |

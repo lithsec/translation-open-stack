@@ -357,6 +357,13 @@ promoted.
 | 4413 | audio sent faster than 2x real time, beyond 60 s of audio in hand |
 | 1009 | a WebSocket message over 256 KB (a 100 ms frame is 4.8 KB) |
 
+**Message size.** Send 24 kHz mono PCM16 in messages of any size: the server
+buffers each connection's audio into 96 ms blocks and resamples it with a
+filter that carries across messages, so what it hears doesn't depend on how
+the audio was cut up (`server/audio_in.py`). About 100 ms (4,800 bytes) per
+message is still the best size; a connection averaging under 20 ms per message
+gets one line in the log saying so, since each message costs a WebSocket frame.
+
 **Long speech.** Every connection, in a room or solo, is cut at
 `--max-utterance-s` (12 s via `scripts/run.sh`) when the speaker never pauses,
 after the last sentence the recogniser heard.
