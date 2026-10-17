@@ -16,7 +16,7 @@ from vertex import gemini  # noqa: E402
 
 NAMES = {"en": "English", "ja": "Japanese", "zh": "Chinese", "km": "Khmer", "lo": "Lao", "ht": "Haitian Creole"}
 SENT = os.path.join(HERE, "sentences")
-SYSTEMS = {"azure": "azure_only", "pipe": "azure_stt_gemini", "live": "gemini_live"}
+SYSTEMS = {"azure": "azure_only", "pipe": "azure_stt_gemini", "gladia": "gladia_stt_gemini", "live": "gemini_live"}
 
 
 def source(lang):
@@ -111,9 +111,9 @@ def delays(d, mode):
     chunks = sorted(r.get("chunks") or [])
     # Live Translate streams audio (silence included) until the session
     # closes, so its last chunk says nothing about when it finished speaking.
-    if chunks and mode == "pipe":
+    if chunks and mode in ("pipe", "gladia"):
         out["tail_ms"] = round(chunks[-1] - marks[-1]["end"] * 1000)
-    if mode in ("pipe", "azure"):
+    if mode in ("pipe", "gladia", "azure"):
         # Azure only: when the translated text arrived, plus how long Azure's
         # voice takes to start speaking (measured separately on five sentences).
         extra = (r.get("voice_first_audio_ms") or 0) if mode == "azure" else 0
@@ -150,6 +150,10 @@ def main(dirs):
         if os.path.exists(stt):
             s = json.load(open(stt))
             row["azure_stt_cer"] = cer(" ".join(source(src)), " ".join(f["text"] for f in s["finals"])) if not s["err"] else None
+        gl = os.path.join(HERE, "out", "stt-gladia", f"{src}.json")
+        if os.path.exists(gl):
+            s = json.load(open(gl))
+            row["gladia_stt_cer"] = cer(" ".join(source(src)), " ".join(f["text"] for f in s["finals"])) if not s["err"] else None
         lv = load("live", d)
         if lv and lv.get("heard"):
             row["gemini_heard_cer"] = cer(" ".join(source(src)), lv["heard"])
@@ -168,12 +172,13 @@ def main(dirs):
         if "tail_ms" in dl:
             lag.append(f"ends +{dl['tail_ms']/1000:.1f} s")
         return f"{e['score_pct']}% ({e['critical']} crit)" + (f", {', '.join(lag)}" if lag else "")
-    print("| Direction | Azure only | Azure STT → Gemini | Gemini Live | Azure heard (CER) | Gemini heard (CER) |")
-    print("|---|---|---|---|---|---|")
+    pct = lambda v: "—" if v is None else f"{v:.0%}"
+    print("| Direction | Azure only | Azure STT → Gemini | Gladia STT → Gemini | Gemini Live | Azure heard | Gladia heard | Gemini heard |")
+    print("|---|---|---|---|---|---|---|---|")
     for d, row in results.items():
-        z, a, g = row.get("azure_only", {}), row.get("azure_stt_gemini", {}), row.get("gemini_live", {})
-        ac, gc = row.get("azure_stt_cer"), row.get("gemini_heard_cer")
-        print(f"| {d} | {cell(z)} | {cell(a)} | {cell(g)} | {'—' if ac is None else f'{ac:.0%}'} | {'—' if gc is None else f'{gc:.0%}'} |")
+        z, a, gl, g = (row.get(k, {}) for k in ("azure_only", "azure_stt_gemini", "gladia_stt_gemini", "gemini_live"))
+        print(f"| {d} | {cell(z)} | {cell(a)} | {cell(gl)} | {cell(g)} | {pct(row.get('azure_stt_cer'))} | "
+              f"{pct(row.get('gladia_stt_cer'))} | {pct(row.get('gemini_heard_cer'))} |")
 
 
 if __name__ == "__main__":

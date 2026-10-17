@@ -15,13 +15,15 @@ and the sentences joined with 0.8 s pauses, as in the synthetic rounds. Read
 speech, not preaching: real voices and accents, not spontaneous speech or a
 church room's echo.
 
-Directions: English into Japanese, Khmer, Lao, Haitian Creole; Japanese, Khmer,
-Lao into English (all three systems); Haitian Creole into English (Gemini Live
-only: Azure can't hear Haitian Creole).
+Four systems: Azure alone, Azure STT → Gemini, **Gladia STT → Gemini**
+(`gladia_stt.mjs`, Solaria-1 live; it lists Haitian Creole, Khmer and Lao),
+and Gemini Live. Directions: English into Japanese, Khmer, Lao, Haitian Creole;
+Japanese, Khmer, Lao into English; Haitian Creole into English (Gladia → Gemini
+and Gemini Live only: Azure can't hear Haitian Creole).
 
     .venv/bin/python fetch_audio.py      # ~1.6 GB streamed, ~30 s of audio kept per sentence set
     python3 make_refs.py                 # English meaning files (Gemini for Haitian Creole)
-    bash run.sh <env file with AZURE_SPEECH_KEY and AZURE_SPEECH_REGION>
+    bash run.sh <env file with AZURE_SPEECH_KEY/REGION> <env file with GLADIA_API_KEY>
 
 Scripts other than these come from `../2026-10-azure-stt-gemini`, with the
 grader reading each clip's own sentences and references.
