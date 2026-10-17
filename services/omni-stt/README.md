@@ -108,4 +108,46 @@ fetch (the code is copied before it); fine for now, worth splitting if builds ge
 
 ## Measured locally
 
-TODO
+2026-10-17, MacBook Pro M2 Pro (16 GB, busy, swapping), CPU only, float32,
+`omniASR_LLM_300M`, eval/2026-10-real-voices (30 read sentences per language;
+ht real Haitian voices, en and fr from FLEURS). CER as judge.py: NFKC,
+lowercase, letters and digits, pooled over all characters.
+
+Clip by clip (`bench.py`, each sentence cut at its marks):
+
+| Audio | CER (right language) | LID ht,en | LID ht,fr | LID ht,en,fr | CPU real-time factor |
+|---|---|---|---|---|---|
+| ht (298 s) | **4.2%** | 30/30 | 29/30 | 29/30 | 1.7 |
+| en (216 s) | 10.5% (mostly numerals: "15" vs "fifteen") | 30/30 | – | 30/30 | 2.7 |
+| fr (208 s) | 6.8% | – | 30/30 | 30/30 | 3.0 |
+
+Haitian Creole vs French, confusion (rows: spoken, columns: picked):
+
+| ht,fr | ht | fr | | ht,en,fr | ht | en | fr |
+|---|---|---|---|---|---|---|---|
+| ht | 29 | 1 | | ht | 29 | 0 | 1 |
+| fr | 0 | 30 | | en | 0 | 30 | 0 |
+| | | | | fr | 0 | 0 | 30 |
+
+The one miss (ht sentence 28, 7 s, "Nan diskou l, Majistra Mase deklare pòt Jakmèl
+louvri...") went to French at 0.514, a coin toss. Across the 30 Haitian clips the
+Haitian share among ht,fr was 0.486 (that one), then 0.948, 0.969, 0.984 and 0.99+ for
+the other 26; on all 30 French clips it was 0.000. So requiring French to win by
+more than ~0.6 before overriding Haitian would have fixed the miss and cost
+nothing on this set (30 clips each: a hint, not a calibration).
+Decoding a sentence with the wrong language code mostly gives the same text:
+Omnilingual follows the audio more than the hint.
+
+Streaming in real time (server + `client.mjs`, ht.wav, langs=ht,en): 56 utterances
+(forced 9 s cuts split the longer sentences), **CER 6.2%**, LID 56/56 Haitian (lowest
+confidence 0.998), server-side real-time factor 1.76, so on this CPU the
+transcripts fell minutes behind (median 82 s). On an L4 the model should be far
+faster than real time; measure it after deploying.
+
+Three streams at once (ht.wav ht,fr + en.wav ht,en + fr.wav ht,en,fr, stopped
+after ~165 s of each): streams stayed separate, 83/83 utterances labelled with
+their own language, ~16 min behind on this CPU. One English utterance came back
+as Arabic-script text (decoded as eng_Latn): a hallucination on a streamed cut
+that the clip bench did not show; watch for it on the GPU.
+
+For reference: the same model in the stack on a GPU scored 5.7% CER on ht.wav.
