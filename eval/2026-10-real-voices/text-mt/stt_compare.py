@@ -50,6 +50,32 @@ def transcribe(model, m):
     return ""
 
 
+def chirp3(m):
+    """Google Cloud Speech-to-Text v2, Chirp 3, language left to auto-detect:
+    it rejects ht-HT by name in every region (2026-10-17) yet hears it."""
+    body = {"config": {"autoDecodingConfig": {}, "model": "chirp_3", "languageCodes": ["auto"]}, "content": clip(m)}
+    url = f"https://us-speech.googleapis.com/v2/projects/{vertex.project()}/locations/us/recognizers/_:recognize"
+    for attempt in range(4):
+        if attempt:
+            vertex._tok = None
+        req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={
+            "Authorization": f"Bearer {vertex.token()}", "Content-Type": "application/json", "x-goog-user-project": vertex.project()})
+        try:
+            j = json.load(urllib.request.urlopen(req, timeout=120))
+            return " ".join(r["alternatives"][0].get("transcript", "") for r in j.get("results", []) if r.get("alternatives")).strip()
+        except urllib.error.HTTPError as e:
+            if e.code not in (401, 429, 503):
+                raise
+        except (TimeoutError, urllib.error.URLError):
+            pass
+    return ""
+
+
+p3 = os.path.join(OUT, "stt__chirp_3.json")
+if not os.path.exists(p3):
+    with cf.ThreadPoolExecutor(6) as ex:
+        json.dump(list(ex.map(chirp3, marks)), open(p3, "w"), ensure_ascii=False, indent=1)
+
 gold = " ".join(src)
 rows = {}
 for model in ("gemini-2.5-pro", "gemini-2.5-flash"):
@@ -58,6 +84,7 @@ for model in ("gemini-2.5-pro", "gemini-2.5-flash"):
         with cf.ThreadPoolExecutor(6) as ex:
             json.dump(list(ex.map(lambda m: transcribe(model, m), marks)), open(p, "w"), ensure_ascii=False, indent=1)
     rows[f"{model} (batch, per sentence)"] = " ".join(json.load(open(p)))
+rows["Google Chirp 3, auto language (batch, per sentence)"] = " ".join(json.load(open(p3)))
 rows["Gladia Solaria-1 (live)"] = " ".join(f["text"] for f in json.load(open(os.path.join(HERE, "out", "stt-gladia", "ht.json")))["finals"])
 rows["Meta Omnilingual ASR (open stack, live)"] = json.load(open(os.path.join(HERE, "out", "stack", "ht-en.json")))["heard"]
 live = json.load(open(os.path.join(HERE, "out", "live", "ht-en.json")))

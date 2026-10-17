@@ -17,8 +17,12 @@ import urllib.error
 
 def gemini(*a, **k):
     # gcloud tokens last an hour and vertex.py keeps the first one: refresh on 401.
+    # An answer with no content (Gemini declined, e.g. Chirp's 7,000-character
+    # looped "sentence") counts as a blank translation.
     try:
         return vertex.gemini(*a, **k)
+    except KeyError:
+        return ""
     except urllib.error.HTTPError as e:
         if e.code != 401:
             raise
@@ -64,7 +68,16 @@ def split_like(text, sents):
 
 
 omni = split_like(json.load(open(os.path.join(HERE, "out", "stack", "ht-en.json")))["heard"], src)
-inputs = {"gold": src, "gladia": gladia, "omnilingual": omni}
+# Only transcripts good enough to be worth translating (the user's call,
+# 2026-10-17): Gladia (19% CER, words wrong) and Gemini Live (49%, heard as
+# French) are left out.
+inputs = {"gold": src, "omnilingual": omni}
+_pro = os.path.join(OUT, "stt__gemini-2.5-pro.json")
+if os.path.exists(_pro):
+    inputs["gemini-2.5-pro-stt"] = json.load(open(_pro))
+_chirp = os.path.join(OUT, "stt__chirp_3.json")
+if os.path.exists(_chirp):
+    inputs["chirp3"] = json.load(open(_chirp))
 
 
 def gem(model, sents, context):
@@ -84,10 +97,22 @@ def gem(model, sents, context):
         return list(ex.map(one, range(len(sents))))
 
 
+def google_nmt(sents):
+    """Cloud Translation v3, the standard model (its LLM model refuses ht->en)."""
+    import urllib.request
+    url = f"https://translation.googleapis.com/v3/projects/{vertex.project()}/locations/us-central1:translateText"
+    body = {"contents": [s or "-" for s in sents], "sourceLanguageCode": "ht", "targetLanguageCode": "en",
+            "model": f"projects/{vertex.project()}/locations/us-central1/models/general/nmt"}
+    req = urllib.request.Request(url, data=json.dumps(body).encode(), headers={
+        "Authorization": f"Bearer {vertex.token()}", "Content-Type": "application/json", "x-goog-user-project": vertex.project()})
+    out = [t["translatedText"] for t in json.load(urllib.request.urlopen(req, timeout=120))["translations"]]
+    return [o if s.strip() else "" for o, s in zip(out, sents)]
+
+
 TRANSLATORS = {
+    "google-translate": google_nmt,
     "gemini-2.5-flash": lambda s: gem("gemini-2.5-flash", s, False),
     "gemini-2.5-flash+ctx": lambda s: gem("gemini-2.5-flash", s, True),
-    "gemini-2.5-flash-lite": lambda s: gem("gemini-2.5-flash-lite", s, False),
 }
 
 for inp, sents in inputs.items():
@@ -121,7 +146,10 @@ Translations into English:
 {chr(10).join(blocks)}
 
 Return JSON: {{"A": [{{"i": 0, "score": 3, "critical": false, "note": "..."}}, ... {len(src)} items], "B": [...], ...}} with a short note only when score < 3 or critical."""
-    res = gemini(prompt)
+    for _ in range(3):  # the grader once answered with a bare list: ask again
+        res = gemini(prompt)
+        if isinstance(res, dict) and all(isinstance(res.get(L), list) for L in names):
+            break
     for L, m in names.items():
         g = {x["i"]: x for x in res.get(L, [])}
         full = sum(1 for i in range(len(src)) if g.get(i, {}).get("score") == 3)
