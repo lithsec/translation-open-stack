@@ -13,7 +13,7 @@ DIRS="en-ja en-zh en-km en-lo en-ht ja-en zh-en km-en lo-en ht-en"
 
 [ -f audio/en.wav ] || { echo "Make the audio first: python3 make_audio.py en ja zh; .venv/bin/python make_audio.py km lo ht"; exit 1; }
 
-echo "== 1/4 Azure speech-to-text (real time, ~2.5 min)"
+echo "== 1/4 Azure speech-to-text (real time, two clips at a time)"
 ( set -a; . "$ENV_FILE"; set +a; .venv/bin/python azure_stt.py en ja zh km lo ht )
 
 TOK="$(gcloud auth print-access-token)" || { echo "gcloud login needed: run  gcloud auth login"; exit 1; }

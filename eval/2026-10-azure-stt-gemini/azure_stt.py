@@ -73,9 +73,23 @@ if __name__ == "__main__":
     if not KEY or not REGION:
         sys.exit("Set AZURE_SPEECH_KEY and AZURE_SPEECH_REGION (see the header for other names it accepts).")
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    # Every clip at once: each is fed at real-time pace, so this takes as long as the longest.
-    threads = [threading.Thread(target=run, args=(l,)) for l in sys.argv[1:]]
-    for t in threads:
-        t.start()
-    for t in threads:
-        t.join()
+    # A language already transcribed (no error) is kept; ht-HT isn't an Azure
+    # locale, so asking again only repeats the refusal.
+    todo = []
+    for l in sys.argv[1:]:
+        try:
+            prev = json.load(open(f"out/stt/{l}.json"))
+            if not prev["err"] or "language" in prev["err"]:
+                print(f"{l}: kept ({'done' if not prev['err'] else 'not an Azure language'})", flush=True)
+                continue
+        except FileNotFoundError:
+            pass
+        todo.append(l)
+    # Two at a time: the account allows only a few concurrent transcriptions
+    # (six at once got 4429 "parallel requests exceeded" for three of them).
+    for i in range(0, len(todo), 2):
+        threads = [threading.Thread(target=run, args=(l,)) for l in todo[i:i + 2]]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()

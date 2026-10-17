@@ -1,0 +1,92 @@
+{
+ "en-ja": {
+  "azure_stt_gemini": {
+   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "gemini_live": {
+   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "azure_stt_cer": 0.035
+ },
+ "en-zh": {
+  "azure_stt_gemini": {
+   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "gemini_live": {
+   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "azure_stt_cer": 0.035
+ },
+ "en-km": {
+  "azure_stt_gemini": {
+   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "gemini_live": {
+   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "azure_stt_cer": 0.035
+ },
+ "en-lo": {
+  "azure_stt_gemini": {
+   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "gemini_live": {
+   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "azure_stt_cer": 0.035
+ },
+ "en-ht": {
+  "azure_stt_gemini": {
+   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "gemini_live": {
+   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "azure_stt_cer": 0.035
+ },
+ "ja-en": {
+  "azure_stt_gemini": {
+   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "gemini_live": {
+   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "azure_stt_cer": 0.037
+ },
+ "zh-en": {
+  "azure_stt_gemini": {
+   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "gemini_live": {
+   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "azure_stt_cer": 0.021
+ },
+ "km-en": {
+  "azure_stt_gemini": {
+   "error": "no transcript: CancellationErrorCode.TooManyRequests: Connection was closed by the remote host. Error code: 4429. Error details: The number of parallel requests exceeded the number of allowed concurrent transcriptions. SessionId: 83345df2d6eb4acb9eaec8dde88852d2"
+  },
+  "gemini_live": {
+   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "azure_stt_cer": null
+ },
+ "lo-en": {
+  "azure_stt_gemini": {
+   "error": "no transcript: CancellationErrorCode.TooManyRequests: Connection was closed by the remote host. Error code: 4429. Error details: The number of parallel requests exceeded the number of allowed concurrent transcriptions. SessionId: cbe7d030689f4739851800b6d0affa87"
+  },
+  "gemini_live": {
+   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "azure_stt_cer": null
+ },
+ "ht-en": {
+  "azure_stt_gemini": {
+   "error": "no transcript: CancellationErrorCode.BadRequest: Connection was closed by the remote host. Error code: 1007. Error details: Invalid 'language' query parameter or unknown custom deployment. SessionId: 1c1b5844127b48ae906670453507e5ec"
+  },
+  "gemini_live": {
+   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+  },
+  "azure_stt_cer": null
+ }
+}
