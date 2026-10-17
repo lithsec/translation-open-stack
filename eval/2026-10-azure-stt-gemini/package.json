@@ -1,0 +1,8 @@
+{
+  "name": "eval-azure-stt-gemini",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "microsoft-cognitiveservices-speech-sdk": "^1.44.0"
+  }
+}
