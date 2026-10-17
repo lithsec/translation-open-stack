@@ -13,7 +13,7 @@ from vertex import gemini  # noqa: E402
 
 NAMES = {"en": "English", "ja": "Japanese", "zh": "Chinese", "km": "Khmer", "lo": "Lao", "ht": "Haitian Creole"}
 EN = json.load(open(os.path.join(SEPT, "sentences", "en.json")))
-SYSTEMS = {"pipe": "azure_stt_gemini", "live": "gemini_live"}
+SYSTEMS = {"azure": "azure_only", "pipe": "azure_stt_gemini", "live": "gemini_live"}
 
 
 def source(lang):
@@ -105,8 +105,11 @@ def delays(d, mode):
     # closes, so its last chunk says nothing about when it finished speaking.
     if chunks and mode == "pipe":
         out["tail_ms"] = round(chunks[-1] - marks[-1]["end"] * 1000)
-    if mode == "pipe":
-        starts = sorted(t["audioAt"] for t in r["turns"] if t["audioAt"] is not None)
+    if mode in ("pipe", "azure"):
+        # Azure only: when the translated text arrived, plus how long Azure's
+        # voice takes to start speaking (measured separately on five sentences).
+        extra = (r.get("voice_first_audio_ms") or 0) if mode == "azure" else 0
+        starts = sorted(t["audioAt"] + extra for t in r["turns"] if t["audioAt"] is not None)
         lags = sorted(n - m["end"] * 1000 for m in marks for n in [next((s for s in starts if s >= m["end"] * 1000), None)] if n is not None)
         if lags:
             out["per_sentence_median_ms"] = round(lags[len(lags) // 2])
@@ -156,12 +159,12 @@ def main(dirs):
         if "tail_ms" in dl:
             lag.append(f"ends +{dl['tail_ms']/1000:.1f} s")
         return f"{e['score_pct']}% ({e['critical']} crit)" + (f", {', '.join(lag)}" if lag else "")
-    print("| Direction | Azure STT → Gemini | Gemini Live | Azure heard (CER) | Gemini heard (CER) |")
-    print("|---|---|---|---|---|")
+    print("| Direction | Azure only | Azure STT → Gemini | Gemini Live | Azure heard (CER) | Gemini heard (CER) |")
+    print("|---|---|---|---|---|---|")
     for d, row in results.items():
-        a, g = row.get("azure_stt_gemini", {}), row.get("gemini_live", {})
+        z, a, g = row.get("azure_only", {}), row.get("azure_stt_gemini", {}), row.get("gemini_live", {})
         ac, gc = row.get("azure_stt_cer"), row.get("gemini_heard_cer")
-        print(f"| {d} | {cell(a)} | {cell(g)} | {'—' if ac is None else f'{ac:.0%}'} | {'—' if gc is None else f'{gc:.0%}'} |")
+        print(f"| {d} | {cell(z)} | {cell(a)} | {cell(g)} | {'—' if ac is None else f'{ac:.0%}'} | {'—' if gc is None else f'{gc:.0%}'} |")
 
 
 if __name__ == "__main__":
