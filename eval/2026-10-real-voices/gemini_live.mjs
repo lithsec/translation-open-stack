@@ -17,8 +17,8 @@ if (!TOK || !PROJECT) {
   console.error("Set GOOGLE_CLOUD_PROJECT (or VERTEX_PROJECT) and TOK (TOK=$(gcloud auth print-access-token)).");
   process.exit(1);
 }
-const NAMES = { en: "English", ja: "Japanese", zh: "Mandarin Chinese", km: "Khmer", lo: "Lao", ht: "Haitian Creole" };
-const BCP = { en: "en-US", ja: "ja-JP", zh: "cmn-CN", km: "km-KH", lo: "lo-LA", ht: "ht-HT" };
+const NAMES = { en: "English", es: "Spanish", pt: "Brazilian Portuguese", fr: "French", ja: "Japanese", zh: "Mandarin Chinese", km: "Khmer", lo: "Lao", ht: "Haitian Creole" };
+const BCP = { en: "en-US", es: "es-US", pt: "pt-BR", fr: "fr-FR", ja: "ja-JP", zh: "cmn-CN", km: "km-KH", lo: "lo-LA", ht: "ht-HT" };
 // The text-in, voice-out model, as <location>:<model>; the first that answers
 // setup wins. On lithos-talk (probe_models.mjs, 2026-10-17) the native-audio
 // model exists only in us-central1, a plainer one globally.

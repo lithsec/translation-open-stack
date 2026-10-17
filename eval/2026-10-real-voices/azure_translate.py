@@ -14,8 +14,8 @@ import azure.cognitiveservices.speech as speechsdk
 from azure_stt import KEY, REGION, LOCALE
 
 TRANSLATOR = {"zh": "zh-Hans"}  # Azure translator codes where they differ
-TARGETS = {"en": ["ja", "km", "lo", "ht"]}
-VOICE_LOCALE = {"en": "en-US", "ja": "ja-JP", "zh": "zh-CN", "km": "km-KH", "lo": "lo-LA"}  # no ht voice
+TARGETS = {"en": ["es", "pt", "fr", "km", "lo", "ht"]}
+VOICE_LOCALE = {"en": "en-US", "es": "es-MX", "pt": "pt-BR", "fr": "fr-FR", "ja": "ja-JP", "zh": "zh-CN", "km": "km-KH", "lo": "lo-LA"}  # no ht voice
 
 
 def voice_latency(tgt, sentences):

@@ -1,704 +1,2613 @@
 {
- "ht-en": {
-  "azure_only": {},
-  "azure_stt_gemini": {},
-  "gladia_stt_gemini": {
-   "score_pct": 31,
+ "en-es": {
+  "azure_only": {
+   "score_pct": 63,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The year is wrong (2016 instead of 2017). The phrase \"No se abrió tráfico\" is also ungrammatical."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": false,
+     "note": "Translates \"Rip currents\" as \"corrientes de raíces\" (root currents), which is incorrect."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing \"a quien la historia estaba relacionada\" is awkward and unidiomatic."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "The end of the sentence is garbled (\"Taipai it\" instead of \"Taipei IT Month\")."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "The name of the radio site is wrong (\"Target\" instead of \"TogiNet Radio\")."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Translates \"riders\" as \"escritores\" (writers), which is incorrect."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase \"at the Championships\" is omitted."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "\"tráficos de gorilas\" is a literal and incorrect translation of \"gorilla tracking\"."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "The name of the park is wrong (\"Lagos Pledge\" instead of \"Plitvice Lakes\")."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, omitting \"the country with the lowest population\" and leaving a nonsensical fragment."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Contains a stutter (\"La Cueva La Cueva\") and uses the awkward \"estrechamente aislada\" for \"completely isolated\"."
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 1,
+     "critical": false,
+     "note": "Translates \"the Games\" as \"el juego\" (the game), changing the meaning."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "Mixes tenses, using past \"parecía\" and present \"parece\" for the present tense \"seems\"."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 25,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrectly translates \"children and elderly\" as \"niños ancianos\" (elderly children)."
+    },
+    {
+     "i": 26,
+     "score": 2,
+     "critical": false,
+     "note": "Uses future tense \"será\" for present tense \"is\"."
+    },
+    {
+     "i": 27,
+     "score": 0,
+     "critical": true,
+     "note": "The number is wrong (\"1:50\" instead of 150) and the sentence is incomplete."
+    },
+    {
+     "i": 28,
+     "score": 0,
+     "critical": false,
+     "note": "The translation of \"to perceived Washington insiders\" is nonsensical (\"para percibir a los internos de Washington\")."
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, omitting the first clause \"They have feet with scales\"."
+    }
+   ],
+   "delay": {
+    "per_sentence_median_ms": 1559
+   }
+  },
+  "azure_stt_gemini": {
+   "score_pct": 76,
+   "critical": 1,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The year is wrong (2016 instead of 2017)."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Uses past tense \"estaba casado\" for present tense \"is married\"."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "The phrase \"Taipei IT Month\" is omitted."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "The name of the radio site is wrong (\"Talknet\" instead of \"TogiNet Radio\")."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Translates \"riders\" as \"escritores\" (writers), which is incorrect."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase \"at the Championships\" is omitted."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "\"tráficos de gorilas\" is a literal and incorrect translation of \"gorilla tracking\"."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, omitting \"the country with the lowest population\" and leaving a nonsensical fragment."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing \"informó que no hubo daños reportados\" is redundant but understandable."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Adds \"de Hira\" which is not in the source text."
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 1,
+     "critical": false,
+     "note": "Translates \"the Games\" as \"el juego\" (the game), changing the meaning."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "Uses past tense \"parecía\" for present tense \"seems\"."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 25,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 26,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 27,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, omitting the phrase 'now known as \"Dunlap broadsides\"'."
+    },
+    {
+     "i": 28,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, omitting the first clause \"They have feet with scales\"."
+    }
+   ],
+   "delay": {
+    "tail_ms": 2184,
+    "per_sentence_median_ms": 1711
+   }
+  },
+  "gladia_stt_gemini": {},
+  "gemini_live": {
+   "score_pct": 49,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Uses plural \"enfoques\" for singular \"approach\" and singular \"organización\" for plural \"organizations\"."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The year is wrong (2000 instead of 2017)."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Adds \"Así es\" (That's right) at the beginning and omits the key term \"Rip\" from \"Rip currents\"."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Misspells the name as \"Deval\" and uses past tense \"estaba casado\" for present \"is married\"."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "The beginning of the sentence is garbled (\"Dejemos que el domingo\" instead of \"Late on Sunday\")."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Mishears \"ASUS\" as \"Una tesis\" (A thesis) and omits \"Month\" from \"Taipei IT Month\"."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "The name of the radio site is wrong (\"DoggyNet Radio\" instead of \"TogiNet Radio\")."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Translates \"riders\" as \"escritores\" (writers) and the sentence is grammatically incomplete."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase \"at the Championships\" is omitted."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Mishears \"Nyiragongo\" as \"Nai volcán\", contains a garbled phrase, and omits the concept of \"tracking\"."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": false,
+     "note": "Completely mishears \"The Plitvice Lakes national park\" as \"El alegato de la defensa del Parque Nacional Lakes\" (The plea of the defense of the National Park Lakes)."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled and incorrect, stating the city is \"surrounded by 800\" and is incomplete."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence structure is grammatically broken."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinates the word \"el becerro\" (the calf) in the middle of the sentence."
+    },
+    {
+     "i": 20,
+     "score": 2,
+     "critical": false,
+     "note": "Narrows the meaning of \"couples\" to \"matrimonios\" (married couples)."
+    },
+    {
+     "i": 21,
+     "score": 1,
+     "critical": false,
+     "note": "Translates \"the Games\" as \"el juego\" (the game), changing the meaning."
+    },
+    {
+     "i": 22,
+     "score": 2,
+     "critical": false,
+     "note": "The opening phrase \"Junto con la misma línea\" is an awkward, literal translation."
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "The phrase \"the Earth doesn't feel as if it's moving\" is completely misheard and translated as nonsensical gibberish."
+    },
+    {
+     "i": 24,
+     "score": 2,
+     "critical": false,
+     "note": "Includes the English word \"even\" in the Spanish sentence."
+    },
+    {
+     "i": 25,
+     "score": 0,
+     "critical": true,
+     "note": "Completely mishears \"seis rehenes\" (six hostages) as \"seis salchichas\" (six sausages)."
+    },
+    {
+     "i": 26,
+     "score": 0,
+     "critical": false,
+     "note": "The first clause is completely wrong (\"Bajamos la tensión\" - We lower the tension) and the rest is garbled."
+    },
+    {
+     "i": 27,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, omitting the phrase '\"Dunlap broadsides\"'."
+    },
+    {
+     "i": 28,
+     "score": 1,
+     "critical": false,
+     "note": "The translation of \"perceived Washington insiders\" is very literal and awkward, making it difficult to understand."
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "Translates \"feet with scales\" as \"básculas de pie\" (foot weighing scales), which is incorrect."
+    }
+   ]
+  },
+  "gemini_live_told_lang": {},
+  "open_stack": {},
+  "azure_stt_cer": 0.064,
+  "gemini_heard_cer": 0.081
+ },
+ "en-pt": {
+  "azure_only": {
+   "score_pct": 57,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, ending abruptly after '...a higher level of'. The word 'performance' is missing."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The year the bridge opened to traffic is wrong (2016 instead of 2017)."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": false,
+     "note": "'Correntes de raízes' (root currents) is a nonsensical translation for 'rip currents'."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses the past tense 'era casado' (was married), while the source uses the present tense 'is married'."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "'Comunicato' is not a Portuguese word; it should be 'comunicado'."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "The translation omits 'Month' from 'Taipei IT Month' and garbles the end as 'Taipai it'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "The name of the radio site 'TogiNet' was misheard as 'Target'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "The word 'riders' was mistranslated as 'escritores' (writers), completely changing the meaning."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, omitting the phrase 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "The word 'tracking' is mistranslated as 'trafes', which is not a word and likely a mishearing of 'tráfico' (trafficking), completely changing the meaning."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "The name 'Plitvice' was misheard as 'Pledge'. The translation also repeats 'abetos' (spruce) instead of translating 'fir'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete. It omits the final clause 'with the lowest population'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "The translation has a disfluent repetition ('A Caverna A Caverna') and omits the word 'completely'."
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 1,
+     "critical": false,
+     "note": "The phrase 'banned from the Games' is incorrectly translated as 'proibidos de jogar' (banned from playing), which is nonsensical in this context."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "The verb 'parecia' is in the past tense, while the source uses the present tense 'seems'."
+    },
+    {
+     "i": 24,
+     "score": 1,
+     "critical": false,
+     "note": "The phrase 'even \"just one\"' is translated as 'ao menos um' (at least one), which conveys the opposite meaning."
+    },
+    {
+     "i": 25,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly combines 'children and elderly' into 'crianças idosas' (elderly children)."
+    },
+    {
+     "i": 26,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 27,
+     "score": 1,
+     "critical": true,
+     "note": "The number 150 is incorrectly rendered as '1:50'. The translation is also incomplete, omitting 'Through the night' and 'Dunlap broadsides'."
+    },
+    {
+     "i": 28,
+     "score": 1,
+     "critical": false,
+     "note": "The phrase 'to perceived Washington insiders' is mistranslated as 'para perceber os insiders de Washington' (to perceive the insiders of Washington), changing the meaning."
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, omitting the first part of the sentence, 'They have feet with scales'."
+    }
+   ],
+   "delay": {
+    "per_sentence_median_ms": 1450
+   }
+  },
+  "azure_stt_gemini": {
+   "score_pct": 70,
+   "critical": 1,
+   "grades": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, ending abruptly after '...a higher level'. The word 'performance' is missing."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The year the bridge opened to traffic is wrong (2016 instead of 2017)."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "'Correntes rastreadoras' (tracking currents) is an incorrect translation for 'rip currents'."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses the past tense 'era casado' (was married), while the source uses the present tense 'is married'."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "The translation omits the location and event 'Taipei IT Month'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "The name of the radio site 'TogiNet' was misheard as 'Target'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "The word 'riders' was mistranslated as 'escritores' (writers), completely changing the meaning."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, omitting the phrase 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "The word 'tracking' is critically mistranslated as 'tráfico' (trafficking), completely changing the meaning to something illegal and sinister."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete. It omits the final clause 'with the lowest population'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses the plural 'seus bebês' (their babies), whereas the source specifies a singular 'their baby'."
+    },
+    {
+     "i": 21,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses 'jogo' (game, singular) instead of 'Jogos' (Games, plural), losing the specific context of an event like the Olympics."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "The verb 'parecia' is in the past tense, while the source uses the present tense 'seems'."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 25,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 26,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 27,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, omitting 'Through the night' and the name 'Dunlap broadsides'."
+    },
+    {
+     "i": 28,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, omitting the first part of the sentence, 'They have feet with scales'."
+    }
+   ],
+   "delay": {
+    "tail_ms": 2235,
+    "per_sentence_median_ms": 1655
+   }
+  },
+  "gladia_stt_gemini": {},
+  "gemini_live": {
+   "score_pct": 53,
+   "critical": 1,
+   "grades": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, ending abruptly after '...a higher level of'. The word 'performance' is missing."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The year the bridge opened to traffic is wrong (2000 instead of 2017)."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses the generic 'as correntes' (the currents) instead of a more specific term for 'rip currents' like 'correntes de retorno'."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses the past tense 'era casado' (was married), while the source uses the present tense 'is married'."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "The phrase 'Deixe tarde de domingo' is a garbled and nonsensical translation of 'Late on Sunday'."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled. 'ASUS Eee PC' is rendered as 'Uma tese, E PC', and 'Taipei IT Month' is incomplete."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "The name of the radio site 'TogiNet' was misheard as 'DoggyNet'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is an incomplete sentence, structured as a subordinate clause ('...que usam...') without a main verb."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, omitting the phrase 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "The word 'tracking' is critically mistranslated as 'tráfico' (trafficking), completely changing the meaning to something illegal and sinister."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": false,
+     "note": "The name 'Plitvice Lakes national park' is rendered as the nonsensical 'O pedido de confissão do Parque Nacional Lakes' (The request for confession of the Lakes National Park)."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "'Vatican City' is incorrectly translated as 'cidade americana' (American city), and the sentence is incomplete."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "The word 'completely' is mistranslated as 'intimamente' (intimately), which changes the meaning."
+    },
+    {
+     "i": 20,
+     "score": 2,
+     "critical": false,
+     "note": "There is a grammatical gender agreement error: 'Essas casais' should be 'Esses casais'."
+    },
+    {
+     "i": 21,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses 'jogo' (game, singular) instead of 'Jogos' (Games, plural), losing the specific context of an event like the Olympics."
+    },
+    {
+     "i": 22,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase 'Junto na mesma linha' is an overly literal and slightly awkward translation of 'Along the same line'."
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "The phrase 'doesn't feel as if it's moving' is translated into the nonsensical 'não nos sente para se encaixar suavemente'."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 25,
+     "score": 0,
+     "critical": false,
+     "note": "The phrase 'Six hostages' is translated as the nonsensical 'misture linguiças' (mix sausages)."
+    },
+    {
+     "i": 26,
+     "score": 1,
+     "critical": false,
+     "note": "The translation fails to capture the comparative structure 'The lower..., the more...'. Instead, it says 'We lower the tension...'"
+    },
+    {
+     "i": 27,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, omitting the name 'Dunlap broadsides'."
+    },
+    {
+     "i": 28,
+     "score": 1,
+     "critical": false,
+     "note": "The phrase 'to perceived Washington insiders' is mistranslated as 'para perceber os insiders de Washington' (to perceive the insiders of Washington), changing the meaning."
+    },
+    {
+     "i": 29,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "gemini_live_told_lang": {},
+  "open_stack": {},
+  "azure_stt_cer": 0.064,
+  "gemini_heard_cer": 0.082
+ },
+ "en-fr": {
+  "azure_only": {
+   "score_pct": 59,
+   "critical": 3,
+   "grades": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "The translation merges the first and second sentences, resulting in a nonsensical statement."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The first part of the sentence is missing (merged with the previous sentence). The year is incorrect ('2016' instead of '2017')."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates 'rip currents' as 'courants racinaires' (root currents), which is incorrect. The correct term is 'courants d'arrachement' or 'baïnes'."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing 'marié à deux enfants' is awkward, and 'liée' is not the best word for 'related' (told)."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "'Porte-parole de presse' is a literal and unidiomatic translation of 'press secretary'; 'attaché de presse' is standard."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "'Chats libres' (free cats) is an awkward translation for 'loose pet cats'. 'Chats errants' would be better."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Translates 'isolationism' as 'isolement' (isolation), which is not the correct political term ('isolationnisme')."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Omits 'functionality factors' and garbles the name 'Taipei IT Month' into 'Taipai it'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "The name 'TogiNet' is misheard as 'Target'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslates 'riders' as 'écrivains' (writers), changing who is performing the action."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is incomplete, omitting 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "A critical error in meaning: 'tracking' is translated as 'trafiquants' (traffickers), completely changing the meaning to something illegal and sinister."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "The name 'Plitvice' is misheard as 'Pledge'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "The end of the sentence is garbled: 'et de sa population' does not correctly translate 'and the country with the lowest population'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "The repetition 'La Grotte La Grotte' is an error, and 'étroitement' (narrowly) is a poor word choice for 'completely'."
+    },
+    {
+     "i": 20,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase 'mettre en place un plan d’adoption' is a very literal translation and slightly unnatural."
+    },
+    {
+     "i": 21,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslates 'the Games' as 'le jeu' (the game), losing the specific context of an athletic competition like the Olympics."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "Uses the past tense 'semblait' (seemed) for the present tense 'seems'."
+    },
+    {
+     "i": 24,
+     "score": 2,
+     "critical": false,
+     "note": "The word 'specimen' is mispronounced/mistranscribed as 'sémimen'."
+    },
+    {
+     "i": 25,
+     "score": 1,
+     "critical": false,
+     "note": "The translation misses 'elderly', rendering 'children and elderly' as 'enfants âgés' (old children), which is incorrect."
+    },
+    {
+     "i": 26,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 27,
+     "score": 0,
+     "critical": true,
+     "note": "The translation is completely garbled, merging sentence 28 and 29. It also contains a number error ('1:50' instead of '150')."
+    },
+    {
+     "i": 28,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is part of a garbled merge with the previous sentence. It also mistranslates 'to perceived' as 'pour percevoir' (in order to perceive)."
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, starting mid-sentence with 'Et des griffes' (And claws) and omitting 'They have feet with scales'."
+    }
+   ],
+   "delay": {
+    "per_sentence_median_ms": 1417
+   }
+  },
+  "azure_stt_gemini": {
+   "score_pct": 69,
+   "critical": 0,
+   "grades": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "The translation for this sentence is missing."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "The translation for this sentence is missing."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "'Courants de retour' is understandable but not the standard term for 'rip currents' ('courants d'arrachement')."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "The translation misses the comparative 'far more numerous', rendering it as 'des proies plus petites' (smaller prey)."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is incomplete, omitting 'Taipei IT Month'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "The name 'TogiNet' is misheard as 'Target'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is incomplete, omitting 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "A critical error in meaning: 'tracking' is translated as 'trafic' (trafficking), completely changing the meaning to something illegal."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "The end of the sentence is garbled: 'et sa population' does not correctly translate 'and the country with the lowest population'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 20,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase 'faire un plan d'adoption' is a literal translation and slightly unnatural."
+    },
+    {
+     "i": 21,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslates 'the Games' as 'le jeu' (the game), losing the specific context of an athletic competition like the Olympics."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "Uses the past tense 'semblait' (seemed) for the present tense 'seems'."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 25,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 26,
+     "score": 1,
+     "critical": false,
+     "note": "Omits the word 'positive', changing the meaning from 'the more positive the life force' to simply 'the more the life force is present'."
+    },
+    {
+     "i": 27,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is completely garbled, merging sentence 28 and 29 into a nonsensical statement."
+    },
+    {
+     "i": 28,
+     "score": 1,
+     "critical": false,
+     "note": "Although the translated text for this sentence is good, it is not a valid translation as it is part of a garbled merge with the previous sentence."
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, starting mid-sentence with 'Et des griffes' (And claws) and omitting 'They have feet with scales'."
+    }
+   ],
+   "delay": {
+    "tail_ms": 2074,
+    "per_sentence_median_ms": 1710
+   }
+  },
+  "gladia_stt_gemini": {},
+  "gemini_live": {
+   "score_pct": 36,
+   "critical": 4,
+   "grades": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "The translation merges the first and second sentences, resulting in a nonsensical statement."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The first part of the sentence is missing (merged with the previous sentence). The date is incomplete, omitting the year '2017'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Uses the generic term 'les courants' (the currents), failing to specify 'rip' currents. Includes a filler word 'D'accord'."
+    },
+    {
+     "i": 4,
+     "score": 0,
+     "critical": false,
+     "note": "The first part of the sentence is completely garbled ('Le qui était censé faire des enfants adultes')."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "The grammar is incorrect ('ont annoncé' plural), and the structure implies that Trump and the statement both made the announcement."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrectly translates 'small cats' as 'petites espèces de chats' (small species of cats) and has awkward phrasing for 'far more numerous'."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Translates 'isolationism' as 'isolement' (isolation), which is not the correct political term ('isolationnisme')."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Mishears 'ASUS Eee PC' as 'Un base E PC' and merges 'cost-saving' and 'functionality' into one concept."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing 'l'eau bouillante pendant une minute' is slightly awkward compared to 'faire bouillir l'eau'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Misinterprets 'long-running' and mishears 'TogiNet Radio' as 'Net Radio', resulting in awkward phrasing."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslates 'riders' as 'écrivains' (writers), changing who is performing the action."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, omitting 'event' and 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "A critical error in meaning: 'tracking' is translated as 'trafic' (trafficking), completely changing the meaning. Also mishears the volcano's name."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": false,
+     "note": "The name 'Plitvice' is completely misheard and rendered as the nonsensical 'Le plaidoyer de vice'."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "Mishears 'Vatican City' as 'ville américaine' (American city) and the end of the sentence is incomplete."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "The subject of the sentence is garbled, making it unclear who made the statement."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "'Étroitement' (narrowly) is a poor word choice for 'completely'."
+    },
+    {
+     "i": 20,
+     "score": 0,
+     "critical": false,
+     "note": "The meaning is the opposite of the source. 'Faire une demande d'adoption' means to apply to adopt a child, not to give a child up for adoption."
+    },
+    {
+     "i": 21,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslates 'the Games' as 'le jeu' (the game), losing the specific context of an athletic competition like the Olympics."
+    },
+    {
+     "i": 22,
+     "score": 2,
+     "critical": false,
+     "note": "'En même temps' (at the same time) is an incorrect translation for the idiom 'Along the same line'."
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "The second half of the sentence is completely garbled ('la terre est un champ qui s'adapte en douceur')."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 25,
+     "score": 0,
+     "critical": true,
+     "note": "A critical error from mishearing 'six hostages' as 'six saucisses' (six sausages)."
+    },
+    {
+     "i": 26,
+     "score": 0,
+     "critical": false,
+     "note": "Completely misinterprets the first clause, translating 'The lower the tension' as 'Nous avons baissé la tension' (We lowered the tension), changing the meaning entirely."
+    },
+    {
+     "i": 27,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is completely garbled, merging sentence 28 and 29 into a nonsensical statement."
+    },
+    {
+     "i": 28,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is part of a garbled merge with the previous sentence. It also mistranslates 'to perceived' as 'à percevoir' (to perceive)."
+    },
+    {
+     "i": 29,
+     "score": 0,
+     "critical": true,
+     "note": "Changes the subject from 'They have' to 'J'ai' (I have). Also mistranslates 'feet with scales' as 'des balances pour les pieds' (scales for the feet)."
+    }
+   ]
+  },
+  "gemini_live_told_lang": {},
+  "open_stack": {},
+  "azure_stt_cer": 0.064,
+  "gemini_heard_cer": 0.087
+ },
+ "en-km": {
+  "azure_only": {
+   "score_pct": 47,
    "critical": 2,
    "grades": [
     {
      "i": 0,
      "score": 0,
      "critical": false,
-     "note": "The translation is completely garbled."
+     "note": "The translation is a garbled mashup of sentence 1 and sentence 2."
     },
     {
      "i": 1,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is completely garbled, mentioning 'crystal lettuce'."
+     "score": 1,
+     "critical": true,
+     "note": "The translation gives the wrong year, stating 2016 instead of 2017."
     },
     {
      "i": 2,
-     "score": 0,
+     "score": 2,
      "critical": false,
-     "note": "The translation is completely garbled, mentioning 'Cholera'."
+     "note": "The word \"ការតភ្ជាប់\" (connection) is less precise for \"correlation\" than \"ការជាប់ទាក់ទងគ្នា\"."
     },
     {
      "i": 3,
-     "score": 0,
-     "critical": true,
-     "note": "The translation has the wrong number ('six' instead of 600) and is otherwise garbled."
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly uses \"ចរន្តឫស\" (root current) for \"rip current\" and \"ជ្រោះ\" (ravine) for \"reef\"."
     },
     {
      "i": 4,
      "score": 2,
      "critical": false,
-     "note": "The meaning is correct, but the word 'Collectively' is an odd, unidiomatic addition."
+     "note": "The word \"ឥទ្ធិពល\" (influence) is not the best translation for \"impression\" (ចំណាប់អារម្មណ៍)."
     },
     {
      "i": 5,
      "score": 3,
-     "critical": false
+     "critical": false,
+     "note": ""
     },
     {
      "i": 6,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly renders \"lizards\" as \"សត្វក្រពើ\" (crocodiles)."
     },
     {
      "i": 7,
-     "score": 1,
-     "critical": true,
-     "note": "The translation incorrectly identifies who is speaking/acting ('sermon gives me' instead of 'Lord has given your majesty')."
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses \"សន្តិភាព\" (peace) which is not quite \"pacifism\" (សន្តិភាពនិយម)."
     },
     {
      "i": 8,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The translation incorrectly says 'the people' instead of 'Gaius'."
+     "note": "The translation uses \"កុមារ\" (children) which is less precise than the legal term \"អនីតិជន\" (minors)."
     },
     {
      "i": 9,
      "score": 1,
      "critical": false,
-     "note": "The translation is partially wrong, using 'plundering' and 'tree trunk'."
+     "note": "The translation is garbled at the end (\"Taipai it.\") and misses the word \"Month\"."
     },
     {
      "i": 10,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "The translation is garbled, mishearing 'Ti Bèf' as 'T-Beth'."
+     "note": "The translation incorrectly uses \"ការចំហុយទឹក\" (steaming water) instead of \"boiling water\"."
     },
     {
      "i": 11,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly says 'potion' instead of 'portion'."
+     "note": "The translation incorrectly renders \"TogiNet\" as \"Target\"."
     },
     {
      "i": 12,
-     "score": 2,
+     "score": 0,
      "critical": false,
-     "note": "The meaning is correct, but the phrasing is awkward (broken into two sentences)."
+     "note": "The translation incorrectly uses \"អ្នកសរសេរ\" (writers) for \"riders\"."
     },
     {
      "i": 13,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The meaning is correct, but the phrasing is awkward (broken into two sentences)."
+     "note": ""
     },
     {
      "i": 14,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "The translation is completely wrong and appears to be a garbled version of a different biblical quote."
+     "note": "The translation omits \"at the Championships\" and uses the imprecise term \"ប្រកួតផ្ទាល់ខ្លួន\" (personal competition) for \"individual races\"."
     },
     {
      "i": 15,
      "score": 0,
      "critical": false,
-     "note": "The translation is completely garbled, mentioning 'Potatoes, three, flour, nuts, cashew'."
+     "note": "The translation completely misunderstands \"Mountain Gorilla tracking\", rendering it as \"trading of mountain peaks\"."
     },
     {
      "i": 16,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The translation uses the wrong name ('Sheila' for Jezila) and an incorrect symptom ('shortness of breath' for nausea)."
+     "note": "The translation misspells \"Plitvice\" as \"Pledge\" and uses a less accurate phrase for \"heavily forested\"."
     },
     {
      "i": 17,
      "score": 3,
-     "critical": false
+     "critical": false,
+     "note": ""
     },
     {
      "i": 18,
-     "score": 1,
+     "score": 3,
      "critical": false,
-     "note": "The translation adds significant information ('near the wilderness of Beth el, and continued up to Luz') that is not in the source text."
+     "note": ""
     },
     {
      "i": 19,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "The translation is partially wrong ('Leave the address') and reverses the meaning ('speaks well' instead of 'spoke very harshly')."
+     "note": "The translation states the cave is \"at a distance... very closely\", which is contradictory and the opposite of \"completely isolated\"."
     },
     {
      "i": 20,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "The first part is correct, but the second half ('I won't tell him anything. He shaves the way I do.') is completely wrong and nonsensical."
+     "note": "The translation reverses the meaning. \"ផែនការទទួលកូន\" (plan to receive a child) means to adopt a child, not to give one's baby up for adoption."
     },
     {
      "i": 21,
-     "score": 0,
+     "score": 2,
      "critical": false,
-     "note": "The translation is completely garbled, mentioning a 'vaccine' and 'billing purposes'."
+     "note": "The phrase \"ឆ្លងកាត់ការឈឺចាប់\" (pass through the pain) is not an accurate translation for \"overcome his pain\"."
     },
     {
      "i": 22,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The meaning is correct, but the phrasing is awkward."
+     "note": ""
     },
     {
      "i": 23,
-     "score": 0,
+     "score": 3,
      "critical": false,
-     "note": "The translation is garbled and nonsensical, mentioning 'Blood, urine' and 'pigs'."
+     "note": ""
     },
     {
      "i": 24,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly says 'go to people' instead of 'go up to the mountains'."
+     "note": "The translation uses \"បរិយាកាស\" (atmosphere) instead of \"environment\" and incorrectly translates the second clause as \"prevent the theft of one plant\"."
     },
     {
      "i": 25,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "The translation is completely garbled and unrelated to the source."
+     "note": "The translation incorrectly uses \"ជនជាប់គុក\" (prisoners) for \"hostages\" and nonsensically combines \"children and elderly\" into \"កុមារចាស់\" (old children)."
     },
     {
      "i": 26,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The translation incorrectly begins with 'Leo was born', missing the actual meaning."
+     "note": "The translation doesn't capture the comparative structure \"The lower... the more...\" correctly."
     },
     {
      "i": 27,
      "score": 0,
-     "critical": false,
-     "note": "The translation is completely garbled."
+     "critical": true,
+     "note": "The translation incorrectly renders the number 150 as a time, 1:50. It is also incomplete."
     },
     {
      "i": 28,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "The translation incorrectly identifies the speaker as 'the Speaker' and the medium as a 'podcast'."
+     "note": "The translation completely misunderstands the last part of the sentence, rendering it as \"in order to perceive people in Washington\"."
     },
     {
      "i": 29,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "The translation is completely wrong, talking about 'patients' and 'payments at the bank'."
+     "note": "The translation is incomplete, starting with \"and claws\", and misspells T-Rex."
     }
    ],
    "delay": {
-    "tail_ms": 2470,
-    "per_sentence_median_ms": 1028
+    "per_sentence_median_ms": 1778
    }
   },
+  "azure_stt_gemini": {
+   "score_pct": 53,
+   "critical": 1,
+   "grades": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "The system skipped this sentence and translated sentence 3 instead."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "The system skipped this sentence."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "The translation uses \"ចរន្ត​បាតសមុទ្រ\" (seabed current), which is incorrect for \"rip currents\"."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase \"នៅចុង បញ្ចប់ ថ្ងៃអាទិត្យ\" (at the end of Sunday) is a bit awkward for \"Late on Sunday\"."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses \"កូន ឆ្មាតូចៗ\" (small kittens) instead of \"small cats\" and \"ចំណីតូចៗ\" (small foods) instead of \"small prey\"."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "The translation misses \"IT Month\" and the phrase for \"cost-saving and functionality factors\" is confusing."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly renders \"TogiNet\" as \"Target\"."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "The translation incorrectly uses \"អ្នកនិពន្ធ\" (writers) for \"riders\"."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "The term \"កាយវិការ​តូចៗ\" (small gestures) is an imprecise translation for \"micro-expressions\"."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "The translation omits the phrase \"at the Championships\"."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "The translation incorrectly uses \"ការជួញដូរ\" (trading/trafficking) for \"tracking\", which completely changes the meaning to something illegal."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "The translation mispells \"Plitvice\" as \"Pledge\" and uses a Thai word \"พันธุ์\"."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "The final clause is incomplete, translating \"the country with the lowest population\" as just \"and has population\"."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is an incomplete fragment."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 0,
+     "critical": false,
+     "note": "The translation reverses the meaning. \"ផែនការ​សុំ​កូន\" (plan to ask for a child) means to adopt a child, not to give one's baby up for adoption."
+    },
+    {
+     "i": 21,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses \"ត្រូវបាន បញ្ឈប់\" (have been stopped) which is not quite \"banned\", and \"ការ លេងហ្គេម\" (playing games) is a bit awkward for \"the Games\"."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "The word \"ធ្វើដំណើរ\" (traveling) is an odd choice for the Earth \"moving\"."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 25,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase \"ដោះលែងមុន គេ\" (released before others) doesn't fully capture the meaning of \"released early\" (before the scheduled time)."
+    },
+    {
+     "i": 26,
+     "score": 1,
+     "critical": false,
+     "note": "The translation includes garbled foreign text (\"tuy absoluta\") at the end."
+    },
+    {
+     "i": 27,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is incomplete, missing most of the sentence's key information."
+    },
+    {
+     "i": 28,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, missing \"They have feet with scales\"."
+    }
+   ],
+   "delay": {
+    "tail_ms": 2180,
+    "per_sentence_median_ms": 1917
+   }
+  },
+  "gladia_stt_gemini": {},
   "gemini_live": {
-   "score_pct": 41,
-   "critical": 4,
+   "score_pct": 44,
+   "critical": 1,
    "grades": [
     {
      "i": 0,
      "score": 0,
      "critical": false,
-     "note": "The translation is garbled and nonsensical."
+     "note": "The translation is a garbled mashup of sentence 1 and sentence 2."
     },
     {
      "i": 1,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is garbled, mentioning 'milky white', 'won a luggage', and 'pink sapphire'."
+     "score": 1,
+     "critical": true,
+     "note": "The translation gives the wrong year, stating 2000 instead of 2017."
     },
     {
      "i": 2,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is completely garbled, based on mishearing the names."
-    },
-    {
-     "i": 3,
-     "score": 1,
-     "critical": true,
-     "note": "The translation incorrectly says 'someone' instead of '600 of the men', which changes the number."
-    },
-    {
-     "i": 4,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is garbled and incomprehensible."
-    },
-    {
-     "i": 5,
-     "score": 1,
-     "critical": true,
-     "note": "The translation incorrectly attributes the speech to 'I' instead of 'Job'."
-    },
-    {
-     "i": 6,
-     "score": 1,
-     "critical": true,
-     "note": "The translation gets the numbers right but garbles the relationship, saying '6th little one madam' instead of 'sixth child with your wife'."
-    },
-    {
-     "i": 7,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is garbled and nonsensical."
-    },
-    {
-     "i": 8,
      "score": 3,
-     "critical": false
-    },
-    {
-     "i": 9,
-     "score": 0,
      "critical": false,
-     "note": "The translation is completely wrong, mentioning 'in a relationship without being present'."
-    },
-    {
-     "i": 10,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct, but 'ox' is used instead of 'calf'."
-    },
-    {
-     "i": 11,
-     "score": 3,
-     "critical": false
-    },
-    {
-     "i": 12,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct, but the grammar is awkward ('several activists organization popular')."
-    },
-    {
-     "i": 13,
-     "score": 1,
-     "critical": false,
-     "note": "The translation incorrectly says 'People who are defending themselves' instead of 'The defenseless'."
-    },
-    {
-     "i": 14,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is completely garbled and nonsensical."
-    },
-    {
-     "i": 15,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is garbled, mentioning 'three arrows black cashew'."
-    },
-    {
-     "i": 16,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is garbled, mentioning 'Jesus', 'the bean', and 'meeting someone'."
-    },
-    {
-     "i": 17,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct, but the phrasing is very awkward."
-    },
-    {
-     "i": 18,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct, but the phrasing is awkward ('Té who was coming', 'edge of the sunrise')."
-    },
-    {
-     "i": 19,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct but the phrasing is awkward ('Let's talk to the prophet...')."
-    },
-    {
-     "i": 20,
-     "score": 1,
-     "critical": true,
-     "note": "The translation uses the wrong name ('Marie Lourdes'), misinterprets a phrase ('it's a woman's job'), and uses the wrong pronoun ('he never did' instead of 'she')."
-    },
-    {
-     "i": 21,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is garbled and nonsensical."
-    },
-    {
-     "i": 22,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct, but the phrasing is awkward ('when it's done to watch them')."
-    },
-    {
-     "i": 23,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct, but the phrasing is awkward ('money that we have left')."
-    },
-    {
-     "i": 24,
-     "score": 3,
-     "critical": false
-    },
-    {
-     "i": 25,
-     "score": 1,
-     "critical": false,
-     "note": "The translation includes the nonsensical phrase 'you see half the time'."
-    },
-    {
-     "i": 26,
-     "score": 3,
-     "critical": false
-    },
-    {
-     "i": 27,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct, but the phrasing is very awkward and ungrammatical."
-    },
-    {
-     "i": 28,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is mostly correct, but 'Jacques Mael' is a mishearing of 'Jacmel'."
-    },
-    {
-     "i": 29,
-     "score": 1,
-     "critical": false,
-     "note": "The translation incorrectly states 'receiving their father'."
-    }
-   ]
-  },
-  "gemini_live_told_lang": {
-   "score_pct": 54,
-   "critical": 4,
-   "grades": [
-    {
-     "i": 0,
-     "score": 1,
-     "critical": false,
-     "note": "The translation gets the general idea but uses incorrect place names ('Ouanaminthe' for Gozan, 'middle countries' for Medes)."
-    },
-    {
-     "i": 1,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is mostly correct but 'crystal ball' is slightly inaccurate and it omits 'sapphire stone'."
-    },
-    {
-     "i": 2,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is completely wrong, mistaking 'Galarad' for 'gallery'."
+     "note": ""
     },
     {
      "i": 3,
      "score": 2,
      "critical": false,
-     "note": "The meaning is correct, but 'rock river' is an unidiomatic translation of 'Wòch Rimon' (Rock of Rimmon)."
+     "note": "The translation starts with an artifact \"ត្រូវហើយ\" (That's right) and uses a very general term \"ចរន្ត\" (current) for \"rip currents\"."
     },
     {
      "i": 4,
-     "score": 3,
-     "critical": false
+     "score": 0,
+     "critical": false,
+     "note": "The translation is a garbled fragment that misses most of the original sentence's meaning."
     },
     {
      "i": 5,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": false,
+     "note": "The translation starts with an artifact \"តោះ\" (Let's go) and omits the important time element \"Late on Sunday\"."
     },
     {
      "i": 6,
-     "score": 1,
-     "critical": true,
-     "note": "The translation incorrectly states '6th grandchild' instead of '6th child'."
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits the word \"loose\" when describing the pet cats."
     },
     {
      "i": 7,
      "score": 3,
-     "critical": false
+     "critical": false,
+     "note": ""
     },
     {
      "i": 8,
-     "score": 0,
+     "score": 3,
      "critical": false,
-     "note": "The sentence was not translated."
+     "note": ""
     },
     {
      "i": 9,
      "score": 0,
      "critical": false,
-     "note": "The sentence was not translated."
+     "note": "The translation is garbled, starting with \"មួយនិក្ខេបបទ\" (a thesis) and omitting key details like \"ASUS\", \"Taipei\", and \"IT Month\"."
     },
     {
      "i": 10,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "The sentence was not translated."
+     "note": "The translation incorrectly uses \"អ្នកផ្សេងទៀត\" (other people) instead of \"តំបន់ផ្សេងទៀត\" (other areas)."
     },
     {
      "i": 11,
-     "score": 3,
-     "critical": false
+     "score": 2,
+     "critical": false,
+     "note": "The sentence is split awkwardly into two parts, and \"ការនិយាយតាមវិទ្យុ\" is a literal and slightly unnatural translation of \"talk radio\"."
     },
     {
      "i": 12,
-     "score": 3,
-     "critical": false
+     "score": 2,
+     "critical": false,
+     "note": "The phrase \"ស្ទើរតែចង្អៀត\" (almost narrow) is not an accurate translation of \"quite narrow\"."
     },
     {
      "i": 13,
      "score": 3,
-     "critical": false
+     "critical": false,
+     "note": ""
     },
     {
      "i": 14,
      "score": 1,
-     "critical": true,
-     "note": "The translation incorrectly identifies the agent as 'many great people' instead of 'a very mighty angel'."
+     "critical": false,
+     "note": "The translation omits the phrase \"at the Championships\"."
     },
     {
      "i": 15,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The translation incorrectly says 'three black flowers' instead of 'three almond blossoms'."
+     "note": "The name \"Nyiragongo\" is misspelled as \"Nai Gang\" and the sentence structure is convoluted."
     },
     {
      "i": 16,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly uses the name 'Jesus' instead of 'Jezila' and 'complaints' instead of 'nausea'."
+     "note": "The translation begins with a garbled artifact \"នេះគឺការអង្វរករ\" (This is a plea) and omits the park's name \"Plitvice\"."
     },
     {
      "i": 17,
-     "score": 3,
-     "critical": false
+     "score": 0,
+     "critical": false,
+     "note": "The translation incorrectly states the city is \"surrounded by 800 people\" and the second sentence is an incomplete fragment."
     },
     {
      "i": 18,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": false,
+     "note": "The subject is wrong. It translates \"emergency management office\" as \"The outbreak of the emergency\"."
     },
     {
      "i": 19,
-     "score": 1,
-     "critical": true,
-     "note": "The translation incorrectly identifies the speaker as 'Seraiah' instead of 'the Lord' and omits the context that 'They were still sitting at the table'."
+     "score": 0,
+     "critical": false,
+     "note": "The translation states the cave has a \"very close relationship\" with the world, which is the opposite of \"completely isolated\"."
     },
     {
      "i": 20,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "The translation incorrectly states 'professor's wife' instead of 'a professor'."
+     "note": "The translation reverses the meaning. \"ផែនការសុំកូនចិញ្ចឹម\" (plan to ask for an adopted child) means to adopt a child, not to give one's baby up for adoption."
     },
     {
      "i": 21,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The translation incorrectly says 'our grandchildren' instead of 'your descendants' and mishears a name as 'Jehosheba'."
+     "note": "The phrase \"ទទួលយកថ្នាំ\" (accept the drugs) is an awkward choice for \"take the drugs\"."
     },
     {
      "i": 22,
      "score": 3,
-     "critical": false
+     "critical": false,
+     "note": ""
     },
     {
      "i": 23,
-     "score": 2,
+     "score": 0,
      "critical": false,
-     "note": "The translation is correct but omits 'liquor' from the list."
+     "note": "The second half of the sentence, \"the Earth was not created for us to be smooth,\" is nonsensical."
     },
     {
      "i": 24,
-     "score": 1,
+     "score": 3,
      "critical": false,
-     "note": "The translation is based on a mishearing, rendering 'pa moute nan mòn' (doesn't go up to the mountains) as 'didn't come up in my boat'."
+     "note": ""
     },
     {
      "i": 25,
      "score": 0,
      "critical": false,
-     "note": "The translation is garbled and does not convey the meaning of the source."
+     "note": "The translation incorrectly renders \"hostages\" as \"សាច់ក្រក\" (sausages) and omits \"photographers\"."
     },
     {
      "i": 26,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": false,
+     "note": "The translation fails to capture the comparative structure of \"The lower the tension...\" and instead says \"We have lowered the tension...\"."
     },
     {
      "i": 27,
-     "score": 1,
-     "critical": true,
-     "note": "The translation incorrectly identifies the agent as 'Seraiah' instead of 'the Lord'."
+     "score": 0,
+     "critical": false,
+     "note": "The translation is incomplete and cuts off before mentioning \"Dunlap broadsides\"."
     },
     {
      "i": 28,
      "score": 1,
      "critical": false,
-     "note": "The translation uses incorrect proper names ('Michel Martelly' for Mayor Mase, 'Port-au-Prince' for Jacmel)."
+     "note": "The translation incorrectly uses \"ការផ្តល់រង្វាន់\" (awarding of prizes) instead of \"awarding of contracts\"."
     },
     {
      "i": 29,
      "score": 2,
      "critical": false,
-     "note": "The meaning is mostly correct, but 'inheritance' is an interpretation and 'great power' is an addition."
+     "note": "The phrasing \"ជើង ជញ្ជីងនិងក្រញ៉ាំ\" (feet, scales, and claws) is an awkward list rather than describing feet that have scales and claws."
     }
    ]
   },
+  "gemini_live_told_lang": {},
   "open_stack": {
-   "score_pct": 48,
+   "score_pct": 30,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The translation gives the wrong year, stating 2016 instead of 2017."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "The sentence structure is slightly awkward, phrasing the correlation as \"is a support for scientists and their research\"."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "The translation adds \"តំបន់ទឹករាក់\" (shallow water area), which was not in the source."
+    },
+    {
+     "i": 4,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is a nonsensical fragment that misses the entire meaning of the sentence."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly states Trump \"announced about the United States\", breaking the sentence's meaning."
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses \"កុមារ\" (children) which is less precise than the legal term \"អនីតិជន\" (minors)."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "The translation omits the final clause, \"a site focused on talk radio\"."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly uses \"បាតស្បែកជើងរាបស្មើ\" (flat sole) which is the opposite of \"smooth sole\"."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "The translation incorrectly uses \"ការជួញដូរ\" (trading/trafficking) for \"tracking\", which completely changes the meaning to something illegal."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is only a small fragment of the original sentence."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is an incomplete fragment of the second sentence."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is contradictory, stating the cave is \"right nearby\" and also \"isolated\"."
+    },
+    {
+     "i": 20,
+     "score": 0,
+     "critical": false,
+     "note": "The translation reverses the meaning. \"ផែនការ​ស្វែងរក​កូនចិញ្ចឹម\" (plan to search for an adopted child) means to adopt a child, not to give one's baby up for adoption."
+    },
+    {
+     "i": 21,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is a fragment, missing the subject (\"He\") and the main verb (\"has been unable\")."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 25,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase \"តាំងពីព្រឹកមក\" (since the morning) is not an accurate translation for \"early\"."
+    },
+    {
+     "i": 26,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, missing the second sentence."
+    },
+    {
+     "i": 27,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 28,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 29,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    }
+   ],
+   "delay": {
+    "tail_ms": 8884,
+    "per_sentence_median_ms": 6382
+   }
+  },
+  "azure_stt_cer": 0.064,
+  "stack_heard_cer": 0.409,
+  "gemini_heard_cer": 0.079
+ },
+ "en-lo": {
+  "azure_only": {
+   "score_pct": 49,
    "critical": 5,
    "grades": [
     {
      "i": 0,
      "score": 0,
      "critical": false,
-     "note": "The translation is garbled and contains offensive language not present in the source."
+     "note": "The sentence is merged with the next one, resulting in a garbled and repetitive phrase about the height of the bridge."
     },
     {
      "i": 1,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is garbled, mentioning 'a big fuss' and 'the nine queen'."
+     "score": 1,
+     "critical": true,
+     "note": "The date is wrong (2016 instead of 2017). The first part of the sentence was merged with the previous one."
     },
     {
      "i": 2,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is garbled, mentioning 'a small gamble' and 'Eat more vegetables'."
-    },
-    {
-     "i": 3,
-     "score": 1,
-     "critical": true,
-     "note": "The translation incorrectly states the number as 'sixty' instead of '600'."
-    },
-    {
-     "i": 4,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is mostly correct, but it says 'protesters' instead of 'students'."
-    },
-    {
-     "i": 5,
      "score": 3,
      "critical": false
     },
     {
-     "i": 6,
-     "score": 0,
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "'Rip currents' is literally but incorrectly translated as 'root current' (ກະແສຮາກ), and 'reef' is mistranslated as 'announcement line' (ແນວປະກາດ)."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "'Two adult children' is incorrectly specified as 'two daughters' (ລູກສາວສອງຄົນ)."
+    },
+    {
+     "i": 5,
+     "score": 1,
      "critical": true,
-     "note": "The translation is completely wrong, with incorrect relationships ('granddaughter') and numbers ('ninth child')."
+     "note": "'Syria' is mistranslated as 'average' (ສະເລຍ)."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "The word for 'lizards' is misspelled or incorrect ('ຈິ່ງ'), and the phrasing for 'loose pet cats' is slightly awkward."
     },
     {
      "i": 7,
      "score": 2,
      "critical": false,
-     "note": "The meaning is mostly correct, but 'Mo' is a mishearing of 'monwa' (your majesty)."
+     "note": "The translation uses '1920' instead of '1920s'."
     },
     {
      "i": 8,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The translation incorrectly says 'gay people' instead of 'Gaius'."
+     "note": "'Minors' is translated as 'children' (ເດັກນ້ອຍ), which is less precise than the legal term 'ຜູ້ເຍົາ'."
     },
     {
      "i": 9,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": false,
+     "note": "The translation omits 'functionality factors' and is cut off at the end."
     },
     {
      "i": 10,
-     "score": 1,
-     "critical": false,
-     "note": "Part of the source is untranslated ('ti bèf ti bèf') and the word 'school' is incorrectly added."
+     "score": 3,
+     "critical": false
     },
     {
      "i": 11,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly says 'south river' instead of 'Jordan River'."
+     "note": "The name 'TogiNet' is incorrectly translated as 'Target'."
     },
     {
      "i": 12,
-     "score": 3,
-     "critical": false
+     "score": 0,
+     "critical": true,
+     "note": "'Riders' is incorrectly translated as 'writers' (ນັກຂຽນ), completely changing who the subject is."
     },
     {
      "i": 13,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": false,
+     "note": "'Lying' is translated as 'joking/kidding' (ໂກຫລົກ), which changes the meaning."
     },
     {
      "i": 14,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The translation is partially garbled ('let go of many gonos') and uses 'windmill' instead of 'millstone'."
+     "note": "The translation omits the phrase 'at the Championships'."
     },
     {
      "i": 15,
      "score": 0,
-     "critical": false,
-     "note": "The translation is garbled and nonsensical."
+     "critical": true,
+     "note": "'Mountain Gorilla tracking' is mistranslated as 'trading mountain monkeys' (ການຄ້າລິງພູ)."
     },
     {
      "i": 16,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly uses the name 'Jesus' instead of 'Jezila' and leaves several words untranslated."
+     "note": "'Plitvice' is misspelled as 'Pledge', 'Alpine' is mistranslated as 'disaster mountain' (ພູອາລະໄພ), and 'Mediterranean' is mistranslated as 'ocean' (ທະເລມະຫາສະຫມຸດ)."
     },
     {
      "i": 17,
-     "score": 1,
-     "critical": true,
-     "note": "The translation incorrectly states the time period as '11 months' instead of '15 months'."
+     "score": 3,
+     "critical": false
     },
     {
      "i": 18,
-     "score": 3,
-     "critical": false
+     "score": 2,
+     "critical": false,
+     "note": "The phrase 'emergency management office' is translated redundantly as 'emergency emergency management office'."
     },
     {
      "i": 19,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly adds 'yesterday' and makes 'prophets' plural."
+     "note": "The phrase 'completely isolated' is translated with a contradictory term 'cut off closely' (ຕັດຂາດຢ່າງໃກ້ຊິດ)."
     },
     {
      "i": 20,
      "score": 1,
-     "critical": true,
-     "note": "The translation is partially garbled ('in the duel') and uses the wrong pronoun ('he' instead of 'she')."
+     "critical": false,
+     "note": "'Adoption' is translated as 'sponsorship/support' (ຮັບອຸປະທາມ), which is not the correct meaning."
     },
     {
      "i": 21,
-     "score": 0,
+     "score": 2,
      "critical": false,
-     "note": "The translation is garbled and nonsensical."
+     "note": "'Overcome his pain' is translated as 'pass through the pain' (ຜ່ານຄວາມເຈັບປວດ), which is slightly weaker but acceptable."
     },
     {
      "i": 22,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": false,
+     "note": "'Trousers' is mistranslated as 'middle of the shoe' (ກາງເກີບ)."
     },
     {
      "i": 23,
-     "score": 1,
-     "critical": false,
-     "note": "The translation omits 'liquor' and the phrase 'whatever you prefer'."
+     "score": 3,
+     "critical": false
     },
     {
      "i": 24,
-     "score": 3,
-     "critical": false
+     "score": 2,
+     "critical": false,
+     "note": "The phrase 'resist the temptation to remove even \"just one\"' is simplified to 'don't pull any one... out', losing some nuance."
     },
     {
      "i": 25,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly says 'ironwork' instead of 'two walls'."
+     "note": "'Children and elderly' is translated nonsensically as 'elderly children' (ເດັກນ້ອຍສູງອາຍຸ)."
     },
     {
      "i": 26,
@@ -707,30 +2616,1152 @@
     },
     {
      "i": 27,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct, but the phrase 'push to' is awkward."
+     "score": 1,
+     "critical": true,
+     "note": "The number '150' is misinterpreted as a time '1:50'. The sentence is also incomplete and merged with the next one."
     },
     {
      "i": 28,
      "score": 1,
      "critical": false,
-     "note": "The translation uses the wrong name ('Mayor Ma') and the wrong word ('vestibule' instead of 'investments')."
+     "note": "'Liberal criticism' is mistranslated as 'The appointment of the liberal side', and the rest of the sentence's meaning is distorted."
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is incomplete, omitting 'feet with scales'. 'T-Rex' is misspelled as 'AT Rex'."
+    }
+   ],
+   "delay": {
+    "per_sentence_median_ms": 1814
+   }
+  },
+  "azure_stt_gemini": {
+   "score_pct": 60,
+   "critical": 4,
+   "grades": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is merged with the next sentence and the meaning of 'performance' is completely wrong, translated as 'vertical recovery'."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The date is wrong (2016 instead of 2017). It also omits 'vertical clearance'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "'Rip currents' is translated as 'whirlpool' (ກະແສນ້ຳວົນ), which is not entirely accurate but understandable in context."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits the word 'adult' when describing the children."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "'Press secretary' is translated as 'newspaper spokesperson' (ໂຄສົກ ຫນັງສືພິມ), which is slightly awkward but conveys the general meaning."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence is missing."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence is missing."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is just a garbled fragment ('Taipai it')."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "The name 'TogiNet' is incorrectly translated as 'Target'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "'Riders' is incorrectly translated as 'writers' (ນັກຂຽນ), completely changing who the subject is."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits the phrase 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "'Tracking' is mistranslated as 'trafficking/smuggling' (ການລັກລອບຄ້າຂາຍ), a severe meaning error."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase 'the country with the lowest population' is translated vaguely as 'has that number of population', losing the superlative 'lowest'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 24,
+     "score": 2,
+     "critical": false,
+     "note": "The translation narrows 'plants' to 'trees' (ຕົ້ນໄມ້)."
+    },
+    {
+     "i": 25,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 26,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'positive' from 'more positive the life force'."
+    },
+    {
+     "i": 27,
+     "score": 1,
+     "critical": true,
+     "note": "The number '150' is misinterpreted as a time '1:50'. The sentence is also incomplete and merged with the next one."
+    },
+    {
+     "i": 28,
+     "score": 1,
+     "critical": false,
+     "note": "The translation omits 'insiders', rendering 'perceived Washington insiders' as 'Washington that is perceived'."
+    },
+    {
+     "i": 29,
+     "score": 0,
+     "critical": false,
+     "note": "The phrase 'feet with scales and claws' is missing and replaced with 'handprints' (ຮອຍທໍາມື)."
+    }
+   ],
+   "delay": {
+    "tail_ms": 2342,
+    "per_sentence_median_ms": 1932
+   }
+  },
+  "gladia_stt_gemini": {},
+  "gemini_live": {
+   "score_pct": 43,
+   "critical": 6,
+   "grades": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "The sentence is merged with the next one, resulting in a nonsensical statement about reaching a 'higher level of vertical distance under the bridge'."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The date is critically wrong (2000 instead of 2017). The first part of the sentence was merged with the previous one."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "The translation starts with an extraneous 'Yes,' (ແມ່ນແລ້ວ). 'Rip currents' is translated simply as 'current' (ກະແສນ້ໍາ)."
+    },
+    {
+     "i": 4,
+     "score": 0,
+     "critical": false,
+     "note": "The first part of the sentence is completely garbled and makes no sense."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "The translation starts with an extraneous 'Give' (ໃຫ້) and omits 'press' from 'press secretary'."
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": true,
+     "note": "'Small cats' is incorrectly translated as 'small fish' (ປາຂະຫນາດນ້ອຍ)."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses '1920' instead of '1920s'. 'Pacifism' is translated as 'peace/calmness' (ຄວາມສະຫງົບ), which is close but less precise."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "'ASUS' is mistranslated as 'consultant' (ຜູ້ທີ່ປຶກສາ), and the sentence structure is broken."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses 'about a minute' instead of 'a minute', which is a minor change."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "The name 'TogiNet' is incorrectly translated as 'DoggyNet'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "'Riders' is incorrectly translated as 'writers' (ນັກຂຽນ), completely changing who the subject is."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "'Micro-expressions' is translated as 'facial expressions' (ການສະແດງອອກທາງສີຫນ້າ), losing the 'micro' detail."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits the phrase 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "The word 'tracking' is omitted from the translation."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": false,
+     "note": "The first part of the sentence is completely garbled, stating 'Those who request the number national park are heavily affected'."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "The first sentence is mistranslated as 'That is Vatican City is surrounded by 800 people' and the second sentence is cut off."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "The grammar for the name of the office is jumbled but understandable."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "The translation states the cave is 'located close to the rest of the world', which is the opposite of 'completely isolated'."
+    },
+    {
+     "i": 20,
+     "score": 2,
+     "critical": false,
+     "note": "The word order for 'These couples' is awkward, and 'adoption' is translated with a term that has specific cultural connotations ('adopt for merit')."
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "The phrase 'as if it's moving' is incorrectly translated as 'that we get along well' (ວ່າພວກເຮົາເຂົ້າກັນໄດ້ດີ)."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 25,
+     "score": 0,
+     "critical": true,
+     "note": "'Six hostages' is incorrectly translated as 'six sausages' (ໄສ້ກອກຫົກອັນ)."
+    },
+    {
+     "i": 26,
+     "score": 1,
+     "critical": false,
+     "note": "'The lower the tension' is mistranslated as a specific action, 'We have reduced the tension', changing the meaning."
+    },
+    {
+     "i": 27,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, cutting off before 'Dunlap broadsides', and is merged with the next sentence."
+    },
+    {
+     "i": 28,
+     "score": 2,
+     "critical": false,
+     "note": "The translation adds 'prize' to 'contracts' ('prize contracts'), which is a minor error. The sentence is merged with the previous one."
     },
     {
      "i": 29,
      "score": 1,
      "critical": true,
-     "note": "The translation uses the wrong pronoun ('she' instead of 'he') and ends with the nonsensical phrase 'in his Power Ball'."
+     "note": "The subject is changed from 'They' to 'I' (ຂ້ອຍ)."
+    }
+   ]
+  },
+  "gemini_live_told_lang": {},
+  "open_stack": {},
+  "azure_stt_cer": 0.064,
+  "gemini_heard_cer": 0.082
+ },
+ "en-ht": {
+  "azure_only": {
+   "score_pct": 57,
+   "critical": 3,
+   "grades": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete and runs into the next one."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The year is wrong (2016 instead of 2017)."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "The translation for 'rip currents' ('kouran rasin' - root currents) is incorrect."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'press secretary', saying 'by the press' instead."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "The phrase 'manje bèt kay la' (eat the pet) is incorrect and changes the meaning."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "The end of the sentence is garbled ('Taipai li') and it omits 'Month'."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'in others' as 'lòt moun' (other people), which is incorrect."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "The name of the radio site is wrong ('Sib' instead of 'TogiNet')."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'riders' as 'ekriven' (writers)."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits the word 'expressions' from 'micro-expressions'."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "The translation for 'tracking' ('trafik') is incorrect."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "The name of the park is wrong ('Pledge Lakes'). The phrasing 'lou forè' is an awkward literalism for 'heavily forested'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, omitting 'the country with the lowest population'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 0,
+     "critical": true,
+     "note": "The translation says 'He was able' ('Li te kapab'), which is the opposite of the source 'He has been unable'. This is a negation error."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "The verb is in the past tense ('te sanble' - seemed) instead of the present tense."
+    },
+    {
+     "i": 24,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase 'gade pi byen yo' is an awkward literalism for 'look their best'."
+    },
+    {
+     "i": 25,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase for 'children and elderly' ('timoun yo granmoun') is awkward."
+    },
+    {
+     "i": 26,
+     "score": 1,
+     "critical": false,
+     "note": "The grammatical structure for 'The lower..., the more...' is incorrect. It uses a command form 'Bese tansyon an' (Lower the tension)."
+    },
+    {
+     "i": 27,
+     "score": 0,
+     "critical": true,
+     "note": "The number 150 is misinterpreted as a time, '1:50'. The sentence is also incomplete."
+    },
+    {
+     "i": 28,
+     "score": 1,
+     "critical": false,
+     "note": "The translation of 'perceived Washington insiders' is poor and the word order is awkward."
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, starting with 'And claws' and omitting 'feet with scales'."
     }
    ],
    "delay": {
-    "tail_ms": 905,
-    "per_sentence_median_ms": 1921
+    "per_sentence_median_ms": 1344
    }
   },
-  "gladia_stt_cer": 0.189,
-  "stack_heard_cer": 0.057,
-  "gemini_heard_cer": 0.494
+  "azure_stt_gemini": {
+   "score_pct": 59,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete and runs into the next one."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The year is wrong (2016 instead of 2017)."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'delivered via the press secretary'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'loose' and 'far more numerous'."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "The sentence was not translated."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": false,
+     "note": "The sentence was not translated."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "The sentence was not translated."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "The name of the radio site is wrong ('Target' instead of 'TogiNet')."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'riders' as 'ekriven' (writers)."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "The translation for 'tracking' ('trafik') is incorrect."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "The name of the park is wrong ('Pledge Lakes' instead of 'Plitvice Lakes')."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, omitting 'the country with the lowest population'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'the cave' as 'Gòf la' (The gulf)."
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "The verb is in the past tense ('te sanble' - seemed) instead of the present tense."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 25,
+     "score": 1,
+     "critical": false,
+     "note": "The translation says the hostages 'freed themselves' ('te libere tèt yo'), which is different from 'were released'."
+    },
+    {
+     "i": 26,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses 'enèji' (energy) instead of 'life force', and the comparative structure is slightly awkward."
+    },
+    {
+     "i": 27,
+     "score": 0,
+     "critical": true,
+     "note": "The number 150 is misinterpreted as a time, '1:50'. The sentence is also incomplete."
+    },
+    {
+     "i": 28,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, but the translated portion is good."
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete, starting with 'And claws' and omitting 'feet with scales'."
+    }
+   ],
+   "delay": {
+    "tail_ms": 2335,
+    "per_sentence_median_ms": 1691
+   }
+  },
+  "gladia_stt_gemini": {},
+  "gemini_live": {
+   "score_pct": 56,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing 'apwòch kontinyòm nan metòd' is awkward."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The year is wrong (2000 instead of 2017)."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses the general term 'kouran yo' (the currents) and omits 'rip'."
+    },
+    {
+     "i": 4,
+     "score": 0,
+     "critical": false,
+     "note": "The beginning of the sentence is garbled and omits key information like the name 'Duvall' and that he is married."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "The translation misses 'Late', saying only 'On Sunday' ('Ann dimanch')."
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": false,
+     "note": "Translates 'small cats' as 'ti chemen' (small paths), which is completely wrong."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits the word 'prevailing'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "The name 'ASUS Eee PC' is misheard as 'Yon tèz E PC'. It also omits 'Month'."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "The word 'lòt' (other) is ambiguous and should be 'nan lòt zòn' (in other areas)."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "The name of the radio site is wrong ('DoggyNet' instead of 'TogiNet')."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'riders' as 'ekriven' (writers)."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits the word 'tracking'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "The name of the park is misheard ('La plede vis Lakes') and it omits 'beech' and 'spruce' trees from the list."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "The beginning of the sentence is garbled and the end is incomplete."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "The subject is wrong; it translates 'The Northern Marianas emergency management office' as 'The northern area of Mariana in the emergency situation'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase 'etwatman izole' (narrowly isolated) is an awkward and inaccurate translation of 'completely isolated'."
+    },
+    {
+     "i": 20,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'couples', making the subject 'These' ('Sa yo') vague."
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "The second half of the sentence is completely wrong, translating 'because the Earth doesn't feel as if it's moving' as 'because the earth is an ideal place to fit without problems'."
+    },
+    {
+     "i": 24,
+     "score": 2,
+     "critical": false,
+     "note": "The subject 'Yo' (They) is vague and does not specify 'plants'."
+    },
+    {
+     "i": 25,
+     "score": 0,
+     "critical": true,
+     "note": "Translates 'six hostages' as 'sis sosis' (six sausages)."
+    },
+    {
+     "i": 26,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly states 'We lowered the tension' ('Nou te bese tansyon an')."
+    },
+    {
+     "i": 27,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete and misses key information like 'Dunlap broadsides'."
+    },
+    {
+     "i": 28,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 29,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "gemini_live_told_lang": {},
+  "open_stack": {
+   "score_pct": 39,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "The sentence is incomplete and runs into the next one."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "The translation for 'vertical clearance under the bridge' is wrong ('Height above sea level'). The year is also wrong (2016 instead of 2017)."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "The word 'Korespondans' (correspondence) is an incorrect translation for 'correlation'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "The name 'rip currents' is misheard as 'Kouran Rib', and 'at a distance' is added."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits that the children are 'adult'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "The translation adds completely false information about North Korea and an incorrect date."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'loose' and 'far more numerous'."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "The sentence was not translated."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Translates 'Governor' as 'Gouvènman' (Government)."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'Month'."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "The word 'lòt' (other) is ambiguous and should be 'nan lòt zòn' (in other areas)."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "Translates 'riders' as 'chofè' (drivers) and 'quite narrow' as 'trè epè' (very thick), which is the opposite."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'lying' as 'mentni' (maintaining) and 'it is claimed' as 'li te di' (he said)."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'Beyond Wednesday's event' as 'In the event of Wednesday' and omits 'at the Championships'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "The translation for 'tracking' ('trafik') is incorrect."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": false,
+     "note": "Translates 'beech' as 'plaj' (beach), omits other trees, and adds extraneous information about the climate."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is highly incomplete, only rendering a small fragment of the second sentence."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'cave' as 'kavo' (tomb) and 'completely isolated' as 'tou pre izole' (nearly isolated)."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": false,
+     "note": "The translation omits 'couples' and is awkwardly split into two fragments."
+    },
+    {
+     "i": 21,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is an incomplete sentence fragment."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "The sentence was not translated."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 25,
+     "score": 1,
+     "critical": false,
+     "note": "The translation for 'children and elderly' ('timoun ki gen laj' - children of age) is incorrect."
+    },
+    {
+     "i": 26,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 27,
+     "score": 0,
+     "critical": false,
+     "note": "The sentence was not translated."
+    },
+    {
+     "i": 28,
+     "score": 1,
+     "critical": false,
+     "note": "The translation uses English words ('adjudication', 'perceived Washington insiders') instead of translating them."
+    },
+    {
+     "i": 29,
+     "score": 0,
+     "critical": false,
+     "note": "The sentence was not translated."
+    }
+   ],
+   "delay": {
+    "tail_ms": -6267,
+    "per_sentence_median_ms": 1425
+   }
+  },
+  "azure_stt_cer": 0.064,
+  "stack_heard_cer": 0.163,
+  "gemini_heard_cer": 0.083
  }
 }
