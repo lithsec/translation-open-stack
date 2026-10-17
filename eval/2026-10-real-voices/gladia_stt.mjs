@@ -60,7 +60,7 @@ async function run(lang) {
       }
       if (m.type === "transcript" && m.data?.is_final && m.data.utterance?.text?.trim()) {
         const u = m.data.utterance;
-        finals.push({ text: u.text.trim(), offsetMs: u.start * 1000, durationMs: (u.end - u.start) * 1000, arrivedMs: Date.now() - t0 });
+        finals.push({ text: u.text.trim(), language: u.language, offsetMs: u.start * 1000, durationMs: (u.end - u.start) * 1000, arrivedMs: Date.now() - t0 });
       } else if (m.type === "error") {
         err = JSON.stringify(m).slice(0, 200);
       }
@@ -80,7 +80,10 @@ async function run(lang) {
   });
   save({ err, finals });
   const lag = finals.map((f) => f.arrivedMs - (f.offsetMs + f.durationMs)).sort((a, b) => a - b);
-  console.log(`${lang} (gladia): ${err ? "ERROR " + err : `${finals.length} finals, final arrives ~${Math.round(lag[Math.floor(lag.length / 2)] ?? 0)} ms after the words end`}`);
+  // Which language Gladia says it heard, though it was told: Lao came back in Thai script.
+  const said = {};
+  for (const f of finals) said[f.language ?? "?"] = (said[f.language ?? "?"] ?? 0) + 1;
+  console.log(`${lang} (gladia): ${err ? "ERROR " + err : `${finals.length} finals, final arrives ~${Math.round(lag[Math.floor(lag.length / 2)] ?? 0)} ms after the words end; reported as ${JSON.stringify(said)}`}`);
 }
 
 const todo = process.argv.slice(2).filter((l) => {
