@@ -215,11 +215,25 @@ def test_listen_protocol():
     asyncio.run(stt.handle(ws, models))
     kinds = [m["type"] for m in ws.sent]
     assert ws.sent[0] == {"type": "hello", "langs": ["ht", "en"], "rate": 16000}
-    assert kinds == ["hello", "inputTranscript", "inputTranscript", "flushed"], kinds
-    a, b = ws.sent[1], ws.sent[2]
+    assert kinds == ["hello", "language", "inputTranscript", "language", "inputTranscript", "flushed"], kinds
+    a, b = ws.sent[2], ws.sent[4]
+    assert ws.sent[1] == {k: v for k, v in a.items() if k not in ("type", "text")} | {"type": "language"}
     assert (a["lang"], a["text"], a["confidence"]) == ("ht", "ht level 0.3", 0.9)
     assert (b["lang"], b["text"]) == ("en", "en level 0.6")
     assert 0 <= a["start_ms"] < a["end_ms"] < b["start_ms"] < b["end_ms"]
+
+
+def test_listen_transcribes_only_what_is_asked():
+    _fake_vad()
+    ws = FakeWS("/listen?langs=ht,en&transcribe=ht", _speech(0.6) + _speech(0.3) + [json.dumps({"type": "flush"})])
+    asyncio.run(stt.handle(ws, FakeModels()))
+    kinds = [m["type"] for m in ws.sent]
+    assert kinds == ["hello", "language", "language", "inputTranscript", "flushed"], kinds
+    assert ws.sent[1]["lang"] == "en" and "text" not in ws.sent[1]
+    assert (ws.sent[3]["lang"], ws.sent[3]["text"]) == ("ht", "ht level 0.3")
+    assert stt.parse_transcribe("", ["ht", "en"]) == {"ht", "en"}
+    assert stt.parse_transcribe(" HT ", ["ht", "en"]) == {"ht"}
+    assert "not in langs: fr" in _raises(stt.parse_transcribe, "ht,fr", ["ht", "en"])
 
 
 def test_listen_24k_and_one_language():

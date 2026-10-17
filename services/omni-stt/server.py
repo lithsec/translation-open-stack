@@ -7,13 +7,15 @@ the languages a room actually uses. No translation, no voices.
 
 Protocol:
 
-    client connects  wss://host/listen?langs=ht,en[&rate=24000]
+    client connects  wss://host/listen?langs=ht,en[&rate=24000][&transcribe=ht]
                      Authorization: Bearer <STT_TOKEN>   (or ?token=, which proxies log)
     server sends     {"type":"hello","langs":["ht","en"],"rate":16000}
     client sends     binary 16 kHz mono PCM16 (24 kHz with ?rate=24000)
                      {"type":"flush"}  optional: end the current utterance now
-    server sends     {"type":"inputTranscript","text":"...","lang":"ht",
-                      "confidence":0.93,"start_ms":1200,"end_ms":4810}   per utterance
+    server sends     {"type":"language","lang":"ht","confidence":0.93,
+                      "start_ms":1200,"end_ms":4810}   per utterance, as soon as it is identified
+                     {"type":"inputTranscript","text":"...","lang":"ht",
+                      "confidence":0.93,"start_ms":1200,"end_ms":4810}   then its words
                      {"type":"flushed"}   after a flush, once everything before it is sent
                      {"type":"error","detail":"..."}
 
@@ -27,6 +29,13 @@ language, but only among ?langs (one language: no guess at all); Omnilingual
 transcribes with that language's code. The recogniser is the stack's engine
 (server/engines/omnilingual.py), the audio input its AudioIn (server/audio_in.py),
 and the token check its stack_auth.py, so a fix there is a fix here.
+
+?transcribe (default: every language in ?langs) names the languages whose
+utterances are transcribed; the others get only their "language" message. A
+client that takes one language from here and the rest from another recogniser
+(Live Translation's Haitian Creole exception beside Azure) learns within the
+language ID's ~50 ms that an English utterance is not its business, and the GPU
+never decodes it.
 
 confidence is the language ID's share of the score among ?langs (0..1), 1.0 when
 the room has one language. Omnilingual gives no confidence of its own.
@@ -122,6 +131,17 @@ def parse_langs(raw, lid_codes=None):
         if blind:
             raise BadRequest(f"language ID cannot recognise {','.join(blind)}; connect with that language alone")
     return langs
+
+
+def parse_transcribe(raw, langs):
+    """?transcribe=ht -> {"ht"}; absent or empty -> every language in langs."""
+    if not raw:
+        return set(langs)
+    want = {c.strip().lower() for c in raw.split(",") if c.strip()}
+    stray = sorted(want - set(langs))
+    if stray:
+        raise BadRequest(f"transcribe must be among langs; not in langs: {clean(','.join(stray), 80)}")
+    return want
 
 
 def parse_rate(raw):
@@ -400,16 +420,21 @@ def clean(value, n=64):
     return "".join(ch if ch.isprintable() else "?" for ch in str(value))[:n]
 
 
-async def recognise(models, utt, langs):
-    """One utterance -> its message, or None when nothing was said."""
+async def recognise(models, utt, langs, transcribe, send):
+    """One utterance: send its language, then (when wanted) its words.
+    Returns whether a transcript was sent."""
     loop = asyncio.get_running_loop()
     pcm, start_ms, end_ms = utt
     lang, conf = await loop.run_in_executor(MODEL_POOL, models.identify, pcm, langs)
+    span = {"lang": lang, "confidence": round(conf, 3), "start_ms": start_ms, "end_ms": end_ms}
+    await send({"type": "language", **span})
+    if lang not in transcribe:
+        return False
     text = await loop.run_in_executor(MODEL_POOL, models.transcribe, pcm, lang)
     if not text:
-        return None
-    return {"type": "inputTranscript", "text": text, "lang": lang, "confidence": round(conf, 3),
-            "start_ms": start_ms, "end_ms": end_ms}
+        return False
+    await send({"type": "inputTranscript", "text": text, **span})
+    return True
 
 
 async def handle(ws, models, sub="open"):
@@ -420,6 +445,7 @@ async def handle(ws, models, sub="open"):
     try:
         langs = parse_langs((q.get("langs") or [""])[0], set(models.lid_index))
         rate = parse_rate((q.get("rate") or [""])[0])
+        transcribe = parse_transcribe((q.get("transcribe") or [""])[0], langs)
     except BadRequest as e:
         print(f"[stt] {clean(sub, 24)}: refused: {clean(e, 200)}", flush=True)
         await ws.send(json.dumps({"type": "error", "detail": str(e)}))
@@ -427,7 +453,8 @@ async def handle(ws, models, sub="open"):
         return
     await ws.send(json.dumps({"type": "hello", "langs": langs, "rate": rate}))
     who = clean(sub, 24)
-    print(f"[stt] {who}: listening, langs={','.join(langs)} rate={rate}", flush=True)
+    print(f"[stt] {who}: listening, langs={','.join(langs)} rate={rate} "
+          f"transcribe={','.join(c for c in langs if c in transcribe)}", flush=True)
 
     conn_in = audio_input(rate, who)
     seg = Segmenter()
@@ -445,16 +472,16 @@ async def handle(ws, models, sub="open"):
                 continue
             t0 = time.monotonic()
             try:
-                msg = await recognise(models, item, langs)
+                said = await recognise(models, item, langs, transcribe,
+                                       lambda m: ws.send(json.dumps(m, ensure_ascii=False)))
             except Exception as e:  # one bad utterance must not end the session
                 print(f"[stt] {who}: recognition failed: {type(e).__name__}: {clean(e, 200)}", flush=True)
                 await ws.send(json.dumps({"type": "error", "detail": "recognition failed for one utterance"}))
                 continue
             heard["busy_s"] += time.monotonic() - t0
             heard["audio_s"] += len(item[0]) / VAD_RATE
-            if msg:
+            if said:
                 heard["n"] += 1
-                await ws.send(json.dumps(msg, ensure_ascii=False))
 
     def enqueue(utts):
         for utt in utts:

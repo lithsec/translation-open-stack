@@ -21,11 +21,12 @@ service reuses the stack's parts rather than copying them:
 ## Protocol
 
 ```
-connect   wss://<host>/listen?langs=ht,en[&rate=24000]
+connect   wss://<host>/listen?langs=ht,en[&rate=24000][&transcribe=ht]
           Authorization: Bearer <STT_TOKEN>        (or ?token=<STT_TOKEN>; URLs get logged, so prefer the header)
 server    {"type":"hello","langs":["ht","en"],"rate":16000}
 client    binary: mono PCM16 at 16 kHz (24 kHz with ?rate=24000), ~100 ms per message is ideal
 client    {"type":"flush"}                         optional: end the current utterance now (end of a file, push-to-talk release)
+server    {"type":"language","lang":"ht","confidence":0.93,"start_ms":1200,"end_ms":4810}   as soon as it is identified
 server    {"type":"inputTranscript","text":"...","lang":"ht","confidence":0.93,"start_ms":1200,"end_ms":4810}
 server    {"type":"flushed"}                       everything before the flush has been sent
 server    {"type":"error","detail":"..."}
@@ -38,6 +39,11 @@ GET /mic      a one-file microphone test page: type the languages and the token,
   language: no language ID at all, `confidence` is 1.0. Several: the language ID
   chooses among them only, and `confidence` is the winner's share of their score.
   Omnilingual gives no confidence of its own.
+- `transcribe` (default: all of `langs`) is the languages whose utterances get
+  words. The others get only their `language` message, sent before any
+  transcribing. Live Translation's Haitian Creole exception uses
+  `langs=ht,en,ja,...&transcribe=ht`: Azure keeps every other language, and an
+  English utterance costs the GPU only the language ID.
 - Served languages: `en es fr pt it de ru uk zh ja ko vi ar fa id tr bn ur hi sw ro ht km lo tl`
   (`OMNI_CODES` in `server.py`). Anything else is refused at connect with an error and
   close code 4400, as is a mix containing a language VoxLingua107 doesn't know.
