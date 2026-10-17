@@ -1,92 +1,2746 @@
 {
  "en-ja": {
   "azure_stt_gemini": {
-   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 90,
+   "critical": 0,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The word 'service' was translated as 礼拝 (worship service), which is a very specific interpretation. A more general term would be better."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "delay": {
+    "tail_ms": 2047,
+    "per_sentence_median_ms": 1296
+   }
   },
   "gemini_live": {
-   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 74,
+   "critical": 4,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "The destination 'to the airport' (空港へ) is omitted."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "The time is wrong. 'A quarter to twelve' (11:45) was translated as 2時15分 (2:15)."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "'Please don't worry' was mistranslated as 待たないでください (Please don't wait)."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Adds an unprompted はい (Yes) at the beginning."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Major meaning error. 'I don't want the chicken' was mistranslated as 子供たちはいりません (I don't want the children)."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "The sentence is fragmented and slightly unnatural, but the meaning is correct."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "The deposit amount is wrong. 'One month's rent' was translated as 3ヶ月分 (3 months' worth)."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "The sentence is slightly redundant, repeating the fact that she was born (生まれで...生まれました)."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 2,
+     "critical": false,
+     "note": "Omits the word 'new' (新しい) when referring to the medication."
+    },
+    {
+     "i": 22,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslates 'second traffic light' as 'next traffic light' and omits 'on the right'."
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "Translates 'next Friday' vaguely as 今度 (next time/soon) and the phrasing is slightly unnatural."
+    }
+   ]
   },
-  "azure_stt_cer": 0.035
+  "azure_stt_cer": 0.035,
+  "gemini_heard_cer": 0.033
  },
  "en-zh": {
   "azure_stt_gemini": {
-   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 100,
+   "critical": 0,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "delay": {
+    "tail_ms": 1932,
+    "per_sentence_median_ms": 1279
+   }
   },
   "gemini_live": {
-   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 74,
+   "critical": 6,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Lacks politeness, translated as a command ('你告诉我...') rather than a polite question."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "The dosage instruction is confusing and contradictory ('eat two tablets every day, once every 8 hours')."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'pm' and 'am' (下午/上午)."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Translated 'a quarter to twelve' as '15 minutes ago' (15分前), which is completely wrong."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Missed the 'how much does it cost' part, translating it as 'how can one send...'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong amount for rent: 1200 instead of 1250."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "The year is translated as '19年', which is ambiguous and incorrect. It should be '2019年'."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Negation error. Translated 'If it rains' as 'If it doesn't rain' (如果明天不下雨), reversing the meaning."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward word order."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time: 'next Friday' was translated as 'tonight' (今晚)."
+    }
+   ]
   },
-  "azure_stt_cer": 0.035
+  "azure_stt_cer": 0.035,
+  "gemini_heard_cer": 0.038
  },
  "en-km": {
   "azure_stt_gemini": {
-   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 83,
+   "critical": 0,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": false,
+     "note": "Sentence not translated."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Only 'Please don't worry' was translated. The rest of the sentence ('the doctor will see you...') is missing."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Uses the English word 'kindness' instead of a Khmer equivalent like 'ចិត្តល្អ'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase 'ត្រៀម រង់ចាំ' (preparing to wait) is slightly unnatural; 'កំពុងរង់ចាំ' (are waiting) would be better."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates 'service' as 'ពិធីការិនី' (female master of ceremonies)."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'near the coast' as 'ចម្ងាយ ពី ឆ្នេរ សមុទ្រ' (a distance from the coast), which implies it is far, not near."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Omits the word 'picnic', translating it as 'move the place' (រើ កន្លែង), which is understandable but incomplete."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    }
+   ],
+   "delay": {
+    "tail_ms": 2453,
+    "per_sentence_median_ms": 1338
+   }
   },
   "gemini_live": {
-   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 83,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Translates a polite request ('Could you tell me...') as a command ('Tell me...'), losing the politeness."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Uses the Thai word 'แพ้' for 'allergic' instead of the Khmer word 'អាឡែស៊ី'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Translates 'a quarter to twelve' (11:45) as 'ម៉ោង១២ កន្លះ' (12:30), which is the wrong time."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Adds an unnecessary 'បាទ' (Yes) at the beginning of the sentence."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing 'ខ្ញុំមិនចង់ឱ្យមានសាច់មាន់ទេ' (I don't want there to be chicken) is slightly awkward."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Translates 'tomorrow' as 'ថ្ងៃនេះ' (today), which is a critical error. Also contains a typo for 'picnic' ('ពីកនីក')."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Translates 'last part' as 'last sentence' (ប្រយោគចុងក្រោយ), which is a slight change in meaning."
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing 'ចង់ឱ្យអ្នកមក' (want you to come) is a bit too direct and less warm than the original 'would love to have you over'."
+    }
+   ]
   },
-  "azure_stt_cer": 0.035
+  "azure_stt_cer": 0.035,
+  "gemini_heard_cer": 0.038
  },
  "en-lo": {
   "azure_stt_gemini": {
-   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 89,
+   "critical": 0,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'please' and 'about', making it more direct and less nuanced than the original."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "The word for 'package' (ຫໍ່) is garbled by the inclusion of a Chinese character (荷), making the word unreadable."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is correct but uses a formal term for 'kind' (ມີຄວາມເມດຕາ) that is less natural in conversation."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "The translation contains a typo (a Thai character 'อยู่' instead of the Lao 'ຢູ່') and is slightly wordy."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly renders 'service' as 'ceremony' (ພິທີ), which is too specific and changes the meaning."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is correct but less polite than the original, sounding more like a direct request than a polite 'Could you...' question."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "delay": {
+    "tail_ms": 2048,
+    "per_sentence_median_ms": 1356
+   }
   },
   "gemini_live": {
-   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 83,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is a direct command ('Tell me...') rather than a polite request ('Could you tell me...'), making it less natural and polite."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing for 'a quarter to twelve' ('15 minutes to 12 o'clock') is a literal translation that is understandable but not idiomatic."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "The translation includes a stray, meaningless word ('Yes') at the end, likely a transcription error."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "The translation incorrectly says 'I don't want to give chicken' instead of 'I don't want the chicken', changing who is doing the action."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase for 'how much' (ເທົ່າໃດ) is repeated, making the sentence redundant and awkward."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly renders 'coast' as 'border' (ຊາຍແດນ), which is a significant change in meaning."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "The translation incorrectly says 'today' (ມື້ນີ້) instead of 'tomorrow'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses the word for 'sentence' (ປະໂຫຍກ) instead of 'part', which is a plausible but not precise rendering."
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is too direct ('We want you to come...') and misses the polite, invitational nuance of 'We would love to have you over'."
+    }
+   ]
   },
-  "azure_stt_cer": 0.035
+  "azure_stt_cer": 0.035,
+  "gemini_heard_cer": 0.038
  },
  "en-ht": {
   "azure_stt_gemini": {
-   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 88,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Grammatically awkward ('Otobis la li...'), the verb 'pati' (leaves) is missing."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Uses 'in' instead of the more standard Haitian Creole 'yon' for 'an/one'. The meaning is clear but it's a minor gallicism."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "Translates 'more slowly' as 'pi vit' (faster), completely reversing the meaning of the request."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": true,
+     "note": "The phrase 'olye de m rele' means 'instead of me calling', which incorrectly changes the subject from the listener ('you') to the speaker ('me'). This is a who-did-what error."
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 22,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'building' as 'kay' (house), which is too specific and potentially incorrect."
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    }
+   ],
+   "delay": {
+    "tail_ms": 2138,
+    "per_sentence_median_ms": 1293
+   }
   },
   "gemini_live": {
-   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 88,
+   "critical": 0,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Loses the politeness of the original 'Could you...?' by using an imperative 'Di m' (Tell me)."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "The time 'kenz mwens 12' is an overly literal and unidiomatic way to say 'a quarter to twelve'. 'Onzè karant senk' or 'midi mwennka' would be more natural."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Adds 'Wi' (Yes) at the beginning, which is not in the source text."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "'nan mitan lannwit' means 'in the middle of the night', which is more specific than the original 'at night'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Uses 'gratis' which means 'free of charge', instead of 'lib' which means 'unoccupied/available'. This changes the meaning of the question."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": false,
+     "note": "Omits the object 'me' in both 'text me' ('voye m yon mesaj') and 'calling [me]' ('rele m'), making the instruction incomplete."
+    },
+    {
+     "i": 21,
+     "score": 2,
+     "critical": false,
+     "note": "Omits the verb 'pran' (to take) after 'kòmanse' (started), which is slightly ungrammatical but understandable."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    }
+   ]
   },
-  "azure_stt_cer": 0.035
+  "azure_stt_cer": 0.035,
+  "gemini_heard_cer": 0.045
  },
  "ja-en": {
   "azure_stt_gemini": {
-   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 94,
+   "critical": 1,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Adds 'First' and changes the subject from 'the bus' to 'we'."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "'vegetarian type' is slightly unidiomatic."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslates 'my husband' (夫) as 'Lot', changing who is working."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "delay": {
+    "tail_ms": 1967,
+    "per_sentence_median_ms": 1258
+   }
   },
   "gemini_live": {
-   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 50,
+   "critical": 5,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong time (afternoon vs 5 o'clock) and wrong sentence structure (question vs statement)."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation with wrong dosage instructions (8 o'clock vs 8 hours, 20 vs 2 tablets)."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing, but meaning is correct."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing ('11 45 departure')."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time (10 minutes instead of 20)."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Misinterprets 'from Chicago' as 'from her parents' house'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Fails to convey the core meaning of correcting an order (chicken vs vegetarian)."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Omits 'to Mexico' and uses awkward phrasing."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates 'Thank you for being kind' as a command 'Please be kind'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Completely mistranslates the part about the deposit, making it a question about area rent."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Adds a strange, ungrammatical phrase 'It's a little slow'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Omits the day of the month (3rd) and uses fragmented sentences."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Omits 'hall'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrectly formats the phone number ('55 5' vs '555') and adds a question."
+    },
+    {
+     "i": 21,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 22,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    }
+   ]
   },
-  "azure_stt_cer": 0.037
+  "azure_stt_cer": 0.037,
+  "gemini_heard_cer": 0.196
  },
  "zh-en": {
   "azure_stt_gemini": {
-   "error": "gemini-2.5-flash-native-audio: closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 97,
+   "critical": 1,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong pronoun. The source '她' means 'she', not 'he'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "delay": {
+    "tail_ms": 2251,
+    "per_sentence_median_ms": 1389
+   }
   },
   "gemini_live": {
-   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 58,
+   "critical": 8,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "The opening 'Ask,' is an unnatural literal translation of '请问'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": true,
+     "note": "The dosage instruction is completely wrong. 'It's not eight hours to eat two slices' is meaningless. 'Slices' is also the wrong word for medicine."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "The time is wrong (3:00 PM instead of 3:30 PM). It also misses the key information that the meeting was rescheduled ('改到了')."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "The time is wrong. '差一刻' means a quarter (15 minutes) to the hour, not 'one minute short'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "'You don't worry' is ungrammatical; it should be 'Don't worry'."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing 'took her three children from Chicago' is awkward and doesn't capture the meaning of arriving ('过来了')."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrectly adds 'The first' before 'package'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "The amount is garbled ('1,000 250' instead of 1250) and it incorrectly phrases the statement as a question."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "'We'll be there at 9:00' is not the same as 'We start at 9:00' (我们九点开始)."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong pronoun ('he' for '她'), incomplete date (missing the day '3rd'), and ungrammatical phrasing ('so he's born...')."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Adds 'afternoon', which is not in the source text."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing 'the last part, I didn't understand' is slightly awkward."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": true,
+     "note": "The phone number is wrong ('55' instead of '555')."
+    },
+    {
+     "i": 21,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning. It changes the subject from 'he' to 'I' and adds extraneous information ('Thank you so much')."
+    },
+    {
+     "i": 22,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is a fragment that seems to be incorrectly attached to the previous garbled sentence."
+    },
+    {
+     "i": 23,
+     "score": 1,
+     "critical": true,
+     "note": "Incorrectly says 'Next week' instead of 'Next Friday'."
+    }
+   ]
   },
-  "azure_stt_cer": 0.021
+  "azure_stt_cer": 0.021,
+  "gemini_heard_cer": 0.058
  },
  "km-en": {
-  "azure_stt_gemini": {
-   "error": "no transcript: CancellationErrorCode.TooManyRequests: Connection was closed by the remote host. Error code: 4429. Error details: The number of parallel requests exceeded the number of allowed concurrent transcriptions. SessionId: 83345df2d6eb4acb9eaec8dde88852d2"
-  },
+  "azure_stt_gemini": {},
   "gemini_live": {
-   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 35,
+   "critical": 10,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "\"Brother\" is a literal but unidiomatic translation of the address term. \"The station is where?\" is awkward phrasing."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "The instruction is rendered as a question, and the frequency is wrong (\"5 hours\" instead of \"eight hours\")."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates \"meeting\" as \"boat meeting\" and omits the verb \"moved\"."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "The time is wrong. \"12 15 minutes\" is likely 12:15, but the source says 11:45 (a quarter to twelve)."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "The time is wrong (\"15 minutes\" instead of \"twenty minutes\"), and it omits that the doctor is the one who will see the person."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "The translation is garbled. It incorrectly negates \"my sister\" and mistranslates \"yesterday\" completely."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Omits the crucial detail that the ordered food is \"vegetarian\"."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong translation, seems to be from a different source sentence."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Translates \"husband\" as \"wife\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "\"Let's start the pain\" is a bizarre and incorrect rendering of \"The pain started\"."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "The first part \"Thank you so much for your help\" is completely mistranslated as \"My child is a lot for helping\"."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "The first question \"Is this seat free?\" is mistranslated as \"This place is not enough.\""
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslates \"deposit\" (លុយកក់) as \"money from selling the rent\"."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "The start time is wrong (\"5 o'clock\" instead of \"nine\")."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong translation."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Translates \"was born\" as \"works\" and \"March\" as \"this month\"."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates the conditional \"If it rains\" as a statement \"it's going to rain\". Also mistranslates \"move the picnic\" as \"change to a car and ride together\"."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates \"I didn't understand the last part\" as \"I'm listening to the last part again.\""
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": true,
+     "note": "The phone number is garbled."
+    },
+    {
+     "i": 21,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong translation. \"Feeling dizzy\" is translated as \"has a shirt back\"."
+    },
+    {
+     "i": 22,
+     "score": 0,
+     "critical": true,
+     "note": "The directions are completely garbled. \"Turn left at the second traffic light\" becomes \"the left is in stock number two\" and \"the third building\" becomes \"the third Sunday\"."
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "\"Friday after that\" is a slightly awkward rendering of \"next Friday\"."
+    }
+   ]
   },
-  "azure_stt_cer": null
+  "azure_stt_cer": null,
+  "gemini_heard_cer": 0.226
  },
  "lo-en": {
   "azure_stt_gemini": {
-   "error": "no transcript: CancellationErrorCode.TooManyRequests: Connection was closed by the remote host. Error code: 4429. Error details: The number of parallel requests exceeded the number of allowed concurrent transcriptions. SessionId: cbe7d030689f4739851800b6d0affa87"
+   "score_pct": 56,
+   "critical": 9,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "The time is wrong (8:30 vs 5:00) and the destination 'airport' is missing."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "The time is wrong (3 p.m. vs 3:30 p.m.) and the original day 'Tuesday' is omitted."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "The critical medical information 'allergic to penicillin' is completely mistranslated as 'her nickname is Tiny'."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Key information is omitted; the translation does not mention that 'the doctor will see you'."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "The meaning is completely wrong. It incorrectly identifies the person ('I' instead of 'my sister') and the location ('Costco' instead of 'Chicago')."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is completely wrong and has no relation to the source sentence about food."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Incorrectly states who is working ('we' instead of 'my husband')."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Partially wrong. 'You'll do great' is a mistranslation of 'you have been very kind'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "The rent amount ($1,250) is missing."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "Both the start time ('dawn' instead of 'nine') and the duration ('two hours' instead of 'an hour and a half') are wrong."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Contains multiple errors: wrong gender ('He' vs 'She'), wrong day ('8th' vs '3rd'), and the year is missing."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning is correct, but it adds 'Could you repeat that?' which is not in the source."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": true,
+     "note": "The phone number is missing."
+    },
+    {
+     "i": 21,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning is correct but omits the word 'new' when referring to the medication."
+    },
+    {
+     "i": 22,
+     "score": 1,
+     "critical": false,
+     "note": "Partially wrong. It incorrectly adds 'police station', which could cause confusion."
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning is correct but omits the word 'next'."
+    }
+   ],
+   "delay": {
+    "tail_ms": 1740,
+    "per_sentence_median_ms": 1292
+   }
   },
   "gemini_live": {
-   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 35,
+   "critical": 8,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation. It changes the statement to a question and mistranslates 'train' and 'airport'."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning is correct but 'eat pills' is unidiomatic, and it omits 'in a day'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "The time is wrong (3 PM vs 3:30 PM)."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "The critical medical information 'allergic to penicillin' is completely mistranslated as 'we're going to be students together'."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "The main action is wrong ('The car won't start' instead of 'The bus leaves')."
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": true,
+     "note": "Mostly wrong. It misses the key information about the doctor and has the wrong time ('tomorrow morning' instead of 'twenty minutes')."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "Almost entirely garbled. It misses 'yesterday', 'sister', and 'Chicago'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Partially wrong. It misses the key contrast between 'chicken' and 'vegetarian'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled translation that makes no sense."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning correct, but the phrasing 'Those of us' is awkward."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning correct, but the phrasing 'About the pain' is awkward."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Partially wrong. 'Dad is very happy to receive help' is a mistranslation of 'Thank you so much for your help'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning correct, but 'The place is free to sit' is an awkward phrasing."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "The rent amount is missing, and it incorrectly phrases the first part as a question."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "The beginning of the sentence is garbled ('That is our we start'), and it omits 'service'."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning correct, but the phrasing 'can you?' is awkward."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong. It mistranslates 'She was born' as 'it happened', and gets the day and year wrong."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning mostly correct, but it omits 'church', translating 'church hall' as just 'auditorium'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning is understandable, but 'Can I apologize?' is a very awkward and incorrect translation of 'I'm sorry'."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": true,
+     "note": "The phone number is missing, making the sentence incomplete."
+    },
+    {
+     "i": 21,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 22,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    }
+   ]
   },
-  "azure_stt_cer": null
+  "azure_stt_cer": 0.216,
+  "gemini_heard_cer": 0.996
  },
  "ht-en": {
-  "azure_stt_gemini": {
-   "error": "no transcript: CancellationErrorCode.BadRequest: Connection was closed by the remote host. Error code: 1007. Error details: Invalid 'language' query parameter or unknown custom deployment. SessionId: 1c1b5844127b48ae906670453507e5ec"
-  },
+  "azure_stt_gemini": {},
   "gemini_live": {
-   "error": "closed 1008 Permission 'aiplatform.endpoints.predict' denied on resource '//aiplatform.googleapis.com/projects/lithos-talk/locations/gl"
+   "score_pct": 38,
+   "critical": 10,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject ('The woman' instead of 'I')."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "The dosage instruction is critically incomplete, missing the frequency 'every eight hours'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "The original meeting time is wrong ('3' instead of '3:30')."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing ('Little girl has 14 years old' instead of 'My daughter is 14')."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning and misses the critical time information."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "The meaning is garbled; 'Don't worry about the doctor' is incorrect, and the second clause is nonsensical."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong subject ('He' instead of 'my sister') and misses key details like 'yesterday' and 'from Chicago'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "The first part is wrong ('I don't want to be there' instead of 'I don't want the chicken')."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinates 'tell me the handle' instead of translating 'on Sunday'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrectly states the pain is getting worse 'now' instead of 'at night'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "The second part of the question is completely wrong ('he's tired of waiting for someone' instead of 'are you waiting for someone?')."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Critically wrong amount ('150 dollars' instead of '$1,250'). Also translates 'Lwaye a' (rent) as 'The law'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Misses the duration of the service ('an hour and a half') and hallucinates a different meaning."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Misses the day (3rd) and year (2019) of birth. 'It was done' is a poor translation for 'She was born'."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Hallucinates 'two meters' instead of 'tomorrow' and uses the wrong subject ('they' instead of 'we')."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward start with 'Because' and uses present tense ('don't understand') instead of past tense ('didn't understand')."
+    },
+    {
+     "i": 20,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation. Misses the phone number and the core instruction 'text me instead of calling'."
+    },
+    {
+     "i": 21,
+     "score": 1,
+     "critical": false,
+     "note": "Incomplete translation. It misses the main clause 'he has been feeling dizzy'."
+    },
+    {
+     "i": 22,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    }
+   ]
   },
-  "azure_stt_cer": null
+  "azure_stt_cer": null,
+  "gemini_heard_cer": 0.276
  }
 }

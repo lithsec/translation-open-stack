@@ -91,22 +91,26 @@ def cer(ref, hyp):
 
 
 def delays(d, mode):
-    """For each sentence end, ms until the next translated audio starts."""
+    """How far behind the speaker it runs. per_sentence (the pipeline, one turn
+    per sentence): from each sentence's end to the next answer's first audio.
+    tail (both): from the last sentence's end to the last translated audio,
+    i.e. how long the room waits after the speaker stops."""
     r = load(mode, d)
     if not r or r.get("err"):
         return None
     marks = json.load(open(os.path.join(HERE, "audio", f"{d.split('-')[0]}.json")))["sentences"]
-    starts = sorted(t["audioAt"] for t in r["turns"] if t["audioAt"] is not None)
-    out = []
-    for m in marks:
-        end = m["end"] * 1000
-        nxt = next((s for s in starts if s >= end), None)
-        if nxt is not None:
-            out.append(nxt - end)
-    if not out:
-        return None
-    out.sort()
-    return {"median_ms": round(out[len(out) // 2]), "p90_ms": round(out[int(len(out) * 0.9) - 1])}
+    out = {}
+    chunks = sorted(r.get("chunks") or [])
+    # Live Translate streams audio (silence included) until the session
+    # closes, so its last chunk says nothing about when it finished speaking.
+    if chunks and mode == "pipe":
+        out["tail_ms"] = round(chunks[-1] - marks[-1]["end"] * 1000)
+    if mode == "pipe":
+        starts = sorted(t["audioAt"] for t in r["turns"] if t["audioAt"] is not None)
+        lags = sorted(n - m["end"] * 1000 for m in marks for n in [next((s for s in starts if s >= m["end"] * 1000), None)] if n is not None)
+        if lags:
+            out["per_sentence_median_ms"] = round(lags[len(lags) // 2])
+    return out or None
 
 
 def main(dirs):
@@ -121,6 +125,8 @@ def main(dirs):
             r = load(mode, d)
             entry = {"error": r.get("err")} if r and r.get("err") else {}
             if g:
+                # One grade per sentence: the grader once returned 25 items.
+                g = list({x["i"]: x for x in g if isinstance(x.get("i"), int) and 0 <= x["i"] < 24}.values())
                 entry["score_pct"] = round(100 * sum(x["score"] for x in g) / (3 * 24))
                 entry["critical"] = sum(1 for x in g if x.get("critical"))
                 entry["grades"] = g
@@ -143,8 +149,13 @@ def main(dirs):
             return "error"
         if "score_pct" not in e:
             return "—"
-        dl = e.get("delay", {}).get("median_ms")
-        return f"{e['score_pct']}% ({e['critical']} crit){f', {dl/1000:.1f} s' if dl is not None else ''}"
+        dl = e.get("delay", {})
+        lag = []
+        if "per_sentence_median_ms" in dl:
+            lag.append(f"{dl['per_sentence_median_ms']/1000:.1f} s/sentence")
+        if "tail_ms" in dl:
+            lag.append(f"ends +{dl['tail_ms']/1000:.1f} s")
+        return f"{e['score_pct']}% ({e['critical']} crit)" + (f", {', '.join(lag)}" if lag else "")
     print("| Direction | Azure STT → Gemini | Gemini Live | Azure heard (CER) | Gemini heard (CER) |")
     print("|---|---|---|---|---|")
     for d, row in results.items():

@@ -20,6 +20,7 @@ TOK="$(gcloud auth print-access-token)" || { echo "gcloud login needed: run  gcl
 export TOK
 export GOOGLE_CLOUD_PROJECT="${GOOGLE_CLOUD_PROJECT:-${VERTEX_PROJECT:-$(gcloud config get-value project 2>/dev/null)}}"
 
+rm -rf out/pipe out/live out/judge  # graded side by side, so both run fresh
 echo "== 2/4 Azure text -> Gemini voice (real time, ~3 min)"
 node gemini_live.mjs pipe $DIRS
 echo "== 3/4 Gemini Live Translate on the same audio (real time, ~3 min)"

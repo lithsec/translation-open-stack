@@ -24,3 +24,44 @@ the start of the next translated audio, median over the 24.
 Run it all with `bash run.sh <env file with AZURE_SPEECH_KEY and AZURE_SPEECH_REGION>`
 (Gemini uses your `gcloud` login and project). Audio, raw outputs and the venv
 are not committed; `results.json` is.
+
+## Results (17 October 2026)
+
+Blind-graded by Gemini 2.5 Pro with September's prompt; score = share of the
+24 sentences' points (3 each); "crit" = sentences with a wrong number, time,
+dose, negation or who-did-what. Delay for the pipeline = from the end of each
+sentence to the start of its translated audio (median); Gemini Live speaks
+mid-sentence, so it has no comparable per-sentence figure.
+
+| Direction | Azure STT → Gemini | Gemini Live | Azure heard (CER) | Gemini heard (CER) |
+|---|---|---|---|---|
+| en→ja | **90%** (0 crit), 1.3 s | 74% (4 crit) | 4% | 3% |
+| en→zh | **100%** (0 crit), 1.3 s | 74% (6 crit) | 4% | 4% |
+| en→km | 83% (0 crit), 1.3 s | 83% (2 crit) | 4% | 4% |
+| en→lo | **89%** (0 crit), 1.4 s | 83% (2 crit) | 4% | 4% |
+| en→ht | 88% (2 crit), 1.3 s | 88% (0 crit) | 4% | 4% |
+| ja→en | **94%** (1 crit), 1.3 s | 50% (5 crit) | 4% | 20% |
+| zh→en | **97%** (1 crit), 1.4 s | 58% (8 crit) | 2% | 6% |
+| km→en | — (Azure quota exceeded) | 35% (10 crit) | — | 23% |
+| lo→en | **56%** (9 crit), 1.3 s | 35% (8 crit) | 22% | (other script) |
+| ht→en | — (no Azure Haitian Creole) | 38% (10 crit) | — | 28% |
+
+- **Better hearing is the difference.** Into English from Japanese and
+  Mandarin, Azure misheard 2–4% of characters against Gemini Live's 6–20%, and
+  the pipeline scored 94–97% against 50–58%.
+- **Out of English, Gemini translating from clean text** beat Gemini Live
+  interpreting the audio in Japanese and Mandarin, tied in Khmer and Haitian
+  Creole, and made almost no critical errors.
+- **Delay:** about 1.3 s after each sentence ends (Azure's final ~0.8 s, Gemini's
+  first audio ~0.5 s after that), close to the open stack's 0.8 s.
+- **Low-resource speakers stay hard.** Azure heard Lao with 22% error and the
+  pipeline still scored only 56%; it has no Haitian Creole, and Khmer could not
+  be run (the Azure account's quota ran out).
+- **Caveats:** synthetic speech only (macOS voices; MMS for km/lo/ht, which may
+  be harder to hear than September's VoxCPM2 voices, so the km/lo/ht→en Gemini
+  Live scores are well below September's); one run; the grader is Gemini.
+- **Harness note:** one long Gemini session per direction re-translated every
+  earlier sentence as they piled up; the pipeline uses a fresh session per
+  sentence (opened while the previous one speaks). Gemini Live Translate streams
+  audio until the session closes, so no "finished speaking" time is reported
+  for it.
