@@ -1,152 +1,152 @@
 {
  "en-ja": {
   "azure_only": {
-   "score_pct": 96,
+   "score_pct": 93,
    "critical": 0,
    "grades": [
     {
      "i": 0,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 1,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 2,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 3,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 4,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 5,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 6,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 7,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 8,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The phrase 「ベジタリアンの選択肢」(vegetarian option) is a bit too literal. A more natural phrasing would be 「ベジタリアン向けの料理」 or 「ベジタリアンメニュー」."
     },
     {
      "i": 9,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 10,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The phrase 「仕事中なので」(because he is in the middle of work) is slightly unnatural. 「仕事なので」(because he has work) is more common and idiomatic."
     },
     {
      "i": 11,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 12,
      "score": 2,
      "critical": false,
-     "note": "The word for 'help', ご助力 (go-joryoku), is a bit too formal and stiff for this context."
+     "note": "「ご助力」 is very formal. 「助けていただき」 would be more common. 「とても親切でした」 is a bit stiff; integrating it as 「ご親切にありがとうございました」 would be more natural."
     },
     {
      "i": 13,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 14,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 15,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 16,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 17,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 18,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 19,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 20,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 21,
      "score": 2,
      "critical": false,
-     "note": "The phrase めまいを感じています (memai o kanjiteimasu) is a bit literal for 'feeling dizzy'. A more natural phrasing would be めまいがします (memai ga shimasu)."
+     "note": "「めまいを感じています」 is a literal translation of 'feeling dizzy'. The more natural Japanese expression is 「めまいがします」."
     },
     {
      "i": 22,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 23,
      "score": 2,
      "critical": false,
-     "note": "The verb お呼びしたい (oyobi shitai) can mean 'to summon' and sounds a bit awkward. A more natural choice for 'invite' would be お招きしたい (omaneki shitai)."
+     "note": "「お呼びしたいです」 is a bit awkward for an invitation to dinner. 「お招きしたいです」 or 「ご招待したいです」 would be more natural."
     }
    ],
    "delay": {
@@ -154,26 +154,26 @@
    }
   },
   "azure_stt_gemini": {
-   "score_pct": 86,
+   "score_pct": 89,
    "critical": 0,
    "grades": [
     {
      "i": 0,
      "score": 2,
      "critical": false,
-     "note": "The phrasing is a bit too direct compared to the polite request 'Could you tell me...'"
+     "note": "The translation is a bit too direct and lacks the politeness of 'Could you tell me...'. A phrase like 「教えてもらえますか」 would be better."
     },
     {
      "i": 1,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The phrase 「必要があります」 is too formal and stiff for this context. 「乗らなければなりません」 or 「乗らないと」 would be more natural."
     },
     {
      "i": 2,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 3,
@@ -185,97 +185,97 @@
      "i": 4,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 5,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 6,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 7,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 8,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 9,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 10,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 11,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 12,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The phrasing is a bit stiff and formal, especially ご協力 (go-kyouryoku) for 'your help'."
+     "note": "..."
     },
     {
      "i": 13,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 14,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 15,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The translation omits 'Our'."
+     "note": "..."
     },
     {
      "i": 16,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 17,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 18,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 19,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 20,
@@ -285,21 +285,21 @@
     },
     {
      "i": 21,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The translation omits the subject 'He', which makes the sentence less clear out of context."
+     "note": "..."
     },
     {
      "i": 22,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 23,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     }
    ],
    "delay": {
@@ -307,307 +307,462 @@
     "per_sentence_median_ms": 1296
    }
   },
-  "gemini_live": {
-   "score_pct": 65,
-   "critical": 4,
+  "gladia_stt_gemini": {
+   "score_pct": 86,
+   "critical": 0,
    "grades": [
     {
      "i": 0,
      "score": 2,
      "critical": false,
-     "note": "The phrasing is a bit too direct compared to the polite request 'Could you tell me...'"
+     "note": "The term 「電車駅」 is slightly redundant and unnatural. 「駅」 is sufficient and more common."
     },
     {
      "i": 1,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The translation omits the destination 'to the airport'."
+     "note": "The phrase 「必要があります」 is too formal and stiff for this context. 「乗らなければなりません」 or 「乗らないと」 would be more natural."
     },
     {
      "i": 2,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The instruction is awkwardly split into two sentences with 「そして」, which feels unnatural."
     },
     {
      "i": 3,
-     "score": 1,
-     "critical": true,
-     "note": "The translation omits 'pm' (午後) and 'am' (午前), making the times ambiguous."
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'pm' and 'am', which were present in the source."
     },
     {
      "i": 4,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 5,
-     "score": 0,
-     "critical": true,
-     "note": "The time is wrong. 'A quarter to twelve' (11:45) is incorrectly translated as 2:15."
+     "score": 3,
+     "critical": false,
+     "note": "..."
     },
     {
      "i": 6,
-     "score": 0,
+     "score": 3,
      "critical": false,
-     "note": "'Please don't worry' is mistranslated as 待たないでください (matanaide kudasai), which means 'Please don't wait'."
+     "note": "..."
     },
     {
      "i": 7,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The translation adds 'Yes' (はい) at the beginning, which is not in the source."
+     "note": "..."
     },
     {
      "i": 8,
-     "score": 0,
+     "score": 3,
      "critical": false,
-     "note": "The translation mistranslates 'chicken' as 子供たち (kodomotachi), meaning 'children'."
+     "note": "..."
     },
     {
      "i": 9,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The word order is unnatural and sounds like two separate fragments rather than a single question."
+     "note": "..."
     },
     {
      "i": 10,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 11,
-     "score": 3,
+     "score": 0,
      "critical": false,
-     "note": ""
+     "note": "Sentence not translated."
     },
     {
      "i": 12,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The translation omits the phrase 'for your help'."
+     "note": "..."
     },
     {
      "i": 13,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 14,
-     "score": 1,
-     "critical": true,
-     "note": "The amount for the deposit is wrong. 'One month's rent' is translated as 3ヶ月分 (san-kagetsu-bun), meaning 'three months' worth'."
+     "score": 2,
+     "critical": false,
+     "note": "The use of 「そして」 (and then) to connect the two clauses is slightly unnatural. A simple conjunction like 「で」 or no conjunction would be better."
     },
     {
      "i": 15,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 16,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 17,
      "score": 2,
      "critical": false,
-     "note": "The sentence structure is awkward, repeating the concept of 'born' (生まれで...生まれました) and unnaturally splitting the date from the year."
+     "note": "The sentence is awkwardly split into two fragments, which is unnatural."
     },
     {
      "i": 18,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 19,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 20,
      "score": 2,
      "critical": false,
-     "note": "'Text me' is translated as メールしてください (me-ru shite kudasai), which means 'please email me'."
+     "note": "The phone number is awkwardly split into two parts ('555です。0142です')."
     },
     {
      "i": 21,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    }
+   ],
+   "delay": {
+    "tail_ms": 1982,
+    "per_sentence_median_ms": 1222
+   }
+  },
+  "gemini_live": {
+   "score_pct": 69,
+   "critical": 3,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "The translation omits 'to the airport'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'pm' and 'am', which were present in the source."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong time. 'A quarter to twelve' (11:45) is incorrectly translated as '2時15分' (2:15)."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "'Please don't worry' is mistranslated as '待たないでください' (Please don't wait)."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "The word 'はい' (Yes) is added at the beginning without any basis in the source text."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": false,
+     "note": "Catastrophic mistranslation. 'Chicken' is translated as '子供たち' (children), resulting in the sentence 'I don't want the children'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong amount. 'One month's rent' is incorrectly translated as '3ヶ月分' (three months' worth)."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "The verb '生まれました' (was born) is repeated, which is redundant and unnatural."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "The word '変更します' (to change) is a bit stiff for moving a picnic. '移します' (to move) would be more natural."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": false,
+     "note": "'Text me' is translated as 'メールしてください' (please email me). While sometimes used interchangeably, they are different methods of communication."
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": "..."
     },
     {
      "i": 22,
      "score": 1,
      "critical": true,
-     "note": "The translation says 'next traffic light' (次の信号) instead of 'second traffic light' and omits 'on the right'."
+     "note": "Wrong direction. 'The second traffic light' is translated as '次の信号' (the next traffic light). It also omits 'on the right'."
     },
     {
      "i": 23,
      "score": 1,
      "critical": false,
-     "note": "The translation omits 'next Friday', using the vague word 今度 (kondo), which means 'next time' or 'soon'."
+     "note": "The specific time 'next Friday' is omitted and replaced with the vague term '今度' (next time/soon)."
     }
    ]
   },
   "azure_stt_cer": 0.035,
+  "gladia_stt_cer": 0.016,
   "gemini_heard_cer": 0.033
  },
  "en-zh": {
   "azure_only": {
-   "score_pct": 99,
+   "score_pct": 100,
    "critical": 0,
    "grades": [
     {
      "i": 0,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 1,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 2,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 3,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 4,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 5,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 6,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 7,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 8,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 9,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 10,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 11,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 12,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 13,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 14,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 15,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The word 'service' was translated as '礼拜' (worship service), which is a specific interpretation that may not be correct in a general context."
+     "note": "..."
     },
     {
      "i": 16,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 17,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 18,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 19,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 20,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 21,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 22,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 23,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     }
    ],
    "delay": {
@@ -622,145 +777,145 @@
      "i": 0,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 1,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 2,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 3,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 4,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 5,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 6,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The word '接见' (to grant an interview) is too formal for a doctor seeing a patient. '见你' would be more natural."
     },
     {
      "i": 7,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 8,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The phrase '素食选项' is a literal but slightly unidiomatic translation of 'vegetarian option'."
+     "note": "..."
     },
     {
      "i": 9,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 10,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 11,
      "score": 2,
      "critical": false,
-     "note": "The wording '始于' (started) and '加剧' (worsens) is a bit too formal or literary for a conversational context."
+     "note": "The word choice ('始于', '加剧') is a bit formal/written for a spoken context."
     },
     {
      "i": 12,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 13,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The phrase '有人在等' is slightly ambiguous. '你在等人吗' (Are you waiting for someone?) would be clearer."
     },
     {
      "i": 14,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 15,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The word 'service' was translated as '礼拜' (worship service), which is a specific interpretation that may not be correct in a general context."
+     "note": "..."
     },
     {
      "i": 16,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 17,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 18,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 19,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 20,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 21,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 22,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 23,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     }
    ],
    "delay": {
@@ -768,162 +923,317 @@
     "per_sentence_median_ms": 1279
    }
   },
-  "gemini_live": {
-   "score_pct": 74,
-   "critical": 5,
+  "gladia_stt_gemini": {
+   "score_pct": 88,
+   "critical": 0,
    "grades": [
     {
      "i": 0,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The translation '你告诉我...' is a command ('Tell me...') rather than a polite request ('Could you tell me...'), making it sound blunt."
+     "note": "..."
     },
     {
      "i": 1,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 2,
-     "score": 1,
-     "critical": true,
-     "note": "The instruction '去每天吃两片' (go eat two tablets every day) is incorrect and contradicts 'every eight hours'. The correct dosage frequency is omitted."
+     "score": 2,
+     "critical": false,
+     "note": "The sentence is broken into two parts and uses two different measure words ('片' and '粒'), which is slightly awkward."
     },
     {
      "i": 3,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 4,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 5,
-     "score": 0,
-     "critical": true,
-     "note": "Translated 'a quarter to twelve' as '15分前' (15 minutes ago), which is a completely wrong time."
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing is a bit literal and awkward ('不是在中午'). '不是中午发车' would be more natural."
     },
     {
      "i": 6,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 7,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 8,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 9,
-     "score": 0,
+     "score": 3,
      "critical": false,
-     "note": "The translation asks 'how' to send a package ('怎么样才能'), not 'how much it costs'."
+     "note": "..."
     },
     {
      "i": 10,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 11,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The word choice ('始于', '变得更糟') is a bit formal and literal for a spoken context."
     },
     {
      "i": 12,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The translation is broken into two short, choppy sentences."
     },
     {
      "i": 13,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The phrase '有人在等' is slightly ambiguous. '你在等人吗' (Are you waiting for someone?) would be clearer."
     },
     {
      "i": 14,
-     "score": 1,
-     "critical": true,
-     "note": "The rent amount is wrong ($1200 instead of $1,250)."
+     "score": 3,
+     "critical": false,
+     "note": "..."
     },
     {
      "i": 15,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The phrasing is disjointed, likely due to pauses in the original speech."
     },
     {
      "i": 16,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 17,
      "score": 2,
      "critical": false,
-     "note": "The year '2019' is translated as '19年', which is ambiguous and could be misunderstood as 1919."
+     "note": "The translation is broken into two sentences, which is a bit choppy."
     },
     {
      "i": 18,
-     "score": 0,
-     "critical": true,
-     "note": "The condition is reversed; it says 'if it doesn't rain' ('如果不下雨') instead of 'if it rains'."
+     "score": 3,
+     "critical": false,
+     "note": "..."
     },
     {
      "i": 19,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
+    },
+    {
+     "i": 20,
+     "score": 2,
+     "critical": false,
+     "note": "The pause in the phone number is unnatural, and the conjunction '而不要' is a bit formal for this context."
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 22,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase '那它是' is an awkward transition."
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    }
+   ],
+   "delay": {
+    "tail_ms": 1971,
+    "per_sentence_median_ms": 1201
+   }
+  },
+  "gemini_live": {
+   "score_pct": 71,
+   "critical": 6,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "The translation '你告诉我' is a command, not a polite request like the source 'Could you tell me'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": true,
+     "note": "The dosage instruction is contradictory and wrong. '去每天吃两片，每8小时一次' (go eat two tablets per day, once every 8 hours) is garbled and incorrect."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "The translation omits 'pm' and 'am' (下午/上午), which were in the source and add clarity."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "The time 'a quarter to twelve' (11:45) is incorrectly translated as '15分前' (15 minutes ago)."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "The question 'How much does it cost' (asking about price) is mistranslated as '怎么样才能' (asking about the method)."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is broken into two short, choppy sentences."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "The rent amount is wrong. It should be $1,250, but was translated as '1200美元'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": "..."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "The year '2019' is translated as '19年', which is ambiguous and incomplete."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "The meaning is inverted due to a wrong negation. 'If it rains' was translated as '如果明天不下雨' (If it doesn't rain)."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": "..."
     },
     {
      "i": 20,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 21,
      "score": 2,
      "critical": false,
-     "note": "The word order is slightly unnatural, but the meaning is correct."
+     "note": "The word order is slightly unnatural. '自从...就...' would be a more common structure."
     },
     {
      "i": 22,
      "score": 3,
      "critical": false,
-     "note": ""
+     "note": "..."
     },
     {
      "i": 23,
-     "score": 0,
+     "score": 1,
      "critical": true,
-     "note": "Translated 'next Friday' as '今晚' (tonight), which is a critical time error."
+     "note": "The time is wrong. 'next Friday' was translated as '今晚' (tonight)."
     }
    ]
   },
   "azure_stt_cer": 0.035,
+  "gladia_stt_cer": 0.016,
   "gemini_heard_cer": 0.038
  },
  "en-km": {
   "azure_only": {
-   "score_pct": 88,
+   "score_pct": 89,
    "critical": 0,
    "grades": [
     {
@@ -934,15 +1244,15 @@
     },
     {
      "i": 1,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "'ចាប់រថភ្លើង' is a literal translation of 'catch the train'. The more idiomatic Khmer expression is 'ជិះរថភ្លើងឱ្យទាន់' or simply 'ជិះរថភ្លើង'."
+     "note": ""
     },
     {
      "i": 2,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The verb 'យក' (to take/get) is understandable, but 'លេប' (to swallow) is the more common and appropriate term for taking tablets/pills."
+     "note": ""
     },
     {
      "i": 3,
@@ -976,9 +1286,9 @@
     },
     {
      "i": 8,
-     "score": 2,
+     "score": 1,
      "critical": false,
-     "note": "The term 'សាច់បន្លែ' (vegetable meat) is an unusual and slightly confusing translation for 'vegetarian option'. The standard term is 'ម្ហូបបួស' (vegetarian food)."
+     "note": "\"ជម្រើសសាច់បន្លែ\" (meat-vegetable option) is a mistranslation of \"vegetarian option\"."
     },
     {
      "i": 9,
@@ -1002,7 +1312,7 @@
      "i": 12,
      "score": 2,
      "critical": false,
-     "note": "The word 'មេត្តា' (merciful, compassionate) is too strong and formal for 'kind' in this context. 'ចិត្តល្អ' (good-hearted) is more appropriate."
+     "note": "\"មានមេត្តា\" (merciful) is a bit strong for \"kind\"."
     },
     {
      "i": 13,
@@ -1024,9 +1334,9 @@
     },
     {
      "i": 16,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The translation misses the word 'more'. It says 'speak a little slowly' ('និយាយយឺតបន្តិច'), not 'speak a little more slowly' ('និយាយឱ្យយឺតជាងនេះបន្តិច')."
+     "note": ""
     },
     {
      "i": 17,
@@ -1038,13 +1348,13 @@
      "i": 18,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly renders 'picnic' as 'ការបរិច្ឆេទ' (date/appointment) and 'church hall' as 'សាលាព្រះវិហារ' (church school)."
+     "note": "Mistranslates \"picnic\" as \"ការបរិច្ឆេទ\" (date)."
     },
     {
      "i": 19,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "\"សូមអភ័យទោស\" is overly formal for \"I'm sorry\"."
     },
     {
      "i": 20,
@@ -1056,7 +1366,7 @@
      "i": 21,
      "score": 1,
      "critical": false,
-     "note": "The translation uses 'វង្វេងក្បាល' (confused/disoriented), which is not the same as 'dizzy' (វិលមុខ). This is a mistranslation of the symptom."
+     "note": "\"វង្វេងក្បាល\" (disoriented/confused) is a mistranslation of \"dizzy\"."
     },
     {
      "i": 22,
@@ -1076,7 +1386,7 @@
    }
   },
   "azure_stt_gemini": {
-   "score_pct": 81,
+   "score_pct": 85,
    "critical": 0,
    "grades": [
     {
@@ -1095,7 +1405,7 @@
      "i": 2,
      "score": 0,
      "critical": false,
-     "note": "The sentence was not translated."
+     "note": "Missing sentence."
     },
     {
      "i": 3,
@@ -1119,7 +1429,7 @@
      "i": 6,
      "score": 1,
      "critical": false,
-     "note": "The second half of the sentence ('the doctor will see you in about twenty minutes') is missing."
+     "note": "Incomplete sentence, only translates \"Please don't worry\"."
     },
     {
      "i": 7,
@@ -1153,15 +1463,15 @@
     },
     {
      "i": 12,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The translation uses the English word 'kindness' instead of a Khmer equivalent like 'ចិត្តល្អ'."
+     "note": "Uses English word \"kindness\"."
     },
     {
      "i": 13,
      "score": 2,
      "critical": false,
-     "note": "The addition of 'ត្រៀម' (prepare) before 'រង់ចាំ' (wait) is unnecessary and makes the sentence slightly unnatural."
+     "note": "Awkward phrasing \"ត្រៀម រង់ចាំ\" (preparing to wait)."
     },
     {
      "i": 14,
@@ -1173,7 +1483,7 @@
      "i": 15,
      "score": 1,
      "critical": false,
-     "note": "The word 'service' was mistranslated as 'ពិធីការិនី' (hostess/female MC)."
+     "note": "\"ពិធីការិនី\" (hostess) is a mistranslation of \"service\"."
     },
     {
      "i": 16,
@@ -1183,15 +1493,15 @@
     },
     {
      "i": 17,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The translation incorrectly renders 'near the coast' as 'ចម្ងាយ ពី ឆ្នេរ សមុទ្រ' (a distance from the coast), which has the opposite meaning."
+     "note": "\"ចម្ងាយ ពី\" (a distance from) is less accurate than \"near\"."
     },
     {
      "i": 18,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The translation omits the object 'the picnic', only saying 'we will move the place'."
+     "note": "Omits \"picnic\"."
     },
     {
      "i": 19,
@@ -1229,15 +1539,15 @@
     "per_sentence_median_ms": 1338
    }
   },
-  "gemini_live": {
-   "score_pct": 78,
-   "critical": 2,
+  "gladia_stt_gemini": {
+   "score_pct": 88,
+   "critical": 1,
    "grades": [
     {
      "i": 0,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The translation 'ប្រាប់ខ្ញុំមក' is a bit too direct and demanding for 'Could you tell me'. 'តើអ្នកអាចប្រាប់ខ្ញុំបានទេ' would be more polite and natural."
+     "note": ""
     },
     {
      "i": 1,
@@ -1247,9 +1557,163 @@
     },
     {
      "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number: says \"five\" instead of \"six\" tablets."
+    },
+    {
+     "i": 3,
      "score": 2,
      "critical": false,
-     "note": "The verb 'យក' (to take/get) is understandable, but 'លេប' (to swallow) is the more common and appropriate term for taking tablets/pills."
+     "note": "\"កែប្រែ\" (adjusted) is slightly less natural than \"moved\"."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing \"ត្រៀម រង់ចាំ\" (preparing to wait)."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward translation of \"move the picnic\"."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 2,
+     "critical": false,
+     "note": "Redundant phrasing \"ផ្ញើ សារ ជា សារ\" (send a message as a message)."
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 1,
+     "critical": false,
+     "note": "Incomplete sentence, missing the second clause."
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing for \"have you over for dinner\"."
+    }
+   ],
+   "delay": {
+    "tail_ms": 2471,
+    "per_sentence_median_ms": 1246
+   }
+  },
+  "gemini_live": {
+   "score_pct": 82,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Translates a polite request as a command."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 3,
@@ -1261,13 +1725,13 @@
      "i": 4,
      "score": 1,
      "critical": false,
-     "note": "The translation uses the Thai word 'แพ้' (phae) for 'allergic'. While some Khmer speakers might understand it, the correct Khmer term is 'អាលែកហ្ស៊ី'."
+     "note": "Uses a Thai word \"แพ้\" for \"allergic\"."
     },
     {
      "i": 5,
      "score": 0,
      "critical": true,
-     "note": "The time is wrong. 'a quarter to twelve' (11:45) was translated as 'ម៉ោង១២ កន្លះ' (12:30)."
+     "note": "Wrong time. Translates \"a quarter to twelve\" (11:45) as \"12:30\"."
     },
     {
      "i": 6,
@@ -1279,13 +1743,13 @@
      "i": 7,
      "score": 2,
      "critical": false,
-     "note": "The translation adds 'បាទ' (Yes) at the beginning, which was not in the source sentence."
+     "note": "Adds an unprompted \"បាទ\" (Yes)."
     },
     {
      "i": 8,
      "score": 2,
      "critical": false,
-     "note": "The phrasing 'ខ្ញុំមិនចង់ឱ្យមានសាច់មាន់ទេ' (I don't want there to be chicken) is slightly awkward. 'ខ្ញុំមិនចង់បានសាច់មាន់ទេ' is more natural."
+     "note": "Awkward phrasing \"ខ្ញុំមិនចង់ឱ្យមានសាច់មាន់ទេ\"."
     },
     {
      "i": 9,
@@ -1337,21 +1801,21 @@
     },
     {
      "i": 17,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The translation uses 'ទីក្រុង' (city) for 'town'. While acceptable, 'ទីប្រជុំជន' is a more accurate term."
+     "note": ""
     },
     {
      "i": 18,
-     "score": 0,
+     "score": 1,
      "critical": true,
-     "note": "The translation incorrectly says 'ថ្ងៃនេះ' (today) instead of 'tomorrow'."
+     "note": "Wrong time reference: says \"today\" instead of \"tomorrow\"."
     },
     {
      "i": 19,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly uses 'ប្រយោគ' (sentence) instead of 'ផ្នែក' (part)."
+     "note": "Mistranslates \"part\" as \"ប្រយោគ\" (sentence)."
     },
     {
      "i": 20,
@@ -1375,16 +1839,17 @@
      "i": 23,
      "score": 2,
      "critical": false,
-     "note": "The phrase 'ចង់ឱ្យអ្នកមក' (want you to come) is a bit too direct and less warm than 'would love to have you over'. 'ចង់អញ្ជើញ' (would like to invite) would be more natural."
+     "note": "Phrasing is a bit too direct for an invitation."
     }
    ]
   },
   "azure_stt_cer": 0.035,
+  "gladia_stt_cer": 0.016,
   "gemini_heard_cer": 0.038
  },
  "en-lo": {
   "azure_only": {
-   "score_pct": 79,
+   "score_pct": 83,
    "critical": 0,
    "grades": [
     {
@@ -1413,9 +1878,9 @@
     },
     {
      "i": 4,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "Contains a typo 'ເຘົາ' which is not a valid Lao word, likely intended to be 'ລາວ' (she). This makes the sentence partially unreadable."
+     "note": "Contains a typo 'ເຘົາ' for 'ລາວ' (she)."
     },
     {
      "i": 5,
@@ -1427,19 +1892,19 @@
      "i": 6,
      "score": 2,
      "critical": false,
-     "note": "The use of 'ເຫັນ' (see) for 'the doctor will see you' is a literal translation. 'ພົບ' (meet) or 'ກວດ' (examine) would be more idiomatic."
+     "note": "The word \"ເຫັນ\" (see) is a literal translation for \"the doctor will see you\". A more natural choice would be \"ພົບ\" (meet) or \"ກວດ\" (examine)."
     },
     {
      "i": 7,
      "score": 2,
      "critical": false,
-     "note": "Contains a typo 'ເຘີ' which is not a valid Lao word, likely intended to be 'ລາວ' (her)."
+     "note": "Contains a typo 'ເຘີ' for 'ລາວ' (her)."
     },
     {
      "i": 8,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The translation 'ຕົວເລືອກອາຫານພືດ' (plant-based food option) is very literal and slightly awkward. 'ອາຫານມັງສະວິລັດ' or 'ອາຫານເຈ' are more common terms for 'vegetarian option'."
+     "note": ""
     },
     {
      "i": 9,
@@ -1451,19 +1916,19 @@
      "i": 10,
      "score": 2,
      "critical": false,
-     "note": "Translates 'my husband' as 'ຜູ້ຊາຍຂອງຂ້ອຍ' (my man), which is very informal/slang and not standard. 'ຜົວຂອງຂ້ອຍ' is the correct term."
+     "note": "The phrase \"ຜູ້ຊາຍຂອງຂ້ອຍ\" (my man) is a very informal and unidiomatic way to say \"my husband\" in this context."
     },
     {
      "i": 11,
      "score": 2,
      "critical": false,
-     "note": "The phrase 'ມັນຈະແຮງຂຶ້ນ' means 'it will get worse', using a future tense. The source 'it gets worse' implies a recurring event, so 'ມັນແຮງຂຶ້ນ' would be more accurate."
+     "note": "The tense is slightly off. \"ມັນຈະແຮງຂຶ້ນ\" means \"it will get worse,\" whereas the source implies a recurring pattern (\"it gets worse\")."
     },
     {
      "i": 12,
      "score": 2,
      "critical": false,
-     "note": "The phrase 'ທ່ານໄດ້ໃຈດີຫຼາຍ' is an awkward, literal translation of 'you have been very kind'. A more natural phrasing would be 'ທ່ານໃຈດີຫຼາຍ'."
+     "note": "The phrase \"ທ່ານໄດ້ໃຈດີຫຼາຍ\" is an unnatural, literal translation of \"you have been very kind\". A simple \"ທ່ານໃຈດີຫຼາຍ\" would be better."
     },
     {
      "i": 13,
@@ -1481,25 +1946,25 @@
      "i": 15,
      "score": 2,
      "critical": false,
-     "note": "Contains a typo 'ຄື່ງ' instead of 'ເຄິ່ງ' (half)."
+     "note": "The phrase \"ກິນເວລາ\" (eats time) is an unnatural literalism for \"takes time\". It also contains a typo 'ຄື່ງ' for 'ເຄິ່ງ' (half)."
     },
     {
      "i": 16,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The phrase 'ເວົ້າຊ້າກວ່ານີ້' (speak slower than this) is a bit blunt. 'ເວົ້າຊ້າລົງ' (speak more slowly/slow down) is more natural and polite."
+     "note": ""
     },
     {
      "i": 17,
      "score": 2,
      "critical": false,
-     "note": "Contains a typo 'ເຘົາ' which is not a valid Lao word, likely intended to be 'ລາວ' (she)."
+     "note": "Contains a typo 'ເຘົາ' for 'ລາວ' (she)."
     },
     {
      "i": 18,
      "score": 1,
      "critical": false,
-     "note": "Translates 'church hall' as 'ຫ້ອງປະຊຸມວັດ' (temple meeting room). 'ວັດ' refers to a Buddhist temple, not a Christian church ('ໂບດ'), changing the meaning."
+     "note": "The translation incorrectly uses \"ວັດ\" (Buddhist temple) instead of \"ໂບດ\" (church)."
     },
     {
      "i": 19,
@@ -1521,15 +1986,15 @@
     },
     {
      "i": 22,
-     "score": 2,
+     "score": 1,
      "critical": false,
-     "note": "The phrase 'ເລືອກເຂົ້າຊ້າຍ' (choose to enter left) is an unnatural and awkward translation for 'Turn left'. The standard term is 'ລ້ຽວຊ້າຍ'."
+     "note": "The phrase \"ເລືອກເຂົ້າຊ້າຍ\" (choose to enter left) is a very unnatural and incorrect translation for \"turn left\"."
     },
     {
      "i": 23,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The phrase 'ຮັບປະທານອາຫານຄ່ໍາ' is very formal for 'have dinner'. 'ກິນເຂົ້າແລງ' is much more common and natural in most contexts."
+     "note": ""
     }
    ],
    "delay": {
@@ -1537,7 +2002,7 @@
    }
   },
   "azure_stt_gemini": {
-   "score_pct": 92,
+   "score_pct": 90,
    "critical": 0,
    "grades": [
     {
@@ -1578,9 +2043,9 @@
     },
     {
      "i": 6,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The word \"Please\" is omitted, making the tone less polite."
     },
     {
      "i": 7,
@@ -1596,9 +2061,9 @@
     },
     {
      "i": 9,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "The translation contains a Chinese character '荷' instead of the Lao word for package 'ຫໍ່', making it unreadable."
+     "note": "The word for \"package\" is garbled ('荷ໍ່'), making the sentence's meaning unclear."
     },
     {
      "i": 10,
@@ -1616,13 +2081,13 @@
      "i": 12,
      "score": 2,
      "critical": false,
-     "note": "The word 'ເມດຕາ' (mercy/compassion) is a bit too formal and almost religious for 'kind'. 'ໃຈດີ' would be more common and natural."
+     "note": "The phrase \"ມີຄວາມເມດຕາ\" (have mercy/compassion) is too formal and strong for \"very kind\" in this context. \"ໃຈດີ\" would be more natural."
     },
     {
      "i": 13,
-     "score": 2,
+     "score": 1,
      "critical": false,
-     "note": "The phrase 'ຍັງຖ້າຜູ້ໃດຜູ້ໜຶ່ງຢູ່' is slightly redundant. A more natural phrasing would be 'ຖ້າໃຜຢູ່ບໍ່?'."
+     "note": "The translation incorrectly uses the Thai character 'อยู่' instead of the Lao character 'ຢູ່'."
     },
     {
      "i": 14,
@@ -1632,15 +2097,15 @@
     },
     {
      "i": 15,
-     "score": 2,
-     "critical": false,
-     "note": "The word 'ພິທີ' (ceremony) is used for 'service'. While possible for a religious service, 'ການບໍລິການ' is a more general and accurate translation."
-    },
-    {
-     "i": 16,
      "score": 3,
      "critical": false,
      "note": ""
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is less polite than the source, closer to \"Can you speak slower?\" rather than \"Could you please...\"."
     },
     {
      "i": 17,
@@ -1690,8 +2155,162 @@
     "per_sentence_median_ms": 1356
    }
   },
+  "gladia_stt_gemini": {
+   "score_pct": 85,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "The sentence was not translated."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "The word \"Please\" is omitted, making the tone less polite."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "The translation is garbled and incorrectly includes the word \"ຊີ້ນ\" (meat) instead of \"package\"."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is less polite than the source, closer to \"Can you speak slower?\" rather than \"Could you please...\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": true,
+     "note": "The translation is incomplete. It omits the last part of the phone number (\"0142\") and the entire request to text instead of calling."
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 2,
+     "critical": false,
+     "note": "The word used for \"then\" (ຖ້າຊັ້ນ) is awkward and unnatural. \"ຈາກນັ້ນ\" or \"ແລ້ວ\" would be better."
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "delay": {
+    "tail_ms": 2252,
+    "per_sentence_median_ms": 1280
+   }
+  },
   "gemini_live": {
-   "score_pct": 81,
+   "score_pct": 85,
    "critical": 2,
    "grades": [
     {
@@ -1710,7 +2329,7 @@
      "i": 2,
      "score": 2,
      "critical": false,
-     "note": "Uses 'ເອົາ' (get/take) for taking medicine, which is understandable but less idiomatic than 'ກິນ' (eat/take)."
+     "note": "Using \"ເອົາ\" (get/take) for medicine is less natural than \"ກິນ\" (eat/consume)."
     },
     {
      "i": 3,
@@ -1740,19 +2359,19 @@
      "i": 7,
      "score": 1,
      "critical": false,
-     "note": "Adds 'ແມ່ນແລ້ວ' (Yes) at the beginning, which is not in the source sentence."
+     "note": "The translation incorrectly adds \"ແມ່ນແລ້ວ\" (Yes) at the beginning of the sentence."
     },
     {
      "i": 8,
-     "score": 0,
-     "critical": true,
-     "note": "The translation 'ຂ້ອຍບໍ່ຢາກໃຫ້ໄກ່' means 'I don't want to give chicken', which is the wrong meaning. The source is 'I don't want the chicken'."
+     "score": 1,
+     "critical": false,
+     "note": "The phrase \"ຂ້ອຍບໍ່ຢາກໃຫ້ໄກ່\" means \"I don't want to give chicken,\" which incorrectly changes the meaning from \"I don't want chicken.\""
     },
     {
      "i": 9,
      "score": 2,
      "critical": false,
-     "note": "The phrase is redundant: 'ເທົ່າໃດ...ເທົ່າໃດ?' (How much...how much?). It's awkward but the meaning is clear."
+     "note": "The phrase \"ເທົ່າໃດ...ເທົ່າໃດ\" (how much...how much) is redundant, though the meaning is clear."
     },
     {
      "i": 10,
@@ -1799,20 +2418,20 @@
     {
      "i": 17,
      "score": 1,
-     "critical": false,
-     "note": "Translates 'near the coast' as 'ໃກ້ກັບຊາຍແດນ' (near the border), which is a significant error in meaning."
+     "critical": true,
+     "note": "The translation incorrectly renders \"coast\" as \"ຊາຍແດນ\" (border), which is a significant change in meaning."
     },
     {
      "i": 18,
-     "score": 0,
+     "score": 1,
      "critical": true,
-     "note": "Translates 'tomorrow' as 'ມື້ນີ້' (today), which is a critical time error."
+     "note": "The translation incorrectly says \"today\" (ມື້ນີ້) instead of \"tomorrow\" (ມື້ອື່ນ)."
     },
     {
      "i": 19,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "Translates 'the last part' as 'ປະໂຫຍກສຸດທ້າຍ' (the last sentence), which incorrectly narrows the meaning."
+     "note": "The translation narrows the meaning by using \"last sentence\" (ປະໂຫຍກສຸດທ້າຍ) instead of the more general \"last part\" (ສ່ວນສຸດທ້າຍ)."
     },
     {
      "i": 20,
@@ -1841,24 +2460,25 @@
    ]
   },
   "azure_stt_cer": 0.035,
+  "gladia_stt_cer": 0.016,
   "gemini_heard_cer": 0.038
  },
  "en-ht": {
   "azure_only": {
-   "score_pct": 69,
+   "score_pct": 71,
    "critical": 0,
    "grades": [
     {
      "i": 0,
      "score": 2,
      "critical": false,
-     "note": "The use of 'se' at the end is a literal translation of 'is' and sounds unnatural. A native speaker would use 'ye'."
+     "note": "The use of 'se' at the end of the question is an unnatural calque from English 'is'. A more idiomatic phrasing would be '...kote estasyon tren an ye?'."
     },
     {
      "i": 1,
      "score": 2,
      "critical": false,
-     "note": "The phrasing 'trape tren an 5:00 nan ayewopò an' is a bit literal and awkward. A more natural phrasing would be 'pran tren 5 è a pou ale nan ayewopò a'."
+     "note": "The phrase 'nan ayewopò an' means 'in the airport' rather than 'to the airport' ('pou ayewopò a'). Also, 'pran' is more idiomatic than 'trape' for 'to catch' a train."
     },
     {
      "i": 2,
@@ -1870,13 +2490,13 @@
      "i": 3,
      "score": 2,
      "critical": false,
-     "note": "The structure 'soti nan... a...' is a literal translation of 'from... to...' and sounds a bit unnatural."
+     "note": "The phrasing 'te deplase soti nan... a...' is a literal translation and sounds a bit unnatural, though the meaning is understood."
     },
     {
      "i": 4,
      "score": 2,
      "critical": false,
-     "note": "The translation is missing 'an' (years) after the age '14', which is grammatically necessary."
+     "note": "The translation omits 'an' (years) after the age, '14'. While common in speech, it is less complete."
     },
     {
      "i": 5,
@@ -1886,27 +2506,27 @@
     },
     {
      "i": 6,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The phrase 'pral wè ou' is a literal translation of 'will see you'. A more idiomatic expression would be 'ap resevwa w'."
     },
     {
      "i": 7,
      "score": 2,
      "critical": false,
-     "note": "The phrase 'rive soti nan Chicago' (arrived out of Chicago) is slightly redundant. 'rive soti Chicago' would be more natural."
+     "note": "The phrase 'rive soti nan Chicago' is slightly redundant. 'rive soti Chicago' or simply 'soti Chicago' would be more natural."
     },
     {
      "i": 8,
      "score": 2,
      "critical": false,
-     "note": "The translation is missing the definite article 'an' after 'opsyon vejetaryen'."
+     "note": "The translation is missing the definite article 'an' at the end of 'opsyon vejetaryen an' (the vegetarian option)."
     },
     {
      "i": 9,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The preposition 'nan' is unnatural here. 'pou voye yon pake Meksik' (without 'nan') would be correct."
+     "note": ""
     },
     {
      "i": 10,
@@ -1918,7 +2538,7 @@
      "i": 11,
      "score": 2,
      "critical": false,
-     "note": "The phrase '2 jou de sa' is a literal translation of '2 days ago'; the idiomatic Haitian Creole is 'sa gen 2 jou'."
+     "note": "The phrase '2 jou de sa' is a gallicism (from French 'deux jours de ça'). The more idiomatic Haitian Creole is 'sa gen de jou' or 'gen de jou'."
     },
     {
      "i": 12,
@@ -1930,19 +2550,19 @@
      "i": 13,
      "score": 1,
      "critical": false,
-     "note": "Uses 'gratis' (free of charge) instead of the correct word 'lib' (unoccupied). Also, 'tann pou yon moun' is an unidiomatic calque of 'waiting for someone'; it should be 'tann yon moun'."
+     "note": "The translation 'Se chèz sa a gratis' is a statement ('This seat is free'), not a question. It also incorrectly uses 'gratis' (free of charge) instead of 'lib' (unoccupied)."
     },
     {
      "i": 14,
      "score": 2,
      "critical": false,
-     "note": "The phrase 'yon mwa' should be 'pa mwa' (per month). The description of the deposit is also a bit literal."
+     "note": "The phrasing is slightly awkward. 'depo a se yon mwa lwaye' would be more natural and clear."
     },
     {
      "i": 15,
      "score": 2,
      "critical": false,
-     "note": "'nan 9' should be 'a 9 è'. Also, 'yon èdtan ak yon mwatye' is a literalism for 'an hour and a half'; 'yon èdtan edmi' is the correct idiomatic phrase."
+     "note": "'nan 9' should be 'a 9 è'. Also, 'yon èdtan ak yon mwatye' is a literalism; 'inèdtan edmi' is more idiomatic."
     },
     {
      "i": 16,
@@ -1954,13 +2574,13 @@
      "i": 17,
      "score": 2,
      "critical": false,
-     "note": "The phrase 'sou Mas 3rd' is an unidiomatic calque of 'on March 3rd'. The correct format is '3 Mas'."
+     "note": "The phrase 'sou Mas 3rd' is an anglicism. The correct phrasing is 'li te fèt 3 Mas'."
     },
     {
      "i": 18,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "The phrase 'Si li lapli' is ungrammatical. The correct phrasing is 'Si lapli tonbe'."
+     "note": "The phrase 'Si li lapli' is grammatically incorrect. It should be 'Si lapli tonbe'."
     },
     {
      "i": 19,
@@ -1972,25 +2592,25 @@
      "i": 20,
      "score": 2,
      "critical": false,
-     "note": "The phrases 'tèks m'' (text me) and 'olye pou yo rele' (instead of calling) are literal and unidiomatic."
+     "note": "'tèks m'' is a direct anglicism. 'voye yon mesaj pou mwen' is more idiomatic. The phrase 'olye pou yo rele' is also awkward."
     },
     {
      "i": 21,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "Uses the simple past tense ('Li te santi' - He felt) instead of conveying the ongoing nature of the symptom ('He has been feeling')."
+     "note": "The translation uses the simple past 'li te santi' ('he felt'), which doesn't capture the ongoing nature of 'has been feeling'."
     },
     {
      "i": 22,
-     "score": 2,
+     "score": 1,
      "critical": false,
-     "note": "'limyè trafik' is a literalism for 'traffic light'; 'feu' or 'limyè sikilasyon' is more common and natural."
+     "note": "'limyè trafik' is a literalism for 'traffic light' ('feu' is more common). More importantly, 'li nan' is grammatically incorrect for 'it is'; it should be 'se'."
     },
     {
      "i": 23,
      "score": 0,
      "critical": false,
-     "note": "The phrase 'gen ou sou' is a nonsensical and literal translation of 'have you over'."
+     "note": "The phrase 'gen ou sou' is a literal and meaningless translation of 'have you over'."
     }
    ],
    "delay": {
@@ -1998,8 +2618,8 @@
    }
   },
   "azure_stt_gemini": {
-   "score_pct": 89,
-   "critical": 1,
+   "score_pct": 85,
+   "critical": 2,
    "grades": [
     {
      "i": 0,
@@ -2009,9 +2629,9 @@
     },
     {
      "i": 1,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "Missing the definite article 'a' after 'ayewopò', which makes it slightly unnatural."
+     "note": ""
     },
     {
      "i": 2,
@@ -2023,7 +2643,7 @@
      "i": 3,
      "score": 2,
      "critical": false,
-     "note": "The structure 'soti... pou...' is a literal translation of 'from... to...' and sounds a bit unnatural."
+     "note": "The phrasing 'te deplase soti... pou...' is a literal translation and sounds a bit unnatural, though the meaning is understood."
     },
     {
      "i": 4,
@@ -2035,7 +2655,7 @@
      "i": 5,
      "score": 1,
      "critical": false,
-     "note": "Contains a strange, ungrammatical word 'li' after 'Otobis la', likely a transcription error."
+     "note": "The phrase 'Otobis la li a 11:45' is grammatically incorrect. 'li' means 'it' or 'read'; it should be a verb like 'ap pati' or 'kite'."
     },
     {
      "i": 6,
@@ -2045,9 +2665,9 @@
     },
     {
      "i": 7,
-     "score": 2,
-     "critical": false,
-     "note": "Missing the plural marker 'yo' after 'twa pitit li', making it sound like 'her three child'."
+     "score": 1,
+     "critical": true,
+     "note": "The translation uses 'twa pitit li' which can be interpreted as singular ('her child'). It should be 'twa pitit li yo' to correctly convey the plural 'three kids'."
     },
     {
      "i": 8,
@@ -2087,9 +2707,9 @@
     },
     {
      "i": 14,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The phrase 'lwaye pou yon mwa' is slightly awkward; 'yon mwa lwaye' is more natural."
     },
     {
      "i": 15,
@@ -2101,7 +2721,7 @@
      "i": 16,
      "score": 0,
      "critical": true,
-     "note": "Translates 'more slowly' as 'pi vit' (faster), which is the opposite of the intended meaning."
+     "note": "The translation says 'pi vit' ('faster') instead of 'pi dousman' ('slower'), which is the opposite of the intended meaning."
     },
     {
      "i": 17,
@@ -2123,9 +2743,9 @@
     },
     {
      "i": 20,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The phrase 'olye de m rele' means 'instead of me calling', not 'instead of you calling'. The intended meaning is 'olye ou rele m'."
     },
     {
      "i": 21,
@@ -2135,9 +2755,9 @@
     },
     {
      "i": 22,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The translation uses 'kay' ('house') instead of 'bilding' or 'batiman' ('building')."
     },
     {
      "i": 23,
@@ -2151,15 +2771,169 @@
     "per_sentence_median_ms": 1293
    }
   },
+  "gladia_stt_gemini": {
+   "score_pct": 82,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is missing the definite article 'an' in 'estasyon tren an' (the train station), making it 'a train station'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "The translation 'minwi mwens ka' means 'quarter to midnight', not 'quarter to twelve' (11:45). This is the wrong time."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase 'ap wè ou' is a literal translation of 'will see you'. A more idiomatic expression would be 'ap resevwa w'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "The translation uses 'twa pitit li' which can be interpreted as singular ('her child'). It should be 'twa pitit li yo' to correctly convey the plural 'three kids'."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "The translation says 'poul mwen' ('my chicken') instead of 'poul la' ('the chicken')."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "The translation uses 'nan aswè' which means 'in the evening', not 'at night' ('lannwit') as in the source."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "The translation uses the present tense 'Li fèt' ('She is born') instead of the past tense 'Li te fèt' ('She was born')."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": false,
+     "note": "The word 'ankouraj' for 'instead' is very unusual and awkward. The overall phrase 'texte m' ankouraj' is unnatural."
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "delay": {
+    "tail_ms": 2352,
+    "per_sentence_median_ms": 1283
+   }
+  },
   "gemini_live": {
-   "score_pct": 83,
+   "score_pct": 89,
    "critical": 1,
    "grades": [
     {
      "i": 0,
      "score": 2,
      "critical": false,
-     "note": "This translation is a command ('Tell me...') rather than a polite question ('Could you tell me...'), which changes the tone."
+     "note": "The translation 'Di m...' is an imperative ('Tell me...'), which loses the politeness of the source question 'Could you tell me...?'."
     },
     {
      "i": 1,
@@ -2177,7 +2951,7 @@
      "i": 3,
      "score": 2,
      "critical": false,
-     "note": "The structure 'soti... pou...' is a literal translation of 'from... to...' and sounds a bit unnatural."
+     "note": "The phrasing 'te deplase soti... pou...' is a literal translation and sounds a bit unnatural, though the meaning is understood."
     },
     {
      "i": 4,
@@ -2189,7 +2963,7 @@
      "i": 5,
      "score": 0,
      "critical": true,
-     "note": "'kenz mwens 12' (fifteen minus twelve) is a wrong and nonsensical translation for 'a quarter to twelve'. The correct time is wrong."
+     "note": "The phrase 'kenz mwens 12' (fifteen minus twelve) is an incorrect and nonsensical way to say 'quarter to twelve' (11:45)."
     },
     {
      "i": 6,
@@ -2199,9 +2973,9 @@
     },
     {
      "i": 7,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "Adds 'Wi' (Yes) at the beginning, which is not in the source sentence and adds information."
+     "note": "The translation adds 'Wi' ('Yes') at the beginning, which was not in the source sentence."
     },
     {
      "i": 8,
@@ -2211,9 +2985,9 @@
     },
     {
      "i": 9,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The preposition 'nan' is unnatural here. 'pou voye yon pakè Meksik' (without 'nan') would be correct."
+     "note": ""
     },
     {
      "i": 10,
@@ -2235,15 +3009,15 @@
     },
     {
      "i": 13,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "Uses 'gratis' (free of charge) instead of the correct word 'lib' (unoccupied)."
+     "note": "The translation incorrectly uses 'gratis' (free of charge) instead of 'lib' (unoccupied) for the seat."
     },
     {
      "i": 14,
      "score": 2,
      "critical": false,
-     "note": "The phrase 'depo a se lwaye yon mwa' is a bit literal; 'depo a se yon mwa lwaye' would be more natural."
+     "note": "The phrase 'lwaye yon mwa' is slightly awkward; 'yon mwa lwaye' is more natural and clear."
     },
     {
      "i": 15,
@@ -2253,9 +3027,9 @@
     },
     {
      "i": 16,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "Omits 'a little' ('yon ti kras'), changing the meaning from 'a little more slowly' to just 'more slowly'."
+     "note": ""
     },
     {
      "i": 17,
@@ -2302,12 +3076,13 @@
    ]
   },
   "azure_stt_cer": 0.035,
+  "gladia_stt_cer": 0.016,
   "gemini_heard_cer": 0.045
  },
  "ja-en": {
   "azure_only": {
-   "score_pct": 72,
-   "critical": 3,
+   "score_pct": 78,
+   "critical": 2,
    "grades": [
     {
      "i": 0,
@@ -2323,9 +3098,9 @@
     },
     {
      "i": 2,
-     "score": 0,
+     "score": 1,
      "critical": true,
-     "note": "Wrong negation (\"Do not take...\"), wrong verb (\"drink\"), and nonsensical mistranslation of 6錠 as \"six tatami mats\"."
+     "note": "Contains a critical negation error ('Do not take two tablets...'). Also garbled ('six tatami mats')."
     },
     {
      "i": 3,
@@ -2343,7 +3118,7 @@
      "i": 5,
      "score": 2,
      "critical": false,
-     "note": "Minor addition of \"First\" and slightly formal phrasing."
+     "note": "The addition of 'First' is odd, and 'we depart' is an unnatural subject for a bus."
     },
     {
      "i": 6,
@@ -2361,19 +3136,19 @@
      "i": 8,
      "score": 0,
      "critical": false,
-     "note": "Nonsensical translation (\"vegetarian mold instead of funding\")."
+     "note": "Garbled translation ('vegetarian mold instead of funding')."
     },
     {
      "i": 9,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "\"luggage\" is a less likely translation of 荷物 than \"package\" in this context."
+     "note": ""
     },
     {
      "i": 10,
      "score": 0,
-     "critical": true,
-     "note": "Mistranslates \"husband is working\" as \"lot work\" and \"I can't go\" as \"it's not allowed\", changing the meaning and agent."
+     "critical": false,
+     "note": "Garbled translation ('lot work') and wrong meaning ('it's not allowed')."
     },
     {
      "i": 11,
@@ -2389,21 +3164,21 @@
     },
     {
      "i": 13,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "\"is someone waiting?\" is slightly abrupt but understandable."
+     "note": ""
     },
     {
      "i": 14,
      "score": 1,
      "critical": true,
-     "note": "The information about the deposit is completely wrong (\"equivalent to one unit per month nearby\")."
+     "note": "Correctly states the rent amount but mistranslates the second clause about the deposit ('one unit per month nearby')."
     },
     {
      "i": 15,
      "score": 2,
      "critical": false,
-     "note": "Clunky phrasing (\"The start is...\", \"the time is...\")."
+     "note": "The phrasing 'The start is at 9 a.m., and the time is...' is awkward."
     },
     {
      "i": 16,
@@ -2421,7 +3196,7 @@
      "i": 18,
      "score": 1,
      "critical": false,
-     "note": "Nonsensical mistranslation of \"church hall\" (教会のホール) as \"Hall of the Boundary\"."
+     "note": "Mistranslates 'church' as 'Boundary'."
     },
     {
      "i": 19,
@@ -2433,7 +3208,7 @@
      "i": 20,
      "score": 2,
      "critical": false,
-     "note": "\"call by message\" is contradictory and unidiomatic."
+     "note": "The phrase 'call by message' is unidiomatic."
     },
     {
      "i": 21,
@@ -2443,15 +3218,15 @@
     },
     {
      "i": 22,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "Clunky phrasing (\"is there\")."
+     "note": ""
     },
     {
      "i": 23,
      "score": 2,
      "critical": false,
-     "note": "Omits the important detail \"at my place\" (うちで)."
+     "note": "Misses the nuance of 'at our place' (うちで)."
     }
    ],
    "delay": {
@@ -2459,7 +3234,7 @@
    }
   },
   "azure_stt_gemini": {
-   "score_pct": 92,
+   "score_pct": 96,
    "critical": 1,
    "grades": [
     {
@@ -2496,7 +3271,7 @@
      "i": 5,
      "score": 2,
      "critical": false,
-     "note": "Minor addition of \"First\" and slightly formal phrasing \"we will depart\"."
+     "note": "The addition of 'First' is odd, and 'we will depart' is an unnatural subject for a bus."
     },
     {
      "i": 6,
@@ -2512,9 +3287,9 @@
     },
     {
      "i": 8,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "\"vegetarian type\" is slightly awkward; \"vegetarian option\" is more natural."
+     "note": ""
     },
     {
      "i": 9,
@@ -2526,7 +3301,7 @@
      "i": 10,
      "score": 1,
      "critical": true,
-     "note": "Mistranslates \"husband\" (夫) as \"Lot\", changing who is working."
+     "note": "Mistranslates 'husband' (夫) as 'Lot'."
     },
     {
      "i": 11,
@@ -2542,9 +3317,9 @@
     },
     {
      "i": 13,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "\"is someone waiting for it?\" is slightly unnatural phrasing."
+     "note": ""
     },
     {
      "i": 14,
@@ -2572,9 +3347,9 @@
     },
     {
      "i": 18,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "\"If it's rainy\" is slightly ungrammatical; \"If it rains\" is better."
+     "note": ""
     },
     {
      "i": 19,
@@ -2612,8 +3387,162 @@
     "per_sentence_median_ms": 1258
    }
   },
+  "gladia_stt_gemini": {
+   "score_pct": 93,
+   "critical": 1,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Awkwardly split into two sentences, making the first sentence factually incorrect on its own."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly repetitive but meaning is correct."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled. Changes subject from 'She' to 'I' and meaning is lost."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "delay": {
+    "tail_ms": 2824,
+    "per_sentence_median_ms": 1189
+   }
+  },
   "gemini_live": {
-   "score_pct": 50,
+   "score_pct": 51,
    "critical": 6,
    "grades": [
     {
@@ -2626,19 +3555,19 @@
      "i": 1,
      "score": 0,
      "critical": true,
-     "note": "Garbled sentence, misses the time (5 o'clock), and incorrectly phrases it as a question."
+     "note": "Completely garbled. It is phrased as a question and misses the time (5 o'clock)."
     },
     {
      "i": 2,
      "score": 0,
      "critical": true,
-     "note": "Garbled sentence with wrong numbers and units (\"8 o'clock\", \"20\" instead of 2 tablets)."
+     "note": "Garbled. It mistranslates '8 hours' as '8 o'clock' and '2 tablets' as '20'."
     },
     {
      "i": 3,
      "score": 2,
      "critical": false,
-     "note": "Awkward phrasing (\"is on... to...\")."
+     "note": "The meaning is correct, but the phrasing 'is on Tuesday... to Thursday...' is awkward."
     },
     {
      "i": 4,
@@ -2650,31 +3579,31 @@
      "i": 5,
      "score": 2,
      "critical": false,
-     "note": "Ungrammatical phrasing \"11 45 departure\"."
+     "note": "The phrase 'at 11 45 departure' is ungrammatical."
     },
     {
      "i": 6,
      "score": 1,
      "critical": true,
-     "note": "Wrong time, \"10 more minutes\" instead of \"20 minutes\"."
+     "note": "The time is wrong (10 minutes instead of 20)."
     },
     {
      "i": 7,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "Wrong meaning. \"had three children\" instead of \"with her three children\", and \"from her parents' house\" instead of \"from Chicago\"."
+     "note": "Mistranslates 'came from Chicago' as 'came from her parents' house' and 'with her three children' as 'had three children'."
     },
     {
      "i": 8,
      "score": 1,
      "critical": false,
-     "note": "Misrepresents the speaker's intent, changing a complaint into a confusing statement."
+     "note": "Misses the key point of correcting an order (chicken vs. vegetarian) and instead sounds like a new request."
     },
     {
      "i": 9,
-     "score": 2,
+     "score": 1,
      "critical": false,
-     "note": "Awkward phrasing \"The preparation for sending luggage\"."
+     "note": "Misses the destination 'to Mexico' and uses awkward phrasing."
     },
     {
      "i": 10,
@@ -2692,19 +3621,19 @@
      "i": 12,
      "score": 1,
      "critical": false,
-     "note": "\"Please be kind\" is a wrong translation of an expression of gratitude (ご親切にしていただき)."
+     "note": "Starts with an incorrect command, 'Please be kind'."
     },
     {
      "i": 13,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "\"is someone waiting for it?\" is slightly unnatural phrasing."
+     "note": ""
     },
     {
      "i": 14,
      "score": 1,
      "critical": true,
-     "note": "The information about the deposit is wrong and replaced with a hallucinated question."
+     "note": "Correctly states the rent amount but completely mistranslates the second clause about the deposit."
     },
     {
      "i": 15,
@@ -2716,19 +3645,19 @@
      "i": 16,
      "score": 2,
      "critical": false,
-     "note": "Adds a strange, unmotivated phrase \"It's a little slow\"."
+     "note": "The addition of 'It's a little slow' is an odd, ungrammatical preamble."
     },
     {
      "i": 17,
      "score": 1,
      "critical": true,
-     "note": "The day of the month (\"3rd\") is missing from the date."
+     "note": "Misses the day of the month (3rd)."
     },
     {
      "i": 18,
      "score": 2,
      "critical": false,
-     "note": "Omits \"hall\", which could be a significant detail."
+     "note": "Omits 'hall'."
     },
     {
      "i": 19,
@@ -2740,47 +3669,48 @@
      "i": 20,
      "score": 1,
      "critical": true,
-     "note": "Hallucinates a question and slightly garbles the phone number (\"55 5\" instead of \"555\")."
+     "note": "The phone number is slightly incorrect ('55 5' instead of '555') and it incorrectly adds a question at the beginning."
     },
     {
      "i": 21,
      "score": 0,
      "critical": false,
-     "note": "Sentence not translated."
+     "note": "Missing translation."
     },
     {
      "i": 22,
      "score": 0,
      "critical": false,
-     "note": "Sentence not translated."
+     "note": "Missing translation."
     },
     {
      "i": 23,
      "score": 0,
      "critical": false,
-     "note": "Sentence not translated."
+     "note": "Missing translation."
     }
    ]
   },
   "azure_stt_cer": 0.037,
+  "gladia_stt_cer": 0.012,
   "gemini_heard_cer": 0.196
  },
  "zh-en": {
   "azure_only": {
-   "score_pct": 82,
+   "score_pct": 76,
    "critical": 2,
    "grades": [
     {
      "i": 0,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The translation omits the politeness marker '请问' (Excuse me/Could you tell me)."
     },
     {
      "i": 1,
      "score": 2,
      "critical": false,
-     "note": "\"I rushed\" implies past tense, while the source means \"I need to\"."
+     "note": "The use of past tense 'rushed' is not accurate for the meaning 'I have to catch'."
     },
     {
      "i": 2,
@@ -2802,9 +3732,9 @@
     },
     {
      "i": 5,
-     "score": 1,
+     "score": 0,
      "critical": true,
-     "note": "\"a minute short\" is a wrong translation of \"差一刻\" (a quarter to). The time is incorrect."
+     "note": "The translation incorrectly states 'a minute short' instead of 'a quarter to twelve' (15 minutes)."
     },
     {
      "i": 6,
@@ -2820,9 +3750,9 @@
     },
     {
      "i": 8,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "Mistranslated \"鸡肉\" (chicken) as \"muscle\"."
+     "note": "The translation incorrectly renders '鸡肉' (chicken) as 'muscle', likely due to a phonetic error."
     },
     {
      "i": 9,
@@ -2832,15 +3762,15 @@
     },
     {
      "i": 10,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The use of past tense 'couldn't' is slightly awkward for a future event, though understandable."
     },
     {
      "i": 11,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The use of 'got worse' (past tense) is less accurate than 'gets worse' (present tense) for the recurring nature of the pain described."
     },
     {
      "i": 12,
@@ -2852,31 +3782,31 @@
      "i": 13,
      "score": 2,
      "critical": false,
-     "note": "\"Is there anyone available for this seat?\" is awkward phrasing."
+     "note": "The phrase 'Is there anyone available for this seat?' is unidiomatic."
     },
     {
      "i": 14,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The use of past tense \"was\" is slightly awkward, as is \"equivalent to one month's rent\"."
+     "note": ""
     },
     {
      "i": 15,
      "score": 2,
      "critical": false,
-     "note": "\"started\" (past tense) is used, while the source likely means \"start\" (present/future)."
+     "note": "The use of past tense 'started' is incorrect for what is likely a future event."
     },
     {
      "i": 16,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "\"slow down\" is less precise than \"speak more slowly\"."
+     "note": ""
     },
     {
      "i": 17,
-     "score": 2,
+     "score": 1,
      "critical": true,
-     "note": "Wrong pronoun. Translates \"她\" (she) as \"He\"."
+     "note": "The pronoun is wrong ('He' instead of 'She')."
     },
     {
      "i": 18,
@@ -2892,9 +3822,9 @@
     },
     {
      "i": 20,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "The phone number is run together without a space, which is slightly unnatural."
+     "note": ""
     },
     {
      "i": 21,
@@ -2904,9 +3834,9 @@
     },
     {
      "i": 22,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "\"turn left and turn right\" is a contradictory and incorrect instruction."
+     "note": "The translation gives contradictory directions: 'turn left and turn right'."
     },
     {
      "i": 23,
@@ -3021,15 +3951,15 @@
     },
     {
      "i": 16,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "\"speak slower\" is slightly unidiomatic compared to \"speak more slowly\"."
+     "note": ""
     },
     {
      "i": 17,
-     "score": 2,
+     "score": 1,
      "critical": true,
-     "note": "Wrong pronoun. Translates \"她\" (she) as \"He\"."
+     "note": "The pronoun is wrong ('He' instead of 'She')."
     },
     {
      "i": 18,
@@ -3073,33 +4003,33 @@
     "per_sentence_median_ms": 1389
    }
   },
-  "gemini_live": {
-   "score_pct": 64,
-   "critical": 7,
+  "gladia_stt_gemini": {
+   "score_pct": 86,
+   "critical": 3,
    "grades": [
     {
      "i": 0,
-     "score": 2,
-     "critical": false,
-     "note": "\"Ask,\" is a literal, awkward translation of \"请问\"."
-    },
-    {
-     "i": 1,
      "score": 3,
      "critical": false,
      "note": ""
     },
     {
-     "i": 2,
+     "i": 1,
      "score": 0,
      "critical": true,
-     "note": "The instruction \"every eight hours\" is incorrectly negated as \"It's not eight hours\". This is a dangerous error."
+     "note": "The time is wrong. The translation says 'noon' instead of '5 o'clock'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 3,
-     "score": 1,
-     "critical": true,
-     "note": "Misses \"30\" from \"3:30\". The time is incorrect."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 4,
@@ -3109,21 +4039,21 @@
     },
     {
      "i": 5,
-     "score": 1,
-     "critical": true,
-     "note": "\"one minute short\" is a wrong translation of \"差一刻\" (a quarter to). The time is incorrect."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 6,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "\"You don't worry\" is ungrammatical."
+     "note": ""
     },
     {
      "i": 7,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "\"took her three children from Chicago\" is awkward phrasing."
+     "note": ""
     },
     {
      "i": 8,
@@ -3133,9 +4063,9 @@
     },
     {
      "i": 9,
-     "score": 1,
+     "score": 3,
      "critical": false,
-     "note": "Adds \"The first\" which is not in the source."
+     "note": ""
     },
     {
      "i": 10,
@@ -3163,15 +4093,169 @@
     },
     {
      "i": 14,
-     "score": 1,
-     "critical": true,
-     "note": "The amount \"1250\" is garbled as \"1,000 250\". Also incorrectly phrased as a question."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "The translation correctly identifies the subject as 'She' in the first clause, but then incorrectly changes the subject to 'I' in the second clause ('I was born...')."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 20,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 21,
+     "score": 0,
+     "critical": true,
+     "note": "The subject is wrong ('I' instead of 'He')."
+    },
+    {
+     "i": 22,
      "score": 2,
      "critical": false,
-     "note": "\"We'll be there at 9:00\" is not the same as \"We start at 9:00\"."
+     "note": "The translation is repetitive ('Take a left... Turn left')."
+    },
+    {
+     "i": 23,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "delay": {
+    "tail_ms": 2164,
+    "per_sentence_median_ms": 1481
+   }
+  },
+  "gemini_live": {
+   "score_pct": 53,
+   "critical": 8,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "The translation starts with 'Ask,', which is an awkward and literal translation of '请问'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": true,
+     "note": "The translation 'It's not eight hours to eat two slices' is a complete misinterpretation of '每八个小时' (every eight hours)."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "The time is wrong ('3:00' instead of '3:30'). The translation also misses the meaning of 'changed/moved' and instead implies a duration ('from... to...')."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "The translation incorrectly states 'one minute short of 12:00' instead of 'a quarter to twelve' (15 minutes)."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "The phrase 'You don't worry' is ungrammatical. It should be 'Don't worry'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "The phrase 'took her three children from Chicago' incorrectly implies they were leaving Chicago, not arriving from there."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "The translation adds 'The first', which is not present in the source sentence."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "The translation incorrectly phrases the statement as a question ('Is the rent...?') and garbles the number ('1,000 250')."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "The translation 'We'll be there at 9:00' is a misinterpretation of '我们九点开始' (We start at 9)."
     },
     {
      "i": 16,
@@ -3183,197 +4267,197 @@
      "i": 17,
      "score": 1,
      "critical": true,
-     "note": "Wrong pronoun (\"He\" for \"She\") and omits the day of the month (\"3rd\")."
+     "note": "The pronoun is wrong ('He' instead of 'She'). The day of the month ('3rd') is also omitted."
     },
     {
      "i": 18,
      "score": 1,
      "critical": false,
-     "note": "Adds \"afternoon\" which is not in the source."
+     "note": "The translation adds 'afternoon', which is not in the source text."
     },
     {
      "i": 19,
      "score": 2,
      "critical": false,
-     "note": "Awkward phrasing."
+     "note": "The phrasing 'the last part, I didn't understand' is awkward, though the meaning is correct."
     },
     {
      "i": 20,
-     "score": 1,
+     "score": 0,
      "critical": true,
-     "note": "The phone number is grouped incorrectly as \"55 014 2\"."
+     "note": "The phone number is incorrect ('55 014 2' instead of '555 0142')."
     },
     {
      "i": 21,
      "score": 0,
      "critical": true,
-     "note": "Garbled sentence, mixing content from another sentence and misattributing the subject (\"I\" instead of \"He\")."
+     "note": "The translation completely misunderstands the source, changing the subject to 'I' and hallucinating 'Thank you so much for starting this new medication'."
     },
     {
      "i": 22,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "The phrasing is clunky but the core directions are correct."
     },
     {
      "i": 23,
-     "score": 2,
-     "critical": false,
-     "note": "\"Next week\" is less specific than the source \"下周五\" (Next Friday)."
+     "score": 1,
+     "critical": true,
+     "note": "The translation omits 'Friday', stating only 'Next week'."
     }
    ]
   },
   "azure_stt_cer": 0.021,
+  "gladia_stt_cer": 0.019,
   "gemini_heard_cer": 0.058
  },
  "km-en": {
   "azure_only": {
-   "score_pct": 38,
-   "critical": 4,
+   "score_pct": 35,
+   "critical": 6,
    "grades": [
     {
      "i": 0,
      "score": 3,
-     "critical": false,
-     "note": ""
+     "critical": false
     },
     {
      "i": 1,
      "score": 1,
      "critical": false,
-     "note": "Mistranslates 'airport' (ព្រលានយន្តហោះ) as 'Lion Airport' and uses the wrong tense ('had to take')."
+     "note": "Mistranslates 'airport' as 'Lion Airport'."
     },
     {
      "i": 2,
      "score": 0,
      "critical": true,
-     "note": "Completely wrong meaning. 'Say goodbye to 2 pills' and 'the gap exceeds six goals' is nonsense. Critical due to incorrect dosage instructions."
+     "note": "Completely wrong meaning. Mistranslates 'Take' as 'Say goodbye' and 'don't take more than six pills' as 'the gap exceeds six goals'."
     },
     {
      "i": 3,
      "score": 1,
      "critical": false,
-     "note": "Partly correct but adds a nonsensical 'Boat Meeting 2' and an incorrect 'yesterday'."
+     "note": "Mistranslates 'meeting' as 'Boat Meeting' and incorrectly adds 'yesterday'."
     },
     {
      "i": 4,
      "score": 1,
      "critical": false,
-     "note": "Omits the key information 'penicillin'."
+     "note": "Omits 'penicillin'."
     },
     {
      "i": 5,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "Correctly identifies the time (11:45) but the second part ('not hitting the bend') is a nonsensical translation of 'not at noon'."
+     "note": "The time is correct (11:45), but the phrasing is very awkward ('lacking fifteen minutes', 'not hitting the bend')."
     },
     {
      "i": 6,
-     "score": 0,
-     "critical": false,
-     "note": "Translation is severely incomplete, missing the main point about the doctor and the waiting time."
+     "score": 1,
+     "critical": true,
+     "note": "Omits most of the sentence, including the time (twenty minutes) and the information about the doctor."
     },
     {
      "i": 7,
      "score": 1,
      "critical": false,
-     "note": "Mistranslates 'Chicago' (ឈីកាហ្គោ) as 'as a cowboy'."
+     "note": "Mistranslates 'Chicago' as 'as a cowboy'."
     },
     {
      "i": 8,
      "score": 0,
      "critical": false,
-     "note": "Completely wrong meaning. Translates 'I don't want chicken' as 'I don't understand chicken' and 'vegetarian' as 'high food'."
+     "note": "Completely wrong meaning. Mistranslates 'I don't want chicken' and 'vegetarian option'."
     },
     {
      "i": 9,
      "score": 1,
      "critical": false,
-     "note": "Hallucinates 'Harry Potter' instead of 'package' (អីវ៉ាន់)."
+     "note": "Bizarrely mistranslates 'package' as 'Harry Potter'."
     },
     {
      "i": 10,
      "score": 1,
-     "critical": false,
-     "note": "Mistranslates 'my husband' (ប្តីខ្ញុំ) as 'on my surface'."
+     "critical": true,
+     "note": "Mistranslates 'my husband' as 'on my surface'."
     },
     {
      "i": 11,
-     "score": 1,
+     "score": 0,
      "critical": true,
-     "note": "Translates 'two days ago' as 'the day before' and 'pain started' as 'Start believing'. Critical due to wrong time frame."
+     "note": "Wrong time ('the day before' instead of 'two days ago') and wrong meaning ('Start believing' instead of 'The pain started')."
     },
     {
      "i": 12,
      "score": 2,
      "critical": false,
-     "note": "Correct meaning but omits 'for your help'."
+     "note": "Omits 'for your help'."
     },
     {
      "i": 13,
      "score": 0,
      "critical": false,
-     "note": "Completely wrong meaning. 'doesn't seem to remember anyone' does not convey the source's meaning at all."
+     "note": "Completely wrong meaning."
     },
     {
      "i": 14,
      "score": 1,
      "critical": true,
-     "note": "Uses wrong currency ('rupees' instead of 'dollars') and mistranslates 'deposit'. Critical due to wrong currency."
+     "note": "Wrong currency ('rupees' instead of 'dollars') and mistranslates 'deposit'."
     },
     {
      "i": 15,
      "score": 2,
      "critical": false,
-     "note": "Meaning is correct, but adds a slightly out of place 'By the way' and uses 'we' instead of 'Our service'."
+     "note": "Awkward phrasing ('By the way', 'use about 1 and a half hours')."
     },
     {
      "i": 16,
-     "score": 3,
+     "score": 2,
      "critical": false,
-     "note": ""
+     "note": "Phrased as a command ('Let's talk...') rather than a polite request ('Could you speak...')."
     },
     {
      "i": 17,
      "score": 1,
      "critical": true,
-     "note": "The year is wrong (2010 instead of 2019) and it adds extraneous words ('nine', 'District 1'). Critical due to wrong date."
+     "note": "Wrong year ('2010, nine' instead of '2019') and wrong pronoun ('He' instead of 'She')."
     },
     {
      "i": 18,
      "score": 1,
      "critical": false,
-     "note": "Misses the conditional 'If it rains' and mistranslates the action ('suddenly fall back together' instead of 'move the picnic')."
+     "note": "Omits the condition 'If it rains' and mistranslates the action."
     },
     {
      "i": 19,
      "score": 1,
      "critical": false,
-     "note": "Literal and awkward translation ('I listen to the last place') that doesn't fully capture 'I didn't understand/catch'."
+     "note": "Mistranslates 'didn't understand the last part' as 'I listen to the last place'."
     },
     {
      "i": 20,
-     "score": 2,
+     "score": 1,
      "critical": false,
-     "note": "Mostly correct but adds a hallucinated 'to Cambodia'."
+     "note": "Mistranslates the instruction 'text me instead of calling' by adding 'to Cambodia'."
     },
     {
      "i": 21,
      "score": 1,
      "critical": false,
-     "note": "Bizarre mistranslation of 'dizzy' (វិលមុខ) as 'dizzy Germany'."
+     "note": "Bizarrely mistranslates 'dizzy' as 'dizzy Germany'."
     },
     {
      "i": 22,
-     "score": 2,
+     "score": 1,
      "critical": false,
-     "note": "Awkward phrasing ('2nd stock') and omits 'building', but the core directions are understandable."
+     "note": "Mistranslates 'traffic light' as 'stock' and omits 'building'."
     },
     {
      "i": 23,
      "score": 0,
      "critical": false,
-     "note": "Extremely poor and offensive mistranslation ('drowned Vietnamese brothers')."
+     "note": "Completely wrong and nonsensical translation."
     }
    ],
    "delay": {
@@ -3381,302 +4465,454 @@
    }
   },
   "azure_stt_gemini": {},
-  "gemini_live": {
-   "score_pct": 39,
-   "critical": 9,
+  "gladia_stt_gemini": {
+   "score_pct": 0,
+   "critical": 0,
    "grades": [
     {
      "i": 0,
-     "score": 2,
+     "score": 0,
      "critical": false,
-     "note": "Slightly unnatural phrasing ('The station is where?')."
+     "note": "Missing translation."
     },
     {
      "i": 1,
-     "score": 3,
+     "score": 0,
      "critical": false,
-     "note": ""
+     "note": "Missing translation."
     },
     {
      "i": 2,
-     "score": 1,
-     "critical": true,
-     "note": "Dosage frequency is wrong ('5 hours' instead of '8 hours'). Phrasing as a question is also incorrect. Critical due to wrong dosage information."
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
     },
     {
      "i": 3,
-     "score": 2,
+     "score": 0,
      "critical": false,
-     "note": "Mistranslates 'meeting' (ការប្រជុំ) as 'boat meeting', but the key information (days, times) is correct."
+     "note": "Missing translation."
     },
     {
      "i": 4,
-     "score": 3,
+     "score": 0,
      "critical": false,
-     "note": ""
+     "note": "Missing translation."
     },
     {
      "i": 5,
-     "score": 1,
-     "critical": true,
-     "note": "The time is wrong. '12 15 minutes' implies 12:15, but the source says 11:45 (quarter to twelve). Critical due to wrong time."
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
     },
     {
      "i": 6,
-     "score": 1,
-     "critical": true,
-     "note": "The time is wrong ('15 minutes' instead of '20 minutes') and it omits that the 'doctor' will meet them. Critical due to wrong time."
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
     },
     {
      "i": 7,
-     "score": 1,
-     "critical": true,
-     "note": "Starts with a complete hallucination ('Uncle Sao isn't my sister') instead of 'Yesterday my sister'. Critical due to wrong subject (who-did-what)."
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
     },
     {
      "i": 8,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "Correctly negates 'chicken' but omits the key information 'vegetarian'."
+     "note": "Missing translation."
     },
     {
      "i": 9,
      "score": 0,
      "critical": false,
-     "note": "Complete hallucination, the translation has no relation to the source sentence."
+     "note": "Missing translation."
     },
     {
      "i": 10,
-     "score": 1,
-     "critical": true,
-     "note": "Translates 'my husband' as 'my wife'. Critical due to wrong person (who-did-what)."
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
     },
     {
      "i": 11,
-     "score": 2,
+     "score": 0,
      "critical": false,
-     "note": "The meaning is correct, but 'Let's start the pain' is an unidiomatic phrasing."
+     "note": "Missing translation."
     },
     {
      "i": 12,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "The first part of the sentence ('My child is a lot for helping') is nonsensical."
+     "note": "Missing translation."
     },
     {
      "i": 13,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "The first question is wrong ('This place is not enough' instead of 'Is this seat free?'). The second question is correct."
+     "note": "Missing translation."
     },
     {
      "i": 14,
-     "score": 1,
-     "critical": true,
-     "note": "Mistranslates 'deposit' as 'money from selling the rent'. Critical because it misidentifies what an amount of money is for."
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
     },
     {
      "i": 15,
-     "score": 1,
-     "critical": true,
-     "note": "The start time is wrong ('5 o'clock' instead of '9 o'clock'). Critical due to wrong time."
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
     },
     {
      "i": 16,
      "score": 0,
      "critical": false,
-     "note": "Completely wrong meaning ('Let me talk to this person first' instead of 'Could you speak more slowly')."
+     "note": "Missing translation."
     },
     {
      "i": 17,
-     "score": 1,
-     "critical": true,
-     "note": "Translates 'She was born' as 'He works' and 'March' as 'this month'. Critical due to wrong date and action."
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
     },
     {
      "i": 18,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "Changes the conditional 'if' to a statement of fact ('By tomorrow, it's going to rain') and mistranslates the action ('change to a car and ride together')."
+     "note": "Missing translation."
     },
     {
      "i": 19,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "Incorrectly translates 'I didn't catch' as 'I'm listening... again'."
+     "note": "Missing translation."
     },
     {
      "i": 20,
-     "score": 1,
-     "critical": true,
-     "note": "The phone number is garbled ('please one 42') and the sentence is incomplete. Critical due to wrong number."
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
     },
     {
      "i": 21,
      "score": 0,
      "critical": false,
-     "note": "Nonsensical translation ('He has a shirt back')."
+     "note": "Missing translation."
     },
     {
      "i": 22,
      "score": 0,
      "critical": false,
-     "note": "Directions are completely wrong ('the left is in stock number two', 'third Sunday')."
+     "note": "Missing translation."
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    }
+   ],
+   "delay": {
+    "tail_ms": -23752,
+    "per_sentence_median_ms": 18953
+   }
+  },
+  "gemini_live": {
+   "score_pct": 38,
+   "critical": 7,
+   "grades": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "The phrasing 'The station is where?' is awkward."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong dosage frequency ('5 hours' instead of 'eight hours'). The first part is phrased as a question, not a command."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslates 'meeting' as 'boat meeting' and omits the verb 'moved'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong time. It says '12 15 minutes' (12:15) instead of 'a quarter to twelve' (11:45)."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time ('15 minutes' instead of 'twenty minutes') and omits that the doctor will see the person."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Starts with a nonsensical phrase 'Uncle Sao isn't my sister' and omits 'Yesterday'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Omits the key information about ordering the 'vegetarian option'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning. The translation is unrelated to the source."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong person ('wife' instead of 'husband')."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrect phrasing 'Let's start the pain' instead of 'The pain started'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates 'Thank you so much' as 'My child is a lot'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates 'Is this seat free?' as 'This place is not enough.'"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates 'deposit' as 'the money from selling the rent'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong start time ('5 o'clock' instead of 'nine')."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong action ('works' instead of 'was born'), wrong pronoun ('He' instead of 'She'), and omits the month 'March'."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Misses the concept of a 'picnic' and mistranslates the alternative activity as 'change to a car and ride together'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is slightly off; 'listening... again' is not the same as 'didn't understand'."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": true,
+     "note": "The phone number is garbled ('55 5, please one 42' instead of '555 0142')."
+    },
+    {
+     "i": 21,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning. Mistranslates 'feeling dizzy' as 'has a shirt back'."
+    },
+    {
+     "i": 22,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong and garbled translation."
     },
     {
      "i": 23,
      "score": 2,
      "critical": false,
-     "note": "Meaning is correct, but 'Friday after that' is an awkward way to say 'next Friday'."
+     "note": "Awkward phrasing ('Friday after that', 'we want to invite you')."
     }
    ]
   },
   "azure_stt_cer": null,
+  "gladia_stt_cer": 0.97,
   "gemini_heard_cer": 0.226
  },
  "lo-en": {
   "azure_only": {
-   "score_pct": 44,
-   "critical": 11,
+   "score_pct": 36,
+   "critical": 8,
    "grades": [
     {
-     "i": 0,
-     "score": 3,
-     "critical": false
-    },
-    {
      "i": 1,
-     "score": 0,
-     "critical": true,
-     "note": "Completely garbled. The time is wrong."
+     "score": 2,
+     "critical": false,
+     "note": "Adds an unnecessary 'though'."
     },
     {
      "i": 2,
-     "score": 1,
+     "score": 0,
      "critical": true,
-     "note": "Translates 'tablets' as 'grams', which is a critical error for a dosage instruction."
+     "note": "Wrong time (8:3 vs 5:00) and misses key details."
     },
     {
      "i": 3,
      "score": 1,
      "critical": true,
-     "note": "Omits the original meeting time and day (Tuesday at 3:30)."
+     "note": "Wrong unit ('grams' instead of 'pills/tablets')."
     },
     {
      "i": 4,
      "score": 1,
-     "critical": true,
-     "note": "Completely misinterprets 'allergic to penicillin'. This is a critical medical information error."
+     "critical": false,
+     "note": "Omits the original meeting time (Tuesday 3:30), only stating the new time."
     },
     {
      "i": 5,
      "score": 1,
-     "critical": true,
-     "note": "The time is wrong (p.m. instead of a.m.)."
+     "critical": false,
+     "note": "Misinterprets 'allergic to penicillin' as 'she goes to the pharmacy by a nickname'."
     },
     {
      "i": 6,
-     "score": 2,
-     "critical": false,
-     "note": "Omits the important information that the doctor will be coming."
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time of day (p.m. instead of a.m.). 'not at the end of the day' is an awkward translation for 'not at noon'."
     },
     {
      "i": 7,
-     "score": 1,
-     "critical": true,
-     "note": "Wrong subject ('I' instead of 'my sister') and misinterprets 'Chicago' as 'Cole Market'."
+     "score": 2,
+     "critical": false,
+     "note": "Correct but omits that the doctor will be coming."
     },
     {
      "i": 8,
-     "score": 1,
-     "critical": false,
-     "note": "Partially correct ('didn't get any chicken') but the rest is garbled ('on the steep slope')."
+     "score": 0,
+     "critical": true,
+     "note": "Wrong location ('Cole Market' vs Chicago), wrong subject ('I' vs 'my sister'), and hallucinated name ('Val'). Who-did-what is wrong."
     },
     {
      "i": 9,
-     "score": 3,
-     "critical": false
+     "score": 0,
+     "critical": false,
+     "note": "Garbled translation ('on the steep slope')."
     },
     {
      "i": 10,
-     "score": 1,
-     "critical": true,
-     "note": "Wrong subject for the reason ('we work' instead of 'my husband is working')."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 11,
-     "score": 3,
-     "critical": false
+     "score": 2,
+     "critical": false,
+     "note": "'we work' instead of 'my husband is working'."
     },
     {
      "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
      "score": 0,
      "critical": false,
      "note": "Completely wrong meaning."
     },
     {
-     "i": 13,
-     "score": 1,
-     "critical": false,
-     "note": "Misinterprets 'waiting for someone' as 'challenging'."
-    },
-    {
      "i": 14,
      "score": 1,
-     "critical": true,
-     "note": "Omits the specific rent amount of '$1,250'."
+     "critical": false,
+     "note": "Misinterprets 'are you waiting for someone' as 'you're challenging'."
     },
     {
      "i": 15,
      "score": 0,
      "critical": true,
-     "note": "Garbled. Wrong start time ('at the moon') and wrong duration ('a quarter of his time')."
+     "note": "Omits the rent amount and makes a nonsensical statement."
     },
     {
      "i": 16,
-     "score": 3,
-     "critical": false
+     "score": 0,
+     "critical": true,
+     "note": "Wrong start time ('at the moon' vs 9:00) and duration ('a quarter of his time' vs 'an hour and a half')."
     },
     {
      "i": 17,
-     "score": 1,
-     "critical": true,
-     "note": "Wrong gender ('He'), wrong day (1st vs 3rd), and completely wrong year (1914 vs 2019)."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 18,
-     "score": 1,
-     "critical": false,
-     "note": "Misinterprets 'move the picnic' as 'have a picnic' and 'church hall' as 'Moe's Town Hall'."
+     "score": 0,
+     "critical": true,
+     "note": "Wrong gender, day, and year (1914 vs 2019)."
     },
     {
      "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Misinterprets 'church hall' as 'Moe's Town Hall'."
+    },
+    {
+     "i": 20,
      "score": 0,
      "critical": false,
      "note": "Completely wrong meaning."
     },
     {
-     "i": 20,
+     "i": 21,
      "score": 0,
      "critical": true,
-     "note": "Garbled. Omits the phone number and misinterprets the request to text."
-    },
-    {
-     "i": 21,
-     "score": 3,
-     "critical": false
+     "note": "Garbled translation. Omits phone number."
     },
     {
      "i": 22,
      "score": 2,
      "critical": false,
-     "note": "Correct meaning but omits the word 'building'."
+     "note": "Omits 'new' from 'new medication'."
     },
     {
      "i": 23,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "Correct meaning but omits 'next'."
+     "note": ""
     }
    ],
    "delay": {
@@ -3684,143 +4920,146 @@
    }
   },
   "azure_stt_gemini": {
-   "score_pct": 61,
-   "critical": 9,
+   "score_pct": 54,
+   "critical": 6,
    "grades": [
     {
-     "i": 0,
-     "score": 3,
-     "critical": false
-    },
-    {
      "i": 1,
-     "score": 1,
-     "critical": true,
-     "note": "The time is completely wrong (8:30 vs 5:00)."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 2,
-     "score": 3,
-     "critical": false
+     "score": 0,
+     "critical": true,
+     "note": "Wrong time (8:30 vs 5:00) and misses 'to the airport'."
     },
     {
      "i": 3,
-     "score": 1,
-     "critical": true,
-     "note": "Omits 'Tuesday' and gets the time wrong (3 p.m. vs 3:30 p.m.)."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 4,
      "score": 1,
      "critical": true,
-     "note": "Completely misinterprets 'allergic to penicillin'. This is a critical medical information error."
+     "note": "Wrong time (3 pm vs 3:30 pm) and omits 'Tuesday'."
     },
     {
      "i": 5,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": false,
+     "note": "Misinterprets 'allergic to penicillin' as 'her nickname is Tiny'."
     },
     {
      "i": 6,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "Omits the important information that the doctor will be coming."
+     "note": ""
     },
     {
      "i": 7,
-     "score": 1,
-     "critical": true,
-     "note": "Wrong subject ('I' instead of 'my sister') and misinterprets 'Chicago' as 'Costco'."
+     "score": 2,
+     "critical": false,
+     "note": "Correct but omits that the doctor will be coming."
     },
     {
      "i": 8,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "Completely wrong meaning."
+     "note": "Misinterprets 'Chicago' as 'Costco'."
     },
     {
      "i": 9,
-     "score": 3,
-     "critical": false
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning. Misinterprets 'chicken' and 'vegetarian'."
     },
     {
      "i": 10,
-     "score": 1,
-     "critical": true,
-     "note": "Wrong subject for the reason ('we work' instead of 'my husband is working')."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 11,
-     "score": 3,
-     "critical": false
+     "score": 2,
+     "critical": false,
+     "note": "'we work' instead of 'my husband is working'."
     },
     {
      "i": 12,
-     "score": 1,
+     "score": 3,
      "critical": false,
-     "note": "The first part is close, but 'You'll do great' is the wrong meaning for 'you are very kind'."
+     "note": ""
     },
     {
      "i": 13,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": false,
+     "note": "Misinterprets 'Thank you' and 'you are very kind'."
     },
     {
      "i": 14,
-     "score": 1,
-     "critical": true,
-     "note": "Omits the specific rent amount of '1,250'."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 15,
      "score": 1,
      "critical": true,
-     "note": "Wrong start time ('dawn' vs 'nine') and wrong duration ('two hours' vs 'an hour and a half')."
+     "note": "Omits the rent amount ($1,250)."
     },
     {
      "i": 16,
-     "score": 3,
-     "critical": false
+     "score": 0,
+     "critical": true,
+     "note": "Wrong start time ('dawn' vs 9:00) and duration ('two hours' vs 'an hour and a half')."
     },
     {
      "i": 17,
-     "score": 1,
-     "critical": true,
-     "note": "Wrong gender ('He'), wrong day (8th vs 3rd), and missing year."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 18,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": true,
+     "note": "Wrong gender ('He' vs 'She'), wrong day (8th vs 3rd), and omits the year."
     },
     {
      "i": 19,
-     "score": 2,
+     "score": 3,
      "critical": false,
-     "note": "Adds 'Could you repeat that?' which is not in the source, but captures the overall intent well."
+     "note": ""
     },
     {
      "i": 20,
+     "score": 1,
+     "critical": false,
+     "note": "Adds 'Could you repeat that?' which is not in the source."
+    },
+    {
+     "i": 21,
      "score": 1,
      "critical": true,
      "note": "Omits the phone number."
     },
     {
-     "i": 21,
-     "score": 3,
-     "critical": false
-    },
-    {
      "i": 22,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "Adds 'police station', which is a significant error in directions."
+     "note": "Omits 'new' from 'new medication'."
     },
     {
      "i": 23,
-     "score": 2,
+     "score": 1,
      "critical": false,
-     "note": "Correct meaning but omits 'next'."
+     "note": "Misinterprets 'second traffic light' as 'second police station'."
     }
    ],
    "delay": {
@@ -3828,134 +5067,283 @@
     "per_sentence_median_ms": 1292
    }
   },
-  "gemini_live": {
-   "score_pct": 49,
-   "critical": 8,
+  "gladia_stt_gemini": {
+   "score_pct": 31,
+   "critical": 9,
    "grades": [
     {
-     "i": 0,
-     "score": 3,
-     "critical": false
-    },
-    {
      "i": 1,
-     "score": 0,
-     "critical": true,
-     "note": "Completely garbled. Misinterprets time, destination, and mode of transport."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 2,
-     "score": 3,
-     "critical": false
+     "score": 2,
+     "critical": false,
+     "note": "Misinterprets 'airport' as 'Summit'."
     },
     {
      "i": 3,
      "score": 1,
-     "critical": true,
-     "note": "The time is wrong (3 PM vs 3:30 PM) and the 'from...to' structure is unclear."
+     "critical": false,
+     "note": "Omits the second half of the instruction (daily limit)."
     },
     {
      "i": 4,
-     "score": 1,
+     "score": 0,
      "critical": true,
-     "note": "Completely misinterprets 'allergic to penicillin' as 'we're going to be students together'. This is a critical medical information error."
+     "note": "Almost entirely wrong. Wrong time (3 AM vs 3:30 PM), wrong action, and hallucinated content."
     },
     {
      "i": 5,
      "score": 1,
-     "critical": true,
-     "note": "Misinterprets 'bus leaves' as 'car won't start'."
+     "critical": false,
+     "note": "Misinterprets 'allergic to penicillin' as 'has a persistent cough'."
     },
     {
      "i": 6,
-     "score": 1,
-     "critical": true,
-     "note": "Misinterprets 'twenty minutes' as 'tomorrow morning' and omits that the doctor is coming."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 7,
      "score": 1,
-     "critical": false,
-     "note": "Mostly garbled, but correctly identifies 'three children'. Misses 'yesterday', 'my sister', and 'from Chicago'."
+     "critical": true,
+     "note": "Wrong time ('3 minutes' vs '20 minutes')."
     },
     {
      "i": 8,
-     "score": 1,
-     "critical": false,
-     "note": "Too generic. Misses the key information about 'chicken' and 'vegetarian'."
+     "score": 0,
+     "critical": true,
+     "note": "Wrong time ('today' vs 'yesterday'), wrong subject ('I' vs 'my sister'). Who-did-what is wrong."
     },
     {
      "i": 9,
      "score": 0,
      "critical": false,
-     "note": "Completely garbled. Misinterprets 'package' and 'Mexico'."
+     "note": "Completely wrong meaning."
     },
     {
      "i": 10,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": true,
+     "note": "Misinterprets 'package' as '10 bags of fertilizer', hallucinating a number and item."
     },
     {
      "i": 11,
-     "score": 3,
-     "critical": false
+     "score": 0,
+     "critical": true,
+     "note": "Wrong subject ('They' vs 'We'), wrong action, and wrong reason. Who-did-what is wrong."
     },
     {
      "i": 12,
-     "score": 1,
+     "score": 3,
      "critical": false,
-     "note": "Misinterprets 'Thank you' as 'Dad is very happy'."
+     "note": ""
     },
     {
      "i": 13,
-     "score": 3,
-     "critical": false
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning."
     },
     {
      "i": 14,
-     "score": 1,
-     "critical": true,
-     "note": "Omits the specific rent amount of '1,250'."
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning."
     },
     {
      "i": 15,
-     "score": 3,
-     "critical": false
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation with wrong numbers."
     },
     {
      "i": 16,
-     "score": 3,
-     "critical": false
+     "score": 1,
+     "critical": true,
+     "note": "Wrong duration ('two hours' vs 'an hour and a half')."
     },
     {
      "i": 17,
-     "score": 1,
-     "critical": true,
-     "note": "The date is wrong (missing day 3rd) and the year is wrong ('this year' instead of 2019)."
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning."
     },
     {
      "i": 18,
-     "score": 2,
-     "critical": false,
-     "note": "Meaning is mostly correct, but translates 'church hall' as 'auditorium', omitting 'church'."
+     "score": 0,
+     "critical": true,
+     "note": "Wrong gender, wrong year ('next year' vs 2019), and omits the day."
     },
     {
      "i": 19,
      "score": 2,
      "critical": false,
-     "note": "Slightly awkward phrasing ('Can I apologize?' for 'I'm sorry')."
+     "note": "'they' instead of 'we'; 'village meeting hall' is a reasonable but not exact translation of 'church hall'."
     },
     {
      "i": 20,
-     "score": 1,
-     "critical": true,
-     "note": "Omits the phone number."
+     "score": 3,
+     "critical": false,
+     "note": ""
     },
     {
      "i": 21,
      "score": 0,
+     "critical": true,
+     "note": "Garbled translation. Omits phone number."
+    },
+    {
+     "i": 22,
+     "score": 1,
      "critical": false,
-     "note": "Missing translation."
+     "note": "Misinterprets 'ລາວ' (he) as the proper name 'Lao' and omits 'new'."
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "Omits the primary instruction ('Turn left at the second traffic light') and adds hallucinated content."
+    }
+   ],
+   "delay": {
+    "tail_ms": 1952,
+    "per_sentence_median_ms": 1436
+   }
+  },
+  "gemini_live": {
+   "score_pct": 38,
+   "critical": 8,
+   "grades": [
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation. Misses time and destination."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Correct meaning, but omits 'in a day'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time (3 PM vs 3:30 PM)."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Misinterprets 'allergic to penicillin' as 'we're going to be students together'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Misinterprets 'bus leaves' as 'car won't start'."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning. Misses the doctor and the 20-minute timeframe."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation. Misses key details like 'yesterday', 'my sister', and 'from Chicago'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Vague translation that misses the specific contrast between 'chicken' and 'vegetarian'."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Misinterprets 'Thank you so much for your help' as 'Dad is very happy to receive help'."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing ('The place is free to sit')."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omits the rent amount ($1,250)."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing ('That is our we start...')."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing ('...can you?')."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong date information (misses day, wrong year)."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "'auditorium' is a plausible but not exact translation of 'church hall'."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": false,
+     "note": "'Can I apologize?' is an unnatural translation of 'I'm sorry'."
+    },
+    {
+     "i": 21,
+     "score": 1,
+     "critical": true,
+     "note": "Omits the phone number."
     },
     {
      "i": 22,
@@ -3972,13 +5360,168 @@
    ]
   },
   "azure_stt_cer": 0.216,
+  "gladia_stt_cer": 0.998,
   "gemini_heard_cer": 0.996
  },
  "ht-en": {
   "azure_only": {},
   "azure_stt_gemini": {},
+  "gladia_stt_gemini": {
+   "score_pct": 47,
+   "critical": 8,
+   "grades": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong translation, seems to be a hallucination."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong quantity ('a pill' vs 'two'), wrong frequency ('every two hours' vs 'eight'), and the second half is garbled."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Correctly negates the first time but completely misses the new day and time."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong gender ('boy' instead of 'daughter')."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Misses the departure time (11:45) and hallucinates 'Midwife, may I ask?'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinates 'your back problem will be fine' instead of 'the doctor will see you'."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong translation with hallucinations ('at the carbon at 18:00')."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "First part is wrong; second part has wrong subject ('they asked' instead of 'I asked')."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinates 'and put medicine in it' instead of 'it gets worse at night'."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Translates 'èd ou' (your help) as 'the gift'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrectly states 'this place is busy' which is the opposite of 'this seat is free'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Gets the start time but hallucinates the duration ('He called for an eternal covenant')."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Uses 'go' instead of 'speak', which is understandable but not precise."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong gender, misses day and year, and translates 'by the sea' as 'in the mountains'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Adds 'almost' but is otherwise a good translation."
+    },
+    {
+     "i": 20,
+     "score": 0,
+     "critical": true,
+     "note": "Misses the phone number and hallucinates 'at two a.m.' and other phrases."
+    },
+    {
+     "i": 21,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 22,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong translation with hallucinations."
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing ('Friday is coming') but meaning is correct."
+    }
+   ],
+   "delay": {
+    "tail_ms": 1831,
+    "per_sentence_median_ms": 1398
+   }
+  },
   "gemini_live": {
-   "score_pct": 36,
+   "score_pct": 42,
    "critical": 9,
    "grades": [
     {
@@ -3991,49 +5534,49 @@
      "i": 1,
      "score": 1,
      "critical": true,
-     "note": "Incorrect subject ('The woman' instead of 'I')."
+     "note": "Wrong subject ('The woman' instead of 'I')."
     },
     {
      "i": 2,
      "score": 1,
      "critical": true,
-     "note": "Partly wrong. It misses the frequency 'every eight hours'."
+     "note": "Misses the frequency 'every eight hours', which is a critical dosage instruction."
     },
     {
      "i": 3,
      "score": 1,
      "critical": true,
-     "note": "Incorrect time, says '3' instead of '3:30'."
+     "note": "Wrong time ('3' instead of '3:30')."
     },
     {
      "i": 4,
      "score": 2,
      "critical": false,
-     "note": "Awkward phrasing ('Little girl has 14 years old')."
+     "note": "Awkward phrasing ('Little girl has 14 years old') and misses 'my'."
     },
     {
      "i": 5,
      "score": 0,
-     "critical": false,
-     "note": "Completely wrong meaning and garbled."
+     "critical": true,
+     "note": "Completely misses the bus and the departure time (11:45)."
     },
     {
      "i": 6,
      "score": 1,
      "critical": false,
-     "note": "The meaning is distorted and confusing ('Don't worry about the doctor, after you're in...')."
+     "note": "Garbled phrasing ('after you're in about 20 minutes') obscures the meaning."
     },
     {
      "i": 7,
-     "score": 0,
+     "score": 1,
      "critical": true,
-     "note": "Wrong meaning. It has the wrong subject ('He' instead of 'my sister'), misses 'Yesterday', and adds incorrect information ('in the car')."
+     "note": "Wrong subject ('He's the one in the car' instead of 'my sister') and misses key details."
     },
     {
      "i": 8,
      "score": 1,
      "critical": false,
-     "note": "The first clause 'I don't want the chicken' is mistranslated as 'I don't want to be there'."
+     "note": "Incorrectly translates 'M pa vle poul la' (I don't want the chicken) as 'I don't want to be there'."
     },
     {
      "i": 9,
@@ -4043,15 +5586,15 @@
     },
     {
      "i": 10,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "Contains garbled text ('tell me the handle') which seems to be a misinterpretation of 'Dimanch lan'."
+     "note": "Hallucinates 'tell me the handle' but the main clauses are correct."
     },
     {
      "i": 11,
-     "score": 1,
+     "score": 2,
      "critical": false,
-     "note": "Mistranslates 'lannwit' (at night) as 'now'."
+     "note": "Incorrectly states the pain gets worse 'now' instead of 'at night'."
     },
     {
      "i": 12,
@@ -4061,21 +5604,21 @@
     },
     {
      "i": 13,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "The second half of the sentence is completely mistranslated."
+     "note": "The second half of the question is completely wrong."
     },
     {
      "i": 14,
      "score": 0,
      "critical": true,
-     "note": "Wrong meaning. Mistranslates 'Lwaye' (rent) as 'law' and gets the amount wrong ($150 instead of $1,250)."
+     "note": "Wrong amount ($150 instead of $1,250) and misheard 'rent' as 'law'."
     },
     {
      "i": 15,
      "score": 1,
      "critical": true,
-     "note": "The duration ('an hour and a half') is completely mistranslated."
+     "note": "Gets the start time but completely misses the duration ('an hour and a half')."
     },
     {
      "i": 16,
@@ -4087,31 +5630,31 @@
      "i": 17,
      "score": 1,
      "critical": true,
-     "note": "Partly wrong. Misses the subject ('She'), the day ('3rd'), and the year ('2019')."
+     "note": "Misses the day (3rd) and year (2019) of birth."
     },
     {
      "i": 18,
-     "score": 0,
-     "critical": true,
-     "note": "Wrong meaning. Contains nonsense ('two meters' for 'demen') and has the wrong subject ('they' instead of 'we')."
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinates 'two meters' instead of 'tomorrow'."
     },
     {
      "i": 19,
      "score": 2,
      "critical": false,
-     "note": "Meaning is correct but starts with 'Because' which is an incorrect translation of 'Eskize m'."
+     "note": "Adds 'Because' and phrasing is slightly off but understandable."
     },
     {
      "i": 20,
      "score": 0,
      "critical": true,
-     "note": "Garbled and misses all key information (the phone number, the instruction not to call)."
+     "note": "Misses the phone number and the rest of the sentence is garbled."
     },
     {
      "i": 21,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "Incomplete sentence. It misses the main clause 'he has been feeling dizzy'."
+     "note": "Incomplete translation."
     },
     {
      "i": 22,
@@ -4128,6 +5671,7 @@
    ]
   },
   "azure_stt_cer": null,
+  "gladia_stt_cer": 0.227,
   "gemini_heard_cer": 0.276
  }
 }

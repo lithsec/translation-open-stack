@@ -95,3 +95,36 @@ from round 1 (the grader's run-to-run spread).
   72%, Mandarin 97% vs 82%, Lao 61% vs 44%): the same transcript, translated
   better by Gemini.
 - Both beat Gemini Live everywhere except Lao/Haitian Creole listeners.
+
+## Round 3: Gladia → Gemini as a fourth contender (17 October 2026)
+
+`gladia_stt.mjs` (Gladia live, Solaria-1 — the only live model) on the same
+synthetic clips, its finals sent to Gemini exactly as Azure's are. The other
+three systems' outputs were kept and re-graded side by side with it.
+
+| Direction | Azure only | Azure → Gemini | Gladia → Gemini | Gemini Live | Heard: Azure / Gladia / Gemini |
+|---|---|---|---|---|---|
+| en→ja | **93%** | 89% | 86% | 69% | 4% / 2% / 3% |
+| en→zh | **100%** | 96% | 88% | 71% | 4% / 2% / 4% |
+| en→km | **89%** | 85% | 88% | 82% | 4% / 2% / 4% |
+| en→lo | 83% | **90%** | 85% | 85% | 4% / 2% / 4% |
+| en→ht | 71% (captions) | 85% | 82% | **89%** | 4% / 2% / 4% |
+| ja→en | 78% | **96%** | 93% | 51% | 4% / 1% / 20% |
+| zh→en | 76% | **97%** | 86% | 53% | 2% / 2% / 6% |
+| km→en | 35% | — | 0% | 38% | — / 97% / 23% |
+| lo→en | 36% | **54%** | 31% | 38% | 22% / Thai script / other script |
+| ht→en | — | — | **47%** | 42% | — / 23% / 28% |
+
+- **Haitian Creole speakers: no real fix.** Gladia heard them a little better
+  than Gemini Live (23% vs 28% of characters wrong) and scored 47% vs 42% —
+  inside the grader's run-to-run spread. In September the open stack won this
+  direction.
+- **Khmer and Lao: Gladia fails.** Khmer came back as 37 characters for 24
+  sentences; Lao was written in Thai script.
+- **Japanese and Mandarin speakers:** Gladia → Gemini 93% and 86%, good but
+  below Azure → Gemini (96%, 97%), though Gladia's transcripts had fewer wrong
+  characters — it split sentences into more pieces (32 for 24), and Gemini
+  translated fragments.
+- **Delay:** about 1.2 s per sentence, like Azure → Gemini.
+- Synthetic voices (MMS for km/lo/ht); the real-voice round
+  (`../2026-10-real-voices`) includes Gladia too.
