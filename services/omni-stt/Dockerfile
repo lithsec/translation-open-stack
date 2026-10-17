@@ -24,8 +24,12 @@ ENV PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1
 
-# libsndfile: fairseq2's audio decoding.
+# libsndfile: fairseq2's audio decoding. The compiler, cmake and Boost: kenlm
+# (pulled by Omnilingual) has no wheel and compiles from source (the stack's
+# docs/dev/lessons-learned.md; the first Cloud Build failed on it).
 RUN apt-get update && apt-get install -y --no-install-recommends libsndfile1 ca-certificates \
+      build-essential cmake libboost-program-options-dev libboost-system-dev libboost-thread-dev \
+      libboost-test-dev zlib1g-dev libbz2-dev liblzma-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /opt/stt
