@@ -2,7 +2,6 @@
   "name": "eval-azure-stt-gemini",
   "private": true,
   "type": "module",
-  "dependencies": {
-    "microsoft-cognitiveservices-speech-sdk": "^1.44.0"
-  }
+  "dependencies": {},
+  "description": "Node 26 global WebSocket only; no dependencies"
 }

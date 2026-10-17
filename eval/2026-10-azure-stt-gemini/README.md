@@ -11,7 +11,7 @@ as the baseline.
 | Step | Script |
 |---|---|
 | Source audio: September's 24 sentences, macOS voices (en, ja, zh) and Meta MMS (km, lo, ht), 0.8 s pauses | `make_audio.py` |
-| Azure live speech-to-text, fed in real time | `azure_stt.mjs` |
+| Azure live speech-to-text, fed in real time (Python SDK; the Node one never connected on Node 26) | `azure_stt.py` |
 | Azure's text → Gemini Live (text in, voice out); and Gemini Live Translate on the audio | `gemini_live.mjs pipe` / `live` |
 | Blind grading with September's grader and prompt; delay; character error rate of what each one heard | `judge.py` |
 

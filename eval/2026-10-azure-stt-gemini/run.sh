@@ -14,9 +14,10 @@ DIRS="en-ja en-zh en-km en-lo en-ht ja-en zh-en km-en lo-en ht-en"
 [ -f audio/en.wav ] || { echo "Make the audio first: python3 make_audio.py en ja zh; .venv/bin/python make_audio.py km lo ht"; exit 1; }
 
 echo "== 1/4 Azure speech-to-text (real time, ~2.5 min)"
-( set -a; . "$ENV_FILE"; set +a; node azure_stt.mjs en ja zh km lo ht )
+( set -a; . "$ENV_FILE"; set +a; .venv/bin/python azure_stt.py en ja zh km lo ht )
 
-export TOK="$(gcloud auth print-access-token)"
+TOK="$(gcloud auth print-access-token)" || { echo "gcloud login needed: run  gcloud auth login"; exit 1; }
+export TOK
 export GOOGLE_CLOUD_PROJECT="${GOOGLE_CLOUD_PROJECT:-${VERTEX_PROJECT:-$(gcloud config get-value project 2>/dev/null)}}"
 
 echo "== 2/4 Azure text -> Gemini voice (real time, ~3 min)"
