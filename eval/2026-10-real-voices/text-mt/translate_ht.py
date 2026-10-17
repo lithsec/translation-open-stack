@@ -109,10 +109,27 @@ def google_nmt(sents):
     return [o if s.strip() else "" for o, s in zip(out, sents)]
 
 
+def azure_translator(sents):
+    """Azure Translator (text; 'no-trace': it keeps nothing), key and region
+    from AZURE_TRANSLATOR_KEY1 / AZURE_TRANSLATOR_REGION (default eastus)."""
+    import urllib.request
+    key = os.environ["AZURE_TRANSLATOR_KEY1"]
+    region = os.environ.get("AZURE_TRANSLATOR_REGION", "eastus")
+    req = urllib.request.Request(
+        "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=ht&to=en",
+        data=json.dumps([{"Text": s or "-"} for s in sents]).encode(),
+        headers={"Ocp-Apim-Subscription-Key": key, "Ocp-Apim-Subscription-Region": region, "Content-Type": "application/json"})
+    out = [r["translations"][0]["text"] for r in json.load(urllib.request.urlopen(req, timeout=120))]
+    return [o if s.strip() else "" for o, s in zip(out, sents)]
+
+
 TRANSLATORS = {
     "google-translate": google_nmt,
+    **({"azure-translator": azure_translator} if os.environ.get("AZURE_TRANSLATOR_KEY1") else {}),
     "gemini-2.5-flash": lambda s: gem("gemini-2.5-flash", s, False),
     "gemini-2.5-flash+ctx": lambda s: gem("gemini-2.5-flash", s, True),
+    "gemini-3.5-flash": lambda s: gem("gemini-3.5-flash", s, False),
+    "gemini-3.5-flash-lite": lambda s: gem("gemini-3.5-flash-lite", s, False),
 }
 
 for inp, sents in inputs.items():
@@ -145,9 +162,12 @@ Reference meaning (English):
 Translations into English:
 {chr(10).join(blocks)}
 
-Return JSON: {{"A": [{{"i": 0, "score": 3, "critical": false, "note": "..."}}, ... {len(src)} items], "B": [...], ...}} with a short note only when score < 3 or critical."""
-    for _ in range(3):  # the grader once answered with a bare list: ask again
-        res = gemini(prompt)
+Return JSON: {{"A": [{{"i": 0, "score": 3, "critical": false, "note": "..."}}, ... {len(src)} items], "B": [...], ...}} with a note of at most 8 words only when score < 3 or critical."""
+    for _ in range(3):  # the grader once answered with a bare list, once ran out of room: ask again
+        try:
+            res = gemini(prompt)
+        except json.JSONDecodeError:
+            continue
         if isinstance(res, dict) and all(isinstance(res.get(L), list) for L in names):
             break
     for L, m in names.items():
