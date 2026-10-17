@@ -65,3 +65,33 @@ mid-sentence, so it has no comparable per-sentence figure.
   sentence (opened while the previous one speaks). Gemini Live Translate streams
   audio until the session closes, so no "finished speaking" time is reported
   for it.
+
+## Round 2: Azure alone as a third contender (17 October 2026)
+
+`azure_translate.py`: Azure's speech translation on the same clips (one
+recogniser per clip, every target at once, as the app runs it), its delay =
+when the translated text arrived after the sentence ended + Azure's neural
+voice starting (measured on five sentences per language, 200–420 ms). All
+three graded side by side again, so the other two columns moved a few points
+from round 1 (the grader's run-to-run spread).
+
+| Direction | Azure only | Azure STT → Gemini | Gemini Live |
+|---|---|---|---|
+| en→ja | **96%** (0 crit), 1.0 s | 86% (0 crit), 1.3 s | 65% (4 crit) |
+| en→zh | **99%** (0 crit), 0.9 s | 96% (0 crit), 1.3 s | 74% (5 crit) |
+| en→km | **88%** (0 crit), 1.2 s | 81% (0 crit), 1.3 s | 78% (2 crit) |
+| en→lo | 79% (0 crit), 1.1 s | **92%** (0 crit), 1.4 s | 81% (2 crit) |
+| en→ht | 69%, captions only (no Azure voice) | **89%** (1 crit), 1.3 s | 83% (1 crit) |
+| ja→en | 72% (3 crit), 1.0 s | **92%** (1 crit), 1.3 s | 50% (6 crit) |
+| zh→en | 82% (2 crit), 1.1 s | **97%** (1 crit), 1.4 s | 64% (7 crit) |
+| km→en | 38% (4 crit), 1.0 s | — (Azure quota, round 1) | 39% (9 crit) |
+| lo→en | 44% (11 crit), 1.0 s | **61%** (9 crit), 1.3 s | 49% (8 crit) |
+| ht→en | — (no Azure Haitian Creole) | — | 36% (9 crit) |
+
+- **Out of English, Azure's own translator wins** Japanese, Mandarin and Khmer,
+  and is the quickest (~1 s). Gemini from Azure's text wins Lao and Haitian
+  Creole (which Azure can't voice).
+- **Into English, Gemini from Azure's text wins every time** (Japanese 92% vs
+  72%, Mandarin 97% vs 82%, Lao 61% vs 44%): the same transcript, translated
+  better by Gemini.
+- Both beat Gemini Live everywhere except Lao/Haitian Creole listeners.
