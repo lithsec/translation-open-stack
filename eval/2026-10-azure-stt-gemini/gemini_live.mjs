@@ -67,8 +67,8 @@ function recorder(t0) {
   };
 }
 
-async function pipe(src, tgt) {
-  const stt = JSON.parse(fs.readFileSync(`out/stt/${src}.json`, "utf8"));
+async function pipe(src, tgt, sttDir = "stt") {
+  const stt = JSON.parse(fs.readFileSync(`out/${sttDir}/${src}.json`, "utf8"));
   if (stt.err || !stt.finals.length) return { err: `no transcript: ${stt.err || "empty"}`, turns: [] };
   const instruction =
     `You are a live interpreter at a church service or clinic. Each message is one sentence spoken in ${NAMES[src]}, ` +
@@ -155,15 +155,16 @@ async function live(src, tgt) {
 }
 
 const [mode, ...dirs] = process.argv.slice(2);
-if (!["pipe", "live"].includes(mode) || !dirs.length) {
-  console.error("usage: node gemini_live.mjs pipe|live en-ja ja-en ...");
+// gladia = the same pipeline with Gladia's transcript (out/stt-gladia) in front.
+if (!["pipe", "gladia", "live"].includes(mode) || !dirs.length) {
+  console.error("usage: node gemini_live.mjs pipe|gladia|live en-ja ja-en ...");
   process.exit(1);
 }
 fs.mkdirSync(`out/${mode}`, { recursive: true });
 // All directions at once: each runs at real-time pace.
 await Promise.all(dirs.map(async (d) => {
   const [src, tgt] = d.split("-");
-  const r = await (mode === "pipe" ? pipe(src, tgt) : live(src, tgt));
+  const r = await (mode === "pipe" ? pipe(src, tgt) : mode === "gladia" ? pipe(src, tgt, "stt-gladia") : live(src, tgt));
   fs.writeFileSync(`out/${mode}/${d}.json`, JSON.stringify({ direction: d, mode, ...r }, null, 1));
   console.log(`${mode} ${d}: ${r.err ? "ERROR " + r.err : `${r.turns.length} turns, ${r.turns.map((x) => x.said).join(" ").length} chars said${r.model ? " (" + r.model + ")" : ""}`}`);
 }));
