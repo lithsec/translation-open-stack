@@ -52,8 +52,15 @@ class Omnilingual(Recognizer):
             # fairseq2 code that still says plain "cuda".
             import inspect
             kw = {}
-            if "device" in inspect.signature(ASRInferencePipeline).parameters:
+            params = inspect.signature(ASRInferencePipeline).parameters
+            if "device" in params:
                 kw["device"] = self.device
+            # The pipeline defaults to bfloat16, which a CPU emulates: on an M2
+            # Pro a 13 s Haitian sentence took 34 s in bf16 and 13.5 s in
+            # float32 (2026-10-17, services/omni-stt). GPUs keep the default.
+            if "dtype" in params and str(self.device).startswith("cpu"):
+                import torch
+                kw["dtype"] = torch.float32
             with on_device(self.device):
                 self.omni = ASRInferencePipeline(model_card=card, **kw)
             self.available = True
