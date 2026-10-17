@@ -6,7 +6,7 @@
 //
 // Writes out/stt-gladia/<lang>.json in azure_stt.py's shape (finals with text,
 // offset/duration in the clip, arrival time), so gemini_live.mjs can take it.
-// Two clips at a time; a language already done is kept. Prints no secrets.
+// One clip at a time; a language already done is kept. Prints no secrets.
 import fs from "node:fs";
 
 const KEY = process.env.GLADIA_API_KEY?.trim();
@@ -93,4 +93,24 @@ const todo = process.argv.slice(2).filter((l) => {
   } catch {}
   return true;
 });
-for (let i = 0; i < todo.length; i += 2) await Promise.all(todo.slice(i, i + 2).map(run));
+// One clip at a time: the free plan dropped two sessions run side by side
+// (closed 1006). A clip that fails is tried once more; a network error is a
+// failed clip, not the end of the run.
+for (const lang of todo) {
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    try {
+      await run(lang)
+    } catch (e) {
+      console.log(`${lang} (gladia): ERROR ${e?.cause?.code || e?.message || e}`)
+      fs.mkdirSync(OUT, { recursive: true })
+      fs.writeFileSync(`${OUT}/${lang}.json`, JSON.stringify({ lang, err: String(e?.message || e), finals: [] }))
+    }
+    let ok = false
+    try {
+      const r = JSON.parse(fs.readFileSync(`${OUT}/${lang}.json`, "utf8"))
+      ok = !r.err && r.finals.length > 0
+    } catch {}
+    if (ok) break
+    if (attempt === 1) console.log(`${lang} (gladia): trying once more`)
+  }
+}
