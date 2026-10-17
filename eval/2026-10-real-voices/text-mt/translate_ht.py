@@ -6,6 +6,12 @@
 # Graded blind with the same grader and prompt as judge.py.
 #
 #   GOOGLE_CLOUD_PROJECT=... python3 text-mt/translate_ht.py
+#   GEMINI_API_KEY=... EVAL_BACKEND=aistudio python3 text-mt/translate_ht.py
+#     (no gcloud: Gemini through AI Studio. Gemini 2.5 Pro is closed to new
+#     AI Studio keys, so the grader is GRADER, default gemini-3.1-pro-preview,
+#     and its grades go to grades-<grader>.json: compare within one run only.
+#     Translators needing Google Cloud must already be in out/.)
+#   INPUTS=omnilingual,gold limits which transcripts are translated and graded.
 # NOTE: the English references were written by Gemini 2.5 Pro, so Gemini
 # translators may be flattered; the grade says so.
 import json, os, random, sys
@@ -15,10 +21,39 @@ import vertex  # noqa: E402
 import urllib.error
 
 
-def gemini(*a, **k):
+AISTUDIO = os.environ.get("EVAL_BACKEND") == "aistudio"
+GRADER = os.environ.get("GRADER") or ("gemini-3.1-pro-preview" if AISTUDIO else "gemini-2.5-pro")
+
+
+def aistudio(prompt, model="gemini-2.5-pro", json_out=True, thinking=None):
+    import time
+    import urllib.request
+    gen = {"temperature": 0, "maxOutputTokens": 32000, **({"responseMimeType": "application/json"} if json_out else {}),
+           **({"thinkingConfig": {"thinkingLevel": thinking}} if thinking else {})}
+    req = urllib.request.Request(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+        data=json.dumps({"contents": [{"role": "user", "parts": [{"text": prompt}]}], "generationConfig": gen}).encode(),
+        headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"], "Content-Type": "application/json"})
+    for attempt in range(8):
+        try:
+            j = json.load(urllib.request.urlopen(req, timeout=300)); break
+        except urllib.error.HTTPError as e:
+            if e.code not in (429, 500, 503) or attempt == 7: raise
+            time.sleep(10 * (attempt + 1))
+    t = "".join(p.get("text", "") for p in j["candidates"][0]["content"]["parts"] if not p.get("thought"))
+    return json.loads(t) if json_out else t
+
+
+def gemini(*a, thinking=None, **k):
     # gcloud tokens last an hour and vertex.py keeps the first one: refresh on 401.
     # An answer with no content (Gemini declined, e.g. Chirp's 7,000-character
     # looped "sentence") counts as a blank translation.
+    if AISTUDIO:
+        try:
+            return aistudio(*a, thinking=thinking, **k)
+        except KeyError:
+            return ""
+    if thinking:
+        raise SystemExit("thinking levels need EVAL_BACKEND=aistudio")
     try:
         return vertex.gemini(*a, **k)
     except KeyError:
@@ -80,7 +115,7 @@ if os.path.exists(_chirp):
     inputs["chirp3"] = json.load(open(_chirp))
 
 
-def gem(model, sents, context):
+def gem(model, sents, context, thinking=None):
     """One call per sentence, as a live pipeline would; with context, the two
     sentences before it are shown (already spoken) to resolve pronouns etc."""
     import concurrent.futures as cf
@@ -92,7 +127,7 @@ def gem(model, sents, context):
              "into natural English. Keep numbers, names and negation exact. Output only the English.\n"
              + (f"Earlier sentences, for context only (do not translate): {prev}\n" if prev else "")
              + f"Sentence: {s}")
-        return gemini(p, model=model, json_out=False).strip() if s.strip() else ""
+        return gemini(p, model=model, json_out=False, thinking=thinking).strip() if s.strip() else ""
     with cf.ThreadPoolExecutor(6) as ex:
         return list(ex.map(one, range(len(sents))))
 
@@ -130,7 +165,13 @@ TRANSLATORS = {
     "gemini-2.5-flash+ctx": lambda s: gem("gemini-2.5-flash", s, True),
     "gemini-3.5-flash": lambda s: gem("gemini-3.5-flash", s, False),
     "gemini-3.5-flash-lite": lambda s: gem("gemini-3.5-flash-lite", s, False),
+    # Thinking "low", as the app runs them (AI Studio only).
+    **({f"{m}@low": (lambda m: lambda s: gem(m, s, False, "low"))(m)
+        for m in ("gemini-3.5-flash", "gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.8-flash")} if AISTUDIO else {}),
+    **({"gemini-3.5-flash@medium": lambda s: gem("gemini-3.5-flash", s, False, "medium")} if AISTUDIO else {}),
 }
+if os.environ.get("INPUTS"):
+    inputs = {k: v for k, v in inputs.items() if k in os.environ["INPUTS"].split(",")}
 
 for inp, sents in inputs.items():
     for name, fn in TRANSLATORS.items():
@@ -165,7 +206,7 @@ Translations into English:
 Return JSON: {{"A": [{{"i": 0, "score": 3, "critical": false, "note": "..."}}, ... {len(src)} items], "B": [...], ...}} with a note of at most 8 words only when score < 3 or critical."""
     for _ in range(3):  # the grader once answered with a bare list, once ran out of room: ask again
         try:
-            res = gemini(prompt)
+            res = gemini(prompt, model=GRADER)
         except json.JSONDecodeError:
             continue
         if isinstance(res, dict) and all(isinstance(res.get(L), list) for L in names):
@@ -176,6 +217,7 @@ Return JSON: {{"A": [{{"i": 0, "score": 3, "critical": false, "note": "..."}}, .
         mean = sum(g.get(i, {}).get("score", 0) for i in range(len(src))) / (3 * len(src))
         crit = sum(1 for x in g.values() if x.get("critical"))
         results[f"{inp}__{m}"] = {"fully_correct": round(full / len(src), 3), "mean_score": round(mean, 3), "critical": crit}
-json.dump(results, open(os.path.join(OUT, "grades.json"), "w"), indent=1)
+json.dump(results, open(os.path.join(OUT, "grades.json" if GRADER == "gemini-2.5-pro" else f"grades-{GRADER}.json"), "w"), indent=1)
+print("grader:", GRADER)
 for k, v in sorted(results.items()):
     print(f"{k:40s} fully correct {v['fully_correct']:.0%}  mean {v['mean_score']:.0%}  critical {v['critical']}")

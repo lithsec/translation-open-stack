@@ -1,0 +1,29 @@
+translated gold gemini-3.5-flash@low
+translated gold gemini-3.6-flash@low
+translated gold gemini-3.7-flash@low
+translated gold gemini-3.8-flash@low
+translated omnilingual gemini-3.5-flash@low
+translated omnilingual gemini-3.6-flash@low
+translated omnilingual gemini-3.7-flash@low
+translated omnilingual gemini-3.8-flash@low
+grader: gemini-3.1-pro-preview
+gold__azure-translator                   fully correct 43%  mean 71%  critical 9
+gold__gemini-2.5-flash                   fully correct 83%  mean 91%  critical 3
+gold__gemini-2.5-flash+ctx               fully correct 90%  mean 96%  critical 1
+gold__gemini-3.5-flash                   fully correct 93%  mean 98%  critical 0
+gold__gemini-3.5-flash-lite              fully correct 73%  mean 86%  critical 5
+gold__gemini-3.5-flash@low               fully correct 93%  mean 97%  critical 1
+gold__gemini-3.6-flash@low               fully correct 87%  mean 94%  critical 1
+gold__gemini-3.7-flash@low               fully correct 83%  mean 91%  critical 3
+gold__gemini-3.8-flash@low               fully correct 87%  mean 92%  critical 3
+gold__google-translate                   fully correct 60%  mean 84%  critical 3
+omnilingual__azure-translator            fully correct 10%  mean 37%  critical 20
+omnilingual__gemini-2.5-flash            fully correct 37%  mean 68%  critical 9
+omnilingual__gemini-2.5-flash+ctx        fully correct 33%  mean 62%  critical 10
+omnilingual__gemini-3.5-flash            fully correct 73%  mean 87%  critical 4
+omnilingual__gemini-3.5-flash-lite       fully correct 37%  mean 60%  critical 13
+omnilingual__gemini-3.5-flash@low        fully correct 57%  mean 77%  critical 6
+omnilingual__gemini-3.6-flash@low        fully correct 53%  mean 73%  critical 8
+omnilingual__gemini-3.7-flash@low        fully correct 53%  mean 74%  critical 7
+omnilingual__gemini-3.8-flash@low        fully correct 53%  mean 74%  critical 7
+omnilingual__google-translate            fully correct 23%  mean 43%  critical 18
