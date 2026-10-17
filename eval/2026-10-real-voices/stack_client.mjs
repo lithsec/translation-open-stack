@@ -108,10 +108,9 @@ function save(src, tgt, r) {
   );
 }
 
-// Every clip at once, each in its own room: the A100 has room for it.
-await Promise.all(
-  process.argv.slice(2).map((arg) => {
-    const [src, t] = arg.split(":");
-    return run(src, t.split(","));
-  })
-);
+// One clip at a time: run side by side on one 48 GB card, the stack dropped a
+// third to two thirds of what was said (it serves one room at a time well).
+for (const arg of process.argv.slice(2)) {
+  const [src, t] = arg.split(":");
+  await run(src, t.split(","));
+}
