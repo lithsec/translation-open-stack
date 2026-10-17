@@ -69,6 +69,23 @@ function recorder(t0) {
 
 async function pipe(src, tgt, sttDir = "stt") {
   const stt = JSON.parse(fs.readFileSync(`out/${sttDir}/${src}.json`, "utf8"));
+  // MERGE_GAP_MS: join finals that follow each other within this pause into
+  // one sentence before Gemini sees them. Gladia cut 30 real Haitian Creole
+  // sentences into 97 pieces, and a fresh session per piece translated scraps.
+  const gap = Number(process.env.MERGE_GAP_MS || 0);
+  if (gap > 0 && stt.finals?.length) {
+    const merged = [];
+    for (const f of stt.finals) {
+      const last = merged.at(-1);
+      const sentenceDone = last && /[.!?។。？！]\s*$/.test(last.text);
+      if (last && !sentenceDone && f.offsetMs - (last.offsetMs + last.durationMs) <= gap) {
+        last.text += " " + f.text;
+        last.durationMs = f.offsetMs + f.durationMs - last.offsetMs;
+        last.arrivedMs = f.arrivedMs;
+      } else merged.push({ ...f });
+    }
+    stt.finals = merged;
+  }
   if (stt.err || !stt.finals.length) return { err: `no transcript: ${stt.err || "empty"}`, turns: [] };
   const instruction =
     `You are a live interpreter at a church service or clinic. Each message is one sentence spoken in ${NAMES[src]}, ` +

@@ -1,0 +1,385 @@
+{
+ "ht-en": {
+  "azure_only": {},
+  "azure_stt_gemini": {},
+  "gladia_stt_gemini": {
+   "score_pct": 23,
+   "critical": 2,
+   "grades": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "Completely garbled and nonsensical. Fails to translate any part correctly."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong. Contains hallucinations ('crystal lettuce', 'Course folded') and misses all key nouns."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": false,
+     "note": "Mostly wrong. Gets one name right but misses the relationships and hallucinates 'Cholera' and 'skinny'."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Critical error on the number ('six' instead of '600'). The location is also completely wrong."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Omits the key information about the 'anger of the students'."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is correct, but it adds a nonsensical, unrelated phrase at the end."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong. Critical errors in who gives what to whom ('sermon gives me' instead of 'Lord gives your majesty'). Misses 'Saul'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Misses the specific recipient 'Gaius' and the description 'my truly beloved brother', replacing it with 'the people'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Wrong meaning. Misinterprets both parts of the simile."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong. Mishears the name and hallucinates 'school'."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": false,
+     "note": "Wrong meaning. Misinterprets 'portion of land' as 'potion'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning is correct, but the phrasing is awkward and fragmented."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong. Starts with a hallucination and then provides a paraphrase of a different but similar biblical verse."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled translation. 'pòtre twa flè nwa kajou' becomes a nonsensical list 'Potatoes, three, flour, nuts, cashew'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrect name ('Sheila' for 'Jezila') and one incorrect symptom ('shortness of breath' for 'nausea')."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Translates a different but similar biblical verse, adding significant information not present in the source ('near the wilderness of Beth el, and continued up to Luz')."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong. Misinterprets who is speaking and says 'speaks well' which is the opposite of the source's 'spoke harshly'."
+    },
+    {
+     "i": 20,
+     "score": 0,
+     "critical": false,
+     "note": "The second half of the sentence is a complete, nonsensical hallucination."
+    },
+    {
+     "i": 21,
+     "score": 0,
+     "critical": false,
+     "note": "Completely garbled and nonsensical translation with hallucinations."
+    },
+    {
+     "i": 22,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning is correct, but the translation is fragmented and the final phrase is awkward."
+    },
+    {
+     "i": 23,
+     "score": 0,
+     "critical": false,
+     "note": "Contains bizarre and incorrect additions ('Blood, urine too', 'pigs can be butchered') and omits items from the list."
+    },
+    {
+     "i": 24,
+     "score": 1,
+     "critical": false,
+     "note": "Misinterprets 'go up to the mountains' as 'go to people'."
+    },
+    {
+     "i": 25,
+     "score": 0,
+     "critical": false,
+     "note": "Almost completely wrong. Starts with a hallucination and misinterprets the main clause."
+    },
+    {
+     "i": 26,
+     "score": 1,
+     "critical": false,
+     "note": "The first clause 'When they arrived there, they went' is completely misinterpreted as 'Leo was born'."
+    },
+    {
+     "i": 27,
+     "score": 0,
+     "critical": false,
+     "note": "Completely garbled and nonsensical."
+    },
+    {
+     "i": 28,
+     "score": 0,
+     "critical": false,
+     "note": "Wrong meaning. Misinterprets the speaker, the context, and what is being opened."
+    },
+    {
+     "i": 29,
+     "score": 0,
+     "critical": false,
+     "note": "Wrong meaning. Misinterprets 'children' as 'patients' and 'their share in his glory' as 'their payments at the bank'."
+    }
+   ],
+   "delay": {
+    "tail_ms": 2470,
+    "per_sentence_median_ms": 1028
+   }
+  },
+  "gemini_live": {
+   "score_pct": 38,
+   "critical": 3,
+   "grades": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "Almost completely wrong. Misses all proper nouns and misinterprets the main verb."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Partially correct, but 'milky white' is an addition, 'you won a luggage' is a hallucination, and 'pink sapphire' is incorrect."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong. Misinterprets all names and the relationship between them."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Misses the critical number '600' and the location 'Rock of Rimmon'."
+    },
+    {
+     "i": 4,
+     "score": 0,
+     "critical": false,
+     "note": "Wrong meaning. Misses 'students' and 'anger', and misinterprets several key phrases."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Changes the subject from 'Job' to 'I', which is a critical error."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Misses the name 'Ti Mari' and misinterprets 'with your wife' as 'madam'."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "Completely garbled and misses all key elements of the sentence."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Good translation, but omits the final phrase 'my truly beloved brother'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning. Misinterprets both halves of the simile."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing ('If ox') and incorrect pronoun ('it' instead of 'you')."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrect subject ('everyone' instead of 'we') and misses the detail 'on this side'."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning is mostly correct but omits 'the arrest of' and has awkward grammar ('organization popular')."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "The first clause is the opposite of the intended meaning ('defending themselves' vs 'defenseless')."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": false,
+     "note": "Completely garbled and nonsensical translation."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "Wrong meaning. Misinterprets 'flowers' as 'arrows' and the final phrase is garbled."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": false,
+     "note": "Almost completely wrong. Misinterprets the name, the symptoms ('fever' -> 'bean'), and the final phrase."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning is correct, but the phrasing is awkward and ungrammatical."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Mostly correct, but misinterprets 'Tè' (land) as a name ('Té') and 'people of Joseph's family' as 'my family'."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Critical error in who is speaking and who is sitting ('You' instead of 'They', 'Let's talk' instead of 'the Lord spoke')."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": false,
+     "note": "Partially wrong. Incorrect name, misses 'professor', misinterprets 'she is a woman', and uses the wrong pronoun ('he')."
+    },
+    {
+     "i": 21,
+     "score": 0,
+     "critical": false,
+     "note": "Wrong meaning. Misinterprets 'your descendants', 'the land I said I would give you', and other key phrases."
+    },
+    {
+     "i": 22,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning is correct, but phrasing is slightly awkward ('That's for Pharaoh', 'when it's done')."
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "Mostly correct, but uses 'we' instead of 'you' and adds 'that we have left'."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 25,
+     "score": 1,
+     "critical": false,
+     "note": "Misinterprets 'the two walls of the Temple' as 'half the time'."
+    },
+    {
+     "i": 26,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 27,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning is mostly correct, but the phrasing is very awkward and ungrammatical."
+    },
+    {
+     "i": 28,
+     "score": 2,
+     "critical": false,
+     "note": "Mostly correct, but mishears the name 'Jacmel' as 'Jacques Mael' and omits 'the doors of'."
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "Partially wrong. Misinterprets 'many of his children to receive their share' as 'to do a lot in receiving their father'."
+    }
+   ]
+  },
+  "open_stack": {},
+  "gladia_stt_cer": 0.189,
+  "gemini_heard_cer": 0.494
+ }
+}
