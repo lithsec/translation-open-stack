@@ -7,7 +7,8 @@
 #   ./deploy.sh deploy                   # gcloud run deploy
 #   ./deploy.sh build-local              # or: docker build + push from this machine (linux/amd64)
 #
-# Optional: REGION (us-central1: has Cloud Run L4), REPO (Artifact Registry
+# Optional: REGION (us-east4: has Cloud Run L4 and, on a new project, the only
+# GPU quota we found; us-central1 had none, 2026-10-17), REPO (Artifact Registry
 # repository, omni-stt), SERVICE (omni-stt), TAG (default: the git commit),
 # SECRET (omni-stt-token), MAX_STREAMS (4: connections one instance takes).
 #
@@ -22,7 +23,7 @@
 set -euo pipefail
 
 : "${PROJECT:?set PROJECT to the Google Cloud project id}"
-REGION="${REGION:-us-central1}"
+REGION="${REGION:-us-east4}"
 REPO="${REPO:-omni-stt}"
 SERVICE="${SERVICE:-omni-stt}"
 SECRET="${SECRET:-omni-stt-token}"
@@ -49,9 +50,9 @@ case "${1:-}" in
     # The token comes from stdin so it never lands in shell history or argv:
     #   openssl rand -hex 32 | ./deploy.sh secret
     if gcloud secrets describe "$SECRET" --project "$PROJECT" >/dev/null 2>&1; then
-      gcloud secrets versions add "$SECRET" --data-file=- --project "$PROJECT"
+      tr -d '\r\n' | gcloud secrets versions add "$SECRET" --data-file=- --project "$PROJECT"
     else
-      gcloud secrets create "$SECRET" --data-file=- --replication-policy automatic --project "$PROJECT"
+      tr -d '\r\n' | gcloud secrets create "$SECRET" --data-file=- --replication-policy automatic --project "$PROJECT"
     fi
     # The service's runtime identity (the default compute service account
     # unless you deploy with --service-account) must be able to read it.
@@ -84,8 +85,10 @@ case "${1:-}" in
     # after an hour and the client reconnects (README). Concurrency matches the
     # server's own limit: one model serves every stream on the instance, and
     # more than a few real-time streams would queue behind it.
-    # --allow-unauthenticated: the service checks STT_TOKEN itself, because a
+    # --no-invoker-iam-check: the service checks STT_TOKEN itself, because a
     # browser (the /mic page) cannot attach a Google identity token to a WebSocket.
+    # (--allow-unauthenticated grants allUsers, which an organisation's domain-
+    # restricted-sharing policy refuses; this skips the check without that grant.)
     # --no-gpu-zonal-redundancy: cheaper and needs the smaller quota; a zone
     # outage means a failed cold start, which a reconnecting client retries.
     gcloud run deploy "$SERVICE" --project "$PROJECT" --region "$REGION" --image "$IMAGE" \
@@ -95,7 +98,7 @@ case "${1:-}" in
       --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
       --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS" \
       --set-secrets "STT_TOKEN=$SECRET:latest" \
-      --allow-unauthenticated
+      --no-invoker-iam-check
     url="$(gcloud run services describe "$SERVICE" --project "$PROJECT" --region "$REGION" --format 'value(status.url)')"
     echo "health: $url/health   mic test: $url/mic   stream: ${url/https:/wss:}/listen?langs=ht,en"
     ;;

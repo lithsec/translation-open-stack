@@ -166,7 +166,7 @@ def subject_for(headers, query, env=None):
     if mode is None:
         return None
     return stack_auth.verify(presented_token(headers, query),
-                             env.get("STT_SIGNING_KEY", ""), env.get("STT_TOKEN", ""))
+                             env.get("STT_SIGNING_KEY", "").strip(), env.get("STT_TOKEN", "").strip())
 
 
 # ---------------------------------------------------------------- language ID
