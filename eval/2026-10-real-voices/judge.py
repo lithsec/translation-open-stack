@@ -16,7 +16,7 @@ from vertex import gemini  # noqa: E402
 
 NAMES = {"en": "English", "ja": "Japanese", "zh": "Chinese", "km": "Khmer", "lo": "Lao", "ht": "Haitian Creole"}
 SENT = os.path.join(HERE, "sentences")
-SYSTEMS = {"azure": "azure_only", "pipe": "azure_stt_gemini", "gladia": "gladia_stt_gemini", "live": "gemini_live", "stack": "open_stack"}
+SYSTEMS = {"azure": "azure_only", "pipe": "azure_stt_gemini", "gladia": "gladia_stt_gemini", "live": "gemini_live", "told": "gemini_live_told_lang", "stack": "open_stack"}
 
 
 def source(lang):

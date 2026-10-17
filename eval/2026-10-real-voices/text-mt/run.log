@@ -1,0 +1,14 @@
+translated gladia gemini-2.5-flash+ctx
+translated gladia gemini-2.5-flash-lite
+translated omnilingual gemini-2.5-flash
+translated omnilingual gemini-2.5-flash+ctx
+translated omnilingual gemini-2.5-flash-lite
+gladia__gemini-2.5-flash                 fully correct 7%  mean 24%  critical 4
+gladia__gemini-2.5-flash+ctx             fully correct 17%  mean 31%  critical 3
+gladia__gemini-2.5-flash-lite            fully correct 0%  mean 12%  critical 5
+gold__gemini-2.5-flash                   fully correct 57%  mean 81%  critical 1
+gold__gemini-2.5-flash+ctx               fully correct 63%  mean 84%  critical 0
+gold__gemini-2.5-flash-lite              fully correct 27%  mean 61%  critical 5
+omnilingual__gemini-2.5-flash            fully correct 30%  mean 74%  critical 0
+omnilingual__gemini-2.5-flash+ctx        fully correct 27%  mean 72%  critical 0
+omnilingual__gemini-2.5-flash-lite       fully correct 20%  mean 69%  critical 0

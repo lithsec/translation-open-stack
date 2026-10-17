@@ -1,1225 +1,45 @@
 {
- "en-ja": {
-  "azure_only": {},
-  "azure_stt_gemini": {},
-  "gladia_stt_gemini": {},
-  "gemini_live": {},
-  "open_stack": {
-   "score_pct": 59,
-   "critical": 2,
-   "grades": [
-    {
-     "i": 0,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 1,
-     "score": 1,
-     "critical": true,
-     "note": "The year for the opening to traffic is wrong (2016 instead of 2017)."
-    },
-    {
-     "i": 2,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 3,
-     "score": 1,
-     "critical": false,
-     "note": "The key term \"Rip current\" is mistranslated as リブカレント (rib current)."
-    },
-    {
-     "i": 4,
-     "score": 1,
-     "critical": false,
-     "note": "The translation is awkwardly split into two sentences, with the second being a fragment. It also incorrectly uses the past tense for \"is married\"."
-    },
-    {
-     "i": 5,
-     "score": 1,
-     "critical": false,
-     "note": "The sentence is garbled and broken up with \"...\", failing to correctly structure the announcement."
-    },
-    {
-     "i": 6,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 7,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 8,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 9,
-     "score": 2,
-     "critical": false,
-     "note": "Omits \"functionality factors\" and shortens \"Taipei IT Month\" to \"Taipei IT\"."
-    },
-    {
-     "i": 10,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 11,
-     "score": 2,
-     "critical": false,
-     "note": "The translation is awkwardly split into a sentence and a fragment."
-    },
-    {
-     "i": 12,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 13,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 14,
-     "score": 1,
-     "critical": false,
-     "note": "Omits the important context \"at the Championships\"."
-    },
-    {
-     "i": 15,
-     "score": 2,
-     "critical": false,
-     "note": "Misspells the volcano's name \"Nyiragongo\" as ナイライゴンゴ."
-    },
-    {
-     "i": 16,
-     "score": 1,
-     "critical": false,
-     "note": "The translation is garbled. It incorrectly states the park is \"mainly a lakeside area\", omits \"beech\" and \"spruce\", and adds \"pine\"."
-    },
-    {
-     "i": 17,
-     "score": 0,
-     "critical": true,
-     "note": "The translation is a fragment that omits most of the source sentence, including the critical population number (800)."
-    },
-    {
-     "i": 18,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 19,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is contradictory and nonsensical, stating the cave is \"in a very close place\" which is the opposite of \"isolated\"."
-    },
-    {
-     "i": 20,
-     "score": 2,
-     "critical": false,
-     "note": "The translation is awkwardly split into a sentence and a fragment."
-    },
-    {
-     "i": 21,
-     "score": 1,
-     "critical": false,
-     "note": "The translation is an incomplete sentence fragment, missing the main subject and verb (\"He has been unable to...\")."
-    },
-    {
-     "i": 22,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 23,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 24,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 25,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 26,
-     "score": 2,
-     "critical": false,
-     "note": "The phrase `生命力はよりポジティブに現れる` (life force appears more positively) is an awkward and overly literal translation."
-    },
-    {
-     "i": 27,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 28,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 29,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    }
-   ],
-   "delay": {
-    "tail_ms": -3836,
-    "per_sentence_median_ms": 3052
-   }
-  },
-  "stack_heard_cer": 0.163
- },
- "en-km": {
-  "azure_only": {},
-  "azure_stt_gemini": {},
-  "gladia_stt_gemini": {},
-  "gemini_live": {},
-  "open_stack": {
-   "score_pct": 31,
-   "critical": 1,
-   "grades": [
-    {
-     "i": 0,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 1,
-     "score": 1,
-     "critical": true,
-     "note": "The year is wrong (2016 instead of 2017)."
-    },
-    {
-     "i": 2,
-     "score": 2,
-     "critical": false,
-     "note": "The phrasing \"គឺជាការគាំទ្រដល់... និងការស្រាវជ្រាវរបស់ពួកគេ\" (is a support to... and their research) is slightly awkward but understandable."
-    },
-    {
-     "i": 3,
-     "score": 2,
-     "critical": false,
-     "note": "The term for \"rip currents\" is translated generically, and \"reef\" is partially mistranslated as \"shallow water area\"."
-    },
-    {
-     "i": 4,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is only a fragment (\"to whom the story was related\"), omitting the entire main clause about Duvall and Miller."
-    },
-    {
-     "i": 5,
-     "score": 1,
-     "critical": false,
-     "note": "The sentence is broken into two parts and is ungrammatical. It says Trump \"announced about the United States\" and then \"The troops will leave Syria\", omitting that they are US troops in the second part."
-    },
-    {
-     "i": 6,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 7,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 8,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 9,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 10,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 11,
-     "score": 1,
-     "critical": false,
-     "note": "The translation omits the final descriptive clause, \"a site focused on talk radio\"."
-    },
-    {
-     "i": 12,
-     "score": 1,
-     "critical": false,
-     "note": "Translates \"smooth sole\" as \"flat sole\" (បាតស្បែកជើងរាបស្មើ), which is incorrect."
-    },
-    {
-     "i": 13,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 14,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 15,
-     "score": 1,
-     "critical": false,
-     "note": "Incorrectly translates \"gorilla tracking\" as \"trading of gorillas\" (ការជួញដូរសត្វហ្គោរីឡា)."
-    },
-    {
-     "i": 16,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is a fragment, omitting the subject (the national park) and the first part of the description."
-    },
-    {
-     "i": 17,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is an ungrammatical fragment, omitting the subject (Vatican City), the population number, and most of the sentence."
-    },
-    {
-     "i": 18,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 19,
-     "score": 1,
-     "critical": false,
-     "note": "The translation is contradictory, stating the cave is \"right nearby\" (ស្ថិតនៅក្បែរៗនោះតែម្តង) which conflicts with the source's \"completely isolated\"."
-    },
-    {
-     "i": 20,
-     "score": 0,
-     "critical": false,
-     "note": "The meaning is reversed. It translates as \"making a plan to find an adopted child\" instead of making a plan to give their own baby up for adoption."
-    },
-    {
-     "i": 21,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is a fragment, starting with \"In order to take the drugs...\" and omitting the main clause \"He has been unable to...\"."
-    },
-    {
-     "i": 22,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 23,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 24,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 25,
-     "score": 2,
-     "critical": false,
-     "note": "The translation of \"early\" as \"since the morning\" (តាំងពីព្រឹកមក) is a plausible but not precise interpretation."
-    },
-    {
-     "i": 26,
-     "score": 1,
-     "critical": false,
-     "note": "Only the first of two sentences is translated."
-    },
-    {
-     "i": 27,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 28,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    },
-    {
-     "i": 29,
-     "score": 0,
-     "critical": false,
-     "note": "Missing translation."
-    }
-   ],
-   "delay": {
-    "tail_ms": 8884,
-    "per_sentence_median_ms": 6382
-   }
-  },
-  "stack_heard_cer": 0.409
- },
- "en-ht": {
-  "azure_only": {},
-  "azure_stt_gemini": {},
-  "gladia_stt_gemini": {},
-  "gemini_live": {},
-  "open_stack": {
-   "score_pct": 39,
-   "critical": 3,
-   "grades": [
-    {
-     "i": 0,
-     "score": 1,
-     "critical": false,
-     "note": "The translation is incomplete, cutting off at the end of the sentence."
-    },
-    {
-     "i": 1,
-     "score": 0,
-     "critical": true,
-     "note": "The translation incorrectly states \"highest height above sea level\" instead of \"vertical clearance under the bridge\". It also has the wrong year (2016 instead of 2017)."
-    },
-    {
-     "i": 2,
-     "score": 2,
-     "critical": false,
-     "note": "The translation uses \"korespondans\" (correspondence) instead of the more accurate \"korelasyon\" (correlation)."
-    },
-    {
-     "i": 3,
-     "score": 1,
-     "critical": false,
-     "note": "The translation misspells \"Rip\" as \"Rib\", and poorly translates \"off the beach\" and \"similar\"."
-    },
-    {
-     "i": 4,
-     "score": 2,
-     "critical": false,
-     "note": "The translation omits the word \"adult\" when describing the children."
-    },
-    {
-     "i": 5,
-     "score": 0,
-     "critical": true,
-     "note": "The translation adds completely fabricated information about North Korea and an incorrect date, making the core message incorrect."
-    },
-    {
-     "i": 6,
-     "score": 2,
-     "critical": false,
-     "note": "The phrasing is awkward (\"chat ti\") and it omits the word \"loose\" from \"loose pet cats\"."
-    },
-    {
-     "i": 7,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 8,
-     "score": 2,
-     "critical": false,
-     "note": "The title is translated awkwardly as \"Government of California Arnold Schwarzenegger\" instead of \"Governor of California\"."
-    },
-    {
-     "i": 9,
-     "score": 1,
-     "critical": false,
-     "note": "The translation gets the product name wrong (\"EPC\" instead of \"Eee PC\"), omits \"Month\", and uses awkward phrasing."
-    },
-    {
-     "i": 10,
-     "score": 2,
-     "critical": false,
-     "note": "The second clause is grammatically awkward and clipped, but the meaning is understandable."
-    },
-    {
-     "i": 11,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 12,
-     "score": 0,
-     "critical": false,
-     "note": "The translation incorrectly uses \"drivers\" for \"riders\", \"sports boots\" for \"riding boots\", and \"very thick\" for \"quite narrow\"."
-    },
-    {
-     "i": 13,
-     "score": 1,
-     "critical": false,
-     "note": "The translation incorrectly uses \"he said\" for \"it is claimed\" and uses a non-existent word (\"mentni\") for \"lying\"."
-    },
-    {
-     "i": 14,
-     "score": 1,
-     "critical": false,
-     "note": "The translation omits significant parts of the sentence, including \"Beyond\" and \"at the Championships\"."
-    },
-    {
-     "i": 15,
-     "score": 1,
-     "critical": false,
-     "note": "The translation uses \"gorilla traffic\" which is a nonsensical translation for \"Mountain Gorilla tracking\"."
-    },
-    {
-     "i": 16,
-     "score": 0,
-     "critical": false,
-     "note": "The translation incorrectly states the forest has \"beaches\" instead of the specific trees listed and invents information about the climate not present in the source."
-    },
-    {
-     "i": 17,
-     "score": 0,
-     "critical": true,
-     "note": "This is only a small, incorrect fragment of the original sentence. It omits the country's name, the population number (800), and incorrectly translates \"lowest population\"."
-    },
-    {
-     "i": 18,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 19,
-     "score": 1,
-     "critical": false,
-     "note": "The translation incorrectly uses \"tomb\" (\"kavo\") for \"cave\" and \"nearly isolated\" for \"completely isolated\"."
-    },
-    {
-     "i": 20,
-     "score": 2,
-     "critical": false,
-     "note": "The translation uses an awkward subject (\"Sa yo\" instead of \"Koup sa yo\") and is unnaturally fragmented."
-    },
-    {
-     "i": 21,
-     "score": 1,
-     "critical": false,
-     "note": "The translation is only a fragment, omitting the main clause \"He has been unable to take the drugs\"."
-    },
-    {
-     "i": 22,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 23,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 24,
-     "score": 2,
-     "critical": false,
-     "note": "The translation is very literal and somewhat unnatural, but the meaning is correct."
-    },
-    {
-     "i": 25,
-     "score": 1,
-     "critical": false,
-     "note": "The translation for \"children and elderly\" is incorrect and nonsensical (\"timoun ki gen laj\")."
-    },
-    {
-     "i": 26,
-     "score": 2,
-     "critical": false,
-     "note": "The first sentence is slightly awkward, using \"appears\" (\"parèt\") instead of \"is present\"."
-    },
-    {
-     "i": 27,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 28,
-     "score": 1,
-     "critical": false,
-     "note": "The translation fails to translate \"awarding of... contracts\" and leaves \"perceived Washington insiders\" in English."
-    },
-    {
-     "i": 29,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    }
-   ],
-   "delay": {
-    "tail_ms": -6267,
-    "per_sentence_median_ms": 1425
-   }
-  },
-  "stack_heard_cer": 0.163
- },
- "ja-en": {
-  "azure_only": {},
-  "azure_stt_gemini": {},
-  "gladia_stt_gemini": {},
-  "gemini_live": {},
-  "open_stack": {
-   "score_pct": 50,
-   "critical": 1,
-   "grades": [
-    {
-     "i": 0,
-     "score": 2,
-     "critical": false,
-     "note": "\"Engel\" is a mistranslation of the name \"Angel\"."
-    },
-    {
-     "i": 1,
-     "score": 1,
-     "critical": false,
-     "note": "\"The information space\" is a mistranslation of 上方空間 (vertical clearance)."
-    },
-    {
-     "i": 2,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 3,
-     "score": 2,
-     "critical": false,
-     "note": "The phrasing is unidiomatic, structured as a definition (\"What is...? It refers to...\")."
-    },
-    {
-     "i": 4,
-     "score": 1,
-     "critical": false,
-     "note": "Mistranslated the name \"Duvall\" as \"Rival\"."
-    },
-    {
-     "i": 5,
-     "score": 2,
-     "critical": false,
-     "note": "\"released to the media\" is less precise than the source's \"via the press secretary\"."
-    },
-    {
-     "i": 6,
-     "score": 1,
-     "critical": false,
-     "note": "Omits \"rodents\" (げっ歯類) from the list of prey."
-    },
-    {
-     "i": 7,
-     "score": 0,
-     "critical": false,
-     "note": "\"efficiency\" is a complete mistranslation of 孤立主義 (isolationism)."
-    },
-    {
-     "i": 8,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 9,
-     "score": 1,
-     "critical": false,
-     "note": "Contains multiple errors: \"EPC\" for \"Eee PC\", \"IT Mouse exhibition\" for \"IT Month\", and awkward phrasing."
-    },
-    {
-     "i": 10,
-     "score": 2,
-     "critical": false,
-     "note": "The phrasing is slightly literal and less natural than the reference."
-    },
-    {
-     "i": 11,
-     "score": 0,
-     "critical": false,
-     "note": "Garbled meaning. Incorrectly states \"the show was an internet radio site\"."
-    },
-    {
-     "i": 12,
-     "score": 1,
-     "critical": false,
-     "note": "\"smooth heels\" is a mistranslation; the source specifies a smooth sole, not smooth heels."
-    },
-    {
-     "i": 13,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 14,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 15,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 16,
-     "score": 1,
-     "critical": true,
-     "note": "Critically mistranslates \"16 lakes\" (16の湖) as \"16 spruces\"."
-    },
-    {
-     "i": 17,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 18,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 19,
-     "score": 2,
-     "critical": false,
-     "note": "\"lower world\" is an unnatural translation of 外界 (the outside world)."
-    },
-    {
-     "i": 20,
-     "score": 0,
-     "critical": false,
-     "note": "\"both support systems\" is a complete mistranslation of 養子縁組制度 (adoption system)."
-    },
-    {
-     "i": 21,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 22,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 23,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 24,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 25,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 26,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 27,
-     "score": 1,
-     "critical": false,
-     "note": "\"sheets could be covered\" is a mistranslation of 複製され (were reproduced/copied)."
-    },
-    {
-     "i": 28,
-     "score": 3,
-     "critical": false,
-     "note": ""
-    },
-    {
-     "i": 29,
-     "score": 1,
-     "critical": false,
-     "note": "Omits the method of reproduction (卵胎生 - ovoviviparous) mentioned in the source."
-    }
-   ],
-   "delay": {
-    "tail_ms": -104,
-    "per_sentence_median_ms": 9524
-   }
-  },
-  "stack_heard_cer": 0.235
- },
- "km-en": {
-  "azure_only": {},
-  "azure_stt_gemini": {},
-  "gladia_stt_gemini": {},
-  "gemini_live": {},
-  "open_stack": {
-   "score_pct": 38,
-   "critical": 4,
-   "grades": [
-    {
-     "i": 0,
-     "score": 2,
-     "critical": false,
-     "note": "The translation mistakes 'Angel' for 'Anger' and 'Continuum approach' for 'method of staying persistent'."
-    },
-    {
-     "i": 1,
-     "score": 2,
-     "critical": false,
-     "note": "The translation uses 'vertical test' instead of 'vertical clearance' and 'long' instead of specifying height."
-    },
-    {
-     "i": 2,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 3,
-     "score": 1,
-     "critical": false,
-     "note": "The translation is partly correct but mistranslates 'reef' as 'rocks' and adds a garbled, nonsensical phrase at the end."
-    },
-    {
-     "i": 4,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 5,
-     "score": 0,
-     "critical": true,
-     "note": "The translation states troops 'had withdrawn' from 'Sierra Leone', which is the wrong action, wrong tense, and wrong country compared to the reference ('would be leaving Syria')."
-    },
-    {
-     "i": 6,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 7,
-     "score": 1,
-     "critical": false,
-     "note": "The translation mistranslates 'prevailing attitudes' as 'the expenses that would arise' and 'pacifism' as 'conservative'."
-    },
-    {
-     "i": 8,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is completely garbled and nonsensical."
-    },
-    {
-     "i": 9,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct, but the phrasing is awkward and disjointed, calling the PC a 'program' and structuring the end as a 'Report'."
-    },
-    {
-     "i": 10,
-     "score": 1,
-     "critical": false,
-     "note": "The translation incorrectly uses 'water flushing' instead of 'boiling water'."
-    },
-    {
-     "i": 11,
-     "score": 1,
-     "critical": false,
-     "note": "The translation mistranslates the name 'TogiNet' as 'Dhaninit' and 'talk radio' as 'disaster radio'."
-    },
-    {
-     "i": 12,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is completely wrong, referring to 'geishas' instead of 'riders' and describing the wrong type of footwear."
-    },
-    {
-     "i": 13,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 14,
-     "score": 3,
-     "critical": false
-    },
-    {
-     "i": 15,
-     "score": 1,
-     "critical": false,
-     "note": "The translation includes a garbled intro ('You are a country, so') and mistranslates 'Mountain Gorilla tracking' as 'Corila time slots'."
-    },
-    {
-     "i": 16,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is completely garbled and nonsensical."
-    },
-    {
-     "i": 17,
-     "score": 1,
-     "critical": true,
-     "note": "The translation omits the specific population number (800), which is a critical error."
-    },
-    {
-     "i": 18,
-     "score": 0,
-     "critical": false,
-     "note": "The sentence was not translated."
-    },
-    {
-     "i": 19,
-     "score": 1,
-     "critical": false,
-     "note": "The translation incorrectly identifies the city as 'Megalopolis' instead of 'Mecca'."
-    },
-    {
-     "i": 20,
-     "score": 2,
-     "critical": false,
-     "note": "The translation incorrectly says 'wives' instead of 'couples'."
-    },
-    {
-     "i": 21,
-     "score": 2,
-     "critical": false,
-     "note": "The translation is mostly correct but adds an extraneous, incorrect command: 'Do not play this sport.'"
-    },
-    {
-     "i": 22,
-     "score": 3,
-     "critical": false
-    },
-    {
-     "i": 23,
-     "score": 3,
-     "critical": false
-    },
-    {
-     "i": 24,
-     "score": 1,
-     "critical": false,
-     "note": "The translation incorrectly uses 'Flowers' for 'Plants' and has a completely garbled and nonsensical ending ('Not even one dad showed up')."
-    },
-    {
-     "i": 25,
-     "score": 1,
-     "critical": true,
-     "note": "The translation incorrectly states that the hostages *were* the photographers ('namely') and adds 'Chinese', changing who was released."
-    },
-    {
-     "i": 26,
-     "score": 2,
-     "critical": false,
-     "note": "The translation paraphrases the original, slightly changing the meaning from 'Every person has the potential' to 'enhancing a person’s capacity'."
-    },
-    {
-     "i": 27,
-     "score": 1,
-     "critical": true,
-     "note": "The translation incorrectly identifies 'copies' as 'laws'. Although the number is correct, what it refers to is wrong."
-    },
-    {
-     "i": 28,
-     "score": 1,
-     "critical": false,
-     "note": "The translation changes the meaning from criticism that 'focused on' the awarding of contracts to criticism that 'led to' it, and includes garbled numbers at the end."
-    },
-    {
-     "i": 29,
-     "score": 2,
-     "critical": false,
-     "note": "The translation incorrectly uses 'toes' instead of 'scales'."
-    }
-   ],
-   "delay": {
-    "tail_ms": 3204,
-    "per_sentence_median_ms": 2729
-   }
-  },
-  "stack_heard_cer": 0.317
- },
- "lo-en": {
-  "azure_only": {},
-  "azure_stt_gemini": {},
-  "gladia_stt_gemini": {},
-  "gemini_live": {},
-  "open_stack": {
-   "score_pct": 24,
-   "critical": 11,
-   "grades": [
-    {
-     "i": 0,
-     "score": 2,
-     "critical": false,
-     "note": "The translation uses \"access continuum\" instead of \"Continuum approach\" and ends abruptly with \"Increase performance\"."
-    },
-    {
-     "i": 1,
-     "score": 0,
-     "critical": true,
-     "note": "Multiple critical errors. The completion year is wrong (2007 vs 2011), the opening year is wrong (2007 vs 2017), and the logic of when it opened is garbled. It also incorrectly adds \"to the camera\"."
-    },
-    {
-     "i": 2,
-     "score": 1,
-     "critical": false,
-     "note": "The phrase \"supports the science of their motivation\" is a significant mistranslation of \"supports scientists in their research\"."
-    },
-    {
-     "i": 3,
-     "score": 1,
-     "critical": false,
-     "note": "The phrase \"carve out a night\" is nonsensical and garbles the meaning of the sentence."
-    },
-    {
-     "i": 4,
-     "score": 0,
-     "critical": true,
-     "note": "The name is wrong (\"Duy Ngo\" for \"Duvall\"), the recipient of the impression is wrong (\"newcomers\" for \"Miller\"), and the sentence structure is broken."
-    },
-    {
-     "i": 5,
-     "score": 0,
-     "critical": true,
-     "note": "Critical errors: the country is wrong (\"Singapore\" instead of \"Syria\") and a fabricated date (\"by the end of 2014\") is added."
-    },
-    {
-     "i": 6,
-     "score": 1,
-     "critical": false,
-     "note": "The phrase \"fewer cats, more cats\" is nonsensical, and the list of prey is partially incorrect (\"young pigeons, old mice\" instead of \"insects, rodents, lizards\")."
-    },
-    {
-     "i": 7,
-     "score": 1,
-     "critical": false,
-     "note": "Adds a major, fabricated clause: \"that the United States was the world’s greatest power\", which significantly changes the meaning."
-    },
-    {
-     "i": 8,
-     "score": 0,
-     "critical": true,
-     "note": "Critical who-did-what error. It completely misidentifies the person who signed the law as \"Avery. President Barack Obama\" instead of \"Governor Arnold Schwarzenegger\"."
-    },
-    {
-     "i": 9,
-     "score": 1,
-     "critical": false,
-     "note": "Starts with nonsensical words, mistranslates the subject \"ASUS Eee PC\" as \"The first epic\", and garbles \"Taipei IT Month\" into \"P.I.T. Monday\"."
-    },
-    {
-     "i": 10,
-     "score": 1,
-     "critical": false,
-     "note": "The second half of the sentence, \"but it takes a lot of time to do many things,\" is a mistranslation of \"in others several minutes are needed.\""
-    },
-    {
-     "i": 11,
-     "score": 1,
-     "critical": false,
-     "note": "The name of the radio site is garbled (\"Tug Radio\" for \"TogiNet Radio\") and its description is mistranslated as \"Override the high-level radio chat\"."
-    },
-    {
-     "i": 12,
-     "score": 0,
-     "critical": false,
-     "note": "Complete mistranslation. The source sentence is about the boots riders wear, but the translation is about how they ride a horse."
-    },
-    {
-     "i": 13,
-     "score": 1,
-     "critical": false,
-     "note": "Mistranslates \"micro-expressions\" as \"the meaning of a sentence\", which changes the specific method of lie detection being described."
-    },
-    {
-     "i": 14,
-     "score": 2,
-     "critical": false,
-     "note": "The name is slightly misspelled (\"Capanema\") and the phrasing \"At the level of competition for the championship\" is awkward and overly literal."
-    },
-    {
-     "i": 15,
-     "score": 1,
-     "critical": true,
-     "note": "A critical error in naming the volcano (\"Mount Kilimanjaro\" instead of \"Nyiragongo\"). It also misunderstands \"Gorilla tracking\" as \"footpaths on the hills\"."
-    },
-    {
-     "i": 16,
-     "score": 1,
-     "critical": false,
-     "note": "The name of the park is wrong (\"Frederick Lake\" for \"Plitvice Lakes\"), the tree types are partially incorrect, and the description of vegetation is garbled."
-    },
-    {
-     "i": 17,
-     "score": 0,
-     "critical": true,
-     "note": "Multiple critical errors: the country is wrong (\"Trinidad and Tobago\" for \"Vatican City\") and the population number is wrong (800,000 for 800)."
-    },
-    {
-     "i": 18,
-     "score": 1,
-     "critical": true,
-     "note": "The location is wrong (\"Northern Malaysia\" for \"Northern Marianas\") and it mistranslates \"damages\" as \"casualties\"."
-    },
-    {
-     "i": 19,
-     "score": 1,
-     "critical": true,
-     "note": "Critical error in location (\"Mexico City\" instead of \"Mecca\"). The end of the translation is also garbled with repeated words."
-    },
-    {
-     "i": 20,
-     "score": 1,
-     "critical": false,
-     "note": "Incorrectly states the couples are \"adopting orphans\" when the source refers to making an adoption plan for their own baby."
-    },
-    {
-     "i": 21,
-     "score": 1,
-     "critical": true,
-     "note": "The subject is wrong (\"The girl\" instead of \"He\") and the action is mistranslated (\"overcome the addiction\" instead of \"take the drugs\")."
-    },
-    {
-     "i": 22,
-     "score": 0,
-     "critical": false,
-     "note": "Completely wrong translation. \"wear hijab. Knee Pads\" is incorrect for \"wear trousers covering the knees\". Starts with garbled text."
-    },
-    {
-     "i": 23,
-     "score": 0,
-     "critical": false,
-     "note": "The second half of the sentence is completely mistranslated as \"As if the world isn’t boring enough already\", which is nonsensical in context."
-    },
-    {
-     "i": 24,
-     "score": 1,
-     "critical": false,
-     "note": "The instruction \"resist the temptation\" is bizarrely mistranslated as the computer graphics term \"Anti-aliasing\"."
-    },
-    {
-     "i": 25,
-     "score": 1,
-     "critical": true,
-     "note": "Incorrectly changes the logic. The reference states two groups were released (six hostages AND photographers), while the translation implies one person was released BECAUSE he was a photographer."
-    },
-    {
-     "i": 26,
-     "score": 1,
-     "critical": false,
-     "note": "The first sentence is completely mistranslated as a generic placeholder phrase. The second sentence is translated correctly."
-    },
-    {
-     "i": 27,
-     "score": 0,
-     "critical": true,
-     "note": "The translation is complete gibberish. It misses the critical numbers (150-200), the action (making copies), and the name (\"Dunlap broadsides\")."
-    },
-    {
-     "i": 28,
-     "score": 1,
-     "critical": false,
-     "note": "The second half is badly mistranslated, changing \"reconstruction contracts to perceived Washington insiders\" to \"The irrigation contract for the residents of Washington, D.C.\"."
-    },
-    {
-     "i": 29,
-     "score": 0,
-     "critical": false,
-     "note": "The description of the feet is wrong, the method of walking is nonsensical, and the comparison to a T-Rex is replaced with a bizarre hallucination about a massage chair."
-    }
-   ],
-   "delay": {
-    "tail_ms": 1877,
-    "per_sentence_median_ms": 1930
-   }
-  },
-  "stack_heard_cer": 0.185
- },
  "ht-en": {
   "azure_only": {},
   "azure_stt_gemini": {},
   "gladia_stt_gemini": {
    "score_pct": 31,
-   "critical": 1,
+   "critical": 2,
    "grades": [
     {
      "i": 0,
      "score": 0,
      "critical": false,
-     "note": "The translation is completely garbled, with only 'PEY MEDIO' being a recognizable, though misspelled, fragment of the original."
+     "note": "The translation is completely garbled."
     },
     {
      "i": 1,
      "score": 0,
      "critical": false,
-     "note": "The translation is nonsensical, with hallucinations like 'crystal lettuce' and 'That dress is for a girl'."
+     "note": "The translation is completely garbled, mentioning 'crystal lettuce'."
     },
     {
      "i": 2,
      "score": 0,
      "critical": false,
-     "note": "The translation fails to convey the genealogical relationships and includes nonsensical additions like 'Cholera'."
+     "note": "The translation is completely garbled, mentioning 'Cholera'."
     },
     {
      "i": 3,
      "score": 0,
      "critical": true,
-     "note": "The translation has multiple critical errors: it says 'six' instead of '600', and invents an incorrect location ('tenth boulder on Mulberry Road')."
+     "note": "The translation has the wrong number ('six' instead of 600) and is otherwise garbled."
     },
     {
      "i": 4,
      "score": 2,
      "critical": false,
-     "note": "The meaning is mostly correct, but it omits the 'students' and adds the word 'Collectively'."
+     "note": "The meaning is correct, but the word 'Collectively' is an odd, unidiomatic addition."
     },
     {
      "i": 5,
-     "score": 2,
-     "critical": false,
-     "note": "The translation of the sentence is perfect, but it includes an extraneous artifact from the ASR process ('A, translated to English is A')."
+     "score": 3,
+     "critical": false
     },
     {
      "i": 6,
@@ -1229,62 +49,62 @@
     {
      "i": 7,
      "score": 1,
-     "critical": false,
-     "note": "The translation makes several errors: 'sermon' for 'the Lord', 'gives me' for 'gives your majesty', and 'on that' for 'on Saul'."
+     "critical": true,
+     "note": "The translation incorrectly identifies who is speaking/acting ('sermon gives me' instead of 'Lord has given your majesty')."
     },
     {
      "i": 8,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly identifies the recipient of the letter as 'the people' instead of 'Gaius'."
+     "note": "The translation incorrectly says 'the people' instead of 'Gaius'."
     },
     {
      "i": 9,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly adds 'plundering' and misinterprets 'fig tree without a fig' as 'tree trunk, without a fig tree'."
+     "note": "The translation is partially wrong, using 'plundering' and 'tree trunk'."
     },
     {
      "i": 10,
      "score": 0,
      "critical": false,
-     "note": "The system does not translate the sentence, mishearing the name and adding the word 'school'."
+     "note": "The translation is garbled, mishearing 'Ti Bèf' as 'T-Beth'."
     },
     {
      "i": 11,
      "score": 1,
      "critical": false,
-     "note": "The translation misinterprets 'pòsyon tè' (portion of land) as 'potion'."
+     "note": "The translation incorrectly says 'potion' instead of 'portion'."
     },
     {
      "i": 12,
      "score": 2,
      "critical": false,
-     "note": "The meaning is correct, but the translation is awkwardly split into two separate sentences."
+     "note": "The meaning is correct, but the phrasing is awkward (broken into two sentences)."
     },
     {
      "i": 13,
      "score": 2,
      "critical": false,
-     "note": "The meaning is correct, but the translation is awkwardly split into two sentences."
+     "note": "The meaning is correct, but the phrasing is awkward (broken into two sentences)."
     },
     {
      "i": 14,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "The translation is a bizarre mix of a hallucinated phrase ('Lisa is an angel') and a biblical quote that is related to but not a translation of the source text."
+     "note": "The translation is completely wrong and appears to be a garbled version of a different biblical quote."
     },
     {
      "i": 15,
      "score": 0,
      "critical": false,
-     "note": "The translation is mostly nonsense, completely misinterpreting 'pòtre twa flè nwa kajou' (representation of three almond blossoms) as 'Potatoes, three, flour, nuts, cashew'."
+     "note": "The translation is completely garbled, mentioning 'Potatoes, three, flour, nuts, cashew'."
     },
     {
      "i": 16,
-     "score": 2,
+     "score": 1,
      "critical": false,
-     "note": "The translation is mostly correct but uses the wrong name ('Sheila' for Jezila) and incorrectly translates 'kèplen' (nausea) as 'shortness of breath'."
+     "note": "The translation uses the wrong name ('Sheila' for Jezila) and an incorrect symptom ('shortness of breath' for nausea)."
     },
     {
      "i": 17,
@@ -1295,73 +115,73 @@
      "i": 18,
      "score": 1,
      "critical": false,
-     "note": "The translation is partially correct but adds significant incorrect geographical details ('near the wilderness of Beth el, and continued up to Luz')."
+     "note": "The translation adds significant information ('near the wilderness of Beth el, and continued up to Luz') that is not in the source text."
     },
     {
      "i": 19,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "While the first phrase is correct, the rest of the translation is nonsensical and states the opposite of the source ('speaks well' instead of 'spoke very harshly')."
+     "note": "The translation is partially wrong ('Leave the address') and reverses the meaning ('speaks well' instead of 'spoke very harshly')."
     },
     {
      "i": 20,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "The translation correctly identifies the person and her profession but then completely hallucinates the second half of the sentence ('I won't tell him anything. He shaves the way I do')."
+     "note": "The first part is correct, but the second half ('I won't tell him anything. He shaves the way I do.') is completely wrong and nonsensical."
     },
     {
      "i": 21,
      "score": 0,
      "critical": false,
-     "note": "The translation is completely garbled, with hallucinations like 'vaccine' and 'For billing purposes'."
+     "note": "The translation is completely garbled, mentioning a 'vaccine' and 'billing purposes'."
     },
     {
      "i": 22,
      "score": 2,
      "critical": false,
-     "note": "The meaning is correct, but the translation is very choppy and broken into four short, awkward fragments."
+     "note": "The meaning is correct, but the phrasing is awkward."
     },
     {
      "i": 23,
      "score": 0,
      "critical": false,
-     "note": "The translation includes correct fragments like 'cattle, sheep, goats' but adds bizarre and incorrect elements like 'Blood, urine too' and 'pigs can be butchered'."
+     "note": "The translation is garbled and nonsensical, mentioning 'Blood, urine' and 'pigs'."
     },
     {
      "i": 24,
-     "score": 2,
+     "score": 1,
      "critical": false,
-     "note": "The meaning is mostly correct, but it incorrectly says 'go to people' instead of 'go up to the mountains' and is broken into awkward fragments."
+     "note": "The translation incorrectly says 'go to people' instead of 'go up to the mountains'."
     },
     {
      "i": 25,
      "score": 0,
      "critical": false,
-     "note": "The translation is almost entirely hallucinated, with only the phrase 'From the bottom to the top' being correct."
+     "note": "The translation is completely garbled and unrelated to the source."
     },
     {
      "i": 26,
      "score": 1,
      "critical": false,
-     "note": "The translation correctly identifies the 'Jewish synagogue' but hallucinates the first part of the sentence ('Leo was born')."
+     "note": "The translation incorrectly begins with 'Leo was born', missing the actual meaning."
     },
     {
      "i": 27,
      "score": 0,
      "critical": false,
-     "note": "The translation is completely garbled and bears no resemblance to the source sentence."
+     "note": "The translation is completely garbled."
     },
     {
      "i": 28,
      "score": 1,
      "critical": false,
-     "note": "The translation correctly identifies 'receiving investments' but makes major errors, mistaking 'Mayor Mase' for 'the Speaker' and 'pòt Jakmèl' (doors of Jacmel) for 'podcast'."
+     "note": "The translation incorrectly identifies the speaker as 'the Speaker' and the medium as a 'podcast'."
     },
     {
      "i": 29,
      "score": 0,
      "critical": false,
-     "note": "The translation starts correctly but then completely misinterprets the core meaning, changing 'children receiving their share' to 'patients to receive their payments at the bank'."
+     "note": "The translation is completely wrong, talking about 'patients' and 'payments at the bank'."
     }
    ],
    "delay": {
@@ -1370,214 +190,214 @@
    }
   },
   "gemini_live": {
-   "score_pct": 49,
-   "critical": 2,
-   "grades": [
-    {
-     "i": 0,
-     "score": 1,
-     "critical": false,
-     "note": "The translation captures 'near the river' and 'part of the city' but misses all proper names (Halah, Habor, Gozan, Medes) and garbles the sentence structure."
-    },
-    {
-     "i": 1,
-     "score": 1,
-     "critical": false,
-     "note": "Recognizes 'crystal bowl' and 'armchair' (for throne), but hallucinates 'milky white' and 'you won a luggage', and gets the color of the stone wrong ('pink' instead of sapphire)."
-    },
-    {
-     "i": 2,
-     "score": 0,
-     "critical": false,
-     "note": "Completely misunderstands the genealogy. The 'son of' relationship is lost, and 'Manase' is translated as 'threatened'."
-    },
-    {
-     "i": 3,
-     "score": 1,
-     "critical": true,
-     "note": "The translation correctly identifies 'desert', 'hiding', and '4 months', but omits the number of men (600), which is a critical error."
-    },
-    {
-     "i": 4,
-     "score": 1,
-     "critical": false,
-     "note": "Captures 'police unleashed' and 'entered the battle', but misses that the anger was of the students and that people from the area joined in. 'Unleashed him' is incorrect."
-    },
-    {
-     "i": 5,
-     "score": 2,
-     "critical": true,
-     "note": "The translation is mostly correct but critically misidentifies the speaker as 'I' instead of 'Job'."
-    },
-    {
-     "i": 6,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning and numbers are correct, but the phrasing '6th little one madam' is awkward."
-    },
-    {
-     "i": 7,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is completely garbled, missing key concepts like 'Lord', 'majesty', 'revenge', and 'Saul'."
-    },
-    {
-     "i": 8,
-     "score": 2,
-     "critical": false,
-     "note": "'Responsible leader' is a literal but acceptable translation for 'elder'. The overall meaning is correct but slightly unidiomatic."
-    },
-    {
-     "i": 9,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is nonsensical, with hallucinations like 'in a relationship' and 'fig tree in France'."
-    },
-    {
-     "i": 10,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is mostly correct, but 'little ox' is used for 'little calf', and 'is it there?' is an awkward phrasing for 'are you there?'."
-    },
-    {
-     "i": 11,
-     "score": 3,
-     "critical": false
-    },
-    {
-     "i": 12,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct, but the grammar is broken ('several activists organization popular'). It omits 'the arrest of'."
-    },
-    {
-     "i": 13,
-     "score": 1,
-     "critical": false,
-     "note": "The translation incorrectly states 'People who are defending themselves' instead of 'The defenseless'."
-    },
-    {
-     "i": 14,
-     "score": 0,
-     "critical": false,
-     "note": "The translation is completely garbled and bears no resemblance to the source, missing 'angel', 'stone', 'millstone', and 'sea'."
-    },
-    {
-     "i": 15,
-     "score": 1,
-     "critical": false,
-     "note": "Recognizes 'each branch' and the number 'three', but misinterprets 'flè nwa kajou' (almond blossoms) as 'arrows black cashew'."
-    },
-    {
-     "i": 16,
-     "score": 1,
-     "critical": false,
-     "note": "Incorrectly identifies the person as 'Jesus' instead of 'Jezila'. It also mistranslates 'lafyèv' (fever) as 'the bean' and 'san konte kèplen' (not to mention nausea) as 'meeting someone'."
-    },
-    {
-     "i": 17,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning and duration (15 months) are correct, but the phrasing is awkward (e.g., 'My thank you')."
-    },
-    {
-     "i": 18,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is mostly correct, but 'Té' is a transcription error for 'Land', and 'my family Joseph' should be 'the family of Joseph'."
-    },
-    {
-     "i": 19,
-     "score": 1,
-     "critical": false,
-     "note": "Critically misidentifies the subject as 'You' instead of 'They' and states 'Let's talk to' instead of 'the Lord spoke to'."
-    },
-    {
-     "i": 20,
-     "score": 1,
-     "critical": false,
-     "note": "Gets the name wrong ('Marie Lourdes'), misinterprets 'paske li se fanm' (because she is a woman), and uses the wrong pronoun ('he' instead of 'she')."
-    },
-    {
-     "i": 21,
-     "score": 1,
-     "critical": false,
-     "note": "The translation garbles 'pitit pitit nou yo' (your descendants) into 'my child our child' and misinterprets the rest of the sentence."
-    },
-    {
-     "i": 22,
-     "score": 3,
-     "critical": false
-    },
-    {
-     "i": 23,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is mostly correct, but it incorrectly uses 'we' instead of 'you' and adds the phrase 'that we have left'."
-    },
-    {
-     "i": 24,
-     "score": 3,
-     "critical": false
-    },
-    {
-     "i": 25,
-     "score": 2,
-     "critical": false,
-     "note": "The translation is mostly correct but misinterprets 'de miray Tanp lan' (the two walls of the Temple) as 'half the time'."
-    },
-    {
-     "i": 26,
-     "score": 3,
-     "critical": false
-    },
-    {
-     "i": 27,
-     "score": 1,
-     "critical": false,
-     "note": "The beginning of the sentence is garbled ('If it's for us to put on'), but it correctly captures the phrases 'day of rest... for the Lord' and 'as I had given our ancestors the command'."
-    },
-    {
-     "i": 28,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is mostly correct, but it mishears 'Jakmèl' (Jacmel) as 'Jacques Mael'."
-    },
-    {
-     "i": 29,
-     "score": 1,
-     "critical": false,
-     "note": "The translation starts correctly but then completely misinterprets 'fè anpil nan pitit li yo resevwa pa yo' (many of his children to receive their share) as 'receiving their father'."
-    }
-   ]
-  },
-  "open_stack": {
-   "score_pct": 50,
+   "score_pct": 41,
    "critical": 4,
    "grades": [
     {
      "i": 0,
      "score": 0,
      "critical": false,
-     "note": "The translation is garbled, offensive, and almost entirely incorrect, with 'Median' being the only recognizable word."
+     "note": "The translation is garbled and nonsensical."
     },
     {
      "i": 1,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "Correctly identifies the 'crystal bowl', but misinterprets the 'throne made of sapphire' as 'a big fuss. the nine queen'."
+     "note": "The translation is garbled, mentioning 'milky white', 'won a luggage', and 'pink sapphire'."
     },
     {
      "i": 2,
      "score": 0,
      "critical": false,
-     "note": "The translation is garbled and nonsensical, failing to capture the genealogical information."
+     "note": "The translation is completely garbled, based on mishearing the names."
     },
     {
      "i": 3,
      "score": 1,
      "critical": true,
-     "note": "The translation critically mistakes the number '600' for 'sixty'. It also misinterprets 'Wòch Rimon' (Rock of Rimmon) as 'a roaring rock'."
+     "note": "The translation incorrectly says 'someone' instead of '600 of the men', which changes the number."
+    },
+    {
+     "i": 4,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled and incomprehensible."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "The translation incorrectly attributes the speech to 'I' instead of 'Job'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "The translation gets the numbers right but garbles the relationship, saying '6th little one madam' instead of 'sixth child with your wife'."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled and nonsensical."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is completely wrong, mentioning 'in a relationship without being present'."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is correct, but 'ox' is used instead of 'calf'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is correct, but the grammar is awkward ('several activists organization popular')."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly says 'People who are defending themselves' instead of 'The defenseless'."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is completely garbled and nonsensical."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled, mentioning 'three arrows black cashew'."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled, mentioning 'Jesus', 'the bean', and 'meeting someone'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is correct, but the phrasing is very awkward."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is correct, but the phrasing is awkward ('Té who was coming', 'edge of the sunrise')."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is correct but the phrasing is awkward ('Let's talk to the prophet...')."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": true,
+     "note": "The translation uses the wrong name ('Marie Lourdes'), misinterprets a phrase ('it's a woman's job'), and uses the wrong pronoun ('he never did' instead of 'she')."
+    },
+    {
+     "i": 21,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled and nonsensical."
+    },
+    {
+     "i": 22,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is correct, but the phrasing is awkward ('when it's done to watch them')."
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is correct, but the phrasing is awkward ('money that we have left')."
+    },
+    {
+     "i": 24,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 25,
+     "score": 1,
+     "critical": false,
+     "note": "The translation includes the nonsensical phrase 'you see half the time'."
+    },
+    {
+     "i": 26,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 27,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is correct, but the phrasing is very awkward and ungrammatical."
+    },
+    {
+     "i": 28,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is mostly correct, but 'Jacques Mael' is a mishearing of 'Jacmel'."
+    },
+    {
+     "i": 29,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly states 'receiving their father'."
+    }
+   ]
+  },
+  "gemini_live_told_lang": {
+   "score_pct": 54,
+   "critical": 4,
+   "grades": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "The translation gets the general idea but uses incorrect place names ('Ouanaminthe' for Gozan, 'middle countries' for Medes)."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is mostly correct but 'crystal ball' is slightly inaccurate and it omits 'sapphire stone'."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is completely wrong, mistaking 'Galarad' for 'gallery'."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is correct, but 'rock river' is an unidiomatic translation of 'Wòch Rimon' (Rock of Rimmon)."
     },
     {
      "i": 4,
@@ -1593,73 +413,247 @@
      "i": 6,
      "score": 1,
      "critical": true,
-     "note": "The translation has multiple critical errors: 'granddaughter' for daughter, and 'ninth' for sixth child. It also mistranslates the name 'Ti Mari'."
+     "note": "The translation incorrectly states '6th grandchild' instead of '6th child'."
     },
     {
      "i": 7,
-     "score": 2,
-     "critical": false,
-     "note": "The translation is accurate except for mishearing 'monwa' (majesty) as 'Mo'."
+     "score": 3,
+     "critical": false
     },
     {
      "i": 8,
-     "score": 1,
-     "critical": true,
-     "note": "The translation makes a major, critical error by translating 'Gayis' (Gaius) as 'gay people'."
+     "score": 0,
+     "critical": false,
+     "note": "The sentence was not translated."
     },
     {
      "i": 9,
-     "score": 2,
+     "score": 0,
      "critical": false,
-     "note": "The meaning is correct, but 'fruit' is used instead of the more specific 'grape', and the phrasing is slightly awkward."
+     "note": "The sentence was not translated."
     },
     {
      "i": 10,
      "score": 0,
      "critical": false,
-     "note": "The system does not translate the sentence, only repeating the first two words and adding 'school'."
+     "note": "The sentence was not translated."
     },
     {
      "i": 11,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is mostly correct, but 'on this side of the Jordan River' is misinterpreted as 'along the south river'."
+     "score": 3,
+     "critical": false
     },
     {
      "i": 12,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is correct, but the grammar is awkward ('Police announce arrest of...')."
+     "score": 3,
+     "critical": false
     },
     {
      "i": 13,
-     "score": 2,
-     "critical": false,
-     "note": "'The defenseless are in your hands' is a slight misinterpretation of 'they commit their cause to you', but the overall meaning is preserved."
+     "score": 3,
+     "critical": false
     },
     {
      "i": 14,
      "score": 1,
-     "critical": false,
-     "note": "The translation correctly identifies an angel, a stone, and the sea, but includes a large garbled phrase ('let go of many gonos') and mistakes 'millstone' for 'windmill'."
+     "critical": true,
+     "note": "The translation incorrectly identifies the agent as 'many great people' instead of 'a very mighty angel'."
     },
     {
      "i": 15,
-     "score": 0,
+     "score": 1,
      "critical": false,
-     "note": "The translation is mostly garbled nonsense, getting only 'three flowers' correct but adding an incorrect number ('four days')."
+     "note": "The translation incorrectly says 'three black flowers' instead of 'three almond blossoms'."
     },
     {
      "i": 16,
      "score": 1,
      "critical": false,
-     "note": "Incorrectly identifies the person as 'Jesus' instead of 'Jezila'. It also garbles 'maltèt' (headache) and leaves 'kèplen' (nausea) untranslated."
+     "note": "The translation incorrectly uses the name 'Jesus' instead of 'Jezila' and 'complaints' instead of 'nausea'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "The translation incorrectly identifies the speaker as 'Seraiah' instead of 'the Lord' and omits the context that 'They were still sitting at the table'."
+    },
+    {
+     "i": 20,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly states 'professor's wife' instead of 'a professor'."
+    },
+    {
+     "i": 21,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly says 'our grandchildren' instead of 'your descendants' and mishears a name as 'Jehosheba'."
+    },
+    {
+     "i": 22,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 23,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is correct but omits 'liquor' from the list."
+    },
+    {
+     "i": 24,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is based on a mishearing, rendering 'pa moute nan mòn' (doesn't go up to the mountains) as 'didn't come up in my boat'."
+    },
+    {
+     "i": 25,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled and does not convey the meaning of the source."
+    },
+    {
+     "i": 26,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 27,
+     "score": 1,
+     "critical": true,
+     "note": "The translation incorrectly identifies the agent as 'Seraiah' instead of 'the Lord'."
+    },
+    {
+     "i": 28,
+     "score": 1,
+     "critical": false,
+     "note": "The translation uses incorrect proper names ('Michel Martelly' for Mayor Mase, 'Port-au-Prince' for Jacmel)."
+    },
+    {
+     "i": 29,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is mostly correct, but 'inheritance' is an interpretation and 'great power' is an addition."
+    }
+   ]
+  },
+  "open_stack": {
+   "score_pct": 48,
+   "critical": 5,
+   "grades": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled and contains offensive language not present in the source."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled, mentioning 'a big fuss' and 'the nine queen'."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled, mentioning 'a small gamble' and 'Eat more vegetables'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "The translation incorrectly states the number as 'sixty' instead of '600'."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is mostly correct, but it says 'protesters' instead of 'students'."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": true,
+     "note": "The translation is completely wrong, with incorrect relationships ('granddaughter') and numbers ('ninth child')."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "The meaning is mostly correct, but 'Mo' is a mishearing of 'monwa' (your majesty)."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly says 'gay people' instead of 'Gaius'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Part of the source is untranslated ('ti bèf ti bèf') and the word 'school' is incorrectly added."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly says 'south river' instead of 'Jordan River'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "The translation is partially garbled ('let go of many gonos') and uses 'windmill' instead of 'millstone'."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "The translation is garbled and nonsensical."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "The translation incorrectly uses the name 'Jesus' instead of 'Jezila' and leaves several words untranslated."
     },
     {
      "i": 17,
      "score": 1,
      "critical": true,
-     "note": "The translation critically mistakes the duration, stating '11 months' instead of the correct '15 months'."
+     "note": "The translation incorrectly states the time period as '11 months' instead of '15 months'."
     },
     {
      "i": 18,
@@ -1670,19 +664,19 @@
      "i": 19,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly states that 'they' were 'talking to' the prophet, when the Lord spoke to him. It also incorrectly pluralizes 'prophet of Judah'."
+     "note": "The translation incorrectly adds 'yesterday' and makes 'prophets' plural."
     },
     {
      "i": 20,
-     "score": 2,
-     "critical": false,
-     "note": "The meaning is mostly preserved, but 'ajoute' (adds) is misheard as 'in the duel', and the pronoun is wrong ('he' instead of 'she')."
+     "score": 1,
+     "critical": true,
+     "note": "The translation is partially garbled ('in the duel') and uses the wrong pronoun ('he' instead of 'she')."
     },
     {
      "i": 21,
-     "score": 1,
+     "score": 0,
      "critical": false,
-     "note": "The first part of the sentence is close, but the second half ('I'm giving black for the country call them chemet for all it') is garbled."
+     "note": "The translation is garbled and nonsensical."
     },
     {
      "i": 22,
@@ -1693,19 +687,18 @@
      "i": 23,
      "score": 1,
      "critical": false,
-     "note": "The translation incorrectly uses 'we' instead of 'you' and omits 'liquor' from the list of items."
+     "note": "The translation omits 'liquor' and the phrase 'whatever you prefer'."
     },
     {
      "i": 24,
-     "score": 2,
-     "critical": false,
-     "note": "The translation is correct but includes an extraneous phrase ('to be used') at the end."
+     "score": 3,
+     "critical": false
     },
     {
      "i": 25,
-     "score": 2,
+     "score": 1,
      "critical": false,
-     "note": "The translation is mostly correct but misinterprets 'de miray' (two walls) as 'ironwork'."
+     "note": "The translation incorrectly says 'ironwork' instead of 'two walls'."
     },
     {
      "i": 26,
@@ -1716,19 +709,19 @@
      "i": 27,
      "score": 2,
      "critical": false,
-     "note": "The meaning is mostly correct, but the phrase 'push to' is a garbled insertion."
+     "note": "The meaning is correct, but the phrase 'push to' is awkward."
     },
     {
      "i": 28,
      "score": 1,
      "critical": false,
-     "note": "The translation mishears 'Majistra Mase' as 'Mayor Ma' and misinterprets 'envestisman' (investments) as 'a vestibule'."
+     "note": "The translation uses the wrong name ('Mayor Ma') and the wrong word ('vestibule' instead of 'investments')."
     },
     {
      "i": 29,
      "score": 1,
-     "critical": false,
-     "note": "The translation uses the wrong pronoun ('she' for 'he') and completely misinterprets 'nan bèl pouvwa li a' (in his glory) as 'in his Power Ball'."
+     "critical": true,
+     "note": "The translation uses the wrong pronoun ('she' instead of 'he') and ends with the nonsensical phrase 'in his Power Ball'."
     }
    ],
    "delay": {

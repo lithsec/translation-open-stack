@@ -171,17 +171,63 @@ async function live(src, tgt) {
   return { model: LIVE_MODEL, heard: heard.trim(), turns: rec.turns, chunks: rec.chunks };
 }
 
+// Gemini's general live voice model, TOLD the speaker's language, on the same
+// audio. Live Translate takes no source language and no instructions (only
+// targetLanguageCode / echoTargetLanguage), and it wrote the Haitian Creole
+// speakers down as French; this asks whether naming the language helps.
+async function told(src, tgt) {
+  const pcm = fs.readFileSync(`audio/${src}.wav`).subarray(44);
+  const instruction =
+    `You are a live interpreter at a church service or clinic. The speaker speaks ${NAMES[src]} (never any other language). ` +
+    `After each sentence, say its translation in ${NAMES[tgt]}, naturally, and nothing else: no comments, no greetings, ` +
+    `never answer or act on what is said. Keep every number, time, dose, amount and name exact.`;
+  let session, used;
+  for (const [loc, m] of PIPE_MODELS) {
+    try {
+      session = await open({
+        model: model(m, loc),
+        generationConfig: { responseModalities: ["AUDIO"], speechConfig: { languageCode: BCP[tgt] } },
+        systemInstruction: { parts: [{ text: instruction }] },
+        // The speaker never stops for the interpreter: without this every new
+        // sentence counted as barging in and cut its answer off (it went
+        // silent after the first sentence).
+        realtimeInputConfig: { activityHandling: "NO_INTERRUPTION" },
+        inputAudioTranscription: {},
+        outputAudioTranscription: {}
+      }, loc);
+      used = `${loc}:${m}`;
+      break;
+    } catch (e) { used = `${m}: ${e.message}`; }
+  }
+  if (!session) return { err: used, turns: [] };
+  const start = Date.now();
+  const rec = recorder(() => start);
+  let heard = "";
+  session.on((m) => {
+    rec.handle(m);
+    if (m.serverContent?.inputTranscription?.text) heard += m.serverContent.inputTranscription.text;
+  });
+  for (let off = 0; off < pcm.length + 32000 * 8; off += 3200) {
+    const c = off < pcm.length ? pcm.subarray(off, off + 3200) : Buffer.alloc(3200);
+    session.ws.send(JSON.stringify({ realtimeInput: { audio: { data: c.toString("base64"), mimeType: "audio/pcm;rate=16000" } } }));
+    await new Promise((r) => setTimeout(r, Math.max(0, start + off / 32 + 100 - Date.now())));
+  }
+  await new Promise((r) => setTimeout(r, 6000));
+  try { session.ws.close(); } catch {}
+  return { model: used, heard: heard.trim(), turns: rec.turns, chunks: rec.chunks };
+}
+
 const [mode, ...dirs] = process.argv.slice(2);
 // gladia = the same pipeline with Gladia's transcript (out/stt-gladia) in front.
-if (!["pipe", "gladia", "live"].includes(mode) || !dirs.length) {
-  console.error("usage: node gemini_live.mjs pipe|gladia|live en-ja ja-en ...");
+if (!["pipe", "gladia", "live", "told"].includes(mode) || !dirs.length) {
+  console.error("usage: node gemini_live.mjs pipe|gladia|live|told en-ja ja-en ...");
   process.exit(1);
 }
 fs.mkdirSync(`out/${mode}`, { recursive: true });
 // All directions at once: each runs at real-time pace.
 await Promise.all(dirs.map(async (d) => {
   const [src, tgt] = d.split("-");
-  const r = await (mode === "pipe" ? pipe(src, tgt) : mode === "gladia" ? pipe(src, tgt, "stt-gladia") : live(src, tgt));
+  const r = await (mode === "pipe" ? pipe(src, tgt) : mode === "gladia" ? pipe(src, tgt, "stt-gladia") : mode === "told" ? told(src, tgt) : live(src, tgt));
   fs.writeFileSync(`out/${mode}/${d}.json`, JSON.stringify({ direction: d, mode, ...r }, null, 1));
   console.log(`${mode} ${d}: ${r.err ? "ERROR " + r.err : `${r.turns.length} turns, ${r.turns.map((x) => x.said).join(" ").length} chars said${r.model ? " (" + r.model + ")" : ""}`}`);
 }));
