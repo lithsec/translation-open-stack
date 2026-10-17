@@ -31,7 +31,10 @@ MAX_STREAMS="${MAX_STREAMS:-4}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$HERE/../.." && pwd)"
 TAG="${TAG:-$(git -C "$ROOT" rev-parse --short HEAD 2>/dev/null || date +%Y%m%d%H%M)}"
-IMAGE="$REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG"
+# The image's registry may be in another region than the service (lithos-talk:
+# us-central1 registry, us-east4 service, where the L4 quota is).
+REPO_REGION="${REPO_REGION:-$REGION}"
+IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG"
 
 stage() {
   # The build context: this service and only the stack files it imports, so
@@ -65,7 +68,9 @@ case "${1:-}" in
   build)
     ctx="$(stage)"
     # 32 GB build machine: the model fetch loads the checkpoint in float32 on its CPU.
-    gcloud builds submit "$ctx" --tag "$IMAGE" --project "$PROJECT" --region "$REGION" \
+    # No --region: regional build pools refuse e2-highcpu-32 on a new project;
+    # the global pool takes it.
+    gcloud builds submit "$ctx" --tag "$IMAGE" --project "$PROJECT" \
       --machine-type e2-highcpu-32 --timeout 3600s
     rm -rf "$ctx"
     echo "built $IMAGE"
@@ -75,7 +80,7 @@ case "${1:-}" in
     docker build --platform linux/amd64 -t "$IMAGE" "$ctx"
     rm -rf "$ctx"
     docker image ls "$IMAGE"
-    gcloud auth configure-docker "$REGION-docker.pkg.dev" --quiet
+    gcloud auth configure-docker "$REPO_REGION-docker.pkg.dev" --quiet
     docker push "$IMAGE"
     ;;
   deploy)
