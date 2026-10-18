@@ -18,7 +18,7 @@ def env(*names):
 
 KEY = env("AZURE_SPEECH_KEY", "SPEECH_KEY", "AZURE_SPEECH_SUBSCRIPTION_KEY", "AZURE_COGNITIVE_KEY")
 REGION = env("AZURE_SPEECH_REGION", "SPEECH_REGION", "AZURE_REGION", "AZURE_COGNITIVE_REGION")
-LOCALE = {"en": "en-US", "ja": "ja-JP", "zh": "zh-CN", "km": "km-KH", "lo": "lo-LA", "ht": "ht-HT"}
+LOCALE = {"en": "en-US", "ja": "ja-JP", "zh": "zh-CN", "km": "km-KH", "lo": "lo-LA", "ht": "ht-HT", "fr": "fr-FR"}
 
 
 def run(lang):
