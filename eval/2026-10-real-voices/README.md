@@ -118,3 +118,46 @@ fathers"), drops or translates names (Ti Bèf → "the Cow"), omits clauses and
 sometimes loops ("a sickness of fever, and bowels; and he had a sickness…").
 Not a fallback for live use. A re-grade (`run9.log`) moved the other systems by
 up to 7 points; Kreyòl-MT's gold score did not move.
+
+## Haitian Creole exception, "Option A": Omnilingual's text straight to the Live voice (2026-10-18)
+
+Today the app's exception sends Omnilingual's Haitian transcript to Gemini 3.5
+Flash (REST) and a Gemini Live voice reads the English ('read'). Option A skips
+Flash: the Haitian text goes to the Live voice in its 'interpret' mode, as
+Azure's sentences do. `text-mt/live_voice_ht.mjs` reproduces the app's
+`GeminiVoice` (exception-hardening, `src/main/providers/azure.ts`): interpret
+instruction with from = Haitian Creole, a fresh pre-opened session per
+sentence, 2 in flight, one `clientContent` turn per sentence, output
+transcription settled after `turnComplete`; `MODE=read` times today's read step.
+`text-mt/flash_timing_ht.mjs` times Flash with the app's prompt, one call at a
+time (no hedge). `text-mt/grade_live.py` grades with `translate_ht.py`'s own
+prompt and system list, side by side with every translator of that input; it
+adds only `<input>__live:<model>` rows. Models: the app's default voice
+`gemini-2.5-flash-native-audio-preview-09-2025` and `gemini-3.8-live`.
+
+Omnilingual transcripts (30 sentences). Scores are from the same grading call
+for every row (grader in brackets: 2.5 Pro on Vertex = grades.json, 3.1 Pro on
+AI Studio); first audio = send to first audio chunk, today's route = Flash +
+the voice's read step, summed per sentence (median / p90).
+
+| route | mean [2.5 Pro] | fully correct | critical | mean [3.1 Pro] | fully correct | critical | first audio |
+|---|---|---|---|---|---|---|---|
+| Flash (default thinking) → read, 3.8-live | 84.4% | 67% | 2 | 93.3% | 87% | 2 | 6.7 s / 10.1 s |
+| Flash (default thinking) → read, 2.5 native audio | (same text) | | | | | | 8.2 s / 11.8 s |
+| Flash @low → read, 3.8-live | — | | | 85.6% | 67% | 1 | 2.8 s / 5.5 s |
+| **Option A, gemini-3.8-live** | 63.3% | 30% | 3 | 70.0% | 43% | 5 | **1.0 s / 1.1 s** |
+| **Option A, 2.5 native audio (app default)** | 56.7% | 23% | 4 | 60.0% | 30% | 7 | 1.5 s / 2.7 s |
+
+On the read text (gold) Option A with 3.8-live is as good as Flash (3.1 Pro:
+96.7% / 93% / 1 vs Flash 96.7% / 90% / 0; 2.5 Pro: 86.7% / 63% / 0 vs 85.6% /
+67% / 1); the 2.5 native-audio voice is weaker (85.6% / 73% / 3 and 70.0% /
+43% / 0) and twice said nothing at all (turnComplete with no audio). The gap
+is the recognition errors: thinking Flash repairs Omnilingual's misheard names
+and words (Halah/Habor, Hepher, "Lord … my lord the king", Marie Laurence),
+the Live voices translate them as heard or swap in a familiar Haitian name
+(Artibonite, Gros-Morne, Port-au-Prince). Flash's default thinking took 6.2 s
+median, 9.6 s p90, 16 of 30 over the app's 6 s hedge; @low 2.3 s / 5.0 s.
+Interpret first audio is the voice alone; Option A's turnComplete median is
+6.6 s (3.8-live), 7.7 s (2.5): it speaks while generating.
+Raw output and timings: `text-mt/out/*live*`, `*.timing.json`,
+`live-grade-run-<grader>.json` (per-sentence notes).
