@@ -1,0 +1,15 @@
+grader: gemini-2.5-pro (this run's grades)
+gold__azure-translator                   fully correct 23%  mean 60%  critical 3
+gold__gemini-2.5-flash                   fully correct 63%  mean 86%  critical 1
+gold__gemini-2.5-flash+ctx               fully correct 70%  mean 88%  critical 0
+gold__gemini-3.5-flash                   fully correct 60%  mean 87%  critical 0
+gold__gemini-3.5-flash-lite              fully correct 40%  mean 70%  critical 2
+gold__google-translate                   fully correct 37%  mean 69%  critical 3
+gold__kreyol-mt                          fully correct 3%  mean 40%  critical 2
+omnilingual__azure-translator            fully correct 17%  mean 41%  critical 3
+omnilingual__gemini-2.5-flash            fully correct 47%  mean 71%  critical 3
+omnilingual__gemini-2.5-flash+ctx        fully correct 43%  mean 69%  critical 3
+omnilingual__gemini-3.5-flash            fully correct 80%  mean 90%  critical 3
+omnilingual__gemini-3.5-flash-lite       fully correct 40%  mean 63%  critical 5
+omnilingual__google-translate            fully correct 23%  mean 44%  critical 7
+omnilingual__kreyol-mt                   fully correct 10%  mean 32%  critical 2

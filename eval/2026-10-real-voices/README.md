@@ -93,3 +93,28 @@ What it shows:
   0.8 s pauses (20-23 turns for 30 French/Khmer sentences), so earlier
   sentences wait for the turn: per sentence median ~1.2-1.9 s, p90 9-24 s.
   Interim hypotheses stream throughout (430-650 per clip) for live captions.
+
+## Text translation of Haitian Creole (`text-mt/translate_ht.py`)
+
+Text translators on the read text (`gold`) and on transcripts, graded blind
+side by side with Gemini 2.5 Pro against the model-made references (`out/` is
+not committed; `text-mt/run*.log` keep each run's grades).
+
+**Kreyòl-MT** (`jhu-clsp/kreyol-mt`, JHU, MIT licence, open weights: mBART-50
+fine-tuned on Creole data, 611 M parameters, 2.4 GB in float32) added
+2026-10-18, run locally on a Mac's CPU (about 1 s a sentence, batches of 4,
+beam 4). Haitian into English only: this eval has no Haitian references for
+English into Haitian, so that direction is not run.
+
+| Translator | gold: fully correct / mean | Omnilingual transcript: mean |
+|---|---|---|
+| Gemini 3.5 Flash | 70% / 88% | 87% |
+| Google Translate | 47% / 76% | 37% |
+| Azure Translator | 27% / 57% | 32% |
+| Kreyòl-MT | 3% / 40% | 26% (32% on a re-grade) |
+
+Kreyòl-MT gets the gist but drifts into King James register ("the LORD", "your
+fathers"), drops or translates names (Ti Bèf → "the Cow"), omits clauses and
+sometimes loops ("a sickness of fever, and bowels; and he had a sickness…").
+Not a fallback for live use. A re-grade (`run9.log`) moved the other systems by
+up to 7 points; Kreyòl-MT's gold score did not move.

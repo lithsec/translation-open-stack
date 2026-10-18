@@ -12,6 +12,9 @@
 #     and its grades go to grades-<grader>.json: compare within one run only.
 #     Translators needing Google Cloud must already be in out/.)
 #   INPUTS=omnilingual,gold limits which transcripts are translated and graded.
+#   KEEP_GRADES=1 adds new systems' rows to the grades file and leaves the rest.
+#   kreyol-mt runs locally: use the eval's .venv (torch, transformers,
+#   sentencepiece, protobuf).
 # NOTE: the English references were written by Gemini 2.5 Pro, so Gemini
 # translators may be flattered; the grade says so.
 import json, os, random, sys
@@ -158,9 +161,40 @@ def azure_translator(sents):
     return [o if s.strip() else "" for o, s in zip(out, sents)]
 
 
+def kreyol_mt(sents, batch=4):
+    """JHU's Kreyol-MT (jhu-clsp/kreyol-mt: mBART-50 fine-tuned on Creole data,
+    MIT, open weights), run locally on CPU in float32. Input "sentence </s> SRC",
+    output starts with the target token; the model card maps Haitian (hat) to
+    mBART's ko_KR and English to en_XX. Beam 4 as on the card, but max_length
+    256 rather than its 60 so long sentences are not cut. Needs torch,
+    transformers and sentencepiece (the eval's .venv has them)."""
+    import time
+    import torch
+    from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+    global _kmt
+    if "_kmt" not in globals():  # load once for all inputs
+        _kmt = (AutoTokenizer.from_pretrained("jhu-clsp/kreyol-mt", do_lower_case=False, use_fast=False, keep_accents=True),
+                AutoModelForSeq2SeqLM.from_pretrained("jhu-clsp/kreyol-mt", dtype=torch.float32).eval())
+    tok, model = _kmt
+    tgt = tok.convert_tokens_to_ids("en_XX")
+    out, t0 = [], time.time()
+    for i in range(0, len(sents), batch):
+        chunk = sents[i:i + batch]
+        enc = tok([f"{s.strip() or '-'} </s> ko_KR" for s in chunk], add_special_tokens=False, return_tensors="pt", padding=True)
+        with torch.inference_mode():
+            gen = model.generate(**enc, num_beams=4, max_length=256, min_length=1, early_stopping=True,
+                                 pad_token_id=tok.pad_token_id, bos_token_id=tok.bos_token_id,
+                                 eos_token_id=tok.eos_token_id, decoder_start_token_id=tgt)
+        out += [tok.decode(g, skip_special_tokens=True, clean_up_tokenization_spaces=False).strip() for g in gen]
+    print(f"kreyol-mt: {len(sents)} sentences in {time.time() - t0:.0f} s on CPU", flush=True)
+    return [o if s.strip() else "" for o, s in zip(out, sents)]
+
+
 TRANSLATORS = {
     "google-translate": google_nmt,
-    **({"azure-translator": azure_translator} if os.environ.get("AZURE_TRANSLATOR_KEY1") else {}),
+    # Graded wherever its output is already in out/; only translating needs the key.
+    "azure-translator": azure_translator,
+    "kreyol-mt": kreyol_mt,
     "gemini-2.5-flash": lambda s: gem("gemini-2.5-flash", s, False),
     "gemini-2.5-flash+ctx": lambda s: gem("gemini-2.5-flash", s, True),
     "gemini-3.5-flash": lambda s: gem("gemini-3.5-flash", s, False),
@@ -217,7 +251,14 @@ Return JSON: {{"A": [{{"i": 0, "score": 3, "critical": false, "note": "..."}}, .
         mean = sum(g.get(i, {}).get("score", 0) for i in range(len(src))) / (3 * len(src))
         crit = sum(1 for x in g.values() if x.get("critical"))
         results[f"{inp}__{m}"] = {"fully_correct": round(full / len(src), 3), "mean_score": round(mean, 3), "critical": crit}
-json.dump(results, open(os.path.join(OUT, "grades.json" if GRADER == "gemini-2.5-pro" else f"grades-{GRADER}.json"), "w"), indent=1)
-print("grader:", GRADER)
-for k, v in sorted(results.items()):
+fresh = results
+gp = os.path.join(OUT, "grades.json" if GRADER == "gemini-2.5-pro" else f"grades-{GRADER}.json")
+if os.environ.get("KEEP_GRADES") and os.path.exists(gp):
+    # Add only systems not graded yet; earlier rows stay as published (the
+    # re-grade of the others is printed below, to show the grader's drift).
+    kept = json.load(open(gp))
+    results = {**kept, **{k: v for k, v in results.items() if k not in kept}}
+json.dump(results, open(gp, "w"), indent=1)
+print("grader:", GRADER, "(this run's grades)")
+for k, v in sorted(fresh.items()):
     print(f"{k:40s} fully correct {v['fully_correct']:.0%}  mean {v['mean_score']:.0%}  critical {v['critical']}")
