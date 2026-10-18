@@ -23,8 +23,9 @@ Protocol:
     GET /mic         a microphone test page (mic.html): speak, see each transcript
 
 Per utterance, the stack's own pipeline minus the translation (server/server.py):
-Silero VAD ends a turn after ENDPOINT_MS of quiet (a shorter dip past
-LONG_UTTERANCE_S, a forced cut at MAX_UTTERANCE_S); VoxLingua107 picks the
+Silero VAD ends a turn after ENDPOINT_MS of quiet (300 ms; a turn with less
+than MIN_SPEECH_MS of speech waits longer), with a forced cut by MAX_UTTERANCE_S
+(6 s) at the quietest recent instant; VoxLingua107 picks the
 language, but only among ?langs (one language: no guess at all); Omnilingual
 transcribes with that language's code. The recogniser is the stack's engine
 (server/engines/omnilingual.py), the audio input its AudioIn (server/audio_in.py),
@@ -44,7 +45,8 @@ start_ms/end_ms count from the first sample of this connection, at 16 kHz.
 
 Environment: STT_TOKEN (or STT_SIGNING_KEY, the stack's signed tokens), STT_OPEN=1,
 PORT, STT_DEVICE (default: cuda when torch sees one, else cpu), OMNI_CARD,
-STT_MAX_CONNECTIONS, ENDPOINT_MS, MAX_UTTERANCE_S, STT_MODELS (the baked models).
+STT_MAX_CONNECTIONS, STT_MAX_PENDING, ENDPOINT_MS (default 300), MAX_UTTERANCE_S
+(default 6.0), MIN_SPEECH_MS (default 400), STT_MODELS (the baked models).
 """
 import asyncio
 import json
@@ -88,11 +90,27 @@ LID_REVISION = "0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9"
 VAD_REPO = "snakers4/silero-vad"
 VAD_REF = "5cd7945676eb32225748052e2e6a0580e4686a08"
 
-# Endpointing: the stack's values (server/server.py, where each is explained).
-ENDPOINT_MS = int(os.environ.get("ENDPOINT_MS", "700"))
-LONG_UTTERANCE_S = float(os.environ.get("LONG_UTTERANCE_S", "5.0"))
-LONG_ENDPOINT_MS = int(os.environ.get("LONG_ENDPOINT_MS", "280"))
-MAX_UTTERANCE_S = float(os.environ.get("MAX_UTTERANCE_S", "9.0"))
+# Endpointing. Shorter than the stack's (server/server.py: 700 ms, 280 ms past
+# 5 s, a forced cut at 9 s), because a client here waits on this service: Live
+# Translation holds its other recogniser's sentences until the Haitian
+# utterance beside them is named, so every second an utterance runs on is a
+# second of everyone's captions. 300 ms of quiet ends a turn (a breath between
+# clauses is enough), and a speaker who never pauses is cut by 6 s, at the
+# quietest instant of the last 2 s.
+ENDPOINT_MS = int(os.environ.get("ENDPOINT_MS", "300"))
+MAX_UTTERANCE_S = float(os.environ.get("MAX_UTTERANCE_S", "6.0"))
+# A turn with less speech than this is not ended by a short pause: VoxLingua107
+# picks a language from the whole clip, and on a lone syllable ("wi", "OK") or
+# a cough its choice is close to a coin toss -- and a wrong "language" message
+# sends that utterance to the wrong recogniser in the client. So a short turn
+# waits up to SHORT_TURN_ENDPOINT_MS (the old 700 ms) for more speech, which
+# then joins it (the gap is a normal in-turn pause, not padding); a word that
+# really stands alone still goes out, as late as it did before this change.
+# Merging beats skipping the language ID: the client needs every utterance
+# named to release what it holds, and beats a guess: one-word answers are
+# where a room's languages are most alike.
+MIN_SPEECH_MS = int(os.environ.get("MIN_SPEECH_MS", "400"))
+SHORT_TURN_ENDPOINT_MS = 700
 TRAILING_KEEP_MS = 250
 # Utterances waiting for the model, per connection, before the oldest is
 # dropped (and logged): a backlog only makes every caption later.
@@ -236,21 +254,23 @@ def quietest_cut(buf, window_s=2.0, frame_ms=20):
 
 
 class Segmenter:
-    """One stream's turn-taking, as the stack's room loop does it: feed 16 kHz
-    blocks with their speech probability, get back finished utterances as
-    (samples, start_ms, end_ms). No model inside, so tests drive it directly."""
+    """One stream's turn-taking: feed 16 kHz blocks with their speech
+    probability, get back finished utterances as (samples, start_ms, end_ms).
+    No model inside, so tests drive it directly."""
 
-    def __init__(self, endpoint_ms=None, long_s=None, long_endpoint_ms=None, max_s=None):
+    def __init__(self, endpoint_ms=None, max_s=None, min_speech_ms=None,
+                 short_endpoint_ms=SHORT_TURN_ENDPOINT_MS):
         import numpy as np
         self.np = np
         self.endpoint_ms = ENDPOINT_MS if endpoint_ms is None else endpoint_ms
-        self.long_s = LONG_UTTERANCE_S if long_s is None else long_s
-        self.long_endpoint_ms = LONG_ENDPOINT_MS if long_endpoint_ms is None else long_endpoint_ms
         self.max_s = MAX_UTTERANCE_S if max_s is None else max_s
+        self.min_speech_ms = MIN_SPEECH_MS if min_speech_ms is None else min_speech_ms
+        self.short_endpoint_ms = max(self.endpoint_ms, short_endpoint_ms)
         self.buf = np.zeros(0, dtype=np.float32)
         self.buf_start = 0          # stream sample index of buf[0]
         self.total = 0              # samples seen on this stream
         self.quiet_ms = 0.0
+        self.speech_ms = 0.0        # speech (VAD > 0.5) in the current turn
         self.speech_seen = False
 
     def _take(self, n):
@@ -270,6 +290,7 @@ class Segmenter:
         if prob > 0.5:
             self.speech_seen = True
             self.quiet_ms = 0.0
+            self.speech_ms += chunk_ms
         else:
             self.quiet_ms += chunk_ms
         if not self.speech_seen:
@@ -277,16 +298,16 @@ class Segmenter:
             drop = max(0, len(self.buf) - VAD_RATE // 2)
             self.buf, self.buf_start = self.buf[drop:], self.buf_start + drop
             return []
-        buf_s = len(self.buf) / VAD_RATE
-        need_ms = self.endpoint_ms if buf_s < self.long_s else self.long_endpoint_ms
-        forced = buf_s >= self.max_s
-        if not forced and (self.quiet_ms < need_ms or len(self.buf) < VAD_RATE):
-            return []
-        if forced:
+        if len(self.buf) / VAD_RATE >= self.max_s:
             # Still talking: cut at the quietest instant and keep listening.
             out = [self._take(quietest_cut(self.buf))]
             self.quiet_ms = 0.0
+            # The rest was all talk (no pause long enough to end a turn).
+            self.speech_ms = len(self.buf) / VAD_RATE * 1000
             return out
+        need_ms = self.endpoint_ms if self.speech_ms >= self.min_speech_ms else self.short_endpoint_ms
+        if self.quiet_ms < need_ms:
+            return []
         return [self._end_turn()]
 
     def _end_turn(self):
@@ -299,6 +320,7 @@ class Segmenter:
         self.buf_start += len(self.buf)
         self.buf = self.np.zeros(0, dtype=self.np.float32)
         self.quiet_ms = 0.0
+        self.speech_ms = 0.0
         self.speech_seen = False
         return out
 
@@ -307,7 +329,7 @@ class Segmenter:
         if not self.speech_seen or len(self.buf) < VAD_RATE // 4:
             self.buf_start += len(self.buf)
             self.buf = self.np.zeros(0, dtype=self.np.float32)
-            self.speech_seen, self.quiet_ms = False, 0.0
+            self.speech_seen, self.quiet_ms, self.speech_ms = False, 0.0, 0.0
             return []
         return [self._end_turn()]
 

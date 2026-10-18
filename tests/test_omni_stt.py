@@ -110,35 +110,90 @@ def _run(seg, blocks):
     return out
 
 
+def test_segmenter_defaults():
+    # The values Live Translation's latency depends on (README, Endpointing).
+    if not any(k in os.environ for k in ("ENDPOINT_MS", "MAX_UTTERANCE_S", "MIN_SPEECH_MS")):
+        assert (stt.ENDPOINT_MS, stt.MAX_UTTERANCE_S, stt.MIN_SPEECH_MS) == (300, 6.0, 400)
+    seg = stt.Segmenter(endpoint_ms=300, max_s=6.0, min_speech_ms=400)
+    assert seg.short_endpoint_ms == 700
+
+
 def test_segmenter_endpoint():
-    seg = stt.Segmenter(endpoint_ms=700, long_s=5.0, long_endpoint_ms=280, max_s=9.0)
-    utts = _run(seg, _blocks(2.0, 0.0) + _blocks(2.0, 0.3) + _blocks(1.5, 0.0))
-    assert len(utts) == 1
-    pcm, start_ms, end_ms = utts[0]
+    seg = stt.Segmenter(endpoint_ms=300, max_s=6.0, min_speech_ms=400)
+    blocks = _blocks(2.0, 0.0) + _blocks(2.0, 0.3) + _blocks(1.5, 0.0)
+    out, ended_at = [], None
+    for i, b in enumerate(blocks):
+        got = seg.feed(b, 1.0 if b[0] > 0.05 else 0.0)
+        if got and ended_at is None:
+            ended_at = (i + 1) * 1536 * 1000 // 16000
+        out += got
+    assert len(out) == 1
+    pcm, start_ms, end_ms = out[0]
     # Half a second of pre-roll before the speech, the speech, and at most a
     # short tail of the pause.
     assert 1400 <= start_ms <= 1600, start_ms
     assert 3900 <= end_ms <= 4300, end_ms
     assert len(pcm) == (end_ms - start_ms) * 16
+    # Sent ~300 ms after the speech stopped (at ~3.94 s; 96 ms blocks), not 700.
+    assert ended_at <= 3940 + 300 + 96, ended_at
     # The next turn's times continue from the stream, not from zero.
     utts = _run(seg, _blocks(1.5, 0.3) + _blocks(1.0, 0.0))
     assert len(utts) == 1 and utts[0][1] >= end_ms
 
 
+def test_segmenter_clause_pauses_split():
+    # Talk with 400 ms breaths between clauses: each clause is its own utterance
+    # (the old 700 ms endpoint ran them together until the 9 s cut).
+    seg = stt.Segmenter(endpoint_ms=300, max_s=6.0, min_speech_ms=400)
+    clause = _blocks(1.5, 0.3) + _blocks(0.4, 0.0)
+    utts = _run(seg, _blocks(1.0, 0.0) + clause * 4)
+    assert len(utts) == 4, [(u[1], u[2]) for u in utts]
+
+
 def test_segmenter_forced_cut_and_flush():
-    seg = stt.Segmenter(endpoint_ms=700, long_s=5.0, long_endpoint_ms=280, max_s=9.0)
+    seg = stt.Segmenter(endpoint_ms=300, max_s=6.0, min_speech_ms=400)
     talk = _blocks(20.0, 0.3)
     utts = _run(seg, talk)
-    assert len(utts) == 2                                  # cut at ~9 s, twice
-    assert all(len(u[0]) <= 9.1 * 16000 for u in utts)
-    assert utts[1][1] == utts[0][2]                        # contiguous: nothing lost at a cut
+    assert len(utts) >= 3                                  # cut by 6 s each time
+    assert all(len(u[0]) <= 6.0 * 16000 for u in utts)
+    assert all(len(u[0]) >= 3.9 * 16000 for u in utts)     # within the last 2 s, not the live 300 ms
+    for a, b in zip(utts, utts[1:]):
+        assert b[1] == a[2]                                # contiguous: nothing lost at a cut
     rest = seg.flush()
-    assert len(rest) == 1 and rest[0][1] == utts[1][2]
+    assert len(rest) == 1 and rest[0][1] == utts[-1][2]
     assert seg.flush() == []                               # nothing left
     # A flush during silence sends nothing.
     seg2 = stt.Segmenter()
     _run(seg2, _blocks(1.0, 0.0))
     assert seg2.flush() == []
+
+
+def test_segmenter_forced_cut_at_quietest():
+    # No pause the VAD calls quiet, but one softer block at ~4.8 s (a gap
+    # between words): the forced cut lands there, not at 6 s mid-word.
+    seg = stt.Segmenter(endpoint_ms=300, max_s=6.0, min_speech_ms=400)
+    talk = _blocks(7.0, 0.3)
+    talk[50] = np.full(1536, 0.1, dtype=np.float32)        # samples 76800..78336
+    utts = _run(seg, talk)
+    assert len(utts) == 1
+    assert 76800 <= len(utts[0][0]) < 78336, len(utts[0][0])
+
+
+def test_segmenter_short_turn_waits_and_merges():
+    seg = stt.Segmenter(endpoint_ms=300, max_s=6.0, min_speech_ms=400)
+    # ~0.2 s of speech then 0.5 s of quiet: too little for language ID, so no
+    # utterance yet...
+    assert _run(seg, _blocks(1.0, 0.0) + _blocks(0.2, 0.3) + _blocks(0.5, 0.0)) == []
+    # ...and the speech that follows joins it: one utterance spanning both.
+    utts = _run(seg, _blocks(1.5, 0.3) + _blocks(0.5, 0.0))
+    assert len(utts) == 1
+    pcm, start_ms, end_ms = utts[0]
+    assert start_ms <= 600 and end_ms >= 3000, (start_ms, end_ms)
+    # A lone short word still goes out, ~700 ms after it ends.
+    seg = stt.Segmenter(endpoint_ms=300, max_s=6.0, min_speech_ms=400)
+    assert _run(seg, _blocks(1.0, 0.0) + _blocks(0.2, 0.3) + _blocks(0.5, 0.0)) == []
+    utts = _run(seg, _blocks(0.3, 0.0))
+    assert len(utts) == 1 and len(utts[0][0]) < 16000
 
 
 # ---------------------------------------------------------------- protocol, with fakes

@@ -14,7 +14,7 @@ service reuses the stack's parts rather than copying them:
 |---|---|
 | Recogniser | `server/engines/omnilingual.py` (the same engine class, model card `omniASR_LLM_300M`) |
 | Language ID | VoxLingua107 ECAPA (`speechbrain/lang-id-voxlingua107-ecapa`, the stack's pinned revision) with the stack's constrained argmax (`Pipeline.identify_conf`) |
-| Endpointing | Silero VAD v6.2.3; 700 ms pause ends a turn, 280 ms past 5 s, forced cut at the quietest point at 9 s; a VAD copy per connection |
+| Endpointing | Silero VAD v6.2.3 and the stack's forced-cut rule, with shorter values than the stack's (see Endpointing below); a VAD copy per connection |
 | Audio input | `server/audio_in.py` (fixed 96 ms blocks; 24 kHz resampled with carried filter state) |
 | Tokens | `server/stack_auth.py` (`STT_TOKEN` static, or `STT_SIGNING_KEY` for the stack's signed tokens) |
 
@@ -54,6 +54,26 @@ GET /mic      a one-file microphone test page: type the languages and the token,
   time on a single worker thread, so a busy instance makes every stream later rather
   than mixing them. Each connection keeps at most 3 utterances waiting (`STT_MAX_PENDING`);
   past that the oldest is dropped and logged.
+
+### Endpointing
+
+An utterance's `language` message can only go out once the utterance ends, and
+Live Translation holds its other recogniser's sentences until then, so turns
+are cut short:
+
+- `ENDPOINT_MS` (default 300): this much quiet ends a turn. The stack uses 700.
+- `MAX_UTTERANCE_S` (default 6.0): a speaker who never pauses is cut by then, at
+  the quietest 20 ms of the last 2 s (never the live last 300 ms), so the cut
+  falls between words rather than mid-word. The stack uses 9.
+- `MIN_SPEECH_MS` (default 400): a turn with less speech than this ("wi", a
+  cough) is not ended by a 300 ms pause; it waits up to 700 ms for more speech,
+  which joins it. Language ID on a lone syllable is close to a guess, and a wrong
+  `language` sends the utterance to the wrong recogniser in the client. A word
+  that really stands alone still goes out, 700 ms after it ends.
+
+`deploy.sh deploy` passes all three through when they are set in its environment.
+Other settings: `STT_MAX_CONNECTIONS`, `STT_MAX_PENDING`, `STT_DEVICE`, `OMNI_CARD`,
+`STT_MODELS`, `PORT` (see the top of `server.py`).
 
 VoxLingua107 covers ht (Haitian), km (Central Khmer) and lo (Lao), checked
 against the model's `label_encoder.txt` (107 labels; ht = 37, km = 49, lo = 55).
@@ -145,7 +165,7 @@ Decoding a sentence with the wrong language code mostly gives the same text:
 Omnilingual follows the audio more than the hint.
 
 Streaming in real time (server + `client.mjs`, ht.wav, langs=ht,en): 56 utterances
-(forced 9 s cuts split the longer sentences), **CER 6.2%**, LID 56/56 Haitian (lowest
+(forced 9 s cuts split the longer sentences; that run predates the 300 ms / 6 s endpointing), **CER 6.2%**, LID 56/56 Haitian (lowest
 confidence 0.998), server-side real-time factor 1.76, so on this CPU the
 transcripts fell minutes behind (median 82 s). On an L4 the model should be far
 faster than real time; measure it after deploying.
