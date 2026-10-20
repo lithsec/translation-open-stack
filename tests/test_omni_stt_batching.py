@@ -237,6 +237,52 @@ def test_batcher_retry_skips_jobs_whose_client_left():
     assert models.calls == [("asr-failed", 3), ("asr", 1), ("asr", 1)], models.calls
 
 
+def test_batcher_survives_a_crash_and_exits_when_it_keeps_crashing():
+    class Broken(BatchModels):
+        fails = 1
+
+        @property
+        def length_sensitive(self):          # read by _take, outside any model call
+            if self.fails > 0:
+                self.fails -= 1
+                raise KeyError("boom")
+            return True
+    models = Broken()
+    b = stt.Batcher(models, max_batch=8, wait_ms=5000)
+    exits = []
+    b.exit = exits.append
+    b.opened()
+    b.opened()                                # two streams: the worker takes both together
+
+    async def first():
+        futs = [b.submit("lid", _utt(0.3), ["ht", "en"]), b.submit("asr", _utt(0.2), "ht")]
+        return await asyncio.wait_for(asyncio.gather(*futs, return_exceptions=True), 5)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        got = asyncio.run(first())
+    # Both failed (none left waiting forever), and the worker is still alive.
+    assert all(isinstance(g, RuntimeError) for g in got), got
+    assert "model worker failed (KeyError" in buf.getvalue() and exits == []
+    b.closed()
+
+    async def one(level):
+        return await asyncio.wait_for(b.submit("asr", _utt(level), "ht"), 5)
+    assert asyncio.run(one(0.4)) == "ht 0.400 16000"
+    assert b.thread.is_alive()
+    # Crashing again and again within the window: the process exits (Cloud Run restarts it).
+    models.fails = 2
+    with contextlib.redirect_stdout(buf):
+        for _ in range(2):
+            try:
+                asyncio.run(one(0.5))
+            except RuntimeError:
+                pass
+            else:
+                raise AssertionError("a crashed batch succeeded")
+    assert exits == [70], exits
+    assert "exiting for a fresh instance" in buf.getvalue()
+
+
 def test_batcher_waits_only_for_streams_that_exist():
     models = BatchModels()
     b = stt.Batcher(models, max_batch=8, wait_ms=300)

@@ -963,6 +963,9 @@ class Batcher:
         self.streams = 0
         self.stats = {k: {"batches": 0, "items": 0, "max": 0, "busy_s": 0.0, "audio_s": 0.0} for k in self.KINDS}
         self.logged = time.monotonic()
+        self.inflight = {k: [] for k in self.KINDS}     # the batch being run (_crashed fails it)
+        self.crashes = collections.deque()
+        self.exit = os._exit                           # tests replace it
         self.thread = threading.Thread(target=self._run, name="model-batcher", daemon=True)
         self.thread.start()
 
@@ -1013,25 +1016,63 @@ class Batcher:
                 if len(live) != len(q):
                     q.clear()
                     q.extend(live)
-            out = {"lid": [self.queues["lid"].popleft() for _ in range(min(self.max_batch, len(self.queues["lid"])))]}
+            out = self.inflight = {k: [] for k in self.KINDS}
+            out["lid"] = [self.queues["lid"].popleft() for _ in range(min(self.max_batch, len(self.queues["lid"])))]
             q = self.queues["asr"]
             if self.group_by_length and getattr(self.models, "length_sensitive", True):
                 keep = set(pick_group([len(job[0]) for job in q], self.max_batch))
             else:
                 keep = set(range(min(self.max_batch, len(q))))
             jobs = list(q)
+            out["asr"] = [job for i, job in enumerate(jobs) if i in keep]
             q.clear()
             q.extend(job for i, job in enumerate(jobs) if i not in keep)
-            out["asr"] = [job for i, job in enumerate(jobs) if i in keep]
             return out
 
     def _run(self):
         while True:
-            taken = self._take()
-            for kind in self.KINDS:
-                if taken[kind]:
-                    self._do(kind, taken[kind])
-            self._maybe_log()
+            try:
+                taken = self._take()
+                for kind in self.KINDS:
+                    if taken[kind]:
+                        self._do(kind, taken[kind])
+                self._maybe_log()
+            except Exception as e:  # noqa: BLE001  the last resort: see _crashed
+                self._crashed(e)
+
+    # A model error fails its batch in _do; anything else that escapes the
+    # loop (a bug here, a broken model attribute) lands in _crashed. Without
+    # it the thread died silently and every later utterance waited forever on
+    # a future nobody would resolve, while /health still said ok.
+    CRASH_LIMIT = 3          # crashes within CRASH_WINDOW_S before the process exits
+    CRASH_WINDOW_S = 60
+
+    def _crashed(self, e):
+        """Fail every job taken or waiting (their connections get an error and
+        carry on), then run the loop again; on the CRASH_LIMIT-th crash within
+        CRASH_WINDOW_S exit the process, so Cloud Run starts a fresh instance
+        instead of serving from a worker that keeps failing."""
+        err = RuntimeError(f"the model worker failed: {type(e).__name__}")
+        with self.cond:
+            jobs = [job for kind in self.KINDS for job in self.inflight.get(kind, [])]
+            for q in self.queues.values():
+                jobs.extend(q)
+                q.clear()
+            self.inflight = {k: [] for k in self.KINDS}
+        for _, _, loop, fut in jobs:
+            try:
+                loop.call_soon_threadsafe(_resolve, fut, None, err)
+            except RuntimeError:
+                pass
+        now = time.monotonic()
+        self.crashes.append(now)
+        while self.crashes and now - self.crashes[0] > self.CRASH_WINDOW_S:
+            self.crashes.popleft()
+        print(f"[stt] model worker failed ({type(e).__name__}: {clean(e, 120)}); failed {len(jobs)} "
+              f"waiting utterances; {len(self.crashes)} in {self.CRASH_WINDOW_S}s", flush=True)
+        if len(self.crashes) >= self.CRASH_LIMIT:
+            print("[stt] model worker keeps failing: exiting for a fresh instance", flush=True)
+            self.exit(70)
 
     def _call(self, kind, items):
         m = self.models
