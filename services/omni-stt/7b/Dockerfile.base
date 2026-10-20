@@ -1,0 +1,51 @@
+# omni-stt for Meta's stock omniASR_LLM_7B: /listen only (no voices), Silero VAD
+# and VoxLingua107 language ID baked in, and the 7B checkpoint NOT in this image:
+# Dockerfile.baked layers it on, or the service reads it from Cloud Storage
+# (a volume mount, or OMNI_FETCH at start). Stock weights only: nothing private.
+#
+#   ./deploy.sh 7b-build         # Cloud Build: convert, upload, both images
+#
+# Same base and pins as ../Dockerfile (its comments say why), minus Coqui TTS.
+ARG BASE_IMAGE=python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258
+FROM ${BASE_IMAGE}
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends libsndfile1 ca-certificates \
+      build-essential cmake libboost-program-options-dev libboost-system-dev libboost-thread-dev \
+      libboost-test-dev zlib1g-dev libbz2-dev liblzma-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /opt/stt
+
+COPY constraints.txt ./
+# google-cloud-storage: OMNI_FETCH (server.py fetch_checkpoint).
+RUN pip install -c constraints.txt torch==2.8.0 torchaudio==2.8.0 \
+ && pip install -c constraints.txt omnilingual-asr torchaudio==2.8.0 scipy==1.13.1 \
+      speechbrain websockets huggingface_hub google-cloud-storage \
+ && python -c "import torch, omnilingual_asr, speechbrain, websockets; from google.cloud.storage import transfer_manager; print('torch', torch.__version__, 'cuda', torch.version.cuda)"
+
+ENV STT_MODELS=/opt/models \
+    HF_HOME=/opt/models/hf \
+    TORCH_HOME=/opt/models/torch \
+    FAIRSEQ2_CACHE_DIR=/opt/models/fairseq2 \
+    FAIRSEQ2_USER_ASSET_DIR=/opt/models/cards \
+    OMNI_CARD=omniASR_LLM_7B_bf16 \
+    STT_SERVE=listen
+
+RUN useradd --uid 10001 --create-home stt && mkdir -p /opt/models/cards /opt/models/7b && chown -R stt /opt/models
+COPY . ./
+RUN cp cards.yaml /opt/models/cards/omni7b.yaml
+USER stt
+# VAD, language ID and the 7B card's tokenizer, by the server's own code paths
+# (the 7B weights are not loaded: they are not here yet).
+RUN python -c "import server; server.load_vad(); server.load_lid('cpu'); \
+from fairseq2.data.tokenizers.hub import load_tokenizer; load_tokenizer('omniASR_LLM_7B_bf16'); print('fetched')" \
+ && du -sh /opt/models/*
+
+ENV HF_HUB_OFFLINE=1 \
+    PORT=8080
+EXPOSE 8080
+CMD ["python", "server.py"]

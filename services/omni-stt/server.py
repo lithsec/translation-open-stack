@@ -774,11 +774,55 @@ def load_omni(device, card):
     ctx = Context(device=device, models={"omnilingual": {"card": card}},
                   tables={"OMNI_LANGS": OMNI_CODES}, options={"omni": True})
     skip_identity_reorder()
+    fetch_checkpoint()
+    if os.environ.get("OMNI_MMAP", "0") == "1":
+        mmap_checkpoints()
+    t0 = time.time()
     omni = Omnilingual(ctx)
     omni.load()
     if not omni.available:
         raise SystemExit(f"[stt] Omnilingual ({card}) failed to load; see above")
+    print(f"[stt] {card} loaded in {time.time() - t0:.1f}s", flush=True)
     return omni
+
+
+def mmap_checkpoints():
+    """OMNI_MMAP=1: fairseq2 maps the checkpoint file instead of reading it whole
+    into memory first (torch.load(mmap=True)); each tensor is read as it is
+    copied to the GPU. For the 7B card (a 16 GB bf16 file) the whole file then
+    never sits in the process's memory at once."""
+    import functools
+    from omnilingual_asr.models.inference import pipeline
+    if not getattr(pipeline.load_model, "_mmap", False):
+        patched = functools.partial(pipeline.load_model, mmap=True)
+        patched._mmap = True
+        pipeline.load_model = patched
+
+
+def fetch_checkpoint():
+    """OMNI_FETCH=gs://bucket/path/file.pt with OMNI_FETCH_TO=/tmp/models/file.pt:
+    copy the checkpoint from Cloud Storage at start, in parallel ranged reads
+    (google-cloud-storage's transfer manager), before the card naming
+    OMNI_FETCH_TO loads. Cloud Run's /tmp is memory: size the instance for it."""
+    src = os.environ.get("OMNI_FETCH", "")
+    dst = os.environ.get("OMNI_FETCH_TO", "")
+    if not src:
+        return
+    if not (src.startswith("gs://") and dst):
+        raise SystemExit("[stt] OMNI_FETCH must be gs://bucket/object, with OMNI_FETCH_TO set")
+    from google.cloud import storage
+    from google.cloud.storage import transfer_manager
+    t0 = time.time()
+    bucket, _, name = src[len("gs://"):].partition("/")
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    blob = storage.Client().bucket(bucket).blob(name)
+    transfer_manager.download_chunks_concurrently(
+        blob, dst, chunk_size=int(os.environ.get("OMNI_FETCH_CHUNK_MB", "64")) * 1024 * 1024,
+        max_workers=int(os.environ.get("OMNI_FETCH_WORKERS", "16")))
+    size = os.path.getsize(dst)
+    dt = time.time() - t0
+    print(f"[stt] fetched {size / 1e9:.1f} GB from Cloud Storage in {dt:.1f}s "
+          f"({size / 1e6 / max(dt, 1e-3):.0f} MB/s)", flush=True)
 
 
 def skip_identity_reorder():
@@ -1351,6 +1395,7 @@ async def main():
     eds = service_editions()          # a bad EDITION stops here, before any model loads
     print(f"[stt] edition: {'both' if len(eds) > 1 else eds[0]}", flush=True)
     t0 = time.time()
+    print("[stt] starting", flush=True)
     models = Models()
     warmup(models)
     global LIMITS, SPEAK_LIMITS

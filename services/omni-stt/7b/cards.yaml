@@ -1,0 +1,19 @@
+# Meta's stock omniASR_LLM_7B, converted to bf16 (to_bf16.py) and nothing else:
+# no fine-tuned weights. One card per place the checkpoint can be at run time;
+# OMNI_CARD picks one (deploy.sh 7b-deploy). Tokenizer and architecture come
+# from the stock card (base:).
+name: omniASR_LLM_7B_bf16
+base: omniASR_LLM_7B
+checkpoint: file:///opt/models/7b/omniASR_LLM_7B_bf16.pt
+
+---
+
+name: omniASR_LLM_7B_bf16_volume
+base: omniASR_LLM_7B
+checkpoint: file:///mnt/models/omniASR_LLM_7B_bf16.pt
+
+---
+
+name: omniASR_LLM_7B_bf16_tmp
+base: omniASR_LLM_7B
+checkpoint: file:///tmp/models/omniASR_LLM_7B_bf16.pt
