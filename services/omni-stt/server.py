@@ -70,10 +70,19 @@ recogniser's models, for a laptop test of the voices), STT_TOKEN (or STT_SIGNING
 PORT, STT_DEVICE (default: cuda when torch sees one, else cpu), OMNI_CARD,
 STT_MAX_CONNECTIONS, STT_MAX_PENDING, ENDPOINT_MS (default 300), MAX_UTTERANCE_S
 (default 6.0), MIN_SPEECH_MS (default 400), STT_MODELS (the baked models).
+STT_BATCH_MAX (default 8) and STT_BATCH_WAIT_MS (default 10): the GPU micro-batcher
+(Batcher); STT_LID_BATCH=0 runs language ID one utterance at a time inside a batch;
+STT_ALIGNED=0 decodes batches with the library's own batched call (omni_batch.py
+says why the default is not that); STT_BATCH_GEN_RATIO tunes the length grouping
+that path needs (pick_group).
+STT_MAX_CHARS_PER_S (default 30) and STT_MAX_REPEATS (default 6): the repetition
+guard (repetition_guard).
 """
 import asyncio
+import collections
 import json
 import os
+import re
 import sys
 import threading
 import time
@@ -382,6 +391,74 @@ def audio_input(rate, label):
     return conn_in
 
 
+# ---------------------------------------------------------------- repetition guard
+
+# The fine-tuned 300M card (and the 7B) sometimes turn a fragment under a second
+# into 150-200+ characters of one syllable over and over: the LLM decoder loops
+# and the pipeline's own stop (a compression check every 250 steps) comes too
+# late for a short clip. Speech runs at ~10-18 characters a second in every
+# language served here; 30 a second, plus a little slack for a lone word on a
+# very short clip, is past anything a person says.
+MAX_CHARS_PER_S = float(os.environ.get("STT_MAX_CHARS_PER_S", "30"))
+# A unit (two characters up to a few words) said this many times in a row is
+# the decoder looping, not a speaker: "alelouya" sung four times survives, a
+# syllable sixty times does not. (Two characters at least, so "1000000" or a
+# held "mmmmm" is not a loop; "aaaaaaaaaaaa" still is, as "aa" six times.)
+MAX_REPEATS = int(os.environ.get("STT_MAX_REPEATS", "6"))
+GUARD_SLACK_CHARS = 10
+REPEAT_UNIT_MAX_CHARS = 40
+_LOOPS = {}
+
+
+def _loop_re(n):
+    if n not in _LOOPS:
+        # The shortest unit (2..40 characters, non-greedy) followed by n-1 more
+        # copies of itself, anywhere in the text (re.search: the leftmost loop).
+        _LOOPS[n] = re.compile(r"(.{2,%d}?)\1{%d,}" % (REPEAT_UNIT_MAX_CHARS, max(1, n - 1)), re.S)
+    return _LOOPS[n]
+
+
+def repetition_guard(text, audio_s, max_cps=None, max_repeats=None):
+    """(text to send, what the guard did: None | "truncated" | "dropped").
+
+    1. A loop (a unit repeated max_repeats times or more in a row) is cut back to
+       the text before it plus one copy of the unit. Truncate, not drop: when
+       the decoder loops after real words, the words before the loop are the
+       good part of the utterance (and one copy of the unit may be what was
+       said). Matched on the text with a trailing space, so the last word of a
+       loop that ends the text counts as a copy.
+    2. Then the rate: more than max_cps characters per audio second (+ slack)
+       is dropped whole. Without a loop to cut at there is no telling which
+       part is real, and an invented sentence on a cough is worse than none.
+       A loop that WAS the whole over-long text (nothing before it) is dropped
+       too, rather than sent as a lone syllable."""
+    if not text:
+        return text, None
+    max_cps = MAX_CHARS_PER_S if max_cps is None else max_cps
+    max_repeats = MAX_REPEATS if max_repeats is None else max_repeats
+    limit = max_cps * max(0.0, audio_s) + GUARD_SLACK_CHARS
+    action = None
+    out = text
+    if max_repeats > 1:
+        m = _loop_re(max_repeats).search(text + " ")
+        if m:
+            prefix = text[:m.start()]
+            out = (prefix + m.group(1)).strip()
+            action = "truncated"
+            if not prefix.strip() and len(text) > limit:
+                return "", "dropped"
+    if max_cps > 0 and len(out) > limit:
+        return "", "dropped"
+    return out, action
+
+
+def guard_log(action, before, after, audio_s):
+    # Lengths only: the text is the speaker's, and is not logged.
+    if action:
+        print(f"[stt] repetition guard: {action} {before} -> {after} chars "
+              f"({audio_s:.1f}s of audio)", flush=True)
+
+
 # ---------------------------------------------------------------- models
 
 def models_dir():
@@ -390,8 +467,9 @@ def models_dir():
 
 class Models:
     """One copy of each model, shared by every connection. Recognition and
-    language ID run on one worker thread (MODEL_POOL): a single GPU gains
-    nothing from two at once, and neither model is documented as thread-safe."""
+    language ID run on one worker thread (Batcher), several connections'
+    utterances per call: neither model is documented as thread-safe, and one
+    batched call keeps the GPU busier than the same utterances one by one."""
 
     def __init__(self, device=None, card=None, serve=None, voice_names=None):
         import copy
@@ -459,8 +537,91 @@ class Models:
         probs = pred[0].squeeze()
         return constrained_choice(probs, [(c, self.lid_index[c]) for c in langs])
 
+    def identify_batch(self, items):
+        """[(pcm16k, langs), ...] -> [(lang, confidence), ...]: one classify_batch
+        for every item that has a choice to make. SpeechBrain takes the true
+        lengths (wav_lens, relative to the longest) and pools over them only.
+        A lone item goes through identify() unchanged."""
+        out = [None] * len(items)
+        need = []
+        for i, (pcm, langs) in enumerate(items):
+            if len(langs) == 1:
+                out[i] = (langs[0], 1.0)
+            else:
+                need.append(i)
+        if len(need) == 1 or (need and not LID_BATCH):
+            for i in need:
+                out[i] = self.identify(*items[i])
+            return out
+        if need:
+            import torch
+            longest = max(len(items[i][0]) for i in need)
+            wavs = torch.zeros(len(need), longest)
+            for row, i in enumerate(need):
+                pcm = items[i][0]
+                wavs[row, :len(pcm)] = torch.as_tensor(pcm)
+            lens = torch.tensor([len(items[i][0]) / longest for i in need])
+            with torch.inference_mode():
+                pred = self.lid.classify_batch(wavs, lens)
+            probs = pred[0].reshape(len(need), -1)
+            for row, i in enumerate(need):
+                out[i] = constrained_choice(probs[row], [(c, self.lid_index[c]) for c in items[i][1]])
+        return out
+
     def transcribe(self, pcm16k, lang):
-        return self.omni.transcribe(pcm16k, lang)
+        return self.transcribe_batch([(pcm16k, lang)])[0]
+
+    @property
+    def length_sensitive(self):
+        """Whether a recognition batch pays for mixing lengths (the library's
+        own batched decode), so the Batcher groups by length (pick_group)."""
+        return not aligned_ok(self.omni)
+
+    def transcribe_batch(self, items):
+        """[(pcm16k, lang), ...] -> [text, ...]: one batched decode (omni_batch's
+        aligned decode when the card allows it, else the library's), then the
+        repetition guard on each text against its own audio length."""
+        texts = decode_batch(self.omni, items)
+        out = []
+        for (pcm, _), text in zip(items, texts):
+            audio_s = len(pcm) / VAD_RATE
+            kept, action = repetition_guard(text, audio_s)
+            guard_log(action, len(text), len(kept), audio_s)
+            out.append(kept)
+        return out
+
+
+ALIGNED = os.environ.get("STT_ALIGNED", "1") != "0"
+
+
+def aligned_ok(engine):
+    """omni_batch's aligned decode for this engine's pipeline? (STT_ALIGNED=0: never.)"""
+    pipeline = getattr(engine, "omni", None)
+    if not ALIGNED or pipeline is None:
+        return False
+    try:
+        import omni_batch
+    except ImportError:
+        return False
+    return omni_batch.supported(pipeline)
+
+
+def decode_batch(engine, items):
+    """The stack engine's texts for [(pcm16k, lang), ...], in order."""
+    if not items:
+        return []
+    if len(items) == 1 or not aligned_ok(engine):
+        # One utterance: the library's own decode, exactly as before batching.
+        return engine.transcribe_batch(items)
+    import omni_batch
+    from engines.common import on_device
+    from engines.omnilingual import wav_bytes
+    with on_device(engine.device):
+        texts = omni_batch.transcribe(engine.omni, [wav_bytes(p) for p, _ in items],
+                                      [engine.codes[lang] for _, lang in items])
+    if len(texts) != len(items):
+        raise RuntimeError(f"{len(texts)} texts for {len(items)} utterances")
+    return [engine._filtered((t or "").strip()) for t in texts]
 
 
 def served(env=None):
@@ -524,6 +685,7 @@ def load_omni(device, card):
     from engines.omnilingual import Omnilingual
     ctx = Context(device=device, models={"omnilingual": {"card": card}},
                   tables={"OMNI_LANGS": OMNI_CODES}, options={"omni": True})
+    skip_identity_reorder()
     omni = Omnilingual(ctx)
     omni.load()
     if not omni.available:
@@ -531,26 +693,275 @@ def load_omni(device, card):
     return omni
 
 
+def skip_identity_reorder():
+    """Omnilingual's beam search (nbest 1 by default) reorders the decoder's KV
+    cache after every step, by an order that with one hypothesis per utterance
+    is always 0..B-1; fairseq2 copies the whole cache anyway (index_select per
+    layer), a cost that grows with the batch and the utterance. Skipping a
+    reorder that keeps every row in place changes nothing else."""
+    import torch
+    from fairseq2.nn import IncrementalStateBag
+    if getattr(IncrementalStateBag.reorder, "_skips_identity", False):
+        return
+    original = IncrementalStateBag.reorder
+
+    def reorder(self, new_order):
+        if new_order.dim() == 1 and torch.equal(
+                new_order, torch.arange(new_order.size(0), device=new_order.device, dtype=new_order.dtype)):
+            return
+        original(self, new_order)
+    reorder._skips_identity = True
+    IncrementalStateBag.reorder = reorder
+
+
 # ---------------------------------------------------------------- connection
 
-MODEL_POOL = ThreadPoolExecutor(1, thread_name_prefix="model")
+# The micro-batcher: utterances from every connection, decoded together.
+BATCH_MAX = max(1, int(os.environ.get("STT_BATCH_MAX", "8")))
+BATCH_WAIT_MS = max(0.0, float(os.environ.get("STT_BATCH_WAIT_MS", "10")))
+LID_BATCH = os.environ.get("STT_LID_BATCH", "1") != "0"
+BATCH_LOG_S = 60
+# Which utterances may share a recognition batch. Omnilingual's LLM decoder
+# prefills only the SHORTEST prompt in a batch; a longer item's remaining audio
+# frames (50 a second) then go through the decoder one step at a time, as slow
+# as generating a token each. So a 2 s and a 12 s utterance together cost ~500
+# extra decoder steps, more than decoding the 2 s one alone (the first deploy
+# batched by arrival order and was slower than no batching, 2026-10-20).
+# pick_group() adds an utterance only when the steps it adds to the batch's loop
+# are fewer than the ones it would cost alone: STT_BATCH_GEN_RATIO is the text
+# tokens generated per audio frame (~15 characters a second / 50 frames), and
+# BATCH_ALONE_STEPS a lone decode's fixed overhead (its prefill and setup) in steps.
+FRAME_SAMPLES = 320                # 20 ms: one encoder frame, one decoder position
+BATCH_GEN_RATIO = float(os.environ.get("STT_BATCH_GEN_RATIO", "0.3"))
+BATCH_ALONE_STEPS = 10
+
+
+def batch_loop_steps(frames_lo, frames_hi, gen=None):
+    """The decoder steps one batch takes: from the end of its shortest prompt
+    to the end of its longest prompt's text."""
+    gen = BATCH_GEN_RATIO if gen is None else gen
+    return (1 + gen) * frames_hi - frames_lo
+
+
+def pick_group(lengths, max_batch, gen=None, alone=BATCH_ALONE_STEPS):
+    """Indices into lengths (samples per waiting utterance, oldest first) of the
+    ones to decode together. The oldest always goes (nothing waits forever);
+    each later one joins when the steps it adds to the batch are no more than
+    it would take on its own."""
+    gen = BATCH_GEN_RATIO if gen is None else gen
+    if not lengths:
+        return []
+    frames = [max(1, n // FRAME_SAMPLES) for n in lengths]
+    chosen = [0]
+    lo = hi = frames[0]
+    for j in range(1, len(frames)):
+        if len(chosen) >= max_batch:
+            break
+        f = frames[j]
+        nlo, nhi = min(lo, f), max(hi, f)
+        added = batch_loop_steps(nlo, nhi, gen) - batch_loop_steps(lo, hi, gen)
+        if added <= gen * f + alone:
+            chosen.append(j)
+            lo, hi = nlo, nhi
+    return chosen
+
+
+class Batcher:
+    """One GPU worker thread for every connection's language ID ("lid") and
+    recognition ("asr"). A connection submits one utterance and awaits its
+    future; the worker takes up to max_batch waiting items of a kind and runs
+    them in ONE model call (Models.identify_batch / transcribe_batch, or the
+    one-at-a-time identify / transcribe when a model has no batch method),
+    then hands each result to the future it came with, on that future's loop.
+    With omni_batch's aligned decode (the default for the LLM cards) any
+    lengths batch well and the oldest max_batch go together. Otherwise
+    (models.length_sensitive) a recognition batch holds utterances of similar
+    length (pick_group: the oldest waiting one, and those that make the batch
+    cheaper than going alone); the rest wait for the next batch, oldest first.
+
+    Waiting: after the first item the worker waits up to wait_ms for more, but
+    only while fewer items wait than there are open streams (each connection
+    has at most one utterance in flight, so with one stream there is nothing
+    to wait for). Under load the next batch fills while the GPU runs this one.
+
+    Order: language ID first (it is fast, and its message releases the
+    client's other captions), then recognition. A failed batch is retried item
+    by item, so one bad utterance fails alone. /speak never comes here: it has
+    its own threads (VOICE_POOL)."""
+
+    KINDS = ("lid", "asr")
+
+    def __init__(self, models, max_batch=None, wait_ms=None, group_by_length=True):
+        self.models = models
+        self.group_by_length = group_by_length
+        self.max_batch = BATCH_MAX if max_batch is None else max(1, int(max_batch))
+        self.wait_s = (BATCH_WAIT_MS if wait_ms is None else max(0.0, float(wait_ms))) / 1000
+        self.cond = threading.Condition()
+        self.queues = {k: collections.deque() for k in self.KINDS}
+        self.streams = 0
+        self.stats = {k: {"batches": 0, "items": 0, "max": 0, "busy_s": 0.0, "audio_s": 0.0} for k in self.KINDS}
+        self.logged = time.monotonic()
+        self.thread = threading.Thread(target=self._run, name="model-batcher", daemon=True)
+        self.thread.start()
+
+    # -- the event loop's side
+
+    def opened(self):
+        with self.cond:
+            self.streams += 1
+
+    def closed(self):
+        with self.cond:
+            self.streams = max(0, self.streams - 1)
+            self.cond.notify()
+
+    def submit(self, kind, pcm, arg):
+        """An awaitable for one utterance: (lang, confidence) for "lid" (arg:
+        the langs), the text for "asr" (arg: the lang)."""
+        loop = asyncio.get_running_loop()
+        fut = loop.create_future()
+        with self.cond:
+            self.queues[kind].append((pcm, arg, loop, fut))
+            self.cond.notify()
+        return fut
+
+    # -- the worker's side
+
+    def _waiting(self):
+        return sum(len(q) for q in self.queues.values())
+
+    def _take(self):
+        with self.cond:
+            while not self._waiting():
+                self.cond.wait()
+            if self.wait_s > 0:
+                deadline = time.monotonic() + self.wait_s
+                while True:
+                    want = min(self.max_batch, max(1, self.streams))
+                    if self._waiting() < want:
+                        left = deadline - time.monotonic()
+                        if left > 0:
+                            self.cond.wait(left)
+                            continue
+                    break
+            out = {"lid": [self.queues["lid"].popleft() for _ in range(min(self.max_batch, len(self.queues["lid"])))]}
+            q = self.queues["asr"]
+            if self.group_by_length and getattr(self.models, "length_sensitive", True):
+                keep = set(pick_group([len(job[0]) for job in q], self.max_batch))
+            else:
+                keep = set(range(min(self.max_batch, len(q))))
+            jobs = list(q)
+            q.clear()
+            q.extend(job for i, job in enumerate(jobs) if i not in keep)
+            out["asr"] = [job for i, job in enumerate(jobs) if i in keep]
+            return out
+
+    def _run(self):
+        while True:
+            taken = self._take()
+            for kind in self.KINDS:
+                if taken[kind]:
+                    self._do(kind, taken[kind])
+            self._maybe_log()
+
+    def _call(self, kind, items):
+        m = self.models
+        if kind == "lid":
+            if hasattr(m, "identify_batch"):
+                return m.identify_batch(items)
+            return [m.identify(p, a) for p, a in items]
+        if hasattr(m, "transcribe_batch"):
+            return m.transcribe_batch(items)
+        return [m.transcribe(p, a) for p, a in items]
+
+    def _do(self, kind, jobs):
+        items = [(pcm, arg) for pcm, arg, _, _ in jobs]
+        t0 = time.monotonic()
+        try:
+            results = self._call(kind, items)
+            if len(results) != len(jobs):
+                raise RuntimeError(f"{len(results)} results for {len(jobs)} items")
+            outcomes = [(r, None) for r in results]
+        except Exception as e:
+            if len(jobs) == 1:
+                outcomes = [(None, e)]
+            else:
+                print(f"[stt] a batch of {len(jobs)} ({kind}) failed ({type(e).__name__}: {clean(e, 120)}); "
+                      f"retrying one by one", flush=True)
+                outcomes = []
+                for item in items:
+                    try:
+                        outcomes.append((self._call(kind, [item])[0], None))
+                    except Exception as e1:
+                        outcomes.append((None, e1))
+        st = self.stats[kind]
+        st["batches"] += 1
+        st["items"] += len(jobs)
+        st["max"] = max(st["max"], len(jobs))
+        st["busy_s"] += time.monotonic() - t0
+        st["audio_s"] += sum(len(p) for p, _ in items) / VAD_RATE
+        for (_, _, loop, fut), (result, err) in zip(jobs, outcomes):
+            try:
+                loop.call_soon_threadsafe(_resolve, fut, result, err)
+            except RuntimeError:
+                pass  # that connection's loop is gone: nobody to tell
+
+    def _maybe_log(self):
+        now = time.monotonic()
+        if now - self.logged < BATCH_LOG_S:
+            return
+        self.logged = now
+        parts = []
+        for kind, st in self.stats.items():
+            if st["batches"]:
+                parts.append(f"{kind} {st['items']} in {st['batches']} batches "
+                             f"(mean {st['items'] / st['batches']:.2f}, max {st['max']}, busy {st['busy_s']:.1f}s "
+                             f"for {st['audio_s']:.0f}s of audio)")
+                self.stats[kind] = {"batches": 0, "items": 0, "max": 0, "busy_s": 0.0, "audio_s": 0.0}
+        if parts:
+            print(f"[stt] batcher, last {BATCH_LOG_S}s: {'; '.join(parts)}; streams {self.streams}", flush=True)
+
+
+def _resolve(fut, result, err):
+    if fut.done():  # the connection gave up on it (closed)
+        return
+    if err is not None:
+        fut.set_exception(err)
+    else:
+        fut.set_result(result)
+
+
+_BATCHERS = {}
+_BATCHERS_LOCK = threading.Lock()
+
+
+def batcher_for(models):
+    """The one Batcher per Models (one GPU worker for the whole server)."""
+    with _BATCHERS_LOCK:
+        b = _BATCHERS.get(id(models))
+        if b is None or b.models is not models:
+            b = _BATCHERS[id(models)] = Batcher(models)
+        return b
 
 
 def clean(value, n=64):
     return "".join(ch if ch.isprintable() else "?" for ch in str(value))[:n]
 
 
-async def recognise(models, utt, langs, transcribe, send):
+async def recognise(models, utt, langs, transcribe, send, batcher=None):
     """One utterance: send its language, then (when wanted) its words.
     Returns whether a transcript was sent."""
-    loop = asyncio.get_running_loop()
+    batcher = batcher or batcher_for(models)
     pcm, start_ms, end_ms = utt
-    lang, conf = await loop.run_in_executor(MODEL_POOL, models.identify, pcm, langs)
+    if len(langs) == 1:
+        lang, conf = langs[0], 1.0
+    else:
+        lang, conf = await batcher.submit("lid", pcm, langs)
     span = {"lang": lang, "confidence": round(conf, 3), "start_ms": start_ms, "end_ms": end_ms}
     await send({"type": "language", **span})
     if lang not in transcribe:
         return False
-    text = await loop.run_in_executor(MODEL_POOL, models.transcribe, pcm, lang)
+    text = await batcher.submit("asr", pcm, lang)
     if not text:
         return False
     await send({"type": "inputTranscript", "text": text, **span})
@@ -583,6 +994,7 @@ async def handle(ws, models, sub="open"):
     # reading the socket (and the VAD keeps time) while an utterance is decoded.
     queue = asyncio.Queue()
     heard = {"n": 0, "audio_s": 0.0, "busy_s": 0.0}
+    batcher = batcher_for(models)
 
     async def worker():
         while True:
@@ -593,7 +1005,7 @@ async def handle(ws, models, sub="open"):
             t0 = time.monotonic()
             try:
                 said = await recognise(models, item, langs, transcribe,
-                                       lambda m: ws.send(json.dumps(m, ensure_ascii=False)))
+                                       lambda m: ws.send(json.dumps(m, ensure_ascii=False)), batcher)
             except Exception as e:  # one bad utterance must not end the session
                 print(f"[stt] {who}: recognition failed: {type(e).__name__}: {clean(e, 200)}", flush=True)
                 await ws.send(json.dumps({"type": "error", "detail": "recognition failed for one utterance"}))
@@ -614,6 +1026,7 @@ async def handle(ws, models, sub="open"):
             queue.put_nowait(utt)
 
     task = asyncio.create_task(worker())
+    batcher.opened()
     try:
         async for msg in ws:
             if isinstance(msg, str):
@@ -631,6 +1044,7 @@ async def handle(ws, models, sub="open"):
                 enqueue(seg.feed(block, vad_block(vad, block)))
         # Disconnected: nothing more can be sent, so the unfinished turn is dropped.
     finally:
+        batcher.closed()
         task.cancel()
         if heard["audio_s"]:
             print(f"[stt] {who}: closed; {heard['n']} transcripts, {heard['audio_s']:.0f}s of speech, "
@@ -639,7 +1053,7 @@ async def handle(ws, models, sub="open"):
 
 # ---------------------------------------------------------------- /speak
 
-# Synthesis runs here, not on MODEL_POOL: a sentence being voiced never waits
+# Synthesis runs here, not on the Batcher's thread: a sentence being voiced never waits
 # behind an utterance being transcribed. Two threads, one per voice; each
 # voice's own lock makes two requests on the same voice take turns.
 VOICE_POOL = ThreadPoolExecutor(2, thread_name_prefix="voice")

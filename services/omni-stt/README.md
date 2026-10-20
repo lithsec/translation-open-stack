@@ -53,10 +53,26 @@ GET /mic      a one-file microphone test page: type the languages and the token,
 - `start_ms`/`end_ms` count from the connection's first sample.
 - Close codes: 4400 bad request, 4401 bad or missing token, 4429 at the connection limit.
 - Several connections at once are fine (default limit 4 on Cloud Run, `STT_MAX_CONNECTIONS`).
-  Each has its own VAD and endpointing; the models are shared and run one request at a
-  time on a single worker thread, so a busy instance makes every stream later rather
-  than mixing them. Each connection keeps at most 3 utterances waiting (`STT_MAX_PENDING`);
+  Each has its own VAD and endpointing; the models are shared and run on a single
+  worker thread that batches: the utterances waiting from every connection (up to
+  `STT_BATCH_MAX`, default 8) go through Omnilingual in one call, each with its own
+  language code, and likewise language ID. The batch is decoded by `omni_batch.py`,
+  not the library's batched call: that one prefills only the shortest prompt and
+  steps through the rest of each longer one a frame at a time, so a 2 s utterance
+  beside a 12 s one cost more together than apart. `omni_batch.py` left-pads the
+  prompts so all of them end together, masks the padding out of the decoder's
+  attention, and gives each utterance the tokens it gets decoded alone (checked
+  token for token against the library on a small random decoder,
+  `tests/test_omni_stt_batching.py`). `STT_ALIGNED=0` goes back to the library's
+  call, with batches grouped by length (`pick_group`). After the first utterance the worker
+  waits up to `STT_BATCH_WAIT_MS` (default 10) for more, but only while fewer are
+  waiting than there are open streams. Each result goes back to the connection it
+  came from. Each connection keeps at most 3 utterances waiting (`STT_MAX_PENDING`);
   past that the oldest is dropped and logged.
+- Repetition guard: a transcript that loops (one unit, a character up to a few
+  words, `STT_MAX_REPEATS` = 6 or more times in a row) is cut back to the words
+  before the loop plus one copy; one longer than `STT_MAX_CHARS_PER_S` (30) per
+  second of audio, plus 10, is dropped. Fired guards are logged with lengths only.
 
 ### /speak: Haitian Creole voices
 
