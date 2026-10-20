@@ -86,6 +86,35 @@ def test_guard_logs_lengths_only():
     assert "sekrè" not in log and "Bonjou" not in log
 
 
+def test_guard_is_fast_on_long_inputs():
+    """The loop regex ((.{2,40}?)\1{5,}) on long decoder output with no loop,
+    or with many near-loops (a unit repeated one copy short): linear-ish, no
+    catastrophic backtracking. ~20 ms each here; the bound is generous."""
+    import random
+    rng = random.Random(1)
+
+    def unit(n):
+        return "".join(rng.choice("abcdefghijklmnopqrstuvwxyz") for _ in range(n))
+    cases = {
+        "no loop": "".join(rng.choice("abcdefghij klmnop") for _ in range(20000)),
+        "near-loops of 40": "".join(unit(40) * 5 + " " for _ in range(100)),
+        "near-loops of 2..40": "".join(unit(rng.randint(2, 40)) * 5 + " " for _ in range(300)),
+        "words": " ".join(rng.choice(["wi", "non", "mèsi", "bonjou", "la"]) for _ in range(5000)),
+    }
+    for name, text in cases.items():
+        t0 = time.perf_counter()
+        out, action = stt.repetition_guard(text, 15.0, 0, 6)        # rate off: only the regex decides
+        took = time.perf_counter() - t0
+        assert took < 1.0, (name, len(text), took)
+        if name.startswith("near") or name == "no loop":
+            assert (out, action) == (text, None), name     # one copy short is no loop
+    # And a real loop at the end of a long text is still found, as fast.
+    text = cases["near-loops of 40"] + "ba " * 50
+    t0 = time.perf_counter()
+    out, action = stt.repetition_guard(text, 15.0, 0, 6)
+    assert time.perf_counter() - t0 < 1.0 and action == "truncated" and out.endswith("ba")
+
+
 # ---------------------------------------------------------------- batcher
 
 class BatchModels:
@@ -398,6 +427,50 @@ def test_identify_batch_pads_and_passes_lengths():
     m.lid.calls.clear()
     assert m.identify_batch([(_utt(0.1, 8000), ["ht", "en"])])[0][0] == "ht"
     assert m.lid.calls == [((1, 8000), None)]
+
+
+def test_identify_batch_matches_identify_on_padded_inputs():
+    """Batched language ID (zero-padded to the longest, with wav_lens) gives
+    each utterance what identify() gives it alone, whatever its length. The
+    fake classifier scores only the true samples, as SpeechBrain's pooling
+    does with wav_lens; ignoring the lengths would let the padding dilute the
+    shorter ones' scores and the test would see it."""
+    try:
+        import torch
+    except ImportError:
+        print("skip: no torch")
+        return
+
+    class Lid:
+        def classify_batch(self, wavs, wav_lens=None):
+            n, t = wavs.shape
+            lens = torch.ones(n) if wav_lens is None else wav_lens
+            out = torch.empty(n, 1, 3)
+            for r in range(n):
+                true = wavs[r, :int(round(float(lens[r]) * t))]
+                level = float(true.abs().mean())
+                # ht for quiet audio, en for loud, fr in between: smooth in the level.
+                out[r, 0] = torch.log_softmax(torch.tensor([4 * (0.5 - level), 4 * (level - 0.5),
+                                                            1 - 4 * abs(level - 0.5)]), 0)
+            return (out,)
+    m = stt.Models.__new__(stt.Models)
+    m.lid = Lid()
+    m.lid_index = {"ht": 0, "en": 1, "fr": 2}
+    rng = np.random.default_rng(0)
+    items = []
+    for i, (n, level) in enumerate([(16000, 0.2), (4000, 0.8), (48000, 0.45), (800, 0.6), (32000, 0.1)]):
+        pcm = (rng.uniform(0.5, 1.5, n) * level).astype(np.float32)
+        items.append((pcm, ["ht", "en", "fr"] if i % 2 == 0 else ["ht", "en"]))
+    alone = [m.identify(*it) for it in items]
+    saved = stt.LID_BATCH
+    try:
+        stt.LID_BATCH = True
+        batched = m.identify_batch(items)
+    finally:
+        stt.LID_BATCH = saved
+    assert [b[0] for b in batched] == [a[0] for a in alone], (batched, alone)
+    assert all(abs(b[1] - a[1]) < 1e-5 for a, b in zip(alone, batched)), (batched, alone)
+    assert len({a[0] for a in alone}) > 1          # the levels really chose different languages
 
 
 def test_engine_transcribe_batch():
