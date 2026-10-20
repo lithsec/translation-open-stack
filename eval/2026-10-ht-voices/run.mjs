@@ -1,9 +1,10 @@
 // Haitian Creole TTS: gpt-4o-mini-tts (Azure eastus2) vs Gemini flash-tts / flash-lite-tts, blind judged.
-//   GK=<gemini key> AK=<azure key> node run.mjs gen|judge|timing
+//   GK=<gemini key> AK=<azure key> AZ_ENDPOINT=https://<your-foundry-resource>.cognitiveservices.azure.com \
+//     [AZ_DEPLOYMENT=gpt-4o-mini-tts] node run.mjs gen|judge|timing
 import fs from "node:fs";
 import { execFileSync } from "node:child_process";
 const GK = process.env.GK, AK = process.env.AK;
-const AZ = "https://lithos-foundry-eastus2.cognitiveservices.azure.com/openai/deployments/gpt-4o-mini-tts/audio/speech?api-version=2025-03-01-preview";
+const AZ = `${(process.env.AZ_ENDPOINT || "").replace(/\/+$/, "")}/openai/deployments/${process.env.AZ_DEPLOYMENT || "gpt-4o-mini-tts"}/audio/speech?api-version=2025-03-01-preview`;
 const all = JSON.parse(fs.readFileSync(process.env.HOME + "/dev/translation-open-stack/eval/2026-10-real-voices/sentences/ht.json"));
 const INSTR = "Speak in Haitian Creole (Kreyòl ayisyen) with a natural native Haitian accent and Haitian pronunciation, not French.";
 const variants = {

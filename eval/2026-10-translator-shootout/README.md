@@ -16,7 +16,7 @@ not compared with these.
 | TranslateGemma 12B | `google/translategemma-12b-it`, bf16, its own chat template rendered by hand (as `../2026-10-real-voices/text-mt/translate_ht.py`) |
 | Azure Translator | `api.cognitive.microsofttranslator.com` v3, eastus |
 | Gemini 3.5 Flash @medium, and at default thinking | AI Studio, temperature 0 |
-| GPT-5.6-sol @low | Azure AI Foundry deployment `gpt-5.6-sol-us`, `reasoning_effort: low`; a 400 (content filter) would score as a blank (none happened) |
+| GPT-5.6-sol @low | Azure AI Foundry deployment of gpt-5.6-sol (Data Zone Standard, US; `FOUNDRY_DEPLOYMENT`), `reasoning_effort: low`; a 400 (content filter) would score as a blank (none happened) |
 
 The LLMs share `translate_ht.py`'s prompt with the languages filled in
 ("Translate this {source} sentence, transcribed from live speech (it may
@@ -92,7 +92,7 @@ Averages over groups of directions (score, total critical errors):
 
 | Group | Hy-MT2 | MADLAD | TGemma 12B | Azure Tr. | Flash @med | Flash default | sol @low |
 |---|---|---|---|---|---|---|---|
-| Into English: ja, zh, km, fr (6) | 67% (54) | 59% (71) | 66% (59) | 54% (71) | 80% (37) | 79% (37) | **83% (32)** |
+| Into English: ja, zh, km, fr (6) | 67% (54) | 59% (71) | 66% (59) | 54% (71) | 80% (37) | 79% (37) | **82% (32)** |
 | Out of English: ja, zh, km, es, fr, ru, de, uk (11) | 89% (24) | 76% (46) | 85% (35) | 86% (35) | **94% (15)** | 94% (14) | 94% (15) |
 | Lao, both ways (4) | n/a | 52% (56) | 46% (60) | 51% (54) | 69% (38) | 70% (36) | **71% (37)** |
 | Haitian Creole, both ways (4) | n/a | 47% (45) | 49% (42) | 47% (38) | 85% (13) | 84% (12) | **88% (11)** |

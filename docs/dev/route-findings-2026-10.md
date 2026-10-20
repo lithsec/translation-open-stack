@@ -11,8 +11,8 @@ one table**.
 
 - **Best route found:** Azure speech-to-text → **gpt-5.6-sol on our Azure
   Foundry resource** (reasoning low) → Azure voice. sol was first or tied in
-  22 of 25 directions. It was also 2.5× quicker than Gemini 3.5 Flash
-  (2.0 s against 4.7 s per sentence).
+  22 of 25 directions. It was also 2.3× quicker than Gemini 3.5 Flash
+  (2.0 s against 4.7 s per sentence, medians over the directions).
 - **Haitian Creole:** **Omnilingual** hears it best (5.7% of characters wrong).
   Azure can't hear it at all. sol and Gemini Flash are the only usable
   translators. Into English from real speakers: sol 93%, Flash 90%, Azure
@@ -21,11 +21,13 @@ one table**.
   English, but trails the LLMs by about 15 points.** It ties Azure Translator
   out of English. It has no Haitian Creole or Lao; MADLAD, its fallback, is
   weak there.
-- **Privacy:** Microsoft keeps nothing from live speech-to-text, fast
-  transcription, live text-to-speech or Translator. Foundry may keep flagged
-  prompts for abuse review **unless modified abuse monitoring is approved**.
-  With that approval, Azure → sol → Azure keeps nothing at Microsoft and is
-  also the most accurate route.
+- **Privacy:** Microsoft's documentation says live speech-to-text, fast
+  transcription, live text-to-speech and Translator do not retain or store
+  customer data (section 4, with links). Foundry may store flagged prompts for
+  human abuse review **unless modified abuse monitoring is approved**. With
+  that approval, Microsoft's documentation describes no storage on the
+  Azure → sol → Azure route, which is also the most accurate one. None of
+  this is confirmed in writing for our resource.
 - **Selected setup (2026-10-19):** Azure *streaming* speech-to-text → sol →
   Azure voice for every language except Haitian Creole, which goes
   Omnilingual → sol → Gemini 3.8 Flash TTS (section 12). Lao is the weak spot:
@@ -101,7 +103,7 @@ brackets.
 
 | Group | Hy-MT2 7B | MADLAD 7B | TranslateGemma 12B | Azure Translator | Gemini 3.5 Flash | **gpt-5.6-sol @low** |
 |---|---|---|---|---|---|---|
-| Into English: ja, zh, km, fr (6) | 67% (54) | 59% (71) | 66% (59) | 54% (71) | 80% (37) | **83% (32)** |
+| Into English: ja, zh, km, fr (6) | 67% (54) | 59% (71) | 66% (59) | 54% (71) | 80% (37) | **82% (32)** |
 | Out of English: 8 languages (11) | 89% (24) | 76% (46) | 85% (35) | 86% (35) | **94% (15)** | **94% (15)** |
 | Lao, both ways (4) | n/a | 52% (56) | 46% (60) | 51% (54) | 69% (38) | **71% (37)** |
 | Haitian Creole, both ways (4) | n/a | 47% (45) | 49% (42) | 47% (38) | 85% (13) | **88% (11)** |
@@ -127,37 +129,43 @@ brackets.
 
 The hearing decides it. Into English from Japanese and Mandarin:
 - Azure misheard 2–4% of characters and Gemini Live 6–20%.
-- Gemini translating Azure's text scored 92–97%; Gemini Live scored 50–64%.
+- Gemini translating Azure's text scored 92% and 97%; Gemini Live scored 50% and 57%
+  (`results.json`).
 - The delay is about 1.3 s after each sentence ends.
 
 ## 4. Privacy: what each service keeps
 
-From Microsoft's data, privacy and security pages (checked 2026-10-19).
+What Microsoft's data, privacy and security pages say (checked 2026-10-19 and
+2026-10-20). These are statements of vendor documentation, not confirmed in
+writing for our resource.
 
-| Service | Kept by Microsoft? |
+| Service | Kept by Microsoft, per its documentation? |
 |---|---|
-| Azure speech-to-text, live and fast transcription | **No**: "Microsoft does not retain or store the data provided by customers." Batch transcription can store results. |
-| Azure text-to-speech, live | **No**: neither the text nor the audio |
-| Azure Translator (text) | **No**: "doesn't persist customer data" ("No Trace") |
-| Foundry models sold by Azure (gpt-5.6-sol) | Microsoft-hosted, not shared with OpenAI, not used for training. **Abuse monitoring may store flagged prompts for human review** unless modified abuse monitoring is approved (Limited Access application). A Data Zone deployment keeps processing in the US. |
+| Azure speech-to-text, live and fast transcription | [Says no](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/speech-service/speech-to-text/data-privacy-security): "Microsoft does not retain or store the data provided by customers." Batch transcription can store results. |
+| Azure text-to-speech, live | [Says no](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/speech-service/text-to-speech/data-privacy-security): "Microsoft doesn't retain or store the text" and "doesn't store audio" from the real-time synthesis API |
+| Azure Translator (text) | [Says no](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/translator/data-privacy-security): "Translator doesn't persist customer data submitted for translation" ("No Trace") |
+| Foundry models sold by Azure (gpt-5.6-sol) | [Microsoft's page](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy) says prompts and completions are "NOT available to OpenAI", are processed in Microsoft's Azure environment and are not used to train models. **[Abuse monitoring](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/abuse-monitoring) may store flagged prompts for human review** unless modified abuse monitoring is approved (Limited Access application). A US Data Zone deployment may process prompts anywhere in the US. |
 
-So Azure hearing + Azure voice + a translator that keeps nothing gives a route
-with nothing kept at Microsoft. Running our own translator in the middle adds
+So by Microsoft's documentation, Azure hearing + Azure voice + Translator (or
+sol with modified abuse monitoring) is a route with nothing stored at
+Microsoft; we have not had that confirmed for our resource. Running our own
+translator in the middle adds
 no privacy over Azure Translator, since Microsoft already sees both the
 source and the translated text. It is a quality choice.
 
 Not a "keeps nothing" claim for any provider until it's in writing for our
 resource. Pages:
-- [Speech to text](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/speech-service/speech-to-text/data-privacy-security)
-- [Text to speech](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/speech-service/text-to-speech/data-privacy-security)
-- [Translator](https://learn.microsoft.com/en-us/azure/ai-foundry/responsible-ai/translator/data-privacy-security)
+- [Speech to text](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/speech-service/speech-to-text/data-privacy-security)
+- [Text to speech](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/speech-service/text-to-speech/data-privacy-security)
+- [Translator](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/translator/data-privacy-security)
+- [Foundry Models sold by Azure](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/data-privacy) and [abuse monitoring](https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/abuse-monitoring)
 
 ## 5. What we built to try it
 
-- **Azure Foundry resource `Lithos-foundry`** (AI Services, eastus). One key
-  covers speech, Translator and the Foundry models.
-  - The deployments include `gpt-5.6-sol-us`, a **Data Zone Standard** (US)
-    deployment.
+- **An Azure Foundry resource** (`<your-foundry-resource>`; AI Services,
+  eastus). One key covers speech, Translator and the Foundry models.
+  - The deployments include a gpt-5.6-sol **Data Zone Standard** (US)
+    deployment (`<deployment>`).
   - Only Whisper is offered for speech among the Foundry models in eastus.
 - **Live Translation** (PR #217, merged as `c23a357`). The Haitian Creole
   exception can translate with a Foundry deployment instead of Gemini, and a
@@ -206,8 +214,9 @@ resource. Pages:
    No current DeepSeek model fits one GPU; the R1 8B distill did not run
    cleanly. Keep Hy-MT2 and MADLAD on the stack. The cloud LLM routes (sol,
    Flash) stay the quality bar.
-2. **Apply for modified abuse monitoring** on Lithos-foundry. With it,
-   Azure → sol → Azure keeps nothing at Microsoft.
+2. **Apply for modified abuse monitoring** on the Foundry resource. With it,
+   Microsoft's documentation describes no storage on Azure → sol → Azure
+   (to be confirmed in writing for our resource).
 3. **Hear the Talk test routes on real conversations** (builds 12–13: streaming, hybrid, Haitian Creole voice).
 4. **More Haitian Creole training speech.** Speech with a matching published
    text can fine-tune hearing, but where the audio is live interpretation
@@ -228,7 +237,7 @@ Spanish and Haitian Creole with Talk's prompt and 4 sentences of context:
 |---|---|---|
 | Azure STT, real time (Live Translation) | $1.00/h | $1.00 |
 | Azure fast transcription, per sentence (Talk routes) | $0.36/h ($0.10 promo listed) | $0.36 |
-| Omnilingual on Cloud Run (L4 $0.67/h + 4 vCPU + 16 GiB ≈ $1.05/h while up; 4 connections per instance) | ≈ $1.05/h | ~$1.05, plus ~15 idle min (~$0.26) after the last use |
+| Omnilingual on Cloud Run (L4 $0.67/h + 4 vCPU + 16 GiB ≈ $1.05/h while up; 8 connections per instance, with GPU batching) | ≈ $1.05/h | ~$1.05, plus ~15 idle min (~$0.26) after the last use |
 | gpt-5.6-sol, DataZone Standard, per target language | $4.40 / $22 per 1M tokens in / out | $0.40 + $0.48 = $0.87 |
 | Azure neural voice, per target language | $15 per 1M characters | ~65k chars = $0.98 |
 
@@ -257,9 +266,10 @@ French Azure 4.9, Google live 2.2; Haitian Creole Omnilingual 5.7, Google
 **Verdict:** the clear wins are batch-only or slow, which doesn't suit live
 speech. ElevenLabs Realtime is good in English but collapses on Khmer.
 Google live is close to Azure overall and better on Khmer and Japanese.
-None justifies switching the live route yet. **ElevenLabs keeps logs by
-default**; its Zero Retention Mode (`enable_logging=false`) is Enterprise
-only, so it doesn't fit the private route.
+None justifies switching the live route yet. **ElevenLabs retains data by
+default**, according to its [Zero Retention Mode page](https://elevenlabs.io/docs/eleven-api/resources/zero-retention-mode); that mode
+(`enable_logging=false`) is for Enterprise customers only, so it doesn't fit
+the private route.
 
 ## 9. Audio quality: what degrades recognition (2026-10-19)
 
@@ -340,8 +350,9 @@ that.
 | Haitian Creole | Omnilingual 300M (a privately fine-tuned card, not distributable) | ~4.5 live | sol | Gemini 3.8 Flash TTS |
 
 **Haitian Creole voice:** Talk's Gemini Flash Lite TTS read Haitian Creole
-with a French accent. In a blind judge it scored 3.0/5 for sounding Haitian,
-against 4.2 for full Flash TTS (first audio 0.67 s against 0.95 s), so Talk
+with a French accent. In the blind judge (section 13, `judge.json`) it scored
+2.5/5 for sounding Haitian, against 3.8 for full Flash TTS (first audio 0.67 s
+against 0.7–0.95 s), so Talk
 now uses full Flash for Haitian Creole only. An in-text instruction about
 accent gets read aloud, so it is selected by model, not prompt.
 
@@ -352,8 +363,8 @@ repository). Lao or Khmer move to Omnilingual only if it beats Azure live.
 ## 13. Haitian Creole voices (2026-10-19)
 
 Azure has no Haitian Creole voice, so the route's one step off Microsoft is
-Haitian Creole speech. Seven voices, judged blind on six sentences
-(`eval/2026-10-ht-voices`):
+Haitian Creole speech. Seven voices, judged blind on six sentences (five for
+MMS-TTS: one judge reply had no score) (`eval/2026-10-ht-voices`):
 
 | Voice | Sounds Haitian (1–5) | Clear (1–5) |
 |---|---|---|

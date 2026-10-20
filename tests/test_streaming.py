@@ -4,9 +4,9 @@
 room_flush used to slice the turn by index -- words[translated_n:] -- which
 assumes the prefix never changes between passes. A live read showed it does:
 
-    But behold, my beloved brother, in this kind of world,
-    But behold, my beloved brother, and thus came the voice of t
-    But behold, my beloved brethren, thus came the voice of the
+    But listen, my dear friend, in this kind of weather,
+    But listen, my dear friend, and then came the sound of t
+    But listen, my dear friends, then came the sound of the
 
 and the final pass hands room_flush the whole re-transcription. Slicing that
 by a count from an earlier, differently-worded pass re-speaks words already
@@ -27,27 +27,27 @@ common_prefix_words = mod.common_prefix_words
 
 CASES = [
     # (spoken so far, new transcription, expected emission)
-    ([], "But behold my beloved brother", "But behold my beloved brother"),
+    ([], "But listen my dear friend", "But listen my dear friend"),
 
     # stable prefix -- the ordinary case
-    ("But behold, my beloved brother,",
-     "But behold, my beloved brother, and thus came the voice",
-     "and thus came the voice"),
+    ("But listen, my dear friend,",
+     "But listen, my dear friend, and then came the sound",
+     "and then came the sound"),
 
-    ("water and have received the baptism",
-     "water and have received the baptism of fire and of the Holy Ghost",
-     "of fire and of the Holy Ghost"),
+    ("payment and have received the receipt",
+     "payment and have received the receipt for tickets and for the hotel room",
+     "for tickets and for the hotel room"),
 
     # a word DROPPED from the prefix shifts every index after it. By index
-    # this emits "of the Holy Ghost" and the listener loses "and".
-    ("and have received the baptism of fire",
-     "have received the baptism of fire and of the Holy Ghost",
-     "and of the Holy Ghost"),
+    # this emits "for the hotel room" and the listener loses "and".
+    ("and have received the receipt for tickets",
+     "have received the receipt for tickets and for the hotel room",
+     "and for the hotel room"),
 
     # a word INSERTED in the prefix shifts the other way
-    ("Wherefore my beloved brethren I know",
-     "Wherefore my beloved brethren I know that if ye shall follow",
-     "that if ye shall follow"),
+    ("Honestly my dear friends I know",
+     "Honestly my dear friends I know that if you will follow",
+     "that if you will follow"),
 ]
 
 
@@ -80,15 +80,15 @@ def simulate_trimmed_turn():
         return committed
 
     # pass 1: no trim yet
-    do_pass([], "yea then come with the baptism")
+    do_pass([], "yes then come with the receipt")
     # pass 2: same prefix, more words -> commits through the agreed prefix
-    c2 = do_pass([], "yea then come with the baptism of fire and of")
+    c2 = do_pass([], "yes then come with the receipt for tickets and for")
     # trim: first segment becomes fixed text, decode window now starts later
-    fixed = "yea then come with the baptism".split()
+    fixed = "yes then come with the receipt".split()
     # pass 3: tail-only transcription, fixed prefix prepended
-    c3 = do_pass(fixed, "of fire and of the holy ghost")
-    ok = (" ".join(c2) == "yea then come with the baptism"
-          and " ".join(c3) == "yea then come with the baptism of fire and of")
+    c3 = do_pass(fixed, "for tickets and for the hotel room")
+    ok = (" ".join(c2) == "yes then come with the receipt"
+          and " ".join(c3) == "yes then come with the receipt for tickets and for")
     return ok, committed_log
 
 

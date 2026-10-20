@@ -154,7 +154,8 @@ def google_nmt(sents):
 
 
 def azure_translator(sents):
-    """Azure Translator (text; 'no-trace': it keeps nothing), key and region
+    """Azure Translator (text; Microsoft documents it as 'No Trace', not confirmed
+    for our resource), key and region
     from AZURE_TRANSLATOR_KEY1 / AZURE_TRANSLATOR_REGION (default eastus)."""
     import urllib.request
     key = os.environ["AZURE_TRANSLATOR_KEY1"]

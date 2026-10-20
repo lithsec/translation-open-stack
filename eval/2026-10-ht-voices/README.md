@@ -25,8 +25,9 @@ audio in: "sounds Haitian" 1–5 (1 = French accent) and "clear" 1–5.
   separate `instructions` field; Gemini reads in-text instructions aloud).
 - Caveats: 6 sentences; a Google model judging a Google voice; an AI judge is
   not a Haitian listener. `listen.html` has every sample with a blind mode.
-- Lithos-foundry (eastus) offers no OpenAI text-to-speech; gpt-4o-mini-tts
-  ran on a second resource, `lithos-foundry-eastus2`.
+- Our eastus Foundry resource offers no OpenAI text-to-speech; gpt-4o-mini-tts
+  ran on a second resource in eastus2 (`AZ_ENDPOINT` in `run.mjs`, e.g.
+  `https://<your-foundry-resource>.cognitiveservices.azure.com`).
 
 Files: `run.mjs` (Gemini and gpt-4o-mini-tts samples, timing, judge),
 `gen_open.py` (Coqui and MMS on CPU), `judge.json`, `scores.json`, `mp3/`,
