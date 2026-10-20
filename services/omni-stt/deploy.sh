@@ -358,14 +358,15 @@ YAML
     esac
     # (--no-gpu-zonal-redundancy, --no-invoker-iam-check: as "deploy" says.)
     # The startup probe: a TCP check on the port, which opens only once the
-    # model is loaded and warm; up to 240 s x 10 s = 40 min before Cloud Run
-    # gives up on a cold start (a 16 GB checkpoint needs a few minutes at worst).
+    # model is loaded and warm. Every 2 s (at 10 s a ready instance waited up
+    # to 10 s more for its first request), up to 15 min before Cloud Run gives
+    # up (a cold start from the volume took 6 min).
     run gcloud run deploy "${SERVICE_7B:-omni-stt-7b}" --project "$PROJECT" --region "$REGION" --image "$IMAGE" \
       --gpu 1 --gpu-type nvidia-l4 --no-gpu-zonal-redundancy \
       --cpu "${CPU:-8}" --memory "${MEMORY:-32Gi}" --no-cpu-throttling --cpu-boost \
       --min-instances 0 --max-instances 1 \
       --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
-      --startup-probe "tcpSocket.port=8080,initialDelaySeconds=0,periodSeconds=10,timeoutSeconds=10,failureThreshold=240" \
+      --startup-probe "tcpSocket.port=8080,initialDelaySeconds=0,periodSeconds=2,timeoutSeconds=2,failureThreshold=450" \
       --set-env-vars "$envs" \
       --set-secrets "STT_TOKEN=$SECRET:latest" \
       --no-invoker-iam-check ${extra[@]+"${extra[@]}"} ${DEPLOY_FLAGS:-}

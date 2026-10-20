@@ -573,9 +573,31 @@ class Models:
         else:
             self.voices_ready.set()
         if "listen" in self.serve:
-            self.vad = load_vad()
-            self.lid, self.lid_index = load_lid(self.device)
-            self.omni = load_omni(self.device, self.card)
+            # The recogniser loads on its own thread while VAD and language ID
+            # load here: on a cold 7B instance those two took 10-15 s, which
+            # then no longer add to the checkpoint's read (STT_PARALLEL_LOAD=0:
+            # one after the other, as before).
+            if os.environ.get("STT_PARALLEL_LOAD", "1") != "0":
+                box = {}
+
+                def omni_load():
+                    try:
+                        box["omni"] = load_omni(self.device, self.card)
+                    except BaseException as e:  # SystemExit included: re-raised below
+                        box["error"] = e
+                t = threading.Thread(target=omni_load, name="omni-load", daemon=True)
+                t.start()
+                self.vad = load_vad()
+                self.lid, self.lid_index = load_lid(self.device)
+                t.join()
+                if "error" in box:
+                    raise box["error"]
+                self.omni = box["omni"]
+            else:
+                self.vad = load_vad()
+                self.lid, self.lid_index = load_lid(self.device)
+                self.omni = load_omni(self.device, self.card)
+            print(f"[stt] models loaded", flush=True)
         elif loader:
             loader.join()
 
