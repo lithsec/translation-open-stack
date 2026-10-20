@@ -83,12 +83,45 @@ class Omnilingual(Recognizer):
                 out = self.omni.transcribe([path], lang=[self.codes[lang]], batch_size=1)
         finally:
             os.unlink(path)
-        text = (out[0] if out else "").strip()
+        text = self._filtered((out[0] if out else "").strip())
+        # No per-segment timestamps from this path, so no trimming either.
+        return (text, []) if want_segments else text
+
+    def transcribe_batch(self, items):
+        """[(pcm16k, lang), ...] -> [text, ...] in the same order, in ONE batched
+        pipeline call (services/omni-stt's micro-batcher). Each item keeps its own
+        language code; the pipeline zero-pads the audio to the longest and passes
+        the true lengths (seq_lens) to the encoder and the decoder, so an item's
+        text does not depend on its neighbours beyond float rounding. The audio
+        goes in as in-memory 16-bit wav bytes: the same AudioDecoder path as the
+        temp file in transcribe(), without the file."""
+        if not items:
+            return []
+        wavs = [wav_bytes(pcm) for pcm, _ in items]
+        with on_device(self.device):
+            out = self.omni.transcribe(wavs, lang=[self.codes[lang] for _, lang in items],
+                                       batch_size=len(items))
+        if len(out) != len(items):
+            raise RuntimeError(f"Omnilingual returned {len(out)} texts for {len(items)} utterances")
+        return [self._filtered((t or "").strip()) for t in out]
+
+    @staticmethod
+    def _filtered(text):
         # This path has no segment gates of its own, so it needs the content
         # filter: a cough that language ID sends to Khmer came back as
         # "ភ្អាក់ ها ها" and reached the Spanish listeners as "Abre - ¡Ha, ha!".
         if is_nonspeech(text):
             print(f"[stack] dropped annotation (omni): {text[:50]}", flush=True)
-            return ("", []) if want_segments else ""
-        # No per-segment timestamps from this path, so no trimming either.
-        return (text, []) if want_segments else text
+            return ""
+        return text
+
+
+def wav_bytes(pcm16k):
+    """float [-1, 1] at 16 kHz -> a mono 16-bit wav file's bytes (as transcribe() writes)."""
+    import io, wave as _wave
+    import numpy as _np
+    buf = io.BytesIO()
+    with _wave.open(buf, "wb") as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(VAD_RATE)
+        w.writeframes((_np.clip(pcm16k, -1, 1) * 32767).astype("<i2").tobytes())
+    return buf.getvalue()

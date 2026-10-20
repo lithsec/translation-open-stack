@@ -202,6 +202,9 @@ class FakeModels:
     """Language: by the audio's level (0.3 = ht, 0.6 = en). Text: the level, so
     a test can tell whose audio was transcribed."""
 
+    serve = {"listen"}
+    voices = None
+
     def __init__(self):
         self.lid_index = {c: i for i, c in enumerate(sorted(LID))}
         self.vads = 0

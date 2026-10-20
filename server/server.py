@@ -1596,18 +1596,10 @@ CLOSE_EDITION = 4403
 
 
 def connection_edition(served, claim):
-    """The edition a connection is served in, or None to refuse it.
-
-    served: the server's editions (["nonprofit"], ["commercial"] or both).
-    claim: the token's "ed" (None for the static token, an open stack, or an
-    issuer that doesn't say). No claim: the strictest edition served. A
-    non-profit client on a commercial-only stack gets commercial voices (only
-    stricter); a commercial client is never served by a non-profit-only stack."""
-    if claim is None:
-        return "commercial" if "commercial" in served else served[0]
-    if claim in served:
-        return claim
-    return "commercial" if claim == "nonprofit" and "commercial" in served else None
+    """The edition a connection is served in, or None to refuse it
+    (stack_auth.connection_edition, which services/omni-stt shares)."""
+    import stack_auth
+    return stack_auth.connection_edition(served, claim)
 
 
 async def guarded(ws, pipe):
