@@ -18,7 +18,8 @@
 # (no checkpoint: 7b/Dockerfile.base) and <TAG>-7b (checkpoint baked in:
 # 7b/Dockerfile.baked), pushed to REPO_REGION and to EXTRA_REPO_REGIONS. Stock
 # weights only. 7b-deploy: SERVICE_7B (omni-stt-7b), STORAGE (baked|gcs|fetch: where
-# the checkpoint comes from), MAX_STREAMS_7B (6), MEMORY (16Gi; fetch needs 32Gi), CPU (4).
+# the checkpoint comes from), MAX_STREAMS_7B (6), MEMORY (16Gi; fetch needs 32Gi), CPU (4),
+# SIGNING_SECRET (optional: the secret holding STT_SIGNING_KEY, for signed tokens).
 #
 # Optional: REGION (us-east4: has Cloud Run L4 and, on a new project, the only
 # GPU quota we found; us-central1 had none, 2026-10-17), REPO (Artifact Registry
@@ -368,7 +369,7 @@ YAML
       --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
       --startup-probe "tcpSocket.port=8080,initialDelaySeconds=0,periodSeconds=2,timeoutSeconds=2,failureThreshold=450" \
       --set-env-vars "$envs" \
-      --set-secrets "STT_TOKEN=$SECRET:latest" \
+      --set-secrets "STT_TOKEN=$SECRET:latest${SIGNING_SECRET:+,STT_SIGNING_KEY=$SIGNING_SECRET:latest}" \
       --no-invoker-iam-check ${extra[@]+"${extra[@]}"} ${DEPLOY_FLAGS:-}
     ;;
   stage)
