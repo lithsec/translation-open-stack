@@ -1,0 +1,457 @@
+{
+ "lang": "lo",
+ "auto": false,
+ "err": "closed 1006 ",
+ "config": {
+  "sample_rate": 16000,
+  "audio_format": "pcm_16000",
+  "language_code": "lo",
+  "secondary_languages": [],
+  "timestamps_granularity": "word",
+  "vad_commit_strategy": true,
+  "vad_silence_threshold_secs": 0.5,
+  "vad_threshold": 0.4,
+  "min_speech_duration_ms": 100,
+  "min_silence_duration_ms": 100,
+  "max_tokens_to_recompute": 5,
+  "model_id": "scribe_v2_realtime",
+  "disable_logging": false,
+  "include_timestamps": true,
+  "include_language_detection": true,
+  "filter_background_audio": false,
+  "keyterms": [],
+  "no_verbatim": false,
+  "entity_detection": null,
+  "keepalive_interval_ms": null
+ },
+ "finals": [
+  {
+   "text": "Angels 2006 ນະທິບາຍການກ່າວເຖິງ Continuum ເປັນວິທີການທີ່ເຖິງນຳໃຊ້ເພື່ອຊ່ວຍໃຫ້ອົງການບັນລຸລະດັບປະສິດທິພາບການປະຕິບັດມາງທີ່ສູງຂຶ້ນ.",
+   "language": "lo",
+   "offsetMs": 1220,
+   "durationMs": 8960.999999999998,
+   "arrivedMs": 11264
+  },
+  {
+   "text": "ລາຍຫາງແນວຕັ້ງຈາກກ້ອງຂວາມ 15 ມັດ.",
+   "language": "lo",
+   "offsetMs": 12836,
+   "durationMs": 3680.999999999999,
+   "arrivedMs": 17574
+  },
+  {
+   "text": "ການກ້ອນຊ້າງໄດ້ສຳເລັດໃນເດືອນສິງຫາ.",
+   "language": "lo",
+   "offsetMs": 17312,
+   "durationMs": 2280.9999999999986,
+   "arrivedMs": 20544
+  },
+  {
+   "text": "ປີ 2011.",
+   "language": "lo",
+   "offsetMs": 20436,
+   "durationMs": 920.0000000000017,
+   "arrivedMs": 21999
+  },
+  {
+   "text": "ບໍ່ເປີດການສັນຈອນຈົນເທິງເດືອນມີນາປີ 2017.",
+   "language": "lo",
+   "offsetMs": 22012,
+   "durationMs": 3919.999999999998,
+   "arrivedMs": 26734
+  },
+  {
+   "text": "ຄຳສັ່ງພັນລະບາງພະຍາດວິທະຍາທາງສະໝອງ ແລະ ຜົດຕິການສະລັບສະໂນລ່ານວິທະຍາສາດໃນການຂົນຂວາງຂອງເຂົາເຈົ້າ.",
+   "language": "lo",
+   "offsetMs": 27876,
+   "durationMs": 6501.000000000001,
+   "arrivedMs": 35927
+  },
+  {
+   "text": "ກະເສນໍ້າຕັດປິ່ນປິ່ນທີ່ໄຫຼກັບ.",
+   "language": "lo",
+   "offsetMs": 37096,
+   "durationMs": 2601.0000000000064,
+   "arrivedMs": 40682
+  },
+  {
+   "text": "ຈາກການເຕັກຂອງຊາຍຫາດ.",
+   "language": "lo",
+   "offsetMs": 40536,
+   "durationMs": 2360.9999999999973,
+   "arrivedMs": 43880
+  },
+  {
+   "text": "ຊ້ອນຫຼາຍແມ່ນຢູ່ບ່ອນຫີນ ຫຼື ຄ້າຍກັນ.",
+   "language": "lo",
+   "offsetMs": 44508,
+   "durationMs": 2839.9999999999964,
+   "arrivedMs": 48236
+  },
+  {
+   "text": "ດູວາວ (Duvall) ຜູ້ທີ່ໄດ້ແຕ່ງງານກັບເດັກນ້ອຍສອງຄົນ ບໍ່ໄດ້ສ້າງຄວາມປະທັບໃຈທີ່ດີອັງ ໃຫ້ກັບໃໝ່ເລີ່ມ (Elliott) ຜ",
+   "language": "lo",
+   "offsetMs": 49728,
+   "durationMs": 10701,
+   "arrivedMs": 61473
+  },
+  {
+   "text": "່າຍ ໃນຕອນແລງວັນອາທິດ, ປະທານາທິບໍດີສາຫະລັດ ທ່ານ ເດັນໂລນັດ ພົັມ (Donald Trump) ໄດ້ປະກາດຖະແລງການ ເຊື່ອໝັ້ນໃຈວ",
+   "language": "lo",
+   "offsetMs": 62028,
+   "durationMs": 6860.000000000006,
+   "arrivedMs": 74910
+  },
+  {
+   "text": "ທີ່ສົ່ງຜ່ານເລີ່ມທະຫານອິກການຂ່າວວ່າກອງທັບສາຫະລັດຈະອອກຈາກຊີເລຍ (Syria).",
+   "language": "lo",
+   "offsetMs": 69572,
+   "durationMs": 5861.000000000005,
+   "arrivedMs": 79131
+  },
+  {
+   "text": "ແລະ ທີ່ສຸດມີແມ່ນ້ອຍຫຼາຍຕົວ.",
+   "language": "lo",
+   "offsetMs": 77432,
+   "durationMs": 1400.9999999999964,
+   "arrivedMs": 80284
+  },
+  {
+   "text": "ລ້ອມທັງແມ່ວລຽງທີ່ສູນທາຍທີ່ກິນເຍື້ອທີ່ໜ້ອຍໜ້ອຍຈຳນວນລອງຫຼາຍເຊັ່ນ: ແມ່ງໃໝ່, ໂນຝູງກັບແກ່ ແລະ ນົກຕ່າງໆ.",
+   "language": "lo",
+   "offsetMs": 80196,
+   "durationMs": 5960.999999999998,
+   "arrivedMs": 87012
+  },
+  {
+   "text": "ໃນລະຍາຊົມປີ 1920, ທາດສະໜາຄະຕິທີ່ຜົນເດັ່ນຂອງຜົນລະເມືອງ ແລະ ປະເທດສ່ວນໃຫຍ່ ແມ່ນຄວາມສະງົບ ແລະ ຄວາມແຍກກັນຢູ່.",
+   "language": "lo",
+   "offsetMs": 87700,
+   "durationMs": 9441.000000000002,
+   "arrivedMs": 98124
+  },
+  {
+   "text": "ຜູ້ວາການລາດ ແຄລະຄອນຍາລ ອາວເລໂລ.",
+   "language": "lo",
+   "offsetMs": 99212,
+   "durationMs": 1920.9999999999923,
+   "arrivedMs": 102072
+  },
+  {
+   "text": "ອາລົວເຊົ້າ ສ່ຽງເກີ ໄດ້ລົງນາມໃນກົດໝາຍວ່າດ້ວຍການຫາບ່ອຍຄ້າ",
+   "language": "lo",
+   "offsetMs": 108348,
+   "durationMs": 7120.000000000005,
+   "arrivedMs": 118086
+  },
+  {
+   "text": ". ASUS Eee PC ແລະ ຖືກເປີດຕົວກ່ອນໜ້ານີ້ໃນທົ່ວໂລກດ້ວຍປະຈັກໃນການປະຍາດຕົນເທີງ ແລະ ການໃຊ້ງານກາຍເປັນຫວູຂອງທີ່ຮອນແຮງໃນປີ 2007 ຂອງ Taipei IT Month.",
+   "language": "lo",
+   "offsetMs": 117724,
+   "durationMs": 11920.000000000002,
+   "arrivedMs": 130760
+  },
+  {
+   "text": "ໃນບາງພື້ນທີ່, ການຕົມນໍ້າປະມານໜຶ່ງນະທີ່ແມ່ນພຽງພໍແລ້ວ.",
+   "language": "lo",
+   "offsetMs": 132796,
+   "durationMs": 4781.0000000000055,
+   "arrivedMs": 138506
+  },
+  {
+   "text": "ໃນບາງບ່ອນກໍໃຊ້ເວລາຫຼາຍນະທີ່.",
+   "language": "lo",
+   "offsetMs": 138568,
+   "durationMs": 3161.0000000000014,
+   "arrivedMs": 142731
+  },
+  {
+   "text": "ໃນເມື່ອທຳອິດຂອງມັນການສະແດງເປັນຈຸດເດັ່ນພຽງຢ່າງດຽວຢູ່ເວັບໄຊຕ໌.",
+   "language": "lo",
+   "offsetMs": 144420,
+   "durationMs": 5441.000000000003,
+   "arrivedMs": 151131
+  },
+  {
+   "text": "2G Next Radio ສະຖານີວິທະຍຸ.",
+   "language": "lo",
+   "offsetMs": 152112,
+   "durationMs": 3561.0000000000073,
+   "arrivedMs": 156477
+  },
+  {
+   "text": "ອິນເຕີເນັດທີ່ມີມະດົນນານ. ເລີກໃຊ້ທີ່.",
+   "language": "lo",
+   "offsetMs": 156304,
+   "durationMs": 3001.0000000000045,
+   "arrivedMs": 160568
+  },
+  {
+   "text": "ສູງໃຊ້ການສົນທະນາທາງວິທະຍຸ.",
+   "language": "lo",
+   "offsetMs": 160084,
+   "durationMs": 1841.0000000000082,
+   "arrivedMs": 163118
+  },
+  {
+   "text": "ກໍລົງເບີດຜູ້ຂີ່ສ່ວນລາຍແມ່ນສວມໃຊ້ເກີດທີ່ໃຊ້ໃນການຂີ່ທີ່ມີສົນ ແລະ ກຽງລຽບຂ້ອນຂ້າງແຂບຕິດນ້ຳພື້ນ.",
+   "language": "lo",
+   "offsetMs": 164212,
+   "durationMs": 6701.000000000022,
+   "arrivedMs": 171916
+  },
+  {
+   "text": "ແລະ ສະຫຼາດນີ້ຈາກອາງວານສະຫະລັດກໍສອບໄດ້ບໍ? ພຸກຄົນໄດ້ຕົວໂດຍການຕິດຄວາມໝາຍຂອງຈະລະພາບຍ່າງຖືກຕ້ອງດີປ້ອງ.",
+   "language": "lo",
+   "offsetMs": 172480,
+   "durationMs": 5481.000000000023,
+   "arrivedMs": 178866
+  },
+  {
+   "text": "ນອກໜ້າຈາກການແຂ່ງຂັນໃນເມືອງວັນພຸດ.",
+   "language": "lo",
+   "offsetMs": 180360,
+   "durationMs": 2080.999999999989,
+   "arrivedMs": 183372
+  },
+  {
+   "text": "ຂາປານເດໂດ (Copa Norte) ໄດ້ເຂົ້າຮ່ວມການແຂ່ງຂັນໃນສອງລາຍການແຂ່ງຂັນແລ່ນຊ່ວນບຸກຄົນໃນລັດຖະບານການແຂ່ງຂັນ ເພລຊິງແຊມ (El Chichen Zam).",
+   "language": "lo",
+   "offsetMs": 184272,
+   "durationMs": 8320.999999999998,
+   "arrivedMs": 194076
+  },
+  {
+   "text": "ເມືອງດັ່ງກ່າວຍັງເປັນສະຖານທີ່ທີ່ຈະປິ່ນຜູ້ເຂົ້າໄຟນິລາຄອງໂກ (Nirakongko) ພ້ອມກັບທາງຍ້າຍຕາມຜູ້ກອນລິລາ (Gorilla Trail).",
+   "language": "lo",
+   "offsetMs": 194612,
+   "durationMs": 8601,
+   "arrivedMs": 203939
+  },
+  {
+   "text": "ທີ່ມີລະຄາຖືກທີ່ສຸດໃນອາຟຼິກກາ.",
+   "language": "lo",
+   "offsetMs": 204304,
+   "durationMs": 2341.000000000008,
+   "arrivedMs": 207587
+  },
+  {
+   "text": "ສວນສາທານະ.",
+   "language": "lo",
+   "offsetMs": 208780,
+   "durationMs": 800.9999999999877,
+   "arrivedMs": 210406
+  },
+  {
+   "text": "ຮຽງຊາດ.",
+   "language": "lo",
+   "offsetMs": 210180,
+   "durationMs": 820.999999999998,
+   "arrivedMs": 211836
+  },
+  {
+   "text": "Kriekwiek-lek ແມ່ນມີປາໄມ້ຢ່າງໜ້າແມ່ນ, ສ່ວນໃຫຍ່ແລ້ວແມ່ນຕົ້ນເພີ່ງ, ຕົ້ນສົນ.",
+   "language": "lo",
+   "offsetMs": 212216,
+   "durationMs": 6680.999999999984,
+   "arrivedMs": 220300
+  },
+  {
+   "text": "ແລະ ຕົ້ນໄມ້ສົນທີ່ເປັນໄປສາມເຫລັມ ແລະ ມີລາກສະນາປະສົມຂອງພື້ນພັນ.",
+   "language": "lo",
+   "offsetMs": 219760,
+   "durationMs": 5741.000000000014,
+   "arrivedMs": 226828
+  },
+  {
+   "text": "ອາພລາຍ ແລະ ແມດິຕະເລນຽນ.",
+   "language": "lo",
+   "offsetMs": 226232,
+   "durationMs": 2360.99999999999,
+   "arrivedMs": 229882
+  },
+  {
+   "text": "ປະຊາກອນຂອງເມືອງ Martinique ແມ່ນປະມານ 800 ຄົນ. ມັນແມ່ນປະເທດທີ່ມີເອກະລາດ",
+   "language": "lo",
+   "offsetMs": 231144,
+   "durationMs": 6419.999999999987,
+   "arrivedMs": 242329
+  },
+  {
+   "text": "ສຳນັກງານຈັດການເຮັດຊຸກຍູ່ທັງພາກເໜືອຂອງ Marshall Islands ກ່າວວ່າບໍ່ມີລາຍງານຄວາມສຽງຫາໃດໆເກີດຂື້ນໃນປະເທດ.",
+   "language": "lo",
+   "offsetMs": 244560,
+   "durationMs": 7540.999999999996,
+   "arrivedMs": 252822
+  },
+  {
+   "text": "ການພັກພ້ອມຢູ່ທັງຈົ່ມຜູ້ແຫ່ງໜຶ່ງທັງພາກເໜືອຂອງເມືອງ Maikar.",
+   "language": "lo",
+   "offsetMs": 254076,
+   "durationMs": 3560.000000000031,
+   "arrivedMs": 258867
+  },
+  {
+   "text": "ທັງນັ້ນກໍ່ແມ່ນແຍ່ງອອກຈາກສ່ວນທີ່ເລື້ອຍໆຂອງລົບ.",
+   "language": "lo",
+   "offsetMs": 258435.99999999997,
+   "durationMs": 2161.0000000000014,
+   "arrivedMs": 261709
+  },
+  {
+   "text": "ຄູ່ພວມເມຍຫຼາຍນີ້.",
+   "language": "lo",
+   "offsetMs": 262888,
+   "durationMs": 1201.0000000000218,
+   "arrivedMs": 265324
+  },
+  {
+   "text": "ອາດຈະເລືອກທີ່ຈະວາງແຜນໃນການຮັບລ້ຽງລູກບຸນທຳ.",
+   "language": "lo",
+   "offsetMs": 265056,
+   "durationMs": 4561.0000000000355,
+   "arrivedMs": 270827
+  },
+  {
+   "text": "ໃຫ້ເປັນລູກຂອງພວກເຂົາ.",
+   "language": "lo",
+   "offsetMs": 270688,
+   "durationMs": 1321.0000000000264,
+   "arrivedMs": 273027
+  },
+  {
+   "text": "ລາວວ່າສາມາດສາຍສະເພດຕິດເພື່ອອຳສະໜາຄວາມເຈັບປວດຂອງລາວທີ່ເກີດຍ້ອ",
+   "language": "lo",
+   "offsetMs": 274244,
+   "durationMs": 4339.9999999999745,
+   "arrivedMs": 280040
+  },
+  {
+   "text": "ນ ກ່ອນຈໍາເທິງທາງບໍ່ໃຫ້ເລີ່ມເກມໄດ້.",
+   "language": "lo",
+   "offsetMs": 279272,
+   "durationMs": 1661.0000000000014,
+   "arrivedMs": 281925
+  },
+  {
+   "text": "ຢູ່ໃນແທ້ດຽວກັນ, ຜູ້ຊາຍກໍແມ່ນຖືຮຽກຮ້ອງໃຫ້ຕອງໄດ້ນຸ່ງສົ່ງ.",
+   "language": "lo",
+   "offsetMs": 283344,
+   "durationMs": 5281.0000000000055,
+   "arrivedMs": 289669
+  },
+  {
+   "text": "ທີ່ປົກຫົວເຂົ້າ.",
+   "language": "lo",
+   "offsetMs": 289236,
+   "durationMs": 841.0000000000082,
+   "arrivedMs": 291281
+  },
+  {
+   "text": "ນີ້ເບິ່ງຄືວ່າສາມາດຮູ້ສຶກໄດ້, ພ້ອມວ່າ.",
+   "language": "lo",
+   "offsetMs": 293228,
+   "durationMs": 3440.999999999974,
+   "arrivedMs": 298080
+  },
+  {
+   "text": "ບໍ່ຮູ້ສຶກ.",
+   "language": "lo",
+   "offsetMs": 297556,
+   "durationMs": 641.0000000000196,
+   "arrivedMs": 299024
+  },
+  {
+   "text": "ຄືການວ່າລໍ້ມັນກຳລັງເຄີຍທີ່ແມ່ນບໍ່?",
+   "language": "lo",
+   "offsetMs": 299200,
+   "durationMs": 2581.0000000000173,
+   "arrivedMs": 302913
+  },
+  {
+   "text": "ເພື່ອເບິ່ງຄືມີລັກສະນະດີທີ່ສຸດເມື່ອຢູ່ໃນສະພາແວດລ້ອມເປັນທຳມະຊາດດັ່ງນັ້ນ.",
+   "language": "lo",
+   "offsetMs": 304460,
+   "durationMs": 4321.000000000026,
+   "arrivedMs": 310158
+  },
+  {
+   "text": "ການຕໍ່ຕ້ານການທະລອງເປີດອອກຕໍ່ຍາງອອກພຽງອັນດຽວ.",
+   "language": "lo",
+   "offsetMs": 309504,
+   "durationMs": 2540.999999999997,
+   "arrivedMs": 312828
+  },
+  {
+   "text": "ໃນຕົວປະກັນ, ຫົກຄົນທີ່ມີທາງເລັກນ້ອຍ ແລະ ຜູ້ທ້າວ.",
+   "language": "lo",
+   "offsetMs": 314876,
+   "durationMs": 4241.000000000042,
+   "arrivedMs": 320331
+  },
+  {
+   "text": "ໄດ້ຖືກປ່ອຍຕໍ່ອອກມາກ່ອນເນື່ອງຈາກເປັນນັກທ່າຍພາບຊາວຟິລິບິນ.",
+   "language": "lo",
+   "offsetMs": 319744,
+   "durationMs": 5200.999999999965,
+   "arrivedMs": 325967
+  },
+  {
+   "text": "ຕັ້ງຊົ່ວຍຍິງລູດຕາມລົງ.",
+   "language": "lo",
+   "offsetMs": 327000,
+   "durationMs": 1661.0000000000014,
+   "arrivedMs": 329557
+  },
+  {
+   "text": "ຍິງເປັນການດີໃຫ້ພະລັງຈີວັດມີຢູ່.",
+   "language": "lo",
+   "offsetMs": 329360,
+   "durationMs": 2640.9999999999627,
+   "arrivedMs": 332954
+  },
+  {
+   "text": "ທຸກຄົນມີຄວາມສາມາດທີ່ຈະພົບເຫັນຄວາມສົງບັບຊຸກ ແລະ ຄວາມພຶງພໍ່ໃຈຢ່າງແທ້ຈິງ.",
+   "language": "lo",
+   "offsetMs": 332712,
+   "durationMs": 5641.00000000002,
+   "arrivedMs": 339461
+  },
+  {
+   "text": "ຕະຫຼອດຄືລະບາງ 150 ແລະ 200 ຊຳເນົາໄດ້ສືກສາຂຶ້ນ. ປະຈຸບັນປະຕິຮູ້ຈັກກັນວ່າ.",
+   "language": "lo",
+   "offsetMs": 340556,
+   "durationMs": 4701.000000000022,
+   "arrivedMs": 346648
+  },
+  {
+   "text": "ດອນດັບບໍລີຊາຍ.",
+   "language": "lo",
+   "offsetMs": 350792,
+   "durationMs": 1641.0000000000196,
+   "arrivedMs": 353385
+  },
+  {
+   "text": "ການວິປາກວິຈານຢ່າງລ່ວງຫຼາຍກ່ຽວກັບຄວາມພະຍາຍາມໃນການສ່ວນຝູບຸລະນະໄດ້ມູນແນວປະຕິການຕັດສິນສັນຍາການສ່ວນຝູບຸລະນະໃຫ້ແກ່ຜູ້ທີ່ຢ",
+   "language": "lo",
+   "offsetMs": 354704,
+   "durationMs": 8800.999999999987,
+   "arrivedMs": 367547
+  },
+  {
+   "text": "ັກ. ພອງມັນມີຕີນ, ທີ່ມີເກັດ ແລະ ມີກາງ. ພອງມັນວ່າງໄຂ່ ແລະ ພອງມັນຍາມໄປດ້ວຍຄ່າລັງຊອງເບືອກ.",
+   "language": "lo",
+   "offsetMs": 367464,
+   "durationMs": 6120.999999999981,
+   "arrivedMs": 374901
+  },
+  {
+   "text": "ຂ້າຍຄືກັບຕົວແດນໂຊຊາວ T-Rex.",
+   "language": "lo",
+   "offsetMs": 374404,
+   "durationMs": 1800.0000000000114,
+   "arrivedMs": 377241
+  }
+ ],
+ "firstPartialMs": 2215
+}

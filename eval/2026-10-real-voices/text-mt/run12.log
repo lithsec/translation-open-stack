@@ -1,0 +1,99 @@
+translated gold nllb-200-3.3b
+waiting for google/translategemma-27b-it (20 s)
+waiting for google/translategemma-27b-it (41 s)
+waiting for google/translategemma-27b-it (61 s)
+waiting for google/translategemma-27b-it (82 s)
+waiting for google/translategemma-27b-it (102 s)
+waiting for google/translategemma-27b-it (123 s)
+waiting for google/translategemma-27b-it (143 s)
+waiting for google/translategemma-27b-it (164 s)
+waiting for google/translategemma-27b-it (184 s)
+waiting for google/translategemma-27b-it (204 s)
+waiting for google/translategemma-27b-it (225 s)
+waiting for google/translategemma-27b-it (245 s)
+waiting for google/translategemma-27b-it (265 s)
+waiting for google/translategemma-27b-it (286 s)
+waiting for google/translategemma-27b-it (306 s)
+translated gold translategemma-27b
+waiting for google/gemma-4-31B-it (20 s)
+waiting for google/gemma-4-31B-it (41 s)
+waiting for google/gemma-4-31B-it (61 s)
+waiting for google/gemma-4-31B-it (81 s)
+waiting for google/gemma-4-31B-it (102 s)
+waiting for google/gemma-4-31B-it (122 s)
+waiting for google/gemma-4-31B-it (143 s)
+waiting for google/gemma-4-31B-it (164 s)
+waiting for google/gemma-4-31B-it (184 s)
+waiting for google/gemma-4-31B-it (205 s)
+waiting for google/gemma-4-31B-it (225 s)
+waiting for google/gemma-4-31B-it (245 s)
+waiting for google/gemma-4-31B-it (266 s)
+waiting for google/gemma-4-31B-it (286 s)
+waiting for google/gemma-4-31B-it (306 s)
+waiting for google/gemma-4-31B-it (327 s)
+waiting for google/gemma-4-31B-it (347 s)
+waiting for google/gemma-4-31B-it (367 s)
+waiting for google/gemma-4-31B-it (388 s)
+waiting for google/gemma-4-31B-it (408 s)
+waiting for google/gemma-4-31B-it (429 s)
+waiting for google/gemma-4-31B-it (449 s)
+translated gold gemma-4-31b
+Mistral-Large-3 #19 refused: {"id":"63ca7e0ddeda48ef838dbd6e853059c4","model":"mistral-large-3","choices":[{"index":0,"message":{"role":"assistant","content":""},"finish_reason":"content_filter","content_filter_results":{"error":
+translated omnilingual foundry-mistral-large-3
+translated omnilingual nllb-200-3.3b
+waiting for google/translategemma-27b-it (20 s)
+waiting for google/translategemma-27b-it (41 s)
+waiting for google/translategemma-27b-it (62 s)
+waiting for google/translategemma-27b-it (82 s)
+translated omnilingual translategemma-27b
+waiting for google/gemma-4-31B-it (21 s)
+waiting for google/gemma-4-31B-it (41 s)
+waiting for google/gemma-4-31B-it (62 s)
+waiting for google/gemma-4-31B-it (82 s)
+waiting for google/gemma-4-31B-it (102 s)
+translated omnilingual gemma-4-31b
+grader: gemini-3.1-pro-preview (this run's grades)
+gold__azure-translator                   fully correct 57%  mean 78%  critical 6
+gold__foundry-deepseek-v4.1-flash        fully correct 70%  mean 88%  critical 2
+gold__foundry-gpt-5.6-luna@low           fully correct 77%  mean 91%  critical 0
+gold__foundry-gpt-5.6-sol@low            fully correct 83%  mean 93%  critical 1
+gold__foundry-mistral-large-3            fully correct 23%  mean 51%  critical 14
+gold__gemini-2.5-flash                   fully correct 77%  mean 91%  critical 1
+gold__gemini-2.5-flash+ctx               fully correct 83%  mean 92%  critical 2
+gold__gemini-3.5-flash                   fully correct 90%  mean 97%  critical 0
+gold__gemini-3.5-flash-lite              fully correct 77%  mean 87%  critical 3
+gold__gemini-3.5-flash@low               fully correct 90%  mean 96%  critical 1
+gold__gemini-3.5-flash@medium            fully correct 93%  mean 98%  critical 0
+gold__gemini-3.6-flash@low               fully correct 80%  mean 92%  critical 1
+gold__gemini-3.7-flash@low               fully correct 90%  mean 97%  critical 0
+gold__gemini-3.8-flash@low               fully correct 87%  mean 96%  critical 0
+gold__gemma-4-31b                        fully correct 50%  mean 79%  critical 4
+gold__google-translate                   fully correct 80%  mean 90%  critical 2
+gold__gpt-4.1                            fully correct 73%  mean 89%  critical 2
+gold__gpt-5.4-mini@low                   fully correct 80%  mean 92%  critical 1
+gold__gpt-5.5@low                        fully correct 90%  mean 97%  critical 0
+gold__kreyol-mt                          fully correct 20%  mean 58%  critical 9
+gold__nllb-200-3.3b                      fully correct 37%  mean 68%  critical 7
+gold__translategemma-27b                 fully correct 50%  mean 76%  critical 4
+omnilingual__azure-translator            fully correct 30%  mean 42%  critical 4
+omnilingual__foundry-deepseek-v4.1-flash fully correct 33%  mean 47%  critical 5
+omnilingual__foundry-gpt-5.6-luna@low    fully correct 60%  mean 72%  critical 6
+omnilingual__foundry-gpt-5.6-sol@low     fully correct 83%  mean 91%  critical 3
+omnilingual__foundry-mistral-large-3     fully correct 20%  mean 30%  critical 5
+omnilingual__gemini-2.5-flash            fully correct 47%  mean 69%  critical 6
+omnilingual__gemini-2.5-flash+ctx        fully correct 53%  mean 67%  critical 6
+omnilingual__gemini-3.5-flash            fully correct 77%  mean 89%  critical 3
+omnilingual__gemini-3.5-flash-lite       fully correct 43%  mean 59%  critical 7
+omnilingual__gemini-3.5-flash@low        fully correct 63%  mean 79%  critical 4
+omnilingual__gemini-3.5-flash@medium     fully correct 80%  mean 90%  critical 3
+omnilingual__gemini-3.6-flash@low        fully correct 63%  mean 76%  critical 4
+omnilingual__gemini-3.7-flash@low        fully correct 60%  mean 76%  critical 6
+omnilingual__gemini-3.8-flash@low        fully correct 60%  mean 77%  critical 5
+omnilingual__gemma-4-31b                 fully correct 40%  mean 52%  critical 3
+omnilingual__google-translate            fully correct 40%  mean 50%  critical 7
+omnilingual__gpt-4.1                     fully correct 37%  mean 52%  critical 5
+omnilingual__gpt-5.4-mini@low            fully correct 40%  mean 60%  critical 7
+omnilingual__gpt-5.5@low                 fully correct 77%  mean 87%  critical 3
+omnilingual__kreyol-mt                   fully correct 20%  mean 26%  critical 0
+omnilingual__nllb-200-3.3b               fully correct 37%  mean 46%  critical 6
+omnilingual__translategemma-27b          fully correct 30%  mean 42%  critical 4

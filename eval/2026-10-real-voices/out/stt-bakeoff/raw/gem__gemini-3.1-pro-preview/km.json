@@ -1,0 +1,708 @@
+{
+ "system": "gem:gemini-3.1-pro-preview",
+ "lang": "km",
+ "err": "#3 The operation was aborted due to timeout",
+ "model": "gemini-3.1-pro-preview",
+ "prompt": "Transcribe this audio verbatim in Khmer, in its own script (Khmer script). No translation, no commentary, no timestamps: output only the transcript.",
+ "thinking": {
+  "thinkingLevel": "low"
+ },
+ "rows": [
+  {
+   "i": 0,
+   "text": "អញ្ចឹង 2006 ពន្យល់អំពីវិធីសាស្ត្រតភ្ជាប់ជានិច្ច ជាវិធីសាស្ត្រដែលត្រូវបានប្រើដើម្បីជួយអង្គភាពឲ្យឈានដល់កម្រិតនៃការអនុវត្តខ្ពស់។",
+   "ms": 2701,
+   "usage": {
+    "promptTokenCount": 341,
+    "candidatesTokenCount": 55,
+    "totalTokenCount": 396,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 309
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 1,
+   "text": "ប្រឡាយបញ្ជូរនៅក្រោមស្ពានគឺមានកម្ពស់ដប់ប្រាំម៉ែត្រ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហាឆ្នាំពីរពាន់ដប់មួយ ហើយការធ្វើចរាចរណ៍នឹងត្រូវបានផ្អាករហូតដល់ខែមីនាឆ្នាំពីរពាន់ដប់ប្រាំពីរ។",
+   "ms": 2612,
+   "usage": {
+    "promptTokenCount": 477,
+    "candidatesTokenCount": 75,
+    "totalTokenCount": 552,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 445
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 2,
+   "text": "ភាពទាក់ទងគ្នារវាងរោគសាស្ត្រខួរក្បាល និងអាកប្បកិរិយាជួយដល់ការស្រាវជ្រាវរបស់អ្នកវិទ្យាសាស្ត្រ។",
+   "ms": 5130,
+   "usage": {
+    "promptTokenCount": 177,
+    "candidatesTokenCount": 47,
+    "totalTokenCount": 224,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 145
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 3,
+   "text": "",
+   "ms": 732035,
+   "err": "The operation was aborted due to timeout",
+   "refilled": true
+  },
+  {
+   "i": 4,
+   "text": "រឿងរ៉ាវដែលបានរៀបការ និងមានកូនជំទង់ពីរនាក់ មិនបានធ្វើឲ្យមានការចាប់អារម្មណ៍អ្វីនោះទេ ជូនចំពោះអ្នកណាដែលមានជីវិតពាក់ព័ន្ធនឹងសាច់រឿង",
+   "ms": 562070,
+   "usage": {
+    "promptTokenCount": 271,
+    "candidatesTokenCount": 52,
+    "totalTokenCount": 1581,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 239
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "thoughtsTokenCount": 1258,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": "",
+   "refilled": true
+  },
+  {
+   "i": 5,
+   "text": "កាលពីល្ងាចថ្ងៃអាទិត្យនេះ ប្រធានាធិបតីសហរដ្ឋអាមេរិក លោក ដូណាល់ ត្រាំ ក្នុងសេចក្តីថ្លែងការណ៍មួយដែលចែកផ្សាយដោយលេខាធិការសារព័ត៌មាននោះ បានប្រកាសថាកងទ័ពអាមេរិកនឹងមិនដកចេញពីប្រទេសស៊ីរីឡើយ។",
+   "ms": 559785,
+   "usage": {
+    "promptTokenCount": 431,
+    "candidatesTokenCount": 91,
+    "totalTokenCount": 1153,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 399
+     }
+    ],
+    "thoughtsTokenCount": 631,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": "",
+   "refilled": true
+  },
+  {
+   "i": 6,
+   "text": "ទីមួយ ភ្នំផត មានសត្វឆ្មាតូចៗជាច្រើន រួមទាំងសត្វឆ្មាព្រៃ ដែលស៊ីចំណីតូចៗជាច្រើនទៀត ដូចជាសត្វល្អិត សត្វកង្កែប សត្វបង្កួយ និងបក្សីនានា។",
+   "ms": 561799,
+   "usage": {
+    "promptTokenCount": 248,
+    "candidatesTokenCount": 72,
+    "totalTokenCount": 1255,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 216
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "thoughtsTokenCount": 935,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": "",
+   "refilled": true
+  },
+  {
+   "i": 7,
+   "text": "ក្នុងអំឡុងទសវត្សរ៍ឆ្នាំ ១៩២០ ឥរិយាបថដែលនាំមកនូវជ័យជំនះនៃពលរដ្ឋជាច្រើនបំផុត និងប្រទេសនានាគឺថា សន្តិនិយម និងនៅដាច់ដោយឡែកពីគេ។",
+   "ms": 23549,
+   "usage": {
+    "promptTokenCount": 389,
+    "candidatesTokenCount": 61,
+    "totalTokenCount": 450,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 357
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 8,
+   "text": "អភិបាលរដ្ឋកាលីហ្វ័រញ៉ា លោក អាណុល ស្វាតសេនេហ្គា បានចុះហត្ថលេខាលើច្បាប់ដែលហាមប្រាមការលក់ ឬជួលហ្គេមវីដេអូអំពើហិង្សាដល់អនីតិជន។",
+   "ms": 36458,
+   "usage": {
+    "promptTokenCount": 435,
+    "candidatesTokenCount": 80,
+    "totalTokenCount": 1557,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 403
+     }
+    ],
+    "thoughtsTokenCount": 1042,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 9,
+   "text": "Asus Eee PC ដែលត្រូវបានបង្កើតឡើងដើម្បីប្រើប្រាស់នៅទូទាំងពិភពលោក ដើម្បីការសន្សំសំចៃលើការចំណាយ និងកត្តាមុខងាររបស់វា បានក្លាយជាប្រធានបទក្តៅៗនៅក្នុងសន្និសីទព័ត៌មានវិទ្យាប្រចាំខែ នៅទីក្រុងតៃប៉ិឆ្នាំ ២០០៧។",
+   "ms": 48436,
+   "usage": {
+    "promptTokenCount": 391,
+    "candidatesTokenCount": 85,
+    "totalTokenCount": 2013,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 359
+     }
+    ],
+    "thoughtsTokenCount": 1537,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 10,
+   "text": "ចំពោះនៅតំបន់មួយចំនួន ការដាំទឹកត្រឹមតែមួយនាទីគឺគ្រប់គ្រាន់ហើយ ហើយនៅកន្លែងខ្លះទៀតត្រូវការពេលវេលាច្រើននាទី។",
+   "ms": 51139,
+   "usage": {
+    "promptTokenCount": 225,
+    "candidatesTokenCount": 39,
+    "totalTokenCount": 706,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 193
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "thoughtsTokenCount": 442,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 11,
+   "text": "នៅ ក្នុង ថ្ងៃ ដំបូង កម្មវិធី នេះ ត្រូវ បាន បង្ហាញ តែ នៅ ស្ថានីយ វិទ្យុ អ៊ីនធឺណិត ដែល ដំណើរការ ជា យូរ មក ហើយ គឺ ថូនី ណិត វិទ្យុ ដែល ជា គេហទំព័រ ផ្ដោត លើ វិទ្យុ ពិគ្រោះ យោបល់ ។",
+   "ms": 42137,
+   "usage": {
+    "promptTokenCount": 347,
+    "candidatesTokenCount": 94,
+    "totalTokenCount": 441,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 315
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 12,
+   "text": "ដំបូងអ្នកជិះភាគច្រើនពាក់ស្បែកជើងកវែងមានកែងនិងរលោងរាងតូចនិងមានទ្រនាប់។",
+   "ms": 31541,
+   "usage": {
+    "promptTokenCount": 249,
+    "candidatesTokenCount": 35,
+    "totalTokenCount": 284,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 217
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 13,
+   "text": "ជាពិសេសគេបានអះអាងថាមនុស្សម្នាក់អាចកំណត់ថាតើបុគ្គលម្នាក់និយាយកុហកឬអត់នោះតាមរយៈការបកស្រាយពាក្យសម្ដីខ្លីៗឲ្យបានត្រឹមត្រូវ",
+   "ms": 27619,
+   "usage": {
+    "promptTokenCount": 237,
+    "candidatesTokenCount": 54,
+    "totalTokenCount": 291,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 205
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 14,
+   "text": "បន្ថែមលើពីព្រឹត្តិការណ៍កាលពីថ្ងៃពុធទៅទៀត នាង ខាផេននីដូ បានចូលរួមការប្រកួតប្រជែងចំនួនពីរដងក្នុងព្រឹត្តិការណ៍ជើងឯក",
+   "ms": 32259,
+   "usage": {
+    "promptTokenCount": 221,
+    "candidatesTokenCount": 53,
+    "totalTokenCount": 763,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 189
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "thoughtsTokenCount": 489,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 15,
+   "text": "ទីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង នីរ៉ាកុងហ្គោ រួមជាមួយនឹងការតាម Mountain Gorilla ដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក។",
+   "ms": 32221,
+   "usage": {
+    "promptTokenCount": 382,
+    "candidatesTokenCount": 46,
+    "totalTokenCount": 1271,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 350
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "thoughtsTokenCount": 843,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 16,
+   "text": "ឧទ្យានជាតិ ភ្លិតវ៉ាសឡេស គ្របដណ្ដប់ដោយព្រៃយ៉ាងក្រាស់ ជាពិសេសគឺពពួកដើមឈើខ្ពស់ៗ មានសំបកម៉ត់ល្អ និងលាយឡំដោយពពួកព្រៃឈើនៅតំបន់ភ្នំខ្ពស់ និងតំបន់មេឌីទែរ៉ាណេ។",
+   "ms": 40491,
+   "usage": {
+    "promptTokenCount": 418,
+    "candidatesTokenCount": 84,
+    "totalTokenCount": 1255,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 386
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "thoughtsTokenCount": 753,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 17,
+   "text": "ចំនួនប្រជាជនសរុបនៅទីក្រុងវ៉ាទីកង់មានប្រហែល ៨០០ នាក់ វាគឺជាប្រទេសឯករាជ្យដែលតូចជាងគេបំផុតនៅលើពិភពលោក ហើយក៏ជាប្រទេសដែលមានប្រជាជនតិចជាងគេបំផុតផងដែរ។",
+   "ms": 32518,
+   "usage": {
+    "promptTokenCount": 353,
+    "candidatesTokenCount": 63,
+    "totalTokenCount": 416,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 321
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 18,
+   "text": "ការិយាល័យគ្រប់គ្រងគ្រោះអាសន្នភាគខាងជើងនៃរដ្ឋម៉ារីយ៉ាណាបាននិយាយថាមិនមានការខូចខាតណាមួយត្រូវបានរាយការណ៍នៅក្នុងប្រទេសនេះទេ",
+   "ms": 24466,
+   "usage": {
+    "promptTokenCount": 293,
+    "candidatesTokenCount": 50,
+    "totalTokenCount": 343,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 261
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 19,
+   "text": "ដល់មានទីតាំងនៅលើកំពូលភ្នំមួយនៅភាគខាងជើងនៃទីក្រុងមេកា ល្អាងនេះនៅដាច់ឆ្ងាយពីពិភពលោកយ៉ាងខ្លាំង",
+   "ms": 20793,
+   "usage": {
+    "promptTokenCount": 255,
+    "candidatesTokenCount": 45,
+    "totalTokenCount": 875,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 223
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "thoughtsTokenCount": 575,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 20,
+   "text": "ន័យប្រព័ន្ធទាំងនេះប្រហែលជាសម្រេចធ្វើផែនការជ្រើសរើសកូនយកមកចិញ្ចឹម",
+   "ms": 12496,
+   "usage": {
+    "promptTokenCount": 168,
+    "candidatesTokenCount": 29,
+    "totalTokenCount": 197,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 136
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 21,
+   "text": "គាត់មិនបានអាចប្រើថ្នាំដែលត្រូវការសម្រាប់បំបាត់ការឈឺចាប់របស់គាត់បាន ដោយសារថ្នាំនេះត្រូវបានហាមឃាត់មិនឲ្យប្រើពេលចូលរួមក្នុងព្រឹត្តិការណ៍កីឡានេះឡើយ។",
+   "ms": 18963,
+   "usage": {
+    "promptTokenCount": 319,
+    "candidatesTokenCount": 51,
+    "totalTokenCount": 912,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 287
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "thoughtsTokenCount": 542,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 22,
+   "text": "ស្រុកនោះ មនុស្សប្រុសត្រូវបានតម្រូវឲ្យស្លៀកខោគ្របជិតលើជង្គង់",
+   "ms": 32745,
+   "usage": {
+    "promptTokenCount": 223,
+    "candidatesTokenCount": 27,
+    "totalTokenCount": 954,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 191
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "thoughtsTokenCount": 704,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 23,
+   "text": "ការនេះវាហាក់ដូចជាសមហេតុផលមែន ពីព្រោះដូចជាមានអារម្មណ៍ថាផែនដីមិនកំពុងតែធ្វើចលនានោះទេ ត្រូវឬអត់",
+   "ms": 37645,
+   "usage": {
+    "promptTokenCount": 226,
+    "candidatesTokenCount": 44,
+    "totalTokenCount": 1149,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 194
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "thoughtsTokenCount": 879,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 24,
+   "text": "រុក្ខជាតិរីកលូតលាស់ល្អបំផុតនៅពេលដែលវាស្ថិតនៅក្នុងបរិយាកាសបែបធម្មជាតិមួយ ដូច្នេះហើយត្រូវទប់អារម្មណ៍ចង់បានកុំយករុក្ខជាតិគំរូសូម្បីតែតែមួយចេញឲ្យសោះ។",
+   "ms": 38693,
+   "usage": {
+    "promptTokenCount": 463,
+    "candidatesTokenCount": 63,
+    "totalTokenCount": 526,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 431
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 25,
+   "text": "ចំណាប់ខ្មាំង ៦ នាក់ ក្នុងនោះមានទាំងកុមារ និងមនុស្សចាស់ បានដោះលែងមុនគេ គឺក្រុមអ្នកថតរូបជនជាតិហ្វីលីពីន",
+   "ms": 34296,
+   "usage": {
+    "promptTokenCount": 257,
+    "candidatesTokenCount": 45,
+    "totalTokenCount": 685,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 225
+     }
+    ],
+    "thoughtsTokenCount": 383,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 26,
+   "text": "ភាពតានតឹងកាន់តែទាបគឺបង្កើនភាពវិជ្ជមានកាន់តែច្រើនដល់កម្លាំងនៃជីវិត មនុស្សម្នាក់ៗមានអំណាចក្នុងការស្វែងរកសន្តិភាពនិងសេចក្តីសុខដ៏ពេញលេញ",
+   "ms": 26014,
+   "usage": {
+    "promptTokenCount": 264,
+    "candidatesTokenCount": 55,
+    "totalTokenCount": 319,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 232
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 27,
+   "text": "ពេញមួយយប់ ចន្លោះពី ១៥០ ទៅ ២០០ ច្បាប់ ត្រូវបានបង្កើតឡើង ដែលឥឡូវត្រូវបានគេស្គាល់ថាជាប័ណ្ណផ្សាយពាណិជ្ជកម្ម Dunlap។",
+   "ms": 17717,
+   "usage": {
+    "promptTokenCount": 306,
+    "candidatesTokenCount": 48,
+    "totalTokenCount": 354,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 274
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 28,
+   "text": "ការរិះគន់បែបសេរី លើការប្រឹងប្រែងកសាងឡើងវិញ បានផ្ដោតទៅលើការផ្ដល់កិច្ចសន្យាកសាងឡើងវិញ ទៅដល់អ្នកដែលដឹងកិច្ចការផ្ទៃក្នុង នៅទីក្រុងវ៉ាស៊ីនតោន។",
+   "ms": 19496,
+   "usage": {
+    "promptTokenCount": 396,
+    "candidatesTokenCount": 70,
+    "totalTokenCount": 866,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 364
+     }
+    ],
+    "thoughtsTokenCount": 400,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 29,
+   "text": "ពួកវាមានជើងដែលមានស្រកានិងក្រញ៉ាំ ពួកវាក្រាបពង ហើយពួកវាដើរដោយជើងក្រោយទាំងពីររបស់ពួកវាដូចជាសត្វដាយណូស័រ ជីរ៉ាក់",
+   "ms": 17303,
+   "usage": {
+    "promptTokenCount": 269,
+    "candidatesTokenCount": 52,
+    "totalTokenCount": 321,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 32
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 237
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  }
+ ],
+ "text": "អញ្ចឹង 2006 ពន្យល់អំពីវិធីសាស្ត្រតភ្ជាប់ជានិច្ច ជាវិធីសាស្ត្រដែលត្រូវបានប្រើដើម្បីជួយអង្គភាពឲ្យឈានដល់កម្រិតនៃការអនុវត្តខ្ពស់។ ប្រឡាយបញ្ជូរនៅក្រោមស្ពានគឺមានកម្ពស់ដប់ប្រាំម៉ែត្រ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហាឆ្នាំពីរពាន់ដប់មួយ ហើយការធ្វើចរាចរណ៍នឹងត្រូវបានផ្អាករហូតដល់ខែមីនាឆ្នាំពីរពាន់ដប់ប្រាំពីរ។ ភាពទាក់ទងគ្នារវាងរោគសាស្ត្រខួរក្បាល និងអាកប្បកិរិយាជួយដល់ការស្រាវជ្រាវរបស់អ្នកវិទ្យាសាស្ត្រ។  រឿងរ៉ាវដែលបានរៀបការ និងមានកូនជំទង់ពីរនាក់ មិនបានធ្វើឲ្យមានការចាប់អារម្មណ៍អ្វីនោះទេ ជូនចំពោះអ្នកណាដែលមានជីវិតពាក់ព័ន្ធនឹងសាច់រឿង កាលពីល្ងាចថ្ងៃអាទិត្យនេះ ប្រធានាធិបតីសហរដ្ឋអាមេរិក លោក ដូណាល់ ត្រាំ ក្នុងសេចក្តីថ្លែងការណ៍មួយដែលចែកផ្សាយដោយលេខាធិការសារព័ត៌មាននោះ បានប្រកាសថាកងទ័ពអាមេរិកនឹងមិនដកចេញពីប្រទេសស៊ីរីឡើយ។ ទីមួយ ភ្នំផត មានសត្វឆ្មាតូចៗជាច្រើន រួមទាំងសត្វឆ្មាព្រៃ ដែលស៊ីចំណីតូចៗជាច្រើនទៀត ដូចជាសត្វល្អិត សត្វកង្កែប សត្វបង្កួយ និងបក្សីនានា។ ក្នុងអំឡុងទសវត្សរ៍ឆ្នាំ ១៩២០ ឥរិយាបថដែលនាំមកនូវជ័យជំនះនៃពលរដ្ឋជាច្រើនបំផុត និងប្រទេសនានាគឺថា សន្តិនិយម និងនៅដាច់ដោយឡែកពីគេ។ អភិបាលរដ្ឋកាលីហ្វ័រញ៉ា លោក អាណុល ស្វាតសេនេហ្គា បានចុះហត្ថលេខាលើច្បាប់ដែលហាមប្រាមការលក់ ឬជួលហ្គេមវីដេអូអំពើហិង្សាដល់អនីតិជន។ Asus Eee PC ដែលត្រូវបានបង្កើតឡើងដើម្បីប្រើប្រាស់នៅទូទាំងពិភពលោក ដើម្បីការសន្សំសំចៃលើការចំណាយ និងកត្តាមុខងាររបស់វា បានក្លាយជាប្រធានបទក្តៅៗនៅក្នុងសន្និសីទព័ត៌មានវិទ្យាប្រចាំខែ នៅទីក្រុងតៃប៉ិឆ្នាំ ២០០៧។ ចំពោះនៅតំបន់មួយចំនួន ការដាំទឹកត្រឹមតែមួយនាទីគឺគ្រប់គ្រាន់ហើយ ហើយនៅកន្លែងខ្លះទៀតត្រូវការពេលវេលាច្រើននាទី។ នៅ ក្នុង ថ្ងៃ ដំបូង កម្មវិធី នេះ ត្រូវ បាន បង្ហាញ តែ នៅ ស្ថានីយ វិទ្យុ អ៊ីនធឺណិត ដែល ដំណើរការ ជា យូរ មក ហើយ គឺ ថូនី ណិត វិទ្យុ ដែល ជា គេហទំព័រ ផ្ដោត លើ វិទ្យុ ពិគ្រោះ យោបល់ ។ ដំបូងអ្នកជិះភាគច្រើនពាក់ស្បែកជើងកវែងមានកែងនិងរលោងរាងតូចនិងមានទ្រនាប់។ ជាពិសេសគេបានអះអាងថាមនុស្សម្នាក់អាចកំណត់ថាតើបុគ្គលម្នាក់និយាយកុហកឬអត់នោះតាមរយៈការបកស្រាយពាក្យសម្ដីខ្លីៗឲ្យបានត្រឹមត្រូវ បន្ថែមលើពីព្រឹត្តិការណ៍កាលពីថ្ងៃពុធទៅទៀត នាង ខាផេននីដូ បានចូលរួមការប្រកួតប្រជែងចំនួនពីរដងក្នុងព្រឹត្តិការណ៍ជើងឯក ទីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង នីរ៉ាកុងហ្គោ រួមជាមួយនឹងការតាម Mountain Gorilla ដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក។ ឧទ្យានជាតិ ភ្លិតវ៉ាសឡេស គ្របដណ្ដប់ដោយព្រៃយ៉ាងក្រាស់ ជាពិសេសគឺពពួកដើមឈើខ្ពស់ៗ មានសំបកម៉ត់ល្អ និងលាយឡំដោយពពួកព្រៃឈើនៅតំបន់ភ្នំខ្ពស់ និងតំបន់មេឌីទែរ៉ាណេ។ ចំនួនប្រជាជនសរុបនៅទីក្រុងវ៉ាទីកង់មានប្រហែល ៨០០ នាក់ វាគឺជាប្រទេសឯករាជ្យដែលតូចជាងគេបំផុតនៅលើពិភពលោក ហើយក៏ជាប្រទេសដែលមានប្រជាជនតិចជាងគេបំផុតផងដែរ។ ការិយាល័យគ្រប់គ្រងគ្រោះអាសន្នភាគខាងជើងនៃរដ្ឋម៉ារីយ៉ាណាបាននិយាយថាមិនមានការខូចខាតណាមួយត្រូវបានរាយការណ៍នៅក្នុងប្រទេសនេះទេ ដល់មានទីតាំងនៅលើកំពូលភ្នំមួយនៅភាគខាងជើងនៃទីក្រុងមេកា ល្អាងនេះនៅដាច់ឆ្ងាយពីពិភពលោកយ៉ាងខ្លាំង ន័យប្រព័ន្ធទាំងនេះប្រហែលជាសម្រេចធ្វើផែនការជ្រើសរើសកូនយកមកចិញ្ចឹម គាត់មិនបានអាចប្រើថ្នាំដែលត្រូវការសម្រាប់បំបាត់ការឈឺចាប់របស់គាត់បាន ដោយសារថ្នាំនេះត្រូវបានហាមឃាត់មិនឲ្យប្រើពេលចូលរួមក្នុងព្រឹត្តិការណ៍កីឡានេះឡើយ។ ស្រុកនោះ មនុស្សប្រុសត្រូវបានតម្រូវឲ្យស្លៀកខោគ្របជិតលើជង្គង់ ការនេះវាហាក់ដូចជាសមហេតុផលមែន ពីព្រោះដូចជាមានអារម្មណ៍ថាផែនដីមិនកំពុងតែធ្វើចលនានោះទេ ត្រូវឬអត់ រុក្ខជាតិរីកលូតលាស់ល្អបំផុតនៅពេលដែលវាស្ថិតនៅក្នុងបរិយាកាសបែបធម្មជាតិមួយ ដូច្នេះហើយត្រូវទប់អារម្មណ៍ចង់បានកុំយករុក្ខជាតិគំរូសូម្បីតែតែមួយចេញឲ្យសោះ។ ចំណាប់ខ្មាំង ៦ នាក់ ក្នុងនោះមានទាំងកុមារ និងមនុស្សចាស់ បានដោះលែងមុនគេ គឺក្រុមអ្នកថតរូបជនជាតិហ្វីលីពីន ភាពតានតឹងកាន់តែទាបគឺបង្កើនភាពវិជ្ជមានកាន់តែច្រើនដល់កម្លាំងនៃជីវិត មនុស្សម្នាក់ៗមានអំណាចក្នុងការស្វែងរកសន្តិភាពនិងសេចក្តីសុខដ៏ពេញលេញ ពេញមួយយប់ ចន្លោះពី ១៥០ ទៅ ២០០ ច្បាប់ ត្រូវបានបង្កើតឡើង ដែលឥឡូវត្រូវបានគេស្គាល់ថាជាប័ណ្ណផ្សាយពាណិជ្ជកម្ម Dunlap។ ការរិះគន់បែបសេរី លើការប្រឹងប្រែងកសាងឡើងវិញ បានផ្ដោតទៅលើការផ្ដល់កិច្ចសន្យាកសាងឡើងវិញ ទៅដល់អ្នកដែលដឹងកិច្ចការផ្ទៃក្នុង នៅទីក្រុងវ៉ាស៊ីនតោន។ ពួកវាមានជើងដែលមានស្រកានិងក្រញ៉ាំ ពួកវាក្រាបពង ហើយពួកវាដើរដោយជើងក្រោយទាំងពីររបស់ពួកវាដូចជាសត្វដាយណូស័រ ជីរ៉ាក់"
+}

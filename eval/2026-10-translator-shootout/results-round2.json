@@ -1,0 +1,2395 @@
+{
+ "grader": "gemini-3.1-pro-preview",
+ "round": "2",
+ "directions": {
+  "syn:en-ja": {
+   "sentences": 24,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.917,
+     "fully_correct": 0.75,
+     "critical": 0,
+     "median_s": 1.34,
+     "p90_s": 1.56,
+     "median_gpu_s": 0.75,
+     "median_completion_tokens": 83.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.931,
+     "fully_correct": 0.792,
+     "critical": 1,
+     "median_s": 2.38,
+     "p90_s": 2.95,
+     "median_gpu_s": 1.91,
+     "median_completion_tokens": 217.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.903,
+     "fully_correct": 0.792,
+     "critical": 1,
+     "median_s": 0.85,
+     "p90_s": 1.51,
+     "median_gpu_s": 0.43,
+     "median_completion_tokens": 66.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.944,
+     "fully_correct": 0.833,
+     "critical": 1,
+     "median_s": 3.21,
+     "p90_s": 10.53,
+     "median_gpu_s": 2.43,
+     "median_completion_tokens": 336.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.986,
+     "fully_correct": 0.958,
+     "critical": 0,
+     "median_s": 1.36,
+     "p90_s": 1.54,
+     "median_gpu_s": 1.06
+    },
+    "madlad-7b-int8": {
+     "score": 0.806,
+     "fully_correct": 0.417,
+     "critical": 1,
+     "median_s": 1.31,
+     "p90_s": 5.49,
+     "median_gpu_s": 0.31
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 4.33,
+     "p90_s": 5.24,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 1.24,
+     "p90_s": 1.49,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:en-zh": {
+   "sentences": 24,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.944,
+     "fully_correct": 0.833,
+     "critical": 0,
+     "median_s": 0.77,
+     "p90_s": 1.09,
+     "median_gpu_s": 0.33,
+     "median_completion_tokens": 33.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.944,
+     "fully_correct": 0.875,
+     "critical": 1,
+     "median_s": 1.8,
+     "p90_s": 2.55,
+     "median_gpu_s": 1.35,
+     "median_completion_tokens": 151.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.931,
+     "fully_correct": 0.792,
+     "critical": 0,
+     "median_s": 0.74,
+     "p90_s": 0.82,
+     "median_gpu_s": 0.28,
+     "median_completion_tokens": 57.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 2.38,
+     "p90_s": 2.79,
+     "median_gpu_s": 1.65,
+     "median_completion_tokens": 238.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.986,
+     "fully_correct": 0.958,
+     "critical": 0,
+     "median_s": 0.79,
+     "p90_s": 1.04,
+     "median_gpu_s": 0.59
+    },
+    "madlad-7b-int8": {
+     "score": 0.833,
+     "fully_correct": 0.625,
+     "critical": 1,
+     "median_s": 1.12,
+     "p90_s": 1.55,
+     "median_gpu_s": 0.26
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 3.63,
+     "p90_s": 4.02,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 1.17,
+     "p90_s": 1.39,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:en-km": {
+   "sentences": 24,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.722,
+     "fully_correct": 0.375,
+     "critical": 2,
+     "median_s": 1.52,
+     "p90_s": 2.46,
+     "median_gpu_s": 1.04,
+     "median_completion_tokens": 121.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.764,
+     "fully_correct": 0.5,
+     "critical": 1,
+     "median_s": 3.79,
+     "p90_s": 6.29,
+     "median_gpu_s": 3.34,
+     "median_completion_tokens": 412.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.569,
+     "fully_correct": 0.25,
+     "critical": 4,
+     "median_s": 1.2,
+     "p90_s": 1.79,
+     "median_gpu_s": 0.75,
+     "median_completion_tokens": 156.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.653,
+     "fully_correct": 0.417,
+     "critical": 0,
+     "median_s": 3.96,
+     "p90_s": 5.95,
+     "median_gpu_s": 3.39,
+     "median_completion_tokens": 565.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 5.3,
+     "p90_s": 6.09,
+     "median_gpu_s": 4.78
+    },
+    "madlad-7b-int8": {
+     "score": 0.819,
+     "fully_correct": 0.5,
+     "critical": 1,
+     "median_s": 1.7,
+     "p90_s": 1.91,
+     "median_gpu_s": 0.44
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 4.7,
+     "p90_s": 5.75,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 1.59,
+     "p90_s": 2.03,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:en-lo": {
+   "sentences": 24,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.389,
+     "fully_correct": 0.125,
+     "critical": 9,
+     "median_s": 3.43,
+     "p90_s": 4.6,
+     "median_gpu_s": 2.98,
+     "median_completion_tokens": 352.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.431,
+     "fully_correct": 0.125,
+     "critical": 8,
+     "median_s": 7.29,
+     "p90_s": 9.95,
+     "median_gpu_s": 6.74,
+     "median_completion_tokens": 798.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.042,
+     "fully_correct": 0.0,
+     "critical": 11,
+     "median_s": 3.82,
+     "p90_s": 5.76,
+     "median_gpu_s": 3.35,
+     "median_completion_tokens": 692.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.292,
+     "fully_correct": 0.125,
+     "critical": 8,
+     "median_s": 4.47,
+     "p90_s": 6.49,
+     "median_gpu_s": 3.8,
+     "median_completion_tokens": 604.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "madlad-7b-int8": {
+     "score": 0.847,
+     "fully_correct": 0.667,
+     "critical": 3,
+     "median_s": 1.39,
+     "p90_s": 1.91,
+     "median_gpu_s": 0.31
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.958,
+     "fully_correct": 0.875,
+     "critical": 0,
+     "median_s": 4.43,
+     "p90_s": 6.17,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.986,
+     "fully_correct": 0.958,
+     "critical": 0,
+     "median_s": 2.02,
+     "p90_s": 7.18,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:en-ht": {
+   "sentences": 24,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.972,
+     "fully_correct": 0.917,
+     "critical": 0,
+     "median_s": 1.14,
+     "p90_s": 1.43,
+     "median_gpu_s": 0.69,
+     "median_completion_tokens": 75.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.931,
+     "fully_correct": 0.875,
+     "critical": 1,
+     "median_s": 2.11,
+     "p90_s": 2.59,
+     "median_gpu_s": 1.64,
+     "median_completion_tokens": 188.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.694,
+     "fully_correct": 0.417,
+     "critical": 3,
+     "median_s": 0.89,
+     "p90_s": 1.25,
+     "median_gpu_s": 0.4,
+     "median_completion_tokens": 86.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.556,
+     "fully_correct": 0.333,
+     "critical": 6,
+     "median_s": 2.82,
+     "p90_s": 3.6,
+     "median_gpu_s": 2.37,
+     "median_completion_tokens": 360.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "madlad-7b-int8": {
+     "score": 0.764,
+     "fully_correct": 0.667,
+     "critical": 6,
+     "median_s": 1.6,
+     "p90_s": 2.04,
+     "median_gpu_s": 0.28
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.986,
+     "fully_correct": 0.958,
+     "critical": 0,
+     "median_s": 3.88,
+     "p90_s": 4.76,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 1.55,
+     "p90_s": 2.01,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:en-es": {
+   "sentences": 24,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 1.13,
+     "p90_s": 1.52,
+     "median_gpu_s": 0.68,
+     "median_completion_tokens": 72.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.972,
+     "fully_correct": 0.958,
+     "critical": 1,
+     "median_s": 1.82,
+     "p90_s": 2.98,
+     "median_gpu_s": 1.36,
+     "median_completion_tokens": 143.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.944,
+     "fully_correct": 0.833,
+     "critical": 0,
+     "median_s": 0.71,
+     "p90_s": 0.81,
+     "median_gpu_s": 0.25,
+     "median_completion_tokens": 51.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.972,
+     "fully_correct": 0.917,
+     "critical": 0,
+     "median_s": 2.31,
+     "p90_s": 2.87,
+     "median_gpu_s": 1.81,
+     "median_completion_tokens": 272.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 1.22,
+     "p90_s": 1.6,
+     "median_gpu_s": 0.91
+    },
+    "madlad-7b-int8": {
+     "score": 0.917,
+     "fully_correct": 0.875,
+     "critical": 1,
+     "median_s": 1.45,
+     "p90_s": 2.16,
+     "median_gpu_s": 0.26
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 3.46,
+     "p90_s": 4.56,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 1.3,
+     "p90_s": 6.5,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:en-fr": {
+   "sentences": 24,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.958,
+     "fully_correct": 0.875,
+     "critical": 0,
+     "median_s": 1.19,
+     "p90_s": 1.63,
+     "median_gpu_s": 0.7,
+     "median_completion_tokens": 77.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.931,
+     "fully_correct": 0.833,
+     "critical": 1,
+     "median_s": 1.87,
+     "p90_s": 3.24,
+     "median_gpu_s": 1.42,
+     "median_completion_tokens": 161.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.861,
+     "fully_correct": 0.708,
+     "critical": 2,
+     "median_s": 0.77,
+     "p90_s": 0.87,
+     "median_gpu_s": 0.31,
+     "median_completion_tokens": 61.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.972,
+     "fully_correct": 0.917,
+     "critical": 0,
+     "median_s": 2.08,
+     "p90_s": 2.77,
+     "median_gpu_s": 1.49,
+     "median_completion_tokens": 235.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.931,
+     "fully_correct": 0.792,
+     "critical": 0,
+     "median_s": 1.32,
+     "p90_s": 1.65,
+     "median_gpu_s": 0.89
+    },
+    "madlad-7b-int8": {
+     "score": 0.861,
+     "fully_correct": 0.625,
+     "critical": 1,
+     "median_s": 1.04,
+     "p90_s": 1.3,
+     "median_gpu_s": 0.3
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 3.81,
+     "p90_s": 4.63,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 1.23,
+     "p90_s": 6.65,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:en-ru": {
+   "sentences": 24,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.958,
+     "fully_correct": 0.875,
+     "critical": 0,
+     "median_s": 1.12,
+     "p90_s": 1.46,
+     "median_gpu_s": 0.6,
+     "median_completion_tokens": 69.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.972,
+     "fully_correct": 0.917,
+     "critical": 0,
+     "median_s": 1.97,
+     "p90_s": 2.9,
+     "median_gpu_s": 1.46,
+     "median_completion_tokens": 157.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.903,
+     "fully_correct": 0.75,
+     "critical": 1,
+     "median_s": 0.76,
+     "p90_s": 0.93,
+     "median_gpu_s": 0.32,
+     "median_completion_tokens": 61.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.944,
+     "fully_correct": 0.875,
+     "critical": 1,
+     "median_s": 2.36,
+     "p90_s": 3.46,
+     "median_gpu_s": 1.84,
+     "median_completion_tokens": 283.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.958,
+     "fully_correct": 0.875,
+     "critical": 0,
+     "median_s": 1.77,
+     "p90_s": 2.1,
+     "median_gpu_s": 1.39
+    },
+    "madlad-7b-int8": {
+     "score": 0.917,
+     "fully_correct": 0.875,
+     "critical": 2,
+     "median_s": 1.02,
+     "p90_s": 1.36,
+     "median_gpu_s": 0.28
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 3.78,
+     "p90_s": 5.93,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 1.23,
+     "p90_s": 6.5,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:en-de": {
+   "sentences": 24,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.931,
+     "fully_correct": 0.833,
+     "critical": 1,
+     "median_s": 1.17,
+     "p90_s": 1.6,
+     "median_gpu_s": 0.73,
+     "median_completion_tokens": 83.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.903,
+     "fully_correct": 0.792,
+     "critical": 2,
+     "median_s": 2.06,
+     "p90_s": 2.62,
+     "median_gpu_s": 1.59,
+     "median_completion_tokens": 193.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.917,
+     "fully_correct": 0.792,
+     "critical": 1,
+     "median_s": 0.77,
+     "p90_s": 0.98,
+     "median_gpu_s": 0.31,
+     "median_completion_tokens": 59.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.931,
+     "fully_correct": 0.875,
+     "critical": 2,
+     "median_s": 2.57,
+     "p90_s": 3.61,
+     "median_gpu_s": 1.93,
+     "median_completion_tokens": 299.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.889,
+     "fully_correct": 0.792,
+     "critical": 3,
+     "median_s": 1.19,
+     "p90_s": 1.63,
+     "median_gpu_s": 0.89
+    },
+    "madlad-7b-int8": {
+     "score": 0.889,
+     "fully_correct": 0.75,
+     "critical": 2,
+     "median_s": 1.41,
+     "p90_s": 2.6,
+     "median_gpu_s": 0.3
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 4.25,
+     "p90_s": 6.02,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 1.33,
+     "p90_s": 6.67,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:en-uk": {
+   "sentences": 24,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.931,
+     "fully_correct": 0.792,
+     "critical": 0,
+     "median_s": 1.17,
+     "p90_s": 1.43,
+     "median_gpu_s": 0.71,
+     "median_completion_tokens": 77.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.847,
+     "fully_correct": 0.625,
+     "critical": 1,
+     "median_s": 2.34,
+     "p90_s": 3.42,
+     "median_gpu_s": 1.79,
+     "median_completion_tokens": 220.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.75,
+     "fully_correct": 0.458,
+     "critical": 1,
+     "median_s": 0.84,
+     "p90_s": 1.06,
+     "median_gpu_s": 0.39,
+     "median_completion_tokens": 75.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.903,
+     "fully_correct": 0.708,
+     "critical": 0,
+     "median_s": 2.98,
+     "p90_s": 3.72,
+     "median_gpu_s": 2.4,
+     "median_completion_tokens": 357.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.944,
+     "fully_correct": 0.833,
+     "critical": 0,
+     "median_s": 1.99,
+     "p90_s": 2.35,
+     "median_gpu_s": 1.68
+    },
+    "madlad-7b-int8": {
+     "score": 0.597,
+     "fully_correct": 0.5,
+     "critical": 1,
+     "median_s": 2.23,
+     "p90_s": 3.12,
+     "median_gpu_s": 0.31
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.986,
+     "fully_correct": 0.958,
+     "critical": 0,
+     "median_s": 3.97,
+     "p90_s": 5.68,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 1.0,
+     "fully_correct": 1.0,
+     "critical": 0,
+     "median_s": 1.27,
+     "p90_s": 6.44,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:ja-en": {
+   "sentences": 24,
+   "stt": "azure ja-JP",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.875,
+     "fully_correct": 0.792,
+     "critical": 4,
+     "median_s": 1.16,
+     "p90_s": 1.83,
+     "median_gpu_s": 0.7,
+     "median_completion_tokens": 75.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.861,
+     "fully_correct": 0.792,
+     "critical": 5,
+     "median_s": 1.97,
+     "p90_s": 3.0,
+     "median_gpu_s": 1.53,
+     "median_completion_tokens": 175.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.875,
+     "fully_correct": 0.792,
+     "critical": 4,
+     "median_s": 0.76,
+     "p90_s": 0.92,
+     "median_gpu_s": 0.31,
+     "median_completion_tokens": 61.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.903,
+     "fully_correct": 0.833,
+     "critical": 3,
+     "median_s": 2.17,
+     "p90_s": 3.15,
+     "median_gpu_s": 1.64,
+     "median_completion_tokens": 251.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.819,
+     "fully_correct": 0.75,
+     "critical": 6,
+     "median_s": 0.98,
+     "p90_s": 1.3,
+     "median_gpu_s": 0.71
+    },
+    "madlad-7b-int8": {
+     "score": 0.778,
+     "fully_correct": 0.667,
+     "critical": 7,
+     "median_s": 8.17,
+     "p90_s": 10.18,
+     "median_gpu_s": 0.26
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.931,
+     "fully_correct": 0.875,
+     "critical": 2,
+     "median_s": 3.46,
+     "p90_s": 4.64,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.972,
+     "fully_correct": 0.958,
+     "critical": 1,
+     "median_s": 1.26,
+     "p90_s": 2.9,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:zh-en": {
+   "sentences": 24,
+   "stt": "azure zh-CN",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.903,
+     "fully_correct": 0.833,
+     "critical": 3,
+     "median_s": 1.12,
+     "p90_s": 1.27,
+     "median_gpu_s": 0.67,
+     "median_completion_tokens": 78.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.875,
+     "fully_correct": 0.75,
+     "critical": 3,
+     "median_s": 1.69,
+     "p90_s": 2.34,
+     "median_gpu_s": 1.19,
+     "median_completion_tokens": 137.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.875,
+     "fully_correct": 0.75,
+     "critical": 3,
+     "median_s": 0.75,
+     "p90_s": 1.15,
+     "median_gpu_s": 0.25,
+     "median_completion_tokens": 46.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.931,
+     "fully_correct": 0.875,
+     "critical": 2,
+     "median_s": 1.7,
+     "p90_s": 2.43,
+     "median_gpu_s": 1.23,
+     "median_completion_tokens": 176.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.931,
+     "fully_correct": 0.875,
+     "critical": 2,
+     "median_s": 1.04,
+     "p90_s": 1.37,
+     "median_gpu_s": 0.68
+    },
+    "madlad-7b-int8": {
+     "score": 0.764,
+     "fully_correct": 0.625,
+     "critical": 6,
+     "median_s": 3.08,
+     "p90_s": 5.85,
+     "median_gpu_s": 0.24
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.972,
+     "fully_correct": 0.958,
+     "critical": 1,
+     "median_s": 2.89,
+     "p90_s": 3.86,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.972,
+     "fully_correct": 0.958,
+     "critical": 1,
+     "median_s": 1.18,
+     "p90_s": 7.51,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:km-en": {
+   "sentences": 24,
+   "stt": "azure km-KH",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.306,
+     "fully_correct": 0.167,
+     "critical": 18,
+     "median_s": 2.06,
+     "p90_s": 3.04,
+     "median_gpu_s": 1.55,
+     "median_completion_tokens": 168.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.264,
+     "fully_correct": 0.167,
+     "critical": 18,
+     "median_s": 4.52,
+     "p90_s": 7.29,
+     "median_gpu_s": 3.87,
+     "median_completion_tokens": 468.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.222,
+     "fully_correct": 0.042,
+     "critical": 17,
+     "median_s": 1.13,
+     "p90_s": 1.72,
+     "median_gpu_s": 0.65,
+     "median_completion_tokens": 132.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.319,
+     "fully_correct": 0.208,
+     "critical": 19,
+     "median_s": 5.97,
+     "p90_s": 9.45,
+     "median_gpu_s": 5.43,
+     "median_completion_tokens": 805.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.403,
+     "fully_correct": 0.167,
+     "critical": 14,
+     "median_s": 1.14,
+     "p90_s": 1.5,
+     "median_gpu_s": 0.83
+    },
+    "madlad-7b-int8": {
+     "score": 0.264,
+     "fully_correct": 0.167,
+     "critical": 17,
+     "median_s": 2.53,
+     "p90_s": 2.73,
+     "median_gpu_s": 0.26
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.653,
+     "fully_correct": 0.5,
+     "critical": 10,
+     "median_s": 6.34,
+     "p90_s": 11.96,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.653,
+     "fully_correct": 0.458,
+     "critical": 9,
+     "median_s": 2.71,
+     "p90_s": 5.37,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:lo-en": {
+   "sentences": 24,
+   "stt": "azure lo-LA",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.167,
+     "fully_correct": 0.0,
+     "critical": 6,
+     "median_s": 2.52,
+     "p90_s": 3.23,
+     "median_gpu_s": 2.06,
+     "median_completion_tokens": 226.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.153,
+     "fully_correct": 0.0,
+     "critical": 6,
+     "median_s": 5.6,
+     "p90_s": 9.96,
+     "median_gpu_s": 5.16,
+     "median_completion_tokens": 608.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.056,
+     "fully_correct": 0.0,
+     "critical": 2,
+     "median_s": 1.13,
+     "p90_s": 1.63,
+     "median_gpu_s": 0.68,
+     "median_completion_tokens": 138.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.347,
+     "fully_correct": 0.083,
+     "critical": 5,
+     "median_s": 6.34,
+     "p90_s": 9.63,
+     "median_gpu_s": 5.57,
+     "median_completion_tokens": 908.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "madlad-7b-int8": {
+     "score": 0.389,
+     "fully_correct": 0.208,
+     "critical": 2,
+     "median_s": 3.1,
+     "p90_s": 3.69,
+     "median_gpu_s": 0.26
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.486,
+     "fully_correct": 0.25,
+     "critical": 9,
+     "median_s": 6.56,
+     "p90_s": 13.31,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.5,
+     "fully_correct": 0.25,
+     "critical": 8,
+     "median_s": 3.25,
+     "p90_s": 4.53,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "syn:ht-en": {
+   "sentences": 24,
+   "stt": "omnilingual (open stack)",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.264,
+     "fully_correct": 0.167,
+     "critical": 13,
+     "median_s": 2.03,
+     "p90_s": 2.81,
+     "median_gpu_s": 1.51,
+     "median_completion_tokens": 174.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.333,
+     "fully_correct": 0.25,
+     "critical": 13,
+     "median_s": 5.05,
+     "p90_s": 8.7,
+     "median_gpu_s": 4.59,
+     "median_completion_tokens": 555.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.25,
+     "fully_correct": 0.125,
+     "critical": 15,
+     "median_s": 1.18,
+     "p90_s": 1.72,
+     "median_gpu_s": 0.72,
+     "median_completion_tokens": 140.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.375,
+     "fully_correct": 0.25,
+     "critical": 12,
+     "median_s": 4.62,
+     "p90_s": 6.51,
+     "median_gpu_s": 4.16,
+     "median_completion_tokens": 666.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "madlad-7b-int8": {
+     "score": 0.264,
+     "fully_correct": 0.167,
+     "critical": 13,
+     "median_s": 3.51,
+     "p90_s": 4.19,
+     "median_gpu_s": 0.24
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.764,
+     "fully_correct": 0.667,
+     "critical": 5,
+     "median_s": 5.38,
+     "p90_s": 10.57,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.806,
+     "fully_correct": 0.667,
+     "critical": 5,
+     "median_s": 2.49,
+     "p90_s": 7.21,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "real:en-ja": {
+   "sentences": 30,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.678,
+     "fully_correct": 0.467,
+     "critical": 3,
+     "median_s": 1.71,
+     "p90_s": 2.33,
+     "median_gpu_s": 1.28,
+     "median_completion_tokens": 139.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.722,
+     "fully_correct": 0.5,
+     "critical": 3,
+     "median_s": 2.71,
+     "p90_s": 3.98,
+     "median_gpu_s": 2.18,
+     "median_completion_tokens": 332.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.611,
+     "fully_correct": 0.333,
+     "critical": 5,
+     "median_s": 1.16,
+     "p90_s": 1.47,
+     "median_gpu_s": 0.63,
+     "median_completion_tokens": 133.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.767,
+     "fully_correct": 0.533,
+     "critical": 4,
+     "median_s": 3.86,
+     "p90_s": 5.25,
+     "median_gpu_s": 3.2,
+     "median_completion_tokens": 489.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.733,
+     "fully_correct": 0.5,
+     "critical": 3,
+     "median_s": 2.24,
+     "p90_s": 2.92,
+     "median_gpu_s": 1.95
+    },
+    "madlad-7b-int8": {
+     "score": 0.578,
+     "fully_correct": 0.3,
+     "critical": 4,
+     "median_s": 2.86,
+     "p90_s": 4.04,
+     "median_gpu_s": 0.49
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.844,
+     "fully_correct": 0.7,
+     "critical": 1,
+     "median_s": 5.42,
+     "p90_s": 9.11,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.811,
+     "fully_correct": 0.667,
+     "critical": 3,
+     "median_s": 2.24,
+     "p90_s": 5.38,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "real:en-km": {
+   "sentences": 30,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.344,
+     "fully_correct": 0.067,
+     "critical": 9,
+     "median_s": 2.49,
+     "p90_s": 3.73,
+     "median_gpu_s": 1.94,
+     "median_completion_tokens": 227.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.511,
+     "fully_correct": 0.233,
+     "critical": 9,
+     "median_s": 4.43,
+     "p90_s": 6.74,
+     "median_gpu_s": 3.91,
+     "median_completion_tokens": 609.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.222,
+     "fully_correct": 0.0,
+     "critical": 5,
+     "median_s": 1.6,
+     "p90_s": 2.48,
+     "median_gpu_s": 1.15,
+     "median_completion_tokens": 227.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.389,
+     "fully_correct": 0.133,
+     "critical": 10,
+     "median_s": 6.31,
+     "p90_s": 7.78,
+     "median_gpu_s": 5.65,
+     "median_completion_tokens": 972.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.7,
+     "fully_correct": 0.533,
+     "critical": 10,
+     "median_s": 8.37,
+     "p90_s": 10.72,
+     "median_gpu_s": 8.01
+    },
+    "madlad-7b-int8": {
+     "score": 0.456,
+     "fully_correct": 0.133,
+     "critical": 12,
+     "median_s": 1.61,
+     "p90_s": 2.23,
+     "median_gpu_s": 0.63
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.811,
+     "fully_correct": 0.7,
+     "critical": 5,
+     "median_s": 6.52,
+     "p90_s": 8.6,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.8,
+     "fully_correct": 0.7,
+     "critical": 7,
+     "median_s": 3.29,
+     "p90_s": 3.96,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "real:en-lo": {
+   "sentences": 30,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.311,
+     "fully_correct": 0.033,
+     "critical": 6,
+     "median_s": 4.46,
+     "p90_s": 7.7,
+     "median_gpu_s": 3.95,
+     "median_completion_tokens": 500.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.244,
+     "fully_correct": 0.0,
+     "critical": 4,
+     "median_s": 7.83,
+     "p90_s": 11.87,
+     "median_gpu_s": 7.36,
+     "median_completion_tokens": 1296.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.011,
+     "fully_correct": 0.0,
+     "critical": 1,
+     "median_s": 3.32,
+     "p90_s": 6.59,
+     "median_gpu_s": 2.88,
+     "median_completion_tokens": 618.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.189,
+     "fully_correct": 0.033,
+     "critical": 5,
+     "median_s": 6.0,
+     "p90_s": 8.27,
+     "median_gpu_s": 5.13,
+     "median_completion_tokens": 795.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "madlad-7b-int8": {
+     "score": 0.578,
+     "fully_correct": 0.3,
+     "critical": 9,
+     "median_s": 1.64,
+     "p90_s": 2.16,
+     "median_gpu_s": 0.57
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.778,
+     "fully_correct": 0.6,
+     "critical": 5,
+     "median_s": 5.79,
+     "p90_s": 8.01,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.833,
+     "fully_correct": 0.733,
+     "critical": 4,
+     "median_s": 4.2,
+     "p90_s": 6.15,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "real:en-ht": {
+   "sentences": 30,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.6,
+     "fully_correct": 0.3,
+     "critical": 6,
+     "median_s": 1.63,
+     "p90_s": 2.07,
+     "median_gpu_s": 1.1,
+     "median_completion_tokens": 125.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.6,
+     "fully_correct": 0.367,
+     "critical": 8,
+     "median_s": 2.68,
+     "p90_s": 4.17,
+     "median_gpu_s": 2.22,
+     "median_completion_tokens": 336.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.556,
+     "fully_correct": 0.2,
+     "critical": 7,
+     "median_s": 1.1,
+     "p90_s": 1.45,
+     "median_gpu_s": 0.62,
+     "median_completion_tokens": 135.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.489,
+     "fully_correct": 0.067,
+     "critical": 6,
+     "median_s": 4.02,
+     "p90_s": 5.71,
+     "median_gpu_s": 3.54,
+     "median_completion_tokens": 584.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "madlad-7b-int8": {
+     "score": 0.411,
+     "fully_correct": 0.1,
+     "critical": 11,
+     "median_s": 1.44,
+     "p90_s": 1.81,
+     "median_gpu_s": 0.42
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.744,
+     "fully_correct": 0.6,
+     "critical": 6,
+     "median_s": 5.02,
+     "p90_s": 7.29,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.8,
+     "fully_correct": 0.667,
+     "critical": 4,
+     "median_s": 2.5,
+     "p90_s": 3.4,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "real:en-fr": {
+   "sentences": 30,
+   "stt": "azure en-US",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.522,
+     "fully_correct": 0.3,
+     "critical": 5,
+     "median_s": 1.49,
+     "p90_s": 2.14,
+     "median_gpu_s": 1.05,
+     "median_completion_tokens": 118.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.6,
+     "fully_correct": 0.433,
+     "critical": 5,
+     "median_s": 2.78,
+     "p90_s": 3.77,
+     "median_gpu_s": 2.18,
+     "median_completion_tokens": 329.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.533,
+     "fully_correct": 0.3,
+     "critical": 5,
+     "median_s": 0.91,
+     "p90_s": 1.26,
+     "median_gpu_s": 0.45,
+     "median_completion_tokens": 97.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.711,
+     "fully_correct": 0.567,
+     "critical": 4,
+     "median_s": 3.68,
+     "p90_s": 4.89,
+     "median_gpu_s": 2.97,
+     "median_completion_tokens": 503.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.656,
+     "fully_correct": 0.5,
+     "critical": 5,
+     "median_s": 2.71,
+     "p90_s": 3.5,
+     "median_gpu_s": 1.57
+    },
+    "madlad-7b-int8": {
+     "score": 0.567,
+     "fully_correct": 0.4,
+     "critical": 5,
+     "median_s": 1.64,
+     "p90_s": 2.25,
+     "median_gpu_s": 0.5
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.744,
+     "fully_correct": 0.633,
+     "critical": 3,
+     "median_s": 6.05,
+     "p90_s": 7.65,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.767,
+     "fully_correct": 0.633,
+     "critical": 3,
+     "median_s": 2.07,
+     "p90_s": 2.93,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "real:ja-en": {
+   "sentences": 30,
+   "stt": "azure",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.611,
+     "fully_correct": 0.4,
+     "critical": 4,
+     "median_s": 1.72,
+     "p90_s": 2.21,
+     "median_gpu_s": 1.24,
+     "median_completion_tokens": 142.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.589,
+     "fully_correct": 0.367,
+     "critical": 4,
+     "median_s": 2.83,
+     "p90_s": 3.56,
+     "median_gpu_s": 2.35,
+     "median_completion_tokens": 347.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.611,
+     "fully_correct": 0.367,
+     "critical": 3,
+     "median_s": 1.0,
+     "p90_s": 1.5,
+     "median_gpu_s": 0.55,
+     "median_completion_tokens": 118.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.733,
+     "fully_correct": 0.533,
+     "critical": 2,
+     "median_s": 3.74,
+     "p90_s": 6.22,
+     "median_gpu_s": 3.22,
+     "median_completion_tokens": 490.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.656,
+     "fully_correct": 0.433,
+     "critical": 3,
+     "median_s": 2.66,
+     "p90_s": 3.48,
+     "median_gpu_s": 1.19
+    },
+    "madlad-7b-int8": {
+     "score": 0.6,
+     "fully_correct": 0.433,
+     "critical": 5,
+     "median_s": 1.32,
+     "p90_s": 1.72,
+     "median_gpu_s": 0.39
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.844,
+     "fully_correct": 0.733,
+     "critical": 3,
+     "median_s": 4.7,
+     "p90_s": 9.36,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.867,
+     "fully_correct": 0.767,
+     "critical": 2,
+     "median_s": 2.28,
+     "p90_s": 3.38,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "real:km-en": {
+   "sentences": 30,
+   "stt": "azure",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.322,
+     "fully_correct": 0.1,
+     "critical": 18,
+     "median_s": 2.43,
+     "p90_s": 3.4,
+     "median_gpu_s": 1.9,
+     "median_completion_tokens": 223.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.344,
+     "fully_correct": 0.133,
+     "critical": 20,
+     "median_s": 4.52,
+     "p90_s": 6.92,
+     "median_gpu_s": 4.04,
+     "median_completion_tokens": 622.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.289,
+     "fully_correct": 0.1,
+     "critical": 20,
+     "median_s": 1.14,
+     "p90_s": 1.89,
+     "median_gpu_s": 0.64,
+     "median_completion_tokens": 140.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.344,
+     "fully_correct": 0.167,
+     "critical": 20,
+     "median_s": 7.89,
+     "p90_s": 13.15,
+     "median_gpu_s": 7.39,
+     "median_completion_tokens": 1196.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.533,
+     "fully_correct": 0.333,
+     "critical": 15,
+     "median_s": 3.36,
+     "p90_s": 4.12,
+     "median_gpu_s": 1.19
+    },
+    "madlad-7b-int8": {
+     "score": 0.378,
+     "fully_correct": 0.2,
+     "critical": 18,
+     "median_s": 1.46,
+     "p90_s": 1.9,
+     "median_gpu_s": 0.47
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.644,
+     "fully_correct": 0.433,
+     "critical": 13,
+     "median_s": 5.36,
+     "p90_s": 8.86,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.656,
+     "fully_correct": 0.467,
+     "critical": 13,
+     "median_s": 2.91,
+     "p90_s": 6.14,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "real:lo-en": {
+   "sentences": 30,
+   "stt": "azure",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.089,
+     "fully_correct": 0.0,
+     "critical": 30,
+     "median_s": 2.95,
+     "p90_s": 4.35,
+     "median_gpu_s": 2.51,
+     "median_completion_tokens": 295.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.122,
+     "fully_correct": 0.0,
+     "critical": 29,
+     "median_s": 7.57,
+     "p90_s": 10.81,
+     "median_gpu_s": 7.09,
+     "median_completion_tokens": 1109.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.022,
+     "fully_correct": 0.0,
+     "critical": 30,
+     "median_s": 1.03,
+     "p90_s": 1.56,
+     "median_gpu_s": 0.52,
+     "median_completion_tokens": 105.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.278,
+     "fully_correct": 0.033,
+     "critical": 26,
+     "median_s": 8.17,
+     "p90_s": 12.21,
+     "median_gpu_s": 7.32,
+     "median_completion_tokens": 1174.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "madlad-7b-int8": {
+     "score": 0.344,
+     "fully_correct": 0.1,
+     "critical": 23,
+     "median_s": 1.36,
+     "p90_s": 1.72,
+     "median_gpu_s": 0.44
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.633,
+     "fully_correct": 0.433,
+     "critical": 14,
+     "median_s": 7.66,
+     "p90_s": 12.67,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.633,
+     "fully_correct": 0.433,
+     "critical": 15,
+     "median_s": 3.33,
+     "p90_s": 6.44,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "real:fr-en": {
+   "sentences": 30,
+   "stt": "azure fr-FR",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.611,
+     "fully_correct": 0.333,
+     "critical": 12,
+     "median_s": 1.42,
+     "p90_s": 2.22,
+     "median_gpu_s": 0.96,
+     "median_completion_tokens": 104.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.633,
+     "fully_correct": 0.333,
+     "critical": 11,
+     "median_s": 2.28,
+     "p90_s": 2.96,
+     "median_gpu_s": 1.82,
+     "median_completion_tokens": 270.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.6,
+     "fully_correct": 0.333,
+     "critical": 12,
+     "median_s": 0.89,
+     "p90_s": 1.37,
+     "median_gpu_s": 0.44,
+     "median_completion_tokens": 99.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.733,
+     "fully_correct": 0.567,
+     "critical": 9,
+     "median_s": 2.77,
+     "p90_s": 5.16,
+     "median_gpu_s": 2.21,
+     "median_completion_tokens": 354.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "hymt2-7b-nf4": {
+     "score": 0.711,
+     "fully_correct": 0.5,
+     "critical": 9,
+     "median_s": 2.97,
+     "p90_s": 3.91,
+     "median_gpu_s": 1.13
+    },
+    "madlad-7b-int8": {
+     "score": 0.656,
+     "fully_correct": 0.467,
+     "critical": 10,
+     "median_s": 1.43,
+     "p90_s": 1.93,
+     "median_gpu_s": 0.39
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.811,
+     "fully_correct": 0.667,
+     "critical": 6,
+     "median_s": 4.14,
+     "p90_s": 6.5,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.811,
+     "fully_correct": 0.7,
+     "critical": 7,
+     "median_s": 1.64,
+     "p90_s": 2.3,
+     "median_gpu_s": null
+    }
+   }
+  },
+  "real:ht-en": {
+   "sentences": 30,
+   "stt": "omnilingual (open stack); reference written by Gemini 2.5 Pro",
+   "empty_inputs": 0,
+   "systems": {
+    "gpt-oss-120b@low": {
+     "score": 0.3,
+     "fully_correct": 0.067,
+     "critical": 22,
+     "median_s": 1.94,
+     "p90_s": 2.57,
+     "median_gpu_s": 1.46,
+     "median_completion_tokens": 170.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-120b@medium": {
+     "score": 0.4,
+     "fully_correct": 0.133,
+     "critical": 20,
+     "median_s": 3.93,
+     "p90_s": 5.25,
+     "median_gpu_s": 3.23,
+     "median_completion_tokens": 490.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 4
+    },
+    "gpt-oss-20b@low": {
+     "score": 0.233,
+     "fully_correct": 0.067,
+     "critical": 24,
+     "median_s": 1.22,
+     "p90_s": 1.84,
+     "median_gpu_s": 0.77,
+     "median_completion_tokens": 167.0,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "qwen3.8-27b-fp8@low": {
+     "score": 0.411,
+     "fully_correct": 0.2,
+     "critical": 20,
+     "median_s": 5.5,
+     "p90_s": 8.43,
+     "median_gpu_s": 4.74,
+     "median_completion_tokens": 774.5,
+     "truncated": 0,
+     "blank_outputs": 0,
+     "in_flight": 6
+    },
+    "madlad-7b-int8": {
+     "score": 0.333,
+     "fully_correct": 0.1,
+     "critical": 23,
+     "median_s": 2.17,
+     "p90_s": 3.15,
+     "median_gpu_s": 0.34
+    },
+    "gemini-3.5-flash@medium": {
+     "score": 0.867,
+     "fully_correct": 0.733,
+     "critical": 3,
+     "median_s": 5.7,
+     "p90_s": 8.8,
+     "median_gpu_s": null
+    },
+    "foundry-gpt-5.6-sol@low": {
+     "score": 0.911,
+     "fully_correct": 0.833,
+     "critical": 3,
+     "median_s": 3.06,
+     "p90_s": 4.89,
+     "median_gpu_s": null
+    }
+   }
+  }
+ },
+ "groups": {
+  "gpt-oss-120b@low": {
+   "Into English: ja, zh, km, fr (6)": {
+    "score": 0.605,
+    "critical": 59
+   },
+   "Out of English: ja, zh, km, es, fr, ru, de, uk (11)": {
+    "score": 0.81,
+    "critical": 20
+   },
+   "Lao, both ways (4)": {
+    "score": 0.239,
+    "critical": 51
+   },
+   "Haitian Creole, both ways (4)": {
+    "score": 0.534,
+    "critical": 41
+   },
+   "All 25 directions": {
+    "score": 0.625,
+    "critical": 171
+   }
+  },
+  "gpt-oss-120b@medium": {
+   "Into English: ja, zh, km, fr (6)": {
+    "score": 0.594,
+    "critical": 61
+   },
+   "Out of English: ja, zh, km, es, fr, ru, de, uk (11)": {
+    "score": 0.827,
+    "critical": 25
+   },
+   "Lao, both ways (4)": {
+    "score": 0.237,
+    "critical": 47
+   },
+   "Haitian Creole, both ways (4)": {
+    "score": 0.566,
+    "critical": 42
+   },
+   "All 25 directions": {
+    "score": 0.635,
+    "critical": 175
+   }
+  },
+  "gpt-oss-20b@low": {
+   "Into English: ja, zh, km, fr (6)": {
+    "score": 0.579,
+    "critical": 59
+   },
+   "Out of English: ja, zh, km, es, fr, ru, de, uk (11)": {
+    "score": 0.74,
+    "critical": 25
+   },
+   "Lao, both ways (4)": {
+    "score": 0.033,
+    "critical": 44
+   },
+   "Haitian Creole, both ways (4)": {
+    "score": 0.433,
+    "critical": 49
+   },
+   "All 25 directions": {
+    "score": 0.539,
+    "critical": 177
+   }
+  },
+  "qwen3.8-27b-fp8@low": {
+   "Into English: ja, zh, km, fr (6)": {
+    "score": 0.66,
+    "critical": 55
+   },
+   "Out of English: ja, zh, km, es, fr, ru, de, uk (11)": {
+    "score": 0.835,
+    "critical": 22
+   },
+   "Lao, both ways (4)": {
+    "score": 0.276,
+    "critical": 44
+   },
+   "Haitian Creole, both ways (4)": {
+    "score": 0.458,
+    "critical": 44
+   },
+   "All 25 directions": {
+    "score": 0.643,
+    "critical": 165
+   }
+  },
+  "hymt2-7b-nf4": {
+   "Into English: ja, zh, km, fr (6)": {
+    "score": 0.675,
+    "critical": 49
+   },
+   "Out of English: ja, zh, km, es, fr, ru, de, uk (11)": {
+    "score": 0.889,
+    "critical": 21
+   }
+  },
+  "madlad-7b-int8": {
+   "Into English: ja, zh, km, fr (6)": {
+    "score": 0.573,
+    "critical": 63
+   },
+   "Out of English: ja, zh, km, es, fr, ru, de, uk (11)": {
+    "score": 0.749,
+    "critical": 31
+   },
+   "Lao, both ways (4)": {
+    "score": 0.539,
+    "critical": 37
+   },
+   "Haitian Creole, both ways (4)": {
+    "score": 0.443,
+    "critical": 53
+   },
+   "All 25 directions": {
+    "score": 0.624,
+    "critical": 184
+   }
+  },
+  "gemini-3.5-flash@medium": {
+   "Into English: ja, zh, km, fr (6)": {
+    "score": 0.809,
+    "critical": 35
+   },
+   "Out of English: ja, zh, km, es, fr, ru, de, uk (11)": {
+    "score": 0.944,
+    "critical": 9
+   },
+   "Lao, both ways (4)": {
+    "score": 0.714,
+    "critical": 28
+   },
+   "Haitian Creole, both ways (4)": {
+    "score": 0.84,
+    "critical": 14
+   },
+   "All 25 directions": {
+    "score": 0.858,
+    "critical": 86
+   }
+  },
+  "foundry-gpt-5.6-sol@low": {
+   "Into English: ja, zh, km, fr (6)": {
+    "score": 0.822,
+    "critical": 33
+   },
+   "Out of English: ja, zh, km, es, fr, ru, de, uk (11)": {
+    "score": 0.943,
+    "critical": 13
+   },
+   "Lao, both ways (4)": {
+    "score": 0.738,
+    "critical": 27
+   },
+   "Haitian Creole, both ways (4)": {
+    "score": 0.879,
+    "critical": 12
+   },
+   "All 25 directions": {
+    "score": 0.871,
+    "critical": 85
+   }
+  }
+ },
+ "overall": {
+  "gpt-oss-120b@low": {
+   "score": 0.625,
+   "critical": 171
+  },
+  "gpt-oss-120b@medium": {
+   "score": 0.635,
+   "critical": 175
+  },
+  "gpt-oss-20b@low": {
+   "score": 0.539,
+   "critical": 177
+  },
+  "qwen3.8-27b-fp8@low": {
+   "score": 0.643,
+   "critical": 165
+  },
+  "madlad-7b-int8": {
+   "score": 0.624,
+   "critical": 184
+  },
+  "gemini-3.5-flash@medium": {
+   "score": 0.858,
+   "critical": 86
+  },
+  "foundry-gpt-5.6-sol@low": {
+   "score": 0.871,
+   "critical": 85
+  }
+ },
+ "latency": {
+  "gpt-oss-120b@low": {
+   "median_over_directions_s": 1.05,
+   "range_s": [
+    0.33,
+    3.95
+   ],
+   "single_stream": {
+    "n": 50,
+    "median_s": 0.62,
+    "p90_s": 1.48,
+    "median_completion_tokens": 127.0
+   }
+  },
+  "gpt-oss-120b@medium": {
+   "median_over_directions_s": 2.18,
+   "range_s": [
+    1.19,
+    7.36
+   ],
+   "single_stream": {
+    "n": 50,
+    "median_s": 1.38,
+    "p90_s": 4.27,
+    "median_completion_tokens": 299.0
+   }
+  },
+  "gpt-oss-20b@low": {
+   "median_over_directions_s": 0.52,
+   "range_s": [
+    0.25,
+    3.35
+   ],
+   "single_stream": {
+    "n": 50,
+    "median_s": 0.41,
+    "p90_s": 0.73,
+    "median_completion_tokens": 112.0
+   }
+  },
+  "qwen3.8-27b-fp8@low": {
+   "median_over_directions_s": 3.2,
+   "range_s": [
+    1.23,
+    7.39
+   ],
+   "single_stream": {
+    "n": 50,
+    "median_s": 2.77,
+    "p90_s": 6.92,
+    "median_completion_tokens": 506.0
+   }
+  },
+  "hymt2-7b-nf4": {
+   "median_over_directions_s": 1.13,
+   "range_s": [
+    0.59,
+    8.01
+   ]
+  },
+  "madlad-7b-int8": {
+   "median_over_directions_s": 0.31,
+   "range_s": [
+    0.24,
+    0.63
+   ]
+  },
+  "gemini-3.5-flash@medium": {
+   "median_over_directions_s": 4.7,
+   "range_s": [
+    2.89,
+    7.66
+   ]
+  },
+  "foundry-gpt-5.6-sol@low": {
+   "median_over_directions_s": 2.02,
+   "range_s": [
+    1.17,
+    4.2
+   ]
+  }
+ }
+}

@@ -1,0 +1,531 @@
+{
+ "cond": "revnoise10_rnn",
+ "lang": "ht",
+ "err": "",
+ "audio_s": 322.86,
+ "hello": {
+  "type": "hello",
+  "langs": [
+   "ht"
+  ],
+  "rate": 16000
+ },
+ "finals": [
+  {
+   "text": "limente yon",
+   "start_ms": 844,
+   "end_ms": 2458,
+   "arrivedMs": 2756
+  },
+  {
+   "text": "ala m te ka di m tande m te ka di m tande m te ka di m tande m te ka di m tande m tande m tande m tande m tande m tande m tande",
+   "start_ms": 2592,
+   "end_ms": 6840,
+   "arrivedMs": 11618
+  },
+  {
+   "text": "- أهلا بكم - أهلا بكم - أهلا",
+   "start_ms": 6840,
+   "end_ms": 10042,
+   "arrivedMs": 13440
+  },
+  {
+   "text": "avol nan zòr kouze a nan",
+   "start_ms": 10176,
+   "end_ms": 13786,
+   "arrivedMs": 14422
+  },
+  {
+   "text": "yon pati dan nan bil byen",
+   "start_ms": 13996,
+   "end_ms": 16666,
+   "arrivedMs": 18030
+  },
+  {
+   "text": "bay bay di yo",
+   "start_ms": 16800,
+   "end_ms": 18586,
+   "arrivedMs": 19854
+  },
+  {
+   "text": "anvan wòl kristan",
+   "start_ms": 19468,
+   "end_ms": 22138,
+   "arrivedMs": 23174
+  },
+  {
+   "text": "li te anlè tèt kou a",
+   "start_ms": 22272,
+   "end_ms": 24826,
+   "arrivedMs": 25340
+  },
+  {
+   "text": "te gen yon bagay",
+   "start_ms": 25132,
+   "end_ms": 27322,
+   "arrivedMs": 27766
+  },
+  {
+   "text": "tanti m yon kofo te",
+   "start_ms": 27456,
+   "end_ms": 30298,
+   "arrivedMs": 30807
+  },
+  {
+   "text": "penn an wòch sèch",
+   "start_ms": 30508,
+   "end_ms": 32890,
+   "arrivedMs": 33387
+  },
+  {
+   "text": "efes a etiga la ra",
+   "start_ms": 33580,
+   "end_ms": 36634,
+   "arrivedMs": 37072
+  },
+  {
+   "text": "karava",
+   "start_ms": 36768,
+   "end_ms": 38650,
+   "arrivedMs": 38878
+  },
+  {
+   "text": "对对对",
+   "start_ms": 38784,
+   "end_ms": 40090,
+   "arrivedMs": 40333
+  },
+  {
+   "text": "المهم جان في حياتك",
+   "start_ms": 40224,
+   "end_ms": 41338,
+   "arrivedMs": 41764
+  },
+  {
+   "text": "marki se piti banase",
+   "start_ms": 41472,
+   "end_ms": 43834,
+   "arrivedMs": 44717
+  },
+  {
+   "text": "gèt sis san mwen menm ke lè m pou miri alo ki te la m te ka pran li",
+   "start_ms": 45484,
+   "end_ms": 50842,
+   "arrivedMs": 52387
+  },
+  {
+   "text": "e yon cheri men ki rete kache m te want ansanm kanmèm",
+   "start_ms": 50976,
+   "end_ms": 56314,
+   "arrivedMs": 57404
+  },
+  {
+   "text": "enternational would li sa etisye un ki plis pou jou",
+   "start_ms": 56448,
+   "end_ms": 61156,
+   "arrivedMs": 63758
+  },
+  {
+   "text": "kolej levi ak doum nan zòr nan inou antouri nan batay",
+   "start_ms": 61156,
+   "end_ms": 65722,
+   "arrivedMs": 66803
+  },
+  {
+   "text": "edzamine byen tout sa limti la a",
+   "start_ms": 66892,
+   "end_ms": 70618,
+   "arrivedMs": 72320
+  },
+  {
+   "text": "areya de te ti mari se katriyèm pitit fi ou",
+   "start_ms": 71116,
+   "end_ms": 75924,
+   "arrivedMs": 77875
+  },
+  {
+   "text": "si ze piti kou ak madanm mwen",
+   "start_ms": 75924,
+   "end_ms": 79066,
+   "arrivedMs": 80043
+  },
+  {
+   "text": "jodi a terra l al mwa chans politike rivan estou",
+   "start_ms": 81196,
+   "end_ms": 85924,
+   "arrivedMs": 88114
+  },
+  {
+   "text": "saye pansan ak sou rezo family",
+   "start_ms": 85924,
+   "end_ms": 89434,
+   "arrivedMs": 90917
+  },
+  {
+   "text": "se moun menm chèf responsable li plizla kapit pri lèt sa a",
+   "start_ms": 90892,
+   "end_ms": 96320,
+   "arrivedMs": 97935
+  },
+  {
+   "text": "men yo te tankou pye reziyans sa yon reziyan ladan l",
+   "start_ms": 96320,
+   "end_ms": 102016,
+   "arrivedMs": 103246
+  },
+  {
+   "text": "tandou pi fig fò sa yo fig fò ladan",
+   "start_ms": 102016,
+   "end_ms": 106042,
+   "arrivedMs": 106747
+  },
+  {
+   "text": "m fè yon ti pè yon ti pè yon espola",
+   "start_ms": 106828,
+   "end_ms": 110554,
+   "arrivedMs": 111382
+  },
+  {
+   "text": "metod chan nou mwa de ou pa mwen presye ou te ki pral jis",
+   "start_ms": 111148,
+   "end_ms": 116536,
+   "arrivedMs": 119013
+  },
+  {
+   "text": "تمنياتي الكن باجمل الحظوظ",
+   "start_ms": 116536,
+   "end_ms": 119578,
+   "arrivedMs": 120320
+  },
+  {
+   "text": "la polis annoncé avec station dizième militante",
+   "start_ms": 120460,
+   "end_ms": 124762,
+   "arrivedMs": 125633
+  },
+  {
+   "text": "òganizas yo popilè ki t ap boule kawou m di w",
+   "start_ms": 124896,
+   "end_ms": 128698,
+   "arrivedMs": 129604
+  },
+  {
+   "text": "moun ki san defans sur se nan ban ou yo lage",
+   "start_ms": 128908,
+   "end_ms": 133696,
+   "arrivedMs": 135688
+  },
+  {
+   "text": "je w paske epi moun ki san papa",
+   "start_ms": 133696,
+   "end_ms": 138586,
+   "arrivedMs": 139281
+  },
+  {
+   "text": "lesla yon sanj",
+   "start_ms": 138720,
+   "end_ms": 141562,
+   "arrivedMs": 141905
+  },
+  {
+   "text": "fite wounen anpil antonio yon roch",
+   "start_ms": 141696,
+   "end_ms": 145690,
+   "arrivedMs": 147492
+  },
+  {
+   "text": "ou se yon wòl moulen",
+   "start_ms": 145824,
+   "end_ms": 148570,
+   "arrivedMs": 149204
+  },
+  {
+   "text": "jedel nan nan mer",
+   "start_ms": 148704,
+   "end_ms": 151258,
+   "arrivedMs": 151649
+  },
+  {
+   "text": "sou chak bonjou sou koteyo de gan",
+   "start_ms": 152812,
+   "end_ms": 157882,
+   "arrivedMs": 158654
+  },
+  {
+   "text": "autrey frwafle mwakaj ak",
+   "start_ms": 158016,
+   "end_ms": 162644,
+   "arrivedMs": 164843
+  },
+  {
+   "text": "不装有 ⁇",
+   "start_ms": 162644,
+   "end_ms": 164602,
+   "arrivedMs": 164970
+  },
+  {
+   "text": "jezi la te paske yon move nimeli ak lafyèv",
+   "start_ms": 165868,
+   "end_ms": 170746,
+   "arrivedMs": 173195
+  },
+  {
+   "text": "komunisman maten san ponte kè blen",
+   "start_ms": 170880,
+   "end_ms": 175738,
+   "arrivedMs": 176439
+  },
+  {
+   "text": "m ap remèsye chak manman asanble nazyonal la",
+   "start_ms": 175948,
+   "end_ms": 181498,
+   "arrivedMs": 182441
+  },
+  {
+   "text": "που εξυπήρκειαν στην οικοκατοίκη που έπαιγαν",
+   "start_ms": 181632,
+   "end_ms": 185530,
+   "arrivedMs": 186455
+  },
+  {
+   "text": "跟你关上",
+   "start_ms": 185664,
+   "end_ms": 187258,
+   "arrivedMs": 188529
+  },
+  {
+   "text": "pou te ekite vin pou moun familje w zèfilou kenkonk mwa s li",
+   "start_ms": 188812,
+   "end_ms": 193180,
+   "arrivedMs": 196010
+  },
+  {
+   "text": "volani vyaj de anspak lavil chevikou",
+   "start_ms": 193180,
+   "end_ms": 197280,
+   "arrivedMs": 200007
+  },
+  {
+   "text": "sou bran sou leyli vle",
+   "start_ms": 197280,
+   "end_ms": 199450,
+   "arrivedMs": 200442
+  },
+  {
+   "text": "yo te chita o ta plato je",
+   "start_ms": 200236,
+   "end_ms": 203098,
+   "arrivedMs": 204600
+  },
+  {
+   "text": "lè se a pale a fè petè l la",
+   "start_ms": 203232,
+   "end_ms": 206554,
+   "arrivedMs": 207158
+  },
+  {
+   "text": "li pa depi yon gouve ak fèb pa yi li da",
+   "start_ms": 206688,
+   "end_ms": 210394,
+   "arrivedMs": 211229
+  },
+  {
+   "text": "malgre m dwa svenje w de",
+   "start_ms": 211852,
+   "end_ms": 214330,
+   "arrivedMs": 214913
+  },
+  {
+   "text": "lo sfili se fò m profesè epi jouralis",
+   "start_ms": 214464,
+   "end_ms": 217978,
+   "arrivedMs": 218836
+  },
+  {
+   "text": "كان بعد ذلك يريد المعتاد المتوسط",
+   "start_ms": 218112,
+   "end_ms": 220090,
+   "arrivedMs": 220999
+  },
+  {
+   "text": "تبره شي تشكل",
+   "start_ms": 220224,
+   "end_ms": 222298,
+   "arrivedMs": 224179
+  },
+  {
+   "text": "m pa bay piti piti yo",
+   "start_ms": 222508,
+   "end_ms": 226856,
+   "arrivedMs": 228925
+  },
+  {
+   "text": "peyi wete ti",
+   "start_ms": 226856,
+   "end_ms": 229018,
+   "arrivedMs": 229388
+  },
+  {
+   "text": "نعم أخذوها",
+   "start_ms": 229152,
+   "end_ms": 230650,
+   "arrivedMs": 232114
+  },
+  {
+   "text": "pou biye a rele li pou chennen l pou tout tan wi",
+   "start_ms": 230784,
+   "end_ms": 235354,
+   "arrivedMs": 236474
+  },
+  {
+   "text": "se pou farawon",
+   "start_ms": 235488,
+   "end_ms": 237850,
+   "arrivedMs": 238206
+  },
+  {
+   "text": "بعد القدرة",
+   "start_ms": 237984,
+   "end_ms": 240154,
+   "arrivedMs": 240445
+  },
+  {
+   "text": "ou yo anpile komizyon yo nan depo nan chak bil",
+   "start_ms": 240288,
+   "end_ms": 245626,
+   "arrivedMs": 246545
+  },
+  {
+   "text": "lefini",
+   "start_ms": 245760,
+   "end_ms": 246874,
+   "arrivedMs": 247185
+  },
+  {
+   "text": "ou young pays",
+   "start_ms": 247008,
+   "end_ms": 248602,
+   "arrivedMs": 249277
+  },
+  {
+   "text": "gadan rive natite ak lajan w",
+   "start_ms": 248812,
+   "end_ms": 252154,
+   "arrivedMs": 252739
+  },
+  {
+   "text": "بكون فايد",
+   "start_ms": 252288,
+   "end_ms": 254362,
+   "arrivedMs": 254629
+  },
+  {
+   "text": "anou ti bèt ti gèn bitou sa m vle tout bèt",
+   "start_ms": 254496,
+   "end_ms": 259884,
+   "arrivedMs": 261279
+  },
+  {
+   "text": "li pa pou te nan bò pou l al bay sidòl mwa je",
+   "start_ms": 259884,
+   "end_ms": 265600,
+   "arrivedMs": 266722
+  },
+  {
+   "text": "nevle pa fèm sèvis pou vye zedol",
+   "start_ms": 265600,
+   "end_ms": 270060,
+   "arrivedMs": 272209
+  },
+  {
+   "text": "pep izrayel yo a pse li",
+   "start_ms": 270060,
+   "end_ms": 272794,
+   "arrivedMs": 273352
+  },
+  {
+   "text": "ne ou kwete l te yo ap gade",
+   "start_ms": 274156,
+   "end_ms": 276826,
+   "arrivedMs": 277480
+  },
+  {
+   "text": "pou wè demi l al dan m pran sanble m te vle l e pi se",
+   "start_ms": 276960,
+   "end_ms": 281608,
+   "arrivedMs": 284006
+  },
+  {
+   "text": "epi yon tank",
+   "start_ms": 281608,
+   "end_ms": 283258,
+   "arrivedMs": 284760
+  },
+  {
+   "text": "lè yo li velatiga nan yon sinagog juiche",
+   "start_ms": 283948,
+   "end_ms": 289306,
+   "arrivedMs": 290271
+  },
+  {
+   "text": "se bounou mete chou repou ah",
+   "start_ms": 289516,
+   "end_ms": 294964,
+   "arrivedMs": 296054
+  },
+  {
+   "text": "pa",
+   "start_ms": 294964,
+   "end_ms": 295834,
+   "arrivedMs": 296145
+  },
+  {
+   "text": "سي",
+   "start_ms": 295968,
+   "end_ms": 297946,
+   "arrivedMs": 298120
+  },
+  {
+   "text": "jean mwan degraj jan se",
+   "start_ms": 298444,
+   "end_ms": 301402,
+   "arrivedMs": 301944
+  },
+  {
+   "text": "ou lòt jou tant",
+   "start_ms": 301536,
+   "end_ms": 302938,
+   "arrivedMs": 303325
+  },
+  {
+   "text": "non diskurme jistroma se degrade po trakt meli di po seboj on vestismo",
+   "start_ms": 305740,
+   "end_ms": 311290,
+   "arrivedMs": 312637
+  },
+  {
+   "text": "santou m travay la m travay m travay la m travay m travay m travay m travay m travay m travay m travay m travay m travay m travay m travay m travay m travay m travay",
+   "start_ms": 311692,
+   "end_ms": 317400,
+   "arrivedMs": 320478
+  },
+  {
+   "text": "- الصحيح لأنه لا يمكن أن يتعرض",
+   "start_ms": 317400,
+   "end_ms": 319066,
+   "arrivedMs": 321014
+  },
+  {
+   "text": "بسم الله الرحمن الرحيم",
+   "start_ms": 319200,
+   "end_ms": 322138,
+   "arrivedMs": 322636
+  },
+  {
+   "text": "ما هذا",
+   "start_ms": 322272,
+   "end_ms": 322848,
+   "arrivedMs": 323095
+  }
+ ]
+}

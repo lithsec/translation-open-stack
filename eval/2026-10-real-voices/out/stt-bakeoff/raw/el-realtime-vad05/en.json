@@ -1,0 +1,254 @@
+{
+ "lang": "en",
+ "auto": false,
+ "err": "closed 1006 ",
+ "config": {
+  "sample_rate": 16000,
+  "audio_format": "pcm_16000",
+  "language_code": "en",
+  "secondary_languages": [],
+  "timestamps_granularity": "word",
+  "vad_commit_strategy": true,
+  "vad_silence_threshold_secs": 0.5,
+  "vad_threshold": 0.4,
+  "min_speech_duration_ms": 100,
+  "min_silence_duration_ms": 100,
+  "max_tokens_to_recompute": 5,
+  "model_id": "scribe_v2_realtime",
+  "disable_logging": false,
+  "include_timestamps": true,
+  "include_language_detection": true,
+  "filter_background_audio": false,
+  "keyterms": [],
+  "no_verbatim": false,
+  "entity_detection": null,
+  "keepalive_interval_ms": null
+ },
+ "finals": [
+  {
+   "text": "Angel 2006 explains that continuum approach is a method being used to help organizations reach a higher level of .",
+   "language": "en",
+   "offsetMs": 1000,
+   "durationMs": 6501,
+   "arrivedMs": 8366
+  },
+  {
+   "text": "The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011. It didn't open to traffic until March 2016.",
+   "language": "en",
+   "offsetMs": 8492,
+   "durationMs": 7079.999999999998,
+   "arrivedMs": 16395
+  },
+  {
+   "text": "The correlation between brain pathology and behavior supports scientists in their research.",
+   "language": "en",
+   "offsetMs": 16888,
+   "durationMs": 4699.999999999999,
+   "arrivedMs": 22409
+  },
+  {
+   "text": "Rip currents are the returning flow from waves breaking off the beach, often at a reach, reef, or similar.",
+   "language": "en",
+   "offsetMs": 23704,
+   "durationMs": 5199.999999999999,
+   "arrivedMs": 29689
+  },
+  {
+   "text": "DeVaughn, who is married with two adult children, did not leave a big impression on Miller, to whom the story was related.",
+   "language": "en",
+   "offsetMs": 31472,
+   "durationMs": 6199.999999999995,
+   "arrivedMs": 38474
+  },
+  {
+   "text": "Late on Sunday, the United States President Donald Trump, in a statement delivered via the press secretary, announced US troops would be leaving Syria.",
+   "language": "en",
+   "offsetMs": 38864,
+   "durationMs": 7640.000000000001,
+   "arrivedMs": 47331
+  },
+  {
+   "text": "Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey like insects, rodents, lizards, and birds.",
+   "language": "en",
+   "offsetMs": 47440,
+   "durationMs": 9460,
+   "arrivedMs": 57717
+  },
+  {
+   "text": "During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolation.",
+   "language": "en",
+   "offsetMs": 58040,
+   "durationMs": 5439.999999999998,
+   "arrivedMs": 64339
+  },
+  {
+   "text": "California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors.",
+   "language": "en",
+   "offsetMs": 64360,
+   "durationMs": 7340.000000000004,
+   "arrivedMs": 72600
+  },
+  {
+   "text": "ASUS Eee PC, earlier launched worldwide for cost-saving functionality factors, became a hot topic in 2007 Taipei IT show.",
+   "language": "en",
+   "offsetMs": 72868,
+   "durationMs": 7641.0000000000055,
+   "arrivedMs": 81417
+  },
+  {
+   "text": "In some areas, boiling water for a minute is enough. In others, several minutes are needed.",
+   "language": "en",
+   "offsetMs": 81488,
+   "durationMs": 3700.0000000000027,
+   "arrivedMs": 86083
+  },
+  {
+   "text": "In its early days, the show was featured solely at the long-running internet radio site, Talking Net Radio, a site focused on talk radio.",
+   "language": "en",
+   "offsetMs": 86052,
+   "durationMs": 8119.99999999999,
+   "arrivedMs": 94989
+  },
+  {
+   "text": "First, most riders wearing riding boots with a heel and a smooth, quite narrow sole.",
+   "language": "en",
+   "offsetMs": 96828,
+   "durationMs": 4739.9999999999945,
+   "arrivedMs": 102405
+  },
+  {
+   "text": "In particular, it is claimed that one can detect whether a person is lying by interpreting micro-expressions correctly.",
+   "language": "en",
+   "offsetMs": 103788,
+   "durationMs": 5740.000000000009,
+   "arrivedMs": 110296
+  },
+  {
+   "text": "Beyond Wednesday's event, Carpanedo competed in two individual races .",
+   "language": "en",
+   "offsetMs": 110368,
+   "durationMs": 3841.000000000008,
+   "arrivedMs": 115211
+  },
+  {
+   "text": "The city is also the base to climb the Nyiragongo volcano, along with some of the cheapest mountain gorilla trafficking in Africa.",
+   "language": "en",
+   "offsetMs": 115228,
+   "durationMs": 8180.000000000007,
+   "arrivedMs": 124266
+  },
+  {
+   "text": "The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of alpine and Mediterranean vegetation.",
+   "language": "en",
+   "offsetMs": 124588,
+   "durationMs": 11780.000000000002,
+   "arrivedMs": 137018
+  },
+  {
+   "text": "Varakin's daily population is around 800.",
+   "language": "en",
+   "offsetMs": 137760,
+   "durationMs": 2800.0000000000114,
+   "arrivedMs": 141484
+  },
+  {
+   "text": "It is the smallest independent country in the world, and the population...",
+   "language": "en",
+   "offsetMs": 141248,
+   "durationMs": 3300.0000000000114,
+   "arrivedMs": 145395
+  },
+  {
+   "text": "The Northern Marianas Emergency Management Office said that there were no damages reported in the nation.",
+   "language": "en",
+   "offsetMs": 149004,
+   "durationMs": 6620.000000000005,
+   "arrivedMs": 156290
+  },
+  {
+   "text": "Resting on the top of one of the mountains north of Mecca, the caf- the cave is closely isolated from the rest of the world.",
+   "language": "en",
+   "offsetMs": 159272,
+   "durationMs": 7040.00000000002,
+   "arrivedMs": 167112
+  },
+  {
+   "text": "These couples may choose to make an adoption plan for their baby.",
+   "language": "en",
+   "offsetMs": 167748,
+   "durationMs": 5000,
+   "arrivedMs": 173485
+  },
+  {
+   "text": "He has been unable to take the drugs needed to overcome his pain as they are banned from the game.",
+   "language": "en",
+   "offsetMs": 173884,
+   "durationMs": 4060.0000000000023,
+   "arrivedMs": 178734
+  },
+  {
+   "text": "Along the same line, men are required to wear trousers covering the knees.",
+   "language": "en",
+   "offsetMs": 179724,
+   "durationMs": 4540.00000000002,
+   "arrivedMs": 185120
+  },
+  {
+   "text": "It seems sensible because the Earth doesn't feel us if it's moving, does it?",
+   "language": "en",
+   "offsetMs": 185944,
+   "durationMs": 3640.0000000000146,
+   "arrivedMs": 190564
+  },
+  {
+   "text": "Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen.",
+   "language": "en",
+   "offsetMs": 190620,
+   "durationMs": 7539.999999999992,
+   "arrivedMs": 198838
+  },
+  {
+   "text": "Six hostages, including the children and elderly, were released early, as were the Filipino photographers.",
+   "language": "en",
+   "offsetMs": 199952,
+   "durationMs": 7140.000000000015,
+   "arrivedMs": 208034
+  },
+  {
+   "text": "The lower the tension, the more positive the life force present.",
+   "language": "en",
+   "offsetMs": 209116,
+   "durationMs": 3619.9999999999764,
+   "arrivedMs": 213464
+  },
+  {
+   "text": "Every person has the potential to find absolute peace and contentment.",
+   "language": "en",
+   "offsetMs": 213924,
+   "durationMs": 3419.9999999999873,
+   "arrivedMs": 218122
+  },
+  {
+   "text": "To the night, between 150 and 200 copies were made, now known as Dunlop.",
+   "language": "en",
+   "offsetMs": 219044,
+   "durationMs": 3339.999999999975,
+   "arrivedMs": 223472
+  },
+  {
+   "text": "Liberal criticism of the Reconstruction effort has focused on the awarding of Reconstruction contracts to perceived Washington insiders.",
+   "language": "en",
+   "offsetMs": 223400,
+   "durationMs": 8620.000000000004,
+   "arrivedMs": 232794
+  },
+  {
+   "text": "They have feet with scales and claws, they lay eggs, and they walk on their two back legs like a T-rex.",
+   "language": "en",
+   "offsetMs": 233296,
+   "durationMs": 6020.00000000001,
+   "arrivedMs": 240003
+  }
+ ],
+ "firstPartialMs": 2213
+}

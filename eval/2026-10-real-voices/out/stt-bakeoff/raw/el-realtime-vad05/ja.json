@@ -1,0 +1,331 @@
+{
+ "lang": "ja",
+ "auto": false,
+ "err": "",
+ "config": {
+  "sample_rate": 16000,
+  "audio_format": "pcm_16000",
+  "language_code": "ja",
+  "secondary_languages": [],
+  "timestamps_granularity": "word",
+  "vad_commit_strategy": true,
+  "vad_silence_threshold_secs": 0.5,
+  "vad_threshold": 0.4,
+  "min_speech_duration_ms": 100,
+  "min_silence_duration_ms": 100,
+  "max_tokens_to_recompute": 5,
+  "model_id": "scribe_v2_realtime",
+  "disable_logging": false,
+  "include_timestamps": true,
+  "include_language_detection": true,
+  "filter_background_audio": false,
+  "keyterms": [],
+  "no_verbatim": false,
+  "entity_detection": null,
+  "keepalive_interval_ms": null
+ },
+ "finals": [
+  {
+   "text": "エンジェルは、二千六年に組織がより高いパフォーマンスレベルに到達する上で役立つ方法として、連続体アプローチを説明しています。",
+   "language": "ja",
+   "offsetMs": 3960,
+   "durationMs": 10061,
+   "arrivedMs": 14865
+  },
+  {
+   "text": "はい。橋下の情報空間は十五メートルです。二千十一年八月に竣工し、二千十七年三月まで開通しませんでした。",
+   "language": "ja",
+   "offsetMs": 18300,
+   "durationMs": 7160.999999999998,
+   "arrivedMs": 26242
+  },
+  {
+   "text": "脳病理と行動の相関関係は、科学者たちの研究を裏付けるものです。",
+   "language": "ja",
+   "offsetMs": 26752,
+   "durationMs": 5620.999999999999,
+   "arrivedMs": 33221
+  },
+  {
+   "text": "えー、リガン流とは？",
+   "language": "ja",
+   "offsetMs": 38064,
+   "durationMs": 1100.0000000000014,
+   "arrivedMs": 39878
+  },
+  {
+   "text": "砕けて浜辺に戻ってくる引き波のことで、多くの場合、岩礁やそれに似た場所で発生します。",
+   "language": "ja",
+   "offsetMs": 40244,
+   "durationMs": 7180.999999999997,
+   "arrivedMs": 48162
+  },
+  {
+   "text": "既婚者であり、成人した二人の子を持つリバルは、この話に関係するウィラーにあまり印象を残しませんでした。",
+   "language": "ja",
+   "offsetMs": 50956,
+   "durationMs": 6300.9999999999945,
+   "arrivedMs": 57982
+  },
+  {
+   "text": "2024年12月14日深夜、ドナルド・トランプ米大統領は報道関係者へ配信された声明において、米軍がシリアから撤退することを発表しました。",
+   "language": "ja",
+   "offsetMs": 61268,
+   "durationMs": 8221.000000000004,
+   "arrivedMs": 70316
+  },
+  {
+   "text": "最後に、昆虫、げっ歯類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型のネコ（野良猫を含む）が数多く生息しています。",
+   "language": "ja",
+   "offsetMs": 75904,
+   "durationMs": 8941.000000000002,
+   "arrivedMs": 85615
+  },
+  {
+   "text": "千九百二十年代に市民や国家のほとんどに広まっていた思想は、平和主義と孤立主義でした。",
+   "language": "ja",
+   "offsetMs": 90504,
+   "durationMs": 5780.999999999992,
+   "arrivedMs": 97252
+  },
+  {
+   "text": "カリフォルニア州のアーノルド・シュワルツェネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。",
+   "language": "ja",
+   "offsetMs": 101028,
+   "durationMs": 9900.999999999996,
+   "arrivedMs": 111854
+  },
+  {
+   "text": "ASUSのEPCは、コスト面と機能面で世界に先駆けて販売され、二千七台北ITマーチで話題となりました。",
+   "language": "ja",
+   "offsetMs": 115812,
+   "durationMs": 9101,
+   "arrivedMs": 125903
+  },
+  {
+   "text": "一分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。",
+   "language": "ja",
+   "offsetMs": 128452,
+   "durationMs": 5540.999999999996,
+   "arrivedMs": 134834
+  },
+  {
+   "text": "当社番組は、トークラジオに特化したインターネットラジオサイト。",
+   "language": "ja",
+   "offsetMs": 139784,
+   "durationMs": 3480.9999999999945,
+   "arrivedMs": 144109
+  },
+  {
+   "text": "トークラジオのみで取り上げられ、これは超受サイトです。",
+   "language": "ja",
+   "offsetMs": 144340,
+   "durationMs": 3640.999999999991,
+   "arrivedMs": 148700
+  },
+  {
+   "text": "まず、ほとんどの乗り手は-",
+   "language": "ja",
+   "offsetMs": 152840,
+   "durationMs": 1501.0000000000048,
+   "arrivedMs": 155218
+  },
+  {
+   "text": "はい。 -かかとと滑らかでかなり狭めだ。靴底が付いた乗馬靴を履いています。",
+   "language": "ja",
+   "offsetMs": 154960,
+   "durationMs": 5260.999999999995,
+   "arrivedMs": 161293
+  },
+  {
+   "text": "特に、ビ---表情を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。",
+   "language": "ja",
+   "offsetMs": 163180,
+   "durationMs": 9820.999999999998,
+   "arrivedMs": 173891
+  },
+  {
+   "text": "水曜日のイベントの後、カルパネドは選手権で2つの個人レースに出場しました。",
+   "language": "ja",
+   "offsetMs": 175920,
+   "durationMs": 5201.000000000022,
+   "arrivedMs": 182029
+  },
+  {
+   "text": "この都市はニラコンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります。",
+   "language": "ja",
+   "offsetMs": 185996,
+   "durationMs": 8360.999999999989,
+   "arrivedMs": 195049
+  },
+  {
+   "text": "プィトヴィツェ国営国立公園は、アルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小16の湖が点在し、絶景で溢れる世界遺産です。",
+   "language": "ja",
+   "offsetMs": 197788,
+   "durationMs": 12161.000000000002,
+   "arrivedMs": 210733
+  },
+  {
+   "text": "バチカン市の人口は約八百人です。",
+   "language": "ja",
+   "offsetMs": 215004,
+   "durationMs": 4061.0000000000073,
+   "arrivedMs": 219592
+  },
+  {
+   "text": "世界最小の独立国家であり。",
+   "language": "ja",
+   "offsetMs": 219940,
+   "durationMs": 2820.999999999998,
+   "arrivedMs": 223490
+  },
+  {
+   "text": "最も人口が少ない国でも。",
+   "language": "ja",
+   "offsetMs": 223816,
+   "durationMs": 2281.000000000006,
+   "arrivedMs": 226878
+  },
+  {
+   "text": "北マリアナ諸島の危機管理室（EMO）によると、全国的に被害は報告されていないとのことです。",
+   "language": "ja",
+   "offsetMs": 228996,
+   "durationMs": 6520.999999999986,
+   "arrivedMs": 236403
+  },
+  {
+   "text": "洞窟はメッカの北にあたる山頂にあり。",
+   "language": "ja",
+   "offsetMs": 240496,
+   "durationMs": 2400.999999999982,
+   "arrivedMs": 243653
+  },
+  {
+   "text": "はい。",
+   "language": "ja",
+   "offsetMs": 243592,
+   "durationMs": 340.99999999997976,
+   "arrivedMs": 246586
+  },
+  {
+   "text": "このようなご夫婦は、その赤ちゃんのために。",
+   "language": "ja",
+   "offsetMs": 251776,
+   "durationMs": 2840.99999999998,
+   "arrivedMs": 255473
+  },
+  {
+   "text": "うん。 養子縁組制度を利用できます。",
+   "language": "ja",
+   "offsetMs": 255316,
+   "durationMs": 2340.99999999998,
+   "arrivedMs": 258509
+  },
+  {
+   "text": "痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。",
+   "language": "ja",
+   "offsetMs": 262103.99999999997,
+   "durationMs": 6281.0000000000055,
+   "arrivedMs": 269390
+  },
+  {
+   "text": "同じように、男性は膝を覆うズボンをはくことが義務付けられています。",
+   "language": "ja",
+   "offsetMs": 273464,
+   "durationMs": 4261.000000000024,
+   "arrivedMs": 278515
+  },
+  {
+   "text": "地球が動いているようには感じないので、これは理にかなっているように思えません。",
+   "language": "ja",
+   "offsetMs": 281716,
+   "durationMs": 5200.999999999965,
+   "arrivedMs": 287749
+  },
+  {
+   "text": "植物は自然環境にあるときに最も見栄えがするのですから、1本だけならと標本に持ち帰りたい誘惑に負けないでください。",
+   "language": "ja",
+   "offsetMs": 289412,
+   "durationMs": 9801.000000000044,
+   "arrivedMs": 300126
+  },
+  {
+   "text": "子供と高齢者を含めた人質",
+   "language": "ja",
+   "offsetMs": 302332,
+   "durationMs": 3759.999999999991,
+   "arrivedMs": 306561
+  },
+  {
+   "text": "。 人質。",
+   "language": "ja",
+   "offsetMs": 306388,
+   "durationMs": 421.0000000000491,
+   "arrivedMs": 307780
+  },
+  {
+   "text": "で、かい-解放され、フィリピン人の写真家たちも同じく解放。",
+   "language": "ja",
+   "offsetMs": 307584,
+   "durationMs": 4401.000000000011,
+   "arrivedMs": 312840
+  },
+  {
+   "text": "緊張度が低いほど、よりポジティブな生命力が生まれます。",
+   "language": "ja",
+   "offsetMs": 312980,
+   "durationMs": 3841.000000000008,
+   "arrivedMs": 317609
+  },
+  {
+   "text": "じゃあ、何でも絶対的な平和と満足感を。",
+   "language": "ja",
+   "offsetMs": 317612,
+   "durationMs": 3661.0000000000014,
+   "arrivedMs": 322097
+  },
+  {
+   "text": "に、出す。",
+   "language": "ja",
+   "offsetMs": 322972,
+   "durationMs": 581.0000000000173,
+   "arrivedMs": 324229
+  },
+  {
+   "text": "潜在的な能力が備わっています。",
+   "language": "ja",
+   "offsetMs": 324296,
+   "durationMs": 2341.000000000008,
+   "arrivedMs": 327471
+  },
+  {
+   "text": "一晩で百五十から二百枚が製造され、現在ではダンラップブロードサイドと呼ばれています。",
+   "language": "ja",
+   "offsetMs": 327712,
+   "durationMs": 5281.0000000000055,
+   "arrivedMs": 333776
+  },
+  {
+   "text": "復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約をかわかし-- 交わしたことに焦点を当てています。",
+   "language": "ja",
+   "offsetMs": 337920,
+   "durationMs": 11380.99999999997,
+   "arrivedMs": 350185
+  },
+  {
+   "text": "うろこと爪のついた足を持ち。",
+   "language": "ja",
+   "offsetMs": 354864,
+   "durationMs": 1861.0000000000468,
+   "arrivedMs": 357655
+  },
+  {
+   "text": "ランス・フェレアリティラノサウルスのように、後ろ足二本で歩きます。",
+   "language": "ja",
+   "offsetMs": 357892,
+   "durationMs": 4261.000000000024,
+   "arrivedMs": 362891
+  }
+ ],
+ "firstPartialMs": 5031
+}
