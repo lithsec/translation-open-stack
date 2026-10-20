@@ -76,7 +76,8 @@ Environment: HT_VOICE (mms|coqui, default coqui: the voice when a request names 
 EDITION (commercial, the default: Coqui only, MMS never loads; nonprofit: both
 voices; both: each /speak connection in the edition its signed token's "ed" claim
 names, commercial for a token without one, e.g. STT_TOKEN; STT_TOKEN_NONPROFIT
-counts as a "nonprofit" claim),
+counts as a "nonprofit" claim; a token without a claim is commercial in every
+edition, so a non-profit-only server refuses it on /speak with 4403: speak_edition),
 STT_VOICES (the voices loaded, default: every one EDITION allows), STT_MAX_SPEAKERS (open /speak
 sockets, default 4), STT_SERVE ("listen,speak" by default; "speak" skips the
 recogniser's models, for a laptop test of the voices), STT_TOKEN, STT_TOKEN_NONPROFIT,
@@ -101,9 +102,11 @@ Credentials, any or all; each app gets its own, and with it its edition:
                        for an app an operator configures by hand (Live Translation,
                        a non-profit's app, pastes it into its settings). Signed
                        tokens cannot stand in there: they live at most a day.
-  STT_TOKEN            the original static token, no edition: commercial (the
-                       strictest served), so a client that still sends it keeps
-                       working and never gains a non-commercial voice.
+  STT_TOKEN            the original static token, no edition: commercial, so a
+                       client that still sends it keeps working and never gains a
+                       non-commercial voice (on a non-profit-only server, which has
+                       no commercial voices to give, its /speak is refused, 4403;
+                       its /listen is served as ever).
 
 The two static tokens must differ (the server will not start otherwise).
 """
@@ -345,14 +348,32 @@ def credentials_for(headers, query, env=None):
 # ---------------------------------------------------------------- editions
 
 # EDITION, as the stack's (server/stack_config.py): nonprofit, commercial, or
-# both (each connection in the edition its token's "ed" claim names; none: the
-# strictest served, stack_auth.connection_edition). It only decides the /speak
+# both (each connection in the edition its token's "ed" claim names; none:
+# commercial, speak_edition). It only decides the /speak
 # voices: the recogniser, language ID and VAD are permissive in every edition.
 # The default here is commercial, not the stack's nonprofit: a deployment that
 # says nothing never loads a non-commercial voice (MMS).
 EDITIONS = ("nonprofit", "commercial", "both")
 DEFAULT_EDITION = "commercial"
 CLOSE_EDITION = 4403        # the stack's code for a token of an edition not served here
+
+
+def speak_edition(served, claim, open_server=False):
+    """The edition a /speak connection is served in, or None to refuse it (4403).
+
+    A token with an "ed" claim (a signed token's, or STT_TOKEN_NONPROFIT's
+    "nonprofit"): stack_auth.connection_edition, as the stack. A token
+    WITHOUT one (STT_TOKEN, a signed token whose issuer names none) is
+    commercial: served as commercial wherever commercial is served, and
+    refused on a non-profit-only server rather than given its non-commercial
+    voices (the stack's rule, "the strictest edition served", would make it
+    nonprofit there: right for a stack's own LAN token, not for a hosted
+    service whose claim-less tokens are commercial apps'). An open server
+    (STT_OPEN=1, a laptop test: no credential at all) keeps the stack's rule."""
+    import stack_auth
+    if claim is None and not open_server:
+        return "commercial" if "commercial" in served else None
+    return stack_auth.connection_edition(served, claim)
 
 
 def service_editions(env=None):
@@ -1405,7 +1426,7 @@ def parse_speak(msg, default_voice, names, edition=None):
 
 async def handle_speak(ws, voices, sub="open", env=None, edition=None):
     """One /speak connection, after auth and admission, in `edition` (guarded:
-    stack_auth.connection_edition; None: as a token without a claim would be).
+    speak_edition; None: as on an open server, the strictest edition served).
 
     Only the voices that edition may use are offered (hello) or spoken. A voice
     it may not use is refused like one that is not loaded, never swapped for
@@ -1417,7 +1438,7 @@ async def handle_speak(ws, voices, sub="open", env=None, edition=None):
     from voices import parse_voice, permitted, LANG
     import stack_auth
     if edition is None:
-        edition = stack_auth.connection_edition(service_editions(env), None)
+        edition = stack_auth.connection_edition(service_editions(env), None)   # = speak_edition(..., open_server=True)
     q = parse_qs(urlparse(ws.request.path).query)
     names = permitted(voices.names, edition)
     if not names:
@@ -1494,13 +1515,14 @@ async def guarded(ws, models):
     edition = None
     if path == "/speak":
         # The edition only matters for the voices; /listen is the same in all.
-        import stack_auth
         served_eds = service_editions()
-        edition = stack_auth.connection_edition(served_eds, claim)
+        edition = speak_edition(served_eds, claim, open_server=(sub == "open"))
         if edition is None:
-            print(f"[stt] refused {clean(sub, 24)}: its token is for the {claim} edition; this server "
-                  f"serves {'/'.join(served_eds)}", flush=True)
-            await ws.close(code=CLOSE_EDITION, reason=f"this server does not serve the {claim} edition")
+            # A token without a claim counts as commercial (speak_edition).
+            ed = claim or "commercial"
+            print(f"[stt] refused {clean(sub, 24)}: its token is for the {ed} edition"
+                  f"{'' if claim else ' (it names none)'}; this server serves {'/'.join(served_eds)}", flush=True)
+            await ws.close(code=CLOSE_EDITION, reason=f"this server does not serve the {ed} edition")
             return
     limits = SPEAK_LIMITS if path == "/speak" else LIMITS
     why = limits.admit(sub)

@@ -489,10 +489,51 @@ def test_guarded_serves_each_token_in_its_edition():
     # Unset EDITION is commercial: a non-profit token gets the stricter voices.
     hello, _ = _hello(None, tok("nonprofit"))
     assert hello["voices"] == ["coqui"] and hello["edition"] == "commercial"
-    # A non-profit-only server: the static token gets MMS; a commercial token is refused.
-    assert _hello("nonprofit", "s3cret")[0]["voices"] == ["mms", "coqui"]
+    # A non-profit-only server: a commercial token is refused, and so is one
+    # without a claim (the static STT_TOKEN, a signed token naming none): those
+    # are commercial, never upgraded to MMS.
     hello, closed = _hello("nonprofit", tok("commercial"))
     assert hello is None and closed[0] == stt.CLOSE_EDITION
+    for claimless in ("s3cret", tok(None)):
+        hello, closed = _hello("nonprofit", claimless)
+        assert hello is None and closed[0] == stt.CLOSE_EDITION, claimless
+    assert _hello("nonprofit", tok("nonprofit"))[0]["voices"] == ["mms", "coqui"]
+
+
+def test_speak_edition():
+    both = ["nonprofit", "commercial"]
+    se = stt.speak_edition
+    # A claim: the stack's rule (stack_auth.connection_edition).
+    assert [se(both, c) for c in ("nonprofit", "commercial")] == ["nonprofit", "commercial"]
+    assert [se(["commercial"], c) for c in ("nonprofit", "commercial")] == ["commercial", "commercial"]
+    assert [se(["nonprofit"], c) for c in ("nonprofit", "commercial")] == ["nonprofit", None]
+    # No claim: commercial, wherever that is served; refused where it is not.
+    assert se(both, None) == "commercial" and se(["commercial"], None) == "commercial"
+    assert se(["nonprofit"], None) is None
+    # An open server (no credential at all, a laptop test): as before.
+    assert se(["nonprofit"], None, open_server=True) == "nonprofit"
+    assert se(both, None, open_server=True) == "commercial"
+
+
+def test_open_nonprofit_server_still_speaks_mms():
+    import stack_auth
+
+    class M:
+        serve = {"listen", "speak"}
+        voices = FakeVoices()
+        lid_index = {}
+    stt.SPEAK_LIMITS = stack_auth.Limits(per_client=1, total=1)
+    old = dict(os.environ)
+    try:
+        for k in ("STT_TOKEN", "STT_TOKEN_NONPROFIT", "STT_SIGNING_KEY", "HT_VOICE", "STT_VOICES"):
+            os.environ.pop(k, None)
+        os.environ.update({"STT_OPEN": "1", "EDITION": "nonprofit"})
+        ws = FakeWS("/speak", [])
+        asyncio.run(stt.guarded(ws, M()))
+        assert ws.sent[0]["voices"] == ["mms", "coqui"] and ws.sent[0]["edition"] == "nonprofit"
+    finally:
+        os.environ.clear()
+        os.environ.update(old)
 
 
 

@@ -102,7 +102,11 @@ server    {"type":"error","id":"7","detail":"..."}   a refused or failed request
   `deploy.sh`) never loads MMS; `nonprofit` offers both; `both` serves each
   `/speak` socket in the edition its signed token's `ed` claim names
   (`STT_TOKEN_NONPROFIT` counts as `nonprofit`), and a token without one (the
-  static `STT_TOKEN`) in commercial, the stricter. The hello lists
+  static `STT_TOKEN`) in commercial, the stricter. A token without a claim is
+  commercial in every edition: on a `nonprofit`-only server its `/speak` is
+  refused with 4403 (there are no commercial voices to give it; its `/listen` is
+  served as ever). Unlike the stack, whose claim-less `STACK_TOKEN` gets the
+  edition served; an open server (`STT_OPEN=1`) still does that. The hello lists
   only the voices that edition may use; asking for another is refused like a voice
   that is not loaded (the client falls back, rather than hearing a voice it did not
   pick). A token for an edition the server does not serve is closed with 4403.

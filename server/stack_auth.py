@@ -64,7 +64,10 @@ def connection_edition(served, claim):
     issuer that doesn't say). No claim: the strictest edition served. A
     non-profit client on a commercial-only stack gets commercial voices (only
     stricter); a commercial client is never served by a non-profit-only stack.
-    server.py and services/omni-stt share this."""
+    server.py and services/omni-stt share this; omni-stt's /speak is stricter
+    about a token with no claim (services/omni-stt/server.py, speak_edition:
+    commercial, so refused by a non-profit-only server), since there a
+    claim-less token is a commercial app's, not the operator's own."""
     if claim is None:
         return "commercial" if "commercial" in served else served[0]
     if claim in served:
