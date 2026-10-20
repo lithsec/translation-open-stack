@@ -565,6 +565,14 @@ class Models:
         self.voices = None
         self.voices_error = None
         self.voices_ready = threading.Event()
+        if "listen" in self.serve:
+            # VAD first, before any loader thread starts: torch.hub.load(source=
+            # "local") puts its directory on sys.path and takes it off again
+            # (torch/hub.py, _add_to_sys_path), and an import on another thread
+            # walking sys.path meanwhile can miss site-packages (the 7B
+            # omni-load thread died with ModuleNotFoundError: fairseq2).
+            # Silero's load is short; nothing else here touches sys.path.
+            self.vad = load_vad()
         loader = None
         if "speak" in self.serve:
             names = voice_names if voice_names is not None else voice_list()
@@ -573,10 +581,10 @@ class Models:
         else:
             self.voices_ready.set()
         if "listen" in self.serve:
-            # The recogniser loads on its own thread while VAD and language ID
-            # load here: on a cold 7B instance those two took 10-15 s, which
-            # then no longer add to the checkpoint's read (STT_PARALLEL_LOAD=0:
-            # one after the other, as before).
+            # The recogniser loads on its own thread while language ID loads
+            # here: on a cold 7B instance VAD and language ID took 10-15 s,
+            # which then no longer add to the checkpoint's read
+            # (STT_PARALLEL_LOAD=0: one after the other, as before).
             if os.environ.get("STT_PARALLEL_LOAD", "1") != "0":
                 box = {}
 
@@ -587,14 +595,12 @@ class Models:
                         box["error"] = e
                 t = threading.Thread(target=omni_load, name="omni-load", daemon=True)
                 t.start()
-                self.vad = load_vad()
                 self.lid, self.lid_index = load_lid(self.device)
                 t.join()
                 if "error" in box:
                     raise box["error"]
                 self.omni = box["omni"]
             else:
-                self.vad = load_vad()
                 self.lid, self.lid_index = load_lid(self.device)
                 self.omni = load_omni(self.device, self.card)
             print(f"[stt] models loaded", flush=True)

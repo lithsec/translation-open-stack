@@ -356,6 +356,58 @@ def test_streams_do_not_mix():
     assert texts == [["ht level 0.3", "en level 0.6"], ["en level 0.6"], ["ht level 0.3"] * 3], texts
 
 
+
+def test_vad_loads_before_any_loader_thread():
+    """torch.hub's local load edits sys.path for a moment; an import on another
+    thread meanwhile could miss site-packages (ModuleNotFoundError: fairseq2 on
+    the 7B service). So no loader thread may be running while VAD loads, with
+    STT_PARALLEL_LOAD on (the default) or off."""
+    try:
+        import torch  # noqa: F401  (Models() imports it)
+    except ImportError:
+        print("skip: no torch")
+        return
+    import threading
+    seen = []
+    saved = {k: getattr(stt, k) for k in ("load_vad", "load_lid", "load_omni")}
+    saved_voices = stt.Models._load_voices
+
+    def vad():
+        seen.append(("vad", sorted(t.name for t in threading.enumerate() if t.name.endswith("-load"))))
+        return "vad"
+
+    def lid(device):
+        seen.append(("lid", None))
+        return "lid", {"en": 0, "ht": 1}
+
+    def omni(device, card):
+        seen.append(("omni", threading.current_thread().name))
+        return "omni"
+
+    def voices(self, names):
+        seen.append(("voices", None))
+        self.voices_ready.set()
+    old = os.environ.get("STT_PARALLEL_LOAD")
+    try:
+        stt.load_vad, stt.load_lid, stt.load_omni = vad, lid, omni
+        stt.Models._load_voices = voices
+        for parallel in ("1", "0"):
+            seen.clear()
+            os.environ["STT_PARALLEL_LOAD"] = parallel
+            m = stt.Models(device="cpu", card="c", serve={"listen", "speak"}, voice_names=[])
+            assert seen[0] == ("vad", []), seen                    # first, and alone
+            assert (m.vad, m.lid, m.omni) == ("vad", "lid", "omni")
+            assert ("omni", "omni-load" if parallel == "1" else "MainThread") in seen, seen
+            m.voices_ready.wait(5)
+    finally:
+        for k, v in saved.items():
+            setattr(stt, k, v)
+        stt.Models._load_voices = saved_voices
+        if old is None:
+            os.environ.pop("STT_PARALLEL_LOAD", None)
+        else:
+            os.environ["STT_PARALLEL_LOAD"] = old
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_") and callable(fn):
