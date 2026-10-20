@@ -1,0 +1,94 @@
+<title>Haitian Creole Voice Lineup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a listening sheet — sentence picker on top, one row per voice, same play control in the same place on every row */
+:root {
+  --bg: #f5f7f6; --surface: #ffffff; --fg: #17201d; --muted: #5a6762; --line: #d9e1de;
+  --accent: #0b6e5b; --accent-ink: #ffffff;
+  --cloud: #8a5a00; --ms: #1f5aa6; --open: #0b6e5b;
+  --display: "Fraunces", Georgia, serif; --body: "Atkinson Hyperlegible", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #101614; --surface: #18201d; --fg: #e6eeeb; --muted: #9aaba5; --line: #2a3632;
+  --accent: #4fc2a6; --accent-ink: #0b1411; --cloud: #e2b25a; --ms: #7fb0f0; --open: #4fc2a6; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #101614; --surface: #18201d; --fg: #e6eeeb; --muted: #9aaba5; --line: #2a3632;
+  --accent: #4fc2a6; --accent-ink: #0b1411; --cloud: #e2b25a; --ms: #7fb0f0; --open: #4fc2a6; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 860px; margin: 0 auto; padding-inline: 16px; padding-block: 32px 48px; display: grid; gap: 24px; }
+h1 { font-family: var(--display); font-weight: 650; font-size: clamp(28px, 5vw, 40px); line-height: 1.1; margin: 0; text-wrap: balance; }
+.lede { color: var(--muted); margin: 8px 0 0; max-width: 62ch; }
+.picker { display: flex; flex-wrap: wrap; gap: 8px; }
+.picker button { font: 500 14px var(--mono); padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+.picker button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.sentence { font-family: var(--display); font-weight: 500; font-size: clamp(19px, 3vw, 24px); line-height: 1.35; margin: 0; padding: 16px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.sentence small { display: block; font: 400 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.tools button { font: 700 15px var(--body); padding: 10px 16px; border-radius: 8px; border: 0; background: var(--fg); color: var(--bg); cursor: pointer; }
+.tools label { color: var(--muted); font-size: 14px; display: flex; gap: 6px; align-items: center; }
+.rows { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.row { display: grid; grid-template-columns: 52px minmax(0,1fr) auto; gap: 14px; align-items: center; padding: 14px 4px; border-bottom: 1px solid var(--line); }
+.row.playing { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.play { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--fg); background: transparent; color: var(--fg); cursor: pointer; display: grid; place-items: center; }
+.play svg { width: 16px; height: 16px; fill: currentColor; }
+.row.playing .play { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.name { font-weight: 700; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: 14px; color: var(--muted); }
+.host { font: 500 12px var(--mono); letter-spacing: .04em; text-transform: uppercase; }
+.host.cloud { color: var(--cloud); } .host.ms { color: var(--ms); } .host.open { color: var(--open); }
+.score { font: 500 13px var(--mono); text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.score b { color: var(--fg); font-size: 18px; }
+.foot { color: var(--muted); font-size: 14px; max-width: 70ch; }
+button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 520px) { .row { grid-template-columns: 52px minmax(0,1fr); } .score { grid-column: 2; text-align: left; } }
+</style>
+<div class="wrap">
+  <header>
+    <h1>Haitian Creole voice lineup</h1>
+    <p class="lede">The same Haitian Creole sentence read by seven voices, from Google, Microsoft and two open models we can host ourselves. Pick a sentence, then play each voice or all of them in turn.</p>
+  </header>
+  <div class="picker" id="picker" role="group" aria-label="Sentence"></div>
+  <p class="sentence" id="sentence"></p>
+  <div class="tools">
+    <button id="playAll" type="button">Play all in order</button>
+    <label><input type="checkbox" id="shuffle"> Shuffle and hide names (blind)</label>
+  </div>
+  <div class="rows" id="rows"></div>
+  <p class="foot" id="foot"></p>
+</div>
+<script>
+const DATA = __DATA__;
+const PLAY = '<svg viewBox="0 0 16 16"><path d="M4 2.5v11l9-5.5z"/></svg>', STOP = '<svg viewBox="0 0 16 16"><path d="M3.5 3.5h9v9h-9z"/></svg>';
+let cur = 0, order = DATA.voices.map((_, i) => i), blind = false, audio = new Audio(), playing = -1, queue = [];
+const $ = (id) => document.getElementById(id);
+function renderPicker() {
+  $('picker').innerHTML = DATA.sents.map((_, i) => `<button type="button" id="s${i}" aria-pressed="${i === cur}">Sentence ${i + 1}</button>`).join('');
+  DATA.sents.forEach((_, i) => $('s' + i).onclick = () => { stop(); cur = i; render(); });
+}
+function render() {
+  renderPicker();
+  $('sentence').innerHTML = `<small>Sentence ${cur + 1} of ${DATA.sents.length}</small>${DATA.sents[cur]}`;
+  $('rows').innerHTML = order.map((vi, k) => {
+    const v = DATA.voices[vi];
+    const s = v.score ? `<b>${v.score.h.toFixed(1)}</b> Haitian · ${v.score.i.toFixed(1)} clear` : '';
+    return `<div class="row${playing === vi ? ' playing' : ''}" id="r${vi}">
+      <button class="play" type="button" id="p${vi}" aria-label="Play ${blind ? 'voice ' + String.fromCharCode(65 + k) : v.name}">${playing === vi ? STOP : PLAY}</button>
+      <div style="min-width:0">${blind ? `<div class="name">Voice ${String.fromCharCode(65 + k)}</div><div class="meta">Names hidden</div>`
+        : `<div class="name">${v.name}</div><div class="meta"><span class="host ${v.kind}">${v.host}</span><span>${v.note}</span></div>`}</div>
+      <div class="score">${blind ? '' : s}</div></div>`;
+  }).join('');
+  order.forEach((vi) => $('p' + vi).onclick = () => (playing === vi ? stop() : play(vi)));
+  const scored = DATA.voices.some((v) => v.score);
+  $('foot').textContent = scored ? 'Scores: blind Gemini 3.1 Pro judge over 6 sentences, 1 to 5. "Haitian" is how native it sounds (1 = French accent); "clear" is how well a Haitian listener would follow it. Judge scores move between rounds, so compare within this page only.' : 'Scores will be added when the blind judge finishes.';
+}
+function play(vi, then) {
+  audio.pause(); audio = new Audio(DATA.audio[DATA.voices[vi].id][cur]); playing = vi; render();
+  audio.onended = () => { playing = -1; render(); then && then(); };
+  audio.play().catch(() => { playing = -1; render(); });
+}
+function stop() { queue = []; audio.pause(); playing = -1; render(); }
+$('playAll').onclick = () => { queue = order.slice(); const next = () => { const vi = queue.shift(); if (vi !== undefined) play(vi, () => setTimeout(next, 400)); }; next(); };
+$('shuffle').onchange = (e) => { stop(); blind = e.target.checked; order = DATA.voices.map((_, i) => i); if (blind) order.sort(() => Math.random() - .5); render(); };
+render();
+</script>
