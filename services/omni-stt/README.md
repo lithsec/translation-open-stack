@@ -233,6 +233,48 @@ fetch (the code is copied before it); fine for now, worth splitting if builds ge
   keeps no state between connections. A room longer than an hour sees one
   reconnect per hour, and an utterance in flight at that moment is lost.
 
+### omni-stt-7b: Meta's stock 7B for Lao and Khmer
+
+A second service, same protocol (`/listen` only, no `/speak`), serving Meta's
+stock `omniASR_LLM_7B` (no fine-tuned weights) converted to bf16 (`7b/to_bf16.py`:
+31 GB fp32 -> 15.6 GB; the pipeline decodes in bf16 anyway). A client changes
+only the URL; `?langs=lo` (or `km`) skips language ID.
+
+```
+REPO_REGION=us-east4 EXTRA_REPO_REGIONS=us-central1 MODEL_BUCKET=gs://<private bucket> ./deploy.sh 7b-build
+TAG=<tag> REPO_REGION=us-east4 STORAGE=baked MAX_STREAMS_7B=6 ENDPOINT_MS=700 MAX_UTTERANCE_S=15 ./deploy.sh 7b-deploy
+```
+
+Cold start, zero to the hello (2026-10-20, us-east4, L4, 4 vCPU / 16 GiB):
+
+| checkpoint from | instance -> ready | of which checkpoint read |
+|---|---|---|
+| image (baked, `STORAGE=baked`) | 34-56 s (client: 43-61 s to hello) | 15-27 s (~0.6-1 GB/s) |
+| Cloud Storage volume (`gcs`), mmap or sequential, buffered reads or not | 314-378 s | 300-350 s (~50 MB/s) |
+| copy into /tmp at start (`fetch`, 16 parallel ranged reads) | 312 s | 281 s download + 7 s load |
+
+Without Direct VPC (the project has no VPC) Cloud Storage gave ~55 MB/s to an
+instance by every route; the image is read at ~0.6-1 GB/s. The registry region
+(us-central1 or us-east4) made no consistent difference: Cloud Run copies the
+image at deploy time. The rest of a baked cold start: ~2-5 s to the container,
+~7 s of imports, ~10 s for VAD, language ID and fairseq2's imports (now beside
+the checkpoint read: `STT_PARALLEL_LOAD`), ~4-6 s warm-up.
+`OMNI_MMAP=1` keeps the process at ~1.6 GB of RAM, so 16 GiB is enough (fetch
+needs 32 GiB: /tmp is memory).
+
+Accuracy through the service (real-voice clips streamed at real time, ENDPOINT_MS
+700, MAX_UTTERANCE_S 15, CER on the joined text; quiet km sentences the VAD never
+hears count against both): lo 13.5% (7B) vs 17.8% (omni-stt, its 300M card),
+km 24.7% vs 28.1%. The aligned batched decode (omni_batch.py) works for the 7B card
+(same decoder): six streams at once gave the same CER as one, 72 of 76 utterances
+word for word. The repetition guard cut 7B's loops on sub-second fragments
+(5-8 per lo/km pass).
+
+Capacity (load7b.mjs, lo and km rooms, 120 s): transcript delay after the speech
+ends, p50/p90: 1 stream 2.2/3.3-3.9 s, 4 streams 3.3/6.4 s, 6 streams 4.5/7.0-7.7 s,
+8 streams 5.9/7.9 s; nothing dropped at 8, but the GPU was ~80% busy at 6. So
+`STT_MAX_CONNECTIONS` and `--concurrency` are 6. GPU memory ~17-18 GB of 24.
+
 ## Measured locally
 
 2026-10-17, MacBook Pro M2 Pro (16 GB, busy, swapping), CPU only, float32,
