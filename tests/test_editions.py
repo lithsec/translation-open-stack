@@ -65,13 +65,19 @@ def test_tokens_carry_the_edition():
 
 
 def test_connection_edition():
-    # server.py imports heavy libraries at start-up; read the function alone.
+    # stack_auth's, which server.py and services/omni-stt both use. server.py
+    # imports heavy libraries at start-up; read its function alone.
     src = open(os.path.join(os.path.dirname(c.__file__), "server.py"), encoding="utf-8").read()
     start = src.index("def connection_edition(")
     end = src.index("\n\n\n", start)
     ns = {}
     exec(src[start:end], ns)
-    ce = ns["connection_edition"]
+    assert "stack_auth.connection_edition(served, claim)" in src[start:end]
+    for ce in (stack_auth.connection_edition, ns["connection_edition"]):
+        _check_connection_edition(ce)
+
+
+def _check_connection_edition(ce):
     both = ["nonprofit", "commercial"]
     assert ce(both, None) == "commercial"            # no claim: the strict one
     assert ce(both, "nonprofit") == "nonprofit"

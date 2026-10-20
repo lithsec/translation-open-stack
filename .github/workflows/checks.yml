@@ -46,6 +46,7 @@ jobs:
           python tests/test_profiles.py
           python tests/test_editions.py
           python tests/test_audio_in.py
+          python tests/test_omni_stt.py
 
       - name: Language config (both editions)
         run: |
@@ -54,8 +55,8 @@ jobs:
 
       - name: Shell syntax
         run: |
-          for f in scripts/*.sh scripts/runpod/*.sh tools/*.sh; do echo "bash -n $f"; bash -n "$f"; done
-          shellcheck -S warning scripts/*.sh scripts/runpod/*.sh tools/*.sh
+          for f in scripts/*.sh scripts/runpod/*.sh tools/*.sh services/*/*.sh; do echo "bash -n $f"; bash -n "$f"; done
+          shellcheck -S warning scripts/*.sh scripts/runpod/*.sh tools/*.sh services/*/*.sh
 
       - name: Compose file
         run: docker compose config --quiet
