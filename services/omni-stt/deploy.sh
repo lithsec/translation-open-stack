@@ -6,13 +6,23 @@
 #   ./deploy.sh build                    # Cloud Build -> Artifact Registry
 #   ./deploy.sh deploy                   # gcloud run deploy
 #   ./deploy.sh build-local              # or: docker build + push from this machine (linux/amd64)
+#   ./deploy.sh build-ft                 # a fine-tuned checkpoint layered on BASE_TAG (Dockerfile.ft)
 #
 # Optional: REGION (us-east4: has Cloud Run L4 and, on a new project, the only
 # GPU quota we found; us-central1 had none, 2026-10-17), REPO (Artifact Registry
 # repository, omni-stt), SERVICE (omni-stt), TAG (default: the git commit),
 # SECRET (omni-stt-token), MAX_STREAMS (4: connections one instance takes),
 # ENDPOINT_MS (300), MAX_UTTERANCE_S (6.0), MIN_SPEECH_MS (400): endpointing,
-# passed to the service by "deploy" (README, Endpointing).
+# passed to the service by "deploy" (README, Endpointing). OMNI_CARD (default
+# omniASR_LLM_300M): the Omnilingual card the service loads. DEPLOY_FLAGS: extra
+# gcloud run deploy flags, e.g. "--no-traffic --tag ft" to test a revision first.
+#
+# build-ft: FT_WEIGHTS (required; a PRIVATE gs:// folder holding <FT_CARD>.pt and
+# SHA256SUMS), FT_CARD (required; the card's name), BASE_TAG (the omni-stt image tag to
+# layer on), TAG (default: <BASE_TAG>-<FT_CARD>). The weights go from the bucket
+# into the image inside Cloud Build; keep REPO a private registry. Then deploy
+# with TAG=<that tag> OMNI_CARD=<FT_CARD>; OMNI_CARD=omniASR_LLM_300M on the same
+# image serves the base model again.
 #
 # Before the first deploy, once per project (not done by this script):
 #   gcloud services enable run.googleapis.com artifactregistry.googleapis.com \
@@ -33,8 +43,15 @@ MAX_STREAMS="${MAX_STREAMS:-4}"
 ENDPOINT_MS="${ENDPOINT_MS:-300}"
 MAX_UTTERANCE_S="${MAX_UTTERANCE_S:-6.0}"
 MIN_SPEECH_MS="${MIN_SPEECH_MS:-400}"
+OMNI_CARD="${OMNI_CARD:-omniASR_LLM_300M}"
+FT_CARD="${FT_CARD:-}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$HERE/../.." && pwd)"
+if [ "${1:-}" = build-ft ]; then
+  : "${FT_CARD:?set FT_CARD to the fine-tuned card name}"
+  : "${BASE_TAG:?set BASE_TAG to the omni-stt image tag to layer the weights on}"
+  TAG="${TAG:-$BASE_TAG-$FT_CARD}"
+fi
 TAG="${TAG:-$(git -C "$ROOT" rev-parse --short HEAD 2>/dev/null || date +%Y%m%d%H%M)}"
 # The image's registry may be in another region than the service (lithos-talk:
 # us-central1 registry, us-east4 service, where the L4 quota is).
@@ -80,6 +97,30 @@ case "${1:-}" in
     rm -rf "$ctx"
     echo "built $IMAGE"
     ;;
+  build-ft)
+    : "${FT_WEIGHTS:?set FT_WEIGHTS to the private gs:// folder with the checkpoint}"
+    base="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$BASE_TAG"
+    ctx="$(mktemp -d)"
+    cp "$HERE/Dockerfile.ft" "$ctx/Dockerfile"
+    # The weights never touch this machine: Cloud Build copies them from the
+    # bucket into its workspace, checks them (Dockerfile.ft) and bakes them in.
+    cat > "$ctx/cloudbuild.yaml" <<YAML
+steps:
+- name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+  entrypoint: bash
+  args: ["-c", "mkdir -p ft && gcloud storage cp '${FT_WEIGHTS%/}/$FT_CARD.pt' '${FT_WEIGHTS%/}/SHA256SUMS' ft/ && ls -l ft"]
+- name: gcr.io/cloud-builders/docker
+  args: ["build", "--build-arg", "BASE_IMAGE=$base", "--build-arg", "FT_CARD=$FT_CARD", "-t", "$IMAGE", "."]
+images: ["$IMAGE"]
+options:
+  machineType: E2_HIGHCPU_8
+  diskSizeGb: 100
+timeout: 3600s
+YAML
+    gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
+    rm -rf "$ctx"
+    echo "built $IMAGE (deploy with TAG=$TAG OMNI_CARD=$FT_CARD)"
+    ;;
   build-local)
     ctx="$(stage)"
     docker build --platform linux/amd64 -t "$IMAGE" "$ctx"
@@ -106,9 +147,9 @@ case "${1:-}" in
       --cpu 4 --memory 16Gi --no-cpu-throttling \
       --min-instances 0 --max-instances 1 \
       --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
-      --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS" \
+      --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,OMNI_CARD=$OMNI_CARD" \
       --set-secrets "STT_TOKEN=$SECRET:latest" \
-      --no-invoker-iam-check
+      --no-invoker-iam-check ${DEPLOY_FLAGS:-}
     url="$(gcloud run services describe "$SERVICE" --project "$PROJECT" --region "$REGION" --format 'value(status.url)')"
     echo "health: $url/health   mic test: $url/mic   stream: ${url/https:/wss:}/listen?langs=ht,en"
     ;;
@@ -116,7 +157,7 @@ case "${1:-}" in
     stage
     ;;
   *)
-    sed -n '2,23p' "$0"
+    sed -n '2,35p' "$0"
     exit 2
     ;;
 esac
