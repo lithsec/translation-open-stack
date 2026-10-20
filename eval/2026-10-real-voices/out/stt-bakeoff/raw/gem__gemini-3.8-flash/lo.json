@@ -1,0 +1,731 @@
+{
+ "system": "gem:gemini-3.8-flash",
+ "lang": "lo",
+ "err": "",
+ "model": "gemini-3.8-flash",
+ "prompt": "Transcribe this audio verbatim in Lao, in its own script (Lao script (not Thai)). No translation, no commentary, no timestamps: output only the transcript.",
+ "thinking": {
+  "thinkingBudget": 0
+ },
+ "rows": [
+  {
+   "i": 0,
+   "text": "Engle 2006 ອະທິບາຍ ການ ເຂົ້າ ເຖິງ Continuum ເປັນ ວິທີ ການ ທີ່ ຖືກ ນຳ ໃຊ້ ເພື່ອ ຊ່ວຍ ໃຫ້ ອົງການ ບັນລຸ ລະດັບ ປະສິດທິພາບ ການ ປະຕິບັດ ງານ ທີ່ ສູງ ຂື້ນ",
+   "ms": 2132,
+   "usage": {
+    "promptTokenCount": 287,
+    "candidatesTokenCount": 77,
+    "totalTokenCount": 364,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 252
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 1,
+   "text": "ໄລຍະຫ່າງແນວຕັ້ງຈາກກ້ອງຂົວ ແມ່ນ 15 ແມັດ ການກໍ່ສ້າງໄດ້ສຳເລັດໃນເດືອນສິງຫາ ປີ 2011 ບໍ່ເປີດການສັນຈອນ ຈົນເຖິງເດືອນມີນາ ປີ 2017",
+   "ms": 2407,
+   "usage": {
+    "promptTokenCount": 412,
+    "candidatesTokenCount": 75,
+    "totalTokenCount": 487,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 377
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 2,
+   "text": "ຄວາມສຳພັນລະຫວ່າງພະຍາດວິທະຍາທາງສະໝອງ ແລະ ພຶດຕິກຳສະໜັບສະໜູນນັກວິທະຍາສາດໃນການຄົ້ນຄວ້າຂອງພວກເຂົາ",
+   "ms": 11139,
+   "usage": {
+    "promptTokenCount": 228,
+    "candidatesTokenCount": 51,
+    "totalTokenCount": 279,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 193
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 3,
+   "text": "ກະແສນ້ຳຕັດປ່ຽນຄື້ນທີ່ໄຫຼກັບ ຈາກການແຕກຂອງຊາຍຫາດ ສ່ວນຫຼາຍແມ່ນຢູ່ບ່ອນຫີນຫຼືຄ້າຍກັນ",
+   "ms": 7154,
+   "usage": {
+    "promptTokenCount": 332,
+    "candidatesTokenCount": 44,
+    "totalTokenCount": 376,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 297
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 4,
+   "text": "ດູວາວ ຜູ້ທີ່ໄດ້ແຕ່ງງານກັບເດັກນ້ອຍສອງຄົນ ບໍ່ໄດ້ສ້າງຄວາມປະທັບໃຈທີ່ດີຫຍັງ ໃຫ້ກັບ ໄມເລີ ຜູ້ທີ່ກ່ຽວຂ້ອງກັບເລື່ອງນີ້ເລີຍ",
+   "ms": 9532,
+   "usage": {
+    "promptTokenCount": 342,
+    "candidatesTokenCount": 60,
+    "totalTokenCount": 402,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 307
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 5,
+   "text": "ໃນຕອນແລງວັນອາທິດ ປະທານາທິບໍດີສະຫະລັດ ທ່ານໂດໂນ ທຣຳ ໄດ້ປະກາດຖະແຫຼງການ ທີ່ສົ່ງຜ່ານເລຂາທິການຂ່າວ ວ່າກອງທັບສະຫະລັດ ຈະອອກຈາກຊີເຣຍ",
+   "ms": 9340,
+   "usage": {
+    "promptTokenCount": 398,
+    "candidatesTokenCount": 74,
+    "totalTokenCount": 472,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 363
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 6,
+   "text": "",
+   "ms": 9512,
+   "usage": {
+    "promptTokenCount": 265,
+    "totalTokenCount": 265,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 230
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": null,
+   "blocked": "OTHER",
+   "err": ""
+  },
+  {
+   "i": 7,
+   "text": "ໃນໄລຍະຊຸມປີ 1920, ທັດສະນະຄະຕິທີ່ພົ້ນເດັ່ນຂອງພົນລະເມືອງ ແລະ ປະເທດສ່ວນໃຫຍ່ແມ່ນຄວາມສະຫງົບ ແລະ ຄວາມແຍກກັນຢູ່",
+   "ms": 9270,
+   "usage": {
+    "promptTokenCount": 307,
+    "candidatesTokenCount": 61,
+    "totalTokenCount": 368,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 272
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 8,
+   "text": "ຜູ້ ວ່າ ການ ລັດ ແຄລິຟໍເນຍ ອານົນ ອານົນ ຊວາເຊເນັກເກີ ໄດ້ ລົງ ນາມ ໃນ ກົດໝາຍ ວ່າດ້ວຍ ການ ຫ້າມ ບໍ່ ໃຫ້ ຂາຍ ຫຼື ໃຫ້ ເຊົ່າ ເກມ ວີດີໂອ ທີ່ ມີ ຄວາມ ຮຸນແຮງ ໃຫ້ ກັບ ໃຫ້ ກັບ ເດັກນ້ອຍ",
+   "ms": 9702,
+   "usage": {
+    "promptTokenCount": 470,
+    "candidatesTokenCount": 91,
+    "totalTokenCount": 561,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 435
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 9,
+   "text": "Asus Eee PC ໄດ້ ຖືກ ເປີດ ຕົວ ກ່ອນ ຫນ້າ ນີ້ ໃນ ທົ່ວ ໂລກ ດ້ວຍ ປັດໄຈ ໃນ ການ ປະຢັດ ຕົ້ນ ທຶນ ແລະ ການ ໃຊ້ ງານ ກາຍ ເປັນ ຫົວຂໍ້ ທີ່ ຮ້ອນ ແຮງ ໃນ ປີ 2007 ຂອງ ໄທເປ ໄອທີ ມ້ອນ",
+   "ms": 10602,
+   "usage": {
+    "promptTokenCount": 383,
+    "candidatesTokenCount": 94,
+    "totalTokenCount": 477,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 348
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 10,
+   "text": "ໃນບາງພື້ນທີ່ ການຕົ້ມນໍ້າປະມານ 1 ນາທີ ແມ່ນພຽງພໍແລ້ວ ໃນບາງບ່ອນ ກໍໃຊ້ເວລາຫຼາຍນາທີ",
+   "ms": 10203,
+   "usage": {
+    "promptTokenCount": 305,
+    "candidatesTokenCount": 42,
+    "totalTokenCount": 347,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 270
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 11,
+   "text": "ໃນມື້ທຳອິດຂອງມັນ ການສະແດງ ເປັນຈຸດເດັ່ນພຽງຢ່າງດຽວ ຢູ່ເວັບໄຊ້ ທູຈີເນັກ ເຣດິໂອ ສະຖານີວິທະຍຸ ອິນເຕີເນັດທີ່ມີມາດົນນານ ເວັບໄຊ້ທີ່ ສຸມໃສ່ການສົນທະນາທາງວິທະຍຸ",
+   "ms": 9675,
+   "usage": {
+    "promptTokenCount": 527,
+    "candidatesTokenCount": 90,
+    "totalTokenCount": 617,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 492
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 12,
+   "text": "ກ່ອນອື່ນໝົດ ຜູ້ຂີ່ສ່ວນຫຼາຍແມ່ນສວມໃສ່ເກີບທີ່ໃຊ້ໃນການຂີ່ ທີ່ມີສົ້ນ ແລະ ແກ້ງລຽບ ຂ້ອນຂ້າງແຄບ ຕິດໜັງພື້ນ",
+   "ms": 9535,
+   "usage": {
+    "promptTokenCount": 226,
+    "candidatesTokenCount": 56,
+    "totalTokenCount": 282,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 191
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 13,
+   "text": "ແຕ່ ວ່າ ມີ ການ ອ້າງ ວ່າ ສາມາດ ກວດສອບ ໄດ້ ວ່າ ບຸກຄົນ ໃດ ຕົວະ ໂດຍ ການ ຕີ ຄວາມ ໝາຍ ຂອງ ຈຸນລະພາກ ຢ່າງ ຖືກຕ້ອງ ຫຼື ບໍ່.",
+   "ms": 9653,
+   "usage": {
+    "promptTokenCount": 191,
+    "candidatesTokenCount": 58,
+    "totalTokenCount": 249,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 156
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 14,
+   "text": "ນອກເໜືອຈາກການແຂ່ງຂັນໃນມື້ວັນພຸດ Capannelle ໄດ້ເຂົ້າຮ່ວມການແຂ່ງຂັນ ໃນ 2 ລາຍການແຂ່ງຂັນແລ່ນສ່ວນບຸກຄົນ ໃນລະດັບການແຂ່ງຂັນເພື່ອຊິງແຊມ",
+   "ms": 9042,
+   "usage": {
+    "promptTokenCount": 395,
+    "candidatesTokenCount": 70,
+    "totalTokenCount": 465,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 360
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 15,
+   "text": "ເມືອງດັ່ງກ່າວຍັງເປັນສະຖານທີ່ ທີ່ຈະປີນພູ ເຂົາໄຟ ນີຣາຄອງໂກ ພ້ອມກັບ ທາງຍ່າງຕາມພູກໍຣິລາ ທີ່ມີ ລາຄາຖືກທີ່ສຸດໃນອາຟຣິກາ",
+   "ms": 9540,
+   "usage": {
+    "promptTokenCount": 356,
+    "candidatesTokenCount": 65,
+    "totalTokenCount": 421,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 321
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 16,
+   "text": "ສວນສາທາລະນະ ແຫ່ງຊາດ ພຣິດວິດເລັກ ແມ່ນມີປ່າໄມ້ຢ່າງໜາແໜ້ນ ສ່ວນໃຫຍ່ແລ້ວແມ່ນຕົ້ນເຜິ້ງ, ຕົ້ນສົນ ແລະ ຕົ້ນໄມ້ສົນທີ່ເປັນໃບສາມຫລ່ຽມ ແລະ ມີລັກສະນະປະສົມຂອງພືດພັນ ອາພາຍ ແລະ ເມດິເຕີເຣນຽນ",
+   "ms": 9662,
+   "usage": {
+    "promptTokenCount": 569,
+    "candidatesTokenCount": 102,
+    "totalTokenCount": 671,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 534
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 17,
+   "text": "ປະຊາກອນຂອງເມືອງວາຕີກັນແມ່ນປະມານ 800 ຄົນ ມັນແມ່ນປະເທດທີ່ມີເອກະລາດນ້ອຍສຸດໃນໂລກແລະເປັນປະເທດທີ່ມີປະຊາກອນນ້ອຍສຸດ",
+   "ms": 9404,
+   "usage": {
+    "promptTokenCount": 344,
+    "candidatesTokenCount": 55,
+    "totalTokenCount": 399,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 309
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 18,
+   "text": "ສໍານັກງານຈັດການເຫດສຸກເສີນທາງພາກເໜືອຂອງມາເລເຊຍກ່າວວ່າບໍ່ມີລາຍງານຄວາມເສຍຫາຍໃດໆເກີດຂຶ້ນໃນປະເທດ",
+   "ms": 10145,
+   "usage": {
+    "promptTokenCount": 271,
+    "candidatesTokenCount": 53,
+    "totalTokenCount": 324,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 236
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 19,
+   "text": "ການພັກຜ່ອນຢູ່ເທິງຈອມພູແຫ່ງໜຶ່ງທາງພາກເໜືອຂອງເມືອງ ເມກກາ ຖ້ຳດັ່ງກ່າວແມ່ນແຍກອອກຈາກສ່ວນທີ່ເຫຼືອຂອງໂລກ",
+   "ms": 10210,
+   "usage": {
+    "promptTokenCount": 216,
+    "candidatesTokenCount": 60,
+    "totalTokenCount": 276,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 181
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 20,
+   "text": "ຄູ່ຜົວເມຍເຫຼົ່ານີ້ ອາດຈະ ເລືອກ ທີ່ຈະ ວາງແຜນ ໃນ ການ ຮັບ ລ້ຽງ ລູກ ບຸນທໍາ ໃຫ້ ເປັນ ລູກ ຂອງ ພວກ ເຂົາ",
+   "ms": 9833,
+   "usage": {
+    "promptTokenCount": 314,
+    "candidatesTokenCount": 55,
+    "totalTokenCount": 369,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 279
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 21,
+   "text": "ລາວບໍ່ສາມາດໃຊ້ຢາເສບຕິດເພື່ອເອົາຊະນະຄວາມເຈັບປວດຂອງລາວທີ່ເກີດຍ້ອນວ່າເຂົາເຈົ້າຖືກຫ້າມບໍ່ໃຫ້ຫຼິ້ນເກມໄດ້",
+   "ms": 9953,
+   "usage": {
+    "promptTokenCount": 226,
+    "candidatesTokenCount": 49,
+    "totalTokenCount": 275,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 191
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 22,
+   "text": "ຢູ່ນະແຖວ ດຽວກັນ ຜູ້ ຊາຍ ກໍ ແມ່ນ ຖືກ ຮຽກຮ້ອງ ໃຫ້ ຕ້ອງ ໄດ້ ນຸ່ງ ໂສ້ງ ທີ່ ປົກ ຫົວເຂົ່າ",
+   "ms": 8890,
+   "usage": {
+    "promptTokenCount": 260,
+    "candidatesTokenCount": 51,
+    "totalTokenCount": 311,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 225
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 23,
+   "text": "ນີ້ເບິ່ງຄືວ່າສາມາດຮູ້ສຶກໄດ້ເພາະວ່າ ບໍ່ຮູ້ສຶກ ຄືກັບວ່າໂລກມັນກຳລັງເຄື່ອນທີ່ແມ່ນບໍ່",
+   "ms": 8136,
+   "usage": {
+    "promptTokenCount": 312,
+    "candidatesTokenCount": 41,
+    "totalTokenCount": 353,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 277
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 24,
+   "text": "ພືດເບິ່ງຄືມີລັກສະນະດີທີ່ສຸດ ເມື່ອຢູ່ໃນສະພາບແວດລ້ອມເປັນທຳມະຊາດ ດັ່ງນັ້ນ ການຕໍ່ຕ້ານການທົດລອງ ເພື່ອເອົາຕົວຢ່າງອອກ ພຽງອັນດຽວ",
+   "ms": 8947,
+   "usage": {
+    "promptTokenCount": 279,
+    "candidatesTokenCount": 66,
+    "totalTokenCount": 345,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 244
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 25,
+   "text": "ນາຍຕົວປະກັນ 6 ຄົນ ທີ່ ມີ ທັງ ເດັກນ້ອຍ ແລະ ຜູ້ ເຖົ້າ ໄດ້ ຖືກ ປ່ອຍ ຕົວ ອອກ ມາ ກ່ອນ ເນື່ອງຈາກ ເປັນ ນັກ ຖ່າຍ ພາບ ຊາວ ຟີລິບປິນ",
+   "ms": 8043,
+   "usage": {
+    "promptTokenCount": 332,
+    "candidatesTokenCount": 65,
+    "totalTokenCount": 397,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 297
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 26,
+   "text": "ຕັ້ງຊົ້ງຍິ່ງຫຼຸດຕໍ່າລົງ ຍິ່ງເປັນການດີ ໃຫ້ພະລັງຊີວິດມີຢູ່ ທຸກຄົນມີຄວາມສາມາດ ທີ່ຈະພົບເຫັນຄວາມສະຫງົບສຸກ ແລະ ຄວາມເພິ່ງພໍໃຈຢ່າງແທ້ຈິງ",
+   "ms": 8575,
+   "usage": {
+    "promptTokenCount": 350,
+    "candidatesTokenCount": 65,
+    "totalTokenCount": 415,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 315
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 27,
+   "text": "ຕະຫຼອດ ຄືນ ລະຫວ່າງ 150 ແລະ 200 ສໍາເນົາ ໄດ້ ສຶກສາ ຂຶ້ນ ປັດຈຸບັນ ເປັນ ທີ່ ຮູ້ຈັກ ກັນ ວ່າ ດັອດ ແຣບ ບຣາຍ ໄຊ",
+   "ms": 8956,
+   "usage": {
+    "promptTokenCount": 352,
+    "candidatesTokenCount": 64,
+    "totalTokenCount": 416,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 317
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  },
+  {
+   "i": 28,
+   "text": "",
+   "ms": 2373,
+   "usage": {
+    "promptTokenCount": 344,
+    "totalTokenCount": 344,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 309
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": null,
+   "blocked": "OTHER",
+   "err": ""
+  },
+  {
+   "i": 29,
+   "text": "ພວກມັນມີຕີນ ທີ່ມີເກັດ ແລະ ມີກ້າມ. ພວກມັນວາງໄຂ່ ແລະ ພວກມັນຍ່າງໄປດ້ວຍຂາຫຼັງສອງເບື້ອງ. ຄ້າຍຄືກັບໂຕໄດໂນເສົາທີເຣັກສ໌",
+   "ms": 10710,
+   "usage": {
+    "promptTokenCount": 307,
+    "candidatesTokenCount": 60,
+    "totalTokenCount": 367,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 272
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 35
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "blocked": null,
+   "err": ""
+  }
+ ],
+ "text": "Engle 2006 ອະທິບາຍ ການ ເຂົ້າ ເຖິງ Continuum ເປັນ ວິທີ ການ ທີ່ ຖືກ ນຳ ໃຊ້ ເພື່ອ ຊ່ວຍ ໃຫ້ ອົງການ ບັນລຸ ລະດັບ ປະສິດທິພາບ ການ ປະຕິບັດ ງານ ທີ່ ສູງ ຂື້ນ ໄລຍະຫ່າງແນວຕັ້ງຈາກກ້ອງຂົວ ແມ່ນ 15 ແມັດ ການກໍ່ສ້າງໄດ້ສຳເລັດໃນເດືອນສິງຫາ ປີ 2011 ບໍ່ເປີດການສັນຈອນ ຈົນເຖິງເດືອນມີນາ ປີ 2017 ຄວາມສຳພັນລະຫວ່າງພະຍາດວິທະຍາທາງສະໝອງ ແລະ ພຶດຕິກຳສະໜັບສະໜູນນັກວິທະຍາສາດໃນການຄົ້ນຄວ້າຂອງພວກເຂົາ ກະແສນ້ຳຕັດປ່ຽນຄື້ນທີ່ໄຫຼກັບ ຈາກການແຕກຂອງຊາຍຫາດ ສ່ວນຫຼາຍແມ່ນຢູ່ບ່ອນຫີນຫຼືຄ້າຍກັນ ດູວາວ ຜູ້ທີ່ໄດ້ແຕ່ງງານກັບເດັກນ້ອຍສອງຄົນ ບໍ່ໄດ້ສ້າງຄວາມປະທັບໃຈທີ່ດີຫຍັງ ໃຫ້ກັບ ໄມເລີ ຜູ້ທີ່ກ່ຽວຂ້ອງກັບເລື່ອງນີ້ເລີຍ ໃນຕອນແລງວັນອາທິດ ປະທານາທິບໍດີສະຫະລັດ ທ່ານໂດໂນ ທຣຳ ໄດ້ປະກາດຖະແຫຼງການ ທີ່ສົ່ງຜ່ານເລຂາທິການຂ່າວ ວ່າກອງທັບສະຫະລັດ ຈະອອກຈາກຊີເຣຍ  ໃນໄລຍະຊຸມປີ 1920, ທັດສະນະຄະຕິທີ່ພົ້ນເດັ່ນຂອງພົນລະເມືອງ ແລະ ປະເທດສ່ວນໃຫຍ່ແມ່ນຄວາມສະຫງົບ ແລະ ຄວາມແຍກກັນຢູ່ ຜູ້ ວ່າ ການ ລັດ ແຄລິຟໍເນຍ ອານົນ ອານົນ ຊວາເຊເນັກເກີ ໄດ້ ລົງ ນາມ ໃນ ກົດໝາຍ ວ່າດ້ວຍ ການ ຫ້າມ ບໍ່ ໃຫ້ ຂາຍ ຫຼື ໃຫ້ ເຊົ່າ ເກມ ວີດີໂອ ທີ່ ມີ ຄວາມ ຮຸນແຮງ ໃຫ້ ກັບ ໃຫ້ ກັບ ເດັກນ້ອຍ Asus Eee PC ໄດ້ ຖືກ ເປີດ ຕົວ ກ່ອນ ຫນ້າ ນີ້ ໃນ ທົ່ວ ໂລກ ດ້ວຍ ປັດໄຈ ໃນ ການ ປະຢັດ ຕົ້ນ ທຶນ ແລະ ການ ໃຊ້ ງານ ກາຍ ເປັນ ຫົວຂໍ້ ທີ່ ຮ້ອນ ແຮງ ໃນ ປີ 2007 ຂອງ ໄທເປ ໄອທີ ມ້ອນ ໃນບາງພື້ນທີ່ ການຕົ້ມນໍ້າປະມານ 1 ນາທີ ແມ່ນພຽງພໍແລ້ວ ໃນບາງບ່ອນ ກໍໃຊ້ເວລາຫຼາຍນາທີ ໃນມື້ທຳອິດຂອງມັນ ການສະແດງ ເປັນຈຸດເດັ່ນພຽງຢ່າງດຽວ ຢູ່ເວັບໄຊ້ ທູຈີເນັກ ເຣດິໂອ ສະຖານີວິທະຍຸ ອິນເຕີເນັດທີ່ມີມາດົນນານ ເວັບໄຊ້ທີ່ ສຸມໃສ່ການສົນທະນາທາງວິທະຍຸ ກ່ອນອື່ນໝົດ ຜູ້ຂີ່ສ່ວນຫຼາຍແມ່ນສວມໃສ່ເກີບທີ່ໃຊ້ໃນການຂີ່ ທີ່ມີສົ້ນ ແລະ ແກ້ງລຽບ ຂ້ອນຂ້າງແຄບ ຕິດໜັງພື້ນ ແຕ່ ວ່າ ມີ ການ ອ້າງ ວ່າ ສາມາດ ກວດສອບ ໄດ້ ວ່າ ບຸກຄົນ ໃດ ຕົວະ ໂດຍ ການ ຕີ ຄວາມ ໝາຍ ຂອງ ຈຸນລະພາກ ຢ່າງ ຖືກຕ້ອງ ຫຼື ບໍ່. ນອກເໜືອຈາກການແຂ່ງຂັນໃນມື້ວັນພຸດ Capannelle ໄດ້ເຂົ້າຮ່ວມການແຂ່ງຂັນ ໃນ 2 ລາຍການແຂ່ງຂັນແລ່ນສ່ວນບຸກຄົນ ໃນລະດັບການແຂ່ງຂັນເພື່ອຊິງແຊມ ເມືອງດັ່ງກ່າວຍັງເປັນສະຖານທີ່ ທີ່ຈະປີນພູ ເຂົາໄຟ ນີຣາຄອງໂກ ພ້ອມກັບ ທາງຍ່າງຕາມພູກໍຣິລາ ທີ່ມີ ລາຄາຖືກທີ່ສຸດໃນອາຟຣິກາ ສວນສາທາລະນະ ແຫ່ງຊາດ ພຣິດວິດເລັກ ແມ່ນມີປ່າໄມ້ຢ່າງໜາແໜ້ນ ສ່ວນໃຫຍ່ແລ້ວແມ່ນຕົ້ນເຜິ້ງ, ຕົ້ນສົນ ແລະ ຕົ້ນໄມ້ສົນທີ່ເປັນໃບສາມຫລ່ຽມ ແລະ ມີລັກສະນະປະສົມຂອງພືດພັນ ອາພາຍ ແລະ ເມດິເຕີເຣນຽນ ປະຊາກອນຂອງເມືອງວາຕີກັນແມ່ນປະມານ 800 ຄົນ ມັນແມ່ນປະເທດທີ່ມີເອກະລາດນ້ອຍສຸດໃນໂລກແລະເປັນປະເທດທີ່ມີປະຊາກອນນ້ອຍສຸດ ສໍານັກງານຈັດການເຫດສຸກເສີນທາງພາກເໜືອຂອງມາເລເຊຍກ່າວວ່າບໍ່ມີລາຍງານຄວາມເສຍຫາຍໃດໆເກີດຂຶ້ນໃນປະເທດ ການພັກຜ່ອນຢູ່ເທິງຈອມພູແຫ່ງໜຶ່ງທາງພາກເໜືອຂອງເມືອງ ເມກກາ ຖ້ຳດັ່ງກ່າວແມ່ນແຍກອອກຈາກສ່ວນທີ່ເຫຼືອຂອງໂລກ ຄູ່ຜົວເມຍເຫຼົ່ານີ້ ອາດຈະ ເລືອກ ທີ່ຈະ ວາງແຜນ ໃນ ການ ຮັບ ລ້ຽງ ລູກ ບຸນທໍາ ໃຫ້ ເປັນ ລູກ ຂອງ ພວກ ເຂົາ ລາວບໍ່ສາມາດໃຊ້ຢາເສບຕິດເພື່ອເອົາຊະນະຄວາມເຈັບປວດຂອງລາວທີ່ເກີດຍ້ອນວ່າເຂົາເຈົ້າຖືກຫ້າມບໍ່ໃຫ້ຫຼິ້ນເກມໄດ້ ຢູ່ນະແຖວ ດຽວກັນ ຜູ້ ຊາຍ ກໍ ແມ່ນ ຖືກ ຮຽກຮ້ອງ ໃຫ້ ຕ້ອງ ໄດ້ ນຸ່ງ ໂສ້ງ ທີ່ ປົກ ຫົວເຂົ່າ ນີ້ເບິ່ງຄືວ່າສາມາດຮູ້ສຶກໄດ້ເພາະວ່າ ບໍ່ຮູ້ສຶກ ຄືກັບວ່າໂລກມັນກຳລັງເຄື່ອນທີ່ແມ່ນບໍ່ ພືດເບິ່ງຄືມີລັກສະນະດີທີ່ສຸດ ເມື່ອຢູ່ໃນສະພາບແວດລ້ອມເປັນທຳມະຊາດ ດັ່ງນັ້ນ ການຕໍ່ຕ້ານການທົດລອງ ເພື່ອເອົາຕົວຢ່າງອອກ ພຽງອັນດຽວ ນາຍຕົວປະກັນ 6 ຄົນ ທີ່ ມີ ທັງ ເດັກນ້ອຍ ແລະ ຜູ້ ເຖົ້າ ໄດ້ ຖືກ ປ່ອຍ ຕົວ ອອກ ມາ ກ່ອນ ເນື່ອງຈາກ ເປັນ ນັກ ຖ່າຍ ພາບ ຊາວ ຟີລິບປິນ ຕັ້ງຊົ້ງຍິ່ງຫຼຸດຕໍ່າລົງ ຍິ່ງເປັນການດີ ໃຫ້ພະລັງຊີວິດມີຢູ່ ທຸກຄົນມີຄວາມສາມາດ ທີ່ຈະພົບເຫັນຄວາມສະຫງົບສຸກ ແລະ ຄວາມເພິ່ງພໍໃຈຢ່າງແທ້ຈິງ ຕະຫຼອດ ຄືນ ລະຫວ່າງ 150 ແລະ 200 ສໍາເນົາ ໄດ້ ສຶກສາ ຂຶ້ນ ປັດຈຸບັນ ເປັນ ທີ່ ຮູ້ຈັກ ກັນ ວ່າ ດັອດ ແຣບ ບຣາຍ ໄຊ  ພວກມັນມີຕີນ ທີ່ມີເກັດ ແລະ ມີກ້າມ. ພວກມັນວາງໄຂ່ ແລະ ພວກມັນຍ່າງໄປດ້ວຍຂາຫຼັງສອງເບື້ອງ. ຄ້າຍຄືກັບໂຕໄດໂນເສົາທີເຣັກສ໌"
+}

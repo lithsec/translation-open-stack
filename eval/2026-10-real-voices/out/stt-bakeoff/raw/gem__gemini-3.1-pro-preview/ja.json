@@ -1,0 +1,723 @@
+{
+ "system": "gem:gemini-3.1-pro-preview",
+ "lang": "ja",
+ "err": "",
+ "model": "gemini-3.1-pro-preview",
+ "prompt": "Transcribe this audio verbatim in Japanese, in its own script (Japanese script (kanji and kana)). No translation, no commentary, no timestamps: output only the transcript.",
+ "thinking": {
+  "thinkingLevel": "low"
+ },
+ "rows": [
+  {
+   "i": 0,
+   "text": "エンジェルは2006年に組織がより高いパフォーマンスレベルに到達する上で役立つ方法として連続体アプローチを説明しています。",
+   "ms": 4844,
+   "usage": {
+    "promptTokenCount": 450,
+    "candidatesTokenCount": 30,
+    "totalTokenCount": 878,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 414
+     }
+    ],
+    "thoughtsTokenCount": 398,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 1,
+   "text": "橋下の情報空間は15メートルです。2011年8月に竣工し、2017年3月まで開通しませんでした。",
+   "ms": 7579,
+   "usage": {
+    "promptTokenCount": 223,
+    "candidatesTokenCount": 33,
+    "totalTokenCount": 850,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 187
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     }
+    ],
+    "thoughtsTokenCount": 594,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 2,
+   "text": "脳病理と行動の相関関係は科学者たちの研究を裏付けるものです。",
+   "ms": 18112,
+   "usage": {
+    "promptTokenCount": 269,
+    "candidatesTokenCount": 19,
+    "totalTokenCount": 509,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 233
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     }
+    ],
+    "thoughtsTokenCount": 221,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 3,
+   "text": "離岸流とは砕けて浜辺に戻ってくる引き波のことで多くの場合岩礁やそれに似た場所で発生します。",
+   "ms": 27400,
+   "usage": {
+    "promptTokenCount": 365,
+    "candidatesTokenCount": 27,
+    "totalTokenCount": 856,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 329
+     }
+    ],
+    "thoughtsTokenCount": 464,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 4,
+   "text": "自己の所有者であり、成人した2人の子を持つデュバルは、この話に関係するヴィラにあまり印象を残しませんでした。",
+   "ms": 33793,
+   "usage": {
+    "promptTokenCount": 272,
+    "candidatesTokenCount": 30,
+    "totalTokenCount": 302,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 236
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 5,
+   "text": "日曜深夜、ドナルド・トランプ米大統領は報道関係へ配信された声明において、米軍がシリアから撤退することを発表しました。",
+   "ms": 28475,
+   "usage": {
+    "promptTokenCount": 332,
+    "candidatesTokenCount": 33,
+    "totalTokenCount": 365,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 296
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 6,
+   "text": "最後に昆虫、げっ歯類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型の猫（野良猫を含む）が数多く生息しています。",
+   "ms": 32596,
+   "usage": {
+    "promptTokenCount": 388,
+    "candidatesTokenCount": 40,
+    "totalTokenCount": 1528,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 352
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     }
+    ],
+    "thoughtsTokenCount": 1100,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 7,
+   "text": "1920年代に市民や国家のほとんどに広まっていた思想は平和主義と孤立主義でした。",
+   "ms": 25590,
+   "usage": {
+    "promptTokenCount": 297,
+    "candidatesTokenCount": 25,
+    "totalTokenCount": 322,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 261
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 8,
+   "text": "カリフォルニア州のアーノルド・シュワルツェネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。",
+   "ms": 23489,
+   "usage": {
+    "promptTokenCount": 378,
+    "candidatesTokenCount": 41,
+    "totalTokenCount": 697,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 342
+     }
+    ],
+    "thoughtsTokenCount": 278,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 9,
+   "text": "ASUSのEPCはコスト面と機能面で世界に先駆けて販売され2007台北ITマンスで話題となりました。",
+   "ms": 31210,
+   "usage": {
+    "promptTokenCount": 374,
+    "candidatesTokenCount": 29,
+    "totalTokenCount": 856,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 338
+     }
+    ],
+    "thoughtsTokenCount": 453,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 10,
+   "text": "1分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。",
+   "ms": 24399,
+   "usage": {
+    "promptTokenCount": 249,
+    "candidatesTokenCount": 21,
+    "totalTokenCount": 534,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 213
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     }
+    ],
+    "thoughtsTokenCount": 264,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 11,
+   "text": "当初番組はトークラジオに特化したインターネットラジオサイト、トギネットラジオのみで取り上げられ、これは長寿サイトです。",
+   "ms": 27071,
+   "usage": {
+    "promptTokenCount": 354,
+    "candidatesTokenCount": 28,
+    "totalTokenCount": 740,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 318
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     }
+    ],
+    "thoughtsTokenCount": 358,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 12,
+   "text": "まず、ほとんどの乗り手は、かかとと滑らかでかなり狭めの靴底がついた乗馬靴を履いています。",
+   "ms": 25049,
+   "usage": {
+    "promptTokenCount": 314,
+    "candidatesTokenCount": 28,
+    "totalTokenCount": 342,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 278
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 13,
+   "text": "特に微表情を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。",
+   "ms": 17111,
+   "usage": {
+    "promptTokenCount": 288,
+    "candidatesTokenCount": 23,
+    "totalTokenCount": 311,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 252
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 14,
+   "text": "水曜日のイベントの後、カルパネドは選手権で2つの個人レースに出場しました。",
+   "ms": 15628,
+   "usage": {
+    "promptTokenCount": 278,
+    "candidatesTokenCount": 21,
+    "totalTokenCount": 625,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 242
+     }
+    ],
+    "thoughtsTokenCount": 326,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 15,
+   "text": "この都市はニラゴンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります。",
+   "ms": 15648,
+   "usage": {
+    "promptTokenCount": 341,
+    "candidatesTokenCount": 35,
+    "totalTokenCount": 674,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 305
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     }
+    ],
+    "thoughtsTokenCount": 298,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 16,
+   "text": "プリトヴィツェ湖群国立公園はアルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小16の湖が点在し、絶景であふれる世界遺産です。",
+   "ms": 19220,
+   "usage": {
+    "promptTokenCount": 456,
+    "candidatesTokenCount": 57,
+    "totalTokenCount": 950,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 420
+     }
+    ],
+    "thoughtsTokenCount": 437,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 17,
+   "text": "バチカン市国の人口は約800人です。世界最小の独立国家であり、最も人口が少ない国でもあります。",
+   "ms": 19698,
+   "usage": {
+    "promptTokenCount": 321,
+    "candidatesTokenCount": 28,
+    "totalTokenCount": 349,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 285
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 18,
+   "text": "北マリアナ諸島の危機管理室EMOによると、全国的に被害は報告されていないとのことです。",
+   "ms": 18136,
+   "usage": {
+    "promptTokenCount": 302,
+    "candidatesTokenCount": 22,
+    "totalTokenCount": 693,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 266
+     }
+    ],
+    "thoughtsTokenCount": 369,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 19,
+   "text": "洞窟はメッカの北に当たる山頂にあり、外界から完全に隔離されています。",
+   "ms": 16384,
+   "usage": {
+    "promptTokenCount": 269,
+    "candidatesTokenCount": 21,
+    "totalTokenCount": 290,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 233
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 20,
+   "text": "このようなご夫婦は、その赤ちゃんのために養子縁組制度を利用できます。",
+   "ms": 13638,
+   "usage": {
+    "promptTokenCount": 346,
+    "candidatesTokenCount": 16,
+    "totalTokenCount": 362,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 310
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 21,
+   "text": "痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。",
+   "ms": 39064,
+   "usage": {
+    "promptTokenCount": 304,
+    "candidatesTokenCount": 20,
+    "totalTokenCount": 693,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 268
+     }
+    ],
+    "thoughtsTokenCount": 369,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 22,
+   "text": "同じように男性は膝を覆うズボンを履くことが義務付けられています。",
+   "ms": 38730,
+   "usage": {
+    "promptTokenCount": 222,
+    "candidatesTokenCount": 18,
+    "totalTokenCount": 695,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 186
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     }
+    ],
+    "thoughtsTokenCount": 455,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 23,
+   "text": "地球が動いているようには感じないので、これは理にかなっているように思えます。",
+   "ms": 39988,
+   "usage": {
+    "promptTokenCount": 172,
+    "candidatesTokenCount": 18,
+    "totalTokenCount": 507,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 136
+     }
+    ],
+    "thoughtsTokenCount": 317,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 24,
+   "text": "植物は自然環境にある時に最も見栄えがするのですから、一本だけならと標本に持ち帰りたい誘惑に負けないでください。",
+   "ms": 41799,
+   "usage": {
+    "promptTokenCount": 377,
+    "candidatesTokenCount": 33,
+    "totalTokenCount": 827,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 341
+     }
+    ],
+    "thoughtsTokenCount": 417,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 25,
+   "text": "子供と高齢者を含めた人質6名が早期に解放されフィリピン人の写真家たちも同じく解放",
+   "ms": 22418,
+   "usage": {
+    "promptTokenCount": 282,
+    "candidatesTokenCount": 26,
+    "totalTokenCount": 1442,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 246
+     }
+    ],
+    "thoughtsTokenCount": 1134,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 26,
+   "text": "緊張度が低いほど、よりポジティブな生命力が生まれます。誰にでも絶対的な平和と満足感を見出す潜在的な能力が備わっています。",
+   "ms": 20360,
+   "usage": {
+    "promptTokenCount": 383,
+    "candidatesTokenCount": 33,
+    "totalTokenCount": 416,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 347
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 27,
+   "text": "一晩で150から200枚が複製され、現在ではダンラップ・ブロードサイドと呼ばれています。",
+   "ms": 26211,
+   "usage": {
+    "promptTokenCount": 243,
+    "candidatesTokenCount": 26,
+    "totalTokenCount": 442,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 207
+     }
+    ],
+    "thoughtsTokenCount": 173,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 28,
+   "text": "復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約を交わしたことに焦点を当てています。",
+   "ms": 23570,
+   "usage": {
+    "promptTokenCount": 413,
+    "candidatesTokenCount": 35,
+    "totalTokenCount": 448,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 377
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 29,
+   "text": "うろこと爪のついた足を持ち、卵生であり、ティラノサウルスのよう後ろ足二本で歩きます。",
+   "ms": 32803,
+   "usage": {
+    "promptTokenCount": 344,
+    "candidatesTokenCount": 28,
+    "totalTokenCount": 1931,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 36
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 308
+     }
+    ],
+    "thoughtsTokenCount": 1559,
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  }
+ ],
+ "text": "エンジェルは2006年に組織がより高いパフォーマンスレベルに到達する上で役立つ方法として連続体アプローチを説明しています。 橋下の情報空間は15メートルです。2011年8月に竣工し、2017年3月まで開通しませんでした。 脳病理と行動の相関関係は科学者たちの研究を裏付けるものです。 離岸流とは砕けて浜辺に戻ってくる引き波のことで多くの場合岩礁やそれに似た場所で発生します。 自己の所有者であり、成人した2人の子を持つデュバルは、この話に関係するヴィラにあまり印象を残しませんでした。 日曜深夜、ドナルド・トランプ米大統領は報道関係へ配信された声明において、米軍がシリアから撤退することを発表しました。 最後に昆虫、げっ歯類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型の猫（野良猫を含む）が数多く生息しています。 1920年代に市民や国家のほとんどに広まっていた思想は平和主義と孤立主義でした。 カリフォルニア州のアーノルド・シュワルツェネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。 ASUSのEPCはコスト面と機能面で世界に先駆けて販売され2007台北ITマンスで話題となりました。 1分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。 当初番組はトークラジオに特化したインターネットラジオサイト、トギネットラジオのみで取り上げられ、これは長寿サイトです。 まず、ほとんどの乗り手は、かかとと滑らかでかなり狭めの靴底がついた乗馬靴を履いています。 特に微表情を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。 水曜日のイベントの後、カルパネドは選手権で2つの個人レースに出場しました。 この都市はニラゴンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります。 プリトヴィツェ湖群国立公園はアルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小16の湖が点在し、絶景であふれる世界遺産です。 バチカン市国の人口は約800人です。世界最小の独立国家であり、最も人口が少ない国でもあります。 北マリアナ諸島の危機管理室EMOによると、全国的に被害は報告されていないとのことです。 洞窟はメッカの北に当たる山頂にあり、外界から完全に隔離されています。 このようなご夫婦は、その赤ちゃんのために養子縁組制度を利用できます。 痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。 同じように男性は膝を覆うズボンを履くことが義務付けられています。 地球が動いているようには感じないので、これは理にかなっているように思えます。 植物は自然環境にある時に最も見栄えがするのですから、一本だけならと標本に持ち帰りたい誘惑に負けないでください。 子供と高齢者を含めた人質6名が早期に解放されフィリピン人の写真家たちも同じく解放 緊張度が低いほど、よりポジティブな生命力が生まれます。誰にでも絶対的な平和と満足感を見出す潜在的な能力が備わっています。 一晩で150から200枚が複製され、現在ではダンラップ・ブロードサイドと呼ばれています。 復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約を交わしたことに焦点を当てています。 うろこと爪のついた足を持ち、卵生であり、ティラノサウルスのよう後ろ足二本で歩きます。"
+}
