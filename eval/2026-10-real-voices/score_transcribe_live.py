@@ -88,6 +88,16 @@ for lang in ("en", "fr", "ja", "km", "lo"):
         row.update(score(lang, [(f["arrivedMs"], f["text"], f["offsetMs"] + f["durationMs"]) for f in r["finals"]]))
     rows.append(row)
 
+# ElevenLabs Scribe v2 Realtime (elevenlabs_stt.mjs), told the language and not.
+for sub, mode in (("stt-elevenlabs", "given"), ("stt-elevenlabs-auto", "auto")):
+    for p in sorted(glob.glob(os.path.join(HERE, "out", sub, "*.json"))):
+        r = json.load(open(p))
+        row = {"system": "elevenlabs-scribe-v2-rt", "lang": r["lang"], "mode": mode, "err": r["err"]}
+        fs = [(f["arrivedMs"], f["text"], f["offsetMs"] + f["durationMs"]) for f in r["finals"] if f.get("offsetMs") is not None]
+        if not r["err"] and fs:
+            row.update(score(r["lang"], fs))
+        rows.append(row)
+
 ref = json.load(open(os.path.join(HERE, "text-mt", "out", "stt_cer.json")))
 summary = {"note": "CER = judge.cer vs the verified text; latency in ms, see score_transcribe_live.py header",
            "runs": rows, "haitian_reference_cer": ref}
