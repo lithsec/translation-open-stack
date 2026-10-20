@@ -145,3 +145,7 @@ body:not(.blind) .vrow .name .alias { display: none; }
 
 footer.site { border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
 footer.site .in { max-width: 1000px; margin: 0 auto; padding: 16px; display: flex; flex-wrap: wrap; gap: 6px 20px; justify-content: space-between; }
+
+/* ---- in-progress sections ---- */
+.placeholder { border: 2px dashed var(--line); border-radius: 10px; padding: 12px 16px; color: var(--fg-2); background: var(--surface); max-width: 72ch; }
+table.langs th small, table.langs td small { color: var(--muted); }

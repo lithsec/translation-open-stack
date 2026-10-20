@@ -1,0 +1,866 @@
+{
+ "generated_by": "site/extract_derived.py",
+ "sources": {
+  "sept_e2e": "eval/2026-09-model-eval/results/round3_real_server_vs_gemini.json",
+  "sept_text": "eval/2026-09-model-eval/results/round4_translators_incl_nllb.json",
+  "oct_cloud": "eval/2026-10-azure-stt-gemini/results.json"
+ },
+ "note": "Per direction and system: [points, maximum points, sentences flagged critical], summed from the per-sentence grades (0-3) in the source file; delays copied as given. Grader notes and transcripts are left out.",
+ "sept_e2e": {
+  "en-es": {
+   "gemini_live": [
+    59,
+    72,
+    2
+   ],
+   "stack_new": [
+    70,
+    72,
+    0
+   ]
+  },
+  "en-fr": {
+   "stack_new": [
+    64,
+    72,
+    2
+   ],
+   "gemini_live": [
+    63,
+    72,
+    3
+   ]
+  },
+  "en-de": {
+   "gemini_live": [
+    59,
+    72,
+    0
+   ],
+   "stack_new": [
+    66,
+    72,
+    1
+   ]
+  },
+  "en-pt": {
+   "gemini_live": [
+    67,
+    72,
+    0
+   ],
+   "stack_new": [
+    68,
+    72,
+    1
+   ]
+  },
+  "en-ru": {
+   "stack_new": [
+    66,
+    72,
+    1
+   ],
+   "gemini_live": [
+    61,
+    72,
+    2
+   ]
+  },
+  "en-uk": {
+   "gemini_live": [
+    60,
+    72,
+    2
+   ],
+   "stack_new": [
+    69,
+    72,
+    1
+   ]
+  },
+  "en-zh": {
+   "gemini_live": [
+    64,
+    72,
+    0
+   ],
+   "stack_new": [
+    67,
+    72,
+    1
+   ]
+  },
+  "en-ja": {
+   "stack_new": [
+    65,
+    72,
+    2
+   ],
+   "gemini_live": [
+    49,
+    72,
+    4
+   ]
+  },
+  "en-km": {
+   "stack_new": [
+    30,
+    72,
+    7
+   ],
+   "gemini_live": [
+    62,
+    72,
+    1
+   ]
+  },
+  "en-ht": {
+   "stack_new": [
+    56,
+    72,
+    2
+   ],
+   "gemini_live": [
+    66,
+    72,
+    0
+   ]
+  },
+  "es-en": {
+   "gemini_live": [
+    59,
+    72,
+    2
+   ],
+   "stack_new": [
+    66,
+    72,
+    2
+   ]
+  },
+  "fr-en": {
+   "stack_new": [
+    72,
+    72,
+    0
+   ],
+   "gemini_live": [
+    55,
+    72,
+    3
+   ]
+  },
+  "de-en": {
+   "stack_new": [
+    67,
+    72,
+    1
+   ],
+   "gemini_live": [
+    53,
+    72,
+    2
+   ]
+  },
+  "pt-en": {
+   "gemini_live": [
+    59,
+    72,
+    3
+   ],
+   "stack_new": [
+    63,
+    72,
+    3
+   ]
+  },
+  "ru-en": {
+   "gemini_live": [
+    52,
+    72,
+    4
+   ],
+   "stack_new": [
+    68,
+    72,
+    1
+   ]
+  },
+  "zh-en": {
+   "stack_new": [
+    62,
+    72,
+    4
+   ],
+   "gemini_live": [
+    50,
+    72,
+    5
+   ]
+  },
+  "ja-en": {
+   "gemini_live": [
+    48,
+    72,
+    4
+   ],
+   "stack_new": [
+    64,
+    72,
+    2
+   ]
+  },
+  "km-en": {
+   "stack_new": [
+    26,
+    72,
+    12
+   ],
+   "gemini_live": [
+    24,
+    72,
+    12
+   ]
+  },
+  "ht-en": {
+   "gemini_live": [
+    31,
+    72,
+    12
+   ],
+   "stack_new": [
+    26,
+    72,
+    12
+   ]
+  }
+ },
+ "sept_text": {
+  "en-es": {
+   "madlad3b": [
+    65,
+    72,
+    2
+   ],
+   "nllb3b": [
+    70,
+    72,
+    0
+   ],
+   "hymt7b": [
+    70,
+    72,
+    0
+   ],
+   "madlad7b": [
+    65,
+    72,
+    2
+   ]
+  },
+  "en-fr": {
+   "hymt7b": [
+    65,
+    72,
+    1
+   ],
+   "madlad3b": [
+    64,
+    72,
+    0
+   ],
+   "madlad7b": [
+    60,
+    72,
+    1
+   ],
+   "nllb3b": [
+    62,
+    72,
+    1
+   ]
+  },
+  "en-de": {
+   "madlad3b": [
+    56,
+    72,
+    1
+   ],
+   "nllb3b": [
+    65,
+    72,
+    0
+   ],
+   "hymt7b": [
+    63,
+    72,
+    0
+   ],
+   "madlad7b": [
+    57,
+    72,
+    0
+   ]
+  },
+  "en-pt": {
+   "madlad3b": [
+    65,
+    72,
+    1
+   ],
+   "hymt7b": [
+    66,
+    72,
+    1
+   ],
+   "nllb3b": [
+    63,
+    72,
+    1
+   ],
+   "madlad7b": [
+    66,
+    72,
+    1
+   ]
+  },
+  "en-ru": {
+   "madlad7b": [
+    60,
+    72,
+    2
+   ],
+   "madlad3b": [
+    61,
+    72,
+    2
+   ],
+   "nllb3b": [
+    65,
+    72,
+    1
+   ],
+   "hymt7b": [
+    69,
+    72,
+    1
+   ]
+  },
+  "en-uk": {
+   "hymt7b": [
+    68,
+    72,
+    0
+   ],
+   "madlad3b": [
+    31,
+    72,
+    1
+   ],
+   "nllb3b": [
+    63,
+    72,
+    0
+   ],
+   "madlad7b": [
+    46,
+    72,
+    0
+   ]
+  },
+  "en-zh": {
+   "madlad3b": [
+    59,
+    72,
+    1
+   ],
+   "nllb3b": [
+    50,
+    72,
+    2
+   ],
+   "hymt7b": [
+    72,
+    72,
+    0
+   ],
+   "madlad7b": [
+    62,
+    72,
+    1
+   ]
+  },
+  "en-ja": {
+   "madlad3b": [
+    56,
+    72,
+    2
+   ],
+   "nllb3b": [
+    52,
+    72,
+    4
+   ],
+   "madlad7b": [
+    59,
+    72,
+    1
+   ],
+   "hymt7b": [
+    69,
+    72,
+    1
+   ]
+  },
+  "en-km": {
+   "madlad7b": [
+    57,
+    72,
+    1
+   ],
+   "hymt7b": [
+    69,
+    72,
+    1
+   ],
+   "madlad3b": [
+    41,
+    72,
+    4
+   ],
+   "nllb3b": [
+    51,
+    72,
+    4
+   ]
+  },
+  "en-ht": {
+   "madlad3b": [
+    39,
+    72,
+    5
+   ],
+   "hymt7b": [
+    5,
+    72,
+    3
+   ],
+   "madlad7b": [
+    58,
+    72,
+    3
+   ],
+   "nllb3b": [
+    59,
+    72,
+    4
+   ]
+  },
+  "es-en": {
+   "nllb3b": [
+    70,
+    72,
+    0
+   ],
+   "hymt7b": [
+    66,
+    72,
+    2
+   ],
+   "madlad3b": [
+    65,
+    72,
+    1
+   ],
+   "madlad7b": [
+    69,
+    72,
+    0
+   ]
+  },
+  "fr-en": {
+   "madlad7b": [
+    64,
+    72,
+    1
+   ],
+   "madlad3b": [
+    60,
+    72,
+    1
+   ],
+   "nllb3b": [
+    69,
+    72,
+    0
+   ],
+   "hymt7b": [
+    71,
+    72,
+    0
+   ]
+  },
+  "de-en": {
+   "nllb3b": [
+    67,
+    72,
+    1
+   ],
+   "madlad7b": [
+    69,
+    72,
+    0
+   ],
+   "madlad3b": [
+    63,
+    72,
+    0
+   ],
+   "hymt7b": [
+    68,
+    72,
+    1
+   ]
+  },
+  "pt-en": {
+   "madlad3b": [
+    61,
+    72,
+    1
+   ],
+   "nllb3b": [
+    67,
+    72,
+    1
+   ],
+   "hymt7b": [
+    63,
+    72,
+    2
+   ],
+   "madlad7b": [
+    63,
+    72,
+    1
+   ]
+  },
+  "ru-en": {
+   "hymt7b": [
+    70,
+    72,
+    0
+   ],
+   "madlad3b": [
+    63,
+    72,
+    0
+   ],
+   "nllb3b": [
+    61,
+    72,
+    1
+   ],
+   "madlad7b": [
+    64,
+    72,
+    0
+   ]
+  },
+  "zh-en": {
+   "nllb3b": [
+    51,
+    72,
+    2
+   ],
+   "madlad3b": [
+    57,
+    72,
+    2
+   ],
+   "madlad7b": [
+    58,
+    72,
+    2
+   ],
+   "hymt7b": [
+    72,
+    72,
+    0
+   ]
+  },
+  "ja-en": {
+   "nllb3b": [
+    61,
+    72,
+    4
+   ],
+   "madlad3b": [
+    66,
+    72,
+    0
+   ],
+   "hymt7b": [
+    70,
+    72,
+    1
+   ],
+   "madlad7b": [
+    65,
+    72,
+    0
+   ]
+  },
+  "km-en": {
+   "madlad7b": [
+    54,
+    72,
+    3
+   ],
+   "madlad3b": [
+    45,
+    72,
+    7
+   ],
+   "hymt7b": [
+    67,
+    72,
+    1
+   ],
+   "nllb3b": [
+    42,
+    72,
+    4
+   ]
+  },
+  "ht-en": {
+   "hymt7b": [
+    22,
+    72,
+    11
+   ],
+   "madlad7b": [
+    58,
+    72,
+    6
+   ],
+   "nllb3b": [
+    60,
+    72,
+    5
+   ],
+   "madlad3b": [
+    57,
+    72,
+    6
+   ]
+  }
+ },
+ "oct_cloud": {
+  "en-ja": {
+   "azure_only": {
+    "score_pct": 100,
+    "critical": 0,
+    "delay_ms_median": 992
+   },
+   "azure_stt_gemini": {
+    "score_pct": 92,
+    "critical": 0,
+    "delay_ms_median": 1296
+   },
+   "gladia_stt_gemini": {
+    "score_pct": 92,
+    "critical": 0,
+    "delay_ms_median": 1222
+   },
+   "gemini_live": {
+    "score_pct": 71,
+    "critical": 4,
+    "delay_ms_median": null
+   }
+  },
+  "en-zh": {
+   "azure_only": {
+    "score_pct": 100,
+    "critical": 0,
+    "delay_ms_median": 933
+   },
+   "azure_stt_gemini": {
+    "score_pct": 100,
+    "critical": 0,
+    "delay_ms_median": 1279
+   },
+   "gladia_stt_gemini": {
+    "score_pct": 94,
+    "critical": 0,
+    "delay_ms_median": 1201
+   },
+   "gemini_live": {
+    "score_pct": 75,
+    "critical": 6,
+    "delay_ms_median": null
+   }
+  },
+  "en-km": {
+   "azure_only": {
+    "score_pct": 88,
+    "critical": 0,
+    "delay_ms_median": 1153
+   },
+   "azure_stt_gemini": {
+    "score_pct": 75,
+    "critical": 0,
+    "delay_ms_median": 1338
+   },
+   "gladia_stt_gemini": {
+    "score_pct": 85,
+    "critical": 1,
+    "delay_ms_median": 1246
+   },
+   "gemini_live": {
+    "score_pct": 81,
+    "critical": 2,
+    "delay_ms_median": null
+   }
+  },
+  "en-lo": {
+   "azure_only": {
+    "score_pct": 75,
+    "critical": 0,
+    "delay_ms_median": 1097
+   },
+   "azure_stt_gemini": {
+    "score_pct": 93,
+    "critical": 0,
+    "delay_ms_median": 1356
+   },
+   "gladia_stt_gemini": {
+    "score_pct": 85,
+    "critical": 1,
+    "delay_ms_median": 1280
+   },
+   "gemini_live": {
+    "score_pct": 83,
+    "critical": 1,
+    "delay_ms_median": null
+   }
+  },
+  "en-ht": {
+   "azure_only": {
+    "score_pct": 76,
+    "critical": 0,
+    "delay_ms_median": 733
+   },
+   "azure_stt_gemini": {
+    "score_pct": 86,
+    "critical": 1,
+    "delay_ms_median": 1293
+   },
+   "gladia_stt_gemini": {
+    "score_pct": 88,
+    "critical": 1,
+    "delay_ms_median": 1283
+   },
+   "gemini_live": {
+    "score_pct": 88,
+    "critical": 1,
+    "delay_ms_median": null
+   }
+  },
+  "ja-en": {
+   "azure_only": {
+    "score_pct": 74,
+    "critical": 1,
+    "delay_ms_median": 1010
+   },
+   "azure_stt_gemini": {
+    "score_pct": 92,
+    "critical": 1,
+    "delay_ms_median": 1258
+   },
+   "gladia_stt_gemini": {
+    "score_pct": 89,
+    "critical": 1,
+    "delay_ms_median": 1189
+   },
+   "gemini_live": {
+    "score_pct": 50,
+    "critical": 4,
+    "delay_ms_median": null
+   }
+  },
+  "zh-en": {
+   "azure_only": {
+    "score_pct": 78,
+    "critical": 2,
+    "delay_ms_median": 1113
+   },
+   "azure_stt_gemini": {
+    "score_pct": 97,
+    "critical": 1,
+    "delay_ms_median": 1389
+   },
+   "gladia_stt_gemini": {
+    "score_pct": 85,
+    "critical": 3,
+    "delay_ms_median": 1481
+   },
+   "gemini_live": {
+    "score_pct": 57,
+    "critical": 7,
+    "delay_ms_median": null
+   }
+  },
+  "km-en": {
+   "azure_only": {
+    "score_pct": 36,
+    "critical": 9,
+    "delay_ms_median": 981
+   },
+   "gladia_stt_gemini": {
+    "score_pct": 0,
+    "critical": 0,
+    "delay_ms_median": 18953
+   },
+   "gemini_live": {
+    "score_pct": 38,
+    "critical": 7,
+    "delay_ms_median": null
+   }
+  },
+  "lo-en": {
+   "azure_only": {
+    "score_pct": 47,
+    "critical": 9,
+    "delay_ms_median": 1023
+   },
+   "azure_stt_gemini": {
+    "score_pct": 62,
+    "critical": 7,
+    "delay_ms_median": 1292
+   },
+   "gladia_stt_gemini": {
+    "score_pct": 35,
+    "critical": 9,
+    "delay_ms_median": 1436
+   },
+   "gemini_live": {
+    "score_pct": 44,
+    "critical": 7,
+    "delay_ms_median": null
+   }
+  },
+  "ht-en": {
+   "gladia_stt_gemini": {
+    "score_pct": 47,
+    "critical": 9,
+    "delay_ms_median": 1398
+   },
+   "gemini_live": {
+    "score_pct": 39,
+    "critical": 10,
+    "delay_ms_median": null
+   }
+  }
+ }
+}

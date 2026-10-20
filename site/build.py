@@ -39,7 +39,26 @@ INPUTS = {
     "judge": "eval/2026-10-ht-voices/judge.json",
     "mp3": "eval/2026-10-ht-voices/mp3",
     "langs": "languages.toml",
+    # September 2026 model evaluation (Languages page)
+    "sept_doc": "docs/dev/model-evaluation.md",
+    "derived": "site/data/derived.json",  # scores copied by site/extract_derived.py
+    "r6lao": "eval/2026-09-model-eval/results/round6_lao.json",
+    "asr300": "eval/2026-09-model-eval/results/asr/omniASR_LLM_300M.json",
+    "nat": "eval/2026-09-model-eval/results/voice_naturalness.json",
+    "voxspeed": "eval/2026-09-model-eval/results/voxcpm_speed.json",
+    "r8asr": "eval/2026-09-model-eval/results/round8_new_languages/new_asr.json",
+    "r8mt": "eval/2026-09-model-eval/results/round8_new_languages/new_mt_judged.json",
+    "r8nat": "eval/2026-09-model-eval/results/round8_new_languages/new_voice_naturalness.json",
+    "stack_config": "server/stack_config.py",
+    "licences": "server/licences.py",
+    # Latency page
+    "oct_doc": "docs/dev/route-findings-2026-10.md",
+    "htv_readme": "eval/2026-10-ht-voices/README.md",
+    "azg_readme": "eval/2026-10-azure-stt-gemini/README.md",
+    "omni_readme": "services/omni-stt/README.md",
+    "latency": "eval/2026-10-latency/results.json",  # optional: rendered when present
 }
+OPTIONAL_INPUTS = {"latency"}
 
 # ---------------------------------------------------------------- names
 # Every system that appears on a chart. vendor = the company whose cloud
@@ -108,6 +127,10 @@ SYSTEMS = {
     "v:oai-sage-instr": ("gpt-4o-mini-tts, sage + accent instruction", "openai", "voice 2 + accent instruction"),
     "v:coqui": ("Coqui VITS OpenBible Haitian Creole", None, ""),
     "v:mms": ("Meta MMS-TTS (mms-tts-hat)", None, ""),
+    # September end to end, October cloud pipelines
+    "sept:stack": ("Open stack, recommended setup", None, ""),
+    "sept:gemini-live": ("Gemini Live (Vertex AI)", "google", "speech-to-speech model"),
+    "azg:azure_only": ("Azure speech translation + Azure voice", "microsoft", "speech translation + voice"),
     # grader
     "grader": ("Gemini 3.1 Pro (preview)", "google", "large LLM"),
     "grader-old": ("Gemini 2.5 Pro", "google", "large LLM, older"),
@@ -128,6 +151,32 @@ def L(key):
     if ANON and v:
         return f"{vendor(v)} {what}".strip()
     return label
+
+
+def VN(v, real, what):
+    """A cloud product named in prose: its real name, or "Vendor X <what>" when anonymised."""
+    return f"{vendor(v)} {what}".strip() if ANON else real
+
+
+# Free text from an optional result file (eval/2026-10-latency) may name
+# vendors and their products; anonymised builds replace them.
+_ANON_PATTERNS = [
+    ("microsoft", r"Microsoft(?: Azure)?|Azure(?: AI)?(?: Foundry| Speech| Translator| OpenAI)?|Foundry"),
+    ("google", r"Google(?: Cloud)?|Vertex(?: AI)?|gemini-[\w.\-@]+|Gemini(?: [\d.]+)?(?: (?:Pro|Flash|Lite|Live|TTS))*|Chirp ?\d*"),
+    ("openai", r"OpenAI|gpt-(?!oss)[\w.\-@]+|GPT-(?!oss)[\w.\-@]+"),
+    ("elevenlabs", r"ElevenLabs|Scribe(?: v2)?(?: Realtime)?"),
+    ("assemblyai", r"AssemblyAI|Universal-[\w.\-]+"),
+    ("gladia", r"Gladia|Solaria-?\d*"),
+]
+
+
+def anon_text(s):
+    s = str(s)
+    if not ANON:
+        return s
+    for v, pat in _ANON_PATTERNS:
+        s = re.sub(pat, vendor(v), s, flags=re.IGNORECASE)
+    return s
 
 
 def is_cloud(key):
@@ -328,7 +377,8 @@ def lines(title, sub, xcats, series, *, ylabel, yticks, yfmt, vendor_named=False
 
 # ---------------------------------------------------------------- page shell
 
-PAGES = [("index.html", "Home"), ("findings.html", "Findings"), ("voices.html", "Voices"),
+PAGES = [("index.html", "Home"), ("findings.html", "Findings"), ("languages.html", "Languages"),
+         ("latency.html", "Latency"), ("voices.html", "Voices"),
          ("methodology.html", "Methodology"), ("models.html", "Models & licences")]
 
 
@@ -351,7 +401,7 @@ def page(fname, title, body, description, extra_head="", scripts=""):
 <main id="main">
 {body}
 </main>
-<footer class="site"><div class="in"><span>Results measured October 2026. Code: <a href="{REPO_URL}">lithsec/translation-open-stack</a> (Apache 2.0). {anon}</span><span>by <a href="https://vortas.io">Vortas</a></span></div></footer>
+<footer class="site"><div class="in"><span>Results measured September–October 2026. Code: <a href="{REPO_URL}">lithsec/translation-open-stack</a> (Apache 2.0). {anon}</span><span>by <a href="https://vortas.io">Vortas</a></span></div></footer>
 {scripts}</body>
 </html>
 """
@@ -464,7 +514,7 @@ def build_home(D, S1):
     body = f"""
 <div class="prose">
 <h1>Live speech translation on hardware you control</h1>
-<p class="lede">Translation Open Stack is an open-source server: a client streams microphone audio in and gets back captions and spoken translation for every language its listeners need, in 25 languages, from open-weight models on one GPU. This site publishes what we measured in October 2026 while choosing how to hear, translate and voice live speech — including where the open models fall short.</p>
+<p class="lede">Translation Open Stack is an open-source server: a client streams microphone audio in and gets back captions and spoken translation for every language its listeners need, in 25 languages, from open-weight models on one GPU. This site publishes what we measured in September and October 2026 while choosing how to hear, translate and voice live speech — including where the open models fall short.</p>
 </div>
 <section class="stats" aria-label="Headline numbers">
 <div class="stat"><div class="n">{pct(hcer)}</div><div class="t">characters wrong: Omnilingual ASR hearing real Haitian Creole speakers, live</div></div>
@@ -482,6 +532,8 @@ def build_home(D, S1):
 <li><strong>A bigger Omnilingual model is not better for Haitian Creole</strong>; the 7B card helps Lao. <a href="findings.html#sizes">Model sizes</a></li>
 <li><strong>When to cut a sentence matters more than the model</strong> for live recognition. <a href="findings.html#endpointing">Endpointing</a></li>
 <li><strong>Feed recognition from a sound board or a close mic.</strong> Compression barely matters; distance and noise do. <a href="findings.html#audio">Audio quality</a></li>
+<li><strong>Per language (September):</strong> the open stack beat {L('sept:gemini-live')} end to end in 16 of 17 directions (92% against 80%); every language's recognition, translation and voice scores, and which ones the commercial edition can still voice. <a href="languages.html">Languages</a></li>
+<li><strong>Latency, labelled:</strong> the open stack's first translated audio about 0.8 s after the speaker stops; a cloud recogniser feeding a cloud voice about 1.3 s after each sentence ends; and what each other delay measures. <a href="latency.html">Latency</a></li>
 <li><strong>Haitian Creole voices:</strong> hear the seven voices we compared. <a href="voices.html">Voices</a></li>
 </ul>
 
@@ -493,7 +545,7 @@ cp .env.example .env            # set STACK_TOKEN (openssl rand -hex 32)
 docker compose up -d --build    # first start downloads and builds the models
 curl http://localhost:8790/health</code></pre>
 <p>Then point a client at <code>ws://&lt;host&gt;:8790</code> with the token as its key. Full steps: the <a href="{BLOB}docs/user-guide.md">user guide</a>; the wire format: <a href="{BLOB}docs/dev/protocol.md">protocol</a>. The code is Apache 2.0; the models keep their own licences, and some are non-commercial — see <a href="models.html">Models &amp; licences</a>.</p>
-<p class="caveat">Cloud models change often. Everything here was measured on 18–19 October 2026 with the versions named on the <a href="methodology.html">methodology</a> page; treat vendor numbers as a snapshot, not a ranking that will hold.</p>
+<p class="caveat">Cloud models change often. The October results were measured on 18–19 October 2026 (the September ones on 26–29 September) with the versions named on the <a href="methodology.html">methodology</a> page; treat vendor numbers as a snapshot, not a ranking that will hold.</p>
 </div>
 """
     page("index.html", "Translation Open Stack Research",
@@ -883,6 +935,8 @@ def build_methodology(D):
 
 <h2>Dates and versions</h2>
 <div class="table-wrap"><table class="wide"><thead><tr><th>Test</th><th>Date</th><th>Versions and hardware</th></tr></thead><tbody>
+<tr><th scope="row">September model evaluation</th><td>2026-09-26 to 09-29</td><td>24 synthetic-set sentences per direction, mostly synthetic speech; FLEURS for round-8 recognition. One RTX PRO 4500 Blackwell 32 GB (Romanian: RTX 6000 Ada). Grader {esc(L('grader-old'))}. See <a href="languages.html">Languages</a>.</td></tr>
+<tr><th scope="row">Cloud routes, delay</th><td>2026-10-17</td><td>September's synthetic clips; delay = end of sentence to start of translated audio, median of 24. See <a href="latency.html">Latency</a>.</td></tr>
 <tr><th scope="row">Recognition bake-off</th><td>{esc(D['bakeoff']['date'])}</td><td>Model names as on the chart labels. Cloud regions: US.</td></tr>
 <tr><th scope="row">Audio conditions</th><td>{esc(deg['date'])}</td><td>{esc(L('azure-speech'))}; Omnilingual LLM 300M on a cloud L4 service. Room impulse response RT60 {deg['audio']['ir']['rt60_T20_s']} s (T20), DRR {deg['audio']['ir']['drr_db']} dB.</td></tr>
 <tr><th scope="row">Translator round 1</th><td>2026-10-19</td><td>Hy-MT2 7B at revision <code>9b0eb4e8</code>, bitsandbytes NF4; MADLAD-400 7B at <code>1ff63ce7</code>, CTranslate2 int8, beam 4; TranslateGemma 12B bf16. One RTX 6000 Ada 48 GB. Cloud LLMs at temperature 0 or their reasoning setting as labelled.</td></tr>
@@ -903,6 +957,7 @@ def build_methodology(D):
 </ul>
 
 <h2>Reproduce</h2>
+<p>Some result files carry grader notes and transcripts the site never shows; <code>site/extract_derived.py</code> copies only their scores and delays into <code>site/data/derived.json</code>, which the build reads. Rerun it when those files change.</p>
 <p>Each eval folder has a README with the commands and the environment variables it needs (API keys are never committed). Start at {src_link('eval/README.md')}; route summary: {src_link('docs/dev/route-findings-2026-10.md')}.</p>
 </div>"""
     page("methodology.html", "Methodology", body, "Datasets, scoring, versions and caveats behind the October 2026 results.")
@@ -994,6 +1049,538 @@ def build_models(D):
     page("models.html", "Models and Licences", body, "Why each model in the open stack was chosen, and what its licence allows.")
 
 
+# ---------------------------------------------------------------- September evaluation + latency
+
+LANG_NAMES = {"en": "English", "es": "Spanish", "fr": "French", "pt": "Portuguese", "it": "Italian", "de": "German",
+              "ru": "Russian", "uk": "Ukrainian", "zh": "Chinese", "ja": "Japanese", "ko": "Korean", "vi": "Vietnamese",
+              "ar": "Arabic", "fa": "Persian", "id": "Indonesian", "tr": "Turkish", "bn": "Bengali", "ur": "Urdu",
+              "hi": "Hindi", "sw": "Swahili", "ro": "Romanian", "ht": "Haitian Creole", "km": "Khmer", "lo": "Lao",
+              "tl": "Tagalog"}
+SEPT_ROUND1 = ["es", "fr", "de", "pt", "ru", "uk", "zh", "ja", "km", "ht", "lo"]
+SEPT_ROUND8 = ["ar", "hi", "vi", "ko", "tl", "fa", "id", "tr", "bn", "ur", "it", "sw"]
+SEPT_ORDER = ["en"] + SEPT_ROUND1 + SEPT_ROUND8 + ["ro"]
+PR18 = REPO_URL + "/pull/18"
+
+
+def _ws(s):
+    return re.sub(r"\s+", " ", s)
+
+
+def cite(D, key, needle):
+    """Fail the build if a document no longer says what the site quotes from it."""
+    if _ws(needle) not in _ws(D["text"][key]):
+        raise SystemExit(f"build: {INPUTS[key]} no longer contains {needle!r}; update site/build.py")
+    return needle
+
+
+def load_more(D):
+    D["text"] = {}
+    for k in ("sept_doc", "oct_doc", "htv_readme", "azg_readme", "omni_readme"):
+        with open(os.path.join(ROOT, INPUTS[k]), encoding="utf-8") as f:
+            D["text"][k] = f.read()
+    for k in ("derived", "r6lao", "asr300", "nat", "voxspeed", "r8asr", "r8mt", "r8nat"):
+        D[k] = J(INPUTS[k])
+    p = os.path.join(ROOT, INPUTS["latency"])
+    D["latency"] = J(INPUTS["latency"]) if os.path.isfile(p) else None
+    # Which voices each edition runs, exactly as the server decides it.
+    sys.path.insert(0, os.path.join(ROOT, "server"))
+    import stack_config as sc
+    toml = os.path.join(ROOT, INPUTS["langs"])
+    table, _ = sc.load(toml)
+    reviews = sc.load_reviews(toml)
+    D["editions"] = {ed: sc.apply_edition(table, ed, reviews, unclear_ok=False)[1] for ed in ("nonprofit", "commercial")}
+    D["hymt_langs"] = set(sc.HYMT_LANGS)
+    D["table"] = table
+
+
+def voice_label(name, value):
+    if name == "kokoro":
+        return f"Kokoro {value.split(':', 1)[1]}"
+    if name == "piper":
+        if ANON and "google" in value.lower():  # a voice id that names a cloud vendor
+            return f"Piper ({value.split('_')[0]})"
+        return "Piper " + value.split("-")[1] if value.count("-") >= 2 else f"Piper {value}"
+    return {"voxcpm": "VoxCPM2", "mms": "MMS-TTS", "coqui": "Coqui OpenBible", "espeak": "eSpeak NG"}.get(name, name)
+
+
+def voice_key(name, value):
+    """The voice's key in the round-8 result files."""
+    if name == "kokoro":
+        return "kokoro-" + value.split(":", 1)[1]
+    if name == "piper":
+        return "piper-" + value
+    return name
+
+
+def sept_doc_clarity(D):
+    """Round-trip error of each language's voice, from the table in section 3.4
+    of the September document (only the document has these numbers)."""
+    doc = D["text"]["sept_doc"]
+    sec = doc.split("### 3.4 Voices", 1)[1].split("**VoxCPM2 speed.**", 1)[0]
+    byname = {v: k for k, v in LANG_NAMES.items()}
+    byname["Mandarin"] = "zh"
+    out = {}
+    for line in sec.splitlines():
+        cells = [c.strip().replace("**", "") for c in line.strip().strip("|").split("|")]
+        if len(cells) != 3 or cells[0] not in byname:
+            continue
+        cur = re.findall(r"([A-Za-z]+) (\d+(?:\.\d+)?)%", cells[2])
+        vox = re.match(r"(\d+(?:\.\d+)?)%", cells[1])
+        out[byname[cells[0]]] = {"voxcpm": float(vox.group(1)) / 100 if vox else None,
+                                 "current": {e.lower(): float(p) / 100 for e, p in cur}}
+    return out
+
+
+def _pts(x):
+    return x[0] / x[1] if x and x[1] else None
+
+
+def sept_lang_rows(D):
+    """One row per stack language: what serves it and what September measured."""
+    der, table, hy = D["derived"], D["table"], D["hymt_langs"]
+    r4 = der["sept_text"]
+    asr300 = D["asr300"]["sets"]
+    r8a, r8m, r8n = D["r8asr"], D["r8mt"], D["r8nat"]
+    clar_doc = sept_doc_clarity(D)
+    nat = {}
+    for x in D["nat"]:
+        nat.setdefault(x["lang"], {"voxcpm": [], "current": []})
+        nat[x["lang"]]["voxcpm"].append(x["voxcpm"])
+        nat[x["lang"]]["current"].append(x["current"])
+    rows = []
+    for code in SEPT_ORDER:
+        t = table[code]
+        omni = t.get("asr", "whisper").startswith("omni")
+        np_voices = [(n, v) for n, v, _ in D["editions"]["nonprofit"][code]["voices"] if n != "espeak"]
+        cm = D["editions"]["commercial"][code]
+        cm_voices = [(n, v) for n, v, _ in cm["voices"] if n != "espeak"]
+        np_lic = {n: li for n, v, li in D["editions"]["nonprofit"][code]["voices"]}
+        r = {"code": code, "name": LANG_NAMES[code], "hears": "Omnilingual 300M" if omni else "Whisper large-v3",
+             "to_tr": "MADLAD-400 7B" if t.get("translator") == "madlad" else "Hy-MT2 7B",
+             "from_tr": "Hy-MT2 7B" if code in hy else "MADLAD-400 7B",
+             "voice": voice_label(*np_voices[0]) if np_voices else "eSpeak NG only",
+             "voice_nc": bool(np_voices) and np_lic[np_voices[0][0]].cls == "noncommercial",
+             "voice_more": [voice_label(n, v) for n, v in np_voices[1:]],
+             "commercial": (voice_label(*cm_voices[0]) if cm_voices else
+                            ("eSpeak NG only" if cm["voices"] else "text only")),
+             "cer": None, "cer_alt": None, "cer_src": "", "to": None, "from": None, "mt_src": "",
+             "nat": None, "clar": None, "voice_src": "", "round": ""}
+        if code == "en":
+            r["round"] = "source and target"
+        elif code in SEPT_ROUND1 and code != "lo":
+            r["round"] = "round 1 (26–27 Sept)"
+            to_sys = "madlad7b" if t.get("translator") == "madlad" else "hymt7b"
+            from_sys = "hymt7b" if code in hy else "madlad7b"
+            r["to"] = _pts(r4[f"en-{code}"][to_sys])
+            r["from"] = _pts(r4[f"{code}-en"][from_sys]) if f"{code}-en" in r4 else None
+            r["mt_src"] = "typed text, round 4" + ("; uk→en excluded (bad source set)" if code == "uk" else "")
+        elif code == "lo":
+            r["round"] = "round 1 (26–27 Sept)"
+            lao = D["r6lao"]
+            r["to"] = lao["en-lo"]["madlad7b"][0] / 72
+            r["from"] = lao["lo-en"]["madlad7b"][0] / 72
+            r["mt_src"] = "typed text, round 6"
+        elif code in SEPT_ROUND8:
+            r["round"] = "round 8 (28 Sept)"
+            r["to"] = r8m[f"en-{code}"]["pct"] / 100
+            r["from"] = r8m[f"{code}-en"]["pct"] / 100
+            r["mt_src"] = "typed text, round 8"
+        else:
+            r["round"] = "29 Sept"
+        # recognition
+        if code in r8a["fleurs"]:
+            f = r8a["fleurs"][code]
+            r["cer"], r["cer_alt"] = (f["omni"], f["whisper"]) if omni else (f["whisper"], f["omni"])
+            r["cer_src"] = f"FLEURS, {f['n']} real clips"
+        elif code in ("km", "lo", "ht"):
+            sets = {k.split("/")[1]: v["cer"] for k, v in asr300.items() if k.startswith(code + "/")}
+            r["cer_syn"] = sets
+            r["cer_src"] = "synthetic voices (" + ", ".join(f"{voice_label(k, '')}: {pct(v)}" for k, v in sets.items()) + ")"
+        elif code == "ro":
+            cite(D, "sept_doc", "**7.7% WER** (2.1% CER)")
+            r["cer"], r["cer_src"] = 0.021, "FLEURS, 25 real clips (document §3.4c)"
+        # voice
+        if np_voices:
+            n, v = np_voices[0]
+            if code in SEPT_ROUND8:
+                k = voice_key(n, v)
+                r["nat"] = r8n.get(code, {}).get(k)
+                c = r8a["clarity"].get(f"{k}/{code}", {})
+                r["clar"] = c.get("omni" if omni else "whisper")
+                r["voice_src"] = "round 8 files"
+            elif code in nat:
+                which = "voxcpm" if n == "voxcpm" else "current"
+                r["nat"] = st.mean(nat[code][which])
+                r["voice_src"] = "naturalness: voice_naturalness.json"
+            if code in ("km", "lo", "ht"):
+                key = {"voxcpm": "voxcpm", "mms": "mms"}.get(n)
+                r["clar"] = asr300.get(f"{code}/{key}", {}).get("cer")
+                r["voice_src"] += ("; " if r["voice_src"] else "") + "clarity: Omnilingual round trip"
+            elif code in clar_doc and r["clar"] is None:
+                eng = {"kokoro": "kokoro", "piper": "piper", "voxcpm": None}.get(n)
+                r["clar"] = clar_doc[code]["current"].get(eng) if eng else clar_doc[code]["voxcpm"]
+                if r["clar"] is not None:
+                    r["voice_src"] += ("; " if r["voice_src"] else "") + "clarity: document §3.4"
+            if code == "ro":
+                cite(D, "sept_doc", "8.3% WER / 1.9% CER")
+                r["clar"], r["voice_src"] = 0.019, "clarity: document §3.4c"
+        rows.append(r)
+    return rows
+
+
+def build_languages(D):
+    der = D["derived"]
+    doc = src_link("docs/dev/model-evaluation.md", "model-evaluation.md")
+    for n in ("| Score | **92%** | 80% |", "| Directions won | **16 of 17** | 1 (English→Haitian Creole) |",
+              "**~0.8 s after the speaker stops**", "~2.8 s after the speaker *starts*; speaks mid-sentence"):
+        cite(D, "sept_doc", n)
+    gl = L("sept:gemini-live")
+    # ---- end to end, per direction
+    e2e = der["sept_e2e"]
+    groups, wins = [], 0
+    for d, s in e2e.items():
+        a, b = _pts(s["stack_new"]), _pts(s["gemini_live"])
+        wins += a > b
+        groups.append((d.replace("-", "→"), [a, b], False))
+    m_stack = st.mean(g[1][0] for g in groups)
+    m_gl = st.mean(g[1][1] for g in groups)
+    e2e_chart = grouped("End to end, per direction: the stack against " + gl,
+                        "Same synthetic audio for both; the stack's own recognition through the real server; one blind grading round. Share of 0–3 points per sentence, higher is better.",
+                        groups, [(L("sept:stack"), "c3"), (gl, "c1")], maxv=1, vendor_named=True,
+                        note=f"All {len(groups)} directions in the result file: plain mean {pct(m_stack, 0)} against {pct(m_gl, 0)}, the stack ahead in {wins}. "
+                             f"The document's headline (92% against 80%, 16 of 17) is over the 17 directions it counts as valid; it does not list which two it set aside.")
+    # ---- translation per language
+    rows = sept_lang_rows(D)
+    tgroups = [(f'{r["name"]}', [r["to"], r["from"]], False) for r in rows if r["to"] is not None]
+    tr_chart = grouped("Translation by language, typed text (September)",
+                       "The stack's translator for each direction: Hy-MT2 where it has the language, else MADLAD-400 7B. Higher is better.",
+                       tgroups, [("English → language", "c2"), ("Language → English", "c4")], maxv=1,
+                       note="Ukrainian → English is missing: its source sentences came back in broken English and were excluded. Lao from round 6; the round-8 languages from round 8; the rest from round 4.")
+    # ---- recognition, FLEURS
+    fl = D["r8asr"]["fleurs"]
+    rgroups = [(LANG_NAMES[c], [fl[c]["whisper"], fl[c]["omni"]], D["table"][c]["asr"].startswith("omni")) for c in fl]
+    rgroups.append(("Romanian", [0.021, None], False))
+    rec_chart = grouped("Recognition on real speech (FLEURS), September",
+                        "Character error rate, 25 clips per language. Lower is better. Bold: the stack hears this language with Omnilingual.",
+                        rgroups, [("Whisper large-v3", "c2"), ("Omnilingual 300M", "c3")], maxv=0.4,
+                        note="Romanian is from the document (§3.4c, Whisper only). Japanese, Khmer, Lao, French, English and Haitian Creole on real speech are on the <a href=\"findings.html#hearing\">Findings</a> page (October).")
+    # ---- voices
+    vrows = [{"label": f'{r["name"]}: {r["voice"]}', "value": r["nat"], "cls": "c3"} for r in rows if r["nat"] is not None]
+    vrows.sort(key=lambda x: -x["value"])
+    voice_chart = hbar("Voice naturalness, the voice each language uses (1–5)",
+                       f"Blind A/B by {L('grader-old')}, 4–8 sentences per language. Higher is better.",
+                       vrows, fmt=lambda v: f"{v:.1f}", maxv=5, legend=[("Open weights", "c3")], vendor_named=False,
+                       note="Each mean is over that language's blind comparisons; different pairings per language, so compare with care.")
+    # ---- the big table
+    def cer_cell(r):
+        if r["cer"] is not None:
+            s = pct(r["cer"])
+            if r["cer_alt"] is not None:
+                s += f' (other: {pct(r["cer_alt"])})'
+            return s + f' · {r["cer_src"]}'
+        return r["cer_src"] or "not measured in September"
+
+    head = ["Language", "Hears", "Recognition error (CER)", "Translates (to / from English)", "en→ / →en",
+            "Voice (non-profit)", "Naturalness", "Clarity", "Commercial edition voice"]
+    body = ""
+    for r in rows:
+        mt = f'{pct(r["to"], 0)} / {pct(r["from"], 0) if r["from"] is not None else "–"}' if r["to"] is not None else "–"
+        tr = r["to_tr"] if r["to_tr"] == r["from_tr"] else f'{r["to_tr"]} / {r["from_tr"]}'
+        voice = esc(r["voice"]) + (' <small>(non-commercial)</small>' if r["voice_nc"] else "")
+        if r["voice_more"]:
+            voice += f' <small>then {esc(", ".join(r["voice_more"]))}</small>'
+        com = r["commercial"]
+        comc = f"<strong>{esc(com)}</strong>" if com in ("eSpeak NG only", "text only") else esc(com)
+        body += (f'<tr><th scope="row">{esc(r["name"])} <small>({r["code"]})</small><br><small>{esc(r["round"])}</small></th>'
+                 f'<td>{esc(r["hears"])}</td><td>{esc(cer_cell(r))}</td><td>{esc(tr)}</td><td class="num">{esc(mt)}</td>'
+                 f'<td>{voice}</td><td class="num">{f"{r["nat"]:.1f}" if r["nat"] is not None else "–"}</td>'
+                 f'<td class="num">{pct(r["clar"]) if r["clar"] is not None else "–"}</td><td>{comc}</td></tr>')
+    big = (f'<div class="table-wrap"><table class="wide langs"><thead><tr>'
+           + "".join(f'<th scope="col">{esc(h)}</th>' for h in head) + f"</tr></thead><tbody>{body}</tbody></table></div>")
+    eo = [r["name"] for r in rows if r["commercial"] == "eSpeak NG only"]
+    to_only = [r["name"] for r in rows if r["commercial"] == "text only"]
+    nc = [r["name"] for r in rows if r["voice_nc"]]
+    vox = D["voxspeed"]["T10/km"]
+    cite(D, "sept_doc", "Khmer's voice starts ~0.1 s after its text instead of 1.5 s")
+    body_html = f"""<div class="prose">
+<h1>Languages, September 2026</h1>
+<p class="lede">How well the open stack hears, translates and speaks each of its {len(rows)} languages, from the model evaluation of 26–29 September 2026: the first eleven languages, twelve more in round 8, then Romanian. Per language: what serves it, what we measured, and whether the commercial edition can still give it a voice.</p>
+<p class="caveat">September numbers are not comparable with the October pages. September used a synthetic test set of 24 short sentences built to catch critical errors, mostly synthetic speech, and {L('grader-old')} as the blind grader; October used real speakers, longer news sentences and {L('grader')}. Compare numbers inside one chart only. Source: {doc}.</p>
+</div>
+<section class="stats" aria-label="End to end, September">
+<div class="stat"><div class="n">92% vs 80%</div><div class="t">end-to-end translation score: the open stack against {esc(gl)}, same audio, graded blind</div></div>
+<div class="stat"><div class="n">16 of 17</div><div class="t">directions won by the stack ({esc(gl)} won English → Haitian Creole)</div></div>
+<div class="stat"><div class="n">~0.8 s</div><div class="t">to first translated audio after the speaker <strong>stops</strong> (stack), against ~2.8 s after the speaker <strong>starts</strong> for {esc(gl)}, which speaks mid-sentence</div></div>
+</section>
+<div class="prose">
+<h2 id="e2e">End to end: the stack against {esc(gl)}</h2>
+<p>The real server, with its own recognition, translation and voices, heard the same synthetic recordings as {esc(gl)}; every output was graded blind. The losses on {esc(gl)}'s side were mostly mishearings — “chicken” heard as “children”, “a quarter to twelve” as 5:15 — not mistranslations. The two speaker-to-English directions for Khmer and Haitian Creole were poor for both. Headline figures from {doc} §3.1; the chart is the per-direction grades.</p>
+</div>
+{e2e_chart}
+<div class="prose">
+<h2 id="table">Every language</h2>
+<p>Recognition error is the character error rate of the recogniser the stack uses for that language (the other recogniser in brackets where both were tried). Translation is the stack's translator on typed text, graded 0–3 per sentence by {L('grader-old')}. Naturalness is 1–5 from a blind A/B; clarity is the round-trip error when a recogniser transcribes the voice (lower is clearer). Voices are the first in each language's chain; a dash means not measured.</p>
+</div>
+{big}
+<div class="prose">
+<ul>
+<li><strong>Commercial edition:</strong> recognition and translation are the same; only voices change. {"No language is text only. " if not to_only else "Text only: " + esc(", ".join(to_only)) + ". "}{esc(" and ".join(eo))} fall back to the robotic eSpeak NG voice because their only good voices have unclear licences. Non-commercial voices in the non-profit edition: {esc(", ".join(nc))}. See <a href="models.html">Models &amp; licences</a>.</li>
+<li><strong>Swahili is the weakest translation</strong> ({pct(D['r8mt']['en-sw']['pct'] / 100, 0)} / {pct(D['r8mt']['sw-en']['pct'] / 100, 0)}): MADLAD gets times and days wrong (Swahili clocks count from 6 am).</li>
+<li><strong>Omnilingual hears Bengali, Hindi, Persian, Urdu and Swahili better than Whisper</strong> (Bengali {pct(fl['bn']['omni'])} vs {pct(fl['bn']['whisper'])}); Whisper is better for Tagalog.</li>
+<li><strong>Khmer, Lao and Haitian Creole recognition was measured on synthetic voices only in September</strong>; their real-speaker results are on the <a href="findings.html#hearing">Findings</a> page.</li>
+<li><strong>VoxCPM2</strong> speaks Khmer, Lao and Tagalog (and, in the commercial edition, the languages whose Piper voices are not licence-clean). Streamed, its first audio comes about {vox['first_chunk_ms_median']} ms after it starts (median, Khmer); in the full stack Khmer's voice now starts ~0.1 s after its text instead of 1.5 s.</li>
+</ul>
+</div>
+{tr_chart}
+{rec_chart}
+{voice_chart}
+<div class="prose">
+<h2>Sources</h2>
+<ul>
+<li>Write-up: {doc} (§3.1 end to end, §3.2 translation, §3.4 voices, §3.4b twelve more languages, §3.4c Romanian).</li>
+<li>Grades and measurements: {src_link('eval/2026-09-model-eval/results')}. The per-direction end-to-end and round-4 scores are summed from that folder's per-sentence grades by <code>site/extract_derived.py</code>.</li>
+<li>Which model serves each language and which voices each edition loads: {src_link('languages.toml')}, read through <code>server/stack_config.py</code>.</li>
+</ul>
+</div>"""
+    page("languages.html", "Languages", body_html,
+         "Per-language recognition, translation and voice results for the open stack's 25 languages, September 2026.")
+    return {"wins": wins}
+
+
+def _lat_rows_generic(data):
+    """Rows of an eval/2026-10-latency/results.json, whatever its exact shape."""
+    if isinstance(data, list):
+        return data
+    for k in ("routes", "results", "rows", "runs"):
+        if isinstance(data.get(k), list):
+            return data[k]
+    return []
+
+
+def latency_results_section(D):
+    data = D["latency"]
+    head = '<h2 id="routes">End-to-end comparison of current routes</h2>'
+    if data is None:
+        return (f'{head}<div class="placeholder" role="note"><p><strong>In progress.</strong> '
+                f'A test of the current routes end to end, measured the same way for each, is running. '
+                f'Its results will appear here when <code>eval/2026-10-latency/results.json</code> is committed; '
+                f'the site renders that file automatically.</p></div>')
+    meta = ""
+    if isinstance(data, dict):
+        for k in ("date", "what", "measures", "audio", "method", "note"):
+            if isinstance(data.get(k), str):
+                meta += f"<li><strong>{esc(k.capitalize())}:</strong> {esc(anon_text(data[k]))}</li>"
+    rows = [r for r in _lat_rows_generic(data) if isinstance(r, dict)]
+    if not rows:
+        return head + (f"<ul>{meta}</ul>" if meta else "") + f'<p class="note">{src_link(INPUTS["latency"])} has no rows yet.</p>'
+    cols = []
+    for r in rows:
+        for k, v in r.items():
+            if k not in cols and not isinstance(v, (dict, list)):
+                cols.append(k)
+    name_key = next((k for k in ("route", "name", "label", "system") if k in cols), cols[0])
+    cols = [name_key] + [c for c in cols if c != name_key]
+    trows = [[anon_text(r.get(c, "")) if isinstance(r.get(c), str) else ("–" if r.get(c) is None else r.get(c)) for c in cols] for r in rows]
+    chart = ""
+    num = next((c for c in cols if c != name_key and all(isinstance(r.get(c), (int, float)) or r.get(c) is None for r in rows)
+                and ("ms" in c or c.endswith("_s"))), None)
+    if num:
+        scale = 1000 if "ms" in num else 1
+        bars = [{"label": anon_text(r.get(name_key, "")), "value": (r[num] / scale) if r.get(num) is not None else None,
+                 "cls": "c1"} for r in rows]
+        chart = hbar(f"Current routes: {num}", "Seconds; lower is better. From " + esc(INPUTS["latency"]) + ".", bars,
+                     fmt=lambda v: f"{v:.2f} s", vendor_named=True, table_headers=cols, table_rows=trows)
+    return head + (f'<div class="prose"><ul>{meta}</ul></div>' if meta else "") + (chart or _table(cols, trows, numeric_from=1))
+
+
+def azg(rel="eval/2026-10-azure-stt-gemini", text=None, link=True):
+    """The cloud-routes eval folder: its path names two vendors, so an anonymised build does not show it."""
+    if ANON:
+        return "the cloud-routes eval folder (17 October)" if link else "cloud-routes eval (17 Oct)"
+    return src_link(rel, text) if link else rel
+
+
+def build_latency(D, S1):
+    oct_doc = src_link("docs/dev/route-findings-2026-10.md", "route-findings-2026-10.md")
+    sept_doc = src_link("docs/dev/model-evaluation.md", "model-evaluation.md")
+    gl = L("sept:gemini-live")
+    az, gem, gla = VN("microsoft", "Azure", "recogniser"), VN("google", "Gemini Live", "voice model"), VN("gladia", "Gladia", "recogniser")
+    cite(D, "oct_doc", "The delay is about 1.3 s after each sentence ends.")
+    cite(D, "azg_readme", "Azure's final ~0.8 s, Gemini's first audio ~0.5 s after that")
+    cite(D, "oct_doc", "(first audio 0.67 s against 0.95 s)")
+    cite(D, "omni_readme", "~0.10-0.12 s at the server for either voice, ~0.14-0.18 s at a client in the US over an open socket")
+    cite(D, "oct_doc", "~1.1 s GPU (Khmer 5–8 s)")
+    cite(D, "omni_readme", "**One instance** (`--max-instances 1`), up to 4 streams")
+
+    # ---- live recognisers
+    live = {(r["system"], r["lang"], r["mode"]): r for r in D["live"]["runs"]}
+    runs = {(r["system"], r["lang"]): r for r in D["bakeoff"]["runs"]}
+    langs = ["en", "ja", "km", "lo"]
+    code = {"en": "en-US", "ja": "ja-JP", "km": "km-KH", "lo": "lo-LA"}
+    recs = []
+    recs.append((L("azure-speech"), [live[("azure-speech", l, code[l])]["sentence_latency_ms_median"] / 1000 for l in langs], True))
+    recs.append((L("gemini-3.5-transcribe-live"),
+                 [(live.get(("gemini-3.5-transcribe-live", l, code[l])) or live[("gemini-3.5-transcribe-live", l, "auto")])["sentence_latency_ms_median"] / 1000 for l in langs], False))
+    for s in ("oai-live", "aai-stream", "el-realtime-vad05", "el-realtime"):
+        vals = []
+        for l in langs:
+            r = runs.get((s, l))
+            v = r.get("sentence_latency_ms_median") if r else None
+            vals.append(v / 1000 if v else None)
+        recs.append((L(s), vals, False))
+    rec_chart = grouped("Live recognisers: time from the end of a sentence to its final transcript",
+                        "Median seconds, 30 FLEURS sentences per language streamed at real-time pace (real speakers). Lower is better.",
+                        recs, [("English", "c1"), ("Japanese", "c2"), ("Khmer", "c3"), ("Lao", "c4")],
+                        fmt=lambda v: f"{v:.1f} s", maxv=None, vendor_named=True,
+                        note="Measured at the client in the US, 18–19 October 2026. n/a = the service did not return the language. Recognition only: no translation or voice.")
+    # ---- cloud pipelines (synthetic audio)
+    oc = D["derived"]["oct_cloud"]
+    pg = []
+    az_only = []
+    for d, s in oc.items():
+        vals = []
+        for k in ("azure_only", "azure_stt_gemini", "gladia_stt_gemini"):
+            x = s.get(k) or {}
+            v = x.get("delay_ms_median")
+            # left out: a run that returned (almost) nothing, and Azure-only Haitian Creole (captions, no voice)
+            if not x.get("score_pct") or (k == "azure_only" and d == "en-ht"):
+                v = None
+            vals.append(v / 1000 if v else None)
+            if k == "azure_only" and v:
+                az_only.append(v / 1000)
+        if any(v for v in vals):
+            pg.append((d.replace("-", "→"), vals, False))
+    pipe_chart = grouped("Cloud routes: end of sentence to start of translated audio",
+                         "Median seconds over 24 synthetic sentences per direction, 17 October 2026. Lower is better.",
+                         pg, [(L("azg:azure_only"), "c1"), (f"{az} → {gem}", "c2"), (f"{gla} → {gem}", "c4")],
+                         fmt=lambda v: f"{v:.2f} s", vendor_named=True,
+                         note=f"End to end: recognition, translation and the first audio of the voice. {gl} has no comparable figure: it speaks mid-sentence. n/a: the route could not run that direction (quota, no Haitian Creole recogniser), returned almost nothing ({gla}, Khmer), or had no voice ({L('azg:azure_only')}, Haitian Creole: captions only).")
+    # ---- translators
+    trow = []
+    for s in SYS1:
+        trow.append({"label": L(s), "value": S1[s]["latency"], "cls": kind_cls(s),
+                     "extra": "GPU time, RTX 6000 Ada" if not is_cloud(s) else "round trip from the US"})
+    r2 = D["shoot2"]["latency"]
+    for s in ("gpt-oss-20b@low", "gpt-oss-120b@low", "gpt-oss-120b@medium", "qwen3.8-27b-fp8@low"):
+        trow.append({"label": L(s), "value": r2[s]["single_stream"]["median_s"], "cls": "c3",
+                     "extra": "H100, vLLM, one request at a time"})
+    trow.sort(key=lambda r: r["value"])
+    tr_chart = hbar("Translators: time per sentence (October)",
+                    "Median seconds to translate one sentence. Lower is better.", trow,
+                    fmt=lambda v: f"{v:.2f} s", legend=KIND_LEGEND, vendor_named=True,
+                    note="Translation only. Open models: model time on the GPU, one sentence at a time (round 1: RTX 6000 Ada 48 GB; round 2: H100 80 GB). Cloud: request round trip from a client in the US. Hy-MT2's median hides Khmer at 5–8 s.")
+    # ---- endpointing
+    sw = D["sizes"]["endpointing_sweep"]
+    lev = next(r for r in sw["runs"] if "levelled" in r["run"] and "300M" in r["card"])
+    settings = [(300, 6.0), (300, 15.0), (500, 15.0), (700, 15.0), (800, 25.0)]
+
+    def cell(lang, e, m):
+        return next(r for r in lev["rows"] if r["lang"] == lang and r["endpoint_ms"] == e and r["max_s"] == m)
+    lab = [f"{e / 1000:g} s : {m:g} s" + (" (old)" if (e, m) == (300, 6.0) else " (now)" if (e, m) == (700, 15.0) else "") for e, m in settings]
+    eg = [(x, [cell("ht", e, m)["seg_wait_ms_median"] / 1000, cell("ht", e, m)["sent_wait_ms_median"] / 1000], (e, m) == (700, 15.0))
+          for x, (e, m) in zip(lab, settings)]
+    ep_chart = grouped("Sentence cutting: how long the recogniser waits, and what it buys",
+                       "Omnilingual 300M through omni-stt's own segmenter, Haitian Creole real-voice clip (levelled). Median seconds of audio time; lower is quicker.",
+                       eg, [("Wait after the pause starts (turn end)", "c1"), ("Per sentence: end of speech to its first text", "c2")],
+                       fmt=lambda v: f"{v:.2f} s", vendor_named=False,
+                       note="Audio time from the segmenter, not wall-clock: excludes network and the GPU decode (p90 decode per segment in the table).")
+    ep_tbl = _table(["Pause : longest", "Turn-end wait", "Per-sentence wait, median", "Per-sentence wait, p90", "GPU decode p90 / segment", "CER ht", "CER lo"],
+                    [[x, f'{cell("ht", e, m)["seg_wait_ms_median"]} ms', f'{cell("ht", e, m)["sent_wait_ms_median"]} ms',
+                      f'{cell("ht", e, m)["sent_wait_ms_p90"] / 1000:.1f} s', f'{cell("ht", e, m)["decode_s_p90"]:.2f} s',
+                      pct(cell("ht", e, m)["cer"]), pct(cell("lo", e, m)["cer"])] for x, (e, m) in zip(lab, settings)])
+    # ---- voices
+    htv = []
+    for line in D["text"]["htv_readme"].splitlines():
+        c = [x.strip() for x in line.strip().strip("|").split("|")]
+        if len(c) == 5 and c[0] not in ("Voice", "---") and not c[0].startswith("-"):
+            htv.append((c[0].replace("**", ""), c[1], c[4]))
+    vmap = {"Gemini 3.8 Flash TTS": ("v:gemini-flash", "network, streamed"), "Gemini 3.8 Flash Lite TTS": ("v:gemini-lite", "network"),
+            "gpt-4o-mini-tts, coral": ("v:oai-coral", "network"), "gpt-4o-mini-tts, coral + accent instruction": ("v:oai-coral-instr", "network"),
+            "gpt-4o-mini-tts, sage + accent instruction": ("v:oai-sage-instr", "network")}
+    vt = []
+    for name, where, first in htv:
+        base = re.sub(r"\s*\(voice \w+\)", "", name)
+        key = vmap.get(base, (None, ""))[0]
+        if key:
+            lbl, how = L(key), "request sent → first audio at the client (US)"
+        elif base.startswith("Meta MMS"):
+            lbl, how = "Meta MMS-TTS", "whole sentence synthesised on CPU, then sent"
+        elif base.startswith("Coqui"):
+            lbl, how = "Coqui VITS OpenBible", "whole sentence synthesised on CPU, then sent"
+        else:
+            continue
+        if first in ("—", ""):
+            continue
+        vt.append([lbl, first, how, "voice only", "eval/2026-10-ht-voices"])
+    vt.append(["Meta MMS-TTS / Coqui on omni-stt (L4)", "~0.10–0.12 s at the server; ~0.14–0.18 s at a client", "request → first audio, one sentence, warm, open socket", "voice only", "services/omni-stt/README.md"])
+    vx = D["voxspeed"]
+    vt.append(["VoxCPM2, streamed (10 steps)", f'{vx["T10/km"]["first_chunk_ms_median"]} ms (Khmer), {vx["T10/lo"]["first_chunk_ms_median"]} ms (Lao) median',
+               "start of generation → first audio chunk", "voice only (GPU)", "eval/2026-09-model-eval (voxcpm_speed.json)"])
+    vt.append(["VoxCPM2 in the full stack (Khmer)", "~0.1 s after its text (was 1.5 s before streaming)", "translated text ready → voice starts", "voice, in the full stack", "model-evaluation.md §3.4"])
+    voice_tbl = _table(["Voice", "First audio", "Measured from → to", "Scope", "Source"], vt, numeric_from=99)
+    # ---- omni-stt under load
+    sizes = {r["card"]: r for r in D["sizes"]["runs"]}
+    ld = [["omni-stt on one L4, before batching", "up to 4 streams per instance", "configured limit (README)", "services/omni-stt/README.md"],
+          ["omni-stt on one L4, with batching", "~4 → 8–10 fully transcribed streams, same CER", "measured, PR #18", PR18],
+          ["Omnilingual LLM 300M, one stream", f'real-time factor {lev["rtf_batch1"]:.2f}', "GPU decode time ÷ audio time, MIG 1g.24gb slice (an L4-class quarter of an RTX PRO 6000)", "eval/2026-10-omni-sizes"],
+          ["Omnilingual LLM 300M / 7B, batch 1", f'real-time factor {sizes["omniASR_LLM_300M"]["rtf_batch1"]:.3f} / {sizes["omniASR_LLM_7B"]["rtf_batch1"]:.3f}', "GPU decode only, H200", "eval/2026-10-omni-sizes"]]
+    load_tbl = _table(["What", "Result", "What it measures", "Source"], ld, numeric_from=99)
+    # ---- summary
+    e = cell("ht", 700, 15.0)
+    sol = S1["foundry-gpt-5.6-sol@low"]["latency"]
+    summary = [
+        ["Open stack, end to end (Sept)", "~0.8 s", "speaker stops → first translated audio", "end to end", "synthetic", "model-evaluation.md §3.1"],
+        [f"{gl}, end to end (Sept)", "~2.8 s", "speaker <em>starts</em> → first translated audio (it talks mid-sentence)", "end to end", "synthetic", "model-evaluation.md §3.1"],
+        [f"{az} STT → {gem} (Oct)", "~1.3 s", "sentence ends → translated audio starts", "end to end", "synthetic", "route-findings §3; " + azg(link=False)],
+        [L("azg:azure_only") + " (Oct)", f"{min(az_only):.1f}–{max(az_only):.1f} s", "sentence ends → translated text + voice starts", "end to end", "synthetic", azg(link=False)],
+        [L("azure-speech") + ", English", f'{live[("azure-speech", "en", "en-US")]["sentence_latency_ms_median"] / 1000:.1f} s', "sentence ends → final transcript", "recognition only", "real (FLEURS)", "eval/2026-10-real-voices"],
+        ["Omnilingual, sentence cutting now (0.7 s : 15 s)", f'{e["seg_wait_ms_median"]} ms / {e["sent_wait_ms_median"]} ms', "pause starts → turn ends / sentence speech ends → first text (audio time)", "segmenter only", "real", "eval/2026-10-omni-sizes"],
+        [L("foundry-gpt-5.6-sol@low"), f"{sol:.1f} s", "request → translation (round trip)", "translation only", "text", "eval/2026-10-translator-shootout"],
+        ["Hy-MT2 7B, 4-bit", f'{S1["hymt2-7b-nf4"]["latency"]:.1f} s', "sentence in → translation, GPU time", "translation only (GPU)", "text", "eval/2026-10-translator-shootout"],
+        [L("v:gemini-flash"), "~0.7–0.95 s", "request → first audio", "voice only", "–", "eval/2026-10-ht-voices"],
+    ]
+    sum_tbl = ('<div class="table-wrap"><table class="wide"><thead><tr>' + "".join(
+        f'<th scope="col">{h}</th>' for h in ("What", "Time", "Measured from → to", "Scope", "Audio", "Source")) + "</tr></thead><tbody>" + "".join(
+        f'<tr><th scope="row">{esc(r[0])}</th><td class="num">{esc(r[1])}</td><td>{r[2]}</td><td>{esc(r[3])}</td><td>{esc(r[4])}</td><td><small>{esc(r[5])}</small></td></tr>'
+        for r in summary) + "</tbody></table></div>")
+    body = f"""<div class="prose">
+<h1>Latency</h1>
+<p class="lede">Every delay we have measured, with exactly what each one measures. A delay counted from when the speaker <em>stops</em> is not the same as one counted from when they <em>start</em>; GPU time for one stage is not the same as end to end; synthetic speech is not the same as real speakers. Numbers from different rows are not interchangeable.</p>
+<p class="caveat">Measured September–October 2026; cloud timings are from a client in the US and change with load and region. Where a figure is quoted from a write-up rather than a result file, the source says so.</p>
+</div>
+<h2 id="summary">At a glance</h2>
+{sum_tbl}
+<div class="prose">
+<h2 id="e2e">End to end</h2>
+<p>In September the open stack's first translated audio came about <strong>0.8 s after the speaker stopped</strong>; {esc(gl)} started talking about <strong>2.8 s after the speaker started</strong>, mid-sentence, before it had heard the end ({sept_doc} §3.1, synthetic audio, real server). In October, {esc(az)}'s live recogniser feeding {esc(gem)} took about <strong>1.3 s after each sentence ended</strong>: {esc(az)}'s final transcript about 0.8 s, then the voice's first audio about 0.5 s later ({oct_doc} §3; {azg('eval/2026-10-azure-stt-gemini/README.md', 'README')}).</p>
+</div>
+{pipe_chart}
+<div class="prose"><h2 id="recognition">Recognition</h2>
+<p>How long a live recogniser takes to settle each sentence once it has been spoken. A long default pause (one service waits 1.5 s of silence) shows up directly here.</p></div>
+{rec_chart}
+<div class="prose"><h2 id="endpointing">Sentence cutting: wait against accuracy</h2>
+<p>The open recogniser decides a sentence has ended after a pause. Waiting longer cuts fewer sentences in half — Haitian Creole's error fell from {pct(cell('ht', 300, 6.0)['cer'])} to {pct(e['cer'])} and Lao's from {pct(cell('lo', 300, 6.0)['cer'])} to {pct(cell('lo', 700, 15.0)['cer'])} — for about 0.4 s more at each turn end, and up to 15 s before any text when a speaker never pauses.</p></div>
+{ep_chart}
+<details class="data"><summary>Waits, decode time and error per setting</summary>{ep_tbl}<p class="note">GPU: {esc(sw['gpu'])}. Per-sentence p90 is long because a sentence that never pauses waits for the forced cut.</p></details>
+<div class="prose"><h2 id="translation">Translation</h2></div>
+{tr_chart}
+<div class="prose"><h2 id="voices">Voices: time to first audio</h2>
+<p>A streamed voice starts as soon as its first chunk exists; one that synthesises the whole sentence first adds the full synthesis time. Haitian Creole samples: full {esc(L('v:gemini-flash'))} took about 0.95 s to first audio against 0.67 s for the Lite model ({oct_doc} §12), and was kept because it sounds more Haitian.</p></div>
+{voice_tbl}
+<div class="prose"><h2 id="load">omni-stt under load</h2>
+<p>Batching decodes the waiting utterances of every connection in one GPU call, with prompts left-padded so they finish together (<a href="{PR18}">PR #18</a>).</p></div>
+{load_tbl}
+{latency_results_section(D)}
+<div class="prose">
+<h2>Sources</h2>
+<ul>
+<li>{sept_doc}, {oct_doc}, {src_link('eval/2026-10-ht-voices/README.md')}, {src_link('services/omni-stt/README.md')}, <a href="{PR18}">PR #18</a>.</li>
+<li>Result files: {src_link('eval/2026-10-real-voices')}, {src_link('eval/2026-10-translator-shootout')}, {src_link('eval/2026-10-omni-sizes/results.json')}, {azg('eval/2026-10-azure-stt-gemini/results.json')} (delays copied by <code>site/extract_derived.py</code>), {src_link('eval/2026-09-model-eval/results/voxcpm_speed.json')}.</li>
+</ul>
+</div>"""
+    page("latency.html", "Latency", body, "Every latency the open stack project has measured, each labelled with exactly what it measures.")
+
+
 def main():
     global ANON
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -1017,8 +1604,11 @@ def main():
         f.write("")
     D = load()
     S1 = shootout1(D)
+    load_more(D)
     build_home(D, S1)
     build_findings(D, S1)
+    build_languages(D)
+    build_latency(D, S1)
     build_voices(D)
     build_methodology(D)
     build_models(D)
