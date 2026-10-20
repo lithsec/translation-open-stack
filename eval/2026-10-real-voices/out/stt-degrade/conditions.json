@@ -1,0 +1,30 @@
+{
+ "ir": {
+  "rt60_T20_s": 1.5,
+  "rt60_T30_s": 1.54,
+  "drr_db": 0.0,
+  "length_s": 2.6
+ },
+ "clip_gain": {
+  "reverb/en": 0.815,
+  "noise10/en": 1.0,
+  "noise5/en": 1.0,
+  "revnoise10/en": 0.813,
+  "reverb/ja": 0.421,
+  "noise10/ja": 0.913,
+  "noise5/ja": 0.866,
+  "revnoise10/ja": 0.421,
+  "reverb/km": 0.236,
+  "noise10/km": 0.908,
+  "noise5/km": 0.832,
+  "revnoise10/km": 0.232,
+  "reverb/lo": 1.0,
+  "noise10/lo": 1.0,
+  "noise5/lo": 1.0,
+  "revnoise10/lo": 1.0,
+  "reverb/ht": 0.695,
+  "noise10/ht": 0.962,
+  "noise5/ht": 0.949,
+  "revnoise10/ht": 0.691
+ }
+}

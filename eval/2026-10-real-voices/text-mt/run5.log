@@ -1,0 +1,28 @@
+translated gold azure-translator
+translated omnilingual azure-translator
+translated gemini-2.5-pro-stt azure-translator
+translated chirp3 azure-translator
+chirp3__azure-translator                 fully correct 0%  mean 0%  critical 0
+chirp3__gemini-2.5-flash                 fully correct 0%  mean 0%  critical 0
+chirp3__gemini-2.5-flash+ctx             fully correct 50%  mean 70%  critical 1
+chirp3__gemini-3.5-flash                 fully correct 0%  mean 0%  critical 0
+chirp3__gemini-3.5-flash-lite            fully correct 60%  mean 78%  critical 0
+chirp3__google-translate                 fully correct 33%  mean 60%  critical 1
+gemini-2.5-pro-stt__azure-translator     fully correct 13%  mean 43%  critical 4
+gemini-2.5-pro-stt__gemini-2.5-flash     fully correct 37%  mean 68%  critical 4
+gemini-2.5-pro-stt__gemini-2.5-flash+ctx fully correct 30%  mean 64%  critical 4
+gemini-2.5-pro-stt__gemini-3.5-flash     fully correct 47%  mean 73%  critical 4
+gemini-2.5-pro-stt__gemini-3.5-flash-lite fully correct 40%  mean 69%  critical 3
+gemini-2.5-pro-stt__google-translate     fully correct 30%  mean 64%  critical 4
+gold__azure-translator                   fully correct 27%  mean 57%  critical 2
+gold__gemini-2.5-flash                   fully correct 70%  mean 87%  critical 0
+gold__gemini-2.5-flash+ctx               fully correct 77%  mean 88%  critical 0
+gold__gemini-3.5-flash                   fully correct 70%  mean 88%  critical 0
+gold__gemini-3.5-flash-lite              fully correct 57%  mean 77%  critical 1
+gold__google-translate                   fully correct 47%  mean 76%  critical 1
+omnilingual__azure-translator            fully correct 7%  mean 32%  critical 1
+omnilingual__gemini-2.5-flash            fully correct 27%  mean 61%  critical 2
+omnilingual__gemini-2.5-flash+ctx        fully correct 33%  mean 58%  critical 2
+omnilingual__gemini-3.5-flash            fully correct 77%  mean 87%  critical 1
+omnilingual__gemini-3.5-flash-lite       fully correct 33%  mean 53%  critical 2
+omnilingual__google-translate            fully correct 20%  mean 37%  critical 5

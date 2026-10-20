@@ -1,0 +1,967 @@
+{
+ "date": "2026-10-19",
+ "officially_listed": {
+  "Azure Speech": "en-US, ja-JP, km-KH, lo-LA all listed (live)",
+  "ElevenLabs Scribe v2 / v2 Realtime": "all four; docs tier: Japanese 'excellent' (<=5% WER), Khmer and Lao 'moderate' (>25-50% WER)",
+  "OpenAI gpt-transcribe / gpt-4o(-mini)-transcribe": "en, ja accepted as codes; km and lo refused as codes ('not recognized', 'invalid_value'), so the prompt names the language",
+  "OpenAI gpt-live-transcribe (Realtime)": "en, ja in its supported-values list; km, lo refused (prompt names the language); refuses server turn detection",
+  "AssemblyAI batch": "Universal-3.5 Pro: 18 languages incl. ja, not km/lo; Universal-2 (fallback): 99 incl. km, lo. 'universal-3-6-pro' refused for batch",
+  "AssemblyAI streaming": "universal-3-6-pro language_codes: en, ja (+30 others), not km or lo (refused)",
+  "Gemini (generateContent)": "no ASR-specific list; Gemini's language list includes all four"
+ },
+ "gemini_gaps": {
+  "gem__gemini-3.1-pro-preview/km": {
+   "missing": [
+    3
+   ],
+   "cer_answered": 0.097,
+   "why": "4 x 180 s timeouts"
+  },
+  "gem__gemini-3.8-flash/km": {
+   "missing": [
+    0
+   ],
+   "cer_answered": 0.082,
+   "why": "promptFeedback.blockReason OTHER, 3 tries"
+  },
+  "gem__gemini-3.8-flash/lo": {
+   "missing": [
+    6,
+    28
+   ],
+   "cer_answered": 0.104,
+   "why": "promptFeedback.blockReason OTHER, 3 tries"
+  }
+ },
+ "cost_estimate": "about $2-3 in all at list prices (22.4 min of audio per pass; ~13 passes incl. retries; Gemini 3.1 Pro thinking ~$0.6 the largest item)",
+ "note": "CER = judge.cer(' '.join(reference), hyp), as score_transcribe_live.py; latency ms, see score.py header",
+ "baselines_cer": {
+  "Azure Speech (live)": {
+   "en": 0.064,
+   "ja": 0.102,
+   "km": 0.133,
+   "lo": 0.179
+  },
+  "Google gemini-3.5-transcribe-live (live)": {
+   "en": 0.142,
+   "ja": 0.073,
+   "km": 0.108,
+   "lo": 0.302
+  },
+  "Omnilingual ASR (open stack, live)": {
+   "en": 0.274,
+   "ja": 0.351,
+   "km": 0.3,
+   "lo": 0.24
+  }
+ },
+ "runs": [
+  {
+   "system": "aai-batch",
+   "label": "AssemblyAI batch (U-3.5 Pro, U-2 fallback; whole clip)",
+   "kind": "batch",
+   "lang": "en",
+   "err": "",
+   "model": "universal-3-5-pro",
+   "requested": [
+    "universal-3-5-pro",
+    "universal-2"
+   ],
+   "language": "en_us",
+   "cer": 0.09,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 1.0,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel explains the continuum approach as a method being used to help organizations reach a higher level of— The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011. It didn't open to traffic until March 2014. The correlation between brain pathology and behavior supports scientists in their research. Rip currents are the returning flow from waves breaking off the beach, often at a reach reef or similar. Duvall, who was married with 2 adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump, in a statement delivered via the press secretary, announced U.S. troops would be leaving Syria. Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey like insects, rodents, lizards, and birds. During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolation. California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors. ASUS Eee PC, earlier launched worldwide for cost-saving functionality factors, became a hot topic in 2007 Taipei IT. In some areas, boiling water for a minute is enough, and others several minutes are needed. In its early days, the show was featured solely at the long-running internet radio site Talkinet Radio, a site focused on talk radio. First, most riders wearing riding boots with a heel and a smooth, quite narrow sole. In particular, it is claimed that one can detect whether a person is lying by interpreting microexpressions correctly. Beyond Wednesday's event, Carpinato competed in 2 individual races. The city is also the base to climb the Nyiragongo volcano, along with some of the cheapest mountain gorilla trafficking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of Alpine and Mediterranean vegetation. Vatican City population is around 800. It is the smallest independent country in the world, and the population— The Northern Marianas Emergency Management Office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby. He has been unable to take the drugs needed to overcome his pain as they are banned from the game. Along the same line, men are required to wear trousers covering the knees. This seems sensible because the earth doesn't feel as if it's moving, does it? Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen. 6 hostages, including the children and elderly, were released early, as were the Filipino photographers. The lower the tension, the more positive the life force present. Every person has the potential to find absolute peace and contentment. Liberal criticism of the Reconstruction effort has focused on the awarding of Reconstruction contracts to perceived Washington insiders.",
+   "request_ms_whole_clip": 7563
+  },
+  {
+   "system": "aai-batch",
+   "label": "AssemblyAI batch (U-3.5 Pro, U-2 fallback; whole clip)",
+   "kind": "batch",
+   "lang": "ja",
+   "err": "",
+   "model": "universal-3-5-pro",
+   "requested": [
+    "universal-3-5-pro",
+    "universal-2"
+   ],
+   "language": "ja",
+   "cer": 0.115,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.006,
+    "replacement_chars": 0
+   },
+   "transcript": "エンジェルは2006年に。組織がより高いパフォーマンスレベルに到達する上で役立つ方法として、連続体アプローチを説明しています。橋下の情報空間は15メートルです。2011年8月に竣工し、2017年3月まで開通しませんでした。脳病理と行動の相関関係は、科学者たちの研究を裏付けるものです。離岸流とは、砕けて浜辺に戻ってくる引き波のことで、多くの場合、岩礁やそれに似た場所で発生します。日曜深夜、ドナルド・トランプ米大統領は報道関係者で配信された声明において、米軍がシリアから撤退することを発表しました。最後に昆虫、月種類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型の猫、野良猫を含むが数多く生息しています。1920年代に市民や国家のほとんどに広まっていた思想は平和主義と孤立主義でした。カリフォルニア州のアーノルド・シュワルツネッカー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。エーススの EPC はコスト面と機能面で世界に先駆けて販売され、2007台北 IT マウスで話題となりました。1分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。当初番組はトークラジオに特化したインターネットラジオサイト、トギネットラジオのみで取り上げられ、これは長寿サイトです。まずほとんどの乗り手はかかとと滑らかでかなり狭めの靴底がついた乗馬靴を履いています。特に、微小症を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。水曜日のイベントの後、カルパネロは選手権で2つの個人レースに出場しました。この都市はニラコンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります。ブイートビッチ国軍国立公園はアルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小16の湖が点在し絶景であふれる世界遺産です。バチカン市国の人口は約。800人です。世界最小の独立国家であり、最も人口が少ない国でも、北マリアナ諸島の危機管理室（ EM O ）によると、全国的に被害は報告されていないとのことです。洞窟はメッカの北にあたる山頂にあり、下界から完全に隔離されています。このようなご夫婦は、その赤ちゃんのために養子縁組制度を利用できます。痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。同じように男性は膝を覆うズボンを履くことが義務付けられています。地球が動いているようには感じないので、これは理にかなっているように思います。植物は自然環境にあるときに最も見栄えがするのですから、一本だけならと標本に持ち帰りたい誘惑に。負けないでください。子供と高齢者を含めた人質六名が早期に解放され、フィリピン人の写真家たちも同じく解放。緊張度が低いほどよりポジティブな生命力が生まれます。誰にでも絶対的な平和と満足感を見出す。一晩で150から200枚が複製され、現在ではダンラップブロードサイドと呼ばれています。復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約を交わしたことに焦点を当てています。うろこと爪のついた足を持ち、ランチ性でありティラノサウルスのように後ろ足2本で歩きます。",
+   "request_ms_whole_clip": 12259
+  },
+  {
+   "system": "aai-batch",
+   "label": "AssemblyAI batch (U-3.5 Pro, U-2 fallback; whole clip)",
+   "kind": "batch",
+   "lang": "km",
+   "err": "",
+   "model": "universal-2",
+   "requested": [
+    "universal-3-5-pro",
+    "universal-2"
+   ],
+   "language": "km",
+   "cer": 0.979,
+   "script": {
+    "thai": 0.283,
+    "lao": 0.015,
+    "khmer": 0.0,
+    "latin": 0.583,
+    "replacement_chars": 8
+   },
+   "transcript": "Angel 2006 บนยุลองค์ 2 วิธีทรักษ์ต่อจวบจินัก ใชยววิธีทรักษ์ นายเตรงบา้น ปร้าอำเบยชูย້องโกป๊พ ให้เชียนด่าແมร໱ทใ้การอันวัดปุ่ม. พร�ลอโเ� Chakran Tuk Tien Choe Samot คือ ใชยาลงฮอลเตระล໭บมอเปีร່ลອ໛แต໰ເ໣່ล໭໛ปี້น໢ม່໊໙໢ โบໄໆ່ນ໌เ໙ທໍ໌໘ໆມ່, ปบແ໼ปແຣ່ Tuk, เຫ�กาล 2 ลางงเทงดนี้, ประท്ยนีะเเไทใปแบร็จ สหาເร່อร்อரมรേกลโกโเ ดวนแາตรம์ ขน໌ สิกເເใเເ ถ໌ล� Ketam ngamlong tutsawachanang 1620, eriyabot daenomok nang chichamnia, nayporod chicharanbamphot nang prateh niya-niya, kuthasonti liyong nang nadayte laypike. Akpiparokalifonya, Lokano, Svajjanseka, banjohatralekha lachpap na paham pramkalung, ruju ge video perhamsa doanani tekjun. ASOS EPC ชียกก่านวิที ดะบาเลยใอวประเแปแเລใเແเ นเ་ว ตูโต่็ใຫํงง่ง พบโแລะไบໍก້า່กາแ່້ใ້ນ� ოოროარაოქრქელალეანავაექლქდამადგასაუაღატაისიაშიქსქბაჟაბეჁახაყათეႡი სა მა და რა ოა სურាს სქ რუქ�บนเทมลึกปิดประตูการการปิดเที่ยงปุ่นตะเทียบ,เนียร์ Cappenado บานจะรวมกาเปร่งกรประชิงจำทวน 2 ดองขน่อ่งประตูกາรໍจเเ໇งไอด์.ตีกรองนี้ก็เช่นมูลละทานนำไปล้างพนมเพลิง, Neira Kongo,ร่วมเชี่ยงมูล Bồ Siên Chiên, Phởn Vang Les, khuẩn bảp bằng Phải Nhạc Rạc, ชิ้นพิเศษ, คือ ประพูดอันเช็กขอกโปว, มีสมบอก มัดอ่อน แลงลินหล่อประพูดพระยชะเนานเโใมนເเไทาแใแຫแ໙เเ. ช่ Doi mien titang nalakampu phnom mui nalpitkhang chung ne ti krong Mekka, laa ni naldai chingai pi bipoblog yang klang. Dey propon teang ni prohal chi semrech tpho paneka chreo roh kon yok mok chunjom. Phrá Thnám, đằy trao cà sâm-ráp bùm-bát cà chúi-cháp rùa bò-kòt bán, doi-sà-thám-ní trao bán hâm khuat, bùn-oi-prá-pê-chô-rùm khnâng prâ-tích-cà-ng kê-la-ní-lai. Srok-ní-a-nú, mù-nú-próh trao-bán tâm-râ-a-i srê-khá-próp-chít-lê-chung-kong. Cà-ní, vè-hà-t doi-chê-sâm-pâ-t-mè-n pì-prút doi-ché-miên-a-râm-thèm Rupajit ring uploh loah mongkot merua pey da we sva-dap-nueng pa-ra-ja-ka-pa-pa-par-pa-chit-mui. Do chene-hao, treo tup a-rom chong baan gom-yom rupajit-gom-ruu, som-pey-tae, tae-mui ching-oy-sok. Chon-nap khamang pram-mui nea, knong-nu mien teng-ko-ma-ng neng-menu-ja-baan-doh-lai-mun-pel, ko-krom-ne-thot-rub-ten-tjet-filipin. Hip-tune ตึงการติดเตียบคือ มงกันเพียงเวจมีนการติดฉลาด ดอกอำลังในชีวิต. มนุษย์มนุณมนตรีมีอำนาจข้องการสวยร์ดสันติพิบ และสเก໊กใลใ ส�กລอโปล໭กไปใ้เโเ๠. ป� Cà rèh cùn bàp sè rèy lèo cà prèng prèng cò sàng làng vênh, bàn tà dòt tè lèo cà tò kèch sănănjā cò sànănāng vênh tà dòl nèc tàe dăng kèch cà pèi khnung nèo tì krung pà xìm tàu. Pua kèh mien chờng dè mien srok kà nâng krua nham, pua vè krà pong hai pua vè dào tàe chờng kròi tèng pì rà bòp pua vè tàe chè sàt dài nô sər tì rèk.",
+   "request_ms_whole_clip": 21338
+  },
+  {
+   "system": "aai-batch",
+   "label": "AssemblyAI batch (U-3.5 Pro, U-2 fallback; whole clip)",
+   "kind": "batch",
+   "lang": "lo",
+   "err": "",
+   "model": "universal-2",
+   "requested": [
+    "universal-3-5-pro",
+    "universal-2"
+   ],
+   "language": "lo",
+   "cer": 0.989,
+   "script": {
+    "thai": 0.981,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.019,
+    "replacement_chars": 1
+   },
+   "transcript": "ความสัมพันธ์ละบางประหยาดวิทยาท่างสมองและประดีกรรมสนับสรุนนาวิทยาศาสตร์ในการควรควรของพวกเขากะเส่น้ำตัดเปลี่ยนขึ้นที่ไหลกับจากการเตะของชายหาดส่วนหลายมันอยู่บนหิมหรือคล้ายกันดูว่าผู้ที่ได้แต่งงานกับเด็กน้อยสองคนไม่ได้สั่งความประทับใจที่ดีอย่างให้กับไม่ในตอนเร็งวันอาทิตย์ ประธานาธิบดีสหรัฐ ท่านวิลโนล์ทรัมม์ได้ประกาศทะเลอังการที่ส่งผ่านเลขาอธิการเข้าว่ากองทัพสหรัฐจะออดจากซีเรียในที่สุดมีแมวหน่อยร้ายตัวร่อมทั้งแมวเหลี่ยงที่สุนหาย ที่กินเยอะที่ในหน่อยจำนวนร้องร้ายเส้นแม่งใหม่ หนู กับแก่และนกต่าง ๆใทัศนาคติที่พ้นเด่นของพละเมืองและประเทศส่วนใหญ่เป็นความสงบและความแยกกันอยู่ผู้ว่าการรักกและฟอนนี่ อาร์โรวอาร์โรว ซอสเนกเกอร์ ได้ลงน้ำในกฎหมายมาด้วยการหาหม่อให้คล้าย หรือให้เศร้าเกมวีดีโอที่มีความคุณแทงให้กับเด็กน้อยในสุด EPC ได้ถือเปิดตัวก่อนอันนี้ได้ทั่วโลกหลายพักใจในการประหยัดตนเทิงและการใส่งาน การเป็นห้องขอที่ร้อนแห้งในปี 2007 ของไทยเปยไทยเทียร์ไอที มันในบางพื้นที่ การต้มน้ำประมาณ 1 นาที แม่นเพียงพอแล้วในบางบ่น ก่อสายเวลาหลายนาทีในมื้อทำอิตของมันการแสดงเป็นจุดเด่นเพียงอย่างเดียว อยู่เว็บไซต์ 2G NET RADIO สถานีวิทยุ อินเตอร์เน็ตที่มีมาด่วนนาน เว็บไซต์ที่สูงใสการส่วนธนาทางวิทยุกรุ่นบทผูกที่ส่วนล้ายมันส่วนใสเกิดที่ใสในการขี่ที่มีส่วนแหละเกรียงเหลี่ยบค่อนข้างแข็บติดน้ำพื้นและสิ่งที่มีการอ่างว่าสามารถกรอบสอบได้ว่าทุกคนได้ตัวโดยการตีความหมายของเจรภาคอย่างถึงต่อหรือเปล่า.นอกเหนือจากการแข่งขันในเมื่อวันพุทธขาปาเนธโด้ได้เข้าห้อมการแข่งขัน ในสองรายการแข็งขันและส่วนบุคคุณในระดับการแข่งขันเเดียวข้างง่างตามผูกกอริลล่าที่มีราคาถือกที่สุดในอาฟริกาส่วนสถานะแห่งซาสพริดวิกเล็กแม่นมีปลาไม้อย่างหนาเน่นส่วนใหญ่แล้วเป็นต้นเพิ่งต้นสุนและต้นไม้สุนที่เป็นใบสามเรียมและมีลักษณะประสุมของพืชพันธ์ออลพลายและเมดิเตอรเนียนประสากรของเมืองวาตินกันมีประมาณ 800 คนมันเป็นประเทศที่มีเอกลาดหน่อยสุดในโลกและเป็นประเทศที่มีประสากรหน่อยสุดสำนักงานจัดการเหตุสุขเสื่อนทั้งภาคเหนือของมาเรียน่ากล้าวว่า ไม่มีรายงานความเสียหายใดๆเกิดขึ้นในประเภทการพักพ้นอยู่ทั้งจอมผู้แห่งหนึ่งทั้งผากเหนือของเมือ�คู่ผัวเมียเหล่านี้อาจจะเลือกที่จะวางแผนในการหับเลี้ยงลูกบุญธรรมให้เป็นลูกของพวกเขาร่าวว่าสามารถใส่ยาเซฟติดเพื่ออังสนาความเจ็บปวดของราชิกเกิดย่อนว่าเขาจะเอาถึงห่างบอฮิลินเกมได้อยู่ในแถวเดียวกันผู้ซ้ายกอเมนธุยักษ์ห้องให้ต้องได้นุ่งส่งที่ปกหัวเขานี่บึงคือว่าสามารถฮู้สึกได้เพราะว่าบึงฮู้สึกคือกับว่ารูปมันกำลังเคลื่อนที่แม่นบ่อพืดบึงคือมีลักษณะดีที่สุดเมื่ออยู่ในสภาแวดล่อมเป็นธรรมชาตินั้นๆการต่อต่างการทะล่องเพื่อเอาตัวอย่างออกเพียงอันเดียวในตัวประกัน 6 คนที่มีทั้งเด็กน้อยและผู้เท่าได้ถือปล่อยตัวออกมาเป็นนักถ่ายภาพชาวฟิลิปปินต่างทรงยิ่งรู้ต่ำลงยิ่งเป็นการดีให้พลังชีวิตมีอยู่ทุกคนมีความสามารถที่จะพบเห็นความสงบสุขและความพึ่งพอใจอย่างแท้จริงตลอดคืนระหว่างรอยหาซิบและซองรอยซ้ำเน่าใดสือสาขึ้นปัจจุบันประจิงหัวเจ้ากันว่า...Don't Wrap, Broil Sidesการวิภาวิจารอย่างลวงหลาย เกี่ยวกับความพยายามในการฝ่วนฟูบุรณะได้มุ่งในปฏิการณ์ตัดสินสัญญาการฝ่วนฟูบุรณะให้แก่ผู้ที่อยู่ภายในวาชิงตันที่ถือกับผมผมมันมีตีนที่มีเก็ดและมีกามผมมันว่างไข่และผมมันอย่างไปด้วยค่าหลังซองเบือบค่ายคือกับตัว Dinosaur T-Rex",
+   "request_ms_whole_clip": 16661
+  },
+  {
+   "system": "aai-stream",
+   "label": "AssemblyAI Universal-3.6 Pro Streaming",
+   "kind": "live",
+   "lang": "en",
+   "err": "",
+   "cer": 0.121,
+   "turns": 26,
+   "segment_latency_ms_median": 65,
+   "segment_latency_ms_p90": 170,
+   "sentence_latency_ms_median": 604,
+   "sentence_latency_ms_p90": 10166,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 1.0,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel, 2006 explains the continuum approach as a method being used to help organizations reach a higher level of performance. The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011. It didn't open to traffic until March 2016. The correlation between brain pathology and behavior supports scientists in their research. Rip currents are the returning flow from waves breaking off the beach, often at a reach, reef, or similar. Duval, who was married with 2 adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump, in a statement delivered via the press secretary, announced U.S. troops would be leaving Syria. Finally, there are many small cats, including loose pets, cats that eat the far more numerous small prey like insects, rodents, lizards, and birds. was that of pacifism and isolation. California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors. ASUS Eee PC earlier launched worldwide for cost-saving functionality factors became a hot topic in 2007 Taipei IT Fair. In some areas boiling water for a minute is enough, in others several minutes are needed. In its early days, the show was featured solely at the long-running internet radio site Toginet Radio, a site focused on talk radio. First, most riders wearing riding boots with a heel and a smooth, quite narrow sole. In particular, it is claimed that one can detect whether a person is lying by interpreting microexpressions correctly. Beyond Wednesday's event, Carpanedo competed in 2 individual races. The city is also the base to climb the Nyiragongo volcano along with some of the cheapest mountain gorilla trafficking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of alpine and Mediterranean vegetation. Vatican City population is around 800. It is the smallest independent country in the world and the population The Northern Marianas Emergency Management Office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby. He has been unable to take the drugs needed to overcome his pain as they are banned from the game. Along the same line, men are required to wear trousers covering the knees. it's moving, does it? Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen. 6 hostages, including the children and elderly, were released early. As were the Filipino photographers. The lower the tension, the more positive the life force. present. Every person has the potential to find absolute peace and contentment. Liberal criticism of the Reconstruction effort has focused on the awarding of Reconstruction contracts to perceived Washington insiders."
+  },
+  {
+   "system": "aai-stream",
+   "label": "AssemblyAI Universal-3.6 Pro Streaming",
+   "kind": "live",
+   "lang": "ja",
+   "err": "",
+   "cer": 0.189,
+   "turns": 35,
+   "segment_latency_ms_median": 124,
+   "segment_latency_ms_p90": 158,
+   "sentence_latency_ms_median": 1450,
+   "sentence_latency_ms_p90": 13204,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.01,
+    "replacement_chars": 0
+   },
+   "transcript": "エンジェルは、2006年に組織がより高いパフォーマンスレベルに到達するうえで役立つ方法として連続体アプローチを説明しています。 橋下の情報空間は15メートルです。2011年8月に竣工し、2017年3月まで開通しませんでした。 脳病理と行動の相関関係は、科学者たちの研究を裏付けるものです。 離岸流とは。 砕けて浜辺に戻ってくる引き波のことで、多くの場合、岩礁やそれに似た場所で発生します。 既婚者であり、成人した2人の子を持つリバルは、この話に関係するビラにあまり印象を残しませんでした。 日曜深夜、ドナルド・トランプ米大統領は報道関係者で配信された声明において、米軍がシリアから撤退することを発表しました。 最後に昆虫、月種類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型の猫、野良猫を含むが数多く生息しています。 1920年代に市民や国家のほとんどに広まっていた思想は平和主義と孤立主義でした。 カリフォルニア州のアーノルド・シュワルツネッカー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。 ASUSのEPCはコスト面と機能面で世界に先駆けて販売され、2007台北ITマウスで話題となりました。 1分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。 当初、番組はトークラジオに特化したインターネットラジオサイト。 トギネットラジオのみで取り上げられ、これは長寿サイトです。 まずほとんどの乗り手はかかとと滑らかでかなり狭めの靴底がついた乗馬靴を履いています。 正確に解釈する。 その人が嘘をついているかどうかを見抜けると。 上しています。 水曜日のイベントのあと、カルパネロは選手権で2つの個人レースに出場しました。 嗯。 この都市はニラコンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります。 ブイートビッツ国軍国立公園は、アルプスと地中海の植生が混在する広大な森、主にブナ、頭皮、モミに大小16の湖が点在し、絶景であふれる世界遺産です。 嗯。 北マリアナ諸島の危機管理室(EMO)によると、全国的に被害は報告されていないとのことです。 洞窟はメッカの北にあたる山頂にあり、下界から完全に隔離されています。 このようなご夫婦は、その赤ちゃんのために。 養子縁組制度を利用できます。 痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。 同じように男性は膝を覆うズボンを履くことが義務づけられています。 植物は自然環境にあるときに最も見栄えがするのですから、一本だけならと標本に持ち帰りたい誘惑に負けないでください。 見出す。 潜在的な能力が備わっています。 一晩で150から200枚が複製され、現在ではダンラップブロードサイドと呼ばれています。 復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約を交わしたことに焦点を当てています。 うろこと爪のついた足を持ち、卵質性でありティラノサウルスのように後ろ足2本で歩きます。"
+  },
+  {
+   "system": "aai-stream",
+   "label": "AssemblyAI Universal-3.6 Pro Streaming",
+   "kind": "live",
+   "lang": "km",
+   "err": "\"User Input Validation Error: Invalid 'language_codes.0': Input should be 'en', 'es', 'de', 'fr', 'it', 'pt', 'tr', 'nl', 'sv', 'no', 'da', 'fi', 'hi', 'vi', 'ar', 'he', 'ja', 'ur', 'zh', 'ru', 'ko', 'ca', 'gl', 'ro', 'et', 'fa', 'yue', 'af', 'mr', 'zu', 'xh', 'nn' or 'multi'\""
+  },
+  {
+   "system": "el-realtime",
+   "label": "ElevenLabs Scribe v2 Realtime (VAD 1.5 s default)",
+   "kind": "live",
+   "lang": "en",
+   "err": "",
+   "language": "en",
+   "cer": 0.069,
+   "turns": 17,
+   "segment_latency_ms_median": 1770,
+   "segment_latency_ms_p90": 1931,
+   "sentence_latency_ms_median": 10265,
+   "sentence_latency_ms_p90": 28724,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 1.0,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel 2006 explains that continuum approach is a method being used to help organizations reach a higher level of- The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011. It didn't open to traffic until March 2016. The correlation between brain pathology and behavior supports scientists in their research. Rip currents are the returning flow from waves breaking off the beach, often at a reach, reef, or similar. Duvall, who is married with two adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump, in a statement delivered via the press secretary, announced US troops would be leaving Syria. Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey like insects, rodents, lizards, and birds. During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolation. California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors. ASUS Eee PC, earlier launched worldwide for cost-saving functionality factors, became a hot topic in 2007 Taipei IT. In some areas, boiling water for a minute is enough, and others, several minutes are needed. In its early days, the show was featured solely at the long-running internet radio site, TalkyNet Radio, a site foc ussed on talk radio. First, most riders wearing riding boots with a heel and a smooth, quite narrow sole. In particular, it is claimed that one can detect whether a person is lying by interpreting micro-expressions correctly. Beyond Wednesday's event, Carpineto competed in two individual races. The city is also the base to climb the Nyiragongo volcano, along with some of the cheapest mountain gorilla trafficking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of alpine and Mediterranean vegetation. But I can say the population is around 800. It is the smallest independent country in the world, and the population... The Northern Marianas Emergency Management Office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the calf- the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby. He has been unable to take the drugs needed to overcome his pain as they are banned from the game. Along the same line, men are required to wear trousers covering the knees. It seems sensible because the Earth doesn't feel us if it's moving, does it? Clients look their best when in a natural environment, so resist the temptation to remove even just one specimen. Six hostages, including the children and elderly, were released early, as were the Filipino photographers. The lower the tension, the more positive the life force present. Every person has the potential to find absolute peace and contentment. Liberal criticism of the Reconstruction effort has focused on the awarding of Reconstruction contracts to perceived Washington insiders. ... with scales and claws. They lay eggs, and they walk on their two back legs like a T-rex."
+  },
+  {
+   "system": "el-realtime",
+   "label": "ElevenLabs Scribe v2 Realtime (VAD 1.5 s default)",
+   "kind": "live",
+   "lang": "ja",
+   "err": "",
+   "language": "ja",
+   "cer": 0.099,
+   "turns": 28,
+   "segment_latency_ms_median": 1806,
+   "segment_latency_ms_p90": 1911,
+   "sentence_latency_ms_median": 2082,
+   "sentence_latency_ms_p90": 13795,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.006,
+    "replacement_chars": 0
+   },
+   "transcript": "エンジェルは、二千六年に組織がより高いパフォーマンスレベルに到達する上で役立つ方法として、連続体アプローチを説明しています。 橋下の情報空間は十五メートルです。二千十一年八月に竣工し、二千十七年三月まで開通しませんでした。 脳病理と行動の相関関係は、科学者たちの研究を裏付けるものです。 離岸流とは、砕けて浜辺に戻ってくる引き波のことで、多くの場合、岸礁やそれに似た場所で発生します。 既婚者であり、成人した二人の子を持つリバルは、この話に関係するウィラーにあまり印象を残しませんでした。 10月10日夜、ドナルド・トランプ米大統領は報道関係者へ配信された声明において、米軍がシリアから撤退することを発表しました。 最後に昆虫、げっ歯類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型の猫（野良猫を含む）が数多く生息しています。 1920年代に市民や国家のほとんどに広まっていた思想は、平和主義と効率主義でした。 カリフォルニア州のアーノルドシュワルツネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。 えー、サスのEPCはコスト面と機能面で世界に先駆けて販売され、2007台北ITマースで話題となりました。 一分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。 当初、番組はトークラジオに特化したインターネットラジオサイト「トギネットラジオ」のみで取り上げられ、これは長寿サイトです。 まず、ほとんどの乗り手は、かかとと滑らかでかなり狭めの靴底が付いた乗馬靴を履いています。 特に、ビッジヒョウの状況を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。 水曜日のイベントの後、カルパネドは選手権で2つの個人レースに出場しました。 この都市はニラコンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の1つでもあります。 プリトヴィツェ国営国立公園は、アルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小16の湖が点在し、絶景であふれる世界遺産です。 バチカン市の人口は約800人です。世界最小の独立国家であり、最も人口が少ない国でもあります。 北マリアナ諸島の危機管理室（EMO）によると、全国的に被害は報告されていないとのことです。 洞窟はメッカの北にあたる山頂にあり、外界から完全に隔離されています。 このようなご夫婦は、その赤ちゃんのために養子縁組制度を利用できます。 痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。 同じように、男性は膝を覆うズボンをはくことが義務付けられています。 地球が動いているようには感じないので、これは理にかなっているように思えません。 植物は自然環境にある時に最も見栄えがするのですから、1本だけならと標本に持ち帰りたい誘惑に負けないでください。 子供と高齢者を-- 6名と人質六名が早期にか-解放され、フィリピン人の写真家たちも同じく解放。緊張度が低いほど、よりポジティブな生命力が生まれます。誰にでも絶対的な平和と満足感をみ- 見いだす潜在的な能力が備わっています。 一晩で百五十から二百枚が製され、現在ではダンラップブロードサイドと呼ばれています。 復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約をかわかし-- 交わしたことに焦点を当てています。 うろこと爪のついた足を持ち、ランチ性であり、ティラノサウルスのように後ろ足2本で歩きます。"
+  },
+  {
+   "system": "el-realtime",
+   "label": "ElevenLabs Scribe v2 Realtime (VAD 1.5 s default)",
+   "kind": "live",
+   "lang": "km",
+   "err": "",
+   "language": "km",
+   "cer": 0.52,
+   "turns": 24,
+   "segment_latency_ms_median": 2361,
+   "segment_latency_ms_p90": 2645,
+   "sentence_latency_ms_median": 10020,
+   "sentence_latency_ms_p90": 20081,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.963,
+    "latin": 0.037,
+    "replacement_chars": 7
+   },
+   "transcript": "អ្នកចាប់អារម្មណ៍ពីមួយពិន្ទុអំពីវិធីសាស្រ្តតរជាតិនេះជាវិធីសាស្រ្តដែលត្រូវបានប្រើដើម្បីជួយអង្គភាពឱ្យឈានដ ើម។ ប្រឡកបញ្ចូលនៅក្រោមស្ពានគឺមានកំពូល 16 ម៉ែត្រ។ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហា ឆ្នាំ 2011 ហើយការធ្វើចរាចរណ៍នឹងត្រូវបានផ្អាករហូតដល់ខែមីនា ឆ្នា� ភាពទាក់ទងគ្នារវាងរុក្ខសាស្ត្រខួរក្បាលនិងអាកាសពិការយ័ត្តជួយដល់ការសាច់ជីវិតរបស់អ្នកវិទ្យាសាស្ត្រ។ ចរន្តទឹកទាញចូលសមុទ្រគឺជាលំហូរត្រឡប់មកពីរលកដែលត្រឡប់ពីឆ្នេ ី។ ដូវលោកដែលបានរៀបការនិងមានកូនចំទុងពីរនាក់មិនបានធ្វើឱ្យមានលោះមាន ។ ស៊ីបំផុតមានសត្វឈ្មោះតូចៗជាច្រើនដូច្នេះសត្វឈ្មោះព្រៃដែលស៊ីចំណេះតូចៗជាច្រើនទៀតដូចជាសត្វលិត សត្វកកែ សត្វបង្គួយ និងបក្សីនាង។ ក្នុងអំឡុងទសវត្សរ៍ឆ្នាំ 1920 អេរិយាប៉ុតដែលនៅមកនូវជ័យជំនះនៃពលរដ្ឋជាច្រើនបំផុតនៅប្រទេសនានាគឺថាសន្តិនិយម និងនៅដែកតែលែងពីគ េ។ អាហ្វ្រិក 200 កាលពីឆ្នាំ លោក អានូ ស្វាជែន ជែងកា បានចុះហត្ថលេខាលើច្បាប់ដែលប្រហានប្រើប្រាស់ការលុកឬជួលហ្គេមវិដេអូអំពើហឹង្សាដល់អានីតិយុន។ អេសស៊ុល អ៊ី ព� េស៊ី ចិញ្ចឹមវិទ្យាបានត្រឹមតែមួយនាទី គឺគ្រប់គ្រាន់ហើយ ហើយនៅកន្លែងខ្លះទៀតត្រូវការពេលវេលាច្រើននាទី។ លំបោងអ្នកជាភាគច្រើនពេលស្វាគមន៍កងវេងមានកែនិងរំលោង រាងតូច និងមានត្រួនាប់។ ជាប្រសាសន៍ក៏បានអានថាមនុស្សម្នាក់អាចកំណត់ថាតើពុកម្តាយម្នាក់និយាយក៏ហក់ឬអត់នោះតាំងពីរយៈការបកស្រាយពាក្យសម្ដ� ពីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង។ នេរាគូនគោរព (Neracongo) រួមជាមួយនឹងការតាមម៉ោនធែនគោរីឡា (Mountain Gorilla) ដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក។ អូសេនជ័យ (Ocean Jade) ផ្លូវវ៉ាស៊ីលេស (Flute Wales) ខុសត្រូវដោយព្រៃយ៉ាងខ្លាំងជាពិសេសគឺបង្អស់ដោយភ្លើងខ្ពស់ មានសំបកម៉ាត់ល្� ចំនួនប្រជាជនស្របនៅទីក្រុងវ៉ាត់ទីកុង (Vatican) មានប្រហែល 800 នាក់ វាគឺជាប្រទេសឯករាជ្យដែលតូចជាងគេបំផុតនៅលើពិភពលោក ហើយក៏ជ ា ការយល់ឃើញគ្រប់គ្� ូ ! ស្លុតភ្នាក់ងារនោះ មនុស្សប្រុសត្រូវបានតម្រូវឱ្យស្នាក់ខាងគ្រាប់ជិតលើចង្កង់។ ការនិយមហិរញ្ញវត្ថុជាសម្បិតមែនពីព្រោះដូចជាមានអារម្មណ៍ថាផែនដីមិនកំពុងតែធ្វើចុលណាមួយទេត្រូវឬអត់? ព្រហ្មិចជាតិព្រិកុប្ល័សល្អបំផុតនៅពេលដែលវាស្ថិតនៅក្នុងបរិច្ចាគារបែបធម្មជាតិមួយ។ ដូច្នេះហើយត្រូវទុ ក្រូវិទ្យាស្ថាន។ ចំណុចខ្មាំងប្រាំមួយនាក់ក្នុងនោះមានទាំងកុមារនិងមនុស្សច្រើនបានដោះលែងមុនពេលគឺក្រុមអ្នកថតរ� ? ភាពតានតឹងកាន់តែទីបំផុតក្នុងការងារពីប្រជាជនកាន់តែច្រើនដល់កម្លាំងនៃជីវិត។ មនុស្សម្នាក់ៗមានអំណោយក្នុងការស្វែងរកសន្តិភាព និងសេចក្តីសុខដ៏ពេញលេ ញ។ ពេលមួយយប់ចន្លោះពី 150 ទៅ 200 ឆ្នាំត្រូវបានបង្កើតឡើង ដែលឥឡូវត្រូវបានគេស្គាល់ថាជាបានផ្សាយពន្យាកម្មដុនឡ ើន។ ការរេសគូនបែបស្រីនៅការប្រឹងប្រែងកសាងឡើងវិញបានផ្តល់ទៅលើការតារពិចសិនយ័កសាងឡើងវិញទទួលអ្នកដែលដឹងពិចការពេលក្នុងនៅទីក្� ពូកែមានជើងដែលមានស្រកការណ៍និងក្រញ៉ាំពួវវាគ្រាប់ពង ហើយពួវវាដើរដ"
+  },
+  {
+   "system": "el-realtime",
+   "label": "ElevenLabs Scribe v2 Realtime (VAD 1.5 s default)",
+   "kind": "live",
+   "lang": "lo",
+   "err": "",
+   "language": "lo",
+   "cer": 0.218,
+   "turns": 33,
+   "segment_latency_ms_median": 2025,
+   "segment_latency_ms_p90": 2539,
+   "sentence_latency_ms_median": 9834,
+   "sentence_latency_ms_p90": 16216,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.932,
+    "khmer": 0.0,
+    "latin": 0.068,
+    "replacement_chars": 0
+   },
+   "transcript": "Angels 2006 ນະທິບາຍການກ່າວເຖິງ Continuum ເປັນວິທີການທີ່ເຖິງນຳໃຊ້ເພື່ອຊ່ວຍໃຫ້ອົງການບັນລຸລະດັບປະສິດທິພາບການປະຕິບັດມາງທີ່ສູງຂຶ້ນ. ລາຍຫາງແນວຕັ້ງຈາກກ້ອງຂວາມແມ່ນ 15 ແມັດ. ການກໍ່ສ້າງໄດ້ສຳເລັດໃນເດືອນສິງຫາ, ປີ 2011 ບໍ່ເປີດການສັນຈອນຈົນເຖິງເດືອນມີນາ, ປີ 20 12. ຄຳສຳພັນລະບາງພະຍາດວິທະຍາທາງສະໝອງ ແລະ ເພັດຕິກຳສະໜັບສະໜູນນາມວິທະຍາສາດໃນການຂົນຂວາກ່ອນບຸກຄົ້ນ. ກະເສນໍ້າຕັດປິ່ນປິ່ນທີ່ໄລ່ກັບຈາກການແຕກຂອງຊ່າງຮາດ. ຊ່າຫຼາຍແມ່ນຢູ່ບ່ອນຫີນ ຫຼື ຄ້າຍກັນ. ດູວາວ (Duvall) ຜູ້ທີ່ໄດ້ແຕ່ງງານກັບເດັກນ້ອຍສອງຄົນ ບໍ່ໄດ້ສັ່ງຄວາມປະທັບໃຈທີ່ດີຫຍັງໃຫ້ກັບໄມ້ເລີ (Meille) ຜູ້ທີ່ກ່ຽວຂ້ອງກັບເລື່ອງນີ້ເລີຍ. ໃນຕອນແລງວັນອາທິດ, ປະທານອາທິດບດີສາຫະລັດ ທ່ານ ເດັນໂລດ ພຼັຟມ (Donald Trump) ໄດ້ປະກາດຖະແຫຼງການທີ່ສົ່ງຜ່ານເລັກຂາອະທິການຂ່າວວ່າກອງທັບສາຫະລັດຈະອອກຈາກ ຊີເລຍ (Syria). ແລະ ທີ່ສຸດມີແມ່ວໜ້ອຍຫຼາຍຕົວ, ລ້ອມທັງແມ່ວລຽງທີ່ສູນທາຍທີ່ກິນເຍື້ອທີ່ໜ້ອຍໆຈຳນວນລອງຫຼາຍເຊັ່ນ: ແມ່ງໃໝ່, ໂນຝູກັບແກ່ ແລະ ນົກຕ່າງໆ. ໃນລະຍະສຸມປີ 1930, ທາດສະໜາຄັດຕິທີ່ຜົນເດັ່ນຂອງພົນລະເມືອງ ແລະ ປະເທດສ່ວນໃຫຍ່ແມ່ນຄວາມສະງົບ ແລະ ຄວາມແຍກກັນຢູ່. ພູວຮ້ອງການລັດ ແຄລີຟ້ອນເອີລາວ ລາວໂລ. ອາລົວຊົດເຊນເກເກ (Allo Search Neger) ໄດ້ລ້ອງໜ້າໃນກົດໝາຍມາດໍາເນີນການຫາບ່ອນຂ້າຍ ຫຼື ໃຫ້ເຊົ່າເກມວິໂດໂອ (Game Video) ທີ່ມີຄວາມຄ ັນ. ASUS Eee PC ໄດ້ຖືກເບີດຕົວກ່ອນໜານີ້ໃນທົ່ວໂລກດ້ວຍປະຈ່າງໃນການປະຍາດຕົນເທິງ ແລະ ການໃຊ້ງານກາຍເປັນຫວູຂອງທີ່ຮອນແຮງໃນປີ 2007 ຂອງ Taipei IT Month. ໃນບາງພື້ນທີ່, ການຕົມນໍ້າປະມານໜຶ່ງນະທີ່ແມ່ນພຽງພໍແລ້ວ. ໃນບາງບ່ອນກໍໃຊ້ເວລາຫຼາຍນະທີ່. ໃນມື້ທຳອິດຂອງມັນ, ການສະແດງເປັນຈຸດເດັ່ນພຽງຢ່າງດຽວຢູ່ເວັບໄຊຕ໌. ທູດທີ່ນັກເລດີໂອ ສະຖານີວິທະຍຸອິນເຕີເນັດທີ່ມີມາດົນນານ ເລີບໃຊ້ທີ່ສຸມໃຊ້ການສົນທະນາທາງວິທະຍຸ. ກໍລະນີບັດຜູ້ຂີ່ສ່ວນຫຼາຍແມ່ນສວມສາຍເກີດທີ່ໃຊ້ໃນການຂີ່ທີ່ມີຊົນ ແລະ ກຽງລຽບຂ້ອນຂ້າງແຂ່ງຕິດນັ້ນພື້ນ. ແລະ ສະຫວັນນິການອາງວານສາມາດກໍສອບໄດ້ວ່າ ພຸກຄົນໄດ້ຕົວໂດຍການຕິ້ມຄວາມໝາຍຂອງ ອາງວານ. ດອກເໜືອຈາກການແຂ່ງຂັນໃນມື້ວັນພຸດ. ຂາປານເດໂດ (Carpenter) ໄດ້ເຂົ້າຮ່ວມການແຂ່ງຂັນໃນສອງລາຍການແຂ່ງຂັນແລ່ນຊ່ວນບຸກຄົນໃນລັງລັບການແຂ່ງຂັນ Grand Slam. ເມືອງດັ່ງກ່າວຍັງເປັນສະຖານທີ່ທີ່ຈະປິ່ນຜູ້ເຂົ້າໄຟນິລາຄອງໂກ (Nila Congo) ພ້ອມກັບທາງຍ່າງຕາມຜູ້ກອນລິລາທີ່ມີລາຄາຖືກຈີດສຸດໃນອາຟຼິກກາ. ສວນສະຖານະແຫ່ງຊາດ (Plitvice Lakes) ແມ່ນມີປາໄມ້ຢ່າງໜ້າແມ່ນ. ສ່ວນໃຫຍ່ແລ້ວແມ່ນຕົ້ນເພິ່ງ, ຕົ້ນສົນ ແລະ ຕົ້ນໄມ້ສົນທີ່ເປັນໄປສາມເຫລືອມ ແລະ ມີລັກສະນະປະສົມຂອງພືດພັນ (Aurora) ແລະ ໝາຍດີເຕີເລນຽນ. ປະຊາກອນຂອງເມືອງ Vatnajökull ແມ່ນປະມານ 800 ຄົນ. ມັນແມ່ນປະເທດທີ່ມີເອກະລາດໜ້ອຍສຸດໃນໂລກ ແລະ ເປັນປະເທດທີ່ມີປະຊາກອນໜ້ອຍສຸດ. ສຳນັກງານຈັດການເຮັດຊຸກຍູ່ທັງພາກເໜືອຂອງ Malaya ກ່າວວ່າບໍ່ມີລາຍງານຄວາມສ່ຽງຫາໃດໆເກີດຂື້ນໃນປະເທດ. ການພັກພ້ອມຢູ່ທີ່ຈົ່ງຜູ້ແຫ່ງໜຶ່ງທັງພາກເໜືອຂອງເມືອງ Manikarnika ທຳດັງກ່າວແມ່ນແຍ່ງອອກຈາກຊ່ອນທີ່ເລື້ອງໂລກ. ຄູ້ພໍ່ເມື່ອນເຫຼົ່ານີ້ອາດຈະເລື່ອງທີ່ຈະວາງແຜນໃນການຮັບລ້ຽງລູກບຸນທຳໃຫ້ເປັນລູກຂອງພວກເຂົາ. ລາວບໍ່ສາມາດໃຊ້ຍາດເສັ້ນຕິດເພື່ອອຳສະໜານຄວາມເຈັບປວດຂອງລາວທີ່ເກີດຍ້ອນວ່າຄອງເຈົ້າເຖິງຮ້າຍບໍ່ໄດ້ . ຢູ່ໃນແທວດຽວກັນ, ຜູ້ຊາຍກໍແມ່ນຖືຮຽກຮ້ອງໃຫ້ຕອງໄດ້ນຸ່ງສົ່ງທີ່ປົກຫົວເຂົ້າ. ນີ້ເບິ່ງຄືວ່າສາມາດຮູ້ສຶກໄດ້, ໂພວ່າບໍ່ຮູ້ສຶກຄືກັບວ່າໂລກມັນກຳລັງເຄີຍທີ່ແມ່ນບໍ? ເພື່ອເບິ່ງຄືມີລັກສະນະດີທີ່ສຸດເມື່ອຢູ່ໃນສະພາແວດລ້ອມເປັນທຳອິດ, ທັງນັ້ນການຕໍ່ຕ້ານການທະລອງເປັນເອົາຕົວຍາງອອກພຽງອັນດຽວ. ໃນຕົວປະກັນ, ຫົກຄົນທີ່ມີທັງເດັກນ້ອຍ ແລະ ຜູ້ທ່າວໄດ້ຖືກປ່ອຍຕົວອອກມາກ່ອນເນື່ອງຈາກເປັນນັກທ່າຍພາບຊາວຟິລິບິນ. ຕັ້ງຊ້ອນຍິງລົດຕໍ່າລົງຍິງເປັນການດີໃຫ້ພະລັງຊີວິດມີຢູ່. ທຸກຄົນມີຄວາມສາມາດທີ່ຈະພົບເຫັນຄວາມສົງບັບສຸກ ແລະ ຄວາມພຶງພໍໃຈຢ່າງ . ຕະລອດຄືລະບານ 150 ແລະ 200 ສຳເນົາ . ດອນດັບບີລາຍຊາຍ. ການວິປາກວິຈານຢ່າງລ້ອງຫຼາຍກ່ຽວກັບຄວາມພະຍາຍາມໃນການສ່ວນຝູບຸລະນະໄດ້ມູນແນວປະທີ່ກັນຕັດສິນຊັນຍາການສ່ວນຝູບຸລະນະໃຫ້ແກ່ຜູ້ທີ່ຢູ່ພາຍໃນ ເວີຊິງຕັນ ທີ່ຖືກອ ັດຕະໂນມັດ ພ້ອມມັນມີຕີນ, ທີ່ມີເກັດ ແລະ ມີກາງ. ພ້ອມມັນວ່າງໄຂ່ ແລະ ພ້ອມມັນຍາງໄປດ້ວຍຄ່າລັງຊອງເບືອກ. ຂ້າຍຄືກັບຕົວແດນໂຊຊາວທີເລັກ."
+  },
+  {
+   "system": "el-realtime-vad05",
+   "label": "ElevenLabs Scribe v2 Realtime (VAD 0.5 s)",
+   "kind": "live",
+   "lang": "en",
+   "err": "closed 1006 ",
+   "language": "en",
+   "cer": 0.045,
+   "turns": 32,
+   "segment_latency_ms_median": 823,
+   "segment_latency_ms_p90": 942,
+   "sentence_latency_ms_median": 904,
+   "sentence_latency_ms_p90": 7836,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 1.0,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel 2006 explains that continuum approach is a method being used to help organizations reach a higher level of . The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011. It didn't open to traffic until March 2016. The correlation between brain pathology and behavior supports scientists in their research. Rip currents are the returning flow from waves breaking off the beach, often at a reach, reef, or similar. DeVaughn, who is married with two adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump, in a statement delivered via the press secretary, announced US troops would be leaving Syria. Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey like insects, rodents, lizards, and birds. During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolation. California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors. ASUS Eee PC, earlier launched worldwide for cost-saving functionality factors, became a hot topic in 2007 Taipei IT show. In some areas, boiling water for a minute is enough. In others, several minutes are needed. In its early days, the show was featured solely at the long-running internet radio site, Talking Net Radio, a site focused on talk radio. First, most riders wearing riding boots with a heel and a smooth, quite narrow sole. In particular, it is claimed that one can detect whether a person is lying by interpreting micro-expressions correctly. Beyond Wednesday's event, Carpanedo competed in two individual races . The city is also the base to climb the Nyiragongo volcano, along with some of the cheapest mountain gorilla trafficking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of alpine and Mediterranean vegetation. Varakin's daily population is around 800. It is the smallest independent country in the world, and the population... The Northern Marianas Emergency Management Office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the caf- the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby. He has been unable to take the drugs needed to overcome his pain as they are banned from the game. Along the same line, men are required to wear trousers covering the knees. It seems sensible because the Earth doesn't feel us if it's moving, does it? Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen. Six hostages, including the children and elderly, were released early, as were the Filipino photographers. The lower the tension, the more positive the life force present. Every person has the potential to find absolute peace and contentment. To the night, between 150 and 200 copies were made, now known as Dunlop. Liberal criticism of the Reconstruction effort has focused on the awarding of Reconstruction contracts to perceived Washington insiders. They have feet with scales and claws, they lay eggs, and they walk on their two back legs like a T-rex."
+  },
+  {
+   "system": "el-realtime-vad05",
+   "label": "ElevenLabs Scribe v2 Realtime (VAD 0.5 s)",
+   "kind": "live",
+   "lang": "ja",
+   "err": "",
+   "language": "ja",
+   "cer": 0.131,
+   "turns": 43,
+   "segment_latency_ms_median": 834,
+   "segment_latency_ms_p90": 971,
+   "sentence_latency_ms_median": 911,
+   "sentence_latency_ms_p90": 11751,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.009,
+    "replacement_chars": 0
+   },
+   "transcript": "エンジェルは、二千六年に組織がより高いパフォーマンスレベルに到達する上で役立つ方法として、連続体アプローチを説明しています。 はい。橋下の情報空間は十五メートルです。二千十一年八月に竣工し、二千十七年三月まで開通しませんでした。 脳病理と行動の相関関係は、科学者たちの研究を裏付けるものです。 えー、リガン流とは？ 砕けて浜辺に戻ってくる引き波のことで、多くの場合、岩礁やそれに似た場所で発生します。 既婚者であり、成人した二人の子を持つリバルは、この話に関係するウィラーにあまり印象を残しませんでした。 2024年12月14日深夜、ドナルド・トランプ米大統領は報道関係者へ配信された声明において、米軍がシリアから撤退することを発表しました。 最後に、昆虫、げっ歯類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型のネコ（野良猫を含む）が数多く生息しています。 千九百二十年代に市民や国家のほとんどに広まっていた思想は、平和主義と孤立主義でした。 カリフォルニア州のアーノルド・シュワルツェネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。 ASUSのEPCは、コスト面と機能面で世界に先駆けて販売され、二千七台北ITマーチで話題となりました。 一分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。 当社番組は、トークラジオに特化したインターネットラジオサイト。 トークラジオのみで取り上げられ、これは超受サイトです。 まず、ほとんどの乗り手は- はい。 -かかとと滑らかでかなり狭めだ。靴底が付いた乗馬靴を履いています。 特に、ビ---表情を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。 水曜日のイベントの後、カルパネドは選手権で2つの個人レースに出場しました。 この都市はニラコンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります。 プィトヴィツェ国営国立公園は、アルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小16の湖が点在し、絶景で溢れる世界遺産です。 バチカン市の人口は約八百人です。 世界最小の独立国家であり。 最も人口が少ない国でも。 北マリアナ諸島の危機管理室（EMO）によると、全国的に被害は報告されていないとのことです。 洞窟はメッカの北にあたる山頂にあり。 はい。 このようなご夫婦は、その赤ちゃんのために。 うん。 養子縁組制度を利用できます。 痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。 同じように、男性は膝を覆うズボンをはくことが義務付けられています。 地球が動いているようには感じないので、これは理にかなっているように思えません。 植物は自然環境にあるときに最も見栄えがするのですから、1本だけならと標本に持ち帰りたい誘惑に負けないでください。 子供と高齢者を含めた人質 。 人質。 で、かい-解放され、フィリピン人の写真家たちも同じく解放。 緊張度が低いほど、よりポジティブな生命力が生まれます。 じゃあ、何でも絶対的な平和と満足感を。 に、出す。 潜在的な能力が備わっています。 一晩で百五十から二百枚が製造され、現在ではダンラップブロードサイドと呼ばれています。 復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約をかわかし-- 交わしたことに焦点を当てています。 うろこと爪のついた足を持ち。 ランス・フェレアリティラノサウルスのように、後ろ足二本で歩きます。"
+  },
+  {
+   "system": "el-realtime-vad05",
+   "label": "ElevenLabs Scribe v2 Realtime (VAD 0.5 s)",
+   "kind": "live",
+   "lang": "km",
+   "err": "",
+   "language": "km",
+   "cer": 0.31,
+   "turns": 43,
+   "segment_latency_ms_median": 1141,
+   "segment_latency_ms_p90": 1480,
+   "sentence_latency_ms_median": 1440,
+   "sentence_latency_ms_p90": 11110,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.992,
+    "latin": 0.008,
+    "replacement_chars": 5
+   },
+   "transcript": "អ្នកនិយាយចិញ្ចើមពីព្រោះប្រមូលបញ្ចូលអំពីវិធីសាស្រ្តតរជាតិនិច្ច។ ជាវិធីសាស្រ្តដ៏ត្រឹមត្រូវប៉ុន្តែប្រើដើម្បីឈូសអង្គភាពឱ្យឈានដល់កម្រិតនៃការអនុវត្តពោះ។ ប្រឡកបញ្ចូលនៅក្រោមស្ពីនគឺមានកំពូល 16 ម៉ែត្រ។ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហា ឆ្នាំ 2011 ហើយការធ្វើចរាចរណ៍នឹងត្រូវបានផ្អាករហូតដល់ខែមីនា ឆ្នាំ 2017។ ភាពទាក់ទងគ្នារវាងរុក្ខសាស្ត្រខួរក្បាលនិងអាកាសពិការយ័ ជួយដល់ការសាកសួររបស់អ្នកវិទ្យាសាស្ត្រ។ ចារណ៍ទឹកទាញចូលសមុទ្រគឺជាលំហោះត្រលប់មកពីរលកដែលត្រលប់ពីឆ្នេរមកប៉ះនឹងថ្ម បំប្រាក់ទឹក ឬអ្វីម្នាក់ៗដែលដូចនឹងវា។ ដូវល័ក្ខដែលបានរៀបការនិងមានកូនចំទុងពីរនាក់មិនបានធ្វើឱ្យមានការប៉ះពាល់។ មិនកាន់តែអាម៉ាវីនោះទេ។ ជូនសម្ភ័រអ្នកណាដែលមានសុវត្ថិភាពពាក់ព័ន្ធនឹងសាច់ដុំ។ កាលពីល្ងាចថ្ងៃទី១ ប្រធានាធិបតីសហរដ្ឋអាមេរិកលោក ដូណាដ្រាម ក្នុងសេចក្តីថ្លែងការណ៍មួយដែលចែកចាយដោយលេខាធិការសារព័ត៌មាននោះបានប្រកាសថា គឺកងទ័ពអាមេរិកនឹងបញ្ចាក់ជិះពីប្រទេសស៊ីរីឡាយ។ ទីបំផុតមានសាច់មាត់ទូទៅជាច្រើនដូច្នេះសាច់មាត់ព្រៃដែលស៊ីចម្លែកទូទៅជាច្រើនទៀតដូចជាសត្វលិត សត្វកកែ សត្វបង្គោយ និងបក្សីនាង។ ក្នុងកម្មវិធីសប្បាយឆ្នាំ២០២០ អារាប់ប៉ុនដែលនៅមកនូវជ័យជំនះ។ នៅពោលវត្តជេច្រាំបណ្ឌិតនិងប្រទេសណានៅគឺថាសន្តិសុខនិងនិរត់ដែកតែលេខពីគេ។ អភិបាលកាលីបញ្ញា លោក អាន់ ណូ ។ សួរណាស់ ចេញ ចេញការបញ្ចុះហត្ថលេខាលើច្បាប់ដែលម្ហូបត្រូវប្រើប្រាស់ការលុក ឬជួលហ្គេមវិដេអូអំពើហិង្សាដល់អន� អ៊ីស៊ុស (APEC) ជាគំរូទីបំផុតដែលបានតែអោយប្រាកដ់នៅទូទាំងពិភពលោកដើម្បីការសន្សំសន្ទះលើការចំណាយ និងកត្តាមុខង ាន។ ចំពោះនៅតំបន់មួយចំនួន ការដាក់ទុកត្រឹមតែមួយនាទីគឺគ្រប់ ។ នៅក្នុងថ្ងៃដំបូងកម្មវិធីនេះត្រូវបានបង្ហាញតែនៅស្ថានីយវិទ្យុអឺនធើណែតដែលដំណើរការជាយូរមកហើយគឺធូនីនិត។ វិស័យដែលចិញ្ចឹមទម្រង់ដោះលើវិស័យពីគ្រោះយប់បល់។ លំបោងអ្នកជាតិខ្លះច្រើនពេលស្វាគជើងកវ៉េងមានកែនិងល្បឿន រាងតូចន ិងស្រស់ ជាប់សេចក្តីបានអាឡើងថាមនុស្សម្នាក់អាចកំណត់ថាតើពុកគំនិតម្នាក់និយាយក៏ហក់ឬអត់នោះតាមរយៈការបកស្រាយពាក្យសម្ដែងក្លែ ង។ បន្ថែមលើកពីព្រឹត្តិការណ៍ពីថ្ងៃពុធទៀត នាង ខាប់ ភ៊ិន ដូ បានចូលរួមការប្រកួតប្រជែងចំនួនពីរដងក្នុងព្រឹត្តិការណ� ពីក្រុមនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង។ នេរាគូន គោលប់ រួមជាមួយនឹងការតាមម៉ោនធែន គោរីឡា ដែលមានតម្លៃថវិកាបំផុតនៅអាហ្វ្រិក។ អូស្ត្រាលី ផ្លូវវ៉ាស៊ីលេស ខុសដំបូងដោយព្រៃអ្នកខ្លះជាមិនសិស្សគឺបង្គោលដែនធ្លាក់ខ្វះខ្ពស់ មានសំបកម៉ាត់ល្� ចំនួនប្រជាជនស្របនៅទីក្រុងវ៉ាត់ឃុងមានប្រហែល 800 នាក់ វាគឺជាប្រទេសឯករាជ្យដែលតូចជាងគេបំផុតនៅលើពិភពលោក ហើយក៏ជាប្រទេសដែលមានប្រជាជនតិចជាងគេបំផុតផងដែរ។ កាយយ៉ាងណាក្រប់ក្រង? គ្រូអាសង់ភាគខាងជើងនៃរដ្ឋ Mauretanias។ បានយល់ដឹងថា មិនមានការគូរធម្មតាមួយត្រូវបានរាយការណ៍ក្នុងប្រទេសនេះទេ។ ដូចមានទីត្រូវ? តាំងនៅលើកំពូលផ្នូរមួយនៅភាគខាងជើងនៃទីក្រុងមេកា ល្អងនេះនៅដែលឆ្ងាយពីពិភពលោកយ៉ាងខ្លាំង។ ប៉ុន្តែព្រះពន្ធទាំងនេះប្រហែលជាសម្រេចធ្វើផែនការជ្រើសរើសកូនយកមកចិញ្ចឹម។ គ្រាន់តែបានអាច។ ប្រើថ្នាំដែលត្រូវការសម្រាប់បំបាត់ការឈឺចាប់របស់គាត់បាន ដូច្នេះសាធារណៈនេះត្រូវបានហាមឃាត់មិនឱ្យប្រើពេលចូលរួមក្នុងព្រឹត្តិការណ៍កីឡានេះឡើយ។ ស្នងក្នុងនោះមនុស្សប្រុសត្រូវបានតម្រូវឱ្យស្នេហ៍ខើនគ្រាប់ពិតលើចង្កុង។ ការនិយាយហេតុដូចជាសម្បិតមែនពីព្រោះដូចជាមានអារម្មណ៍ថាផែនដីមិនកំពុងត� ប្រព័ន្ធជាតិត្រូវឈប់ឡើងល្អត្ថភាពនៅពេលដែលវាស្ថិតនៅក្នុងបរិច្ចាគាត់បែបធម្មជាតិមួយ។ ទុកច្នេះហើយ ត្រូវទុកអារម្មណ៍ ចង់បានកុំយកបច្ចេកទេសគំរូ សុំពេយ៍តែៗមួយចេញឱ្យសោះ។ ចំណុចណាក្មៅប្រាំមួយនាក់ ក្នុងនោះមានទាំងកុមារ និងមនុស្សចាស់បានដោះលែងមុនពេល គឺក្រុមអ្នកថតរូបជនជាតិហ្វី ត។ ភាពដៃងទឹងកាន់តែទាបគឺបង្កើនភាពប្រជាប្រិយមានកាន់តែច្រើនដល់កម្� មនុស្សម្នាក់ៗមានអំណាចក្នុងការស្វែងរកសន្តិភាព និងសុខភាពដ៏ពេញលេញ។ ពេលមួយយប់ចន្លោះពី 150 ទៅ 200 ឆ្នាំ ត្រូវបានបង្កើតឡើង ដែលឥឡូ វ។ ការរះគុណបែបសេរី នៅការប្រឹងប្រែងកសាងឡើងវិញ បានផ្តល់ទៅលើការតាមពិចារណាកសាងឡើងវិញ ទទួលអ្នកដែលដឹងពិចារណាការពេលក្នុង នៅទីក្រុង ប៉ាស៊ីនតោង។ ពូកែមានជើង និងមានស្រកការណ៍ និងក្រញ៉ាំ ពួកវាគ្រាប់ពង ហើយពួកវាដើរដោយជើងក្រោយទាំងពីររបស់ពួកវាដូចជាសាត់ដៃណូស្រូវ ជីរែក។"
+  },
+  {
+   "system": "el-realtime-vad05",
+   "label": "ElevenLabs Scribe v2 Realtime (VAD 0.5 s)",
+   "kind": "live",
+   "lang": "lo",
+   "err": "closed 1006 ",
+   "language": "lo",
+   "cer": 0.252,
+   "turns": 61,
+   "segment_latency_ms_median": 1044,
+   "segment_latency_ms_p90": 1483,
+   "sentence_latency_ms_median": 5602,
+   "sentence_latency_ms_p90": 10762,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.93,
+    "khmer": 0.0,
+    "latin": 0.07,
+    "replacement_chars": 0
+   },
+   "transcript": "Angels 2006 ນະທິບາຍການກ່າວເຖິງ Continuum ເປັນວິທີການທີ່ເຖິງນຳໃຊ້ເພື່ອຊ່ວຍໃຫ້ອົງການບັນລຸລະດັບປະສິດທິພາບການປະຕິບັດມາງທີ່ສູງຂຶ້ນ. ລາຍຫາງແນວຕັ້ງຈາກກ້ອງຂວາມ 15 ມັດ. ການກ້ອນຊ້າງໄດ້ສຳເລັດໃນເດືອນສິງຫາ. ປີ 2011. ບໍ່ເປີດການສັນຈອນຈົນເທິງເດືອນມີນາປີ 2017. ຄຳສັ່ງພັນລະບາງພະຍາດວິທະຍາທາງສະໝອງ ແລະ ຜົດຕິການສະລັບສະໂນລ່ານວິທະຍາສາດໃນການຂົນຂວາງຂອງເຂົາເຈົ້າ. ກະເສນໍ້າຕັດປິ່ນປິ່ນທີ່ໄຫຼກັບ. ຈາກການເຕັກຂອງຊາຍຫາດ. ຊ້ອນຫຼາຍແມ່ນຢູ່ບ່ອນຫີນ ຫຼື ຄ້າຍກັນ. ດູວາວ (Duvall) ຜູ້ທີ່ໄດ້ແຕ່ງງານກັບເດັກນ້ອຍສອງຄົນ ບໍ່ໄດ້ສ້າງຄວາມປະທັບໃຈທີ່ດີອັງ ໃຫ້ກັບໃໝ່ເລີ່ມ (Elliott) ຜ ່າຍ ໃນຕອນແລງວັນອາທິດ, ປະທານາທິບໍດີສາຫະລັດ ທ່ານ ເດັນໂລນັດ ພົັມ (Donald Trump) ໄດ້ປະກາດຖະແລງການ ເຊື່ອໝັ້ນໃຈວ ທີ່ສົ່ງຜ່ານເລີ່ມທະຫານອິກການຂ່າວວ່າກອງທັບສາຫະລັດຈະອອກຈາກຊີເລຍ (Syria). ແລະ ທີ່ສຸດມີແມ່ນ້ອຍຫຼາຍຕົວ. ລ້ອມທັງແມ່ວລຽງທີ່ສູນທາຍທີ່ກິນເຍື້ອທີ່ໜ້ອຍໜ້ອຍຈຳນວນລອງຫຼາຍເຊັ່ນ: ແມ່ງໃໝ່, ໂນຝູງກັບແກ່ ແລະ ນົກຕ່າງໆ. ໃນລະຍາຊົມປີ 1920, ທາດສະໜາຄະຕິທີ່ຜົນເດັ່ນຂອງຜົນລະເມືອງ ແລະ ປະເທດສ່ວນໃຫຍ່ ແມ່ນຄວາມສະງົບ ແລະ ຄວາມແຍກກັນຢູ່. ຜູ້ວາການລາດ ແຄລະຄອນຍາລ ອາວເລໂລ. ອາລົວເຊົ້າ ສ່ຽງເກີ ໄດ້ລົງນາມໃນກົດໝາຍວ່າດ້ວຍການຫາບ່ອຍຄ້າ . ASUS Eee PC ແລະ ຖືກເປີດຕົວກ່ອນໜ້ານີ້ໃນທົ່ວໂລກດ້ວຍປະຈັກໃນການປະຍາດຕົນເທີງ ແລະ ການໃຊ້ງານກາຍເປັນຫວູຂອງທີ່ຮອນແຮງໃນປີ 2007 ຂອງ Taipei IT Month. ໃນບາງພື້ນທີ່, ການຕົມນໍ້າປະມານໜຶ່ງນະທີ່ແມ່ນພຽງພໍແລ້ວ. ໃນບາງບ່ອນກໍໃຊ້ເວລາຫຼາຍນະທີ່. ໃນເມື່ອທຳອິດຂອງມັນການສະແດງເປັນຈຸດເດັ່ນພຽງຢ່າງດຽວຢູ່ເວັບໄຊຕ໌. 2G Next Radio ສະຖານີວິທະຍຸ. ອິນເຕີເນັດທີ່ມີມະດົນນານ. ເລີກໃຊ້ທີ່. ສູງໃຊ້ການສົນທະນາທາງວິທະຍຸ. ກໍລົງເບີດຜູ້ຂີ່ສ່ວນລາຍແມ່ນສວມໃຊ້ເກີດທີ່ໃຊ້ໃນການຂີ່ທີ່ມີສົນ ແລະ ກຽງລຽບຂ້ອນຂ້າງແຂບຕິດນ້ຳພື້ນ. ແລະ ສະຫຼາດນີ້ຈາກອາງວານສະຫະລັດກໍສອບໄດ້ບໍ? ພຸກຄົນໄດ້ຕົວໂດຍການຕິດຄວາມໝາຍຂອງຈະລະພາບຍ່າງຖືກຕ້ອງດີປ້ອງ. ນອກໜ້າຈາກການແຂ່ງຂັນໃນເມືອງວັນພຸດ. ຂາປານເດໂດ (Copa Norte) ໄດ້ເຂົ້າຮ່ວມການແຂ່ງຂັນໃນສອງລາຍການແຂ່ງຂັນແລ່ນຊ່ວນບຸກຄົນໃນລັດຖະບານການແຂ່ງຂັນ ເພລຊິງແຊມ (El Chichen Zam). ເມືອງດັ່ງກ່າວຍັງເປັນສະຖານທີ່ທີ່ຈະປິ່ນຜູ້ເຂົ້າໄຟນິລາຄອງໂກ (Nirakongko) ພ້ອມກັບທາງຍ້າຍຕາມຜູ້ກອນລິລາ (Gorilla Trail). ທີ່ມີລະຄາຖືກທີ່ສຸດໃນອາຟຼິກກາ. ສວນສາທານະ. ຮຽງຊາດ. Kriekwiek-lek ແມ່ນມີປາໄມ້ຢ່າງໜ້າແມ່ນ, ສ່ວນໃຫຍ່ແລ້ວແມ່ນຕົ້ນເພີ່ງ, ຕົ້ນສົນ. ແລະ ຕົ້ນໄມ້ສົນທີ່ເປັນໄປສາມເຫລັມ ແລະ ມີລາກສະນາປະສົມຂອງພື້ນພັນ. ອາພລາຍ ແລະ ແມດິຕະເລນຽນ. ປະຊາກອນຂອງເມືອງ Martinique ແມ່ນປະມານ 800 ຄົນ. ມັນແມ່ນປະເທດທີ່ມີເອກະລາດ ສຳນັກງານຈັດການເຮັດຊຸກຍູ່ທັງພາກເໜືອຂອງ Marshall Islands ກ່າວວ່າບໍ່ມີລາຍງານຄວາມສຽງຫາໃດໆເກີດຂື້ນໃນປະເທດ. ການພັກພ້ອມຢູ່ທັງຈົ່ມຜູ້ແຫ່ງໜຶ່ງທັງພາກເໜືອຂອງເມືອງ Maikar. ທັງນັ້ນກໍ່ແມ່ນແຍ່ງອອກຈາກສ່ວນທີ່ເລື້ອຍໆຂອງລົບ. ຄູ່ພວມເມຍຫຼາຍນີ້. ອາດຈະເລືອກທີ່ຈະວາງແຜນໃນການຮັບລ້ຽງລູກບຸນທຳ. ໃຫ້ເປັນລູກຂອງພວກເຂົາ. ລາວວ່າສາມາດສາຍສະເພດຕິດເພື່ອອຳສະໜາຄວາມເຈັບປວດຂອງລາວທີ່ເກີດຍ້ອ ນ ກ່ອນຈໍາເທິງທາງບໍ່ໃຫ້ເລີ່ມເກມໄດ້. ຢູ່ໃນແທ້ດຽວກັນ, ຜູ້ຊາຍກໍແມ່ນຖືຮຽກຮ້ອງໃຫ້ຕອງໄດ້ນຸ່ງສົ່ງ. ທີ່ປົກຫົວເຂົ້າ. ນີ້ເບິ່ງຄືວ່າສາມາດຮູ້ສຶກໄດ້, ພ້ອມວ່າ. ບໍ່ຮູ້ສຶກ. ຄືການວ່າລໍ້ມັນກຳລັງເຄີຍທີ່ແມ່ນບໍ່? ເພື່ອເບິ່ງຄືມີລັກສະນະດີທີ່ສຸດເມື່ອຢູ່ໃນສະພາແວດລ້ອມເປັນທຳມະຊາດດັ່ງນັ້ນ. ການຕໍ່ຕ້ານການທະລອງເປີດອອກຕໍ່ຍາງອອກພຽງອັນດຽວ. ໃນຕົວປະກັນ, ຫົກຄົນທີ່ມີທາງເລັກນ້ອຍ ແລະ ຜູ້ທ້າວ. ໄດ້ຖືກປ່ອຍຕໍ່ອອກມາກ່ອນເນື່ອງຈາກເປັນນັກທ່າຍພາບຊາວຟິລິບິນ. ຕັ້ງຊົ່ວຍຍິງລູດຕາມລົງ. ຍິງເປັນການດີໃຫ້ພະລັງຈີວັດມີຢູ່. ທຸກຄົນມີຄວາມສາມາດທີ່ຈະພົບເຫັນຄວາມສົງບັບຊຸກ ແລະ ຄວາມພຶງພໍ່ໃຈຢ່າງແທ້ຈິງ. ຕະຫຼອດຄືລະບາງ 150 ແລະ 200 ຊຳເນົາໄດ້ສືກສາຂຶ້ນ. ປະຈຸບັນປະຕິຮູ້ຈັກກັນວ່າ. ດອນດັບບໍລີຊາຍ. ການວິປາກວິຈານຢ່າງລ່ວງຫຼາຍກ່ຽວກັບຄວາມພະຍາຍາມໃນການສ່ວນຝູບຸລະນະໄດ້ມູນແນວປະຕິການຕັດສິນສັນຍາການສ່ວນຝູບຸລະນະໃຫ້ແກ່ຜູ້ທີ່ຢ ັກ. ພອງມັນມີຕີນ, ທີ່ມີເກັດ ແລະ ມີກາງ. ພອງມັນວ່າງໄຂ່ ແລະ ພອງມັນຍາມໄປດ້ວຍຄ່າລັງຊອງເບືອກ. ຂ້າຍຄືກັບຕົວແດນໂຊຊາວ T-Rex."
+  },
+  {
+   "system": "el-scribe-v2",
+   "label": "ElevenLabs Scribe v2 (batch, whole clip)",
+   "kind": "batch",
+   "lang": "en",
+   "err": "",
+   "model": "scribe_v2",
+   "language": "eng",
+   "cer": 0.041,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 1.0,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel 2006 explains the continuum approach as a method being used to help organizations reach a higher level of The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011. It didn't open to traffic until March 2013. The correlation between brain pathology and behavior supports scientists in their research. Rip currents are the returning flow from waves breaking off the beach often at a reach, reef, or similar. Deval, who was married to two adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump, in a statement delivered via the press secretary, announced U.S. troops would be leaving Syria. Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey like insects, rodents, lizards, and birds. During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolation. California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors. ASUS EPC earlier launched worldwide for cost-saving functionality factors became a hot topic in 2007 Taipei IT. In some areas, boiling water for a minute is enough and others several minutes are needed. In its early days, the show was featured solely at the long-running internet radio site ToggyNet Radio, a site focused on talk radio. First, most riders wearing riding boots with a heel and a smooth, quite narrow sole. In particular, it is claimed that one can detect whether a person is lying by interpreting microexpressions correctly. Beyond Wednesday's event, Carpenado competed in two individual races The city is also the base to climb the Nyiragongo volcano along with some of the cheapest mountain gorilla trafficking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of alpine and Mediterranean vegetation. Vatican City population is around 800. It is the smallest independent country in the world and the population The Northern Marianas Emergency Management Office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby. He has been unable to take the drugs needed to overcome his pain as they are banned from the game. Along the same line, men are required to wear trousers covering the knees. This seems sensible because the earth doesn't feel as if it's moving, does it? Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen. Six hostages, including the children elderly, were released early, as were the Filipino photographers. The lower the tension, the more positive the life force will present. Every person has the potential to find absolute peace and contentment. To the night between 150 and 200 copies were made now known as Dunlap. Liberal criticism of the reconstruction effort has focused on the awarding of reconstruction contracts to perceived Washington insiders. They have feet with scales and claws, they lay eggs, and they walk on their two back legs like a T-Rex.",
+   "request_ms_whole_clip": 5030
+  },
+  {
+   "system": "el-scribe-v2",
+   "label": "ElevenLabs Scribe v2 (batch, whole clip)",
+   "kind": "batch",
+   "lang": "ja",
+   "err": "",
+   "model": "scribe_v2",
+   "language": "jpn",
+   "cer": 0.067,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.009,
+    "replacement_chars": 0
+   },
+   "transcript": "エンジェルは2006年に組織がより高いパフォーマンスレベルに到達する上で役立つ方法として連続体アプローチを説明しています。 橋下の乗降空間は十五メートルです。二千十一年八月に竣工し、二千十七年三月まで開通しませんでした。 脳病理と行動の相関関係は、科学者たちの研究を裏付けるものです。離岸流とは、砕けて浜辺に戻ってくる引き波のことで、多くの場合、岩礁やそれに似た場所で発生します。 既婚者であり、成人した二人の子を持つデュバルはこの話に関係するウィラーにあまり印象を残しませんでした。日曜深夜、ドナルドトランプ米大統領は報道官経由で配信された声明において、米軍がシリアから撤退することを発表しました。最後に、昆虫、げっ歯類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型の猫、野良猫を含むが数多く生息しています。 1920年代に市民や国家のほとんどに広まっていた思想は平和主義と孤立主義でした。カリフォルニア州のアーノルド・シュワルツネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。ASUSのEPGはコスト面と機能面で世界に先駆けて販売され、2007台北ITマンスで話題となりました。 一分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。 当初、番組はトークラジオに特化したインターネットラジオサイト、トギネットラジオのみで取り上げられ、これは長寿サイトです。まず、ほとんどの乗り手はかかとと滑らかでかなり狭めの靴底がついた乗馬靴を履いています。 特に表情を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。 水曜日のイベントの後、カルパネドは選手権で2つの個人レースに出場しました。この都市はニラコンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります。 プリトヴィツェ湖群国立公園は、アルプスと地中海の植生が混在する広大な森。主に村、トウヒ、モミに大小十六の湖が点在し、絶景で溢れる世界遺産です。 バチカン市国の人口は約800人です。世界最小の独立国家であり、最も人口が少ない国でも 北マリアナ諸島の危機管理室EMOによると、全国的に被害は報告されていないとのことです。洞窟はメッカの北にあたる山頂にあり、下界から完全に隔離されています。このようなご夫婦はその赤ちゃんのために養子縁組制度を利用できます。 痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。同じように、男性は膝を覆うズボンを履くことが義務付けられています。 地球が動いているようには感じないので、これは理にかなっているように思えます。 植物は自然環境にある時に最も見栄えがするのですから、一本だけならと標本に持ち帰りたい誘惑に負けないでください。 子供と高齢者を含めた人質6名が早期に解放され、フィリピン人の写真家たちも同じく解放。緊張度が低いほど、よりポジティブな生命力が生まれます。誰にでも絶対的な平和と満足感を見出す潜在的な能力が備わっています。 一晩で150から200枚が複製され、現在ではダンラップブロードサイドと呼ばれています。 復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約を交わしたことに焦点を当てています。鱗と爪のついた足を持ち、乱走性であり、ティラノサウルスのように後ろ足二本で歩きます。",
+   "request_ms_whole_clip": 7874
+  },
+  {
+   "system": "el-scribe-v2",
+   "label": "ElevenLabs Scribe v2 (batch, whole clip)",
+   "kind": "batch",
+   "lang": "km",
+   "err": "",
+   "model": "scribe_v2",
+   "language": "khm",
+   "cer": 0.091,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.943,
+    "latin": 0.056,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel 2006 បញ្ជាក់អំពីវិធីសាស្ត្រតជាប់ជានិច្ចជាវិធីសាស្ត្រដែលត្រូវបានប្រើដើម្បីជួយអង្គភាពឱ្យឈានដល់កម្រិតនៃការអនុវត្តពួក ប្រឡកបញ្ឈរនៅក្រោមស្ពានគឺមានកម្ពស់ 18 ម៉ែត្រការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហាឆ្នាំ 2011 ហើយការធ្វើចរាចរណ៍នឹងត្រូវបានផ្អាករហូតដល់ខែមីនាឆ្នាំ 2017. ភាពទាក់ទងគ្នារវាងរោគសាស្ត្រខួរក្បាល និងអាកប្បកិរិយាជួយដល់ការសាកសួររបស់អ្នកវិទ្យាសាស្ត្រ. ចរន្តទឹកទាញចូលសមុទ្រគឺជាលំហត្រលប់មកពីរលកដែលត្រលប់ពីឆ្នេរមកប៉ះនឹងថ្ម បរប្រាស់ទឹក ឬអ្វីម្យ៉ាងដែលដូចនឹងវា. Duval ដែលបានរៀបការ និងមានកូនជុំទង់ពីរនាក់មិនបានធ្វើឱ្យ Miller មានការចង់ប្រឹងអ្វីនោះទេ ជូនចំពោះអ្នកណាដែលមានជីវិតពាក់ព័ន្ធនឹងសាច់ដុំ. កាលពីល្ងាចថ្ងៃអាទិត្យនេះ ប្រធានាធិបតីសហរដ្ឋអាមេរិកលោក Donald Trump ក្នុងសេចក្តីថ្លែងការណ៍មួយដែលចែកចែកដោយលេខាធិការសារព័ត៌មាននោះបានប្រកាសថាកងទ័ពអាមេរិកនឹងមិនដាក់ចេញពីប្រទេសស៊ីរីឡើយ. ទីបំបុត្រមានសត្វឆ្មាតូចៗជាច្រើនរួមទាំងសត្វឆ្មាព្រៃដែលស៊ីចម្អីតូចៗជាច្រើនទៀតដូចជាសត្វល្អិត សត្វកកែ សត្វបង្កួយ និងបាក់សីនានា. ក្នុងកំឡុងទសវត្សរ៍ឆ្នាំ 1920 ឥរិយាបថដែលនាំមកនូវជាចំណេះនៃពលរដ្ឋជាច្រើនបំផុតនឹងប្រទេសនានាគឺថាសន្តិនិយមនឹងនៅតែលែងពីគេ. អភិបាលរដ្ឋកាលីហ្វ័រញ៉ា លោក Arnold Schwarzenegger បានចុះហត្ថលេខាលើច្បាប់ដែលបчёмប្រាមការលក់ ឬជួលហ្គេមវីដេអូអំពើហិង្សាដល់អានីតិជន. ASUS Eee PC ជាកម្មវិធីដែលបានដាក់ឱ្យប្រើប្រាស់នៅទូទាំងពិភពលោកដើម្បីការសន្សំទន្ចៃលើការចំណាយ និងកត្តាមុខម្ងាយរបស់វាបានក្លាយជាប្រធានបទក្តៅក្តៅនៅក្នុងសន្និសីទព័ត៌មានវិទ្យាប្រចាំខែនៅទីក្រុងតៃពែកឆ្នាំ 2007.ចំពោះនៅតំបន់មួយចំនួន ការដាំទប់ត្រឹមតែមួយនាទីគឺគ្រប់គ្រាន់ហើយ ហើយនៅកន្លែងខ្លះទៀតត្រូវការពេល veldig ច្រើននាទី. នៅក្នុងថ្ងៃដំបូងកម្មវិធីនេះត្រូវបានបង្ហាញតែនៅស្ថានីយវិទ្យុអ៊ីនធឺណិតដែលដំណើរការជាយូរមកហើយគឺ TonyNet វិទ្យុដែលជាគេហទំព័រដត់លើវិទ្យុពីគ្រោះយោបល់. ដំបូងដែលជាភាគច្រើនពាក់ស្បែកជើងកវែង មានកែង និងរលោង រាងតូច និងមានទ្រនាប់. ជាពិសេសគេបានអះអាងថាមនុស្សម្នាក់អាចកំណត់ថាតាបុគ្គលម្នាក់និយាយកុហកឬអត់នោះតាមរយៈការបកស្រាយពាក្យសម្ដីខ្លីៗឱ្យបានត្រឹមត្រូវ. បន្ថែមលើពីព្រឹត្តិការណ៍ពិធីពុទ្ធទាត នាង Capernido បានចូលរួមការប្រកួតប្រជែងចំនួនពីរដងក្នុងព្រឹត្តិការណ៍ជើងឯក. ទីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង Neraconco រួមជាមួយនឹងការតាម Mountain Gorilla ដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក. អូសៀនជាតិ ផ្លិតវ៉ាស្លេស ឃ្លត់ដណ្តប់ដោយព្រៃយ៉ាងខ្លះ ជាពិសេសគឺពពោះដោយភ្នំឈើខ្ពស់ៗ មានសំបកមាត់ល្អ និងលីនឡាប់ដោយពពោះព្រៃឈើនៅតំបន់ភ្នំខ្ពស់ និងតំបន់មេឌីទែរ៉ាណេ. ចំនួនប្រជាជនស្របនៅទីក្រុងវ៉ាទីកង់មានប្រហែល 800 នាក់ វាគឺជាប្រទេសឯករាជ្យដែលតូចជាងគេបំផុតនៅលើពិភពលោក ហើយក៏ជាប្រទេសដែលមានប្រជាជនតិចជាងគេបំផុតផងដែរ. ការិយាល័យគ្រប់គ្រង គ្រោះអាសន្នភាគខាងជើងនៃរដ្ឋ Marianas បាននិយាយថា មិនមានការខូចខាតណាមួយត្រូវបានរាយការណ៍នៅក្នុងប្រទេសនេះទេ។ ដោយមានទីតាំងនៅលើកំពូលភ្នំមួយនៅភាគខាងជើងនៃទីក្រុង Meca ល្អាងនេះនៅតែឆ្ងាយពីពិភពលោកយ៉ាងខ្លាំង. ដីប្រពន្ធទាំងនេះប្រហែលជាសម្រេចធ្វើផែនការជ្រើសរើសកូនយកមកចិញ្ចឹម. គាត់មិនបានអាចប្រើថ្នាំដែលត្រូវការសម្រាប់បំបាត់ការឈឺចាប់របស់គាត់បាន ដោយសារថ្នាំនេះត្រូវបានហាមឃាត់មិនឱ្យប្រើពេលចូលរួមក្នុងព្រឹត្តិការណ៍កីឡានេះឡើយ. ស្រស់ម្នាលនោះ មនុស្សប្រុសត្រូវបានតម្រូវឱ្យស្លៀកខោគ្របជិតលើចង្គង់. កាន់នេះវាហាក់ដូចជាសមពិតមែនពីព្រោះដូចជាមានអារម្មណ៍ថាផែនដីមិនកំពុងតែធ្វើចលនានោះទេ ត្រូវឬអត់? រុក្ខជាតិត្រេកអូកលោតលោតបំផុតនៅពេលដែលវាស្ថិតនៅក្នុងបរិយាកាសបែបធម្មជាតិមួយ ដូច្នេះហើយត្រូវទប់អារម្មណ៍ចង់បានកុំយករុក្ខជាតិគំរូ សុំពៃតែតែមួយចេញឱ្យសោះ. ចំណាប់ខ្មាំងប្រាំមួយនាក់ ក្នុងនោះមានទាំងកុមារ និងមនុស្សចាស់បានដោះលែងមុនពេល គឺក្រុមអ្នកថតរូបជនជាតិហ្វ៊ីលីពីន. ភាពតានតឹងកាន់តែទាបគឺបង្កើនភាពវិជ្ជមានកាន់តែច្រើនដល់កម្លាំងនៃជីវិត មនុស្សម្នាក់ៗមានអំណោយក្នុងការស្វែងរកសន្តិភាព និងសេចក្តីសុខដ៏ពេញលេញ. ពេញមួយយប់ ចន្លោះពី 150 ទៅ 200 ច្បាប់ត្រូវបានបង្កើតឡើង ដែលឥឡូវត្រូវបានគេស្គាល់ថាជាបណ្តាសាយពាណិជ្ជកម្មដុនឡាប់. ការរិះគន់បែបសេរីលើការប្រឹងប្រែងកសាងឡើងវិញបានផ្ដោតទៅលើការផ្ដល់កិច្ចសន្យាកសាងឡើងវិញទៅដល់អ្នកដែលដឹងតិចការពីក្នុងនៅទីក្រុងបាស៊ីតោ. ពួកគេមានជើងដែលមានស្រុកា និងក្រញ៉ាំ ពួកវាក្រាបពង ហើយពួកវាដើរដោយជើងក្រោយទាំងពីររបស់ពួកវាដូចជាសត្វដាយណូស\nរ T Rex.",
+   "request_ms_whole_clip": 52664
+  },
+  {
+   "system": "el-scribe-v2",
+   "label": "ElevenLabs Scribe v2 (batch, whole clip)",
+   "kind": "batch",
+   "lang": "lo",
+   "err": "",
+   "model": "scribe_v2",
+   "language": "lao",
+   "cer": 0.953,
+   "script": {
+    "thai": 0.932,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.068,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel 2006 อธิบายการเข้าถึง Continuum เป็นวิธีการที่ถือน้ำใสเพื่อช่วยให้องค์การบรรลุระดับประสิทธิภาพการปฏิบัติงานที่สูงขึ้น ระยะห่างแนวตั้งจากกองขั้วแม่น 15 เมตร การก่อสร้างได้สำเร็จในเดือนสิงหาคมปี 2011 บ่เปิดการสัญจรจนถึงเดือนมีนาคมปี 2017 ความสัมพันธ์ระหว่างพยาธิวิทยาทางสมองและพฤติกรรมสนับสนุนวิทยาศาสตร์ในการค้นคว้าของพวกเขา กระแสน้ำตัดเปลี่ยนคืนที่ไหลกลับจากการแตกของชายหาด ส่วนหลายแม่นอยู่บนหินหรือคล้ายกันดูเว้าผู้ที่ได้แต่งงานกับเด็กน้อยสองคนบ่ได้สร้างความประทับใจที่ดีหยังให้กับไมเลอร์ผู้ที่เกี่ยวข้องกับเรื่องนี้เลยในตอนแรงวันอาทิตย์ประธานาธิบดีสหรัฐท่าน Donald Trump ได้ประกาศแถลงการณ์ที่ส่งผ่านเลขาธิการข่าวว่ากองทัพสหรัฐจะออกจากซีเรีย ในที่สุดมีแมวน้อยหลายตัวรวมทั้งแมวเลี้ยงที่สูญหายที่กินเหยื่อที่น้อยๆจำนวนลองหลายเช่นแมงไหม้ หนู กบแกะ และนกต่างๆ ในระยะซุ่มปี 1930 ทัศนคติที่พ่นเด่นของพลเมืองและประเทศส่วนใหญ่แม่นความสงบและความแยกกันอยู่ ผู้ว่าการรัฐแคลิฟอร์เนีย Aaron Aaron Schwarzenegger ได้ลงนามในกฎหมายมาด้วยการห้ามบ่ให้ขายหรือให้เช่าเกมวีดีโอที่มีความรุนแรงให้กับเด็กน้อยAsus Eee PC ได้ถูกเปิดตัวก่อนหน้านี้ในทั่วโลกด้วยปัจจัยในการประหยัดต้นทุนและการใช้งาน กลายเป็นหัวข้อที่ร้อนแรงในปี 2007 ของ Taipei IT Ngon ในบางพื้นที่การต้มน้ำประมาณ 1 นาทีแม่นเพียงพอแล้ว ในบางบ่อนก็ใช้เวลาหลายนาทีในมื้อทำอิตของมันการแสดงเป็นจุดเด่นเพียงอย่างเดียวอยู่เว็บไซต์ Two Genecks Radio สถานีวิทยุอินเทอร์เน็ตที่มีมาดนนั้น เว็บไซต์ที่สูงใส่การสนทนาทางวิทยุ กรุนบทผู้ขี่ส่วนหลายแม่นสวมใส่เกือกที่ใส่ในการขี่ที่มีสนและแก่งเรียบค่อนข้างแคบติดหนังพื้นโดยเฉพาะมีการอ้างว่าสามารถตรวจสอบได้ว่าบุคคลใดตัวโดยการตีความหมายของจระภากอย่างถูกต้องหรือบ่ นอกเหนือจากการแข่งขันในมื้อวันพุธ Capanedo ได้เข้าร่วมการแข่งขันในสองรายการแข่งขันและส่วนบุคคลในลำดับการแข่งขัน Pressing Samเมืองดังกล่าวยังเป็นสถานที่ที่จะปีนภูเขาไฟนิล่าคองโก้พร้อมกับทางย่างตามภู Gorila ที่มีราคาถูกที่สุดในแอฟริกาสวนสาธารณะแห่งชาติ Plitvice Lake แม่นมีป่าไม้อย่างหนาแน่น ส่วนใหญ่แล้วแม่นต้นผึ้ง ต้นสน และต้นไม้สนที่เป็นใบสามเหลี่ยมและมีลักษณะผสมของพืชพันธุ์ Alpine และ Mediterraneanประชากรของเมือง Watin Gun แม่นประมาณ 800 คน มันแม่นประเทศที่มีเอกราชน้อยสุดในโลกและเป็นประเทศที่มีประชากรน้อยสุดสำนักงานจัดการเหตุสุกเสื่อนทางภาคเหนือของมาเรียน่ากล่าวว่าบ่มีรายงานความเสียหายใดๆเกิดขึ้นในประเทศ การพักผ่อนอยู่ทั้งจอมภูแห่งหนึ่งทางภาคเหนือของเมือง Mexca ทำดังกล่าวแม่นแยกออกจากส่วนที่เหลือของโลก คู่ผัวเมียเหล่านี้อาจจะเลือกที่จะวางแผนในการฮับเลี้ยงลูกบุญธรรมให้เป็นลูกของพวกเขา ล่าบ่สามารถใส่ยาเสพติดเพื่ออำเสนอความเจ็บปวดของล่าที่เกิดย้อนว่าเขาเจ้าถูกห้ามบ่ให้เล่นเกมได้ อยู่ในแถวเดียวกันผู้ชายก็แม่นถือแหกฮ้องให้ต้องได้หนุ่งส่งที่ปกหัวเข่านี่เบิ่งคือว่าสามารถฮู้สึกได้เพราะว่าบ่ฮู้สึกคือกับว่าโลกมันกำลังเคลื่อนที่แม่นบ่ พืชเบิ่งคือมีลักษณะดีที่สุดเมื่ออยู่ในสภาแวดล้อมเป็นธรรมชาติ ดังนั้นการต่อต้านการทะลวงเพื่อเอาตัวอย่างออกเพียงอันเดียว ในตัวประกัน 6 คนที่มีทั้งเด็กน้อยและผู้เฒ่าได้ถูกปล่อยตัวออกมาก่อนเนื่องจากเป็นนักถ่ายภาพชาวฟิลิปปินส์ตั้งทรงยิ่งลดต่ำลงยิ่งเป็นการดีให้พลังชีวิตมีอยู่ทุกคนมีความสามารถที่จะพบเห็นความสงบสุขและความพึงพอใจอย่างแท้จริง ตลอดคืนระหว่าง 150 และ 200 สำเนาได้ศึกษาขึ้นปัจจุบันไปที่รู้จักกันว่า Don Rap Boys Siteการวิพากษ์วิจารณ์อย่างล่วงหลายเกี่ยวกับความพยายามในการฟื้นฟูบูรณะได้มุ่งเน้นไปที่การตัดสินสัญญาการฟื้นฟูบูรณะให้แก่ผู้ที่อยู่ภายในวอชิงตันที่ถือกับหูพวกมันมีตีนที่มีเกล็ดและมีกาง พวกมันวางไข่และพวกมันย่างไปด้วยขาหลังสองเบือก คล้ายคือกับตัวไดโนเสาร์ทีเร็กซ์",
+   "request_ms_whole_clip": 40077
+  },
+  {
+   "system": "gem__gemini-3.1-pro-preview",
+   "label": "Gemini 3.1 Pro preview (per sentence)",
+   "kind": "batch",
+   "lang": "en",
+   "err": "",
+   "model": "gemini-3.1-pro-preview",
+   "cer": 0.047,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 1.0,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel 2006 explains the continuum approach as a method being used to help organizations reach a higher level of The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011. It didn't open to traffic until March 2012. The correlation between brain pathology and behavior supports scientists in their research. Rip currents are the returning flow from waves breaking off the beach, often at a reach, reef, or similar. DeVoe, who was married with two adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump, in a statement delivered via the press secretary, announced US troops would be leaving Syria. Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey, like insects, rodents, lizards, and birds. During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolationism. California governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors. Asus EPC earlier launched worldwide for cost saving functionality factors became a hot topic in 2007 Taipei IT In some areas boiling water for a minute is enough in others several minutes are needed In its early days, the show was featured solely at the long-running internet radio site Talkin' Net Radio, a site focused on talk radio. First, most riders wear riding boots with a heel and a smooth, quite narrow sole. In particular, it is claimed that one can detect whether a person is lying by interpreting micro expressions correctly. Beyond Wednesday's event, Carpenito competed in two individual races The city is also the base to climb the Nyiragongo volcano along with some of the cheapest mountain gorilla trafficking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of Alpine and Mediterranean vegetation. Vatican City population is around 800. It is the smallest independent country in the world and the population... The Northern Marianas Emergency Management Office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the cave the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby. He has been unable to take the drugs needed to overcome his pain as they are banned from the game. Along the same line, men are required to wear trousers covering the knees. This seemed sensible because the Earth doesn't feel to us as if it's moving, does it? Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen. Six hostages including the children, elderly, were released early as were the Filipino photographers. The lower the tension, the more positive the life force present. Every person has the potential to find absolute peace and contentment. Does a night between 150 and 200 copies were made now known as Dun Liberal criticism of the reconstruction effort has focused on the awarding of reconstruction contracts to perceived Washington insiders. They have feet with scales and claws, they lay eggs, and they walk on their two back legs like a T-Rex.",
+   "sentences_ok": 30,
+   "request_ms_median": 27427,
+   "request_ms_p90": 50165
+  },
+  {
+   "system": "gem__gemini-3.1-pro-preview",
+   "label": "Gemini 3.1 Pro preview (per sentence)",
+   "kind": "batch",
+   "lang": "ja",
+   "err": "",
+   "model": "gemini-3.1-pro-preview",
+   "cer": 0.058,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.009,
+    "replacement_chars": 0
+   },
+   "transcript": "エンジェルは2006年に組織がより高いパフォーマンスレベルに到達する上で役立つ方法として連続体アプローチを説明しています。 橋下の情報空間は15メートルです。2011年8月に竣工し、2017年3月まで開通しませんでした。 脳病理と行動の相関関係は科学者たちの研究を裏付けるものです。 離岸流とは砕けて浜辺に戻ってくる引き波のことで多くの場合岩礁やそれに似た場所で発生します。 自己の所有者であり、成人した2人の子を持つデュバルは、この話に関係するヴィラにあまり印象を残しませんでした。 日曜深夜、ドナルド・トランプ米大統領は報道関係へ配信された声明において、米軍がシリアから撤退することを発表しました。 最後に昆虫、げっ歯類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型の猫（野良猫を含む）が数多く生息しています。 1920年代に市民や国家のほとんどに広まっていた思想は平和主義と孤立主義でした。 カリフォルニア州のアーノルド・シュワルツェネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。 ASUSのEPCはコスト面と機能面で世界に先駆けて販売され2007台北ITマンスで話題となりました。 1分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。 当初番組はトークラジオに特化したインターネットラジオサイト、トギネットラジオのみで取り上げられ、これは長寿サイトです。 まず、ほとんどの乗り手は、かかとと滑らかでかなり狭めの靴底がついた乗馬靴を履いています。 特に微表情を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。 水曜日のイベントの後、カルパネドは選手権で2つの個人レースに出場しました。 この都市はニラゴンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります。 プリトヴィツェ湖群国立公園はアルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小16の湖が点在し、絶景であふれる世界遺産です。 バチカン市国の人口は約800人です。世界最小の独立国家であり、最も人口が少ない国でもあります。 北マリアナ諸島の危機管理室EMOによると、全国的に被害は報告されていないとのことです。 洞窟はメッカの北に当たる山頂にあり、外界から完全に隔離されています。 このようなご夫婦は、その赤ちゃんのために養子縁組制度を利用できます。 痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。 同じように男性は膝を覆うズボンを履くことが義務付けられています。 地球が動いているようには感じないので、これは理にかなっているように思えます。 植物は自然環境にある時に最も見栄えがするのですから、一本だけならと標本に持ち帰りたい誘惑に負けないでください。 子供と高齢者を含めた人質6名が早期に解放されフィリピン人の写真家たちも同じく解放 緊張度が低いほど、よりポジティブな生命力が生まれます。誰にでも絶対的な平和と満足感を見出す潜在的な能力が備わっています。 一晩で150から200枚が複製され、現在ではダンラップ・ブロードサイドと呼ばれています。 復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約を交わしたことに焦点を当てています。 うろこと爪のついた足を持ち、卵生であり、ティラノサウルスのよう後ろ足二本で歩きます。",
+   "sentences_ok": 30,
+   "request_ms_median": 23570,
+   "request_ms_p90": 38730
+  },
+  {
+   "system": "gem__gemini-3.1-pro-preview",
+   "label": "Gemini 3.1 Pro preview (per sentence)",
+   "kind": "batch",
+   "lang": "km",
+   "err": "#3 The operation was aborted due to timeout",
+   "model": "gemini-3.1-pro-preview",
+   "cer": 0.122,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.985,
+    "latin": 0.015,
+    "replacement_chars": 0
+   },
+   "transcript": "អញ្ចឹង 2006 ពន្យល់អំពីវិធីសាស្ត្រតភ្ជាប់ជានិច្ច ជាវិធីសាស្ត្រដែលត្រូវបានប្រើដើម្បីជួយអង្គភាពឲ្យឈានដល់កម្រិតនៃការអនុវត្តខ្ពស់។ ប្រឡាយបញ្ជូរនៅក្រោមស្ពានគឺមានកម្ពស់ដប់ប្រាំម៉ែត្រ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហាឆ្នាំពីរពាន់ដប់មួយ ហើយការធ្វើចរាចរណ៍នឹងត្រូវបានផ្អាករហូតដល់ខែមីនាឆ្នាំពីរពាន់ដប់ប្រាំពីរ។ ភាពទាក់ទងគ្នារវាងរោគសាស្ត្រខួរក្បាល និងអាកប្បកិរិយាជួយដល់ការស្រាវជ្រាវរបស់អ្នកវិទ្យាសាស្ត្រ។  រឿងរ៉ាវដែលបានរៀបការ និងមានកូនជំទង់ពីរនាក់ មិនបានធ្វើឲ្យមានការចាប់អារម្មណ៍អ្វីនោះទេ ជូនចំពោះអ្នកណាដែលមានជីវិតពាក់ព័ន្ធនឹងសាច់រឿង កាលពីល្ងាចថ្ងៃអាទិត្យនេះ ប្រធានាធិបតីសហរដ្ឋអាមេរិក លោក ដូណាល់ ត្រាំ ក្នុងសេចក្តីថ្លែងការណ៍មួយដែលចែកផ្សាយដោយលេខាធិការសារព័ត៌មាននោះ បានប្រកាសថាកងទ័ពអាមេរិកនឹងមិនដកចេញពីប្រទេសស៊ីរីឡើយ។ ទីមួយ ភ្នំផត មានសត្វឆ្មាតូចៗជាច្រើន រួមទាំងសត្វឆ្មាព្រៃ ដែលស៊ីចំណីតូចៗជាច្រើនទៀត ដូចជាសត្វល្អិត សត្វកង្កែប សត្វបង្កួយ និងបក្សីនានា។ ក្នុងអំឡុងទសវត្សរ៍ឆ្នាំ ១៩២០ ឥរិយាបថដែលនាំមកនូវជ័យជំនះនៃពលរដ្ឋជាច្រើនបំផុត និងប្រទេសនានាគឺថា សន្តិនិយម និងនៅដាច់ដោយឡែកពីគេ។ អភិបាលរដ្ឋកាលីហ្វ័រញ៉ា លោក អាណុល ស្វាតសេនេហ្គា បានចុះហត្ថលេខាលើច្បាប់ដែលហាមប្រាមការលក់ ឬជួលហ្គេមវីដេអូអំពើហិង្សាដល់អនីតិជន។ Asus Eee PC ដែលត្រូវបានបង្កើតឡើងដើម្បីប្រើប្រាស់នៅទូទាំងពិភពលោក ដើម្បីការសន្សំសំចៃលើការចំណាយ និងកត្តាមុខងាររបស់វា បានក្លាយជាប្រធានបទក្តៅៗនៅក្នុងសន្និសីទព័ត៌មានវិទ្យាប្រចាំខែ នៅទីក្រុងតៃប៉ិឆ្នាំ ២០០៧។ ចំពោះនៅតំបន់មួយចំនួន ការដាំទឹកត្រឹមតែមួយនាទីគឺគ្រប់គ្រាន់ហើយ ហើយនៅកន្លែងខ្លះទៀតត្រូវការពេលវេលាច្រើននាទី។ នៅ ក្នុង ថ្ងៃ ដំបូង កម្មវិធី នេះ ត្រូវ បាន បង្ហាញ តែ នៅ ស្ថានីយ វិទ្យុ អ៊ីនធឺណិត ដែល ដំណើរការ ជា យូរ មក ហើយ គឺ ថូនី ណិត វិទ្យុ ដែល ជា គេហទំព័រ ផ្ដោត លើ វិទ្យុ ពិគ្រោះ យោបល់ ។ ដំបូងអ្នកជិះភាគច្រើនពាក់ស្បែកជើងកវែងមានកែងនិងរលោងរាងតូចនិងមានទ្រនាប់។ ជាពិសេសគេបានអះអាងថាមនុស្សម្នាក់អាចកំណត់ថាតើបុគ្គលម្នាក់និយាយកុហកឬអត់នោះតាមរយៈការបកស្រាយពាក្យសម្ដីខ្លីៗឲ្យបានត្រឹមត្រូវ បន្ថែមលើពីព្រឹត្តិការណ៍កាលពីថ្ងៃពុធទៅទៀត នាង ខាផេននីដូ បានចូលរួមការប្រកួតប្រជែងចំនួនពីរដងក្នុងព្រឹត្តិការណ៍ជើងឯក ទីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង នីរ៉ាកុងហ្គោ រួមជាមួយនឹងការតាម Mountain Gorilla ដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក។ ឧទ្យានជាតិ ភ្លិតវ៉ាសឡេស គ្របដណ្ដប់ដោយព្រៃយ៉ាងក្រាស់ ជាពិសេសគឺពពួកដើមឈើខ្ពស់ៗ មានសំបកម៉ត់ល្អ និងលាយឡំដោយពពួកព្រៃឈើនៅតំបន់ភ្នំខ្ពស់ និងតំបន់មេឌីទែរ៉ាណេ។ ចំនួនប្រជាជនសរុបនៅទីក្រុងវ៉ាទីកង់មានប្រហែល ៨០០ នាក់ វាគឺជាប្រទេសឯករាជ្យដែលតូចជាងគេបំផុតនៅលើពិភពលោក ហើយក៏ជាប្រទេសដែលមានប្រជាជនតិចជាងគេបំផុតផងដែរ។ ការិយាល័យគ្រប់គ្រងគ្រោះអាសន្នភាគខាងជើងនៃរដ្ឋម៉ារីយ៉ាណាបាននិយាយថាមិនមានការខូចខាតណាមួយត្រូវបានរាយការណ៍នៅក្នុងប្រទេសនេះទេ ដល់មានទីតាំងនៅលើកំពូលភ្នំមួយនៅភាគខាងជើងនៃទីក្រុងមេកា ល្អាងនេះនៅដាច់ឆ្ងាយពីពិភពលោកយ៉ាងខ្លាំង ន័យប្រព័ន្ធទាំងនេះប្រហែលជាសម្រេចធ្វើផែនការជ្រើសរើសកូនយកមកចិញ្ចឹម គាត់មិនបានអាចប្រើថ្នាំដែលត្រូវការសម្រាប់បំបាត់ការឈឺចាប់របស់គាត់បាន ដោយសារថ្នាំនេះត្រូវបានហាមឃាត់មិនឲ្យប្រើពេលចូលរួមក្នុងព្រឹត្តិការណ៍កីឡានេះឡើយ។ ស្រុកនោះ មនុស្សប្រុសត្រូវបានតម្រូវឲ្យស្លៀកខោគ្របជិតលើជង្គង់ ការនេះវាហាក់ដូចជាសមហេតុផលមែន ពីព្រោះដូចជាមានអារម្មណ៍ថាផែនដីមិនកំពុងតែធ្វើចលនានោះទេ ត្រូវឬអត់ រុក្ខជាតិរីកលូតលាស់ល្អបំផុតនៅពេលដែលវាស្ថិតនៅក្នុងបរិយាកាសបែបធម្មជាតិមួយ ដូច្នេះហើយត្រូវទប់អារម្មណ៍ចង់បានកុំយករុក្ខជាតិគំរូសូម្បីតែតែមួយចេញឲ្យសោះ។ ចំណាប់ខ្មាំង ៦ នាក់ ក្នុងនោះមានទាំងកុមារ និងមនុស្សចាស់ បានដោះលែងមុនគេ គឺក្រុមអ្នកថតរូបជនជាតិហ្វីលីពីន ភាពតានតឹងកាន់តែទាបគឺបង្កើនភាពវិជ្ជមានកាន់តែច្រើនដល់កម្លាំងនៃជីវិត មនុស្សម្នាក់ៗមានអំណាចក្នុងការស្វែងរកសន្តិភាពនិងសេចក្តីសុខដ៏ពេញលេញ ពេញមួយយប់ ចន្លោះពី ១៥០ ទៅ ២០០ ច្បាប់ ត្រូវបានបង្កើតឡើង ដែលឥឡូវត្រូវបានគេស្គាល់ថាជាប័ណ្ណផ្សាយពាណិជ្ជកម្ម Dunlap។ ការរិះគន់បែបសេរី លើការប្រឹងប្រែងកសាងឡើងវិញ បានផ្ដោតទៅលើការផ្ដល់កិច្ចសន្យាកសាងឡើងវិញ ទៅដល់អ្នកដែលដឹងកិច្ចការផ្ទៃក្នុង នៅទីក្រុងវ៉ាស៊ីនតោន។ ពួកវាមានជើងដែលមានស្រកានិងក្រញ៉ាំ ពួកវាក្រាបពង ហើយពួកវាដើរដោយជើងក្រោយទាំងពីររបស់ពួកវាដូចជាសត្វដាយណូស័រ ជីរ៉ាក់",
+   "sentences_ok": 29,
+   "request_ms_median": 32221,
+   "request_ms_p90": 51139
+  },
+  {
+   "system": "gem__gemini-3.1-pro-preview",
+   "label": "Gemini 3.1 Pro preview (per sentence)",
+   "kind": "batch",
+   "lang": "lo",
+   "err": "",
+   "model": "gemini-3.1-pro-preview",
+   "cer": 0.085,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.98,
+    "khmer": 0.0,
+    "latin": 0.02,
+    "replacement_chars": 0
+   },
+   "transcript": "ແອງເຈີ 2006 ອະທິບາຍການເຂົ້າເຖິງ ຄອນທິນຳ ເປັນວິທີການທີ່ຖືກນຳໃຊ້ເພື່ອຊ່ວຍໃຫ້ອົງການບັນລຸລະດັບປະສິດທິພາບການປະຕິບັດງານທີ່ສູງຂຶ້ນ ໄລຍະຫ່າງແນວຕັ້ງຈາກກ້ອງຂົວແມ່ນ 15 ແມັດ ການກໍ່ສ້າງໄດ້ສຳເລັດໃນເດືອນສິງຫາ ປີ 2011 ບໍ່ເປີດການສັນຈອນ ຈົນເຖິງເດືອນມີນາ ປີ 2017 ຄວາມສຳພັນລະຫວ່າງພະຍາດວິທະຍາທາງສະໝອງ ແລະ ພຶດຕິກຳສະໜັບສະໜູນນັກວິທະຍາສາດໃນການຄົ້ນຄວ້າຂອງພວກເຂົາ ກະແສນ້ຳຕັດປ່ຽນຄື້ນທີ່ໄຫຼກັບຈາກການແຕກຂອງຊາຍຫາດ ສ່ວນຫຼາຍແມ່ນຢູ່ບ່ອນຫີນ ຫຼື ຄ້າຍກັນ ດູວາວ ຜູ້ທີ່ໄດ້ແຕ່ງງານກັບເດັກນ້ອຍສອງຄົນ ບໍ່ໄດ້ສ້າງຄວາມປະທັບໃຈທີ່ດີຫຍັງ ໃຫ້ກັບໄມເລີ ຜູ້ທີ່ກ່ຽວຂ້ອງກັບເລື່ອງນີ້ເລີຍ ໃນຕອນແລງວັນອາທິດ ປະທານາທິບໍດີສະຫະລັດ ທ່ານ ໂດນັລ ທຣຳ ໄດ້ປະກາດຖະແຫຼງການ ທີ່ສົ່ງຜ່ານເລຂາທິການຂ່າວ ວ່າກອງທັບສະຫະລັດ ຈະອອກຈາກຊີເຣຍ ໃນທີ່ສຸດມີແມວນ້ອຍຫຼາຍຕົວ ລວມທັງແມວລ້ຽງທີ່ສູນຫາຍ ທີ່ກິນເຫຍື່ອທີ່ນ້ອຍໆຈຳນວນຫຼວງຫຼາຍ ເຊັ່ນ ແມງໄມ້ ໜູ ກັບແກ້ ແລະ ນົກຕ່າງໆ ໃນໄລຍະຊຸມປີ 1920 ທັດສະນະຄະຕິທີ່ພົ້ນເດັ່ນຂອງພົນລະເມືອງແລະປະເທດສ່ວນໃຫຍ່ແມ່ນຄວາມສະຫງົບແລະຄວາມແຍກກັນຢູ່ ຜູ້ວ່າການລັດແຄລິຟໍເນຍ ອາໂນ ຊະວາເຊເນັກເກີ ໄດ້ລົງນາມໃນກົດໝາຍວ່າດ້ວຍການຫ້າມບໍ່ໃຫ້ຂາຍ ຫຼື ໃຫ້ເຊົ່າເກມວິດີໂອທີ່ມີຄວາມຮຸນແຮງໃຫ້ກັບເດັກນ້ອຍ. Asus Eee PC ໄດ້ຖືກເປີດຕົວກ່ອນໜ້ານີ້ໃນທົ່ວໂລກ ດ້ວຍປັດໄຈໃນການປະຢັດຕົ້ນທຶນ ແລະ ການໃຊ້ງານ ກາຍເປັນຫົວຂໍ້ທີ່ຮ້ອນແຮງໃນປີ 2007 ຂອງ Taipei IT Month ໃນບາງພື້ນທີ່ ການຕົ້ມນ້ຳປະມານ 1 ນາທີ ແມ່ນພຽງພໍແລ້ວ\nໃນບາງບ່ອນ ກໍໃຊ້ເວລາຫຼາຍນາທີ ໃນມື້ທໍາອິດຂອງມັນ ການສະແດງເປັນຈຸດເດັ່ນພຽງຢ່າງດຽວ ຢູ່ເວັບໄຊ 2G Next Radio ສະຖານີວິທະຍຸອິນເຕີເນັດທີ່ມີມາດົນນານ ເວັບໄຊທີ່ສຸມໃສ່ການສົນທະນາທາງວິທະຍຸ ກ່ອນອື່ນໝົດ ຜູ້ຂີ່ສ່ວນຫຼາຍແມ່ນສວມໃສ່ເກີບທີ່ໃຊ້ໃນການຂີ່ ທີ່ມີສົ້ນ ແລະ ແຂ່ງລຽບ ຂ້ອນຂ້າງແຄບ ຕິດໜັງພື້ນ ລັດຖະບານມີການອ້າງວ່າສາມາດກວດສອບໄດ້ວ່າບຸກຄົນໃດຕົວະໂດຍການຕີຄວາມໝາຍຂອງຈຸລະພາກຢ່າງຖືກຕ້ອງຫຼືບໍ່ ນອກເໜືອຈາກການແຂ່ງຂັນໃນມື້ວັນພຸດ ຄາປາເນໂດ ໄດ້ເຂົ້າຮ່ວມການແຂ່ງຂັນ ໃນສອງລາຍການແຂ່ງຂັນແລ່ນສ່ວນບຸກຄົນ ໃນລະດັບການແຂ່ງຂັນເພື່ອຊີງແຊ້ມ ເມືອງດັ່ງກ່າວຍັງເປັນສະຖານທີ່ທີ່ຈະປີນພູເຂົາໄຟ ນີຣາກອງໂກ ພ້ອມກັບທາງຍ່າງຕາມພູກໍຣິລ້າ ທີ່ມີລາຄາຖືກທີ່ສຸດໃນອາຟຣິກາ. ສວນສາທາລະນະແຫ່ງຊາດ ພລິດວິກເລກ ແມ່ນມີປ່າໄມ້ຢ່າງໜາແໜ້ນ ສ່ວນໃຫຍ່ແລ້ວແມ່ນຕົ້ນເຜິ້ງ, ຕົ້ນສົນ ແລະ ຕົ້ນໄມ້ສົນທີ່ເປັນໃບສາມຫຼ່ຽມ ແລະ ມີລັກສະນະປະສົມຂອງພືດພັນ ອໍພາຍ ແລະ ເມດີເຕເຣນຽນ ປະຊາກອນຂອງເມືອງ ວາຕິກັນ ແມ່ນປະມານ 800 ຄົນ ມັນແມ່ນປະເທດທີ່ມີເອກະລາດນ້ອຍສຸດໃນໂລກ ແລະເປັນປະເທດທີ່ມີປະຊາກອນນ້ອຍສຸດ ສຳນັກງານຈັດການເຫດສຸກເສີນທາງພາກເໜືອຂອງມາເຣຍນາ ກ່າວວ່າ ບໍ່ມີລາຍງານຄວາມເສຍຫາຍໃດໆເກີດຂຶ້ນໃນປະເທດ ການພັກຜ່ອນຢູ່ເທິງຈອມພູແຫ່ງໜຶ່ງທາງພາກເໜືອຂອງເມືອງ ເມັກຄາ ຖ້ຳດັ່ງກ່າວແມ່ນແຍກອອກຈາກສ່ວນທີ່ເຫຼືອຂອງໂລກ. ຄູ່ຜົວເມຍເຫຼົ່ານີ້ອາດຈະເລືອກທີ່ຈະວາງແຜນໃນການຮັບລ້ຽງລູກບຸນທຳໃຫ້ເປັນລູກຂອງພວກເຂົາ. ລາວບໍ່ສາມາດໃຊ້ຢາເສບຕິດເພື່ອເອົາຊະນະຄວາມເຈັບປວດຂອງລາວທີ່ເກີດຍ້ອນວ່າ ເຂົາເຈົ້າຖືກຫ້າມບໍ່ໃຫ້ຫຼິ້ນເກມໄດ້ ຢູ່ໃນແຖວດຽວກັນ ຜູ້ຊາຍກໍແມ່ນຖືກຮຽກຮ້ອງໃຫ້ຕ້ອງໄດ້ນຸ່ງໂສ້ງທີ່ປົກຫົວເຂົ່າ ນີ້ເບິ່ງຄືວ່າສາມາດຮູ້ສຶກໄດ້ ເພາະວ່າບໍ່ຮູ້ສຶກຄືກັບວ່າໂລກມັນກຳລັງເຄື່ອນທີ່ແມ່ນບໍ່ ພືດບາງຄືມີລັກສະນະດີທີ່ສຸດເມື່ອຢູ່ໃນສະພາບແວດລ້ອມເປັນທຳມະຊາດດັ່ງນັ້ນການຕໍ່ຕ້ານການທົດລອງເພື່ອເອົາຕົວຢ່າງອອກພຽງອັນດຽວ ໃນຕົວປະກັນ 6 ຄົນ ທີ່ມີທັງເດັກນ້ອຍ ແລະ ຜູ້ເຖົ້າ ໄດ້ຖືກປ່ອຍຕົວອອກມາ ກ່ອນເນື່ອງຈາກ ເປັນນັກຖ່າຍພາບຊາວຟີລິບປິນ ອັດຕາຕົວຕົນຍິ່ງຫຼຸດຕໍ່າລົງ ຍິ່ງເປັນການດີ ໃຫ້ພະລັງຊີວິດມີຢູ່ ທຸກຄົນມີຄວາມສາມາດ ທີ່ຈະພົບເຫັນຄວາມສະຫງົບສຸກ ແລະ ຄວາມພຶງພໍໃຈຢ່າງແທ້ຈິງ ຕະຫຼອດຄືນລະຫວ່າງ 150 ແລະ 200 ສຳເນົາໄດ້ຖືກສ້າງຂຶ້ນ ປັດຈຸບັນເປັນທີ່ຮູ້ຈັກກັນວ່າ Dunlap broadsides. ການວິພາກວິຈານຢ່າງຫຼວງຫຼາຍກ່ຽວກັບຄວາມພະຍາຍາມໃນການຟື້ນຟູບູລະນະໄດ້ມຸ່ງເນັ້ນໄປທີ່ການຕັດສິນສັນຍາການຟື້ນຟູບູລະນະໃຫ້ແກ່ຜູ້ທີ່ຢູ່ພາຍໃນວໍຊິງຕັນທີ່ຖືກຮັບຮູ້. ພວກມັນມີຕີນທີ່ມີເກັດແລະມີກ້າມ ພວກມັນວາງໄຂ່ແລະພວກມັນຍ່າງໄປດ້ວຍຂາຫຼັງສອງເບື້ອງ ຄ້າຍຄືກັບໂຕໄດໂນເສົາທີເຣັກ",
+   "sentences_ok": 30,
+   "request_ms_median": 27495,
+   "request_ms_p90": 318249
+  },
+  {
+   "system": "gem__gemini-3.8-flash",
+   "label": "Gemini 3.8 Flash (per sentence)",
+   "kind": "batch",
+   "lang": "en",
+   "err": "",
+   "model": "gemini-3.8-flash",
+   "cer": 0.038,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 1.0,
+    "replacement_chars": 0
+   },
+   "transcript": "Engel 2006 explains that continuum approach is the method being used to help organizations reach a higher level of The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011, it didn't open to traffic until March 2012. The correlation between brain pathology and behavior supports scientists in their research. Rip currents are the returning flow from waves breaking off the beach, often at a reach, reef, or similar. Duvall, who was married with two adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump in a statement delivered via the press secretary announced US troops would be leaving Syria. Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey like insects, rodents, lizards, and birds. During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolation. California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors Asus Eee PC earlier launched worldwide for cost-saving functionality factors, became a hot topic in 2007 Taipei IT In some areas, boiling water for a minute is enough, in others several minutes are needed. In its early days, the show was featured solely at the long-running internet radio site, Toginet Radio, a site focused on talk radio. First, most riders wear riding boots with a heel and a smooth, quite narrow sole. In particular, it is claimed that one can detect whether a person is lying by interpreting micro-expressions correctly Beyond Wednesday's event, Carpanedo competed in two individual races The city is also the base to climb the Nyiragongo volcano, along with some of the cheapest mountain gorilla tracking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of Alpine and Mediterranean vegetation Vatican City population is around 800. It is the smallest independent country in the world and the population The Northern Marianas Emergency Management Office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby He has been unable to take the drugs needed to overcome his pain as they are banned from the games. Along the same line, men are required to wear trousers covering the knees. that seems sensible, because the earth doesn't feel as if it's moving, does it? Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen. Six hostages, including the children and elderly, were released early, as were the Filipino photographers. The lower the tension the more positive the life force present. Every person has the potential to find absolute peace and contentment is that night between 150 and 200 copies were made. Now, known as the Liberal criticism of the reconstruction effort has focused on the awarding of reconstruction contracts to perceived Washington insiders. They have feet with scales and claws. They lay eggs, and they walk on their two back legs, like a T-Rex.",
+   "sentences_ok": 30,
+   "request_ms_median": 8590,
+   "request_ms_p90": 9700
+  },
+  {
+   "system": "gem__gemini-3.8-flash",
+   "label": "Gemini 3.8 Flash (per sentence)",
+   "kind": "batch",
+   "lang": "ja",
+   "err": "",
+   "model": "gemini-3.8-flash",
+   "cer": 0.059,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.022,
+    "replacement_chars": 0
+   },
+   "transcript": "エンジェルは2006年に組織がより高いパフォーマンスレベルに到達する上で、役立つ方法として連続体アプローチを説明しています。 橋下の情報空間は15mです。2011年8月に竣工し、2017年3月まで開通しませんでした。 脳病理と行動の相関関係は科学者たちの研究を裏付けるものです。 離岸流とは砕けて浜辺に戻ってくる引き波のことで、多くの場合、岩礁やそれに似た場所で発生します。 既婚者であり成人した二人の子を持つデュバルはこの話に関係するビラーにあまり印象を残しませんでした。 日曜深夜、ドナルド・トランプ米大統領は、報道官経由で配信された声明において、米軍がシリアから撤退することを発表しました。 最後に、昆虫、齧歯類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型のネコ、野良猫を含むが数多く生息しています。 1920年代に市民や国家のほとんどに広まっていた思想は平和主義と孤立主義でした カリフォルニア州のアーノルド・シュワルツェネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。 ASUSのEee PCは、コスト面と機能面で世界に先駆けて販売され、2007台北ITマンスで話題となりました。 1分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。 当初、番組はトークラジオに特化したインターネットラジオサイト、 ポギー・ネット・ラジオ（Poggy's Net Radio）のみで取り上げられ、これは長寿サイトです。 まずほとんどの乗り手は踵と滑らかでかなり狭めの靴底がついた乗馬靴を履いています。 特に微表情を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。 水曜日のイベントの後、カルパネドは選手権で2つの個人レースに出場しました。 この都市はニーラゴンゴ火山への登山の拠点でありアフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります プリトヴィツェ湖群国立公園はアルプスと地中海の植生が混在する広大な森主にブナトウヒモミに大小16の湖水が点在し絶景で溢れる世界遺産です バチカン市国の人口は約800人です。世界最小の独立国家であり、もっとも人口が少ない国でも 北マリアナ諸島の危機管理室EMOによると、全国的に被害を報告されていないとのことです。 洞窟はメッカの北に当たる山頂にあり 下界から完全に隔離されています このようなご夫婦はその赤ちゃんのために養子縁組制度を利用できます 痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。 同じように男性は膝を覆うズボンを履くことが義務づけられています 地球が動いてるようには感じないので、これは理にかなっているように思います。 植物は自然環境にあるときに最も見栄えがするのですから、1本だけならと標本に持ち帰りたい誘惑に負けないでください。 子供と高齢者を含めた人質6名が早期に解放され、フィリピン人の写真家たちも同じく解放 緊張度が低いほど よりポジティブな生命力が生まれます 誰にでも絶対的な平和と満足感を見 見出す 潜在的な能力が備わっています 一晩で150から200枚が複製され、現在ではダンラップ・ブロードサイドと呼ばれています。 復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と、復興契約を交わしたことに焦点を当てています。 鱗と爪のついた足をもち 卵生でありティラノサウルスの様に後ろ足二本で歩きます",
+   "sentences_ok": 30,
+   "request_ms_median": 9318,
+   "request_ms_p90": 11023
+  },
+  {
+   "system": "gem__gemini-3.8-flash",
+   "label": "Gemini 3.8 Flash (per sentence)",
+   "kind": "batch",
+   "lang": "km",
+   "err": "",
+   "model": "gemini-3.8-flash",
+   "cer": 0.117,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.965,
+    "latin": 0.035,
+    "replacement_chars": 0
+   },
+   "transcript": " ប្រឡោះបញ្ឈរនៅក្រោមស្ពានគឺមានកម្ពស់១៥ម៉ែត្រ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហា ឆ្នាំ២០១១ ហើយការធ្វើចរាចរណ៍នឹងត្រូវផ្អាករហូតដល់ខែមីនា ឆ្នាំ២០១៧ ភាពទាក់ទងគ្នារវាងរោគសាស្ត្រខួរក្បាល និងអាកប្បកិរិយា ជួយដល់ការស្រាវជ្រាវរបស់អ្នកវិទ្យាសាស្ត្រ ចរន្ត​ទឹកទាញ​ចូល​សមុទ្រ គឺ​ជា​លំហូរ​ត្រឡប់​មក​ពី​រលក​ដែល​ត្រឡប់​ពី​ឆ្នេរ មក​ប៉ះ​នឹង​ថ្ម ពពុះ​ទឹក ឬ​អ្វី​ម្យ៉ាង​ដែល​ដូច​នឹង​វា ឌឺវ័រ ដែលបានរៀបការ និងមានកូនជំទង់ពីរនាក់ មិនបានធ្វើឱ្យ មៀលលើ មានការចាប់អារម្មណ៍អ្វីនោះទេ ជូនចំពោះអ្នកណា ដែលមានជីវិតពាក់ព័ន្ធនឹងសែស្រឡាយ កាលពីល្ងាចថ្ងៃអាទិត្យនេះ ប្រធានាធិបតីសហរដ្ឋអាមេរិកលោក Donald Trump ក្នុងសេចក្តីថ្លែងការណ៍មួយដែលចែកចាយដោយលេខាធិការសារព័ត៌មាននោះបានប្រកាសថាកងទ័ពអាមេរិក នឹងមិនដកចេញពីប្រទេសស៊ីរីឡើយ។ ទីបំផុត មានសត្វឆ្មាតូចៗជាច្រើន រួមទាំងសត្វឆ្មាព្រៃ ដែលស៊ីចំណីតូចៗជាច្រើនទៀត ដូចជា សត្វល្អិត សត្វកកេរ សត្វលូនវារ និងបក្សីនានា ក្នុងកំឡុងទសវត្សរ៍ឆ្នាំ 1920 ឥរិយាបថដែលនាំមកនូវជ័យជំនះ នៃពលរដ្ឋជាច្រើនបំផុត និងប្រទេសនានា គឺថាសន្តិនិយម និងនៅដាច់ដោយឡែកពីគេ។ អភិបាល រដ្ឋ កាលីហ្វ័រញ៉ា លោក អាណូល ស្វាច ហ្សេន ហ្សេកា បាន ចុះ ហត្ថលេខា លើ ច្បាប់ ដែល ហាមប្រាម ការ លក់ ឬ ជួល ហ្គេម វីដេអូ អំពើ ហិង្សា ដល់ អនីតិជន Asus Eee PC ជាកម្មវិធីដែលបានដាក់ឱ្យប្រើប្រាស់នៅទូទាំងពិភពលោក ដើម្បីការសន្សំសំចៃលើការចំណាយ និងកត្តាមុខងាររបស់វាបានក្លាយជាប្រធានបទក្ដៅៗនៅក្នុងសន្និសីទព័ត៌មានវិទ្យាប្រចាំខែនៅទីក្រុងតៃប៉ិ ឆ្នាំ២០០៧។ ចំពោះនៅតំបន់មួយចំនួនការដាំទឹកត្រឹមតែមួយនាទីគឺគ្រប់គ្រាន់ហើយហើយនៅកន្លែងខ្លះទៀតត្រូវការពេលវេលាច្រើននាទី នៅក្នុងថ្ងៃដំបូងកម្មវិធីនេះត្រូវបានបង្ហាញតែនៅលើស្ថានីយវិទ្យុអ៊ីនធឺណែតដែលដំណើរការជាយូរមកហើយគឺថូនីនីត វិទ្យុដែលជាគេហទំព័រផ្ដោតលើវិទ្យុពិគ្រោះយោបល់ ដំបូង អ្នក ជិះ ភាគច្រើន ពាក់ ស្បែកជើង ក វែង មាន កែង និង រលោង រាង តូច និង មាន ទ្រនាប់ ជាពិសេសគេបានអះអាងថាមនុស្សម្នាក់អាចកំណត់ថាតើបុគ្គលម្នាក់និយាយកុហកឬអត់នោះ តាមរយៈការបកស្រាយពាក្យសម្ដីខ្លីៗឱ្យបានត្រឹមត្រូវ បន្ថែមលើព្រឹត្តិការណ៍កាលពីថ្ងៃពុធទៅទៀត នាងCaponigro បានចូលរួមការប្រកួតប្រជែងចំនួន២ដង ក្នុងព្រឹត្តិការណ៍ជើងឯក ទីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង Nyiragongo រួមជាមួយនិងការតាម Mountain Gorilla ដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក អូសេអានៀ ផលិត វ៉ាន់ឡេស គ្រប់ លំដាប់ ដោយ ព្រៃ យ៉ាង ក្រាស់ ជា ពិសេស គឺ ពពួក អន្ទ្រីក ពួក ខ្ពស់ មាន សំបក ម៉ត់ ល្អ និង លាយឡំ ដោយ ពពួក ព្រៃ ឈើ នៅ តំបន់ ខ្ពង់រាប និង តំបន់ មេឌីទែរ៉ាណេ ចំនួនប្រជាជនសរុបនៅទីក្រុងវ៉ាទីកង់មានប្រហែល ៨០០ នាក់។ វាជាប្រទេសឯករាជ្យដែលតូចជាងគេបំផុតនៅលើពិភពលោក ហើយក៏ជាប្រទេសដែលមានប្រជាជនតិចជាងគេបំផុតផងដែរ។ ការិយាល័យគ្រប់គ្រង គ្រោះអាសន្នភាគខាងជើងនៃរដ្ឋ Marianas បាននិយាយថា មិនមានការខូចខាតណាមួយត្រូវបានរាយការណ៍នៅក្នុងប្រទេសនេះទេ ដោយមានទីតាំងនៅលើកំពូលភ្នំមួយនៅភាគខាងជើងនៃទីក្រុង Mecca ល្អាងនេះនៅដាច់ឆ្ងាយពីពិភពលោកយ៉ាងខ្លាំង ប្ដីប្រពន្ធទាំងនេះ ប្រហែលជាសម្រេចធ្វើផែនការជ្រើសរើសកូនយកមកចិញ្ចឹម គាត់មិនបានអាចប្រើថ្នាំដែលត្រូវការសម្រាប់បំបាត់ការឈឺចាប់របស់គាត់បានដោយសារថ្នាំនេះត្រូវបានហាមឃាត់មិនឱ្យប្រើពេលចូលរួមក្នុងព្រឹត្តិការណ៍កីឡានេះឡើយ ស្របគ្នានោះមនុស្សប្រុសត្រូវបានតម្រូវឲ្យស្លៀកខោគ្របជិតលើជង្គង់ ការនេះវាហាក់ដូចជាសមពិតមែនពីព្រោះដូចជាមានអារម្មណ៍ថាផែនដីមិនកំពុងតែធ្វើចលនានោះទេ ត្រូវឬអត់? រុក្ខជាតិ​រីក​ដុះដាល​ល្អ​បំផុត នៅ​ពេល​ដែល​វា​ស្ថិត​នៅ​ក្នុង​បរិយាកាស​បែប​ធម្មជាតិ​មួយ។ ដូច្នេះ​ហើយ ត្រូវ​ទប់​អារម្មណ៍ ចង់​បាន​កុំ​យក​រុក្ខជាតិ​គំរូ សូម្បី​តែ តែ​មួយ​ចេញ​ឲ្យ​សោះ។ ចំណាប់ខ្មាំង ៦ នាក់ ក្នុងនោះមានទាំងកុមារ និងមនុស្សចាស់បានដោះលែងមុនពេល គឺក្រុមអ្នកថតរូបជនជាតិហ្វីលីពីន ភាពតានតឹងកាន់តែទាប គឺបង្កើនភាពវិជ្ជមានកាន់តែច្រើនដល់កម្លាំងនៃជីវិត។ មនុស្សម្នាក់ៗមានអំណាចក្នុងការស្វែងរកសន្តិភាព និងសេចក្តីសុខដ៏ពេញលេញ។ ពេញ មួយ យប់ ចន្លោះ ពី 150 ទៅ 200 ច្បាប់ ត្រូវ បាន បង្កើត ឡើង ដែល ឥឡូវ ត្រូវ បាន គេ ស្គាល់ ថា ជា ប័ណ្ណ ផ្សាយ ពាណិជ្ជ កម្ម ឌុនឡប់ ការ​រិះគន់​បែបសេរី​លើ​ការ​ប្រឹងប្រែង​កសាង​ឡើង​វិញ​បាន​ផ្ដោត​ទៅ​លើ​ការ​ផ្ដល់​កិច្ចសន្យា​កសាង​ឡើង​វិញ​ទៅ​ដល់​អ្នក​ដែល​ដឹង​កិច្ចការ​ពី​ក្នុង​នៅ​ទីក្រុង​វ៉ាស៊ីនតោន ពួក​គេ​មាន​ជើង​ដែល​មាន​ស្រកា​ និង​ក្រញាំ ពួក​វា​ក្រាប​ពង​ ហើយ​ពួក​វា​ដើរ​ដោយ​ជើង​ក្រោយ​ទាំង​ពីរ​របស់​ពួក​វា​ដូច​ជា សត្វ​ដាយណូស័រ T-Rex",
+   "sentences_ok": 30,
+   "request_ms_median": 9812,
+   "request_ms_p90": 10522
+  },
+  {
+   "system": "gem__gemini-3.8-flash",
+   "label": "Gemini 3.8 Flash (per sentence)",
+   "kind": "batch",
+   "lang": "lo",
+   "err": "",
+   "model": "gemini-3.8-flash",
+   "cer": 0.169,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.985,
+    "khmer": 0.0,
+    "latin": 0.015,
+    "replacement_chars": 0
+   },
+   "transcript": "Engle 2006 ອະທິບາຍ ການ ເຂົ້າ ເຖິງ Continuum ເປັນ ວິທີ ການ ທີ່ ຖືກ ນຳ ໃຊ້ ເພື່ອ ຊ່ວຍ ໃຫ້ ອົງການ ບັນລຸ ລະດັບ ປະສິດທິພາບ ການ ປະຕິບັດ ງານ ທີ່ ສູງ ຂື້ນ ໄລຍະຫ່າງແນວຕັ້ງຈາກກ້ອງຂົວ ແມ່ນ 15 ແມັດ ການກໍ່ສ້າງໄດ້ສຳເລັດໃນເດືອນສິງຫາ ປີ 2011 ບໍ່ເປີດການສັນຈອນ ຈົນເຖິງເດືອນມີນາ ປີ 2017 ຄວາມສຳພັນລະຫວ່າງພະຍາດວິທະຍາທາງສະໝອງ ແລະ ພຶດຕິກຳສະໜັບສະໜູນນັກວິທະຍາສາດໃນການຄົ້ນຄວ້າຂອງພວກເຂົາ ກະແສນ້ຳຕັດປ່ຽນຄື້ນທີ່ໄຫຼກັບ ຈາກການແຕກຂອງຊາຍຫາດ ສ່ວນຫຼາຍແມ່ນຢູ່ບ່ອນຫີນຫຼືຄ້າຍກັນ ດູວາວ ຜູ້ທີ່ໄດ້ແຕ່ງງານກັບເດັກນ້ອຍສອງຄົນ ບໍ່ໄດ້ສ້າງຄວາມປະທັບໃຈທີ່ດີຫຍັງ ໃຫ້ກັບ ໄມເລີ ຜູ້ທີ່ກ່ຽວຂ້ອງກັບເລື່ອງນີ້ເລີຍ ໃນຕອນແລງວັນອາທິດ ປະທານາທິບໍດີສະຫະລັດ ທ່ານໂດໂນ ທຣຳ ໄດ້ປະກາດຖະແຫຼງການ ທີ່ສົ່ງຜ່ານເລຂາທິການຂ່າວ ວ່າກອງທັບສະຫະລັດ ຈະອອກຈາກຊີເຣຍ  ໃນໄລຍະຊຸມປີ 1920, ທັດສະນະຄະຕິທີ່ພົ້ນເດັ່ນຂອງພົນລະເມືອງ ແລະ ປະເທດສ່ວນໃຫຍ່ແມ່ນຄວາມສະຫງົບ ແລະ ຄວາມແຍກກັນຢູ່ ຜູ້ ວ່າ ການ ລັດ ແຄລິຟໍເນຍ ອານົນ ອານົນ ຊວາເຊເນັກເກີ ໄດ້ ລົງ ນາມ ໃນ ກົດໝາຍ ວ່າດ້ວຍ ການ ຫ້າມ ບໍ່ ໃຫ້ ຂາຍ ຫຼື ໃຫ້ ເຊົ່າ ເກມ ວີດີໂອ ທີ່ ມີ ຄວາມ ຮຸນແຮງ ໃຫ້ ກັບ ໃຫ້ ກັບ ເດັກນ້ອຍ Asus Eee PC ໄດ້ ຖືກ ເປີດ ຕົວ ກ່ອນ ຫນ້າ ນີ້ ໃນ ທົ່ວ ໂລກ ດ້ວຍ ປັດໄຈ ໃນ ການ ປະຢັດ ຕົ້ນ ທຶນ ແລະ ການ ໃຊ້ ງານ ກາຍ ເປັນ ຫົວຂໍ້ ທີ່ ຮ້ອນ ແຮງ ໃນ ປີ 2007 ຂອງ ໄທເປ ໄອທີ ມ້ອນ ໃນບາງພື້ນທີ່ ການຕົ້ມນໍ້າປະມານ 1 ນາທີ ແມ່ນພຽງພໍແລ້ວ ໃນບາງບ່ອນ ກໍໃຊ້ເວລາຫຼາຍນາທີ ໃນມື້ທຳອິດຂອງມັນ ການສະແດງ ເປັນຈຸດເດັ່ນພຽງຢ່າງດຽວ ຢູ່ເວັບໄຊ້ ທູຈີເນັກ ເຣດິໂອ ສະຖານີວິທະຍຸ ອິນເຕີເນັດທີ່ມີມາດົນນານ ເວັບໄຊ້ທີ່ ສຸມໃສ່ການສົນທະນາທາງວິທະຍຸ ກ່ອນອື່ນໝົດ ຜູ້ຂີ່ສ່ວນຫຼາຍແມ່ນສວມໃສ່ເກີບທີ່ໃຊ້ໃນການຂີ່ ທີ່ມີສົ້ນ ແລະ ແກ້ງລຽບ ຂ້ອນຂ້າງແຄບ ຕິດໜັງພື້ນ ແຕ່ ວ່າ ມີ ການ ອ້າງ ວ່າ ສາມາດ ກວດສອບ ໄດ້ ວ່າ ບຸກຄົນ ໃດ ຕົວະ ໂດຍ ການ ຕີ ຄວາມ ໝາຍ ຂອງ ຈຸນລະພາກ ຢ່າງ ຖືກຕ້ອງ ຫຼື ບໍ່. ນອກເໜືອຈາກການແຂ່ງຂັນໃນມື້ວັນພຸດ Capannelle ໄດ້ເຂົ້າຮ່ວມການແຂ່ງຂັນ ໃນ 2 ລາຍການແຂ່ງຂັນແລ່ນສ່ວນບຸກຄົນ ໃນລະດັບການແຂ່ງຂັນເພື່ອຊິງແຊມ ເມືອງດັ່ງກ່າວຍັງເປັນສະຖານທີ່ ທີ່ຈະປີນພູ ເຂົາໄຟ ນີຣາຄອງໂກ ພ້ອມກັບ ທາງຍ່າງຕາມພູກໍຣິລາ ທີ່ມີ ລາຄາຖືກທີ່ສຸດໃນອາຟຣິກາ ສວນສາທາລະນະ ແຫ່ງຊາດ ພຣິດວິດເລັກ ແມ່ນມີປ່າໄມ້ຢ່າງໜາແໜ້ນ ສ່ວນໃຫຍ່ແລ້ວແມ່ນຕົ້ນເຜິ້ງ, ຕົ້ນສົນ ແລະ ຕົ້ນໄມ້ສົນທີ່ເປັນໃບສາມຫລ່ຽມ ແລະ ມີລັກສະນະປະສົມຂອງພືດພັນ ອາພາຍ ແລະ ເມດິເຕີເຣນຽນ ປະຊາກອນຂອງເມືອງວາຕີກັນແມ່ນປະມານ 800 ຄົນ ມັນແມ່ນປະເທດທີ່ມີເອກະລາດນ້ອຍສຸດໃນໂລກແລະເປັນປະເທດທີ່ມີປະຊາກອນນ້ອຍສຸດ ສໍານັກງານຈັດການເຫດສຸກເສີນທາງພາກເໜືອຂອງມາເລເຊຍກ່າວວ່າບໍ່ມີລາຍງານຄວາມເສຍຫາຍໃດໆເກີດຂຶ້ນໃນປະເທດ ການພັກຜ່ອນຢູ່ເທິງຈອມພູແຫ່ງໜຶ່ງທາງພາກເໜືອຂອງເມືອງ ເມກກາ ຖ້ຳດັ່ງກ່າວແມ່ນແຍກອອກຈາກສ່ວນທີ່ເຫຼືອຂອງໂລກ ຄູ່ຜົວເມຍເຫຼົ່ານີ້ ອາດຈະ ເລືອກ ທີ່ຈະ ວາງແຜນ ໃນ ການ ຮັບ ລ້ຽງ ລູກ ບຸນທໍາ ໃຫ້ ເປັນ ລູກ ຂອງ ພວກ ເຂົາ ລາວບໍ່ສາມາດໃຊ້ຢາເສບຕິດເພື່ອເອົາຊະນະຄວາມເຈັບປວດຂອງລາວທີ່ເກີດຍ້ອນວ່າເຂົາເຈົ້າຖືກຫ້າມບໍ່ໃຫ້ຫຼິ້ນເກມໄດ້ ຢູ່ນະແຖວ ດຽວກັນ ຜູ້ ຊາຍ ກໍ ແມ່ນ ຖືກ ຮຽກຮ້ອງ ໃຫ້ ຕ້ອງ ໄດ້ ນຸ່ງ ໂສ້ງ ທີ່ ປົກ ຫົວເຂົ່າ ນີ້ເບິ່ງຄືວ່າສາມາດຮູ້ສຶກໄດ້ເພາະວ່າ ບໍ່ຮູ້ສຶກ ຄືກັບວ່າໂລກມັນກຳລັງເຄື່ອນທີ່ແມ່ນບໍ່ ພືດເບິ່ງຄືມີລັກສະນະດີທີ່ສຸດ ເມື່ອຢູ່ໃນສະພາບແວດລ້ອມເປັນທຳມະຊາດ ດັ່ງນັ້ນ ການຕໍ່ຕ້ານການທົດລອງ ເພື່ອເອົາຕົວຢ່າງອອກ ພຽງອັນດຽວ ນາຍຕົວປະກັນ 6 ຄົນ ທີ່ ມີ ທັງ ເດັກນ້ອຍ ແລະ ຜູ້ ເຖົ້າ ໄດ້ ຖືກ ປ່ອຍ ຕົວ ອອກ ມາ ກ່ອນ ເນື່ອງຈາກ ເປັນ ນັກ ຖ່າຍ ພາບ ຊາວ ຟີລິບປິນ ຕັ້ງຊົ້ງຍິ່ງຫຼຸດຕໍ່າລົງ ຍິ່ງເປັນການດີ ໃຫ້ພະລັງຊີວິດມີຢູ່ ທຸກຄົນມີຄວາມສາມາດ ທີ່ຈະພົບເຫັນຄວາມສະຫງົບສຸກ ແລະ ຄວາມເພິ່ງພໍໃຈຢ່າງແທ້ຈິງ ຕະຫຼອດ ຄືນ ລະຫວ່າງ 150 ແລະ 200 ສໍາເນົາ ໄດ້ ສຶກສາ ຂຶ້ນ ປັດຈຸບັນ ເປັນ ທີ່ ຮູ້ຈັກ ກັນ ວ່າ ດັອດ ແຣບ ບຣາຍ ໄຊ  ພວກມັນມີຕີນ ທີ່ມີເກັດ ແລະ ມີກ້າມ. ພວກມັນວາງໄຂ່ ແລະ ພວກມັນຍ່າງໄປດ້ວຍຂາຫຼັງສອງເບື້ອງ. ຄ້າຍຄືກັບໂຕໄດໂນເສົາທີເຣັກສ໌",
+   "sentences_ok": 30,
+   "request_ms_median": 9512,
+   "request_ms_p90": 10210
+  },
+  {
+   "system": "oai-live",
+   "label": "OpenAI gpt-live-transcribe (Realtime; commit 0.5 s after speech end)",
+   "kind": "live",
+   "lang": "en",
+   "err": "",
+   "transcription": {
+    "model": "gpt-live-transcribe",
+    "language": "en"
+   },
+   "cer": 0.068,
+   "turns": 30,
+   "segment_latency_ms_median": 1048,
+   "segment_latency_ms_p90": 1123,
+   "sentence_latency_ms_median": 1048,
+   "sentence_latency_ms_p90": 1123,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 1.0,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel, two thousand six explains that continuum approach as a method being used to help organizations reach a higher level of The vertical clearance under the bridge is fifteen meters, construction was completed in August 2011, it didn't open to traffic until March  . The correlation between brain pathology and behavior supports scientists in their research. River currents are the returning flow from waves breaking off the beach often at a reef or similar. Deval who is married to two adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump in a statement delivered via the press secretary announced U.S. troops would be leaving Syria. Finally, there are many small cats including loose pet cats that eat far more numerous small prey like insects, rodents, lizards and birds. During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolation. California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors. ACES EPC earlier launched worldwide for cost saving functionality factors became a hot topic in 2007 Taipei IT. In some areas, boiling water for a minute is enough; in others, several minutes are needed. In its early days, the show was featured solely at the long-running internet radio site TogiNet Radio, a site focused on talk radio. First, most riders wearing riding boots with a heel and a smooth, quite narrow sole In particular, it is claimed that one can detect whether a person is lying by interpreting micro expressions correctly. Beyond Wednesday's event, Carpanedo competed in two individual races. The city is also the base to climb the Nyiragongo volcano along with some of the cheapest mountain gorilla trafficking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce and fir trees and features a mixture of alpine and Mediterranean vegetation. But I can steady population is around eight hundred. It is the smallest independent country in the world and the population The northern Marianas emergency management office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby. He has been unable to take the drugs needed to overcome his pain as they are banned from the game. Along the same line, men are required to wear trousers covering the knees This seemed sensible because the Earth system fell as if it's moving, does it? Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen. Six sausages including the children elderly were released early as were the Filipino photographers. Lower the tension, the more positive the life force present. Every person has the potential to find absolute peace and contentment. There's a night between one fifty and two hundred copies were made, now known as Dunlap. Liberal criticism of the reconstruction effort has focused on the awarding of reconstruction contracts to perceived Washington insiders. They have feet with scales and claws. They lay eggs and they walk on their two back legs like a T-Rex."
+  },
+  {
+   "system": "oai-live",
+   "label": "OpenAI gpt-live-transcribe (Realtime; commit 0.5 s after speech end)",
+   "kind": "live",
+   "lang": "ja",
+   "err": "",
+   "transcription": {
+    "model": "gpt-live-transcribe",
+    "language": "ja"
+   },
+   "cer": 0.09,
+   "turns": 30,
+   "segment_latency_ms_median": 1048,
+   "segment_latency_ms_p90": 1156,
+   "sentence_latency_ms_median": 1048,
+   "sentence_latency_ms_p90": 1156,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.006,
+    "replacement_chars": 0
+   },
+   "transcript": "エンジェルは2006年に組織がより高いパフォーマンスレベルに到達する上で役立つ方法として連続体アプローチを説明しています。 橋下の情報空間は十五メートルです。2011年8月に竣工し、2017年3月まで開通しませんでした。 脳病理と行動の相関関係は、科学者たちの研究を裏付けるものです。 利岩流とは、砕けて浜辺に戻ってくる引き波のことで、多くの場合岩礁やそれに似た場所で発生します。 既婚者であり、成人した二人の子を持つリヴァルは、この話に関係するミラーにあまり印象を残しませんでした。 日曜深夜、ドナルド・トランプ米大統領は報道関係より配信された声明において米軍がシリアから撤退することを発表しました。 最後に昆虫、ゲッシュ類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型の猫、野良猫を含むが数多く生息しています。 1920年代に市民や国家のほとんどに広まっていた思想は平和主義と孤立主義でした。 カリフォルニア州のアーノルド・シュワルツネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。 エーサスのEPCはコスト面と機能面で世界に先駆けて販売され、2007台北ITマンスで話題となりました。 一分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。 当初番組はトークラジオに特化したインターネットラジオサイト、ポギネットラジオのみで取り上げられ、これは長寿サイトです。 まず、ほとんどの乗り手はかかととなめらかでかなり狭めの靴底がついた乗馬靴を履いています。 特にビチョショウを正確に解釈することによってその人が嘘をついているかどうかを見抜けると主張しています。 水曜日のイベントの後、カルパネドは選手権で二つの個人レースに出場しました。 この都市はニラコンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります。 ブリトビッツェ古文ココリスコ公園はアルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小16の湖が点在し、絶景であふれる世界遺産です。 バチカン漆黒の人口は約八百人です。世界最小の独立国家であり、最も人口が少ない国でもある。 北マリアナ諸島の危機管理室EMOによると、全国的に被害が報告されていないとのことです。 洞窟はメッカの北にあたる山上にあり、下界から完全に隔離されています。 このようなご夫婦は、その赤ちゃんのために両親組制度を利用できます。 痛みを抑えるのに必要な薬が、その大会で禁止されているため、彼は服用できませんでした。 同じように男性は膝を覆うズボンを履くことが義務付けられています。 地球が動いているようには感じないので、これは理にかなっているように思えます。 植物は自然環境にある時に最も見栄えがするのですから、一本だけならと標本に持ち帰りたい誘惑に負けないでください。 子供と婚霊者を含めた一自治六名が早期に解放されフィリピン人の写真家たちも同じく解放された。 緊張度が低いほど、よりポジティブな生命力が生まれます。誰にでも絶対的な平和と満足感を見出す潜在的な能力が備わっています。 一晩で150から200枚が作成され、現在ではダンラップブロードサイドと呼ばれています。 復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約をかわしたことに焦点を当てています。 鱗と爪のついた足を持ち、卵生でありティラノサウルスのように後ろ足二本で歩きます。"
+  },
+  {
+   "system": "oai-live",
+   "label": "OpenAI gpt-live-transcribe (Realtime; commit 0.5 s after speech end)",
+   "kind": "live",
+   "lang": "km",
+   "err": "",
+   "transcription": {
+    "model": "gpt-live-transcribe",
+    "prompt": "Khmer speech. Transcribe verbatim in Khmer, in Khmer script."
+   },
+   "codeRefused": "{\"type\":\"invalid_request_error\",\"code\":\"invalid_value\",\"message\":\"Invalid value: 'km'. Supported values are: 'af', 'ar', 'az', 'be', 'bg', 'bs', 'ca', 'cs', 'cy', 'da', 'de', 'el', 'en', 'es', 'et', 'fa', 'fi', 'fr', 'gl', 'he', 'hi', 'hr', 'hu', 'hy', 'id', 'is', 'it', 'iw', 'ja', 'kk', 'kn', 'ko',",
+   "cer": 0.312,
+   "turns": 30,
+   "segment_latency_ms_median": 1001,
+   "segment_latency_ms_p90": 1101,
+   "sentence_latency_ms_median": 1001,
+   "sentence_latency_ms_p90": 1101,
+   "script": {
+    "thai": 0.009,
+    "lao": 0.001,
+    "khmer": 0.928,
+    "latin": 0.056,
+    "replacement_chars": 0
+   },
+   "transcript": "Enter ពីពួនប្រាំមួយបញ្ចូលអំពីវិធីសាស្ត្រតូចាប់ជំនិះ ជាវិធីសាស្ត្រដែលត្រូវបានប្រើដើម្បីជួយអង្គភាពឱ្យឈានដល់កម្រិតនៃការអនុវត្តខ្ពស់។ ប្រឡក់បញ្ឆោតនៅក្រោមស្បៀនគឺមានកម្ពស់ដប់ប្រាំម៉ែត្រ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហាឆ្នាំទី១៩៦៦ ហើយការធ្វើចរាចរណ៍នឹងត្រូវបានបើករហូតដល់ខែមីនាឆ្នាំ ២០១២។ ភាពទាក់ទងគ្នារវាងរុកសាហ្គូក្បាល និងអាកប្បកិរិយាជួយដល់ការស្រាវជ្រាវរបស់អ្នកវិទ្យាសាស្ត្រ។ ចាក់រន្តទឹកទាញចូលសមុទ្រគឺជាលំហូរត្រឡប់មកពីរលកដែលត្រឡប់ពីឆ្នេរមកផ្ចះនឹងទូក្មោពព្រះទឹកគឺអ្វីមួយដែលដូចនឹងវា។ ឌូវ័រ បានរៀបការ និងមានកូនចំនួនពីរនាក់ មិនបានធ្វើឱ្យមានឡើងមានការចាប់ផ្តើមអ្វីនៅទេ។ ជូនចំពោះអ្នកណាដែលមានសុវត្ថិភាពពេញលេញ។ កាលពីល្ងាចថ្ងៃនេះ ប្រទេសនេះធ្វើបដិសារដ្ឋអាមេរិក លោក ដូណាល់ ត្រាំ ក្នុងសេក្តីថ្លែងការណ៍មួយដែលចែកចាយដោយលេខាធិការីសារព័ត៌មាននោះបានប្រកាសថា កងទ័ពអាមេរិកនឹងមិនចាកចេញពីប្រទេសស៊ីរីឡើយ។ ទីមំបតមាន સાચમાં તો ચિtrar lung dang sachma prey da si chamney toto chichran tiet duscheសាត់អត់ សាត់ក៏គេ សាត់បំកួយ និងបាក់សៃនេ ขณะកំពុងตรวจសវាច្នាវប ២០២ area bot andomok neng ជាចំណេះ neiបរវត្តិជាច្រើនបំផុតក្នុងប្រទេសនេះគឺថាសន្តិនិយម និងណ្តែតតែលើពីគេ។ អភិបាលរដ្ឋកាលីហ្វ័រញ៉ា លោក អាណូ ស្វាហ្សេនហ្សេកា បានចុះហត្ថលេខាលើច្បាប់ដែលហាមប្រាមការលក់ ឬជួលហ្គេមវីដេអូអំពើហិង្សាដល់អនីតិជន។ Esas APC she canវិធីដំណើរអោយប្រើប្រាស់នៅទូទាំងពិភពលោក ដើម្បីការសន្សំសន្សំចាយលើការចំណាយ និងកាត់បន្ថយមុខងាររបស់វាបានខ្លះជាប្រភេទនបត់ក៏ដែរក៏ដែរនៅក្នុងសេនាសតពរមានវិជ្ជាប្រចាំខែ នៅទីក្រុងតៃប៉ិឆ្នាំ ២០២២។ ចំពោះនៅតំបន់មួយចំនួន ការដាំទំពាំងតែមួយនាទី គឺគ្រប់គ្រាន់ហើយ ហើយនៅកន្លែងខ្លះទៀត ត្រូវការពេលវេលាច្រើននាទី។ នៅក្នុងថ្ងៃដំបូងការប្រកួត្នីត្រូវបានបង្ហាញតែនៅស្ថានីយវិទ្យុអិនធឺណិត ដែលដំណើរការជាយូរមកហើយ គឺថូនីនិត វិទ្យុដែលជាគេហទំព័រដើតលើវិទ្យុពីក្រុមកីឡាបាល់។ លំបងដែលជាភេសច្រើនពេលស្បែកជើងកូវែង មានកាយនិងរលោង រៀងតូច និងមានត្រនាប់ Chỉ việc xét cái bà này ănថាមនុស្សអាចកំណត់ថាតាបុគ្គលម្នាក់និយាយកុហកឬអត់នោះតាមរយៈការបកស្រាយពាក្យសម្តីខ្លីៗបានត្រឹមត្រូវ។ បន្ថែមលើពីប្រតិការការពិធីពុទ្ធទៀត នាងខាផេននីដូ បានចូលរួមការប្រកួតប្រជែងចំនួនពីរដងក្នុងប្រតិក ពេលក្រងនេះគឺជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង នេរ៉ាកន្គូរួមជាមួយនឹងការតាមម៉ោនថេនកូរីឡដែលមានតម្លៃធំបំផុតនៅអាហ្វ โภเซียนเจียด ផ្លុតវាងແລ ចំនួនប្រជាជនសរុបនៅទីក្រុងវ៉ាទីកង់មានប្រហែលប្រាំប៉ែតរយនាក់។ វាគឺជាប្រទេសឯករាជ្យដែលតូចជាងគេបំផុតនៅលើពិភពលោក ហើយក៏ជាប្រទេសដែលមានប្រជាជនតិចជាងគេបំផុតផងដែរ។ ការយាលៃគ្រប់គ្រង ក្រុមអាសន្នភាពខាងជើងនៃរដ្ឋ ម៉ារីណាសបាននិយាយថា មិនមានការគំរោះខានណាមួយដែលបានរាយការណ៍នៅក្នុងប្រទេសនេះទេ។ ដោយមានទីតាំងនៅលើកំពូលភ្នំមួយនៅភាគខាងជើងនៃទីក្រុងម៉េកា ល្អាងនេះនៅដាច់្ងាយពីពិភពលោកយ៉ាងខ្លាំង។ ដីប្រពន្ធតាំងនេះប្រហែលជាសម្រេចធ្វើផែនការជ្រើសរើសកូនយកមកចិញ្ចឹម។ គាត់មិនបានអាចប្រើថ្នាំដែលត្រូវ ស្លុកនេះនោះ មនុស្សប្រុសត្រូវបាននាំរើអោយស្លេកខៅក្រោបជិតលើចំបុង ការនេះវាហាក់ដូចជាសមពិតមែន ពីព្រោះដោយជាមានអារម្មណ៍ថាផែនដីមិនកំពុងតែធ្វើចលនានោះទេ ត្រូវឬអត់? ប្រទេសព្រៃឧបឡោះល្អបំផុត នៅពេលដែលវាស្ថិតក្នុងបរិយាកាសបែបធម្មជាតិមួយ។ ដូច្នេះហើយ ត្រូវទប់អារម្មណ៍ចង់បានគំយោគធម្មជាតិគំរូ សូមពីតែតាមួយចេញឱ្យសោះ ចំណាប់ខ្មាំងប្រាំមួយនាក់ ក្នុងនោះមានទាំងកុមារ និងមនុស្សចាស់បានដោះលែងមុនពេល គឺក្រុមអ្នកថតរូបជនជាតិហ្វីលីពីន។ ភេបតានតាំងការទទៀបគឺបង្កើនភាពប្រឈមមានកាន់តែច្រើនដល់កម្លាំងនៃជីវិត។ មនុស្សម្នាក់ម្នាក់មានអំណាចក្នុងការស្វែងរកសន្តិភាព និងសេរីសុខដោយពេញលេញ។ បើយមយប់ចន្លោះពី ១៥០ ទៅ ២០០ ចបាប់ត្រូវបានបង្កើតឡើង ដែលឥឡូវត្រូវបានគេស្គាល់ថាជាបន្ទ្សាយពណ៌និតិកម្មដុន្លាប់។ Kaរត់ុនប៉ែតសេរៃ នៅការប្រក់ប្រែងកសាងឡើងវិញ បានដល់ទៅលើការបង្កើតសន្យាកសាងឡើងវិញ ទៅដល់អ្នកដែលដឹងកិច្ចការពីខ្នងនៅពីក្រោយប្រសិនបើ ពួកគេមានជើងដែលមានស្រកានិងក្រញាំពួកវាក្រាបប៉ោងហើយពួកវាដើរដោយជើងក្រោយទាំងពីររបស់ពួកវាដូចជាសត្វដាយណូស័រ ជីរ៉ាក់"
+  },
+  {
+   "system": "oai-live",
+   "label": "OpenAI gpt-live-transcribe (Realtime; commit 0.5 s after speech end)",
+   "kind": "live",
+   "lang": "lo",
+   "err": "",
+   "transcription": {
+    "model": "gpt-live-transcribe",
+    "prompt": "Lao speech. Transcribe verbatim in Lao, in Lao script (not Thai)."
+   },
+   "codeRefused": "{\"type\":\"invalid_request_error\",\"code\":\"invalid_value\",\"message\":\"Invalid value: 'lo'. Supported values are: 'af', 'ar', 'az', 'be', 'bg', 'bs', 'ca', 'cs', 'cy', 'da', 'de', 'el', 'en', 'es', 'et', 'fa', 'fi', 'fr', 'gl', 'he', 'hi', 'hr', 'hu', 'hy', 'id', 'is', 'it', 'iw', 'ja', 'kk', 'kn', 'ko',",
+   "cer": 0.959,
+   "turns": 30,
+   "segment_latency_ms_median": 1076,
+   "segment_latency_ms_p90": 1390,
+   "sentence_latency_ms_median": 1076,
+   "sentence_latency_ms_p90": 1390,
+   "script": {
+    "thai": 0.674,
+    "lao": 0.317,
+    "khmer": 0.0,
+    "latin": 0.009,
+    "replacement_chars": 0
+   },
+   "transcript": "Anhเจົ້ສອ ລະຢ່າງຫ ຄວາມສໍາພັນລະຫ กระแสน้ำຕັ ດູວາວ ผู้ທີ ໃນຕອນແລ ได้ที่สุดมีแมวหน่อยหลายตัว. ລ ໃນລະ ຜູ ເອຊຸ ในบางพื้นที่ การต้มน้ำประมาณหนึ่งนาทีแม้เพียงพอแล้ว ในบางบ่อนก็ใช้เวลาหลายนาที ในมือทมิฬของมัน การแสดงเป็นจุดเด่นเพียงอย่างเดียวอยู่เว็บไซต์ทูจีเน็กเรดิโอ สถานีวิทยุอินเทอร์เน็ตที่มีมาดนนาน เว็บไซต์ที่ศูนย์ใส่การสนทนาทางวิทยุ ກ່ ເລ ນອກເໜ ເມ ส่วนສາທານະແຫ ປະຊາກອນຂອ ສຳນັກ ການພັ ຄູ ເຮ อยู่ในแถวเดียวกัน ผู้ຊາຍກໍແມ ນີ້ເບ ພື ຕັ້ງຊົ ຕະຫຼ ການວິ พວກ"
+  },
+  {
+   "system": "oai__gpt-4o-mini-transcribe",
+   "label": "OpenAI gpt-4o-mini-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "en",
+   "err": "",
+   "model": "gpt-4o-mini-transcribe",
+   "languageGiven": "en",
+   "cer": 0.035,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 1.0,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel (2006) explains the continuum approach as a method being used to help organizations reach a higher level of The vertical clearance under the bridge is 15 m. Construction was completed in August 2011; it didn't open to traffic until March 2012. The correlation between brain pathology and behavior supports scientists in their research. Rip currents are the returning flow from waves breaking off the beach, often at a reef or similar. Duvall, who is married to two adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump, in a statement delivered via the press secretary, announced U.S. troops would be leaving Syria. Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey like insects, rodents, lizards and birds. During the 1920s, the prevailing attitude of most citizens and nations was that of pacifism and isolation. California governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors. Asus Eee PC earlier launched worldwide for cost-saving functionality factors became a hot topic in 2007 Taipei IT Month. In some areas, boiling water for a minute is enough, in others several minutes are needed. In its early days, the show was featured solely at the long running internet radio site TogiNet Radio, a site focused on talk radio. First, most riders wear riding boots with a heel and a smooth, quite narrow sole. In particular, it is claimed that one can detect whether a person is lying by interpreting micro-expressions correctly. Beyond Wednesday's event, Carpenedo competed in two individual races. The city is also the base to climb the Nyiragongo volcano, along with some of the cheapest mountain gorilla trekking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce and fir trees and features a mixture of Alpine and Mediterranean vegetation. Vatican City population is around 800. It is the smallest independent country in the world and the population. The Northern Marianas Emergency Management Office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby. He has been unable to take the drugs needed to overcome his pain as they are banned from the game. Along the same line, men are required to wear trousers covering the knees. This seems sensible because the Earth doesn't feel as if it's moving, does it? Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen. Six hostages, including the children, elderly, were released early, as were the Filipino photographers. The lower the tension the more positive the life force present. Every person has the potential to find absolute peace and contentment. In the night between 150 and 200 copies were made, now known as the Liberal criticism of the Reconstruction effort has focused on the awarding of Reconstruction contracts to perceived Washington insiders. They have feet with scales and claws, they lay eggs, and they walk on their two back legs like a t-rex.",
+   "sentences_ok": 30,
+   "request_ms_median": 2961,
+   "request_ms_p90": 7581
+  },
+  {
+   "system": "oai__gpt-4o-mini-transcribe",
+   "label": "OpenAI gpt-4o-mini-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "ja",
+   "err": "",
+   "model": "gpt-4o-mini-transcribe",
+   "languageGiven": "ja",
+   "cer": 0.067,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.011,
+    "replacement_chars": 0
+   },
+   "transcript": "エンジェルは、2006年に、組織がより高いパフォーマンスレベルに到達するうえで役立つ方法として、連続体アプローチを説明しています。 橋下の情報空間は15mです。2011年8月に竣工し、2017年3月まで開通しませんでした。 脳病理と行動の相関関係は、科学者たちの研究を裏付けるものです。 離岸流とは、砕けて浜辺に戻ってくる引き波のことで、多くの場合、岩礁やそれに似た場所で発生します。 既婚者であり、成人した二人の子を持つリバルは、この話に関係するヴィラにあまり印象を残しませんでした。 日曜深夜、ドナルド・トランプ米大統領は、報道関係者へ配信された声明において、米軍がシリアから撤退することを発表しました。 最後に、昆虫、甲虫類、トカゲ、鳥といった遥かに多数の小さいものを餌とする小型のネコ、ノラネコを含むが数多く棲息しています。 1920年代に市民や国家のほとんどに広まっていた思想は、平和主義と孤立主義でした。 カリフォルニア州のアーノルド・シュワルツェネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。 ASUSのEee PCは、コスト面と機能面で世界に先駆けて販売され、2007台北ITマスで話題となりました。 1分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。 当初番組はトークラジオに特化したインターネットラジオサイト「トギネットラジオ」のみで取り上げられ、これは長寿サイトです。 まず、ほとんどの乗り手はかかとと滑らかでかなり狭めの靴底が付いた乗馬靴を履いています。 特に微表情を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。 水曜日のイベントの後、カルパネドは選手権で2つの個人レースに出場しました。 この都市はニラコンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります。 ピートヴィツェ国立公園は、アルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小重力の湖沼が点在し、絶景で溢れる世界遺産です。 バチカン市国の人口は約八百人です。世界最小の独立国家であり、最も人口が少ない国でもあります。 北マリアナ諸島の危機管理室EMOによると、全国的に被害は報告されていないとのことです。 洞窟はメッカの北にあたる山頂にあり、下界から完全に隔離されています。 このようなご夫婦は、その赤ちゃんのために、養子縁組制度を利用できます。 痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。 同じように、男性は膝を覆うズボンを履くことが義務付けられています。 地球が動いているようには感じないので、これは理にかなっているように思えます。 植物は自然環境にあるときに最も見栄えがするのですから、一本だけならと標本に持ち帰りたい誘惑に負けないでください。 子供と高齢者を含めた人質6名が早期に解放され、フィリピン人の写真家たちも同じく解放された。 緊張度が低いほど、よりポジティブな生命力が生まれます。誰にでも絶対的な平和と満足感を見出す潜在的な能力が備わっています。 一晩で150から200枚が複製され、現在ではダンラップ・ブロードサイドと呼ばれています。 復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約を交わしたことに焦点を当てています。 鱗と爪のついた脚を持ち、乱屈性でありティラノサウルスのように後ろ足二本で歩きます。",
+   "sentences_ok": 30,
+   "request_ms_median": 3219,
+   "request_ms_p90": 6398
+  },
+  {
+   "system": "oai__gpt-4o-mini-transcribe",
+   "label": "OpenAI gpt-4o-mini-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "km",
+   "err": "",
+   "model": "gpt-4o-mini-transcribe",
+   "languageGiven": "prompt: Khmer speech. Transcribe verbatim in Khmer, in Khmer script.",
+   "cer": 0.343,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.996,
+    "latin": 0.003,
+    "replacement_chars": 1
+   },
+   "transcript": "អេងចឺល ពីព្វំ១៩ បញ្ចូលអំពី វិធីសាស្រ្តតាមចាប់ជាប់ជីនិទ គឺវិធីសាស្រ្តដែលត្រូវបានប្រើដើម្បីជួយអង្គភាពអោយឈានដល់កម្រិតនៃការអនុវត្តពូកុាល ប្រវេឡាមិន្ដើតនៅក្រាមស្ក៊ីន គឺមានកម្ពស់ត្រាំពីរ ម៉ែត្រ។ ការសង់សង់ត្រូវបានបញ្ចប់នៅខែសីហា ឆ្នាំពីរថ្ម១១ ហើយការធ្វើចរាចរនឹងត្រូវបានផ្អាករហូតដល់ខែមីនា ឆ្នាំពីរថ្ម១២។ ពិប្តាតតោខ្លើយវៀងរកសាគូគ្បាលនិងអាកាបការវីយនិយាយជួយដល់ការសរស្រ័យរបស់អ្នកវិចារ ចារន្តទាក់ទាញចូលសមត់គឺជាលមហូត្រឡប់មកពីរលប់ទៅត្រឡប់ពីស្នេមមុខប៉ះនិងធ្មប់ ប៉ុល្រះទឹកឬអ្វីមួយដូច្នឹងវា។ ដូចប៉ុណ្ណោះដែលបានទេកា និងមានកំណត់ចំតងពីអ្នកមិនបានធ្វើអោយមានឡើយមានការចាប់អារម្មណ៍អ្វីនោះទេ។ ជួញចំពោះអ្នកណាដែលមានសិប្បកម្មប្រកួតនឹងសេដ្ធកម្ម។ កាលពីល្ងើត្រទ់នេះ ប្រធានយេធនភាពដៃសហរដ្ឋអាមេរិក លោក ដូណាលដ្រាម ក្នុងសេចក្ដីថ្លែងការណ៍មួយដែលចែកចាយដោយលេខាធិការសាធារណៈអាមេរិក បានប្រកាសថា កងតប់អាមេរិក នឹងបញ្ចាក់ចេញពីប្រទេសសារ�ីឡី ទីបំផុតមានសាច់មានតូចតូចជ្រាលឆ្ងល់សាច់មានព្រៃដដែលសីចម្បងតូចតូចជ្រាលទៀតដូចជាសត្វអត់ សត្វកកែ សត្វបំពូល និងបាក់សៃនីមួយ។ ខណៈអំព្លុងទុសវាជីនាមប៉ប់មរណភាពឯករាជ្យបត់នៅមកនឹងជីជំណេរ។ ក្នុងប្រទេសជាច្រើនបំផុតនៃព្រឹទ្ធានិយោមនិងនរណ្តៃតែម្តីពីគេ។ អភិមានវ៉ាល់កាលីហ្វ័រញា, លោក អណូ ស្វៃហ្សឺនសេកាបានចេញហត្តាលិកាលាច្បាប់ដើម្បីហាមប្រាក់បាក្លុះឬជួងស្គេវវីដេអូអំពើហិងសាទ់អានីត់ទំនិញ។ ASOS EPC ជិកានវិធីដំណក់អប់រាប្រាសនូវទុទ្ធដ៏ពិប្បលោដើម្បីការសន្សំទុនចាយលើការចំណាយ និងកត្ដះមុខងាររបស់វាបានក្លាយជាបញ្ហាប្រស្នបត់ក្តាយក្តាយនៅក្នុងសន្និសិទព្រឹមវិស័យប្រចាំខែនៅទីក្រុងតៃប៉េឆ្នាំពីរប្រាំពីរ។ ចំពោះនើដំបង់មួយចំនួន ការទាន់តប់ត្រឹមតែមួយនាទីគឺគ្រប់គ្រាន់ហើយ ហើយនៅកន្លែងខ្លះទៀត ត្រូវការពេលវេលាជ្រៅនាទី។ នៅក្នុងថ្ងៃដំបងកម្មធី​នេះត្រូវបានបង្ហាញតែនៅស្ថានីវិចូអ៊ីនធឺណេតដាលដំណៅការស៊ីយូមុខហើយគឺថូនីនៈវិចូដាលជាគេហស្ថំពប់ដល់លើវិច្ឆូពីក្រិះយប់បល់។ ដំបូងអ្នកជីពិជ្រៅកេស្បែកជើងកូវេមានកៃនិងរលុង រង់តូចនិងមានត្រវប់ ជាពិសេសការប៉ានាអាហាងធាមានុមនេទើបកំណត់ថាតាមបុកគោមនុស្សនិយាយកុហ៌ឬអត់នោះតាមរយៈការបក់សាយពេចន៍សំដែងខ្លីខ្លៃបានត្រឹមត្រូវ។ បន្តទៀតលើកប្រកាសការបិទបិទទៀតនិមខាបេនីដូបានចូលរួមការប្រកួតប្រជែងចំនួនពីដងក្នុងប្រកួតជើងឯក។ ទីក្រុងនេះក៏ជមុនថានដើម្បីឡើងភ្នំភ្លើងនេរ៉ាកូរីកូរីរួមជាមួយនឹងការស្ទានម៉ោនតែនហ្គូរីឡា ដែលមានតម្លៃថ្លៃបំផុតនៅអាហ្វ្រិក។ ផលសែនជនផលវែងលេសក៏តាបបៃប្រាជ្ញាក្រា ជាពិសេសទើបពូអន្តរក្គូពូ មានសម្បុរមត់អូកម្មនិងលីនវល់បៃបទពូប្រទេចើននៅនំប៉ុណ្ណខ្ពស់និងនំប៉ុណ្ណមេឌីទែរ៉ាណេ។ ចំណួនប្រជាជនស្រោបនាតិករៅវាតិកោងមានប្រហែលប្រាំបាយរយនាក់ វាគឺជាប្រទេសអៃក្រីដែលតូចជាងគេបំផុតនៅលើពិភពលោក ហៃក៏ជាប្រទេសដែលមានប្រជាជនតិចជាងគេបំផុតផងដែរ។ ការគ្រប់គ្រងក្រហសាមភិកាងជើងនៃរង់ម៉ារីណាស បាននិយាយថា មិនមានការកុតខាតណាមួយទើបបានដើរការនាក្រុងប្រទេសនឹងទេ។ ដោយមានទីតាំងនៅលើកំពស់នមួយនៅភាគខាងជើងនៃទីក្រុងម៉េក្លាឡានីនៅដែរក្សាំងពីពីភពលោកយ៉ាងខ្លាំង។ បីប្រធានដៀត្ញីប្រាហាលជីសំរេចធ្វើផែនការជ្រើសរើសកូនយកមុក់ចិញ្ចឹម។ គាត់មិនបានអាចប្រើថ្នាំដ​ត្រូវការសម្រាប់បំបាត់ការឈឺចាប់របស់គាត់បាន ដោយសារតែនេះត្រូវបានហាមគាត់មិនអោយប្រើពេលចូលរួមក្នុងប្រកួតកីឡានីឡាយ។ ស្រុកភ្នៀងនូមនុស្សប្រែងទទួលបាននំរះអស់សេចក្ដីខ្អប់ព្រឺបចិត្តលើចង្វង់។ ការនេះវាហាក់ដូចជាសំពត់មែនពីព្រោះដូចជាមានអារម្មណ៍ថាផែនដីមិនកំពុងតែធ្វើចលនាទេត្រេដោះឬអត់។ ព្រាបជីតប្រវត្តល្អបំពាត់នៅពេលដែលវេសក្តប់ក្នុងបារាជាធិការបាត់ថ្មជិតមួយ។ ដូច្នេះហើយ ត្រូវទុកអារម្មណ៍ចង់បានកុំយកប្រវត្តិកុម្រិត សូម拜តែរាក់មួយចេញអោយសុទ្ធ។ ចំណាប់ខ្មាំងប្រាំមួយនៀ នៅនោះមានតាំងគុម៉ា និងមនុស្សជាតិបានដល់ឡើងមុនពេលគឺក្រុមអ្នកថតរូបជនជាតិហ្វីលីពីន។ ភាពតន្តនកន្តតៀបគំនុកអំកាន់កែវជំនាញនៃច្រានដល់កម្លាំងនៃជុប។ មនុស្សម្នាក់ម្នាក់មានអំណាចក្នុងការស្វែងរកសន្តិភាពនិងសេកែសុខដល់ពេញលេញ។ បាញ់មើយយប់ចុងឡប់ពីរយះ៥០ ទៅពីរយះសិបត្រូវបានបង្កាត់ឡើង ដែលឥឡូវត្រូវបានគេស្គាល់ថាជាបណ្ហសាយបញ្ហិកម្មដំបួ។ ការសិក្សាប់ប្រៃលៃលើការផ្រំប្រឌល់កសាងលង់វាំង បានទើតទៅលើការទាក់ទងកិច្ចសន្យាកសាងលង់វាំង ទើតទៅនាក់ដៃដឹងកិច្ចការនៅទីក្រុងប៉ាសីន្ទាវ ពួកគេមានចងនឹងសត្រូវគ្នានិងក្រៀមយាមពួកវេក្រ្យាបោងហើយពួកវេដាទៃជើងក្រោយពីរប៉ុមពួកវេដូចជាសត្វដៃណូស័រទីរ៉េ",
+   "sentences_ok": 30,
+   "request_ms_median": 3685,
+   "request_ms_p90": 4299
+  },
+  {
+   "system": "oai__gpt-4o-mini-transcribe",
+   "label": "OpenAI gpt-4o-mini-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "lo",
+   "err": "",
+   "model": "gpt-4o-mini-transcribe",
+   "languageGiven": "prompt: Lao speech. Transcribe verbatim in Lao, in Lao script (not Thai).",
+   "cer": 0.977,
+   "script": {
+    "thai": 0.951,
+    "lao": 0.045,
+    "khmer": 0.0,
+    "latin": 0.004,
+    "replacement_chars": 0
+   },
+   "transcript": "แองเจิลสองพันหกอธิบายการกล่าวถึงคอนทินั่มเป็นวิธีการถี่ถี่น้ําใสเพื่อช่วยให้องค์กรมีระดับประสิทธิภาพการปฏิบัติงานที่สูงขึ้น ระยะห่างแนวตั้งจากกองขวาแม่น้ําศิบห้าเมตร การก่อสร้างได้สําเร็จในเดือนสิงหาคม ปีสองพันสิบเอ็ด โบเปิดการสัญจรจนถึงเดือนมีนาคมปีสองพันสิบเจ็ด ความสัมพันธ์ระหว่างพยาธิวิทยาทางสมองและพฤติกรรมสารสนุญวิทยาศาสตร์ในการค้นคว้าความก้าวเขา กระแสน้ําตัดเปลี่ยนคลื่นที่ไหลกลับจากการเตะของชายหาด ส่วนไหล่เมนูบนหินหรือคล้ายกัน ดูว้าว ผู้ที่ได้แต่งงานกับอีกน้อยสองคน บ่ได้สร้างความประทับใจที่ดีอย่างให้กับไมเลอร์ ผู้ที่เกี่ยวข้องกับเรื่องนี้เลย ในตอนเลงวันอาทิตย์ ประธานาธิบดีสหรัฐ ทรัมป์ ได้ประกาศแถลงการณ์ที่ทรงผ่านเลขาธิการข่าว ว่ากองทัพสหรัฐจะออกจากซีเรีย ในที่สุดมีแมวน้อยหลายตัว รวมทั้งแมวเลี้ยงที่สูญหายที่กินเหยื่อที่น้อยน้อยจะนอนร้องไล่เส้นแมงใหม่ หนูกับแกะและนกต่างต่าง ในระยะสมปีหนึ่งพันเก้าร้อยสาว ทัศนคติที่พ้นเด่นของพลเมืองและประเทศส่วนใหญ่มีความสงบและความแยกกันอยู่ ผู้ว่าการรัฐแคลิฟอร์เนีย อาร์โนลด์ชวาร์เซเนกเกอร์ได้ลงนามในกฎหมายมาโดยการห้ามหมอยคล้ายหรือไฮโซเกมวิดีโอที่มีความรุนแรงให้กับเด็กน้อย เอซุสอีพีซีเลฟต์เวิร์ดตัวก่อนหน้านี้ในทั่วโลกด้วยปัจจัยในการประหยัดต้นทุนและการใช้งานกลายเป็นหอคอเทรอนแห้งในปีสองพันเจ็ดของไทเปไอทีฮอล ในบางพื้นที่ การต้มน้ําประมาณหนึ่งนาที แม่นเพียงพอแล้ว ในบางบ่อนก่อซ้ายเวลาหลายนาที ในเมื่อทําอี๊ดของมัน การแสดงเป็นจุดเด่นเพียงอย่างเดียวอยู่เว็บไซต์ 2Gneck Radio สถานีวิทยุอินเตอร์เน็ตที่มีมามานาน เว็บไซต์ที่ส่งสายการสนทนาทางวิทยุ กฎของบทผูขี่ส่วนใหญ่มองซมไส้เกิดที่ใส่ในการขี่ที่มีส่วนแคงเรียบค่อนข้างแคบติดหนังพื้น เราสามารถมีการดางว่าสมารถกอซอฟได้ว่าทุกคนได้ตัวโดยการตีความหมายของจรภางยาติดต่อหรือเปล่า นอกจากการแข่งขันในมือวันพุธ คาปาเนโดได้เข้าร่วมการแข่งขันในสองรายการแข่งขันแล่นส่วนบุคคลในระดับการแข่งขันเพรซซิงแซม เมืองดังเกายังเปลี่ยนสถานที่ที่จะปีนภูเขาไฟนีลาของโก พร้อมกับทางย่างตามภูกอริลล่า ที่มีราคาถูกที่สุดในแอฟริกา ส่วนสาธารณะแหงซาด พริดวิกเล็ก แม่นมีป่าไม้อย่างหนาแน่น ส่วนใหญ่แล้วเป็นต้นเพิงต้นสน และต้นไม้สนที่เป็นใบสามเหลี่ยมและมีลักษณะผสมของพืชพันธุ์ออบพลายและเมดิเตอร์เรเนียน ภาษากลอนของเมืองมาร์ตินกัน เมนประมาณแปดร้อยคน มันเป็นประเทศที่มีเอกราชน้อยสุดในโลกและเป็นประเทศที่มีภาษากรอ่น้อยสุด สำนักงานจัดการเหตุสุกเสื่อนทั้งภาคเหนือของมาเลียนากล่าวว่า ไม่มีรายงานความเสียหายใดๆ เกิดขึ้นในประเทศ การผ่อนพลอยู่ที่ช่องปูแห่งหนึ่งทางภาคเหนือของเมืองเม็กซิโก ทํานางกาวแมนยออกจากส่วนที่เหลือของโลก คู่ผัวเมียเหล่านี้อาจจะเลือกที่จะวางแผนในการหาบเลี้ยงลูกบุญธรรมให้เป็นลูกของพวกเขา ลາวບສາມາດໃຊ້ຍາແສບດິດເພື່ອສະແນະຄວາມເຈັບປວດຂອງລາທິເກາລອາວາ ເຂົາຈາກຖືຄານບໍໍໂລດງານໄດ້ อยู่ในแถวเดียวกัน ผู้ซ้ายกอแมนทึยฮอฮ่อง ให้ต้องได้นงซงที่ปกหัวเข่า นี่ມັງຄືວ່າສາມາດຮູ້ສຶກໄດ້ເພາະວ່າ ໂມງຮູ້ສຶກຄືກັບວາລູ້ມັນກຳລັງເຄືທີແມນບໍ พื้นเบื้องคือมีลักษนาดดีที่สุดเมื่ออยู่ในสภาพแวดล้อมเป็นธรรมชาตินักหนั่น การต่อต้านการทดลองเพื่อเอาตัวอย่างออกเพียงอันเดียว ในตั๋วประกัน หกคนที่มีทางเด็กน้อยและผู้ทาวได้ถือปล่อยตัวออกมา ก็เนื่องจากเป็นนักถ่ายภาพชาวฟิลิปปินส์ ตามซงยิ่งลดต่ําลง ยิ่งเป็นการดีให้พลังชีวิตมีอยู่ ทุกคนมีความสามารถที่จะพบเห็นความสงบสุขและความพึงพอใจอย่างแท้จริง ตลอดขึ้นประมาณรอยห้าสิบและสองรอยซ้ําเน่าได้ศึกษาขึ้น ปัจจุบันประทีวจันทกันวา ดอนแรบรอยไส้ การวิพากษ์วิจารณ์อย่างล้วงลายเกี่ยวกับความแผนงานในการฝนฟูบูรณะได้มุ่งเน้นไปที่การตัดสินสัญญาการฝนฟูบูรณะให้แก่ผู้ที่อยู่ภายในวอชิงตันที่ถือครอง พองมันมีตีนที่มีเกรดและมีกราม พองมันวางไข่และพองมันยางไปด้วยค่ะ หลังซองเบือก ไข่คือกับตัวไดโนเสาร์ทีเร็กซ์",
+   "sentences_ok": 30,
+   "request_ms_median": 3428,
+   "request_ms_p90": 4130
+  },
+  {
+   "system": "oai__gpt-4o-transcribe",
+   "label": "OpenAI gpt-4o-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "en",
+   "err": "",
+   "model": "gpt-4o-transcribe",
+   "languageGiven": "en",
+   "cer": 0.068,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 1.0,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel (2006) explains the continuum approach as a method being used to help organizations reach a higher level of. The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011. The correlation between brain pathology and behavior supports scientists in their research. Rip currents are the returning flow from waves breaking off the beach, often at a reef or similar. Duval, who was married with two adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump, in a statement delivered via the press secretary, announced U.S. troops would be leaving Syria. Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey, like insects, rodents, lizards, and birds. During the 1920s, the prevailing attitude of most citizens and nations was that of pacifism and isolation. California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors. Asus Eee PC, earlier launched worldwide for cost-saving functionality factors, became a hot topic in 2007 Taipei IT. In some areas, boiling water for a minute is enough and others several minutes are needed. In its early days, the show was featured solely at the long-running internet radio site TogiNet Radio, a site focused on talk radio. First, most riders wear riding boots with a heel and a smooth, quite narrow sole. In particular, it is claimed that one can detect whether a person is lying by interpreting microexpressions correctly. Beyond Wednesday's event, Carpenedo competed in two individual races The city is also the base to climb the Nyiragongo volcano along with some of the cheapest mountain gorilla tracking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of Alpine and Mediterranean vegetation. Vatican City population is around 800. The Northern Marianas Emergency Management Office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby. He has been unable to take the drugs needed to overcome his pain as they are banned from the game. Along the same line, men are required to wear trousers covering the knees. This seems sensible because the Earth doesn't feel as if it's moving, does it? Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen. Six hostages including the children, elderly were released early as were the Filipino photographers. The lower the tension the more positive the life force present. Every person has the potential to find absolute peace and contentment. The night between 150 and 200 copies were made, now known as Denmark Liberal criticism of the Reconstruction effort has focused on the awarding of reconstruction contracts to perceived Washington insiders. They have feet with scales and claws, they lay eggs, and they walk on their two back legs like a T. rex.",
+   "sentences_ok": 30,
+   "request_ms_median": 3417,
+   "request_ms_p90": 4702
+  },
+  {
+   "system": "oai__gpt-4o-transcribe",
+   "label": "OpenAI gpt-4o-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "ja",
+   "err": "",
+   "model": "gpt-4o-transcribe",
+   "languageGiven": "ja",
+   "cer": 0.054,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.014,
+    "replacement_chars": 0
+   },
+   "transcript": "エンジェルは、2006年に組織がより高いパフォーマンスレベルに到達する上で役立つ方法として連続体アプローチを説明しています。 橋下の情報空間は15メートルです。2011年8月に竣工し、2017年3月まで開通しませんでした。 脳病理と行動の相関関係は科学者たちの研究を裏付けるものです。 離岸流とは、砕けて浜辺に戻ってくる引き波のことで、多くの場合、岩礁やそれに似た場所で発生します。 既婚者であり、成人した2人の子を持つリバルは、この話に関係するヴィラにあまり印象を残しませんでした。 日曜深夜、ドナルド・トランプ米大統領は報道官経由で配信された声明において、米軍がシリアから撤退することを発表しました。 最後に、昆虫、げっ歯類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型の猫、ノラネコを含むが数多く生息しています。 1920年代に市民や国家のほとんどに広まっていた思想は平和主義と効率主義でした。 カリフォルニア州のアーノルド・シュワルツェネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。 ASUSのEee PCはコスト面と機能面で世界に先駆けて販売され、2007台北IT Monthで話題となりました。 1分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。 当初番組はトークラジオに特化したインターネットラジオサイト、トギネットラジオのみにで取り上げられ、これは長寿サイトです。 まず、ほとんどの乗り手は、かかととなめらかでかなり狭めの靴底が付いた乗馬靴を履いています。 特に微表情を正確に解釈することによってその人が嘘をついているかどうかを見抜けると主張しています。 水曜日のイベントの後、カルパネドは選手権で2つの個人レースに出場しました。 この都市はニラゴンゴ火山への登山の拠点であり、アフリカでもっとも安くマウンテンゴリラを追跡できる場所の一つでもあります。 プリトヴィツェ湖群国立公園は、アルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小16の湖が点在し、絶景であふれる世界遺産です。 バチカン市国の人口は約800人です。世界最小の独立国家であり、最も人口が少ない国でもあります。 北マリアナ諸島の危機管理室EMOによると、全国的に被害は報告されていないとのことです。 洞窟はメッカの北にあたる山頂にあり、下界から完全に隔離されています。 このようなご夫婦は、その赤ちゃんのために養子縁組制度を利用できます。 痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。 同じように男性は膝を覆うズボンをはくことが義務付けられています。 地球が動いているようには感じないので、これは理にかなっているように思えます。 植物は自然環境にあるときに最も見栄えがするのですから、一本だけならと標本に持ち帰りたい誘惑に負けないでください。 子供と高齢者を含めた人質6名が早期に解放され、フィリピン人の写真家たちも同じく解放。 緊張度が低いほど、よりポジティブな生命力が生まれます。誰にでも絶対的な平和と満足感を見出す潜在的な能力が備わっています。 一晩で150から200枚が複製され、現在ではダンラップブロードサイドと呼ばれています。 復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約を交わしたことに焦点を当てています。 鱗と爪の付いた足を持ち、爬行性でありティラノサウルスのように後ろ足2本で歩きます。",
+   "sentences_ok": 30,
+   "request_ms_median": 4263,
+   "request_ms_p90": 4889
+  },
+  {
+   "system": "oai__gpt-4o-transcribe",
+   "label": "OpenAI gpt-4o-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "km",
+   "err": "",
+   "model": "gpt-4o-transcribe",
+   "languageGiven": "prompt: Khmer speech. Transcribe verbatim in Khmer, in Khmer script.",
+   "cer": 0.287,
+   "script": {
+    "thai": 0.001,
+    "lao": 0.0,
+    "khmer": 0.987,
+    "latin": 0.012,
+    "replacement_chars": 0
+   },
+   "transcript": "ក្នុងឆ្នាំ 2009 បញ្ជូលអំពីវិធីសាស្ត្រតូចជាទេ។ ជាវិធីសាស្ត្រដែលត្រូវបានប្រើដើម្បីជួយអង្គភាពឲ្យឈានដល់កម្រិតនៃការអនុវត្តពួក។ ប្រវែងអន្ដរជាងក្រចាប់ស្ពានគឺមានកម្ពស់ ៥០ ម៉ែត្រ។ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែធ្នូឆ្នាំ ២០១៦ ហើយការធ្វើចរាចរណ៍នឹងត្រូវបានផ្អាករហូតដល់ខែមីនា ឆ្នាំ ២០១២។ ភិបាលតោងខ្លួនរបស់វិញរក្សាគួក្បាលនិងអាកបភាពការយាយជួយដល់ការសារជីវរបស់អ្នកវិទ្យាសាស្ត្រ។ ការងារទឹកទាញចូលសមុទ្រគឺជាឡំហោត្រឡប់មកពីរលកដែលត្រឡប់ពីឆ្នេរសមុទ្រនិងថ្ម បប់ប្រជះទឹក ឬអ្វីមួយដែលដូចនឹងវា។ ដូច្នេះដាក់បណ្ឌិតការនិងមិត្តកូនជុំទាំងពីរនាក់មិនបានធ្វើឱ្យមានឡើមិនការចាប់អារម្មណ៍អ្វីនោះទេ។ ការពេលល្ងាចថ្ងៃអាទិត្យនេះ ប្រធានាធិបតីសហរដ្ឋអាមេរិកលោក ដូណាល់ ត្រាំ ក្នុងសេចក្តីថ្លែងការណ៍មួយដែលចែងចាយដោយលេខាធិការសាធារណរដ្ឋមិនប់បានប្រកាសថាកងទ័ពអាមេរិកនឹងមិនចាកចេញពីប្រទេសស៊េរីឡើយ។ តីមានពពែមានសាច់តូចៗជាច្រើនដុំព្រៃ ដុះសីច្រើនដូចជា សត្វអត់ សត្វកុកគែ សត្វបង្គួយ និងបក្សី។ ខណៈនេះលោកទូសវាចនាមើប៉ោយៗ អេរីយាប័ណ្ណដែនដំកនៅជាចំណោរ នៅពលរដ្ឋជាច្រើនបំផុតនៃប្រទេសនេះគឺថាសន្តិលិយោគ និងនឿយណាយតទៅពីគេ។ អភិបាលរដ្ឋកាលីហ្វរញ៉ា លោកអាណូស្វាយហ្សេនហ្សេនហ្គា បានចេញហត្ថលេខាលើច្បាប់មហាម៉ាកាមហាមហាហាមឃាត់អំពើហិង្សាលើអានីតិជន។ Asus Eee PC ជាកម្មវិធីដំបូងត្អូប្រហើរគួរអោយភ្ញាក់ផ្អើល ដើម្បីការសន្សំទុនចាយលើការចំណាយ និងកត់ត្រាមុខងាររបស់វា បានក្លាយជាបទយកការណ៍ក្តៅក្តៅនៅក្នុងសន្និសីទពហុមុខវិជ្ជាប្រចាំខែ នៅទីក្រុងតៃប៉ិចឆ្នាំ 2007។ ចំពោះនគរបានមួយចំណួន ការដន្ទត់ត្រឹមតែមួយនាទីគឺគ្រប់គ្រាន់ហើយ ហើយនៅកន្លែងខ្លះទៀតត្រូវការពេលវេលាច្រើននាទី។ នៅក្នុងថ្ងៃដំបូងកម្មវិធីនេះត្រូវបានបង្ហាញតែនៅស្ថានីយវិស្យុអ៊ិនធឺណិតដែលដំណើរការជាយូរមកហើយ គឺថុនីនិត វិស្សុដដែលជាគេហទំព័រដល់លើវិស្សុពិក្រូសយុបល។ ដំបូងអ្នកជីភិតច្របល់កេស្បែកជើងកូវ៉េ មានកែងអក្រលងរឹងតូចនិងមានទ្រនាប់។ ជាពិសេស គេបានអាងថា មនុស្សម្នាក់អាចកំណត់ថាតាមពុកមាត់ម្នាក់និយាយកុហកឬអត់នោះតាមរយៈការបកស្រាយពាក្យសំដីខ្លីៗបានត្រឹមត្រូវ។ បន្ទាប់មកលើកទីប្រតិក្ដាការប្រកួតពានរង្វាន់ពុទ្ធទៀត នាងខាបេននីដូ បានចូលរួមការប្រកួតប្រជែងចំនួនពីរដងក្នុងប្រតិកម្មជើងអែង។ ទីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើងណេរាកុងហ្គូ រួមជាមួយនឹងការតាន mountain gorilla ដែលមានតម្លៃថ្លៃបំផុតនៅអាហ្វ្រិក។ អស់សិនជីន ផ្លែកវាយឡេស ខុមតាបដោយប្រៃយ៉ាងខ្លាំង ជាពិសេសគឺប៉ះពាល់អន្តសរភព មានសម្បោសមត់អអនិងលីនឡង់ដោយបំពួកប្រធះនៅតំបន់ធំៗ និងតំបន់មេឌីតែរ៉ាណេ។ ចំនួនប្រជាជនសរុបនៅទីក្រុងវាទីកង់មានប្រហែល៨០០នាក់ វាគឺជាប្រទេសអាយក្រីដា​តូចជាងគេបំផុតនៅលើពិភពលោក ហើយក៏ជាប្រទេសដែលមានប្រជាជនតិចជាងគេបំផុតផងដែរ។ កាយាឡៃគ្រប់គ្រង គ្រួសារសម្រាប់ឃ្លាំងជើងនៅលើម៉ារៀណាស បាននិយាយថា មិនមានការខូចខាតណាមួយទេបន្ទាប់ពីបានរៀការនៅក្នុងប្រទេសនេះទេ។ ដោយមានទីតាំងនៅលើកំពូលភ្នំមួយនៅភាគខាងជើងនៃទីក្រុងមេកា ឡាអាននេះនៅដាច់ឆ្ងាយពីពិភពលោកយ៉ាងខ្លាំង។ បីប្រភពទាំងនេះប្រហែលជាសម្រេចធ្វើផែនការជ្រើសរើសកូនយកមកចិញ្ចឹម។ គាត់នឹងបានអាចប្រើថ្នាំដែលត្រូវការសម្រាប់បំបាត់ការឈឺចាប់របស់គាត់បាន ដោយសារថ្នាំនេះត្រូវបានហាមគាត់មិនអោយប្រើពេលចូលរួមក្នុងប្រតិកម្មកីឡានិឡី។ សាលាភ្នាក់ងារ បុគ្គលិកបានទទួលអោយសមត្ថភាពរីករាយពេញនៅចំណុច។ ការនេះវាហាក់ដូចជាសំបុត្រមិនពិបប្រក់តូចជាមានអារម្មណ៍ថាភែន្តៃមិនកំពុងតែធ្វើចលនាទេត្រូវឬអត់? ពពុះឈីត្រជាក់ល្អបំផុតនៅពេលដែលវេសស្ថិតនៅក្នុងបរិយាកាសបែបធម្មជាតិមួយ។ ដូច្នេះហើយ ត្រូវទុកអារម្មណ៍ចង់បាន កុំយកពពុះកុមារូប សុំបីតែតាមឱ្យចុះ។ ជនជាតិខ្មាំងប្រាំមួយនាក់ក្នុងนั้นមានទាំងកុមារ និងមនុស្សចាស់បានដោះលែងមុនពេល គឺក្រុមអ្នកថតរូបជនជាតិហ្វីលីពីន។ ភាពតាន់តន់កាន់តែទៀបគឺមកកាន់ភាពវិជម្ងិនកាន់តែច្រើនដោយកម្លាំងនៃជីវិត។ មនុស្សម្នាម្នា មានអំណាចក្នុងការស្វែងរកសន្តិភាព និងសុគតសុខដោយពេញលេញ។ បៃម៉ឺយយប់ចន្លោះពីមួយរយហាសិបទៅពីររយឆ្នាំត្រូវបានបង្កើតឡើង ដែលឥឡូវត្រូវបានគេស្គាល់ថាជាបន្ទះសាយពាណិជ្ជកម្មដូនឡប់។ ការរំខានប៉ះពាល់លើការប្រកបរស់នៅបានទទួលទៅលើការដកពាក្យសន្យាការសាងសង់ឡើងវិញ។ ពួកគេមានជើងដែលមានស្រកានិងក្រែងញាំ ពួកវាក្រចាប់ពងហើយពួកវាដើរដោយជើងក្រោយទាំងពីររបស់ពួកវាដូចជាសត្វឌីណូស័រទាយរេក។",
+   "sentences_ok": 30,
+   "request_ms_median": 5129,
+   "request_ms_p90": 5629
+  },
+  {
+   "system": "oai__gpt-4o-transcribe",
+   "label": "OpenAI gpt-4o-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "lo",
+   "err": "",
+   "model": "gpt-4o-transcribe",
+   "languageGiven": "prompt: Lao speech. Transcribe verbatim in Lao, in Lao script (not Thai).",
+   "cer": 0.19,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.989,
+    "khmer": 0.0,
+    "latin": 0.011,
+    "replacement_chars": 0
+   },
+   "transcript": "ແອງເຈິວ 2006 ອະທິບາຍການເກົ່າເຖີງ continuum ເປັນວິທີການທີ່ເທ່ນ້ຳໃສ່ເພື່ອຊ່ວຍໃຫ້ອົງການມັນຮູ້ໄລຍະປະສິດທິພາບການປະຕິບັດງານທີ່ສູງຂຶ້ນ. ໄລຍະຫາງແນວຕັ້ງຈາກກອງຂວາ 15 ແມັດ. ການກໍ່ສ້າງໄດ້ສຳເລັດໃນເດືອນສິງຫາ ປີ 2011, ບໍ່ເປີດການສັນຈອນຈົນເຖິງເດືອນມີນາປີ 2017. ຄວາມສຳພັນລະວ່າງພະຍາດທາງສະໝອງ ແລະ ພະທີກຳເສະລະສະຕຣຸນາວິທະຍາສາດໃນການຄົ້ນຄວ້າຄຳວ່າເຂົາ. ກະເສນ້ຳຕັດເປັນຄື່ນທີ່ໄຫຼກັບຈາກການແຕະຂອງໃຊ້ຫາດ ສ່ວນຫຼາຍເມັນຢູ່ບົນຫິນຫຼືຄ້າຍກັນ. ດູວາເວົ້າຜູ້ທີ່ໄດ້ແຕ່ງງານກັບອີກນ້ອຍສອງຄົນບໍ່ໄດ້ສ້າງຄວາມປະທັບໃຈທີ່ດີຢ່າງໃຫ້ກັບໄມເລີຜູ້ທີ່ກ່ຽວຂ້ອງກັບເລື່ອງນີ້ເລີຍ. ໃນຕອນແລງວັນອາທິດ ປະທານາທິບົດີສະຫະລັດ ທານໂດນອນລົາມ ໄດ້ປະກາດຖະແຫລງການທີ່ສົ່ງຜ່ານເລຂາທິການຂາວວ່າກອງທັບສະຫະລັດຈະອອກຈາກຊີເລຍ. ໃນທີ່ສຸດມີແມວນ້ອຍຫລາຍຕົວ, ລວມທັງແມວລ້ຽງທີ່ສຸດທ້າຍທີ່ກິນເນື້ອທີ່ໃນນ້ອຍຈຳນວນລອງຫລາຍເຊັ່ນແມ່ງໃໝ່, ໜູ, ກັບແກະ ແລະນົກຕ່າງໆ. ໃນລະຍະສຸ່ມປີ 1900 ສາວ, ທັດສະນະຄະຕິທີ່ໂພນເດ່ນຂອງພົນລະເມືອງແລະປະເທດສ່ວນໃຫຍ່ແມ່ນຄວາມສະຫງົບແລະຄວາມແຍກກັນຢູ່. ຜູ້ວ່າການລັດແຄລິຟໍເນຍອາໂຣວ ຊ໌ວາສເນກເກີ ໄດ້ລົງນາມໃນກົດໝາຍມາໂດຍການຫ້າມຂາຍ ຫຼື ໃຫ້ເຊົ່າເກມວິດີໂອທີ່ມີຄວາມຮຸນແຮງໃຫ້ກັບເດັກນ້ອຍ. ເອຊູດ ອີພີຊີ ເລັບທຶບເປີດຕົວກ່ອນຫນ້ານີ້ໃນທົ່ວໂລກດ້ວຍປັດໃຈໃນການປະຢັດຕົນເທືອນໃນການໃຊ້ງານ, ກາຍເປັນຮ້ອງຂໍຖາວອນແຮ່ງໃນປີ 2007 ຂອງໄທເປ້ IT ອໍນ. ໃນບາງພື້ນທີ່ການຕ້ົມນ້ຳປະມານໜຶ່ງນາທີແມ່ນພຽງພໍແລ້ວ, ໃນບາງບ່ອນກໍໃຊ້ເວລາຫຼາຍນາທີ. ໃນເມື່ອທຳອິດຂອງມັນ, ການສະແດງເປັນຈຸດເດັ່ນພຽງຢ່າງດຽວຢູ່ເວັບໄຊທ໌ 2G Next Radio, ສະຖານີວິທະຍຸອິນເທີເນັດທີ່ມີມາໂດນນານ, ເວັບໄຊທ໌ທີ່ສຸມໃສ່ການສົນທະນາທາງວິທະຍຸ. ການລົບບົດຟູທີສວນລາຍແມ່ນຊ່ວຍໃສ່ເກີດທີ່ໃສ່ໃນການຂີ່ທີ່ມີສວນແກ້ງແຫຼຽບຄ່ອນຂ້າງແຄບຕິດນ້ຳພື້ນ. ຫລືວ່າມີການອ້າງວ່າສາມາດກວດສອບໄດ້ວ່າພຸກຄົນໄດ້ຕົວໂດຍການຕີຄວາມໃຈຂອງຈິດລະພາກຍາຍທຶກຕອງຫລືບໍ່. ນອກເຫນືອຈາກການແຂ່ງຂັນໃນມື້ວັນພຸດ, ຄາປາເນໂດ້ ໄດ້ເຂົ້າຮ່ວມການແຂ່ງຂັນໃນສອງລາຍການແຂ່ງຂັນແລນສ່ວນບຸກຄົນໃນລັບການແຂ່ງຂັນແພລສິງແຊມ. ເມືອງນັງກາວຍັງເປັນສະຖານທີ່ທີ່ຈະປິນພູເຂົາໄຟນີລາຂອງໂກ້ພ້ອມກັບທາງງ່າຍຕາມພູກອລິລາທີ່ມີລາຄາຖືກທີ່ສຸດໃນອາຟຣິກາ. ສ່ວນສະຖານະແຫ່ງຊາດປະລິດວິກເລກ ແມ່ນມີປ່າໄມ້ຢ່າງຫນາແໜ້ນ, ສ່ວນໃຫຍ່ແລ້ວແມ່ນຕົ້ນເພິ່ງ, ຕົ້ນສຸນ ແລະຕົ້ນໄມ້ສຸນທີ່ເປັນໃບສາມຫລ່ຽມ ແລະມີລັກສະນະປະສົມຂອງພືດພັນອອບພລາຍ ແລະ ໄມດີເຕເລເນຍນ. ພາສາກ່ອນຂອງເມືອງວາຕິນກັນ ແມ່ນປະມານ 800 ຄົນ. ມັນແມ່ນປະເທດທີ່ມີເອກະລາດຫນ້ອຍສຸດໃນໂລກ ແລະເປັນປະເທດທີ່ມີພາສາກ່ອນຫນ້ອຍສຸດ. ສຳນັກງານຈັດການເຮັດທຸກສ່ວນທາງພາກເໜືອຂອງມາເລຍນາ້ກ່າວວ່າບໍ່ມີລາຍງານຄວາມເສຍຫາຍໃດໆເກີດຂຶ້ນໃນປະເທດ. ການຜະລົງຢູ່ເທິງຊອບພູແຫ່ງໜຶ່ງທາງພາກເໜືອຂອງເມືອງ, ແມັກຊິກາ ທຳດັ່ງກຳແມນແຫຼະຈາກສ່ວນທີ່ເຫຼືອຂອງໂລກ. ຄູ່ຜົວເມຍເຫລົ້ານີ້ອາດຈະເລືອກທີ່ຈະວາງແຜນໃນການຮັບລ້ຽງລູກບຸນທຳໃຫ້ເປັນລູກຂອງພວກເຂົາ. ລາວບໍ່ສາມາດໃຊ້ຍາເສບຕິດເພື່ອອອນສະເນີຄວາມເຈັບປວດຮ່າງກາຍທີ່ເກີດຍອດວາ. ເຂົາເຈົ້າຖືກຫ້າມບໍ່ໃຫ້ລິ້ນເກມໄດ້. ຢູ່ໃນແຖວດຽວກັນ ຜູ້ຊາຍກໍແມ່ນຖືແຫງ້ຄ້ອງ ໃຫ້ຕ້ອງໄດ້ນຸ່ງສົ້ງທີ່ປົກຫົວເຂົ່າ. ນີ້ເບິ່ງຄືວ່າສາມາດຮູ້ສຶກໄດ້, ເພາະວ່າບໍ່ຮູ້ສຶກຄືກັບວ່າລູມັນກຳລັງເຄື່ອນທີ່ແມ່ນບໍ່. ພືດເບີ້ມຂື້ນມີລັກສະນະດີທີ່ສຸດເມື່ອຢູ່ໃນສະພາບແວດລ້ອມເປັນທຳມະຊາດນັ້ນຫນັ້ນ. ການຕໍ່ຕ້ານການທົລອງເພື່ອອ່ອດຕົວຢ່າງອອກເພັຽງອັນດຽວ. ໃນຕົວປະກັນ, ຫົກຄົນທີ່ມີທາງເດັກນ້ອຍ ແລະຜູ້ເຖົ້າໄດ້ຖືປ່ອຍຕົວອອກມາ, ກໍເນື່ອງຈາກເປັນນັກຖ່າຍພາບຊາວຟິລິປິນ. ຕາມຊົງຍິ່ງຫຼຸດຕໍ່ໍາລົງ, ຍິ່ງເປັນການດີ, ໃຫ້ພະລັງຊີວິດມີຢູ່. ທຸກຄົນມີຄວາມສາມາດທີ່ຈະພົບເຫັນຄວາມສະຫວັງສຸກ ແລະຄວາມພຶ່ງພໍໃຈຢ່າງແທ້ຈິງ. ຕະຫລອດຄື່ນດະບານລອຍສັບລະສອງໂລຍສຳເນົາໃນສຶກສາຄືນປະຈຸບັນປະຕິທິຄົ້ວຈັກກັນວາດອນດຣາບຂອງລ້ອຍໃສ. ການວິພາກວິຈານຢ່າງຫຼວງຫຼາຍກ່ຽວກັບຄວາມພະຍາຍາມໃນການສວນຟູບູລະນະໄດ້ມູນໃນປະຕິການຕັດສິນ ສັນຍາການສວນຟູບູລະນະໃຫ້ແກ່ຜູ້ທີ່ຢູ່ພາຍໃນວາຊິງຕັນທີ່ຖືກກັບຜູ້. ພວກມັນມີຕີນທີ່ມີເກັດແລະມີກາງ, ພວກມັນວາງໄຂ່ແລະພວກມັນຍາງໄປດ້ວຍຄ່າຫຼັງສອງເບື່ອກ. ໄຂ່ຄືກັບຕົວໄດໂນເສົາ T. Rex.",
+   "sentences_ok": 30,
+   "request_ms_median": 10427,
+   "request_ms_p90": 11177
+  },
+  {
+   "system": "oai__gpt-transcribe",
+   "label": "OpenAI gpt-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "en",
+   "err": "",
+   "model": "gpt-transcribe",
+   "languageGiven": "en",
+   "cer": 0.038,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 1.0,
+    "replacement_chars": 0
+   },
+   "transcript": "Angel, 2006 explains the continuum approach as a method being used to help organizations reach a higher level of. The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011. It didn't open to traffic until March 2012. The correlation between brain pathology and behavior supports scientists in their research. Rip currents are the returning flow from waves breaking off the beach, often at a reach, reef, or similar. Duval, who was married to two adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump, in a statement delivered via the press secretary, announced U.S. troops would be leaving Syria. Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey, like insects, rodents, lizards, and birds. During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolation. California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors. ASIS EPC, earlier launched worldwide for cost saving functionality factors, became a hot topic in 2007 Taipei IT. In some areas, boiling water for a minute is enough, and others several minutes are needed. In its early days, the show was featured solely at the long-running internet radio site TogiNet Radio, a site focused on talk radio. First, most riders wearing riding boots with a heel and a smooth, quite narrow sole. In particular, it is claimed that one can detect whether a person is lying by interpreting microexpressions correctly. Beyond Wednesday's event, Carpenedo competed in two individual races. The city is also the base to climb the Nyiragongo volcano, along with some of the cheapest mountain gorilla trekking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of alpine and Mediterranean vegetation. Vatican City population is around 800. It is the smallest independent country in the world, and the population. The Northern Mariana's Emergency Management Office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby. He has been unable to take the drugs needed to overcome his pain as they are banned from the game. Along the same line, men are required to wear trousers covering the knees. This seems sensible because the Earth doesn't feel us if it's moving, does it? Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen. Six hostages, including the children and elderly, were released early, as were the Filipino photographers. The lower the tension, the more positive the life force present. Every person has the potential to find absolute peace and contentment. The night between 150 and 200 copies were made, now known as Dunlap. Liberal criticism of the Reconstruction effort has focused on the awarding of Reconstruction contracts to perceived Washington insiders. They have feet with scales and claws. They lay eggs and they walk on their two back legs like a T-Rex.",
+   "sentences_ok": 30,
+   "request_ms_median": 3221,
+   "request_ms_p90": 4354
+  },
+  {
+   "system": "oai__gpt-transcribe",
+   "label": "OpenAI gpt-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "ja",
+   "err": "",
+   "model": "gpt-transcribe",
+   "languageGiven": "ja",
+   "cer": 0.06,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.0,
+    "latin": 0.009,
+    "replacement_chars": 0
+   },
+   "transcript": "エンジェルは2006年に組織がより高いパフォーマンスレベルに到達する上で役立つ方法として連続体アプローチを説明しています。 橋下の情報空間は15メートルです。2011年8月に竣工し、2017年3月まで開通しませんでした。 脳病理と行動の相関関係は、科学者たちの研究を裏付けるものです。 離岸流とは、砕けて浜辺に戻ってくる引き波のことで、多くの場合、岩礁やそれに似た場所で発生します。 既婚者であり、成人した二人の子を持つリバルは、この話に関係するヴィラにあまり印象を残しませんでした。 日曜深夜、ドナルド・トランプ米大統領は、報道官経由で配信された声明において、米軍がシリアから撤退することを発表しました。 最後に、昆虫、ゲシ類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型の猫、野良猫を含むが数多く生息しています。 1920年代に市民や国家のほとんどに広まっていた思想は平和主義と孤立主義でした。 カリフォルニア州のアーノルド・シュワルツネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。 ASUSのEPCはコスト面と機能面で世界に先駆けて販売され、2007台北ITマンスで話題となりました。 1分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。 当初番組はトークラジオに特化したインターネットラジオサイト、トギネットラジオのみで取り上げられ、これは長寿サイトです。 まず、ほとんどの乗り手は、かかとと滑らかでかなり狭めの靴底が付いた乗馬靴を履いています。 特に微表情を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。 水曜日のイベントの後、カルパネドは選手権で二つの個人レースに出場しました。 この都市はニラコンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の一つでもあります。 プリトビッツェ湖群国立公園は、アルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小16の湖が点在し、絶景であふれる世界遺産です。 バチカン市国の人口は約800人です。世界最小の独立国家であり、最も人口が少ない国でも 北マリアナ諸島の危機管理室、EMOによると、全国的に被害は報告されていないとのことです。 洞窟はメッカの北にあたる山頂にあり、外界から完全に隔離されています。 このようなご夫婦は、その赤ちゃんのために、両親組み制度を利用できます。 痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。 同じように男性は膝を覆うズボンを履くことが義務付けられています。 地球が動いているようには感じないので、これは理にかなっているように思えます。 植物は自然環境にあるときに最も見栄えがするのですから、一本だけならと標本に持ち帰りたい誘惑に負けないでください。 子供と高齢者を含めた人質6名が早期に解放され、フィリピン人の写真家たちも同じく解放。 緊張度が低いほど、よりポジティブな生命力が生まれます。誰にでも絶対的な平和と満足感を見出す潜在的な能力が備わっています。 一晩で150から200枚が作成され、現在ではダンラップブロードサイドと呼ばれています。 復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約を交わしたことに焦点を当てています。 鱗と爪のついた足を持ち、卵生であり、ティラノサウルスのように後ろ足二本で歩きます。",
+   "sentences_ok": 30,
+   "request_ms_median": 3405,
+   "request_ms_p90": 4040
+  },
+  {
+   "system": "oai__gpt-transcribe",
+   "label": "OpenAI gpt-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "km",
+   "err": "",
+   "model": "gpt-transcribe",
+   "languageGiven": "prompt: Khmer speech. Transcribe verbatim in Khmer, in Khmer script.",
+   "cer": 0.144,
+   "script": {
+    "thai": 0.0,
+    "lao": 0.0,
+    "khmer": 0.99,
+    "latin": 0.01,
+    "replacement_chars": 8
+   },
+   "transcript": "អិនចើរ ពីពាន់ប្រាំមួយ បញ្ជល់អំពីវិធីសាស្ត្រតោចាប់ជិនិត ជាវិធីសាស្ត្រដែលត្រូវបានប្រើដើម្បីជួយឱងុភាពឱ្យឈានដល់កម្រិតនៃការអនុវត្តខ្ពស់។ ប្រាសាទបន្ទាយឆោ នៅក្រមស្ពាន គឺមានកម្ពស់ ១៥ ម៉ែត្រ។ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហា ឆ្នាំ ២០១៦ ហើយការធ្វើចរាចរណ៍នឹងត្រូវបានបើករហូតដល់ខែមីនា ឆ្នាំ ២០១៧។ ភាពទាក់ទងគ្នារវាងរោគសះខួក្បាល និងអាកប្បកិរិយា ជួយដល់ការសម្រេចរបស់អ្នកវិទ្យាសាស្ត្រ។ ចរន្តទឹកទាញចូលសមុទ្រគឺជាលំហូរត្រឡប់មកពីរលកដែលត្រឡប់ពីឆ្នេរមកប៉ះនឹងថ្ម ប៉ុបប្រះទឹក ឬអ្វីមួយដែលដូចនឹងវា។ ឌូវ៉ល ដែលបានរៀបការ និងមានកូនជំទង់ពីរនាក់ មិនបានធ្វើឱ្យមានលើ មានការចាប់អារម្មណ៍អ្វីនោះទេ ជួនចំពោះអ្នកណាដែលមានជីវិតពាក់ព័ន្ធនឹងសាច់ដើម។ កាលពីល្ងាចថ្ងៃសុក្រនេះ ប្រធានាធិបតីសហរដ្ឋអាមេរិក លោក ដូណាល់ ត្រាំ ក្នុងសេចក្តីថ្លែងការណ៍មួយដែលចែកចាយដោយលេខាធិការសារព័ត៌មាននោះ បានប្រកាសថា កងទ័ពអាមេរិកនឹងបញ្ចាក់ចេញពីប្រទេសស្រីលង្កា។ សីមុពុតមានសត្វចមាតុតូចជាងរានដូចជា សត្វចមាព្រៃ ដាស៊ីចមៃតូចៗជាច្រើនទៀត ដូចជា សត្វអ៊ត សត្វកកែ សត្វបង្កួយ និងបក្សីនានា។ ក្នុងអំឡុងទសវត្សរ៍ឆ្នាំ១៩៨០ ឥរិយាបថដែលនាំមកនូវជំនាញនៃពលរដ្ឋជាច្រើនបំផុតនៅប្រទេសនេះ គឺថាសន្តិនិយម និងនៅដែលតែលៃពីគេ។ អតីតមារដ្ឋកាលីពញា លោក អាណូ ស្វាច្សេនសេកា បានចុះហត្ថលេខាលើច្បាប់ដែលហាមប្រាមការលក់ ឬជួលវីដេអូអំពើហិង្សាដល់អនីតិជន។ អេសូស អ៊ីភីស៊ី ជាគណៈរដ្ឋីដំបន់ដែលអ៊ឺប្រាប្រាស់នូវទូទាំងពិភពលោក ដើម្បីការសន្សំទុនចាយលើការចំណាយ និងកត្តាមុខងាររបស់វា បានក្លាយជាប្រធានបទក្តៅៗ នៅក្នុងសន្និសីទព័ត៌មានវិទ្យាប្រចាំខែ នៅទីក្រុងតៃប៉ិ ឆ្នាំ ២០០៧។ ចំពោះនៅតំបន់មួយចំនួន ការដាំទប់ត្រឹមតែមួយនាទី គឺគ្រប់គ្រាន់ហើយ ហើយនៅកន្លែងខ្លះទៀត ត្រូវការពេលវេលាច្រើននាទី។ នៅក្នុងថ្ងៃដំបូង កម្មវិធីនេះត្រូវបានបង្ហាញតែនៅស្ថានីយវិទ្យុអ៊ីនធឺណិតដែលដំណើរការជាយូរមកហើយ គឺ Tonic វិទ្យុដែលជាគេហទំព័រដោតលើវិទ្យុពីគ្រឿងយោបល់។ ដំបូង អ្នកជិះភាគច្រើនពាក់ស្បែកជើងកវែង មានកៃនិងរំលោង រៀងតូច និងមានទ្រនាប់។ ជាពិសេស គេបានអះអាងថា មនុស្សម្នាក់អាចកំណត់ថាតើបុគ្គលម្នាក់និយាយកុហកឬអត់នោះ តាមរយៈការបកស្រាយពាក្យសម្តីខ្លីៗបានត្រឹមត្រូវ។ បន្ថែមលើពិព្រឹត្តិការណ៍កាលពីថ្ងៃពុធទៀត នាង ខាផេនឌូ បានចូលរួមការប្រកួតប្រជែងចំនួនពីរដង ក្នុងព្រឹត្តិការណ៍ជើងឯក។ ទីក្រុងនេះគឺជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង នេរ៉ាកុនកូ រួមជាមួយនឹងការតាម Mountain gorilla ដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក។ ភោសៀនជិត ផ្លិតវ៉ាហ្គ្លេស ខុសន្តប់ ដោយព្រៃយ៉ាងក្រាស់ ជាពិសេសគឺពពួកដើមឈើខ្ពស់ៗ មានសម្បកមត់ល្អ និងលីនល្អដោយពពួកព្រៃឈើនានានៃតំបន់ភ្នំខ្ពស់ តំបន់មេឌីទែរ៉ាណេ។ ចំនួនប្រជាជនសរុបនៅទីក្រុងវ៉ាទីកង់មានប្រហែល ៨០០ នាក់ វាគឺជាប្រទេសឯករាជ្យដែលតូចជាងគេបំផុតនៅលើពិភពលោក ហើយក៏ជាប្រទេសដែលមានប្រជាជនតិចជាងគេបំផុតផងដែរ។ ការិយាល័យគ្រ�ប់គ្រងគ្រ�ោះអាសន្នភាគខាងជើងនៃរដ្ឋម៉ារីយ៉ាណាស បាននិយាយថា មិនមានការខូចខាតណាមួយទៅបានដីការនៅក្នុងប្រទេសនេះទេ។ ដោយមានទីតាំងនៅលើកំពូលភ្នំមួយនៅភាគខាងជើងនៃទីក្រុងមេកា ល្អាងនេះនៅដាច់ឆ្ងាយពីពិភពលោកយ៉ាងខ្លាំង។ ដីប្រពន្ធទាំងនេះ ប្រហែលជាសម្រេចធ្វើផានការជ្រើសរើសកូនយកមកចិញ្ចឹម។ គាត់មិនបានអាចប្រើថ្នាំដែលត្រូវការសម្រាប់បំបាត់ការឈឺចាប់របស់គាត់បាន ដោយសារថ្នាំនេះត្រូវបានហាមឃាត់មិនឱ្យប្រើពេលចូលរួមក្នុងព្រឹត្តិការណ៍កីឡានីឡើយ។ ស្រ�ប់នានោះ មនុស្សប្រុសស្រប់បានតម្រើវឲ្យស្លៀកខោព្របជិតលើជង្គង់។ ការនេះវាហាក់ដូចជាសមបត់មែន ពីព្រោះដូចជាមានអារម្មណ៍ថា ផែនដីមិនកំពុងតែធ្វើចលនានោះទេ ត្រូវឬអត់? ប្រទេសធរិកអប់ល្អបំផុត នៅពេលដែលវាស្ថិតក្នុងបរិយាកាសបែបធម្មជាតិមួយ។ ដូច្នេះហើយ ត្រូវទប់អារម្មណ៍ ចង់បាន កុំយកឧបករណ៍គំរូ សូមបីតែ បាតមួយ ចេញឱ្យសោះ។ ចំណាប់ខ្មាំងប្រាំមួយនាក់ ក្នុងនោះមានទាំងគូម៉ា និងមនុស្សចាស់ បានដោះលែងមុនពេល គឺក្រុមអ្នកថតរូបជនជាតិហ្វីលីពីន។ ភាពតានតឹងកាន់តែទាប គឺបង្កើនភាពវិជ្ជមានកាន់តែច្រើនដល់កម្លាំងនៃជីវិត។ មនុស្សម្នាក់ៗមានអំណាចក្នុងការស្វែងរកសន្តិភាព និងសេចក្តីសុខដ៏ពេញលេញ។ ប៉េញមយោបចន្លោះពី ១៥០ ទៅ ២០០ច្បាប់ ត្រូវបានបង្កើតឡើង ដែលឥឡូវត្រូវបានគេស្គាល់ថាជាបណ្ណសារ�ពាណិជ្ជកម្មដុនឡប់។ ការរិះគន់បែបសេរី លើការ�ប្រ��ងប្រែងកសាងឡើងវិញ បានផ្តោតទៅលើការ�ផ្តល់កិច្ចសន្យាកសាងឡើងវិញ ទៅដល់អ្នកដែលដឹងកិច្ចការផ្ទៃក្នុង នៅទីក្រុងវ៉ាស៊ីនតោន។ ពួកគេមានជើងដែលមានស្រកានិងក្រញាំ ពួកវាក្រាបពង ហើយពួកវាដើរដោយជើងក្រោយ ទាំងពីររបស់ពួកវាដូចជា សត្វដាយណូស័រ ជីរ៉ាក់។",
+   "sentences_ok": 30,
+   "request_ms_median": 3829,
+   "request_ms_p90": 4150
+  },
+  {
+   "system": "oai__gpt-transcribe",
+   "label": "OpenAI gpt-transcribe (per sentence)",
+   "kind": "batch",
+   "lang": "lo",
+   "err": "",
+   "model": "gpt-transcribe",
+   "languageGiven": "prompt: Lao speech. Transcribe verbatim in Lao, in Lao script (not Thai).",
+   "cer": 0.368,
+   "script": {
+    "thai": 0.235,
+    "lao": 0.744,
+    "khmer": 0.0,
+    "latin": 0.021,
+    "replacement_chars": 291
+   },
+   "transcript": "แองเจิล 2006 อธิบายการกล่าวถึงคอนทินัมเป็นวิธีการที่ถือน้ำใสเพื่อช่วยให้องค์การบรรลุระดับประสิทธิภาพการปฏิบัติงานที่สูงขึ้น �����ະ���່າງຫ້າງແນວ���ັ້ງຈາກ��ກ້ອງຂວາແມ່ນ 15 ແມັດ, ���ານກໍສ້າງໄດ້���ຳເລັດໃນເດືອນສິງຫາ ປີ 2011, ���ບກເປີດການ���ັນຈອນຈົນເຖິງເດືອນມີນາ ປີ 2017. ������າມ���ຳພັນ���ະ���ວ່າງພະຍາດທາງ���ະໝອງ ແລະ ພຶດຕິກຳສະນັບສະໜູນນັກວິທະຍາສາດໃນການຄົ້ນຄວ້າຄ���້ນວິເຄາະ. ���ະແສນ້ຳຕັດ���ິ່ນຄືນທີ່ໄຫຼກັບຈາກ���ານແຕກຂອງຊາຍຫາດ. �����່ວນຫຼາຍເມັນ���ູ່ບົນຫີນຫຼືຊາຍກັນ. �ดูว່າຜູ້ທີ່ໄດ້ແຕ່ງງານກັບອີກນ້ອຍສອງຄົນ ��ໍ່ໄດ້ສ້າງຄວາມປະທັບໃຈທີ່ດີຢ່າງໃຫ້ກັບໄມເລີ ຜູ້ທີ່ກ່ຽວຂ້ອງກັບເລື່ອງນີ້ເລີຍ. ในตอนแรงวันอาทิตย์ ประธานาธิบดีสหรัฐ โดนัลด์ ทรัมป์ ได้ประกาศแถลงการณ์ที่ส่งผ่านเลขาธิการข่าวว่ากองทัพสหรัฐจะออกจากซีเรีย ���ນທີ່ສຸດມີແມວນ���ອຍຫຼາຍຕົວ ���ວມທັງແມວ���ຼຽງທີ່ສູນຫາຍ ທີ່ກິນຢ່າທີ່ໃນນ້ອຍຈຳນວນ���້ອງຫຼາຍເຊັ່ນແມ່ງໄມ້ ໜູ ກະແກ ແລະນົກຕ່າງໆ. ���ນ���ະຫວ່າງ������ມປີ 1903 ���ັດສະນະຄະຕິທີ່ພົ້ນເດັ່ນ���ອງພົນລະເມືອງ ແລະ ປະເທດສ່ວນໃຫຍ່ ແມ່ນຄວາມສ���ງົບ ແລະ ຄວາມແຍກກັນຢູ່. ผู้ว่าการรัฐแคลิฟอร์เนีย อาร์โนลด์ ชวาร์เซเน็กเกอร์ ได้ลงนามในกฎหมายว่าด้วยการห้ามบ่อยขายหรือให้เช่าเกมวิดีโอที่มีความรุนแรงให้กับเด็กน้อย เอซุส ePC ໄດ້ຖືກເປີດຕົວກ່ອນອື່ນໃນທົ່ວໂລກ ໂດຍປັດໃຈໃນການປະຢັດ���ົ້ນທຶນແລະການ���ັ່ງງານ ກາຍເປັນຮົວຂວດ���ີ່ຮ້ອນແຮງໃນປີ 2007 ຂອງໄທເປ ໄອທີ ໝອນ. ���ນບາງ���ື້ນທີ່ ການ���ົ້ມນ້ຳປະມານ 1 ນາທີ ແມ່ນພຽງພໍແລ້ວ. ໃນບາງບ່ອນກໍໃຊ້ເວລາຫຼາຍນາທີ. ���ນ���ື້ທຳອິດຂອງ���ມັ້ນ, ການສະແດງເປັນຈຸດເດັ່ນພຽງຢ່າງດຽວຢູ່ເວັບໄຊທ໌ Togenek Radio ສະຖານີວິທະຍຸອິນເຕີເນັດທີ່ມີມາດົນນານ, ເວັບໄຊທ໌ທີ່ສູມໃສ່ການສົນທະນາທາງວິທະຍຸ. ���ົນ�อຸລບົດ���ູ້ຂີ່���ວນ���້າຍແມ່ນ���່ວມໃສ່ເກີດ���ີ່ໃສ່ໃນການຂີ່ທີ່ມີ���ົນແລະແກ່ງເຫຼັມຄ່ອນຂ້າງແຄບ ���ິດນ້ຳເຜື່ອນ. ���ນື່ອງ������ຫະມີການອ້າງ���່າສາມາດ���ວດສອບໄດ້ວ່າບຸກຄົນໄດ້ຕົວໂດຍການຕິດຄວາມໝາຍຫ້ອງຈະລະຜ່າງ���າຖືກຕ້ອງຫຼືບໍ່. ນອກເໜືອຈາກການແຂ່ງຂັນໃນມື້ວັນພຸດ, ���າປາເນ���ດ້ ໄດ້ເຂົ້າຮ່ວມການແຂ່ງຂັນໃນສອງ���າຍການແຂ່ງຂັນ ແລນຊ່ວນບຸກຄົນ ແລະ ລະບັບການແຂ່ງຂັນແພຣຊິງແຊມ. ���ມືອງ���ັງກ່າວຍັງເປັນສະຖານທີ່ທີ່ຈະປິ່ນຜູ້ເຂົ່າໄຟນີລາຄອງໂກ ພ້ອມກັບ��ທາງ���່າງຕາມຜູ້ກໍລິລາ ທີ່ມີລາຄາຖືກທີ່ສຸດໃນອາຟຣິກາ. ส่วนสาธารณะแห่งชาติ Great Wick Lake ແມ່ນມີປ່າໄມ້ຢ່າງຫນາແໜ້ນ. ສ່ວນໃຫຍ່ແລ້ວເປັນຕົ້ນເຜິ້ງ, ຕົ້ນສົນ ແລະຕົ້ນໄມ້ສົນທີ່ເປັນໃບສາມຫຼ່ຽມ ແລະມີລັກສະນະປະສົມຂອງພືດພັນ Alpine ແລະ Mediterranean. ���ະຊາກອນຂອງເມືອງວາຕິນກັນ ແມ່ນປະມານ 800 ຄົນ ມັນແມ່ນປະເທດທີ່ມີເອກະລາດນ້ອຍສຸດໃນໂລກ ແລະເປັນປະເທດທີ່ມີປະຊາກອນນ້ອຍສຸດ. ������ນັກງານຈັດການເຫດສຸກເສີນທາງພາກເໜືອຂອງມາເລເນຍ ກ່າວວ່າ ບໍ່ມີລາຍງານຄວາມເສຍຫາຍໃດໆເກີດຂຶ້ນໃນປະເທດ. การพักผ่อนอยู่เทิงจอมภูแห่งหนึ่งทางภาคเหนือของเมืองเมสคา ทำด้านกาวแม่นยำออกจากส่วนที่เหลือของโลก คู่ผัวเมียเหล่านี้อาจจะเลือกที่จะวางแผนในการหับเลี้ยงลูกบุญธรรมให้เป็นลูกของพวกเขา ���ຮົາບ���່ສາມາດໃສ່ຢາເສບຕິດເພື່ອອັງສະໜອງຄວາມເຈັບປວດຂອງລາວທີ່ເກີດຫຍໍ້ວາ. ຂ້າວເຈົ້າຖືກ���້າມບໍ່ໃຫ້ຫຼິ້ນເກມໄດ້. ���ູ່ແນວແຖວດຽວ���ັນ ���ູ້ຊາຍ���ໍແມ່ນຖືແຮກ���້ອງ ໃຫ້ຕ້ອງໄດ້ນຸ່ງຊົງທີ່ປົກຫົວເຂົ່າ. ນີ້ເປິງຄືວ່າສາມາດຮູ້ສຶກໄດ້ ເພາະວ່າບໍ່ຮູ້ສຶກຄືກັບວ່າໂລກມັນກຳລັງເຄື່ອນທີ່ແມ່ນບໍ. ���ືດເບີ່ງຄືມີລັກສ���ນະດີທີ່ສຸດເມື່ອຢູ່ໃນສະພາວະ���ວດລ້ອມເປັນທຳມະຊາດນັ້ນໆ. ���ານຕໍ່ຕ້ານການທະລ���ງເພື່ອເອົາຕົວຢ່າງອອກພຽງ���ັນດຽວ. ���ນ���ົວປະກັນ ຫົກຄົນທີ່ມີ���າງເດັກນ້ອຍ ແລະຜູ້ເຖົ້າ ໄດ້ຖືກປ່ອຍຕົວອອກມາ ���ໍເນື່ອງຈາກເປັນນັກຖ່າຍພາບຊາວຟິລິບປິນ. ตั้งทรงยิ่งลดต่ำลง ยิ่งเป็นการดีให้พลังชีวิตมีอยู่ ทุกคนมีความสามารถที่จะพบเห็นความสงบสุขและความพึงพอใจอย่างแท้จริง ���ະຫຼອດ���ືນລະບານ���ຼອຍຫາສິບ ���ລະ���ອງຮ້ອຍ ���ຳເໜົ່າໄດ້ສຶກສາເຄື່ອນປະຈຸບັນປະທີຫົວຈັກກັນວາ. ດອນແຣບ ບຣອຍໃສ. ���ານວິພາກວິຈານ���່າງ���້ວງຫຼາຍກ່ຽວກັບ���ວາມພະຍາຍາມໃນການສົນຟູບຸລະນະແດ່ມູງເນັ້ນປະຕິການ���ັດສິນ���ັນຍາການສົນຟູບຸລະນະໃຫ້ແກ່ຜູ້ທີ່ຢູ່ພາຍໃນວໍຊິງຕັນທີ່ຖືກັບຜົງ. ພອມັນມີຕີນ ທີ່ມີເກັດ ແລະ ມີກາງ. ພອມັນວາງໄຂ່ ແລະ ພອມັນຍ່າງໄປດ້ວຍຂາຫຼັງສອງເບື້ອງ. ໄຂ່ຄືກັບຕົວໄດໂນເສົາ ທີເຣັກ.",
+   "sentences_ok": 30,
+   "request_ms_median": 5743,
+   "request_ms_p90": 6510
+  }
+ ]
+}

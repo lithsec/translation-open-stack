@@ -1,0 +1,226 @@
+{
+ "lang": "ja",
+ "auto": false,
+ "err": "",
+ "config": {
+  "sample_rate": 16000,
+  "audio_format": "pcm_16000",
+  "language_code": "ja",
+  "secondary_languages": [],
+  "timestamps_granularity": "word",
+  "vad_commit_strategy": true,
+  "vad_silence_threshold_secs": 1.5,
+  "vad_threshold": 0.4,
+  "min_speech_duration_ms": 100,
+  "min_silence_duration_ms": 100,
+  "max_tokens_to_recompute": 5,
+  "model_id": "scribe_v2_realtime",
+  "disable_logging": false,
+  "include_timestamps": true,
+  "include_language_detection": true,
+  "filter_background_audio": false,
+  "keyterms": [],
+  "no_verbatim": false,
+  "entity_detection": null,
+  "keepalive_interval_ms": null
+ },
+ "finals": [
+  {
+   "text": "エンジェルは、二千六年に組織がより高いパフォーマンスレベルに到達する上で役立つ方法として、連続体アプローチを説明しています。",
+   "language": "ja",
+   "offsetMs": 3940,
+   "durationMs": 10081.000000000002,
+   "arrivedMs": 15827
+  },
+  {
+   "text": "橋下の情報空間は十五メートルです。二千十一年八月に竣工し、二千十七年三月まで開通しませんでした。 脳病理と行動の相関関係は、科学者たちの研究を裏付けるものです。",
+   "language": "ja",
+   "offsetMs": 18480,
+   "durationMs": 13901,
+   "arrivedMs": 34119
+  },
+  {
+   "text": "離岸流とは、砕けて浜辺に戻ってくる引き波のことで、多くの場合、岸礁やそれに似た場所で発生します。",
+   "language": "ja",
+   "offsetMs": 38180,
+   "durationMs": 9241,
+   "arrivedMs": 49169
+  },
+  {
+   "text": "既婚者であり、成人した二人の子を持つリバルは、この話に関係するウィラーにあまり印象を残しませんでした。",
+   "language": "ja",
+   "offsetMs": 50960,
+   "durationMs": 6301.000000000002,
+   "arrivedMs": 58977
+  },
+  {
+   "text": "10月10日夜、ドナルド・トランプ米大統領は報道関係者へ配信された声明において、米軍がシリアから撤退することを発表しました。",
+   "language": "ja",
+   "offsetMs": 61280,
+   "durationMs": 8200.999999999993,
+   "arrivedMs": 71184
+  },
+  {
+   "text": "最後に昆虫、げっ歯類、トカゲ、鳥といったはるかに多数の小さいものを餌とする小型の猫（野良猫を含む）が数多く生息しています。",
+   "language": "ja",
+   "offsetMs": 75920,
+   "durationMs": 8920.999999999993,
+   "arrivedMs": 86666
+  },
+  {
+   "text": "1920年代に市民や国家のほとんどに広まっていた思想は、平和主義と効率主義でした。",
+   "language": "ja",
+   "offsetMs": 90500,
+   "durationMs": 5840.999999999994,
+   "arrivedMs": 98289
+  },
+  {
+   "text": "カリフォルニア州のアーノルドシュワルツネッガー知事は、暴力的なビデオゲームを未成年者に販売やレンタルすることを禁止する法案に署名しました。",
+   "language": "ja",
+   "offsetMs": 101020,
+   "durationMs": 9901.000000000011,
+   "arrivedMs": 112772
+  },
+  {
+   "text": "えー、サスのEPCはコスト面と機能面で世界に先駆けて販売され、2007台北ITマースで話題となりました。",
+   "language": "ja",
+   "offsetMs": 115848,
+   "durationMs": 9061.000000000007,
+   "arrivedMs": 126835
+  },
+  {
+   "text": "一分間で沸騰する地域もあれば、沸騰するまでに何分もかかる地域もあります。",
+   "language": "ja",
+   "offsetMs": 128448.00000000001,
+   "durationMs": 5540.999999999996,
+   "arrivedMs": 135638
+  },
+  {
+   "text": "当初、番組はトークラジオに特化したインターネットラジオサイト「トギネットラジオ」のみで取り上げられ、これは長寿サイトです。",
+   "language": "ja",
+   "offsetMs": 139708,
+   "durationMs": 8221.000000000004,
+   "arrivedMs": 149753
+  },
+  {
+   "text": "まず、ほとんどの乗り手は、かかとと滑らかでかなり狭めの靴底が付いた乗馬靴を履いています。",
+   "language": "ja",
+   "offsetMs": 152848,
+   "durationMs": 7360.99999999999,
+   "arrivedMs": 161953
+  },
+  {
+   "text": "特に、ビッジヒョウの状況を正確に解釈することによって、その人が嘘をついているかどうかを見抜けると主張しています。",
+   "language": "ja",
+   "offsetMs": 163176,
+   "durationMs": 9841.000000000007,
+   "arrivedMs": 175881
+  },
+  {
+   "text": "水曜日のイベントの後、カルパネドは選手権で2つの個人レースに出場しました。",
+   "language": "ja",
+   "offsetMs": 175916,
+   "durationMs": 5200.999999999994,
+   "arrivedMs": 183003
+  },
+  {
+   "text": "この都市はニラコンゴ火山への登山の拠点であり、アフリカで最も安くマウンテンゴリラを追跡できる場所の1つでもあります。",
+   "language": "ja",
+   "offsetMs": 185996,
+   "durationMs": 8360.999999999989,
+   "arrivedMs": 196233
+  },
+  {
+   "text": "プリトヴィツェ国営国立公園は、アルプスと地中海の植生が混在する広大な森、主にブナ、トウヒ、モミに大小16の湖が点在し、絶景であふれる世界遺産です。",
+   "language": "ja",
+   "offsetMs": 197776,
+   "durationMs": 12180.999999999984,
+   "arrivedMs": 211821
+  },
+  {
+   "text": "バチカン市の人口は約800人です。世界最小の独立国家であり、最も人口が少ない国でもあります。",
+   "language": "ja",
+   "offsetMs": 214976,
+   "durationMs": 11121.00000000001,
+   "arrivedMs": 227945
+  },
+  {
+   "text": "北マリアナ諸島の危機管理室（EMO）によると、全国的に被害は報告されていないとのことです。",
+   "language": "ja",
+   "offsetMs": 228996,
+   "durationMs": 6520.999999999986,
+   "arrivedMs": 237377
+  },
+  {
+   "text": "洞窟はメッカの北にあたる山頂にあり、外界から完全に隔離されています。",
+   "language": "ja",
+   "offsetMs": 240496,
+   "durationMs": 5300.999999999987,
+   "arrivedMs": 247579
+  },
+  {
+   "text": "このようなご夫婦は、その赤ちゃんのために養子縁組制度を利用できます。",
+   "language": "ja",
+   "offsetMs": 251772,
+   "durationMs": 5901.000000000011,
+   "arrivedMs": 259502
+  },
+  {
+   "text": "痛みを抑えるのに必要な薬がその大会で禁止されているため、彼は服用できませんでした。",
+   "language": "ja",
+   "offsetMs": 262112.00000000003,
+   "durationMs": 6280.999999999949,
+   "arrivedMs": 270152
+  },
+  {
+   "text": "同じように、男性は膝を覆うズボンをはくことが義務付けられています。",
+   "language": "ja",
+   "offsetMs": 273472,
+   "durationMs": 4261.000000000024,
+   "arrivedMs": 279494
+  },
+  {
+   "text": "地球が動いているようには感じないので、これは理にかなっているように思えません。 植物は自然環境にある時に最も見栄えがするのですから、1本だけならと標本に持ち帰りたい誘惑に負けないでください。",
+   "language": "ja",
+   "offsetMs": 281716,
+   "durationMs": 17500.999999999978,
+   "arrivedMs": 300955
+  },
+  {
+   "text": "子供と高齢者を--",
+   "language": "ja",
+   "offsetMs": 302336,
+   "durationMs": 1480.9999999999945,
+   "arrivedMs": 305563
+  },
+  {
+   "text": "6名と人質六名が早期にか-解放され、フィリピン人の写真家たちも同じく解放。緊張度が低いほど、よりポジティブな生命力が生まれます。誰にでも絶対的な平和と満足感をみ-",
+   "language": "ja",
+   "offsetMs": 304752,
+   "durationMs": 16661,
+   "arrivedMs": 323101
+  },
+  {
+   "text": "見いだす潜在的な能力が備わっています。 一晩で百五十から二百枚が製され、現在ではダンラップブロードサイドと呼ばれています。",
+   "language": "ja",
+   "offsetMs": 322984,
+   "durationMs": 10001.000000000033,
+   "arrivedMs": 334736
+  },
+  {
+   "text": "復興努力に対するリベラル派からの批判では、ワシントンの内部関係者と思われる人物と復興契約をかわかし-- 交わしたことに焦点を当てています。",
+   "language": "ja",
+   "offsetMs": 337916,
+   "durationMs": 11381.00000000003,
+   "arrivedMs": 351208
+  },
+  {
+   "text": "うろこと爪のついた足を持ち、ランチ性であり、ティラノサウルスのように後ろ足2本で歩きます。",
+   "language": "ja",
+   "offsetMs": 354856,
+   "durationMs": 7281.0000000000055,
+   "arrivedMs": 363885
+  }
+ ],
+ "firstPartialMs": 5024
+}

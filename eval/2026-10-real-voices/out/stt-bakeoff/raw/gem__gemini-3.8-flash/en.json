@@ -1,0 +1,703 @@
+{
+ "system": "gem:gemini-3.8-flash",
+ "lang": "en",
+ "err": "",
+ "model": "gemini-3.8-flash",
+ "prompt": "Transcribe this audio verbatim in English, in its own script (Latin script). No translation, no commentary, no timestamps: output only the transcript.",
+ "thinking": {
+  "thinkingBudget": 0
+ },
+ "rows": [
+  {
+   "i": 0,
+   "text": "Engel 2006 explains that continuum approach is the method being used to help organizations reach a higher level of",
+   "ms": 2032,
+   "usage": {
+    "promptTokenCount": 199,
+    "candidatesTokenCount": 23,
+    "totalTokenCount": 222,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 168
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 1,
+   "text": "The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011, it didn't open to traffic until March 2012.",
+   "ms": 2703,
+   "usage": {
+    "promptTokenCount": 213,
+    "candidatesTokenCount": 38,
+    "totalTokenCount": 251,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 182
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 2,
+   "text": "The correlation between brain pathology and behavior supports scientists in their research.",
+   "ms": 4482,
+   "usage": {
+    "promptTokenCount": 190,
+    "candidatesTokenCount": 13,
+    "totalTokenCount": 203,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 159
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 3,
+   "text": "Rip currents are the returning flow from waves breaking off the beach, often at a reach, reef, or similar.",
+   "ms": 6691,
+   "usage": {
+    "promptTokenCount": 181,
+    "candidatesTokenCount": 23,
+    "totalTokenCount": 204,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 150
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 4,
+   "text": "Duvall, who was married with two adult children, did not leave a big impression on Miller, to whom the story was related.",
+   "ms": 9362,
+   "usage": {
+    "promptTokenCount": 221,
+    "candidatesTokenCount": 28,
+    "totalTokenCount": 249,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 190
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 5,
+   "text": "Late on Sunday, the United States President Donald Trump in a statement delivered via the press secretary announced US troops would be leaving Syria.",
+   "ms": 8394,
+   "usage": {
+    "promptTokenCount": 226,
+    "candidatesTokenCount": 26,
+    "totalTokenCount": 252,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 195
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 6,
+   "text": "Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey like insects, rodents, lizards, and birds.",
+   "ms": 9352,
+   "usage": {
+    "promptTokenCount": 277,
+    "candidatesTokenCount": 31,
+    "totalTokenCount": 308,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 246
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 7,
+   "text": "During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolation.",
+   "ms": 9363,
+   "usage": {
+    "promptTokenCount": 169,
+    "candidatesTokenCount": 25,
+    "totalTokenCount": 194,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 138
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 8,
+   "text": "California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors",
+   "ms": 8679,
+   "usage": {
+    "promptTokenCount": 223,
+    "candidatesTokenCount": 21,
+    "totalTokenCount": 244,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 192
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 9,
+   "text": "Asus Eee PC earlier launched worldwide for cost-saving functionality factors, became a hot topic in 2007 Taipei IT",
+   "ms": 8847,
+   "usage": {
+    "promptTokenCount": 227,
+    "candidatesTokenCount": 26,
+    "totalTokenCount": 253,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 196
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 10,
+   "text": "In some areas, boiling water for a minute is enough, in others several minutes are needed.",
+   "ms": 9700,
+   "usage": {
+    "promptTokenCount": 125,
+    "candidatesTokenCount": 19,
+    "totalTokenCount": 144,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 94
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 11,
+   "text": "In its early days, the show was featured solely at the long-running internet radio site, Toginet Radio, a site focused on talk radio.",
+   "ms": 9626,
+   "usage": {
+    "promptTokenCount": 239,
+    "candidatesTokenCount": 30,
+    "totalTokenCount": 269,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 208
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 12,
+   "text": "First, most riders wear riding boots with a heel and a smooth, quite narrow sole.",
+   "ms": 10201,
+   "usage": {
+    "promptTokenCount": 228,
+    "candidatesTokenCount": 18,
+    "totalTokenCount": 246,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 197
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 13,
+   "text": "In particular, it is claimed that one can detect whether a person is lying by interpreting micro-expressions correctly",
+   "ms": 11368,
+   "usage": {
+    "promptTokenCount": 178,
+    "candidatesTokenCount": 21,
+    "totalTokenCount": 199,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 147
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 14,
+   "text": "Beyond Wednesday's event, Carpanedo competed in two individual races",
+   "ms": 9741,
+   "usage": {
+    "promptTokenCount": 129,
+    "candidatesTokenCount": 14,
+    "totalTokenCount": 143,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 98
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 15,
+   "text": "The city is also the base to climb the Nyiragongo volcano, along with some of the cheapest mountain gorilla tracking in Africa.",
+   "ms": 9645,
+   "usage": {
+    "promptTokenCount": 244,
+    "candidatesTokenCount": 27,
+    "totalTokenCount": 271,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 213
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 16,
+   "text": "The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of Alpine and Mediterranean vegetation",
+   "ms": 8922,
+   "usage": {
+    "promptTokenCount": 337,
+    "candidatesTokenCount": 30,
+    "totalTokenCount": 367,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 306
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 17,
+   "text": "Vatican City population is around 800. It is the smallest independent country in the world and the population",
+   "ms": 7845,
+   "usage": {
+    "promptTokenCount": 300,
+    "candidatesTokenCount": 24,
+    "totalTokenCount": 324,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 269
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 18,
+   "text": "The Northern Marianas Emergency Management Office said that there were no damages reported in the nation.",
+   "ms": 8036,
+   "usage": {
+    "promptTokenCount": 267,
+    "candidatesTokenCount": 18,
+    "totalTokenCount": 285,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 236
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 19,
+   "text": "Resting on the top of one of the mountains north of Mecca, the cave is closely isolated from the rest of the world.",
+   "ms": 8096,
+   "usage": {
+    "promptTokenCount": 212,
+    "candidatesTokenCount": 26,
+    "totalTokenCount": 238,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 181
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 20,
+   "text": "These couples may choose to make an adoption plan for their baby",
+   "ms": 8590,
+   "usage": {
+    "promptTokenCount": 176,
+    "candidatesTokenCount": 12,
+    "totalTokenCount": 188,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 145
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 21,
+   "text": "He has been unable to take the drugs needed to overcome his pain as they are banned from the games.",
+   "ms": 8697,
+   "usage": {
+    "promptTokenCount": 137,
+    "candidatesTokenCount": 21,
+    "totalTokenCount": 158,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 106
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 22,
+   "text": "Along the same line, men are required to wear trousers covering the knees.",
+   "ms": 8907,
+   "usage": {
+    "promptTokenCount": 188,
+    "candidatesTokenCount": 15,
+    "totalTokenCount": 203,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 157
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 23,
+   "text": "that seems sensible, because the earth doesn't feel as if it's moving, does it?",
+   "ms": 8928,
+   "usage": {
+    "promptTokenCount": 129,
+    "candidatesTokenCount": 21,
+    "totalTokenCount": 150,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 98
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 24,
+   "text": "Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen.",
+   "ms": 8396,
+   "usage": {
+    "promptTokenCount": 226,
+    "candidatesTokenCount": 21,
+    "totalTokenCount": 247,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 195
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 25,
+   "text": "Six hostages, including the children and elderly, were released early, as were the Filipino photographers.",
+   "ms": 8284,
+   "usage": {
+    "promptTokenCount": 247,
+    "candidatesTokenCount": 19,
+    "totalTokenCount": 266,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 216
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 26,
+   "text": "The lower the tension the more positive the life force present. Every person has the potential to find absolute peace and contentment",
+   "ms": 7635,
+   "usage": {
+    "promptTokenCount": 271,
+    "candidatesTokenCount": 23,
+    "totalTokenCount": 294,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 240
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 27,
+   "text": "is that night between 150 and 200 copies were made. Now, known as the",
+   "ms": 7561,
+   "usage": {
+    "promptTokenCount": 118,
+    "candidatesTokenCount": 22,
+    "totalTokenCount": 140,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 87
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 28,
+   "text": "Liberal criticism of the reconstruction effort has focused on the awarding of reconstruction contracts to perceived Washington insiders.",
+   "ms": 7786,
+   "usage": {
+    "promptTokenCount": 260,
+    "candidatesTokenCount": 19,
+    "totalTokenCount": 279,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     },
+     {
+      "modality": "AUDIO",
+      "tokenCount": 229
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  },
+  {
+   "i": 29,
+   "text": "They have feet with scales and claws. They lay eggs, and they walk on their two back legs, like a T-Rex.",
+   "ms": 7913,
+   "usage": {
+    "promptTokenCount": 198,
+    "candidatesTokenCount": 27,
+    "totalTokenCount": 225,
+    "promptTokensDetails": [
+     {
+      "modality": "AUDIO",
+      "tokenCount": 167
+     },
+     {
+      "modality": "TEXT",
+      "tokenCount": 31
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "finish": "STOP",
+   "err": ""
+  }
+ ],
+ "text": "Engel 2006 explains that continuum approach is the method being used to help organizations reach a higher level of The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011, it didn't open to traffic until March 2012. The correlation between brain pathology and behavior supports scientists in their research. Rip currents are the returning flow from waves breaking off the beach, often at a reach, reef, or similar. Duvall, who was married with two adult children, did not leave a big impression on Miller, to whom the story was related. Late on Sunday, the United States President Donald Trump in a statement delivered via the press secretary announced US troops would be leaving Syria. Finally, there are many small cats, including loose pet cats, that eat the far more numerous small prey like insects, rodents, lizards, and birds. During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolation. California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors Asus Eee PC earlier launched worldwide for cost-saving functionality factors, became a hot topic in 2007 Taipei IT In some areas, boiling water for a minute is enough, in others several minutes are needed. In its early days, the show was featured solely at the long-running internet radio site, Toginet Radio, a site focused on talk radio. First, most riders wear riding boots with a heel and a smooth, quite narrow sole. In particular, it is claimed that one can detect whether a person is lying by interpreting micro-expressions correctly Beyond Wednesday's event, Carpanedo competed in two individual races The city is also the base to climb the Nyiragongo volcano, along with some of the cheapest mountain gorilla tracking in Africa. The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of Alpine and Mediterranean vegetation Vatican City population is around 800. It is the smallest independent country in the world and the population The Northern Marianas Emergency Management Office said that there were no damages reported in the nation. Resting on the top of one of the mountains north of Mecca, the cave is closely isolated from the rest of the world. These couples may choose to make an adoption plan for their baby He has been unable to take the drugs needed to overcome his pain as they are banned from the games. Along the same line, men are required to wear trousers covering the knees. that seems sensible, because the earth doesn't feel as if it's moving, does it? Plants look their best when in a natural environment, so resist the temptation to remove even just one specimen. Six hostages, including the children and elderly, were released early, as were the Filipino photographers. The lower the tension the more positive the life force present. Every person has the potential to find absolute peace and contentment is that night between 150 and 200 copies were made. Now, known as the Liberal criticism of the reconstruction effort has focused on the awarding of reconstruction contracts to perceived Washington insiders. They have feet with scales and claws. They lay eggs, and they walk on their two back legs, like a T-Rex."
+}

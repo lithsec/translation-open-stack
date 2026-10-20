@@ -1,0 +1,7 @@
+translated chirp3 gemini-2.5-flash+ctx
+translated chirp3 gemini-2.5-flash-lite
+Traceback (most recent call last):
+  File "/Users/sstone/dev/translation-open-stack/eval/2026-10-real-voices/text-mt/translate_ht.py", line 146, in <module>
+    g = {x["i"]: x for x in res.get(L, [])}
+                            ^^^^^^^
+AttributeError: 'list' object has no attribute 'get'

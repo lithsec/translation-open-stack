@@ -1,0 +1,15 @@
+translated gemini-2.5-pro-stt google-translate
+translated gemini-2.5-pro-stt gemini-2.5-flash
+translated gemini-2.5-pro-stt gemini-2.5-flash+ctx
+chirp3__gemini-2.5-flash                 fully correct 50%  mean 71%  critical 3
+chirp3__gemini-2.5-flash+ctx             fully correct 50%  mean 71%  critical 2
+chirp3__google-translate                 fully correct 30%  mean 60%  critical 2
+gemini-2.5-pro-stt__gemini-2.5-flash     fully correct 47%  mean 71%  critical 1
+gemini-2.5-pro-stt__gemini-2.5-flash+ctx fully correct 37%  mean 68%  critical 1
+gemini-2.5-pro-stt__google-translate     fully correct 33%  mean 68%  critical 1
+gold__gemini-2.5-flash                   fully correct 67%  mean 82%  critical 1
+gold__gemini-2.5-flash+ctx               fully correct 77%  mean 87%  critical 1
+gold__google-translate                   fully correct 37%  mean 72%  critical 2
+omnilingual__gemini-2.5-flash            fully correct 37%  mean 66%  critical 2
+omnilingual__gemini-2.5-flash+ctx        fully correct 33%  mean 59%  critical 1
+omnilingual__google-translate            fully correct 13%  mean 37%  critical 3
