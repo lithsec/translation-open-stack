@@ -78,7 +78,7 @@ GET /mic      a one-file microphone test page: type the languages and the token,
 
 ```
 connect   wss://<host>/speak[?voice=mms|coqui]      same token as /listen
-server    {"type":"hello","lang":"ht","voices":["mms","coqui"],"voice":"coqui","rate":24000}
+server    {"type":"hello","lang":"ht","voices":["mms","coqui"],"voice":"coqui","rate":24000,"edition":"nonprofit"}
 client    {"type":"speak","text":"Nou gen 600 moun jodi a.","voice":"mms","id":"7"}   voice and id optional
 server    {"type":"sentence","id":"7","index":0,"bytes":96000}   then that sentence's audio:
           binary frames of mono PCM16 at 24 kHz (at most 1 s each)
@@ -89,9 +89,20 @@ server    {"type":"error","id":"7","detail":"..."}   a refused or failed request
 - Voices: `mms` = Meta MMS-TTS `facebook/mms-tts-hat`, **CC-BY-NC-4.0**: non-commercial
   use only (fine for a non-profit service; not for a paid product).
   `coqui` = Coqui VITS `multilingual-tts/VITS-OpenBible-Haitian-Creole`, **CC-BY-SA-4.0**:
-  credit the OpenBible voice. Both are baked into the image.
+  credit the OpenBible voice. Both are baked into the image (`--build-arg
+  EDITION=commercial` leaves MMS out). Their licences are `server/licences.py`'s
+  (`SERVICE_VOICES`), the stack's one licence authority.
+- Editions, as the stack's: `EDITION=commercial` (the default here, and in
+  `deploy.sh`) never loads MMS; `nonprofit` offers both; `both` serves each
+  `/speak` socket in the edition its signed token's `ed` claim names, and a token
+  without one (the static `STT_TOKEN`) in commercial, the stricter. The hello lists
+  only the voices that edition may use; asking for another is refused like a voice
+  that is not loaded (the client falls back, rather than hearing a voice it did not
+  pick). A token for an edition the server does not serve is closed with 4403.
+  `/listen` is the same in every edition (its models are Apache/MIT).
 - The voice: the request's `voice`, else the socket's `?voice=`, else `HT_VOICE`
-  (default `coqui`). `STT_VOICES` limits which are loaded.
+  (default `coqui`) when the edition allows it, else the first voice it allows.
+  `STT_VOICES` limits which are loaded (naming one the edition forbids stops the server).
 - Numbers are spelled out first (`ht_numbers.py`): neither voice says digits, so
   "600" would vanish. 0 to 999 999 999 999, years ("1804" -> "mil ui san kat"),
   simple ordinals ("2e" -> "dezyèm"), decimals, `%` and `$`; the sources and
@@ -134,7 +145,7 @@ are cut short:
 
 `deploy.sh deploy` passes all three through when they are set in its environment.
 Other settings: `STT_MAX_CONNECTIONS`, `STT_MAX_PENDING`, `STT_DEVICE`, `OMNI_CARD`,
-`STT_MODELS`, `PORT`, `HT_VOICE`, `STT_VOICES`, `STT_MAX_SPEAKERS`, `STT_SERVE`
+`STT_MODELS`, `PORT`, `EDITION`, `HT_VOICE`, `STT_VOICES`, `STT_MAX_SPEAKERS`, `STT_SERVE`
 (see the top of `server.py`).
 
 VoxLingua107 covers ht (Haitian), km (Central Khmer) and lo (Lao), checked

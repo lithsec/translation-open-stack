@@ -20,7 +20,8 @@ Protocol:
                      {"type":"error","detail":"..."}
 
     client connects  wss://host/speak[?voice=mms|coqui]   (same token)
-    server sends     {"type":"hello","lang":"ht","voices":["mms","coqui"],"voice":"coqui","rate":24000}
+    server sends     {"type":"hello","lang":"ht","voices":["mms","coqui"],"voice":"coqui","rate":24000,
+                      "edition":"nonprofit"}   voices: those the connection's edition may use
     client sends     {"type":"speak","text":"...","voice":"mms","id":"7"}   voice, id optional
     server sends     per sentence: {"type":"sentence","id":"7","index":0,"bytes":96000}
                      then that sentence's audio as binary frames: 24 kHz mono PCM16
@@ -29,7 +30,8 @@ Protocol:
                      {"type":"error","id":"7","detail":"..."}   (a failed request; the socket stays open)
     Requests on one socket are spoken in order; a client may keep it open.
     Before the voices have loaded (they load beside the recogniser) the hello
-    waits; if they failed to load the socket is closed with 4503.
+    waits; if they failed to load the socket is closed with 4503. A token for an
+    edition this server does not serve is closed with 4403 (as the stack does).
 
     GET /health      200 "ok" once the models are loaded (the port opens only then)
     GET /mic         a microphone test page (mic.html): speak, see each transcript
@@ -56,15 +58,19 @@ the room has one language. Omnilingual gives no confidence of its own.
 start_ms/end_ms count from the first sample of this connection, at 16 kHz.
 
 /speak (voices.py): Haitian Creole only, by the stack's MMS-TTS (facebook/mms-tts-hat,
-CC-BY-NC-4.0: non-commercial use, which a non-profit service is) or Coqui
-VITS (multilingual-tts/VITS-OpenBible-Haitian-Creole, CC-BY-SA-4.0) engines. Numbers
+CC-BY-NC-4.0: non-commercial use only) or Coqui VITS
+(multilingual-tts/VITS-OpenBible-Haitian-Creole, CC-BY-SA-4.0) engines. Which a
+connection may use is its edition's call (EDITION, below; server/licences.py). Numbers
 are spelled out first (ht_numbers.py: neither voice says digits). A WebSocket, not
 an HTTP POST: the websockets server here answers GET only, and a socket lets the
 first sentence's audio go out while the rest is made. Text never goes in the URL
 (URLs are logged).
 
 Environment: HT_VOICE (mms|coqui, default coqui: the voice when a request names none),
-STT_VOICES (the voices loaded, default "mms,coqui"), STT_MAX_SPEAKERS (open /speak
+EDITION (commercial, the default: Coqui only, MMS never loads; nonprofit: both
+voices; both: each /speak connection in the edition its signed token's "ed" claim
+names, commercial for a token without one, e.g. STT_TOKEN),
+STT_VOICES (the voices loaded, default: every one EDITION allows), STT_MAX_SPEAKERS (open /speak
 sockets, default 4), STT_SERVE ("listen,speak" by default; "speak" skips the
 recogniser's models, for a laptop test of the voices), STT_TOKEN (or STT_SIGNING_KEY, the stack's signed tokens), STT_OPEN=1,
 PORT, STT_DEVICE (default: cuda when torch sees one, else cpu), OMNI_CARD,
@@ -235,15 +241,43 @@ def presented_token(headers, query):
 
 def subject_for(headers, query, env=None):
     """Who this is ("open", "static" or a signed token's subject), or None to refuse."""
+    return credentials_for(headers, query, env)[0]
+
+
+def credentials_for(headers, query, env=None):
+    """(subject or None to refuse, the token's edition claim or None). The
+    static token and an open server carry no edition (stack_auth.verify_claims)."""
     import stack_auth
     env = os.environ if env is None else env
     mode = auth_mode(env)
     if mode == "open":
-        return "open"
+        return "open", None
     if mode is None:
-        return None
-    return stack_auth.verify(presented_token(headers, query),
-                             env.get("STT_SIGNING_KEY", "").strip(), env.get("STT_TOKEN", "").strip())
+        return None, None
+    return stack_auth.verify_claims(presented_token(headers, query),
+                                    env.get("STT_SIGNING_KEY", "").strip(), env.get("STT_TOKEN", "").strip())
+
+
+# ---------------------------------------------------------------- editions
+
+# EDITION, as the stack's (server/stack_config.py): nonprofit, commercial, or
+# both (each connection in the edition its token's "ed" claim names; none: the
+# strictest served, stack_auth.connection_edition). It only decides the /speak
+# voices: the recogniser, language ID and VAD are permissive in every edition.
+# The default here is commercial, not the stack's nonprofit: a deployment that
+# says nothing never loads a non-commercial voice (MMS).
+EDITIONS = ("nonprofit", "commercial", "both")
+DEFAULT_EDITION = "commercial"
+CLOSE_EDITION = 4403        # the stack's code for a token of an edition not served here
+
+
+def service_editions(env=None):
+    """EDITION -> the editions served: ["commercial"], ["nonprofit"] or both."""
+    env = os.environ if env is None else env
+    ed = (env.get("EDITION") or DEFAULT_EDITION).strip().lower()
+    if ed not in EDITIONS:
+        raise SystemExit(f"[stt] EDITION must be nonprofit, commercial or both (got {clean(ed, 16)!r})")
+    return ["nonprofit", "commercial"] if ed == "both" else [ed]
 
 
 # ---------------------------------------------------------------- language ID
@@ -634,22 +668,33 @@ def served(env=None):
 
 
 def voice_list(env=None):
-    """STT_VOICES -> the voices to load (default every one)."""
-    from voices import VOICES
+    """STT_VOICES -> the voices to load: by default every voice an edition
+    served here may use (EDITION=commercial: never MMS). Naming a voice no
+    served edition may use is an error, not a silent drop."""
+    from voices import VOICES, permitted
     env = os.environ if env is None else env
-    names = [v.strip() for v in env.get("STT_VOICES", ",".join(VOICES)).split(",") if v.strip()]
+    eds = service_editions(env)
+    allowed = [v for v in VOICES if any(v in permitted([v], ed) for ed in eds)]
+    raw = env.get("STT_VOICES")
+    if raw is None:
+        return allowed
+    names = [v.strip() for v in raw.split(",") if v.strip()]
     if not names or any(v not in VOICES for v in names):
         raise SystemExit(f"[stt] STT_VOICES must be among {','.join(VOICES)}")
+    barred = [v for v in names if v not in allowed]
+    if barred:
+        raise SystemExit(f"[stt] STT_VOICES: {','.join(barred)} may not load with EDITION="
+                         f"{'both' if len(eds) > 1 else eds[0]} (server/licences.py)")
     return names
 
 
-def default_voice(names, env=None):
-    """HT_VOICE when loaded, else coqui, else the first voice loaded."""
+def default_voice(names, env=None, quiet=False):
+    """HT_VOICE when among `names`, else coqui, else the first of them."""
     env = os.environ if env is None else env
     want = env.get("HT_VOICE", "").strip().lower() or "coqui"
     if want in names:
         return want
-    if env.get("HT_VOICE"):
+    if env.get("HT_VOICE") and not quiet:
         print(f"[stt] HT_VOICE={clean(want, 16)} is not loaded; using {names[0]}", flush=True)
     return "coqui" if "coqui" in names else names[0]
 
@@ -1088,8 +1133,17 @@ async def speak_one(voices, voice, text, req_id, send):
     return spoken, audio_ms
 
 
-def parse_speak(msg, default_voice, names):
-    """A client text message -> (text, voice, id), or BadRequest."""
+def unavailable(voice, edition=None):
+    """Why a voice cannot be used: not licensed for the connection's edition, else not loaded."""
+    from voices import permitted
+    if edition and not permitted([voice], edition):
+        return f"voice {voice} is not available in the {edition} edition"
+    return f"voice {voice} is not loaded here"
+
+
+def parse_speak(msg, default_voice, names, edition=None):
+    """A client text message -> (text, voice, id), or BadRequest. `names`: the
+    voices this connection may use (loaded, and permitted in its edition)."""
     from voices import parse_voice
     try:
         m = json.loads(msg)
@@ -1107,27 +1161,43 @@ def parse_speak(msg, default_voice, names):
     except ValueError as e:
         raise BadRequest(str(e))
     if voice not in names:
-        raise BadRequest(f"voice {voice} is not loaded here")
+        raise BadRequest(unavailable(voice, edition))
     req_id = m.get("id")
     req_id = clean(req_id, 64) if isinstance(req_id, (str, int)) and not isinstance(req_id, bool) else None
     return text, voice, req_id
 
 
-async def handle_speak(ws, voices, sub="open", env=None):
-    """One /speak connection, after auth and admission."""
+async def handle_speak(ws, voices, sub="open", env=None, edition=None):
+    """One /speak connection, after auth and admission, in `edition` (guarded:
+    stack_auth.connection_edition; None: as a token without a claim would be).
+
+    Only the voices that edition may use are offered (hello) or spoken. A voice
+    it may not use is refused like one that is not loaded, never swapped for
+    another: the client asked for that voice and can fall back itself (Talk to
+    Gemini; Live Translation to captions). With no voice named, the default
+    (HT_VOICE) is used when permitted, else the first permitted voice, as the
+    stack's voice chain skips a voice the edition may not use."""
     from urllib.parse import urlparse, parse_qs
-    from voices import parse_voice, LANG
+    from voices import parse_voice, permitted, LANG
+    import stack_auth
+    if edition is None:
+        edition = stack_auth.connection_edition(service_editions(env), None)
     q = parse_qs(urlparse(ws.request.path).query)
-    names = voices.names
+    names = permitted(voices.names, edition)
+    if not names:
+        await ws.send(json.dumps({"type": "error", "detail": f"no voice here is available in the {edition} edition"}))
+        await ws.close(code=CLOSE_EDITION, reason=f"no voice for the {edition} edition")
+        return
     try:
-        voice = parse_voice((q.get("voice") or [""])[0], default_voice(names, env))
+        voice = parse_voice((q.get("voice") or [""])[0], default_voice(names, env, quiet=True))
         if voice not in names:
-            raise ValueError(f"voice {voice} is not loaded here")
+            raise ValueError(unavailable(voice, edition))
     except ValueError as e:
         await ws.send(json.dumps({"type": "error", "detail": str(e)}))
         await ws.close(code=CLOSE_BAD_REQUEST, reason="bad request")
         return
-    await ws.send(json.dumps({"type": "hello", "lang": LANG, "voices": names, "voice": voice, "rate": 24000}))
+    await ws.send(json.dumps({"type": "hello", "lang": LANG, "voices": names, "voice": voice, "rate": 24000,
+                              "edition": edition}))
     who = clean(sub, 24)
 
     async def send(m):
@@ -1139,7 +1209,7 @@ async def handle_speak(ws, voices, sub="open", env=None):
             await send({"type": "error", "detail": "send text messages: {\"type\":\"speak\",\"text\":\"...\"}"})
             continue
         try:
-            text, v, req_id = parse_speak(msg, voice, names)
+            text, v, req_id = parse_speak(msg, voice, names, edition)
         except BadRequest as e:
             await send({"type": "error", "detail": str(e)})
             continue
@@ -1176,11 +1246,22 @@ async def guarded(ws, models):
     if path not in open_paths:
         await ws.close(code=CLOSE_BAD_REQUEST, reason=f"the endpoints are {' and '.join(open_paths)}")
         return
-    sub = subject_for(ws.request.headers, parse_qs(url.query))
+    sub, claim = credentials_for(ws.request.headers, parse_qs(url.query))
     if sub is None:
         print("[stt] refused: bad or missing token", flush=True)
         await ws.close(code=CLOSE_UNAUTHORIZED, reason="unauthorized")
         return
+    edition = None
+    if path == "/speak":
+        # The edition only matters for the voices; /listen is the same in all.
+        import stack_auth
+        served_eds = service_editions()
+        edition = stack_auth.connection_edition(served_eds, claim)
+        if edition is None:
+            print(f"[stt] refused {clean(sub, 24)}: its token is for the {claim} edition; this server "
+                  f"serves {'/'.join(served_eds)}", flush=True)
+            await ws.close(code=CLOSE_EDITION, reason=f"this server does not serve the {claim} edition")
+            return
     limits = SPEAK_LIMITS if path == "/speak" else LIMITS
     why = limits.admit(sub)
     if why:
@@ -1196,7 +1277,7 @@ async def guarded(ws, models):
                 await ws.send(json.dumps({"type": "error", "detail": "the voices are not available on this server"}))
                 await ws.close(code=CLOSE_UNAVAILABLE, reason="voices unavailable")
                 return
-            await handle_speak(ws, models.voices, sub)
+            await handle_speak(ws, models.voices, sub, edition=edition)
         else:
             await handle(ws, models, sub)
     except Exception as e:
@@ -1223,6 +1304,8 @@ async def main():
     mode = auth_mode()
     if mode is None:
         raise SystemExit("[stt] set STT_TOKEN (or STT_SIGNING_KEY), or STT_OPEN=1 for an open test server")
+    eds = service_editions()          # a bad EDITION stops here, before any model loads
+    print(f"[stt] edition: {'both' if len(eds) > 1 else eds[0]}", flush=True)
     t0 = time.time()
     models = Models()
     warmup(models)
@@ -1267,8 +1350,13 @@ async def main():
 
 def fetch():
     """Image build: load every model once, by the same code the server runs, so
-    each lands in the cache the server will look in (deploy.sh, Dockerfile)."""
-    models = Models(device="cpu", serve={"listen", "speak"})
+    each lands in the cache the server will look in (deploy.sh, Dockerfile).
+    The voices of EDITION, which defaults to both here (the Dockerfile's ARG):
+    the image holds the weights; the running service's EDITION decides what
+    loads. Build with EDITION=commercial for an image without MMS's weights."""
+    env = dict(os.environ)
+    env.setdefault("EDITION", "both")
+    models = Models(device="cpu", serve={"listen", "speak"}, voice_names=voice_list(env))
     models.voices_ready.wait()
     if models.voices is None:
         raise SystemExit(f"[stt] voices: {models.voices_error}")

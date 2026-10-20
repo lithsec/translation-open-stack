@@ -10,9 +10,10 @@
 # PRIVATE when BASE_TAG is: an image with fine-tuned weights stays in the private
 # registry it came from, whatever is layered on it.
 #
-# Licences baked in: facebook/mms-tts-hat CC-BY-NC-4.0 (non-commercial use only:
-# a non-profit service), multilingual-tts/VITS-OpenBible-Haitian-Creole
-# CC-BY-SA-4.0 (credit the OpenBible voice).
+# Licences baked in (server/licences.py): facebook/mms-tts-hat CC-BY-NC-4.0
+# (non-commercial use only; the service loads it only with EDITION=nonprofit or
+# both), multilingual-tts/VITS-OpenBible-Haitian-Creole CC-BY-SA-4.0 (credit the
+# OpenBible voice).
 ARG BASE_IMAGE
 FROM ${BASE_IMAGE}
 
@@ -24,7 +25,7 @@ RUN grep -vE '^(librosa|contourpy)==' /tmp/constraints.txt > /tmp/voices-c.txt \
  && rm /tmp/voices-c.txt /tmp/constraints.txt && pip check \
  && python -c "import TTS, transformers, numpy, omnilingual_asr; print('coqui-tts', TTS.__version__, 'transformers', transformers.__version__, 'numpy', numpy.__version__)"
 # The server and the stack files it imports (engines/ now with mms.py and coqui.py).
-COPY server.py omni_batch.py voices.py ht_numbers.py mic.html audio_in.py stack_auth.py /opt/stt/
+COPY server.py omni_batch.py voices.py ht_numbers.py mic.html audio_in.py stack_auth.py licences.py /opt/stt/
 COPY engines/ /opt/stt/engines/
 USER stt
 # Only the voices are fetched (the base image has the rest): online for this step.

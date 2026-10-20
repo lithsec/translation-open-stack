@@ -3,7 +3,7 @@
 # Coqui VITS OpenBible, CC-BY-SA), with every model inside the image.
 #
 # Build context: the directory deploy.sh stages (this folder plus the stack files
-# it reuses: server/audio_in.py, stack_auth.py, engines/, constraints.txt).
+# it reuses: server/audio_in.py, stack_auth.py, licences.py, engines/, constraints.txt).
 # Dockerfile.voices adds the voices to an image built before them.
 #   ./deploy.sh build-local      # docker build here
 #   ./deploy.sh build            # Cloud Build
@@ -74,6 +74,10 @@ USER stt
 # Load each model once, by the server's own code, so the cache paths are the
 # ones it will read. CPU only: the build machine has no GPU (deploy.sh asks
 # Cloud Build for a 32 GB machine: the checkpoint loads in float32 on a CPU).
+# The voices fetched are EDITION's (both: MMS and Coqui); the running service's
+# own EDITION (default commercial) decides which load. --build-arg
+# EDITION=commercial leaves MMS's CC-BY-NC weights out of the image altogether.
+ARG EDITION=both
 RUN python server.py --fetch && du -sh /opt/models/*
 
 # Run time: offline. A missing model fails at start instead of downloading.

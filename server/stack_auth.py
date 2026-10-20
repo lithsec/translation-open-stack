@@ -56,6 +56,22 @@ EDITION_CLAIMS = ("nonprofit", "commercial")
 MAX_TOKEN_TTL_S = 24 * 3600
 
 
+def connection_edition(served, claim):
+    """The edition a connection is served in, or None to refuse it.
+
+    served: the server's editions (["nonprofit"], ["commercial"] or both).
+    claim: the token's "ed" (None for the static token, an open stack, or an
+    issuer that doesn't say). No claim: the strictest edition served. A
+    non-profit client on a commercial-only stack gets commercial voices (only
+    stricter); a commercial client is never served by a non-profit-only stack.
+    server.py and services/omni-stt share this."""
+    if claim is None:
+        return "commercial" if "commercial" in served else served[0]
+    if claim in served:
+        return claim
+    return "commercial" if claim == "nonprofit" and "commercial" in served else None
+
+
 def sign(key, sub, ttl_s, now=None, aud=AUD_STACK, ed=None):
     """A token for `sub`, valid for ttl_s seconds (tests and tools; the Lithos server signs its own).
     aud=None leaves the audience out (the pre-audience format, for tests); ed names the edition."""

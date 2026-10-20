@@ -80,8 +80,43 @@ def test_every_configured_item_is_classified():
             assert name in L.ENGINES or name in L.PER_ITEM, f"{kind} {name} has no licence entry"
 
 
+def _service_voice_repos():
+    """{path: [repo, ...]} for every services/*/voices.py: the values of its
+    VOICE_REPOS dict, read without importing it (no models, no service deps)."""
+    import ast
+    import glob
+    out = {}
+    for path in sorted(glob.glob(os.path.join(ROOT, "services", "*", "voices.py"))):
+        tree = ast.parse(open(path, encoding="utf-8").read(), path)
+        repos = None
+        for node in tree.body:
+            if isinstance(node, ast.Assign) and any(getattr(t, "id", None) == "VOICE_REPOS" for t in node.targets):
+                repos = [ast.literal_eval(v) for v in node.value.values]
+        assert repos, f"{path}: no VOICE_REPOS dict (the repos it loads, for this test)"
+        out[os.path.relpath(path, ROOT)] = repos
+    return out
+
+
+def test_every_service_voice_is_classified():
+    """A voice a service loads by repo (services/*/voices.py) has its own entry
+    in licences.py, so the service and the stack classify it the same way."""
+    found = _service_voice_repos()
+    assert found, "no services/*/voices.py found"
+    for path, repos in found.items():
+        for repo in repos:
+            assert repo in L.SERVICE_VOICES, f"{path}: {repo} has no entry in server/licences.py SERVICE_VOICES"
+            assert L.service_voice_lookup(repo).cls != L.UNCLEAR, (path, repo)
+    # The same verdict as the stack's own entries for them.
+    assert L.SERVICE_VOICES["facebook/mms-tts-hat"].cls == L.ENGINES["mms"].cls == L.NONCOMMERCIAL
+    ob = "multilingual-tts/VITS-OpenBible-Haitian-Creole"
+    assert L.SERVICE_VOICES[ob].cls == L.lookup("coqui", ob).cls == L.SHARE_ALIKE
+    assert L.service_voice_lookup("someone/unknown-voice").cls == L.UNCLEAR
+    assert not L.allowed(L.service_voice_lookup("someone/unknown-voice"), "commercial")
+
+
 def test_every_entry_is_well_formed():
-    for engine, items in [("engine", L.ENGINES), ("model", L.MODELS)] + list(L.ITEMS.items()):
+    for engine, items in ([("engine", L.ENGINES), ("model", L.MODELS), ("service", L.SERVICE_VOICES)]
+                          + list(L.ITEMS.items())):
         for key, li in items.items():
             assert li.cls in L.CLASSES, (engine, key)
             assert li.licence and li.reason, (engine, key)

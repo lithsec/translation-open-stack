@@ -16,7 +16,10 @@
 # ENDPOINT_MS (300), MAX_UTTERANCE_S (6.0), MIN_SPEECH_MS (400): endpointing,
 # passed to the service by "deploy" (README, Endpointing). OMNI_CARD (default
 # omniASR_LLM_300M): the Omnilingual card the service loads. HT_VOICE (coqui):
-# /speak's voice when a request names none (mms|coqui). DEPLOY_FLAGS: extra
+# /speak's voice when a request names none (mms|coqui). EDITION (commercial):
+# which voices /speak may use (server.py; commercial never loads MMS, which is
+# CC-BY-NC; nonprofit offers it; both decides per signed token's "ed" claim, and
+# a static STT_TOKEN carries none, so it gets commercial). DEPLOY_FLAGS: extra
 # gcloud run deploy flags, e.g. "--no-traffic --tag ft" to test a revision first.
 # BATCH_MAX (8), BATCH_WAIT_MS (10): the GPU micro-batcher (STT_BATCH_MAX,
 # STT_BATCH_WAIT_MS); MAX_SPEAKERS (4): open /speak sockets (STT_MAX_SPEAKERS).
@@ -53,6 +56,7 @@ MAX_UTTERANCE_S="${MAX_UTTERANCE_S:-6.0}"
 MIN_SPEECH_MS="${MIN_SPEECH_MS:-400}"
 OMNI_CARD="${OMNI_CARD:-omniASR_LLM_300M}"
 HT_VOICE="${HT_VOICE:-coqui}"
+EDITION="${EDITION:-commercial}"
 BATCH_MAX="${BATCH_MAX:-8}"
 BATCH_WAIT_MS="${BATCH_WAIT_MS:-10}"
 MAX_SPEAKERS="${MAX_SPEAKERS:-4}"
@@ -80,7 +84,7 @@ stage() {
   local dir
   dir="$(mktemp -d)"
   cp "$HERE/server.py" "$HERE/omni_batch.py" "$HERE/voices.py" "$HERE/ht_numbers.py" "$HERE/mic.html" "$HERE/Dockerfile" "$dir/"
-  cp "$ROOT/server/audio_in.py" "$ROOT/server/stack_auth.py" "$ROOT/constraints.txt" "$dir/"
+  cp "$ROOT/server/audio_in.py" "$ROOT/server/stack_auth.py" "$ROOT/server/licences.py" "$ROOT/constraints.txt" "$dir/"
   mkdir "$dir/engines"
   cp "$ROOT/server/engines/"{__init__,base,common,omnilingual,mms,coqui}.py "$dir/engines/"
   echo "$dir"
@@ -181,7 +185,7 @@ YAML
       --cpu 4 --memory 16Gi --no-cpu-throttling \
       --min-instances 0 --max-instances 1 \
       --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
-      --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,OMNI_CARD=$OMNI_CARD,HT_VOICE=$HT_VOICE,STT_MAX_SPEAKERS=$MAX_SPEAKERS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS" \
+      --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,OMNI_CARD=$OMNI_CARD,HT_VOICE=$HT_VOICE,EDITION=$EDITION,STT_MAX_SPEAKERS=$MAX_SPEAKERS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS" \
       --set-secrets "STT_TOKEN=$SECRET:latest" \
       --no-invoker-iam-check ${DEPLOY_FLAGS:-}
     url="$(gcloud run services describe "$SERVICE" --project "$PROJECT" --region "$REGION" --format 'value(status.url)')"

@@ -4,8 +4,12 @@ resample and 3 ms edge ramps, peak_normalise's level, Coqui's dead-air trim,
 MMS's empty-input guard), so a fix there is a fix here.
 
     mms    facebook/mms-tts-hat                             CC-BY-NC-4.0: non-commercial use only
-                                                            (a non-profit service, as here)
     coqui  multilingual-tts/VITS-OpenBible-Haitian-Creole   CC-BY-SA-4.0: credit the OpenBible voice
+
+The licences come from server/licences.py (SERVICE_VOICES), the stack's one
+licence authority, and decide which voices an edition may use (permitted()):
+EDITION=commercial never loads MMS, and on EDITION=both a commercial connection
+is never offered it (server.py: service_editions, handle_speak).
 
 Neither model is thread-safe, so each has its own lock (two requests on one
 voice take turns; MMS and Coqui run side by side). Text goes through
@@ -23,13 +27,31 @@ VOICE_REPOS = {
     "mms": "facebook/mms-tts-hat",
     "coqui": "multilingual-tts/VITS-OpenBible-Haitian-Creole",
 }
-VOICE_LICENCES = {"mms": "CC-BY-NC-4.0", "coqui": "CC-BY-SA-4.0"}
 VOICES = tuple(VOICE_REPOS)
 
 # A piece longer than this is cut at its commas, then between words: a long
 # sentence would hold back its first audio for the whole of its synthesis.
 MAX_PIECE_CHARS = 220
 HARD_PIECE_CHARS = 320
+
+
+def licence(name):
+    """The voice's licences.Lic (unclear when licences.py does not list its repo)."""
+    import licences
+    return licences.service_voice_lookup(VOICE_REPOS[name])
+
+
+def permitted(names, edition):
+    """The voices of `names` that `edition` (nonprofit|commercial) may use, in
+    order. There is no licence review here: an unclear voice is never commercial."""
+    import licences
+    return [n for n in names if licences.allowed(licence(n), edition)]
+
+
+def describe(name):
+    """'facebook/mms-tts-hat (⛔ CC-BY-NC-4.0)'"""
+    import licences
+    return f"{VOICE_REPOS[name]} ({licences.describe(licence(name))})"
 
 
 def parse_voice(raw, default):
@@ -108,7 +130,7 @@ class Voices:
             if not eng.synthesise("Bonjou.", LANG):
                 raise SystemExit(f"[stt] voice {name} could not speak; see above")
             self.engines[name] = eng
-            print(f"[stt] voice {name}: {VOICE_REPOS[name]} ({VOICE_LICENCES[name]})", flush=True)
+            print(f"[stt] voice {name}: {describe(name)}", flush=True)
 
     @property
     def names(self):

@@ -182,9 +182,10 @@ def test_speak_protocol():
     voices = FakeVoices()
     ws = FakeWS("/speak", [_speak(text="Nou gen 600 moun. Bondye beni nou.", id="a"),
                            _speak(text="Mèsi.", voice="mms", id=7)])
-    asyncio.run(stt.handle_speak(ws, voices, env={}))
+    asyncio.run(stt.handle_speak(ws, voices, env={"EDITION": "nonprofit"}))
     msgs = _json(ws)
-    assert msgs[0] == {"type": "hello", "lang": "ht", "voices": ["mms", "coqui"], "voice": "coqui", "rate": 24000}
+    assert msgs[0] == {"type": "hello", "lang": "ht", "voices": ["mms", "coqui"], "voice": "coqui", "rate": 24000,
+                       "edition": "nonprofit"}
     assert voices.calls == [("coqui", "Nou gen si san moun."), ("coqui", "Bondye beni nou."), ("mms", "Mèsi.")]
     first = ws.sent.index(msgs[1])
     assert msgs[1] == {"type": "sentence", "id": "a", "index": 0, "bytes": 48 * len("Nou gen si san moun.")}
@@ -207,10 +208,10 @@ def test_speak_frames_are_at_most_a_second():
 
 def test_speak_voice_from_query_and_env():
     ws = FakeWS("/speak?voice=mms", [])
-    asyncio.run(stt.handle_speak(ws, FakeVoices(), env={"HT_VOICE": "coqui"}))
+    asyncio.run(stt.handle_speak(ws, FakeVoices(), env={"HT_VOICE": "coqui", "EDITION": "nonprofit"}))
     assert ws.sent[0]["voice"] == "mms"
     ws = FakeWS("/speak", [])
-    asyncio.run(stt.handle_speak(ws, FakeVoices(), env={"HT_VOICE": "mms"}))
+    asyncio.run(stt.handle_speak(ws, FakeVoices(), env={"HT_VOICE": "mms", "EDITION": "nonprofit"}))
     assert ws.sent[0]["voice"] == "mms"
     ws = FakeWS("/speak?voice=gemini", [])
     asyncio.run(stt.handle_speak(ws, FakeVoices(), env={}))
@@ -300,6 +301,141 @@ def test_speak_waits_for_the_voices_and_refuses_without_them():
     finally:
         os.environ.clear()
         os.environ.update(old)
+
+
+# ---------------------------------------------------------------- editions
+
+KEY = "k" * 32
+
+
+def test_editions_from_env():
+    assert stt.service_editions({}) == ["commercial"]                  # safe by default
+    assert stt.service_editions({"EDITION": "nonprofit"}) == ["nonprofit"]
+    assert stt.service_editions({"EDITION": "both"}) == ["nonprofit", "commercial"]
+    try:
+        stt.service_editions({"EDITION": "everything"})
+    except SystemExit:
+        return
+    raise AssertionError("a bad EDITION accepted")
+
+
+def test_licences_come_from_the_stack():
+    import licences
+    assert vc.licence("mms").cls == licences.NONCOMMERCIAL
+    assert vc.licence("coqui").cls == licences.SHARE_ALIKE
+    assert vc.permitted(["mms", "coqui"], "commercial") == ["coqui"]
+    assert vc.permitted(["mms", "coqui"], "nonprofit") == ["mms", "coqui"]
+
+
+def test_commercial_never_loads_mms():
+    assert stt.voice_list({}) == ["coqui"]
+    assert stt.voice_list({"EDITION": "commercial"}) == ["coqui"]
+    assert stt.voice_list({"EDITION": "nonprofit"}) == ["mms", "coqui"]
+    assert stt.voice_list({"EDITION": "both"}) == ["mms", "coqui"]
+    assert stt.voice_list({"EDITION": "nonprofit", "STT_VOICES": "mms"}) == ["mms"]
+    assert stt.voice_list({"STT_VOICES": "coqui"}) == ["coqui"]
+    for env in ({"STT_VOICES": "mms"}, {"EDITION": "commercial", "STT_VOICES": "mms,coqui"}):
+        try:
+            stt.voice_list(env)
+        except SystemExit as e:
+            assert "mms" in str(e) and "commercial" in str(e)
+            continue
+        raise AssertionError(f"{env} loaded MMS")
+
+
+def test_commercial_speak_offers_and_speaks_only_permitted_voices():
+    voices = FakeVoices()
+    env = {"EDITION": "both", "HT_VOICE": "mms"}           # HT_VOICE forbidden for this connection
+    ws = FakeWS("/speak", [_speak(text="Wi.", voice="mms", id="x"), _speak(text="Non.", id="y")])
+    asyncio.run(stt.handle_speak(ws, voices, env=env, edition="commercial"))
+    msgs = _json(ws)
+    assert msgs[0] == {"type": "hello", "lang": "ht", "voices": ["coqui"], "voice": "coqui", "rate": 24000,
+                       "edition": "commercial"}
+    assert msgs[1] == {"type": "error", "detail": "voice mms is not available in the commercial edition"}
+    assert voices.calls == [("coqui", "Non.")]                # never MMS, and the socket carried on
+    assert ws.closed is None
+    # Asked for at connect: refused, not swapped for another voice.
+    ws = FakeWS("/speak?voice=mms", [_speak(text="Wi.")])
+    asyncio.run(stt.handle_speak(ws, FakeVoices(), env=env, edition="commercial"))
+    assert ws.sent == [{"type": "error", "detail": "voice mms is not available in the commercial edition"}]
+    assert ws.closed[0] == stt.CLOSE_BAD_REQUEST
+    # No edition passed: as a token without a claim (commercial when served).
+    ws = FakeWS("/speak", [])
+    asyncio.run(stt.handle_speak(ws, FakeVoices(), env={"EDITION": "both"}))
+    assert ws.sent[0]["voices"] == ["coqui"] and ws.sent[0]["edition"] == "commercial"
+
+
+def test_no_permitted_voice_closes_with_4403():
+    class OnlyMMS(FakeVoices):
+        names = ["mms"]
+    ws = FakeWS("/speak", [_speak(text="Wi.")])
+    voices = OnlyMMS()
+    asyncio.run(stt.handle_speak(ws, voices, env={}, edition="commercial"))
+    assert ws.sent[0]["type"] == "error" and ws.closed[0] == stt.CLOSE_EDITION and voices.calls == []
+
+
+def test_connection_edition_matches_the_stack():
+    import stack_auth
+    ce = stack_auth.connection_edition
+    both = ["nonprofit", "commercial"]
+    assert [ce(both, c) for c in (None, "nonprofit", "commercial")] == ["commercial", "nonprofit", "commercial"]
+    assert [ce(["commercial"], c) for c in (None, "nonprofit", "commercial")] == ["commercial"] * 3
+    assert [ce(["nonprofit"], c) for c in (None, "nonprofit", "commercial")] == ["nonprofit", "nonprofit", None]
+
+
+def test_credentials_carry_the_edition_claim():
+    import stack_auth
+    env = {"STT_SIGNING_KEY": KEY, "STT_TOKEN": "s3cret"}
+    for ed in ("nonprofit", "commercial", None):
+        tok = stack_auth.sign(KEY, "lt:room", 600, ed=ed)
+        assert stt.credentials_for({"Authorization": f"Bearer {tok}"}, {}, env) == ("lt:room", ed)
+    assert stt.credentials_for({"Authorization": "Bearer s3cret"}, {}, env) == ("static", None)
+    assert stt.credentials_for({}, {}, {"STT_OPEN": "1"}) == ("open", None)
+    bad = stack_auth.sign(KEY, "x", 600)[:-2] + "AA"
+    assert stt.credentials_for({"Authorization": f"Bearer {bad}"}, {}, env) == (None, None)
+
+
+def _hello(edition_env, token):
+    """guarded() on /speak with FakeVoices (both loaded): the first message, and the close."""
+    import stack_auth
+
+    class M:
+        serve = {"listen", "speak"}
+        voices = FakeVoices()
+        lid_index = {}
+
+    stt.SPEAK_LIMITS = stack_auth.Limits(per_client=2, total=2)
+    old = dict(os.environ)
+    try:
+        for k in ("STT_OPEN", "HT_VOICE", "STT_VOICES", "EDITION"):
+            os.environ.pop(k, None)
+        os.environ.update({"STT_SIGNING_KEY": KEY, "STT_TOKEN": "s3cret"})
+        if edition_env:
+            os.environ["EDITION"] = edition_env
+        ws = FakeWS("/speak", [], {"Authorization": f"Bearer {token}"})
+        asyncio.run(stt.guarded(ws, M()))
+        assert stt.SPEAK_LIMITS.live == {}
+        return (ws.sent[0] if ws.sent else None), ws.closed
+    finally:
+        os.environ.clear()
+        os.environ.update(old)
+
+
+def test_guarded_serves_each_token_in_its_edition():
+    import stack_auth
+    tok = lambda ed: stack_auth.sign(KEY, "talk:acct", 600, ed=ed)       # noqa: E731
+    # EDITION=both: the claim decides; none (or the static token): commercial.
+    assert _hello("both", tok("nonprofit"))[0]["voices"] == ["mms", "coqui"]
+    assert _hello("both", tok("commercial"))[0]["voices"] == ["coqui"]
+    assert _hello("both", tok(None))[0]["voices"] == ["coqui"]
+    assert _hello("both", "s3cret")[0]["voices"] == ["coqui"]
+    # Unset EDITION is commercial: a non-profit token gets the stricter voices.
+    hello, _ = _hello(None, tok("nonprofit"))
+    assert hello["voices"] == ["coqui"] and hello["edition"] == "commercial"
+    # A non-profit-only server: the static token gets MMS; a commercial token is refused.
+    assert _hello("nonprofit", "s3cret")[0]["voices"] == ["mms", "coqui"]
+    hello, closed = _hello("nonprofit", tok("commercial"))
+    assert hello is None and closed[0] == stt.CLOSE_EDITION
 
 
 if __name__ == "__main__":
