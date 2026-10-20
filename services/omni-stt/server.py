@@ -1140,6 +1140,24 @@ async def recognise(models, utt, langs, transcribe, send, batcher=None):
     return True
 
 
+def push_bounded(queue, utt, limit):
+    """Put utt on a connection's asyncio.Queue; when `limit` or more are
+    already waiting, first take out the OLDEST utterance (returned, for the
+    log; None when nothing was dropped). A "flush" marker is never dropped
+    and keeps its place: re-queueing it behind newer utterances (as this once
+    did) both let the queue outgrow the limit and sent "flushed" late."""
+    if queue.qsize() >= limit:
+        items = [queue.get_nowait() for _ in range(queue.qsize())]
+        at = next((i for i, item in enumerate(items) if not (isinstance(item, str) and item == "flush")), None)
+        dropped = items.pop(at) if at is not None else None
+        for item in items:
+            queue.put_nowait(item)
+    else:
+        dropped = None
+    queue.put_nowait(utt)
+    return dropped
+
+
 async def handle(ws, models, sub="open"):
     """One /listen connection, after auth and admission."""
     from urllib.parse import urlparse, parse_qs
@@ -1189,13 +1207,9 @@ async def handle(ws, models, sub="open"):
 
     def enqueue(utts):
         for utt in utts:
-            if queue.qsize() >= MAX_PENDING:
-                dropped = queue.get_nowait()
-                if dropped == "flush":
-                    queue.put_nowait(dropped)
-                else:
-                    print(f"[stt] {who}: behind, dropped a {len(dropped[0]) / VAD_RATE:.1f}s utterance", flush=True)
-            queue.put_nowait(utt)
+            dropped = push_bounded(queue, utt, MAX_PENDING)
+            if dropped is not None:
+                print(f"[stt] {who}: behind, dropped a {len(dropped[0]) / VAD_RATE:.1f}s utterance", flush=True)
 
     task = asyncio.create_task(worker())
     batcher.opened()

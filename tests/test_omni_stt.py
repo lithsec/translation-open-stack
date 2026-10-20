@@ -408,6 +408,33 @@ def test_vad_loads_before_any_loader_thread():
         else:
             os.environ["STT_PARALLEL_LOAD"] = old
 
+
+def test_backlog_drops_the_oldest_utterance_never_a_flush():
+    def u(name):
+        return (np.zeros(1600, dtype=np.float32), name, 0)
+
+    def contents(q):
+        out = [q.get_nowait() for _ in range(q.qsize())]
+        return [x if isinstance(x, str) else x[1] for x in out]
+
+    async def run(start, limit=3):
+        q = asyncio.Queue()
+        for x in start:
+            q.put_nowait(x if x == "flush" else u(x))
+        dropped = stt.push_bounded(q, u("new"), limit)
+        return (None if dropped is None else dropped[1]), contents(q)
+    # Room left: nothing dropped.
+    assert asyncio.run(run(["a", "b"])) == (None, ["a", "b", "new"])
+    # Full: the oldest utterance goes; the queue stays at the limit.
+    assert asyncio.run(run(["a", "b", "c"])) == ("a", ["b", "c", "new"])
+    # A flush at the head keeps its place (it was once re-queued behind newer
+    # utterances, which made the queue outgrow the limit and "flushed" late).
+    assert asyncio.run(run(["flush", "a", "b"])) == ("a", ["flush", "b", "new"])
+    assert asyncio.run(run(["a", "flush", "b"])) == ("a", ["flush", "b", "new"])
+    assert asyncio.run(run(["a", "b", "flush"])) == ("a", ["b", "flush", "new"])
+    # Nothing but flushes: nothing to drop.
+    assert asyncio.run(run(["flush"] * 3)) == (None, ["flush"] * 3 + ["new"])
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_") and callable(fn):
