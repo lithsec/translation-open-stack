@@ -949,7 +949,7 @@ class Batcher:
     by item, so one bad utterance fails alone. A job whose future is already
     done (its client left and the awaiting task was cancelled) is dropped
     unrun, in a batch and in that retry. /speak never comes here: it has
-    its own threads (VOICE_POOL)."""
+    its own threads (voice_pool)."""
 
     KINDS = ("lid", "asr")
 
@@ -1226,9 +1226,22 @@ async def handle(ws, models, sub="open"):
 # ---------------------------------------------------------------- /speak
 
 # Synthesis runs here, not on the Batcher's thread: a sentence being voiced never waits
-# behind an utterance being transcribed. Two threads, one per voice; each
-# voice's own lock makes two requests on the same voice take turns.
-VOICE_POOL = ThreadPoolExecutor(2, thread_name_prefix="voice")
+# behind an utterance being transcribed. One thread per voice (its own
+# single-thread executor): requests on one voice take turns, as its lock
+# would make them anyway, and never hold a thread another voice needs. (One
+# shared pool of two let two Coqui requests take both threads, one of them
+# just waiting on Coqui's lock, while an MMS request queued behind them.)
+_VOICE_POOLS = {}
+_VOICE_POOLS_LOCK = threading.Lock()
+
+
+def voice_pool(voice):
+    """The single-thread executor that voices `voice`."""
+    with _VOICE_POOLS_LOCK:
+        pool = _VOICE_POOLS.get(voice)
+        if pool is None:
+            pool = _VOICE_POOLS[voice] = ThreadPoolExecutor(1, thread_name_prefix=f"voice-{clean(voice, 16)}")
+        return pool
 
 
 async def speak_one(voices, voice, text, req_id, send):
@@ -1241,7 +1254,7 @@ async def speak_one(voices, voice, text, req_id, send):
     spoken, nbytes, failed = 0, 0, 0
     tag = {"id": req_id} if req_id is not None else {}
     for piece in prepare(text):
-        pcm = await loop.run_in_executor(VOICE_POOL, voices.synthesise, voice, piece)
+        pcm = await loop.run_in_executor(voice_pool(voice), voices.synthesise, voice, piece)
         if not pcm:
             failed += 1
             continue

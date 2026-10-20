@@ -218,6 +218,35 @@ def test_speak_voice_from_query_and_env():
     assert ws.sent[0]["type"] == "error" and ws.closed[0] == stt.CLOSE_BAD_REQUEST
 
 
+def test_each_voice_has_its_own_thread():
+    """Two slow Coqui requests (two sockets) must not hold up an MMS one."""
+    import threading
+    import time
+    release = threading.Event()
+
+    class Slow(FakeVoices):
+        def synthesise(self, name, piece):
+            if name == "coqui":
+                release.wait(5)
+            return super().synthesise(name, piece)
+    voices = Slow()
+    assert stt.voice_pool("mms") is stt.voice_pool("mms") is not stt.voice_pool("coqui")
+
+    async def run():
+        async def nothing(m):
+            return None
+        coqui = [asyncio.create_task(stt.speak_one(voices, "coqui", "Wi.", None, nothing)) for _ in range(2)]
+        await asyncio.sleep(0.05)
+        t0 = time.monotonic()
+        said = await asyncio.wait_for(stt.speak_one(voices, "mms", "Mèsi.", None, nothing), 2)
+        took = time.monotonic() - t0
+        release.set()
+        await asyncio.gather(*coqui)
+        return said, took
+    said, took = asyncio.run(run())
+    assert said == (1, len("Mèsi.")) and took < 1.0, (said, took)
+
+
 def test_speak_bad_requests_keep_the_socket():
     voices = FakeVoices(fail={"Non."})
     ws = FakeWS("/speak", [b"\x00\x00", "not json", json.dumps({"type": "flush"}), _speak(text="  "),
