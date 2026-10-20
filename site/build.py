@@ -489,6 +489,7 @@ KIND_LEGEND = [("Cloud service", "c1"), ("Open weights", "c3")]
 # ---------------------------------------------------------------- pages
 
 def build_home(D, S1):
+    E = sept_e2e_summary(D)
     all25 = "All 25 directions"
     rows = []
     for s in SYS1[1:] + ["stack-route"]:
@@ -532,7 +533,7 @@ def build_home(D, S1):
 <li><strong>A bigger Omnilingual model is not better for Haitian Creole</strong>; the 7B card helps Lao. <a href="findings.html#sizes">Model sizes</a></li>
 <li><strong>When to cut a sentence matters more than the model</strong> for live recognition. <a href="findings.html#endpointing">Endpointing</a></li>
 <li><strong>Feed recognition from a sound board or a close mic.</strong> Compression barely matters; distance and noise do. <a href="findings.html#audio">Audio quality</a></li>
-<li><strong>Per language (September):</strong> the open stack beat {L('sept:gemini-live')} end to end in 16 of 17 directions (92% against 80%); every language's recognition, translation and voice scores, and which ones the commercial edition can still voice. <a href="languages.html">Languages</a></li>
+<li><strong>Per language (September):</strong> the open stack beat {L('sept:gemini-live')} end to end in {E['wins']} of {E['n']} directions ({pct(E['stack'], 0)} against {pct(E['gl'], 0)}, mean over all {E['n']}); every language's recognition, translation and voice scores, and which ones the commercial edition can still voice. <a href="languages.html">Languages</a></li>
 <li><strong>Latency, labelled:</strong> the open stack's first translated audio about 0.8 s after the speaker stops; a cloud recogniser feeding a cloud voice about 1.3 s after each sentence ends; and what each other delay measures. <a href="latency.html">Latency</a></li>
 <li><strong>Haitian Creole voices:</strong> hear the seven voices we compared. <a href="voices.html">Voices</a></li>
 </ul>
@@ -909,6 +910,9 @@ def build_voices(D):
 
 
 def build_methodology(D):
+    # The dataset's hub page sits under its publisher's organisation; an anonymised build links the paper instead.
+    FLEURS_LINK = ('<a href="https://arxiv.org/abs/2205.12446">FLEURS dataset</a>' if ANON
+                   else '<a href="https://huggingface.co/datasets/google/fleurs">google/fleurs</a>')
     s1 = D["shoot1"]
     r2 = D["shoot2"]
     sw = D["sizes"]["endpointing_sweep"]
@@ -919,7 +923,7 @@ def build_methodology(D):
 
 <h2>Datasets (public only)</h2>
 <ul>
-<li><strong>FLEURS</strong> (<a href="https://huggingface.co/datasets/google/fleurs">google/fleurs</a>, CC BY 4.0): native speakers reading the same 30 FLoRes sentences in English, Japanese, Khmer, Lao and French, one recording per sentence, alternating men and women. References are FLoRes's own professional translations. Audio is downloaded at run time and not stored in the repository.</li>
+<li><strong>FLEURS</strong> ({FLEURS_LINK}, CC BY 4.0): native speakers reading the same 30 FLoRes sentences in English, Japanese, Khmer, Lao and French, one recording per sentence, alternating men and women. References are FLoRes's own professional translations. Audio is downloaded at run time and not stored in the repository.</li>
 <li><strong>CMU Haitian Creole speech</strong> (speech.cs.cmu.edu/haitian; read by native speakers in 1997–98): 30 sentences from 30 speakers. CMU has no English, so the English references for translation grading were written once by {L('grader-old')} — a model-made reference. © 2010 Language Technologies Institute, Carnegie Mellon University, used under its COPYING terms.</li>
 <li><strong>Synthetic set</strong>: 24 short sentences built to catch critical errors (times, doses, negations), read by synthetic voices; used in the translator comparison as the <code>syn:</code> directions.</li>
 </ul>
@@ -978,7 +982,7 @@ def build_models(D):
         voices = []
         if v.get("kokoro"): voices.append("Kokoro")
         if v.get("voxcpm"): voices.append("VoxCPM2")
-        if v.get("piper"): voices.append(f"Piper ({v['piper']})")
+        if v.get("piper"): voices.append(f"Piper ({piper_id(v['piper'])})")
         if v.get("mms"): voices.append("MMS-TTS")
         if v.get("coqui"): voices.append("Coqui OpenBible")
         com = v.get("commercial")
@@ -987,7 +991,7 @@ def build_models(D):
             cv = []
             if com.get("kokoro"): cv.append("Kokoro")
             if com.get("voxcpm"): cv.append("VoxCPM2")
-            if com.get("piper"): cv.append(f"Piper ({com['piper']})")
+            if com.get("piper"): cv.append(f"Piper ({piper_id(com['piper'])})")
             if com.get("espeak"): cv.append("eSpeak NG")
             comv = ", ".join(cv)
         rows.append([f"{names.get(code, code)} ({code})", asr, tr, ", ".join(voices), comv or "see licences.md"])
@@ -1093,6 +1097,14 @@ def load_more(D):
     D["table"] = table
 
 
+def piper_id(value):
+    """A Piper voice id, with the speaker part dropped when it names a cloud vendor in an anonymised build."""
+    if ANON and "google" in value.lower():
+        parts = value.split("-")
+        return f"{parts[0]}, {parts[-1]} quality" if len(parts) >= 3 else parts[0]
+    return value
+
+
 def voice_label(name, value):
     if name == "kokoro":
         return f"Kokoro {value.split(':', 1)[1]}"
@@ -1133,6 +1145,19 @@ def sept_doc_clarity(D):
 
 def _pts(x):
     return x[0] / x[1] if x and x[1] else None
+
+
+def sept_e2e_summary(D):
+    """Round 3 end to end, recomputed from the raw result file: plain mean over every direction."""
+    rows = [(d, _pts(v["stack_new"]), _pts(v["gemini_live"])) for d, v in D["derived"]["sept_e2e"].items()]
+    return {"n": len(rows), "stack": st.mean(r[1] for r in rows), "gl": st.mean(r[2] for r in rows),
+            "wins": sum(r[1] > r[2] for r in rows), "ties": sum(r[1] == r[2] for r in rows),
+            "lost": [r[0] for r in rows if r[1] < r[2]]}
+
+
+def _dir_name(d):
+    a, b = d.split("-")
+    return f"{LANG_NAMES.get(a, a)} → {LANG_NAMES.get(b, b)}"
 
 
 def sept_lang_rows(D):
@@ -1231,7 +1256,8 @@ def sept_lang_rows(D):
 def build_languages(D):
     der = D["derived"]
     doc = src_link("docs/dev/model-evaluation.md", "model-evaluation.md")
-    for n in ("| Score | **92%** | 80% |", "| Directions won | **16 of 17** | 1 (English→Haitian Creole) |",
+    E = sept_e2e_summary(D)
+    for n in ("| Score | **83%** | 76% |", "| Directions won | **16 of 19** |", "recomputed over all 19 directions",
               "**~0.8 s after the speaker stops**", "~2.8 s after the speaker *starts*; speaks mid-sentence"):
         cite(D, "sept_doc", n)
     gl = L("sept:gemini-live")
@@ -1247,8 +1273,7 @@ def build_languages(D):
     e2e_chart = grouped("End to end, per direction: the stack against " + gl,
                         "Same synthetic audio for both; the stack's own recognition through the real server; one blind grading round. Share of 0–3 points per sentence, higher is better.",
                         groups, [(L("sept:stack"), "c3"), (gl, "c1")], maxv=1, vendor_named=True,
-                        note=f"All {len(groups)} directions in the result file: plain mean {pct(m_stack, 0)} against {pct(m_gl, 0)}, the stack ahead in {wins}. "
-                             f"The document's headline (92% against 80%, 16 of 17) is over the 17 directions it counts as valid; it does not list which two it set aside.")
+                        note=f"Method: averaged over all {len(groups)} directions in round 3's results file (24 sentences each, 0–3 points per sentence; a direction scores its points over 72, the headline is the plain mean of the direction scores): {pct(m_stack, 0)} against {pct(m_gl, 0)}, the stack ahead in {wins}.")
     # ---- translation per language
     rows = sept_lang_rows(D)
     tgroups = [(f'{r["name"]}', [r["to"], r["from"]], False) for r in rows if r["to"] is not None]
@@ -1308,8 +1333,8 @@ def build_languages(D):
 <p class="caveat">September numbers are not comparable with the October pages. September used a synthetic test set of 24 short sentences built to catch critical errors, mostly synthetic speech, and {L('grader-old')} as the blind grader; October used real speakers, longer news sentences and {L('grader')}. Compare numbers inside one chart only. Source: {doc}.</p>
 </div>
 <section class="stats" aria-label="End to end, September">
-<div class="stat"><div class="n">92% vs 80%</div><div class="t">end-to-end translation score: the open stack against {esc(gl)}, same audio, graded blind</div></div>
-<div class="stat"><div class="n">16 of 17</div><div class="t">directions won by the stack ({esc(gl)} won English → Haitian Creole)</div></div>
+<div class="stat"><div class="n">{pct(E["stack"], 0)} vs {pct(E["gl"], 0)}</div><div class="t">end-to-end translation score: the open stack against {esc(gl)}, same audio, graded blind, mean over all {E["n"]} directions</div></div>
+<div class="stat"><div class="n">{E["wins"]} of {E["n"]}</div><div class="t">directions won by the stack ({esc(gl)} won {esc(", ".join(_dir_name(d) for d in E["lost"]))}{"" if E["ties"] else "; no ties"})</div></div>
 <div class="stat"><div class="n">~0.8 s</div><div class="t">to first translated audio after the speaker <strong>stops</strong> (stack), against ~2.8 s after the speaker <strong>starts</strong> for {esc(gl)}, which speaks mid-sentence</div></div>
 </section>
 <div class="prose">
