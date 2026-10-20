@@ -57,6 +57,11 @@ GET /mic      a one-file microphone test page: type the languages and the token,
   server answers `omni-stt` and never echoes the token). `?token=<token>` still
   works but is deprecated: a URL is written to Cloud Run's request log, and the
   server logs a warning when a client uses it.
+- Signed tokens (`STT_SIGNING_KEY`): `"aud": "omni-stt"` or `"stack"`. A token
+  with `omni-stt` opens this service and not a stack (the stack takes only
+  `stack`), so a leaked one cannot open a stack signed with the same key.
+  Issuers mint `stack` today and should move to `omni-stt`; `stack` stays
+  accepted until they have.
 - Close codes: 4400 bad request, 4401 bad or missing token, 4429 at the connection limit.
 - Several connections at once are fine (default limit 4 on Cloud Run, `STT_MAX_CONNECTIONS`).
   Each has its own VAD and endpointing; the models are shared and run on a single

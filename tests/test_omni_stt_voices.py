@@ -424,6 +424,26 @@ def test_credentials_carry_the_edition_claim():
     assert stt.credentials_for({"Authorization": f"Bearer {bad}"}, {}, env) == (None, None)
 
 
+def test_omni_stt_audience():
+    """omni-stt takes "aud": "omni-stt" as well as today's "stack"; a stack
+    takes only "stack", so an omni-stt token cannot open a stack."""
+    import stack_auth
+    assert set(stt.AUDIENCES) == {stack_auth.AUD_OMNI_STT, stack_auth.AUD_STACK}
+    env = {"STT_SIGNING_KEY": KEY}
+    for aud in ("omni-stt", "stack"):
+        tok = stack_auth.sign(KEY, "talk:acct", 600, aud=aud, ed="commercial")
+        assert stt.credentials_for({"Authorization": f"Bearer {tok}"}, {}, env) == ("talk:acct", "commercial"), aud
+    for aud in ("report", "other"):
+        tok = stack_auth.sign(KEY, "pod:x", 600, aud=aud)
+        assert stt.credentials_for({"Authorization": f"Bearer {tok}"}, {}, env) == (None, None), aud
+    # The stack: "stack" only.
+    tok = stack_auth.sign(KEY, "talk:acct", 600, aud="omni-stt")
+    assert stack_auth.verify(tok, KEY) is None and stack_auth.verify_claims(tok, KEY) == (None, None)
+    assert stack_auth.verify(stack_auth.sign(KEY, "talk:acct", 600), KEY) == "talk:acct"
+    # Several audiences, through verify() too.
+    assert stack_auth.verify(tok, KEY, audience=("omni-stt", "stack")) == "talk:acct"
+
+
 def test_nonprofit_static_token():
     import stack_auth
     env = {"STT_SIGNING_KEY": KEY, "STT_TOKEN": "s3cret", "STT_TOKEN_NONPROFIT": "np-s3cret"}

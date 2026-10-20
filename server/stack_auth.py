@@ -16,6 +16,10 @@ Two ways in, either or both:
                      Both are signed with the same key, so without the claim a
                      report token (logged, sent to a URL) would also open a
                      connection. verify() for a connection accepts only "stack".
+                     services/omni-stt (a hosted recogniser, same key format)
+                     accepts "omni-stt" as well as "stack", so its issuer can
+                     mint tokens that open omni-stt but not a stack; today's
+                     "stack" tokens keep working there until issuers switch.
                      Tokens without "aud" (Lithos servers before this change)
                      are refused unless STACK_ACCEPT_LEGACY_TOKENS=1, a switch
                      for the transition only. A token must also expire (a finite
@@ -49,6 +53,7 @@ def _b64d(s):
 # Audiences: what a signed token is for.
 AUD_STACK = "stack"      # open a connection to this stack
 AUD_REPORT = "report"    # the pod's ready report to the Lithos server (never a connection)
+AUD_OMNI_STT = "omni-stt"  # a connection to services/omni-stt only (which also takes "stack")
 # The edition a connection is served in, when the issuer says (claim "ed"): a server
 # with EDITION=both picks that connection's voices by it (server.py, connection_edition).
 EDITION_CLAIMS = ("nonprofit", "commercial")
@@ -102,6 +107,11 @@ def _number(v):
     return v if math.isfinite(v) else None
 
 
+def _audiences(audience):
+    """audience: one audience, or a tuple / list / set of the audiences accepted."""
+    return (audience,) if isinstance(audience, str) else tuple(audience)
+
+
 def _signed_subject(token, signing_key, now, audience, legacy):
     """(signature_ok, subject or None) for a "<payload>.<signature>" token."""
     ok, claims = _signed_claims(token, signing_key, now, audience, legacy)
@@ -134,7 +144,7 @@ def _signed_claims(token, signing_key, now, audience, legacy):
         # (subject "pod:..."): those are the tokens the audience exists to stop.
         if not legacy or claims["sub"].startswith("pod:"):
             return True, None
-    elif aud != audience:
+    elif aud not in _audiences(audience):
         return True, None
     # An edition the stack doesn't know is a malformed token, not a default.
     if "ed" in claims and claims["ed"] not in EDITION_CLAIMS:
@@ -143,7 +153,8 @@ def _signed_claims(token, signing_key, now, audience, legacy):
 
 
 def verify_claims(token, signing_key="", static_token="", now=None, audience=AUD_STACK, legacy=None):
-    """(subject, edition claim or None) if the token is valid now for `audience`, else (None, None).
+    """(subject, edition claim or None) if the token is valid now for `audience`
+    (one, or several accepted: a tuple), else (None, None).
     The static token and an open stack carry no edition."""
     if not token:
         return None, None

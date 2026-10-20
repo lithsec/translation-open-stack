@@ -97,7 +97,9 @@ Credentials, any or all; each app gets its own, and with it its edition:
 
   STT_SIGNING_KEY      the stack's short-lived signed tokens (stack_auth.py), whose
                        "ed" claim names the edition: what a server can mint per
-                       connection uses (Lithos Talk's Worker: "commercial").
+                       connection uses (Lithos Talk's Worker: "commercial"). Their
+                       "aud": "omni-stt" (this service only; a stack refuses it)
+                       or "stack" (what issuers mint today; still accepted).
   STT_TOKEN_NONPROFIT  a static token whose connections are served as non-profit:
                        for an app an operator configures by hand (Live Translation,
                        a non-profit's app, pastes it into its settings). Signed
@@ -257,6 +259,12 @@ def auth_mode(env=None):
     return "open" if env.get("STT_OPEN") == "1" else None
 
 
+# A signed token's "aud" accepted here: "omni-stt" (a token for this service
+# only, which a stack refuses) and, for the tokens issuers mint today, "stack".
+# Issuers (Lithos Talk's Worker, Live Translation) should switch to "omni-stt";
+# "stack" stays accepted until they have.
+AUDIENCES = ("omni-stt", "stack")
+
 # The credentials auth_mode looks for (Credentials, in the docstring at the top).
 CREDENTIALS = ("STT_TOKEN", "STT_TOKEN_NONPROFIT", "STT_SIGNING_KEY")
 NONPROFIT_SUBJECT = "static:nonprofit"
@@ -336,7 +344,7 @@ def credentials_for(headers, query, env=None):
         return None, None
     token = presented_token(headers, query)
     sub, claim = stack_auth.verify_claims(token, (env.get("STT_SIGNING_KEY") or "").strip(),
-                                          (env.get("STT_TOKEN") or "").strip())
+                                          (env.get("STT_TOKEN") or "").strip(), audience=AUDIENCES)
     if sub is not None:
         return sub, claim
     nonprofit = (env.get("STT_TOKEN_NONPROFIT") or "").strip()
