@@ -946,7 +946,9 @@ class Batcher:
 
     Order: language ID first (it is fast, and its message releases the
     client's other captions), then recognition. A failed batch is retried item
-    by item, so one bad utterance fails alone. /speak never comes here: it has
+    by item, so one bad utterance fails alone. A job whose future is already
+    done (its client left and the awaiting task was cancelled) is dropped
+    unrun, in a batch and in that retry. /speak never comes here: it has
     its own threads (VOICE_POOL)."""
 
     KINDS = ("lid", "asr")
@@ -1004,6 +1006,13 @@ class Batcher:
                             self.cond.wait(left)
                             continue
                     break
+            # A job whose future is already done was given up on (its client
+            # left, so the awaiting task was cancelled): no GPU time for it.
+            for q in self.queues.values():
+                live = [job for job in q if not job[3].done()]
+                if len(live) != len(q):
+                    q.clear()
+                    q.extend(live)
             out = {"lid": [self.queues["lid"].popleft() for _ in range(min(self.max_batch, len(self.queues["lid"])))]}
             q = self.queues["asr"]
             if self.group_by_length and getattr(self.models, "length_sensitive", True):
@@ -1049,7 +1058,10 @@ class Batcher:
                 print(f"[stt] a batch of {len(jobs)} ({kind}) failed ({type(e).__name__}: {clean(e, 120)}); "
                       f"retrying one by one", flush=True)
                 outcomes = []
-                for item in items:
+                for item, (_, _, _, fut) in zip(items, jobs):
+                    if fut.done():          # given up on while the batch ran
+                        outcomes.append((None, None))
+                        continue
                     try:
                         outcomes.append((self._call(kind, [item])[0], None))
                     except Exception as e1:

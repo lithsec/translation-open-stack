@@ -185,6 +185,58 @@ def test_batcher_one_bad_utterance_fails_alone():
     assert "retrying one by one" in buf.getvalue()
 
 
+def test_batcher_skips_jobs_whose_client_left():
+    gate = threading.Event()
+    models = BatchModels(gate=gate)
+    b = stt.Batcher(models, max_batch=8, wait_ms=0)
+
+    async def run():
+        first = b.submit("asr", _utt(0.1), "ht")             # holds the worker
+        assert await asyncio.to_thread(models.entered.wait, 5)
+        futs = [b.submit("asr", _utt(level), "ht") for level in (0.2, 0.3, 0.4)]
+        lid = b.submit("lid", _utt(0.3), ["ht", "en"])
+        futs[1].cancel()                                     # that client left
+        lid.cancel()
+        gate.set()
+        await first
+        return await asyncio.gather(futs[0], futs[2])
+    assert asyncio.run(run()) == ["ht 0.200 16000", "ht 0.400 16000"]
+    # The cancelled ones never reached a model: no language ID call at all.
+    assert models.calls == [("asr", 1), ("asr", 2)], models.calls
+
+
+def test_batcher_retry_skips_jobs_whose_client_left():
+    gate = threading.Event()
+
+    class FailOnce(BatchModels):
+        def transcribe_batch(self, items):
+            if len(items) > 1:
+                self.entered.set()
+                gate.wait(5)
+                with self.lock:
+                    self.calls.append(("asr-failed", len(items)))
+                raise RuntimeError("batch failed")
+            return super().transcribe_batch(items)
+    models = FailOnce()
+    # Three streams and a long wait: the worker takes all three at once.
+    b = stt.Batcher(models, max_batch=8, wait_ms=5000)
+    for _ in range(3):
+        b.opened()
+
+    async def run():
+        futs = [b.submit("asr", _utt(level), "ht") for level in (0.2, 0.3, 0.4)]
+        assert await asyncio.to_thread(models.entered.wait, 5)
+        futs[0].cancel()                                     # left while the batch ran
+        gate.set()
+        return await asyncio.gather(futs[1], futs[2])
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        got = asyncio.run(run())
+    assert got == ["ht 0.300 16000", "ht 0.400 16000"]
+    # The batch of three failed; only the two still wanted were retried.
+    assert models.calls == [("asr-failed", 3), ("asr", 1), ("asr", 1)], models.calls
+
+
 def test_batcher_waits_only_for_streams_that_exist():
     models = BatchModels()
     b = stt.Batcher(models, max_batch=8, wait_ms=300)
