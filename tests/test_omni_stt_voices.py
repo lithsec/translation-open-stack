@@ -218,6 +218,35 @@ def test_speak_voice_from_query_and_env():
     assert ws.sent[0]["type"] == "error" and ws.closed[0] == stt.CLOSE_BAD_REQUEST
 
 
+def test_each_voice_has_its_own_thread():
+    """Two slow Coqui requests (two sockets) must not hold up an MMS one."""
+    import threading
+    import time
+    release = threading.Event()
+
+    class Slow(FakeVoices):
+        def synthesise(self, name, piece):
+            if name == "coqui":
+                release.wait(5)
+            return super().synthesise(name, piece)
+    voices = Slow()
+    assert stt.voice_pool("mms") is stt.voice_pool("mms") is not stt.voice_pool("coqui")
+
+    async def run():
+        async def nothing(m):
+            return None
+        coqui = [asyncio.create_task(stt.speak_one(voices, "coqui", "Wi.", None, nothing)) for _ in range(2)]
+        await asyncio.sleep(0.05)
+        t0 = time.monotonic()
+        said = await asyncio.wait_for(stt.speak_one(voices, "mms", "Mèsi.", None, nothing), 2)
+        took = time.monotonic() - t0
+        release.set()
+        await asyncio.gather(*coqui)
+        return said, took
+    said, took = asyncio.run(run())
+    assert said == (1, len("Mèsi.")) and took < 1.0, (said, took)
+
+
 def test_speak_bad_requests_keep_the_socket():
     voices = FakeVoices(fail={"Non."})
     ws = FakeWS("/speak", [b"\x00\x00", "not json", json.dumps({"type": "flush"}), _speak(text="  "),
@@ -395,6 +424,26 @@ def test_credentials_carry_the_edition_claim():
     assert stt.credentials_for({"Authorization": f"Bearer {bad}"}, {}, env) == (None, None)
 
 
+def test_omni_stt_audience():
+    """omni-stt takes "aud": "omni-stt" as well as today's "stack"; a stack
+    takes only "stack", so an omni-stt token cannot open a stack."""
+    import stack_auth
+    assert set(stt.AUDIENCES) == {stack_auth.AUD_OMNI_STT, stack_auth.AUD_STACK}
+    env = {"STT_SIGNING_KEY": KEY}
+    for aud in ("omni-stt", "stack"):
+        tok = stack_auth.sign(KEY, "talk:acct", 600, aud=aud, ed="commercial")
+        assert stt.credentials_for({"Authorization": f"Bearer {tok}"}, {}, env) == ("talk:acct", "commercial"), aud
+    for aud in ("report", "other"):
+        tok = stack_auth.sign(KEY, "pod:x", 600, aud=aud)
+        assert stt.credentials_for({"Authorization": f"Bearer {tok}"}, {}, env) == (None, None), aud
+    # The stack: "stack" only.
+    tok = stack_auth.sign(KEY, "talk:acct", 600, aud="omni-stt")
+    assert stack_auth.verify(tok, KEY) is None and stack_auth.verify_claims(tok, KEY) == (None, None)
+    assert stack_auth.verify(stack_auth.sign(KEY, "talk:acct", 600), KEY) == "talk:acct"
+    # Several audiences, through verify() too.
+    assert stack_auth.verify(tok, KEY, audience=("omni-stt", "stack")) == "talk:acct"
+
+
 def test_nonprofit_static_token():
     import stack_auth
     env = {"STT_SIGNING_KEY": KEY, "STT_TOKEN": "s3cret", "STT_TOKEN_NONPROFIT": "np-s3cret"}
@@ -460,10 +509,51 @@ def test_guarded_serves_each_token_in_its_edition():
     # Unset EDITION is commercial: a non-profit token gets the stricter voices.
     hello, _ = _hello(None, tok("nonprofit"))
     assert hello["voices"] == ["coqui"] and hello["edition"] == "commercial"
-    # A non-profit-only server: the static token gets MMS; a commercial token is refused.
-    assert _hello("nonprofit", "s3cret")[0]["voices"] == ["mms", "coqui"]
+    # A non-profit-only server: a commercial token is refused, and so is one
+    # without a claim (the static STT_TOKEN, a signed token naming none): those
+    # are commercial, never upgraded to MMS.
     hello, closed = _hello("nonprofit", tok("commercial"))
     assert hello is None and closed[0] == stt.CLOSE_EDITION
+    for claimless in ("s3cret", tok(None)):
+        hello, closed = _hello("nonprofit", claimless)
+        assert hello is None and closed[0] == stt.CLOSE_EDITION, claimless
+    assert _hello("nonprofit", tok("nonprofit"))[0]["voices"] == ["mms", "coqui"]
+
+
+def test_speak_edition():
+    both = ["nonprofit", "commercial"]
+    se = stt.speak_edition
+    # A claim: the stack's rule (stack_auth.connection_edition).
+    assert [se(both, c) for c in ("nonprofit", "commercial")] == ["nonprofit", "commercial"]
+    assert [se(["commercial"], c) for c in ("nonprofit", "commercial")] == ["commercial", "commercial"]
+    assert [se(["nonprofit"], c) for c in ("nonprofit", "commercial")] == ["nonprofit", None]
+    # No claim: commercial, wherever that is served; refused where it is not.
+    assert se(both, None) == "commercial" and se(["commercial"], None) == "commercial"
+    assert se(["nonprofit"], None) is None
+    # An open server (no credential at all, a laptop test): as before.
+    assert se(["nonprofit"], None, open_server=True) == "nonprofit"
+    assert se(both, None, open_server=True) == "commercial"
+
+
+def test_open_nonprofit_server_still_speaks_mms():
+    import stack_auth
+
+    class M:
+        serve = {"listen", "speak"}
+        voices = FakeVoices()
+        lid_index = {}
+    stt.SPEAK_LIMITS = stack_auth.Limits(per_client=1, total=1)
+    old = dict(os.environ)
+    try:
+        for k in ("STT_TOKEN", "STT_TOKEN_NONPROFIT", "STT_SIGNING_KEY", "HT_VOICE", "STT_VOICES"):
+            os.environ.pop(k, None)
+        os.environ.update({"STT_OPEN": "1", "EDITION": "nonprofit"})
+        ws = FakeWS("/speak", [])
+        asyncio.run(stt.guarded(ws, M()))
+        assert ws.sent[0]["voices"] == ["mms", "coqui"] and ws.sent[0]["edition"] == "nonprofit"
+    finally:
+        os.environ.clear()
+        os.environ.update(old)
 
 
 

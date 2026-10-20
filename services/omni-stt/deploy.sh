@@ -9,6 +9,17 @@
 #   ./deploy.sh build-local              # or: docker build + push from this machine (linux/amd64)
 #   ./deploy.sh build-ft                 # a fine-tuned checkpoint layered on BASE_TAG (Dockerfile.ft)
 #   ./deploy.sh build-voices             # the Haitian Creole voices layered on BASE_TAG (Dockerfile.voices)
+#   ./deploy.sh 7b-build                 # Meta's stock omniASR_LLM_7B (bf16): images and bucket copy (7b/)
+#   ./deploy.sh 7b-deploy                # the separate omni-stt-7b service (lo, km), /listen only
+#
+# 7b-build: converts Meta's omniASR_LLM_7B checkpoint to bf16 inside Cloud Build
+# (7b/to_bf16.py), copies it to MODEL_BUCKET (gs://, private; for the volume
+# and OMNI_FETCH options), and builds two images in the registry: <TAG>-7b-base
+# (no checkpoint: 7b/Dockerfile.base) and <TAG>-7b (checkpoint baked in:
+# 7b/Dockerfile.baked), pushed to REPO_REGION and to EXTRA_REPO_REGIONS. Stock
+# weights only. 7b-deploy: SERVICE_7B (omni-stt-7b), STORAGE (baked|gcs|fetch: where
+# the checkpoint comes from), MAX_STREAMS_7B (6), MEMORY (16Gi; fetch needs 32Gi), CPU (4),
+# SIGNING_SECRET, NONPROFIT_SECRET (optional, as "deploy": STT_SIGNING_KEY, STT_TOKEN_NONPROFIT).
 #
 # Optional: REGION (us-east4: has Cloud Run L4 and, on a new project, the only
 # GPU quota we found; us-central1 had none, 2026-10-17), REPO (Artifact Registry
@@ -266,6 +277,100 @@ YAML
     [ "${DRY_RUN:-0}" != 1 ] || exit 0
     url="$(gcloud run services describe "$SERVICE" --project "$PROJECT" --region "$REGION" --format 'value(status.url)')"
     echo "health: $url/health   mic test: $url/mic   stream: ${url/https:/wss:}/listen?langs=ht,en   voices: ${url/https:/wss:}/speak"
+    ;;
+  7b-build)
+    : "${MODEL_BUCKET:?set MODEL_BUCKET (gs://..., private) for the 7B checkpoint copy}"
+    ctx="$(stage)"
+    cp "$HERE/7b/"* "$ctx/"
+    printf '*.pt\nckpt/\n' > "$ctx/.dockerignore"
+    base="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b-base"
+    baked="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b"
+    tags_base="\"-t\", \"$base\""; tags_baked="\"-t\", \"$baked\""; imgs="\"$base\", \"$baked\""
+    for r in ${EXTRA_REPO_REGIONS:-}; do
+      tags_base="$tags_base, \"-t\", \"$r-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b-base\""
+      tags_baked="$tags_baked, \"-t\", \"$r-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b\""
+      imgs="$imgs, \"$r-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b-base\", \"$r-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b\""
+    done
+    cat > "$ctx/cloudbuild.yaml" <<YAML
+steps:
+- id: ckpt
+  name: python:3.12-slim-bookworm
+  entrypoint: bash
+  args:
+  - -c
+  - |
+    set -e
+    apt-get update -qq && apt-get install -y -qq curl >/dev/null
+    pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.8.0 numpy
+    mkdir -p ckpt && cd ckpt
+    t=\$\$(date +%s)
+    curl -sSfL --retry 5 -o fp32.pt https://dl.fbaipublicfiles.com/mms/omniASR-LLM-7B.pt
+    echo "downloaded \$\$(du -h fp32.pt | cut -f1) in \$\$((\$\$(date +%s) - t))s"
+    python ../to_bf16.py fp32.pt omniASR_LLM_7B_bf16.pt
+    rm fp32.pt
+    sha256sum omniASR_LLM_7B_bf16.pt > SHA256SUMS && cat SHA256SUMS && ls -l
+    cp ../Dockerfile.baked Dockerfile
+- id: upload
+  waitFor: [ckpt]
+  name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+  args: ["gcloud", "storage", "cp", "ckpt/omniASR_LLM_7B_bf16.pt", "ckpt/SHA256SUMS", "${MODEL_BUCKET%/}/omniASR_LLM_7B_bf16/"]
+- id: base
+  waitFor: ["-"]
+  name: gcr.io/cloud-builders/docker
+  args: ["build", "-f", "Dockerfile.base", $tags_base, "."]
+- id: baked
+  waitFor: [ckpt, base]
+  name: gcr.io/cloud-builders/docker
+  dir: ckpt
+  args: ["build", "--build-arg", "BASE_IMAGE=$base", $tags_baked, "."]
+images: [$imgs]
+options:
+  machineType: E2_HIGHCPU_32
+  diskSizeGb: 300
+timeout: 7200s
+YAML
+    [ "${DRY_RUN:-0}" != 1 ] || cat "$ctx/cloudbuild.yaml"
+    run gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
+    rm -rf "$ctx"
+    echo "built $base and $baked; checkpoint at ${MODEL_BUCKET%/}/omniASR_LLM_7B_bf16/"
+    ;;
+  7b-deploy)
+    # Meta's stock 7B for Lao and Khmer, beside omni-stt (whose 300M card stays
+    # for ht and the rest). /listen only: no voices. STORAGE picks where the
+    # checkpoint is read from at a cold start:
+    #   baked  the image <TAG>-7b (the checkpoint in its last layer)
+    #   gcs    the image <TAG>-7b-base + a Cloud Storage volume at /mnt/models
+    #   fetch  the image <TAG>-7b-base + a parallel copy into /tmp (memory) at start
+    STORAGE="${STORAGE:-baked}"
+    MAX_STREAMS="${MAX_STREAMS_7B:-6}"
+    extra=()
+    envs="STT_SERVE=listen,STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS,OMNI_MMAP=${OMNI_MMAP:-1}${EXTRA_ENV:+,$EXTRA_ENV}"
+    case "$STORAGE" in
+      baked) IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/omni-stt:$TAG-7b"; envs="$envs,OMNI_CARD=omniASR_LLM_7B_bf16" ;;
+      gcs)   IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/omni-stt:$TAG-7b-base"; envs="$envs,OMNI_CARD=omniASR_LLM_7B_bf16_volume"
+             : "${MODEL_BUCKET:?set MODEL_BUCKET}"
+             b="${MODEL_BUCKET#gs://}"; b="${b%/}"
+             extra+=(--add-volume "name=models,type=cloud-storage,bucket=$b,readonly=true,mount-options=only-dir=omniASR_LLM_7B_bf16${GCS_MOUNT_OPTIONS:+;$GCS_MOUNT_OPTIONS}"
+                     --add-volume-mount "volume=models,mount-path=/mnt/models") ;;
+      fetch) IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/omni-stt:$TAG-7b-base"
+             : "${MODEL_BUCKET:?set MODEL_BUCKET}"
+             envs="$envs,OMNI_CARD=omniASR_LLM_7B_bf16_tmp,OMNI_FETCH=${MODEL_BUCKET%/}/omniASR_LLM_7B_bf16/omniASR_LLM_7B_bf16.pt,OMNI_FETCH_TO=/tmp/models/omniASR_LLM_7B_bf16.pt" ;;
+      *) echo "STORAGE must be baked, gcs or fetch" >&2; exit 2 ;;
+    esac
+    # (--no-gpu-zonal-redundancy, --no-invoker-iam-check: as "deploy" says.)
+    # The startup probe: a TCP check on the port, which opens only once the
+    # model is loaded and warm. Every 2 s (at 10 s a ready instance waited up
+    # to 10 s more for its first request), up to 15 min before Cloud Run gives
+    # up (a cold start from the volume took 6 min).
+    run gcloud run deploy "${SERVICE_7B:-omni-stt-7b}" --project "$PROJECT" --region "$REGION" --image "$IMAGE" \
+      --gpu 1 --gpu-type nvidia-l4 --no-gpu-zonal-redundancy \
+      --cpu "${CPU:-4}" --memory "${MEMORY:-16Gi}" --no-cpu-throttling --cpu-boost \
+      --min-instances 0 --max-instances 1 \
+      --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
+      --startup-probe "tcpSocket.port=8080,initialDelaySeconds=0,periodSeconds=2,timeoutSeconds=2,failureThreshold=450" \
+      --set-env-vars "$envs" \
+      --set-secrets "$SECRETS" \
+      --no-invoker-iam-check ${extra[@]+"${extra[@]}"} ${DEPLOY_FLAGS:-}
     ;;
   stage)
     stage

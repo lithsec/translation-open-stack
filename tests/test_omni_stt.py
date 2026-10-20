@@ -5,7 +5,7 @@ fake socket and fake models (several connections at once included).
 
     python3 tests/test_omni_stt.py      (or python3 -m pytest tests/test_omni_stt.py)
 
-Needs numpy and scipy (the stack's AudioIn), nothing else.
+Needs numpy and scipy (the stack's AudioIn), and websockets for the handshake test.
 """
 import asyncio
 import json
@@ -81,6 +81,68 @@ def test_auth():
     assert stt.subject_for({"Authorization": f"Bearer {tok}"}, {}, {"STT_SIGNING_KEY": "k"}) == "talk:acct"
     assert stt.subject_for({"Authorization": f"Bearer {tok}"}, {}, {"STT_SIGNING_KEY": "other"}) is None
 
+
+
+def test_token_in_a_subprotocol():
+    """A browser cannot set Authorization on a WebSocket: mic.html offers
+    "omni-stt" and "bearer.<token>" instead of putting the token in the URL."""
+    sys.path.insert(0, os.path.join(ROOT, "server"))
+    import stack_auth
+    env = {"STT_TOKEN": "s3cret", "STT_SIGNING_KEY": "k"}
+    proto = {"Sec-WebSocket-Protocol": "omni-stt, bearer.s3cret"}
+    assert stt.presented_token_via(proto, {}) == ("s3cret", "protocol")
+    assert stt.subject_for(proto, {}, env) == "static"
+    tok = stack_auth.sign("k", "lt:room", 60, ed="nonprofit")          # base64url and a dot: a valid subprotocol
+    assert stt.credentials_for({"Sec-WebSocket-Protocol": f"omni-stt, bearer.{tok}"}, {}, env) == ("lt:room", "nonprofit")
+    # The header wins over both; the subprotocol over ?token=; ?token= still works (deprecated).
+    assert stt.presented_token_via({"Authorization": "Bearer a", **proto}, {"token": ["c"]}) == ("a", "header")
+    assert stt.presented_token_via(proto, {"token": ["c"]}) == ("s3cret", "protocol")
+    assert stt.presented_token_via({}, {"token": ["c"]}) == ("c", "query")
+    assert stt.presented_token_via({}, {}) == ("", "none")
+    assert stt.presented_token_via({"Sec-WebSocket-Protocol": "omni-stt, bearer."}, {}) == ("", "none")
+    assert stt.subject_for({"Sec-WebSocket-Protocol": "omni-stt, bearer.nope"}, {}, env) is None
+    # Every header line counts (websockets' Headers keeps them apart).
+    import websockets.datastructures as wsd
+    h = wsd.Headers()
+    h["Sec-WebSocket-Protocol"] = "omni-stt"
+    h["Sec-WebSocket-Protocol"] = "bearer.s3cret"
+    assert stt.offered_protocols(h) == ["omni-stt", "bearer.s3cret"]
+    assert stt.subject_for(h, {}, env) == "static"
+    # The server picks "omni-stt", never the token.
+    assert stt.select_subprotocol(None, ["omni-stt", "bearer.s3cret"]) == "omni-stt"
+    assert stt.select_subprotocol(None, ["bearer.s3cret"]) is None
+    assert stt.select_subprotocol(None, []) is None
+    # mic.html sends it that way, and the URL only as a fallback.
+    page = open(os.path.join(ROOT, "services", "omni-stt", "mic.html"), encoding="utf-8").read()
+    assert 'new WebSocket(url, protocols)' in page and '"bearer." + token' in page
+    assert page.count('searchParams.set("token"') == 1 and page.index("catch (e)") < page.index('searchParams.set("token"')
+
+
+def test_subprotocol_handshake():
+    """Through a real websockets server and client: the handshake succeeds,
+    the client sees "omni-stt" chosen, the server reads the token from the
+    offer; and a client offering nothing still connects."""
+    import websockets
+
+    seen = []
+
+    async def handler(ws):
+        seen.append((stt.presented_token_via(ws.request.headers, {}), ws.subprotocol))
+        await ws.send("hi")
+
+    async def run():
+        async with websockets.serve(handler, "127.0.0.1", 0, select_subprotocol=stt.select_subprotocol) as server:
+            port = server.sockets[0].getsockname()[1]
+            async with websockets.connect(f"ws://127.0.0.1:{port}/listen",
+                                          subprotocols=["omni-stt", "bearer.abc.DEF-_1"]) as c:
+                assert await c.recv() == "hi"
+                chosen = c.subprotocol
+            async with websockets.connect(f"ws://127.0.0.1:{port}/listen") as c:
+                assert await c.recv() == "hi"
+                assert c.subprotocol is None
+        return chosen
+    assert asyncio.run(run()) == "omni-stt"
+    assert seen == [(("abc.DEF-_1", "protocol"), "omni-stt"), (("", "none"), None)], seen
 
 def test_constrained_choice():
     labels = {"en": 0, "fr": 1, "ht": 2, "hi": 3}
@@ -355,6 +417,85 @@ def test_streams_do_not_mix():
     texts = [[m["text"] for m in ws.sent if m["type"] == "inputTranscript"] for ws in wss]
     assert texts == [["ht level 0.3", "en level 0.6"], ["en level 0.6"], ["ht level 0.3"] * 3], texts
 
+
+
+def test_vad_loads_before_any_loader_thread():
+    """torch.hub's local load edits sys.path for a moment; an import on another
+    thread meanwhile could miss site-packages (ModuleNotFoundError: fairseq2 on
+    the 7B service). So no loader thread may be running while VAD loads, with
+    STT_PARALLEL_LOAD on (the default) or off."""
+    try:
+        import torch  # noqa: F401  (Models() imports it)
+    except ImportError:
+        print("skip: no torch")
+        return
+    import threading
+    seen = []
+    saved = {k: getattr(stt, k) for k in ("load_vad", "load_lid", "load_omni")}
+    saved_voices = stt.Models._load_voices
+
+    def vad():
+        seen.append(("vad", sorted(t.name for t in threading.enumerate() if t.name.endswith("-load"))))
+        return "vad"
+
+    def lid(device):
+        seen.append(("lid", None))
+        return "lid", {"en": 0, "ht": 1}
+
+    def omni(device, card):
+        seen.append(("omni", threading.current_thread().name))
+        return "omni"
+
+    def voices(self, names):
+        seen.append(("voices", None))
+        self.voices_ready.set()
+    old = os.environ.get("STT_PARALLEL_LOAD")
+    try:
+        stt.load_vad, stt.load_lid, stt.load_omni = vad, lid, omni
+        stt.Models._load_voices = voices
+        for parallel in ("1", "0"):
+            seen.clear()
+            os.environ["STT_PARALLEL_LOAD"] = parallel
+            m = stt.Models(device="cpu", card="c", serve={"listen", "speak"}, voice_names=[])
+            assert seen[0] == ("vad", []), seen                    # first, and alone
+            assert (m.vad, m.lid, m.omni) == ("vad", "lid", "omni")
+            assert ("omni", "omni-load" if parallel == "1" else "MainThread") in seen, seen
+            m.voices_ready.wait(5)
+    finally:
+        for k, v in saved.items():
+            setattr(stt, k, v)
+        stt.Models._load_voices = saved_voices
+        if old is None:
+            os.environ.pop("STT_PARALLEL_LOAD", None)
+        else:
+            os.environ["STT_PARALLEL_LOAD"] = old
+
+
+def test_backlog_drops_the_oldest_utterance_never_a_flush():
+    def u(name):
+        return (np.zeros(1600, dtype=np.float32), name, 0)
+
+    def contents(q):
+        out = [q.get_nowait() for _ in range(q.qsize())]
+        return [x if isinstance(x, str) else x[1] for x in out]
+
+    async def run(start, limit=3):
+        q = asyncio.Queue()
+        for x in start:
+            q.put_nowait(x if x == "flush" else u(x))
+        dropped = stt.push_bounded(q, u("new"), limit)
+        return (None if dropped is None else dropped[1]), contents(q)
+    # Room left: nothing dropped.
+    assert asyncio.run(run(["a", "b"])) == (None, ["a", "b", "new"])
+    # Full: the oldest utterance goes; the queue stays at the limit.
+    assert asyncio.run(run(["a", "b", "c"])) == ("a", ["b", "c", "new"])
+    # A flush at the head keeps its place (it was once re-queued behind newer
+    # utterances, which made the queue outgrow the limit and "flushed" late).
+    assert asyncio.run(run(["flush", "a", "b"])) == ("a", ["flush", "b", "new"])
+    assert asyncio.run(run(["a", "flush", "b"])) == ("a", ["flush", "b", "new"])
+    assert asyncio.run(run(["a", "b", "flush"])) == ("a", ["b", "flush", "new"])
+    # Nothing but flushes: nothing to drop.
+    assert asyncio.run(run(["flush"] * 3)) == (None, ["flush"] * 3 + ["new"])
 
 if __name__ == "__main__":
     for name, fn in list(globals().items()):

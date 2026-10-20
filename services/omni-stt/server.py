@@ -8,7 +8,11 @@ the languages a room actually uses; and Haitian Creole voices (/speak). No trans
 Protocol:
 
     client connects  wss://host/listen?langs=ht,en[&rate=24000][&transcribe=ht]
-                     Authorization: Bearer <token>   (or ?token=, which proxies log)
+                     Authorization: Bearer <token>, or (a browser, which cannot
+                     set that header) the subprotocols "omni-stt" and
+                     "bearer.<token>": Sec-WebSocket-Protocol: omni-stt, bearer.<token>
+                     (the server answers "omni-stt"). ?token= still works but is
+                     deprecated: URLs are logged (Cloud Run's request log too).
                      token: STT_TOKEN, STT_TOKEN_NONPROFIT, or a token signed with
                      STT_SIGNING_KEY (Credentials, below)
     server sends     {"type":"hello","langs":["ht","en"],"rate":16000}
@@ -72,7 +76,8 @@ Environment: HT_VOICE (mms|coqui, default coqui: the voice when a request names 
 EDITION (commercial, the default: Coqui only, MMS never loads; nonprofit: both
 voices; both: each /speak connection in the edition its signed token's "ed" claim
 names, commercial for a token without one, e.g. STT_TOKEN; STT_TOKEN_NONPROFIT
-counts as a "nonprofit" claim),
+counts as a "nonprofit" claim; a token without a claim is commercial in every
+edition, so a non-profit-only server refuses it on /speak with 4403: speak_edition),
 STT_VOICES (the voices loaded, default: every one EDITION allows), STT_MAX_SPEAKERS (open /speak
 sockets, default 4), STT_SERVE ("listen,speak" by default; "speak" skips the
 recogniser's models, for a laptop test of the voices), STT_TOKEN, STT_TOKEN_NONPROFIT,
@@ -92,14 +97,18 @@ Credentials, any or all; each app gets its own, and with it its edition:
 
   STT_SIGNING_KEY      the stack's short-lived signed tokens (stack_auth.py), whose
                        "ed" claim names the edition: what a server can mint per
-                       connection uses (Lithos Talk's Worker: "commercial").
+                       connection uses (Lithos Talk's Worker: "commercial"). Their
+                       "aud": "omni-stt" (this service only; a stack refuses it)
+                       or "stack" (what issuers mint today; still accepted).
   STT_TOKEN_NONPROFIT  a static token whose connections are served as non-profit:
                        for an app an operator configures by hand (Live Translation,
                        a non-profit's app, pastes it into its settings). Signed
                        tokens cannot stand in there: they live at most a day.
-  STT_TOKEN            the original static token, no edition: commercial (the
-                       strictest served), so a client that still sends it keeps
-                       working and never gains a non-commercial voice.
+  STT_TOKEN            the original static token, no edition: commercial, so a
+                       client that still sends it keeps working and never gains a
+                       non-commercial voice (on a non-profit-only server, which has
+                       no commercial voices to give, its /speak is refused, 4403;
+                       its /listen is served as ever).
 
 The two static tokens must differ (the server will not start otherwise).
 """
@@ -250,6 +259,12 @@ def auth_mode(env=None):
     return "open" if env.get("STT_OPEN") == "1" else None
 
 
+# A signed token's "aud" accepted here: "omni-stt" (a token for this service
+# only, which a stack refuses) and, for the tokens issuers mint today, "stack".
+# Issuers (Lithos Talk's Worker, Live Translation) should switch to "omni-stt";
+# "stack" stays accepted until they have.
+AUDIENCES = ("omni-stt", "stack")
+
 # The credentials auth_mode looks for (Credentials, in the docstring at the top).
 CREDENTIALS = ("STT_TOKEN", "STT_TOKEN_NONPROFIT", "STT_SIGNING_KEY")
 NONPROFIT_SUBJECT = "static:nonprofit"
@@ -265,12 +280,49 @@ def check_credentials(env=None):
         raise SystemExit("[stt] STT_TOKEN and STT_TOKEN_NONPROFIT must differ")
 
 
-def presented_token(headers, query):
-    """The client's token: the Authorization header, else ?token=."""
+# A browser's WebSocket cannot send an Authorization header, so mic.html (and
+# any browser client) offers two subprotocols instead: AUTH_PROTOCOL, which
+# the server picks and echoes, and TOKEN_PROTOCOL_PREFIX + the token, which it
+# reads and never echoes. Request headers stay out of Cloud Run's request
+# log; a ?token= URL does not. (The stack's own clients use the header; its
+# stack_auth.presented_token also still takes ?key= and a /<token>/ path from
+# older clients, for the same reason this keeps ?token=.)
+AUTH_PROTOCOL = "omni-stt"
+TOKEN_PROTOCOL_PREFIX = "bearer."
+
+
+def offered_protocols(headers):
+    """The subprotocols a client offered (Sec-WebSocket-Protocol, every header line)."""
+    if headers is None:
+        return []
+    get_all = getattr(headers, "get_all", None)
+    lines = get_all("Sec-WebSocket-Protocol") if get_all else [headers.get("Sec-WebSocket-Protocol")]
+    return [p.strip() for line in lines if line for p in line.split(",") if p.strip()]
+
+
+def select_subprotocol(connection, subprotocols):
+    """websockets' hook: AUTH_PROTOCOL when offered (a browser fails the
+    handshake unless the server picks one of its subprotocols), else none."""
+    return AUTH_PROTOCOL if AUTH_PROTOCOL in subprotocols else None
+
+
+def presented_token_via(headers, query):
+    """(the client's token, how it came: "header" | "protocol" | "query" | "none").
+    The Authorization header, else the bearer.<token> subprotocol, else ?token=
+    (deprecated: the URL is logged)."""
     auth = (headers.get("Authorization", "") if headers is not None else "") or ""
     if auth.lower().startswith("bearer "):
-        return auth[7:].strip()
-    return (query.get("token") or [""])[0]
+        return auth[7:].strip(), "header"
+    for p in offered_protocols(headers):
+        if p.startswith(TOKEN_PROTOCOL_PREFIX) and len(p) > len(TOKEN_PROTOCOL_PREFIX):
+            return p[len(TOKEN_PROTOCOL_PREFIX):], "protocol"
+    token = (query.get("token") or [""])[0]
+    return token, ("query" if token else "none")
+
+
+def presented_token(headers, query):
+    """The client's token (presented_token_via, without the how)."""
+    return presented_token_via(headers, query)[0]
 
 
 def subject_for(headers, query, env=None):
@@ -292,7 +344,7 @@ def credentials_for(headers, query, env=None):
         return None, None
     token = presented_token(headers, query)
     sub, claim = stack_auth.verify_claims(token, (env.get("STT_SIGNING_KEY") or "").strip(),
-                                          (env.get("STT_TOKEN") or "").strip())
+                                          (env.get("STT_TOKEN") or "").strip(), audience=AUDIENCES)
     if sub is not None:
         return sub, claim
     nonprofit = (env.get("STT_TOKEN_NONPROFIT") or "").strip()
@@ -304,14 +356,32 @@ def credentials_for(headers, query, env=None):
 # ---------------------------------------------------------------- editions
 
 # EDITION, as the stack's (server/stack_config.py): nonprofit, commercial, or
-# both (each connection in the edition its token's "ed" claim names; none: the
-# strictest served, stack_auth.connection_edition). It only decides the /speak
+# both (each connection in the edition its token's "ed" claim names; none:
+# commercial, speak_edition). It only decides the /speak
 # voices: the recogniser, language ID and VAD are permissive in every edition.
 # The default here is commercial, not the stack's nonprofit: a deployment that
 # says nothing never loads a non-commercial voice (MMS).
 EDITIONS = ("nonprofit", "commercial", "both")
 DEFAULT_EDITION = "commercial"
 CLOSE_EDITION = 4403        # the stack's code for a token of an edition not served here
+
+
+def speak_edition(served, claim, open_server=False):
+    """The edition a /speak connection is served in, or None to refuse it (4403).
+
+    A token with an "ed" claim (a signed token's, or STT_TOKEN_NONPROFIT's
+    "nonprofit"): stack_auth.connection_edition, as the stack. A token
+    WITHOUT one (STT_TOKEN, a signed token whose issuer names none) is
+    commercial: served as commercial wherever commercial is served, and
+    refused on a non-profit-only server rather than given its non-commercial
+    voices (the stack's rule, "the strictest edition served", would make it
+    nonprofit there: right for a stack's own LAN token, not for a hosted
+    service whose claim-less tokens are commercial apps'). An open server
+    (STT_OPEN=1, a laptop test: no credential at all) keeps the stack's rule."""
+    import stack_auth
+    if claim is None and not open_server:
+        return "commercial" if "commercial" in served else None
+    return stack_auth.connection_edition(served, claim)
 
 
 def service_editions(env=None):
@@ -565,6 +635,14 @@ class Models:
         self.voices = None
         self.voices_error = None
         self.voices_ready = threading.Event()
+        if "listen" in self.serve:
+            # VAD first, before any loader thread starts: torch.hub.load(source=
+            # "local") puts its directory on sys.path and takes it off again
+            # (torch/hub.py, _add_to_sys_path), and an import on another thread
+            # walking sys.path meanwhile can miss site-packages (the 7B
+            # omni-load thread died with ModuleNotFoundError: fairseq2).
+            # Silero's load is short; nothing else here touches sys.path.
+            self.vad = load_vad()
         loader = None
         if "speak" in self.serve:
             names = voice_names if voice_names is not None else voice_list()
@@ -573,9 +651,29 @@ class Models:
         else:
             self.voices_ready.set()
         if "listen" in self.serve:
-            self.vad = load_vad()
-            self.lid, self.lid_index = load_lid(self.device)
-            self.omni = load_omni(self.device, self.card)
+            # The recogniser loads on its own thread while language ID loads
+            # here: on a cold 7B instance VAD and language ID took 10-15 s,
+            # which then no longer add to the checkpoint's read
+            # (STT_PARALLEL_LOAD=0: one after the other, as before).
+            if os.environ.get("STT_PARALLEL_LOAD", "1") != "0":
+                box = {}
+
+                def omni_load():
+                    try:
+                        box["omni"] = load_omni(self.device, self.card)
+                    except BaseException as e:  # SystemExit included: re-raised below
+                        box["error"] = e
+                t = threading.Thread(target=omni_load, name="omni-load", daemon=True)
+                t.start()
+                self.lid, self.lid_index = load_lid(self.device)
+                t.join()
+                if "error" in box:
+                    raise box["error"]
+                self.omni = box["omni"]
+            else:
+                self.lid, self.lid_index = load_lid(self.device)
+                self.omni = load_omni(self.device, self.card)
+            print(f"[stt] models loaded", flush=True)
         elif loader:
             loader.join()
 
@@ -774,11 +872,55 @@ def load_omni(device, card):
     ctx = Context(device=device, models={"omnilingual": {"card": card}},
                   tables={"OMNI_LANGS": OMNI_CODES}, options={"omni": True})
     skip_identity_reorder()
+    fetch_checkpoint()
+    if os.environ.get("OMNI_MMAP", "0") == "1":
+        mmap_checkpoints()
+    t0 = time.time()
     omni = Omnilingual(ctx)
     omni.load()
     if not omni.available:
         raise SystemExit(f"[stt] Omnilingual ({card}) failed to load; see above")
+    print(f"[stt] {card} loaded in {time.time() - t0:.1f}s", flush=True)
     return omni
+
+
+def mmap_checkpoints():
+    """OMNI_MMAP=1: fairseq2 maps the checkpoint file instead of reading it whole
+    into memory first (torch.load(mmap=True)); each tensor is read as it is
+    copied to the GPU. For the 7B card (a 16 GB bf16 file) the whole file then
+    never sits in the process's memory at once."""
+    import functools
+    from omnilingual_asr.models.inference import pipeline
+    if not getattr(pipeline.load_model, "_mmap", False):
+        patched = functools.partial(pipeline.load_model, mmap=True)
+        patched._mmap = True
+        pipeline.load_model = patched
+
+
+def fetch_checkpoint():
+    """OMNI_FETCH=gs://bucket/path/file.pt with OMNI_FETCH_TO=/tmp/models/file.pt:
+    copy the checkpoint from Cloud Storage at start, in parallel ranged reads
+    (google-cloud-storage's transfer manager), before the card naming
+    OMNI_FETCH_TO loads. Cloud Run's /tmp is memory: size the instance for it."""
+    src = os.environ.get("OMNI_FETCH", "")
+    dst = os.environ.get("OMNI_FETCH_TO", "")
+    if not src:
+        return
+    if not (src.startswith("gs://") and dst):
+        raise SystemExit("[stt] OMNI_FETCH must be gs://bucket/object, with OMNI_FETCH_TO set")
+    from google.cloud import storage
+    from google.cloud.storage import transfer_manager
+    t0 = time.time()
+    bucket, _, name = src[len("gs://"):].partition("/")
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    blob = storage.Client().bucket(bucket).blob(name)
+    transfer_manager.download_chunks_concurrently(
+        blob, dst, chunk_size=int(os.environ.get("OMNI_FETCH_CHUNK_MB", "64")) * 1024 * 1024,
+        max_workers=int(os.environ.get("OMNI_FETCH_WORKERS", "16")))
+    size = os.path.getsize(dst)
+    dt = time.time() - t0
+    print(f"[stt] fetched {size / 1e9:.1f} GB from Cloud Storage in {dt:.1f}s "
+          f"({size / 1e6 / max(dt, 1e-3):.0f} MB/s)", flush=True)
 
 
 def skip_identity_reorder():
@@ -874,8 +1016,10 @@ class Batcher:
 
     Order: language ID first (it is fast, and its message releases the
     client's other captions), then recognition. A failed batch is retried item
-    by item, so one bad utterance fails alone. /speak never comes here: it has
-    its own threads (VOICE_POOL)."""
+    by item, so one bad utterance fails alone. A job whose future is already
+    done (its client left and the awaiting task was cancelled) is dropped
+    unrun, in a batch and in that retry. /speak never comes here: it has
+    its own threads (voice_pool)."""
 
     KINDS = ("lid", "asr")
 
@@ -889,6 +1033,9 @@ class Batcher:
         self.streams = 0
         self.stats = {k: {"batches": 0, "items": 0, "max": 0, "busy_s": 0.0, "audio_s": 0.0} for k in self.KINDS}
         self.logged = time.monotonic()
+        self.inflight = {k: [] for k in self.KINDS}     # the batch being run (_crashed fails it)
+        self.crashes = collections.deque()
+        self.exit = os._exit                           # tests replace it
         self.thread = threading.Thread(target=self._run, name="model-batcher", daemon=True)
         self.thread.start()
 
@@ -932,25 +1079,70 @@ class Batcher:
                             self.cond.wait(left)
                             continue
                     break
-            out = {"lid": [self.queues["lid"].popleft() for _ in range(min(self.max_batch, len(self.queues["lid"])))]}
+            # A job whose future is already done was given up on (its client
+            # left, so the awaiting task was cancelled): no GPU time for it.
+            for q in self.queues.values():
+                live = [job for job in q if not job[3].done()]
+                if len(live) != len(q):
+                    q.clear()
+                    q.extend(live)
+            out = self.inflight = {k: [] for k in self.KINDS}
+            out["lid"] = [self.queues["lid"].popleft() for _ in range(min(self.max_batch, len(self.queues["lid"])))]
             q = self.queues["asr"]
             if self.group_by_length and getattr(self.models, "length_sensitive", True):
                 keep = set(pick_group([len(job[0]) for job in q], self.max_batch))
             else:
                 keep = set(range(min(self.max_batch, len(q))))
             jobs = list(q)
+            out["asr"] = [job for i, job in enumerate(jobs) if i in keep]
             q.clear()
             q.extend(job for i, job in enumerate(jobs) if i not in keep)
-            out["asr"] = [job for i, job in enumerate(jobs) if i in keep]
             return out
 
     def _run(self):
         while True:
-            taken = self._take()
-            for kind in self.KINDS:
-                if taken[kind]:
-                    self._do(kind, taken[kind])
-            self._maybe_log()
+            try:
+                taken = self._take()
+                for kind in self.KINDS:
+                    if taken[kind]:
+                        self._do(kind, taken[kind])
+                self._maybe_log()
+            except Exception as e:  # noqa: BLE001  the last resort: see _crashed
+                self._crashed(e)
+
+    # A model error fails its batch in _do; anything else that escapes the
+    # loop (a bug here, a broken model attribute) lands in _crashed. Without
+    # it the thread died silently and every later utterance waited forever on
+    # a future nobody would resolve, while /health still said ok.
+    CRASH_LIMIT = 3          # crashes within CRASH_WINDOW_S before the process exits
+    CRASH_WINDOW_S = 60
+
+    def _crashed(self, e):
+        """Fail every job taken or waiting (their connections get an error and
+        carry on), then run the loop again; on the CRASH_LIMIT-th crash within
+        CRASH_WINDOW_S exit the process, so Cloud Run starts a fresh instance
+        instead of serving from a worker that keeps failing."""
+        err = RuntimeError(f"the model worker failed: {type(e).__name__}")
+        with self.cond:
+            jobs = [job for kind in self.KINDS for job in self.inflight.get(kind, [])]
+            for q in self.queues.values():
+                jobs.extend(q)
+                q.clear()
+            self.inflight = {k: [] for k in self.KINDS}
+        for _, _, loop, fut in jobs:
+            try:
+                loop.call_soon_threadsafe(_resolve, fut, None, err)
+            except RuntimeError:
+                pass
+        now = time.monotonic()
+        self.crashes.append(now)
+        while self.crashes and now - self.crashes[0] > self.CRASH_WINDOW_S:
+            self.crashes.popleft()
+        print(f"[stt] model worker failed ({type(e).__name__}: {clean(e, 120)}); failed {len(jobs)} "
+              f"waiting utterances; {len(self.crashes)} in {self.CRASH_WINDOW_S}s", flush=True)
+        if len(self.crashes) >= self.CRASH_LIMIT:
+            print("[stt] model worker keeps failing: exiting for a fresh instance", flush=True)
+            self.exit(70)
 
     def _call(self, kind, items):
         m = self.models
@@ -977,7 +1169,10 @@ class Batcher:
                 print(f"[stt] a batch of {len(jobs)} ({kind}) failed ({type(e).__name__}: {clean(e, 120)}); "
                       f"retrying one by one", flush=True)
                 outcomes = []
-                for item in items:
+                for item, (_, _, _, fut) in zip(items, jobs):
+                    if fut.done():          # given up on while the batch ran
+                        outcomes.append((None, None))
+                        continue
                     try:
                         outcomes.append((self._call(kind, [item])[0], None))
                     except Exception as e1:
@@ -1056,6 +1251,24 @@ async def recognise(models, utt, langs, transcribe, send, batcher=None):
     return True
 
 
+def push_bounded(queue, utt, limit):
+    """Put utt on a connection's asyncio.Queue; when `limit` or more are
+    already waiting, first take out the OLDEST utterance (returned, for the
+    log; None when nothing was dropped). A "flush" marker is never dropped
+    and keeps its place: re-queueing it behind newer utterances (as this once
+    did) both let the queue outgrow the limit and sent "flushed" late."""
+    if queue.qsize() >= limit:
+        items = [queue.get_nowait() for _ in range(queue.qsize())]
+        at = next((i for i, item in enumerate(items) if not (isinstance(item, str) and item == "flush")), None)
+        dropped = items.pop(at) if at is not None else None
+        for item in items:
+            queue.put_nowait(item)
+    else:
+        dropped = None
+    queue.put_nowait(utt)
+    return dropped
+
+
 async def handle(ws, models, sub="open"):
     """One /listen connection, after auth and admission."""
     from urllib.parse import urlparse, parse_qs
@@ -1105,13 +1318,9 @@ async def handle(ws, models, sub="open"):
 
     def enqueue(utts):
         for utt in utts:
-            if queue.qsize() >= MAX_PENDING:
-                dropped = queue.get_nowait()
-                if dropped == "flush":
-                    queue.put_nowait(dropped)
-                else:
-                    print(f"[stt] {who}: behind, dropped a {len(dropped[0]) / VAD_RATE:.1f}s utterance", flush=True)
-            queue.put_nowait(utt)
+            dropped = push_bounded(queue, utt, MAX_PENDING)
+            if dropped is not None:
+                print(f"[stt] {who}: behind, dropped a {len(dropped[0]) / VAD_RATE:.1f}s utterance", flush=True)
 
     task = asyncio.create_task(worker())
     batcher.opened()
@@ -1142,9 +1351,22 @@ async def handle(ws, models, sub="open"):
 # ---------------------------------------------------------------- /speak
 
 # Synthesis runs here, not on the Batcher's thread: a sentence being voiced never waits
-# behind an utterance being transcribed. Two threads, one per voice; each
-# voice's own lock makes two requests on the same voice take turns.
-VOICE_POOL = ThreadPoolExecutor(2, thread_name_prefix="voice")
+# behind an utterance being transcribed. One thread per voice (its own
+# single-thread executor): requests on one voice take turns, as its lock
+# would make them anyway, and never hold a thread another voice needs. (One
+# shared pool of two let two Coqui requests take both threads, one of them
+# just waiting on Coqui's lock, while an MMS request queued behind them.)
+_VOICE_POOLS = {}
+_VOICE_POOLS_LOCK = threading.Lock()
+
+
+def voice_pool(voice):
+    """The single-thread executor that voices `voice`."""
+    with _VOICE_POOLS_LOCK:
+        pool = _VOICE_POOLS.get(voice)
+        if pool is None:
+            pool = _VOICE_POOLS[voice] = ThreadPoolExecutor(1, thread_name_prefix=f"voice-{clean(voice, 16)}")
+        return pool
 
 
 async def speak_one(voices, voice, text, req_id, send):
@@ -1157,7 +1379,7 @@ async def speak_one(voices, voice, text, req_id, send):
     spoken, nbytes, failed = 0, 0, 0
     tag = {"id": req_id} if req_id is not None else {}
     for piece in prepare(text):
-        pcm = await loop.run_in_executor(VOICE_POOL, voices.synthesise, voice, piece)
+        pcm = await loop.run_in_executor(voice_pool(voice), voices.synthesise, voice, piece)
         if not pcm:
             failed += 1
             continue
@@ -1212,7 +1434,7 @@ def parse_speak(msg, default_voice, names, edition=None):
 
 async def handle_speak(ws, voices, sub="open", env=None, edition=None):
     """One /speak connection, after auth and admission, in `edition` (guarded:
-    stack_auth.connection_edition; None: as a token without a claim would be).
+    speak_edition; None: as on an open server, the strictest edition served).
 
     Only the voices that edition may use are offered (hello) or spoken. A voice
     it may not use is refused like one that is not loaded, never swapped for
@@ -1224,7 +1446,7 @@ async def handle_speak(ws, voices, sub="open", env=None, edition=None):
     from voices import parse_voice, permitted, LANG
     import stack_auth
     if edition is None:
-        edition = stack_auth.connection_edition(service_editions(env), None)
+        edition = stack_auth.connection_edition(service_editions(env), None)   # = speak_edition(..., open_server=True)
     q = parse_qs(urlparse(ws.request.path).query)
     names = permitted(voices.names, edition)
     if not names:
@@ -1289,21 +1511,26 @@ async def guarded(ws, models):
     if path not in open_paths:
         await ws.close(code=CLOSE_BAD_REQUEST, reason=f"the endpoints are {' and '.join(open_paths)}")
         return
-    sub, claim = credentials_for(ws.request.headers, parse_qs(url.query))
+    query = parse_qs(url.query)
+    sub, claim = credentials_for(ws.request.headers, query)
     if sub is None:
         print("[stt] refused: bad or missing token", flush=True)
         await ws.close(code=CLOSE_UNAUTHORIZED, reason="unauthorized")
         return
+    if sub != "open" and presented_token_via(ws.request.headers, query)[1] == "query":
+        print(f"[stt] {clean(sub, 24)} sent its token in the URL (?token=, deprecated: URLs are logged); "
+              f"use the Authorization header or the bearer.<token> subprotocol", flush=True)
     edition = None
     if path == "/speak":
         # The edition only matters for the voices; /listen is the same in all.
-        import stack_auth
         served_eds = service_editions()
-        edition = stack_auth.connection_edition(served_eds, claim)
+        edition = speak_edition(served_eds, claim, open_server=(sub == "open"))
         if edition is None:
-            print(f"[stt] refused {clean(sub, 24)}: its token is for the {claim} edition; this server "
-                  f"serves {'/'.join(served_eds)}", flush=True)
-            await ws.close(code=CLOSE_EDITION, reason=f"this server does not serve the {claim} edition")
+            # A token without a claim counts as commercial (speak_edition).
+            ed = claim or "commercial"
+            print(f"[stt] refused {clean(sub, 24)}: its token is for the {ed} edition"
+                  f"{'' if claim else ' (it names none)'}; this server serves {'/'.join(served_eds)}", flush=True)
+            await ws.close(code=CLOSE_EDITION, reason=f"this server does not serve the {ed} edition")
             return
     limits = SPEAK_LIMITS if path == "/speak" else LIMITS
     why = limits.admit(sub)
@@ -1351,6 +1578,7 @@ async def main():
     eds = service_editions()          # a bad EDITION stops here, before any model loads
     print(f"[stt] edition: {'both' if len(eds) > 1 else eds[0]}", flush=True)
     t0 = time.time()
+    print("[stt] starting", flush=True)
     models = Models()
     warmup(models)
     global LIMITS, SPEAK_LIMITS
@@ -1384,7 +1612,8 @@ async def main():
     # busy event loop have killed sessions in the stack: the client pings, or
     # audio flows, so the server sends none.
     async with websockets.serve(lambda ws: guarded(ws, models), "0.0.0.0", port,
-                                max_size=MAX_FRAME_BYTES, ping_interval=None, process_request=http):
+                                max_size=MAX_FRAME_BYTES, ping_interval=None, process_request=http,
+                                select_subprotocol=select_subprotocol):
         voices = "; voices loading" if "speak" in models.serve and not models.voices_ready.is_set() else (
             f"; voices {','.join(models.voices.names)}, default {default_voice(models.voices.names)}" if models.voices else "")
         print(f"[stt] ready on :{port} ({mode}; card {models.card}{voices}; loaded in {time.time() - t0:.0f}s)",

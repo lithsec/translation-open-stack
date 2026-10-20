@@ -1,0 +1,5 @@
+# The 7B checkpoint (bf16, ~16 GB) in its own last layer on the base image.
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+COPY omniASR_LLM_7B_bf16.pt /opt/models/7b/omniASR_LLM_7B_bf16.pt
+ENV OMNI_CARD=omniASR_LLM_7B_bf16
