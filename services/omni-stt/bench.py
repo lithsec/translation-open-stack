@@ -6,6 +6,15 @@ Omnilingual's CER with the right language and with the one LID picked.
     python3 services/omni-stt/bench.py --eval eval/2026-10-real-voices \\
         --audio ht,en,fr --sets ht,en ht,fr ht,en,fr --pipeline ht,en --out bench.json
 
+--parity N also decodes the clips N at a time through the service's batched
+path (server.decode_batch: omni_batch's aligned decode when the card allows
+it) and compares each text with the same clip decoded alone: on a GPU the
+pipeline runs in bfloat16, where a batch's padding and reordered sums can
+change a token, so this is the check that batching changes nothing that
+matters (identical texts, and the CER between the two decodes):
+
+    python3 services/omni-stt/bench.py --eval ... --audio lo,km --parity 6 --out parity.json
+
 <eval>/audio/<lang>.wav + <lang>.json (sentence start/end) and
 <eval>/sentences/<lang>.json (the read text), as eval/2026-10-real-voices has.
 CER normalises as that eval's judge.py does: NFKC, lowercase, letters and digits only.
@@ -67,12 +76,15 @@ def main():
     ap.add_argument("--pipeline", default="ht,en", help="the set whose LID choice decides the transcript")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--out", default="bench.json")
+    ap.add_argument("--parity", type=int, default=0,
+                    help="also decode the clips N at a time (the batched path) and compare with one at a time")
     a = ap.parse_args()
     import torch
     m = server.Models()
     sets = [s.split(",") for s in a.sets]
     pipe_set = a.pipeline.split(",")
     rows = []
+    kept = []          # (pcm, lang) per row, for --parity
     for lang in a.audio.split(","):
         for n, (i, ref, pcm) in enumerate(clips(a.eval, lang)):
             if a.limit and n >= a.limit:
@@ -94,6 +106,8 @@ def main():
             else:
                 row["cer_pipeline"] = row["cer"]
             rows.append(row)
+            if a.parity:
+                kept.append((pcm, lang))
             print(f"{lang} {i:2d} {row['seconds']:5.1f}s cer {row['cer']:.3f} rtf {dt / row['seconds']:.2f} "
                   + " ".join(f"[{k}]={c}:{p:.2f}" for k, (c, p) in row["lid"].items()), flush=True)
     summary = {}
@@ -115,8 +129,43 @@ def main():
                 cell = confusion[k].setdefault(r["lang"], {})
                 cell[r["lid"][k][0]] = cell.get(r["lid"][k][0], 0) + 1
     out = {"device": m.device, "card": m.card, "summary": summary, "confusion": confusion, "rows": rows}
+    if a.parity:
+        out["parity"] = parity(m, kept, a.parity)
+        print(json.dumps({"parity": {k: v for k, v in out["parity"].items() if k != "differ"}}, indent=1))
     json.dump(out, open(a.out, "w"), ensure_ascii=False, indent=1)
     print(json.dumps({"summary": summary, "confusion": confusion}, indent=1))
+
+
+def parity(m, items, n):
+    """Each clip decoded alone and in batches of n (server.decode_batch, the
+    service's own path; before the repetition guard, which acts per text
+    either way): how many texts are identical, the CER between the two
+    decodes, and the clips that differ."""
+    import torch
+    aligned = server.aligned_ok(m.omni)
+    if not aligned:
+        print("[bench] parity: this card / setting has no aligned decode (STT_ALIGNED=0, or an "
+              "unsupported card): the batches use the library's own batched call", flush=True)
+    model = getattr(getattr(m.omni, "omni", None), "model", None)
+    dtype = str(next(model.parameters()).dtype) if model is not None else None
+    with torch.inference_mode():
+        alone = [server.decode_batch(m.omni, [it])[0] for it in items]
+        t0 = time.time()
+        batched = []
+        for i in range(0, len(items), n):
+            batched += server.decode_batch(m.omni, items[i:i + n])
+        batch_s = time.time() - t0
+    differ = []
+    for k, ((pcm, lang), x, y) in enumerate(zip(items, alone, batched)):
+        if x != y:
+            differ.append({"k": k, "lang": lang, "seconds": round(len(pcm) / 16000, 2),
+                           "alone": x, "batched": y, "cer": cer(x, y)})
+    cers = [d["cer"] for d in differ if d["cer"] is not None]
+    return {"device": m.device, "dtype": dtype, "aligned": aligned, "batch": n, "clips": len(items),
+            "identical": len(items) - len(differ),
+            "mean_cer_between": round(sum(cers) / len(items), 4) if items else None,
+            "max_cer_between": round(max(cers), 4) if cers else 0.0,
+            "batched_s": round(batch_s, 1), "differ": differ}
 
 
 if __name__ == "__main__":
