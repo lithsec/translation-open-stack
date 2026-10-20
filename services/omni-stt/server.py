@@ -8,7 +8,11 @@ the languages a room actually uses; and Haitian Creole voices (/speak). No trans
 Protocol:
 
     client connects  wss://host/listen?langs=ht,en[&rate=24000][&transcribe=ht]
-                     Authorization: Bearer <token>   (or ?token=, which proxies log)
+                     Authorization: Bearer <token>, or (a browser, which cannot
+                     set that header) the subprotocols "omni-stt" and
+                     "bearer.<token>": Sec-WebSocket-Protocol: omni-stt, bearer.<token>
+                     (the server answers "omni-stt"). ?token= still works but is
+                     deprecated: URLs are logged (Cloud Run's request log too).
                      token: STT_TOKEN, STT_TOKEN_NONPROFIT, or a token signed with
                      STT_SIGNING_KEY (Credentials, below)
     server sends     {"type":"hello","langs":["ht","en"],"rate":16000}
@@ -265,12 +269,49 @@ def check_credentials(env=None):
         raise SystemExit("[stt] STT_TOKEN and STT_TOKEN_NONPROFIT must differ")
 
 
-def presented_token(headers, query):
-    """The client's token: the Authorization header, else ?token=."""
+# A browser's WebSocket cannot send an Authorization header, so mic.html (and
+# any browser client) offers two subprotocols instead: AUTH_PROTOCOL, which
+# the server picks and echoes, and TOKEN_PROTOCOL_PREFIX + the token, which it
+# reads and never echoes. Request headers stay out of Cloud Run's request
+# log; a ?token= URL does not. (The stack's own clients use the header; its
+# stack_auth.presented_token also still takes ?key= and a /<token>/ path from
+# older clients, for the same reason this keeps ?token=.)
+AUTH_PROTOCOL = "omni-stt"
+TOKEN_PROTOCOL_PREFIX = "bearer."
+
+
+def offered_protocols(headers):
+    """The subprotocols a client offered (Sec-WebSocket-Protocol, every header line)."""
+    if headers is None:
+        return []
+    get_all = getattr(headers, "get_all", None)
+    lines = get_all("Sec-WebSocket-Protocol") if get_all else [headers.get("Sec-WebSocket-Protocol")]
+    return [p.strip() for line in lines if line for p in line.split(",") if p.strip()]
+
+
+def select_subprotocol(connection, subprotocols):
+    """websockets' hook: AUTH_PROTOCOL when offered (a browser fails the
+    handshake unless the server picks one of its subprotocols), else none."""
+    return AUTH_PROTOCOL if AUTH_PROTOCOL in subprotocols else None
+
+
+def presented_token_via(headers, query):
+    """(the client's token, how it came: "header" | "protocol" | "query" | "none").
+    The Authorization header, else the bearer.<token> subprotocol, else ?token=
+    (deprecated: the URL is logged)."""
     auth = (headers.get("Authorization", "") if headers is not None else "") or ""
     if auth.lower().startswith("bearer "):
-        return auth[7:].strip()
-    return (query.get("token") or [""])[0]
+        return auth[7:].strip(), "header"
+    for p in offered_protocols(headers):
+        if p.startswith(TOKEN_PROTOCOL_PREFIX) and len(p) > len(TOKEN_PROTOCOL_PREFIX):
+            return p[len(TOKEN_PROTOCOL_PREFIX):], "protocol"
+    token = (query.get("token") or [""])[0]
+    return token, ("query" if token else "none")
+
+
+def presented_token(headers, query):
+    """The client's token (presented_token_via, without the how)."""
+    return presented_token_via(headers, query)[0]
 
 
 def subject_for(headers, query, env=None):
@@ -1441,11 +1482,15 @@ async def guarded(ws, models):
     if path not in open_paths:
         await ws.close(code=CLOSE_BAD_REQUEST, reason=f"the endpoints are {' and '.join(open_paths)}")
         return
-    sub, claim = credentials_for(ws.request.headers, parse_qs(url.query))
+    query = parse_qs(url.query)
+    sub, claim = credentials_for(ws.request.headers, query)
     if sub is None:
         print("[stt] refused: bad or missing token", flush=True)
         await ws.close(code=CLOSE_UNAUTHORIZED, reason="unauthorized")
         return
+    if sub != "open" and presented_token_via(ws.request.headers, query)[1] == "query":
+        print(f"[stt] {clean(sub, 24)} sent its token in the URL (?token=, deprecated: URLs are logged); "
+              f"use the Authorization header or the bearer.<token> subprotocol", flush=True)
     edition = None
     if path == "/speak":
         # The edition only matters for the voices; /listen is the same in all.
@@ -1537,7 +1582,8 @@ async def main():
     # busy event loop have killed sessions in the stack: the client pings, or
     # audio flows, so the server sends none.
     async with websockets.serve(lambda ws: guarded(ws, models), "0.0.0.0", port,
-                                max_size=MAX_FRAME_BYTES, ping_interval=None, process_request=http):
+                                max_size=MAX_FRAME_BYTES, ping_interval=None, process_request=http,
+                                select_subprotocol=select_subprotocol):
         voices = "; voices loading" if "speak" in models.serve and not models.voices_ready.is_set() else (
             f"; voices {','.join(models.voices.names)}, default {default_voice(models.voices.names)}" if models.voices else "")
         print(f"[stt] ready on :{port} ({mode}; card {models.card}{voices}; loaded in {time.time() - t0:.0f}s)",

@@ -25,7 +25,7 @@ the stack's parts rather than copying them:
 
 ```
 connect   wss://<host>/listen?langs=ht,en[&rate=24000][&transcribe=ht]
-          Authorization: Bearer <token>            (or ?token=<token>; URLs get logged, so prefer the header)
+          Authorization: Bearer <token>            (a browser: Sec-WebSocket-Protocol: omni-stt, bearer.<token>)
 server    {"type":"hello","langs":["ht","en"],"rate":16000}
 client    binary: mono PCM16 at 16 kHz (24 kHz with ?rate=24000), ~100 ms per message is ideal
 client    {"type":"flush"}                         optional: end the current utterance now (end of a file, push-to-talk release)
@@ -51,6 +51,12 @@ GET /mic      a one-file microphone test page: type the languages and the token,
   (`OMNI_CODES` in `server.py`). Anything else is refused at connect with an error and
   close code 4400, as is a mix containing a language VoxLingua107 doesn't know.
 - `start_ms`/`end_ms` count from the connection's first sample.
+- The token: the `Authorization` header, or, from a browser (which cannot set
+  that header on a WebSocket), the two subprotocols `omni-stt` and
+  `bearer.<token>` (`new WebSocket(url, ["omni-stt", "bearer." + token])`; the
+  server answers `omni-stt` and never echoes the token). `?token=<token>` still
+  works but is deprecated: a URL is written to Cloud Run's request log, and the
+  server logs a warning when a client uses it.
 - Close codes: 4400 bad request, 4401 bad or missing token, 4429 at the connection limit.
 - Several connections at once are fine (default limit 4 on Cloud Run, `STT_MAX_CONNECTIONS`).
   Each has its own VAD and endpointing; the models are shared and run on a single

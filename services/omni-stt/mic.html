@@ -101,14 +101,25 @@ async function start() {
   const url = new URL("listen", location.href);
   url.protocol = location.protocol === "https:" ? "wss:" : "ws:";
   url.searchParams.set("langs", langs);
-  // Browsers cannot set an Authorization header on a WebSocket, so the token rides in the URL.
-  if (token) url.searchParams.set("token", token);
+  // Browsers cannot set an Authorization header on a WebSocket, and a URL is
+  // logged, so the token rides in a subprotocol: "omni-stt" (which the server
+  // answers) and "bearer.<token>" (which it reads).
+  const protocols = token ? ["omni-stt", "bearer." + token] : [];
   stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true } });
   ctx = new AudioContext();
   await ctx.audioWorklet.addModule(URL.createObjectURL(new Blob([WORKLET], { type: "text/javascript" })));
   const node = new AudioWorkletNode(ctx, "down");
   ctx.createMediaStreamSource(stream).connect(node);
-  ws = new WebSocket(url);
+  try {
+    ws = new WebSocket(url, protocols);
+  } catch (e) {
+    // A token with characters a subprotocol cannot carry (a space, a comma):
+    // the deprecated ?token= instead, which the server still takes.
+    if (!token) throw e;
+    console.warn("token sent in the URL: it has characters a WebSocket subprotocol cannot carry");
+    url.searchParams.set("token", token);
+    ws = new WebSocket(url);
+  }
   ws.binaryType = "arraybuffer";
   ws.onopen = () => status("Connected…");
   ws.onmessage = (ev) => {

@@ -5,7 +5,7 @@ fake socket and fake models (several connections at once included).
 
     python3 tests/test_omni_stt.py      (or python3 -m pytest tests/test_omni_stt.py)
 
-Needs numpy and scipy (the stack's AudioIn), nothing else.
+Needs numpy and scipy (the stack's AudioIn), and websockets for the handshake test.
 """
 import asyncio
 import json
@@ -81,6 +81,68 @@ def test_auth():
     assert stt.subject_for({"Authorization": f"Bearer {tok}"}, {}, {"STT_SIGNING_KEY": "k"}) == "talk:acct"
     assert stt.subject_for({"Authorization": f"Bearer {tok}"}, {}, {"STT_SIGNING_KEY": "other"}) is None
 
+
+
+def test_token_in_a_subprotocol():
+    """A browser cannot set Authorization on a WebSocket: mic.html offers
+    "omni-stt" and "bearer.<token>" instead of putting the token in the URL."""
+    sys.path.insert(0, os.path.join(ROOT, "server"))
+    import stack_auth
+    env = {"STT_TOKEN": "s3cret", "STT_SIGNING_KEY": "k"}
+    proto = {"Sec-WebSocket-Protocol": "omni-stt, bearer.s3cret"}
+    assert stt.presented_token_via(proto, {}) == ("s3cret", "protocol")
+    assert stt.subject_for(proto, {}, env) == "static"
+    tok = stack_auth.sign("k", "lt:room", 60, ed="nonprofit")          # base64url and a dot: a valid subprotocol
+    assert stt.credentials_for({"Sec-WebSocket-Protocol": f"omni-stt, bearer.{tok}"}, {}, env) == ("lt:room", "nonprofit")
+    # The header wins over both; the subprotocol over ?token=; ?token= still works (deprecated).
+    assert stt.presented_token_via({"Authorization": "Bearer a", **proto}, {"token": ["c"]}) == ("a", "header")
+    assert stt.presented_token_via(proto, {"token": ["c"]}) == ("s3cret", "protocol")
+    assert stt.presented_token_via({}, {"token": ["c"]}) == ("c", "query")
+    assert stt.presented_token_via({}, {}) == ("", "none")
+    assert stt.presented_token_via({"Sec-WebSocket-Protocol": "omni-stt, bearer."}, {}) == ("", "none")
+    assert stt.subject_for({"Sec-WebSocket-Protocol": "omni-stt, bearer.nope"}, {}, env) is None
+    # Every header line counts (websockets' Headers keeps them apart).
+    import websockets.datastructures as wsd
+    h = wsd.Headers()
+    h["Sec-WebSocket-Protocol"] = "omni-stt"
+    h["Sec-WebSocket-Protocol"] = "bearer.s3cret"
+    assert stt.offered_protocols(h) == ["omni-stt", "bearer.s3cret"]
+    assert stt.subject_for(h, {}, env) == "static"
+    # The server picks "omni-stt", never the token.
+    assert stt.select_subprotocol(None, ["omni-stt", "bearer.s3cret"]) == "omni-stt"
+    assert stt.select_subprotocol(None, ["bearer.s3cret"]) is None
+    assert stt.select_subprotocol(None, []) is None
+    # mic.html sends it that way, and the URL only as a fallback.
+    page = open(os.path.join(ROOT, "services", "omni-stt", "mic.html"), encoding="utf-8").read()
+    assert 'new WebSocket(url, protocols)' in page and '"bearer." + token' in page
+    assert page.count('searchParams.set("token"') == 1 and page.index("catch (e)") < page.index('searchParams.set("token"')
+
+
+def test_subprotocol_handshake():
+    """Through a real websockets server and client: the handshake succeeds,
+    the client sees "omni-stt" chosen, the server reads the token from the
+    offer; and a client offering nothing still connects."""
+    import websockets
+
+    seen = []
+
+    async def handler(ws):
+        seen.append((stt.presented_token_via(ws.request.headers, {}), ws.subprotocol))
+        await ws.send("hi")
+
+    async def run():
+        async with websockets.serve(handler, "127.0.0.1", 0, select_subprotocol=stt.select_subprotocol) as server:
+            port = server.sockets[0].getsockname()[1]
+            async with websockets.connect(f"ws://127.0.0.1:{port}/listen",
+                                          subprotocols=["omni-stt", "bearer.abc.DEF-_1"]) as c:
+                assert await c.recv() == "hi"
+                chosen = c.subprotocol
+            async with websockets.connect(f"ws://127.0.0.1:{port}/listen") as c:
+                assert await c.recv() == "hi"
+                assert c.subprotocol is None
+        return chosen
+    assert asyncio.run(run()) == "omni-stt"
+    assert seen == [(("abc.DEF-_1", "protocol"), "omni-stt"), (("", "none"), None)], seen
 
 def test_constrained_choice():
     labels = {"en": 0, "fr": 1, "ht": 2, "hi": 3}
