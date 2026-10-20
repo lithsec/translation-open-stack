@@ -19,13 +19,13 @@ the stack's parts rather than copying them:
 | Endpointing | Silero VAD v6.2.3 and the stack's forced-cut rule, with shorter values than the stack's (see Endpointing below); a VAD copy per connection |
 | Audio input | `server/audio_in.py` (fixed 96 ms blocks; 24 kHz resampled with carried filter state) |
 | Voices | `server/engines/mms.py` and `coqui.py` (the same engine classes and fixes: 24 kHz resample with 3 ms edge ramps, peak level, Coqui's dead-air trim, MMS's empty-input guard), each with its own lock |
-| Tokens | `server/stack_auth.py` (`STT_TOKEN` static, or `STT_SIGNING_KEY` for the stack's signed tokens) |
+| Tokens | `server/stack_auth.py` (`STT_TOKEN` static, or `STT_SIGNING_KEY` for the stack's signed tokens), plus `STT_TOKEN_NONPROFIT` (below, Credentials) |
 
 ## Protocol
 
 ```
 connect   wss://<host>/listen?langs=ht,en[&rate=24000][&transcribe=ht]
-          Authorization: Bearer <STT_TOKEN>        (or ?token=<STT_TOKEN>; URLs get logged, so prefer the header)
+          Authorization: Bearer <token>            (or ?token=<token>; URLs get logged, so prefer the header)
 server    {"type":"hello","langs":["ht","en"],"rate":16000}
 client    binary: mono PCM16 at 16 kHz (24 kHz with ?rate=24000), ~100 ms per message is ideal
 client    {"type":"flush"}                         optional: end the current utterance now (end of a file, push-to-talk release)
@@ -94,8 +94,9 @@ server    {"type":"error","id":"7","detail":"..."}   a refused or failed request
   (`SERVICE_VOICES`), the stack's one licence authority.
 - Editions, as the stack's: `EDITION=commercial` (the default here, and in
   `deploy.sh`) never loads MMS; `nonprofit` offers both; `both` serves each
-  `/speak` socket in the edition its signed token's `ed` claim names, and a token
-  without one (the static `STT_TOKEN`) in commercial, the stricter. The hello lists
+  `/speak` socket in the edition its signed token's `ed` claim names
+  (`STT_TOKEN_NONPROFIT` counts as `nonprofit`), and a token without one (the
+  static `STT_TOKEN`) in commercial, the stricter. The hello lists
   only the voices that edition may use; asking for another is refused like a voice
   that is not loaded (the client falls back, rather than hearing a voice it did not
   pick). A token for an edition the server does not serve is closed with 4403.
@@ -165,8 +166,22 @@ Packages: as the stack's (`constraints.txt`): torch 2.8, `omnilingual-asr` with
 On macOS (Apple silicon, Python 3.12) everything installs from wheels; pin
 `pyarrow==25.0.1` too or Omnilingual's import fails on numpy 1.26.
 
-The server refuses to start without `STT_TOKEN`/`STT_SIGNING_KEY` unless `STT_OPEN=1`:
-an open GPU URL is a bill anyone can run up.
+The server refuses to start without a credential unless `STT_OPEN=1`: an open GPU
+URL is a bill anyone can run up.
+
+### Credentials
+
+Each app gets its own credential, and the credential says its edition:
+
+| Credential | Who | Edition |
+|---|---|---|
+| `STT_SIGNING_KEY` | an app with a server that signs a token per connection (`stack_auth.py`'s format, `aud` `stack`, at most 24 h): Lithos Talk's Worker, 10-minute tokens | the token's `ed` claim (Talk: `commercial`) |
+| `STT_TOKEN_NONPROFIT` | an app an operator configures by hand: Live Translation (a non-profit's app) pastes it into Service settings | `nonprofit` |
+| `STT_TOKEN` | the original static token, kept so nothing breaks | none, so `commercial` |
+
+The two static tokens must differ. With `EDITION=both`, only a `nonprofit`
+connection is offered MMS. `deploy.sh` mounts the signing key and the non-profit
+token when `SIGNING_SECRET` and `NONPROFIT_SECRET` name their secrets.
 
 ## Deploy (Cloud Run, L4)
 
@@ -175,8 +190,11 @@ an open GPU URL is a bill anyone can run up.
 ```
 export PROJECT=<project id>
 openssl rand -hex 32 | ./deploy.sh secret    # Secret Manager secret omni-stt-token
+openssl rand -hex 32 | SECRET=omni-stt-signing-key ./deploy.sh secret       # optional (Credentials)
+openssl rand -hex 32 | SECRET=omni-stt-token-nonprofit ./deploy.sh secret   # optional (Credentials)
 ./deploy.sh build                            # Cloud Build (32 GB machine) -> Artifact Registry
 ./deploy.sh deploy                           # gcloud run deploy --gpu 1 --gpu-type nvidia-l4 ...
+                                             # (SIGNING_SECRET=, NONPROFIT_SECRET= to mount those two)
 BASE_TAG=<tag> ./deploy.sh build-voices      # the voices layered on an image built before them
 BASE_TAG=<tag> ./deploy.sh build-ft          # a fine-tuned card (FT_CARD, FT_WEIGHTS) on that image
 DRY_RUN=1 ./deploy.sh build-ft               # print the gcloud/docker commands, run nothing

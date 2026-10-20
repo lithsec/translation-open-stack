@@ -8,7 +8,9 @@ the languages a room actually uses; and Haitian Creole voices (/speak). No trans
 Protocol:
 
     client connects  wss://host/listen?langs=ht,en[&rate=24000][&transcribe=ht]
-                     Authorization: Bearer <STT_TOKEN>   (or ?token=, which proxies log)
+                     Authorization: Bearer <token>   (or ?token=, which proxies log)
+                     token: STT_TOKEN, STT_TOKEN_NONPROFIT, or a token signed with
+                     STT_SIGNING_KEY (Credentials, below)
     server sends     {"type":"hello","langs":["ht","en"],"rate":16000}
     client sends     binary 16 kHz mono PCM16 (24 kHz with ?rate=24000)
                      {"type":"flush"}  optional: end the current utterance now
@@ -69,10 +71,12 @@ first sentence's audio go out while the rest is made. Text never goes in the URL
 Environment: HT_VOICE (mms|coqui, default coqui: the voice when a request names none),
 EDITION (commercial, the default: Coqui only, MMS never loads; nonprofit: both
 voices; both: each /speak connection in the edition its signed token's "ed" claim
-names, commercial for a token without one, e.g. STT_TOKEN),
+names, commercial for a token without one, e.g. STT_TOKEN; STT_TOKEN_NONPROFIT
+counts as a "nonprofit" claim),
 STT_VOICES (the voices loaded, default: every one EDITION allows), STT_MAX_SPEAKERS (open /speak
 sockets, default 4), STT_SERVE ("listen,speak" by default; "speak" skips the
-recogniser's models, for a laptop test of the voices), STT_TOKEN (or STT_SIGNING_KEY, the stack's signed tokens), STT_OPEN=1,
+recogniser's models, for a laptop test of the voices), STT_TOKEN, STT_TOKEN_NONPROFIT,
+STT_SIGNING_KEY (Credentials, below), STT_OPEN=1,
 PORT, STT_DEVICE (default: cuda when torch sees one, else cpu), OMNI_CARD,
 STT_MAX_CONNECTIONS, STT_MAX_PENDING, ENDPOINT_MS (default 300), MAX_UTTERANCE_S
 (default 6.0), MIN_SPEECH_MS (default 400), STT_MODELS (the baked models).
@@ -83,6 +87,21 @@ says why the default is not that); STT_BATCH_GEN_RATIO tunes the length grouping
 that path needs (pick_group).
 STT_MAX_CHARS_PER_S (default 30) and STT_MAX_REPEATS (default 6): the repetition
 guard (repetition_guard).
+
+Credentials, any or all; each app gets its own, and with it its edition:
+
+  STT_SIGNING_KEY      the stack's short-lived signed tokens (stack_auth.py), whose
+                       "ed" claim names the edition: what a server can mint per
+                       connection uses (Lithos Talk's Worker: "commercial").
+  STT_TOKEN_NONPROFIT  a static token whose connections are served as non-profit:
+                       for an app an operator configures by hand (Live Translation,
+                       a non-profit's app, pastes it into its settings). Signed
+                       tokens cannot stand in there: they live at most a day.
+  STT_TOKEN            the original static token, no edition: commercial (the
+                       strictest served), so a client that still sends it keeps
+                       working and never gains a non-commercial voice.
+
+The two static tokens must differ (the server will not start otherwise).
 """
 import asyncio
 import collections
@@ -226,9 +245,24 @@ def auth_mode(env=None):
     and no explicit STT_OPEN=1. A public URL left open by a missing secret is
     a GPU anyone can run up a bill on, so open has to be asked for."""
     env = os.environ if env is None else env
-    if env.get("STT_TOKEN") or env.get("STT_SIGNING_KEY"):
+    if any((env.get(k) or "").strip() for k in CREDENTIALS):
         return "token"
     return "open" if env.get("STT_OPEN") == "1" else None
+
+
+# The credentials auth_mode looks for (Credentials, in the docstring at the top).
+CREDENTIALS = ("STT_TOKEN", "STT_TOKEN_NONPROFIT", "STT_SIGNING_KEY")
+NONPROFIT_SUBJECT = "static:nonprofit"
+
+
+def check_credentials(env=None):
+    """Stop at startup on credentials that would be ambiguous: one static token
+    for both editions would serve whoever holds it in either."""
+    env = os.environ if env is None else env
+    plain = (env.get("STT_TOKEN") or "").strip()
+    nonprofit = (env.get("STT_TOKEN_NONPROFIT") or "").strip()
+    if plain and nonprofit and plain == nonprofit:
+        raise SystemExit("[stt] STT_TOKEN and STT_TOKEN_NONPROFIT must differ")
 
 
 def presented_token(headers, query):
@@ -245,8 +279,10 @@ def subject_for(headers, query, env=None):
 
 
 def credentials_for(headers, query, env=None):
-    """(subject or None to refuse, the token's edition claim or None). The
-    static token and an open server carry no edition (stack_auth.verify_claims)."""
+    """(subject or None to refuse, the token's edition claim or None). A signed
+    token's claim is its "ed"; STT_TOKEN_NONPROFIT's is "nonprofit"; STT_TOKEN
+    and an open server carry none (stack_auth.verify_claims)."""
+    import hmac
     import stack_auth
     env = os.environ if env is None else env
     mode = auth_mode(env)
@@ -254,8 +290,15 @@ def credentials_for(headers, query, env=None):
         return "open", None
     if mode is None:
         return None, None
-    return stack_auth.verify_claims(presented_token(headers, query),
-                                    env.get("STT_SIGNING_KEY", "").strip(), env.get("STT_TOKEN", "").strip())
+    token = presented_token(headers, query)
+    sub, claim = stack_auth.verify_claims(token, (env.get("STT_SIGNING_KEY") or "").strip(),
+                                          (env.get("STT_TOKEN") or "").strip())
+    if sub is not None:
+        return sub, claim
+    nonprofit = (env.get("STT_TOKEN_NONPROFIT") or "").strip()
+    if token and nonprofit and hmac.compare_digest(token.encode(), nonprofit.encode()):
+        return NONPROFIT_SUBJECT, "nonprofit"
+    return None, None
 
 
 # ---------------------------------------------------------------- editions
@@ -1303,7 +1346,8 @@ def warmup(models):
 async def main():
     mode = auth_mode()
     if mode is None:
-        raise SystemExit("[stt] set STT_TOKEN (or STT_SIGNING_KEY), or STT_OPEN=1 for an open test server")
+        raise SystemExit("[stt] set STT_TOKEN, STT_TOKEN_NONPROFIT or STT_SIGNING_KEY, or STT_OPEN=1 for an open test server")
+    check_credentials()
     eds = service_editions()          # a bad EDITION stops here, before any model loads
     print(f"[stt] edition: {'both' if len(eds) > 1 else eds[0]}", flush=True)
     t0 = time.time()

@@ -93,6 +93,25 @@ def test_deploy_passes_the_edition():
     assert "EDITION=both" in out, out
 
 
+def test_deploy_mounts_only_the_secrets_named():
+    code, out, _ = _run("deploy")
+    assert code == 0 and "--set-secrets STT_TOKEN=omni-stt-token:latest " in out, out
+    assert "STT_SIGNING_KEY" not in out and "STT_TOKEN_NONPROFIT" not in out
+    code, out, called = _run("deploy", {"SIGNING_SECRET": "omni-stt-signing-key", "NONPROFIT_SECRET": "omni-stt-token-nonprofit"})
+    assert code == 0 and not called, out
+    out = out.replace("\\,", ",")             # the dry run prints with printf %q
+    assert ("--set-secrets STT_TOKEN=omni-stt-token:latest,STT_SIGNING_KEY=omni-stt-signing-key:latest,"
+            "STT_TOKEN_NONPROFIT=omni-stt-token-nonprofit:latest ") in out, out
+    # From private.env too (the environment still wins).
+    code, out, _ = _run("deploy", private_env="NONPROFIT_SECRET=np-from-file\n")
+    out = out.replace("\\,", ",")
+    assert "STT_TOKEN_NONPROFIT=np-from-file:latest" in out, out
+    # A name that is not a plain secret name, or the STT_TOKEN secret again, is refused.
+    for extra in ({"SIGNING_SECRET": "a,STT_TOKEN=b"}, {"NONPROFIT_SECRET": "omni-stt-token"}):
+        code, out, called = _run("deploy", extra)
+        assert code == 3 and "refusing" in out and not called, (extra, out)
+
+
 def _private_values():
     """The private values (card, bucket, project) in this checkout's own
     services/omni-stt/private.env, if any: never in a committed file."""

@@ -395,6 +395,34 @@ def test_credentials_carry_the_edition_claim():
     assert stt.credentials_for({"Authorization": f"Bearer {bad}"}, {}, env) == (None, None)
 
 
+def test_nonprofit_static_token():
+    import stack_auth
+    env = {"STT_SIGNING_KEY": KEY, "STT_TOKEN": "s3cret", "STT_TOKEN_NONPROFIT": "np-s3cret"}
+    np_sub = stt.NONPROFIT_SUBJECT
+    assert stt.credentials_for({"Authorization": "Bearer np-s3cret"}, {}, env) == (np_sub, "nonprofit")
+    assert stt.credentials_for({}, {"token": ["np-s3cret"]}, env) == (np_sub, "nonprofit")
+    # The others are unchanged beside it: the old static token is still served, without an edition.
+    assert stt.credentials_for({"Authorization": "Bearer s3cret"}, {}, env) == ("static", None)
+    tok = stack_auth.sign(KEY, "talk:worker", 600, ed="commercial")
+    assert stt.credentials_for({"Authorization": f"Bearer {tok}"}, {}, env) == ("talk:worker", "commercial")
+    for wrong in ("np-s3cre", "np-s3cretx", "NP-S3CRET", ""):
+        assert stt.credentials_for({"Authorization": f"Bearer {wrong}"}, {}, env) == (None, None), wrong
+    # It alone is a credential (the server starts, and is not open).
+    only = {"STT_TOKEN_NONPROFIT": "np-s3cret"}
+    assert stt.auth_mode(only) == "token" and stt.auth_mode({"STT_TOKEN_NONPROFIT": "  "}) is None
+    assert stt.credentials_for({"Authorization": "Bearer np-s3cret"}, {}, only) == (np_sub, "nonprofit")
+    assert stt.credentials_for({"Authorization": "Bearer s3cret"}, {}, only) == (None, None)
+    # One token for both editions is refused at startup.
+    stt.check_credentials(env)
+    stt.check_credentials({"STT_TOKEN_NONPROFIT": "x"})
+    try:
+        stt.check_credentials({"STT_TOKEN": "same", "STT_TOKEN_NONPROFIT": " same"})
+    except SystemExit as e:
+        assert "must differ" in str(e)
+    else:
+        raise AssertionError("the same static token for both editions was accepted")
+
+
 def _hello(edition_env, token):
     """guarded() on /speak with FakeVoices (both loaded): the first message, and the close."""
     import stack_auth
@@ -436,6 +464,27 @@ def test_guarded_serves_each_token_in_its_edition():
     assert _hello("nonprofit", "s3cret")[0]["voices"] == ["mms", "coqui"]
     hello, closed = _hello("nonprofit", tok("commercial"))
     assert hello is None and closed[0] == stt.CLOSE_EDITION
+
+
+
+def test_guarded_serves_the_nonprofit_token_as_nonprofit():
+    old = os.environ.get("STT_TOKEN_NONPROFIT")
+    os.environ["STT_TOKEN_NONPROFIT"] = "np-s3cret"
+    try:
+        hello, _ = _hello("both", "np-s3cret")
+        assert hello["voices"] == ["mms", "coqui"] and hello["edition"] == "nonprofit"
+        # The old static token beside it stays commercial.
+        hello, _ = _hello("both", "s3cret")
+        assert hello["voices"] == ["coqui"] and hello["edition"] == "commercial"
+        # A commercial-only server gives it the stricter voices, as for a signed non-profit token.
+        hello, _ = _hello(None, "np-s3cret")
+        assert hello["voices"] == ["coqui"] and hello["edition"] == "commercial"
+        # A non-profit-only server serves it.
+        assert _hello("nonprofit", "np-s3cret")[0]["edition"] == "nonprofit"
+    finally:
+        os.environ.pop("STT_TOKEN_NONPROFIT", None)
+        if old is not None:
+            os.environ["STT_TOKEN_NONPROFIT"] = old
 
 
 if __name__ == "__main__":

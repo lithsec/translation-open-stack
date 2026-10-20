@@ -2,7 +2,8 @@
 # Build omni-stt and deploy it to Cloud Run on an NVIDIA L4, scaled to zero.
 #
 #   export PROJECT=my-project            # required
-#   ./deploy.sh secret                   # once: the STT_TOKEN secret (reads the token from stdin)
+#   ./deploy.sh secret                   # once: the STT_TOKEN secret (reads the token from stdin;
+#                                        # SECRET=<name> for another, e.g. the two below)
 #   ./deploy.sh build                    # Cloud Build -> Artifact Registry
 #   ./deploy.sh deploy                   # gcloud run deploy
 #   ./deploy.sh build-local              # or: docker build + push from this machine (linux/amd64)
@@ -19,7 +20,13 @@
 # /speak's voice when a request names none (mms|coqui). EDITION (commercial):
 # which voices /speak may use (server.py; commercial never loads MMS, which is
 # CC-BY-NC; nonprofit offers it; both decides per signed token's "ed" claim, and
-# a static STT_TOKEN carries none, so it gets commercial). DEPLOY_FLAGS: extra
+# a static STT_TOKEN carries none, so it gets commercial).
+# SIGNING_SECRET, NONPROFIT_SECRET (unset: not mounted): Secret Manager secrets
+# mounted as STT_SIGNING_KEY (signed tokens, e.g. Lithos Talk's, "ed" commercial)
+# and STT_TOKEN_NONPROFIT (a static token served as non-profit, e.g. Live
+# Translation's) beside STT_TOKEN (server.py, Credentials). Every deploy sets the
+# service's whole secret list, so keep them set (private.env) once they exist,
+# or a redeploy drops them and the clients that use them are refused. DEPLOY_FLAGS: extra
 # gcloud run deploy flags, e.g. "--no-traffic --tag ft" to test a revision first.
 # BATCH_MAX (8), BATCH_WAIT_MS (10): the GPU micro-batcher (STT_BATCH_MAX,
 # STT_BATCH_WAIT_MS); MAX_SPEAKERS (4): open /speak sockets (STT_MAX_SPEAKERS).
@@ -103,6 +110,16 @@ REGION="${REGION:-us-east4}"
 REPO="${REPO:-omni-stt}"
 SERVICE="${SERVICE:-omni-stt}"
 SECRET="${SECRET:-omni-stt-token}"
+SIGNING_SECRET="${SIGNING_SECRET:-}"
+NONPROFIT_SECRET="${NONPROFIT_SECRET:-}"
+SECRETS="STT_TOKEN=$SECRET:latest"
+for pair in "STT_SIGNING_KEY=$SIGNING_SECRET" "STT_TOKEN_NONPROFIT=$NONPROFIT_SECRET"; do
+  name="${pair#*=}"
+  [ -z "$name" ] && continue
+  [[ "$name" =~ ^[A-Za-z0-9_-]+$ ]] || { echo "refusing: ${pair%%=*}'s secret name must be a plain Secret Manager name" >&2; exit 3; }
+  [ "$name" != "$SECRET" ] || { echo "refusing: ${pair%%=*} cannot use the STT_TOKEN secret ($SECRET)" >&2; exit 3; }
+  SECRETS="$SECRETS,${pair%%=*}=$name:latest"
+done
 MAX_STREAMS="${MAX_STREAMS:-4}"
 ENDPOINT_MS="${ENDPOINT_MS:-300}"
 MAX_UTTERANCE_S="${MAX_UTTERANCE_S:-6.0}"
@@ -232,7 +249,7 @@ YAML
     # after an hour and the client reconnects (README). Concurrency matches the
     # server's own limit: one model serves every stream on the instance, and
     # more than a few real-time streams would queue behind it.
-    # --no-invoker-iam-check: the service checks STT_TOKEN itself, because a
+    # --no-invoker-iam-check: the service checks its tokens itself, because a
     # browser (the /mic page) cannot attach a Google identity token to a WebSocket.
     # (--allow-unauthenticated grants allUsers, which an organisation's domain-
     # restricted-sharing policy refuses; this skips the check without that grant.)
@@ -244,7 +261,7 @@ YAML
       --min-instances 0 --max-instances 1 \
       --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
       --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,OMNI_CARD=$OMNI_CARD,HT_VOICE=$HT_VOICE,EDITION=$EDITION,STT_MAX_SPEAKERS=$MAX_SPEAKERS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS" \
-      --set-secrets "STT_TOKEN=$SECRET:latest" \
+      --set-secrets "$SECRETS" \
       --no-invoker-iam-check ${DEPLOY_FLAGS:-}
     [ "${DRY_RUN:-0}" != 1 ] || exit 0
     url="$(gcloud run services describe "$SERVICE" --project "$PROJECT" --region "$REGION" --format 'value(status.url)')"
