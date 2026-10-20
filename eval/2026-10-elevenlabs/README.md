@@ -22,8 +22,10 @@ speech-to-text and text-to-speech; one without `models_read` still works (the
 language list is then not checked). Audio and raw outputs (`out/`) are not
 committed.
 
-**Retention:** ElevenLabs logs requests by default; zero retention
-(`enable_logging=false`) is enterprise-only. This test uses public corpora
+**Retention:** according to ElevenLabs'
+[Zero Retention Mode page](https://elevenlabs.io/docs/eleven-api/resources/zero-retention-mode),
+it retains data by default, and zero retention (`enable_logging=false`) is for
+Enterprise customers only. This test uses public corpora
 only; nothing here says ElevenLabs keeps nothing.
 
 ## Results

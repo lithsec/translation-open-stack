@@ -12,7 +12,8 @@
 # Environment (nothing secret is printed):
 #   GEMINI_API_KEY                       Gemini (AI Studio): translators and the grader
 #   AZURE_KEY, AZURE_REGION=eastus       Azure Translator (the Foundry resource's key)
-#   FOUNDRY_ENDPOINT, FOUNDRY_KEY        Azure AI Foundry deployment gpt-5.6-sol-us
+#   FOUNDRY_ENDPOINT, FOUNDRY_KEY        Azure AI Foundry resource (https://<your-foundry-resource>...)
+#   FOUNDRY_DEPLOYMENT=gpt-5.6-sol       its gpt-5.6-sol deployment name (<deployment>)
 #   MT_POD, MT_POD_KEY [HF_TOKEN]        the GPU pod running mt_pod.py
 #   LLM_POD, LLM_POD_KEY                 the GPU pod running llm_pod.py (round 2: open reasoning LLMs)
 #   ONLY=hymt,madlad                     limit `translate` to these translators
@@ -175,7 +176,7 @@ def gemini(text, model, thinking=None, json_out=False, max_tokens=8000):
 
 def foundry(s, src, tgt):
     url = os.environ["FOUNDRY_ENDPOINT"].rstrip("/") + "/openai/v1/chat/completions"
-    body = {"model": "gpt-5.6-sol-us", "messages": [{"role": "user", "content": prompt(s, src, tgt)}],
+    body = {"model": os.environ.get("FOUNDRY_DEPLOYMENT", "gpt-5.6-sol"), "messages": [{"role": "user", "content": prompt(s, src, tgt)}],
             "reasoning_effort": "low"}
     try:
         j = http(url, body, {"api-key": os.environ["FOUNDRY_KEY"]}, timeout=120)

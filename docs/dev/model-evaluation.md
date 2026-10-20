@@ -6,7 +6,8 @@
 > (Gemini Live on Vertex AI, Azure Speech) on the same sentences and the same
 > audio, graded blind. The stack we recommend (Whisper and Omnilingual to listen,
 > **Hy-MT2 7B** to translate, Kokoro, Piper and VoxCPM2 to speak) beat Gemini Live
-> end to end in **16 of 17** directions, scoring **92% against Gemini's 80%**. It
+> end to end in **16 of 19** directions, scoring **83% against Gemini's 76%**
+> (corrected 2026-10-20: recomputed over all 19 directions in results/round3_real_server_vs_gemini.json). It
 > answers about **0.8 s after the speaker stops**, and no audio leaves the
 > server. Gemini is still better for **Lao** and **Haitian Creole**, the
 > low-resource languages outside Hy-MT2. Google's TranslateGemma 12B came close
@@ -50,7 +51,15 @@ because the best voices for two languages carry non-commercial licences.
 | Speak, *non-profit* | **MMS-TTS** | Haitian Creole + ~1,100 languages with no other voice | **CC-BY-NC** |
 
 **Routing.** Where privacy allows, send Lao and Haitian Creole to Gemini Live,
-which won both. Confidential rooms stay on the stack and show a quality notice.
+which scored higher in both. Lao (round 6, `results/round6_lao.json`):
+English→Lao 86% against NLLB's 78% and MADLAD 7B's 74%; Lao→English from audio
+74% against the stack's 65% (Omnilingual + MADLAD 7B), a lead that shrank to
+67% against 65% when regraded in round 7. Haitian Creole, end to end (round 3):
+English→Haitian Creole 92% against 78%, Haitian Creole→English 43% against 36%
+(both poor). Gemini also won English→Khmer end to end (86% against 42%), but
+Hy-MT2 scored 100% on the same direction from the stack's own transcripts
+(round 2), so that loss is not yet explained and Khmer stays on the stack.
+Confidential rooms stay on the stack and show a quality notice.
 
 **In reserve: TranslateGemma 12B.** It could replace *both* translators with
 one model: 92% in the major languages, 77% in Haitian Creole. That makes it the
@@ -114,13 +123,15 @@ together took about 14 hours of GPU time, plus some Vertex AI usage.
 
 ### 3.1 End to end: the real server against Gemini Live
 
-The same audio, with the stack's own recognition, graded blind; 17 valid
-directions.
+The same audio, with the stack's own recognition, graded blind; all 19
+directions, 24 sentences each, each sentence scored 0–3; a direction's score is
+its points over 72, and the headline is the plain mean of the 19 direction
+scores (corrected 2026-10-20: recomputed over all 19 directions in results/round3_real_server_vs_gemini.json).
 
 | | Stack (recommended) | Gemini Live |
 |---|---|---|
-| Score | **92%** | 80% |
-| Directions won | **16 of 17** | 1 (English→Haitian Creole) |
+| Score | **83%** | 76% |
+| Directions won | **16 of 19** | 3 (English→Khmer, English→Haitian Creole, Haitian Creole→English); no ties |
 | First translated audio | **~0.8 s after the speaker stops** | ~2.8 s after the speaker *starts*; speaks mid-sentence |
 | Where audio goes | this server only | Google Cloud |
 
@@ -139,9 +150,17 @@ Blind-graded on perfect text, 19 directions (Ukrainian→English excluded).
 | NLLB-200 3.3B | 84.1% | 26 | **82.6%** |
 | MADLAD-400 3B (previous default) | 79.9% | 26 | 66.7% |
 
-**Through the stack's own recognition** (the realistic case, 16 directions):
-Hy-MT2 **95.2%** (13 critical errors), MADLAD 7B 86.6% (23), MADLAD 3B 82.4%
-(26), Gemini Live 79.1% (38).
+**Through the stack's own recognition** (the realistic case;
+`results/round2_stack_asr_vs_gemini.json`; a direction's score is its points
+over 3 × sentences, and each figure is the plain mean of the direction scores;
+critical errors summed). Over all 19 valid directions (Ukrainian→English
+excluded, as above): Hy-MT2 **83.5%** (37 critical errors), MADLAD 7B 80.6%
+(46), MADLAD 3B 75.4% (51), Gemini Live 75.4% (60). Leaving out the three
+directions where every system was weak or Hy-MT2 has no support
+(English→Haitian Creole, Haitian Creole→English, Khmer→English), the other 16:
+Hy-MT2 **95.2%** (13), MADLAD 7B 86.6% (23), MADLAD 3B 82.4% (26), Gemini Live
+79.1% (38). (Corrected 2026-10-20: the 16-direction figures were previously
+given without saying which directions were left out.)
 
 **Precision makes no difference.** Hy-MT2 in 4-bit scored 92.7% (13 critical),
 official FP8 92.2% (15), full bf16 93.0% (13). The 4-bit version uses 7.5 GB
@@ -166,15 +185,17 @@ usable for Khmer, Lao or Haitian Creole.
 
 | | English→Lao | Lao→English (from audio) |
 |---|---|---|
-| **Gemini Live** | **86%** | **72%** |
+| **Gemini Live** | **86%** | **74%** |
 | NLLB-200 3.3B | 78% | 50% |
-| MADLAD-400 7B | 74% | 67% |
+| MADLAD-400 7B | 74% | 65% |
 | TranslateGemma 12B² | 56% | 64% |
 | MADLAD-400 3B | 54% | — |
 | TranslateGemma 4B² | 18% | 53% |
 
 Given perfect Lao text, MADLAD 7B scored 90% and TranslateGemma 12B 88%. The gap
-is in *listening*.
+is in *listening*. (Corrected 2026-10-20: the Lao→English column for Gemini Live
+and MADLAD 7B now matches `results/round6_lao.json`, 53 and 47 points of 72;
+it previously read 72% and 67%.)
 
 ² Graded in a later round. In that round the reference systems scored Gemini
 85% / 67% and MADLAD 7B 76% / 65%; compare the TranslateGemma rows with those.
@@ -377,8 +398,8 @@ sentence into the next utterance. On the 78-second pause-free reading:
 
 | Service | Pros | Cons |
 |---|---|---|
-| **Gemini Live (Vertex AI)** | Best breadth (76 languages); starts speaking mid-sentence; won Lao and Haitian Creole | Audio goes to Google (kept up to 90 days if flagged, unless zero retention is granted); lost 16 of 17 directions to the stack; translates bystanders |
-| Azure Speech translation | Nothing stored by default; on-premises containers available | Waits for each sentence to end; mistranslated "10" as "22:00" twice; turned background speech into nonsense |
+| **Gemini Live (Vertex AI)** | Best breadth (76 languages); starts speaking mid-sentence; won Lao and Haitian Creole | Audio goes to Google. Google's [Vertex AI zero data retention](https://cloud.google.com/vertex-ai/generative-ai/docs/vertex-ai-zero-data-retention) page says prompts may be logged for abuse monitoring under the Google Cloud Platform Terms of Service and cached for up to 24 hours unless caching is turned off; it gives no retention period for abuse logging, and we have no zero-retention confirmation for our project; lost 16 of 19 directions to the stack (83% against 76%; corrected 2026-10-20); translates bystanders |
+| Azure Speech translation | Microsoft's [speech to text privacy page](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/speech-service/speech-to-text/data-privacy-security) says it does not retain or store data for real-time speech translation (not confirmed in writing for our resource); on-premises containers available | Waits for each sentence to end; mistranslated "10" as "22:00" twice; turned background speech into nonsense |
 
 ---
 
