@@ -1,0 +1,26 @@
+--- a/src/main/providers/azure.ts	2026-10-20 12:22:01
++++ b/src/main/providers/azure.ts	2026-10-20 11:52:28
+@@ -356,6 +356,7 @@
+       },
+       transcript: (span, text) => {
+         if (this.dead) return
++        ;(globalThis as any).__probe?.('omni-final', { text, lang: span.lang, startMs: span.startMs, endMs: span.endMs })
+         const words = text.trim().split(/\s+/).length
+         logWarn(`[azure] exception: a ${languageName(span.lang)} sentence (${words} words, ${((span.endMs - span.startMs) / 1000).toFixed(1)} s) from Omnilingual, translating for ${this.subs.size} language(s)`)
+         for (const sub of this.subs.values()) sub.onException(text, span.lang)
+@@ -507,6 +508,7 @@
+       tr.recognized = (_s, e) => {
+         if (tr === this.recognizer) this.inTurn = false
+         if (tr !== this.recognizer || e.result.reason !== sdk.ResultReason.TranslatedSpeech || !e.result.text) return
++        ;(globalThis as any).__probe?.('azure-final', { text: e.result.text, startMs: this.azureBaseMs + e.result.offset / 10_000, endMs: this.azureBaseMs + (e.result.offset + e.result.duration) / 10_000 })
+         const translations = new Map<string, string>()
+         for (const l of e.result.translations.languages) translations.set(l, e.result.translations.get(l))
+         const lang = this.heardLang(e.result, auto)
+@@ -529,6 +531,7 @@
+       sr.recognized = (_s, e) => {
+         if (sr === this.recognizer) this.inTurn = false
+         if (sr !== this.recognizer || e.result.reason !== sdk.ResultReason.RecognizedSpeech || !e.result.text) return
++        ;(globalThis as any).__probe?.('azure-final', { text: e.result.text, startMs: this.azureBaseMs + e.result.offset / 10_000, endMs: this.azureBaseMs + (e.result.offset + e.result.duration) / 10_000 })
+         const lang = this.heardLang(e.result, auto)
+         if (roomAuto) this.watchSwitch(e.result.text, lang)
+         const streamed = this.sentenceEnd(e.result.text, lang)
