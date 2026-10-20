@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omni STT mic test</title>
+<style>
+  :root { --bg: #fafaf8; --fg: #1d1d1b; --muted: #6b6b66; --line: #deded8; --accent: #2156a5; --err: #a52121; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #161615; --fg: #ececea; --muted: #9a9a94; --line: #34342f; --accent: #7aa7ea; --err: #ea7a7a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.45 system-ui, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  p.sub { color: var(--muted); margin: 0 0 20px; font-size: 14px; }
+  form { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; margin-bottom: 16px; }
+  label { display: flex; flex-direction: column; font-size: 13px; color: var(--muted); gap: 4px; }
+  input { font: inherit; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px; background: transparent; color: var(--fg); }
+  input#langs { width: 120px; } input#token { width: 220px; }
+  button { font: inherit; padding: 7px 16px; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: var(--bg); cursor: pointer; }
+  button.stop { background: transparent; color: var(--accent); }
+  #status { font-size: 13px; color: var(--muted); margin-bottom: 12px; min-height: 1.4em; }
+  #status.err { color: var(--err); }
+  #meter { height: 4px; background: var(--line); border-radius: 2px; margin-bottom: 16px; overflow: hidden; }
+  #meter div { height: 100%; width: 0; background: var(--accent); transition: width 80ms; }
+  ol { list-style: none; padding: 0; margin: 0; }
+  li { border-top: 1px solid var(--line); padding: 10px 0; }
+  .meta { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .lang { font-weight: 600; color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Omni STT mic test</h1>
+  <p class="sub">Speak; each utterance comes back when you pause, with the language picked among the ones listed.</p>
+  <form id="f">
+    <label>Languages <input id="langs" value="ht,en" autocomplete="off"></label>
+    <label>Token <input id="token" type="password" autocomplete="off" placeholder="STT_TOKEN"></label>
+    <button id="go" type="submit">Start</button>
+  </form>
+  <div id="meter"><div></div></div>
+  <div id="status">Not listening.</div>
+  <ol id="out"></ol>
+</main>
+<script>
+// The page sends 16 kHz mono PCM16 in ~100 ms messages, the service's native
+// format. Browsers capture at 44.1 or 48 kHz; the worklet averages each output
+// sample's span of input (a crude low-pass, enough for a mic check).
+const WORKLET = `
+class Down extends AudioWorkletProcessor {
+  constructor() { super(); this.ratio = sampleRate / 16000; this.pos = 0; this.acc = 0; this.n = 0; this.out = []; }
+  process(inputs) {
+    const ch = inputs[0] && inputs[0][0];
+    if (!ch) return true;
+    for (let i = 0; i < ch.length; i++) {
+      this.acc += ch[i]; this.n++; this.pos++;
+      if (this.pos >= this.ratio) {
+        this.pos -= this.ratio;
+        this.out.push(this.acc / this.n); this.acc = 0; this.n = 0;
+        if (this.out.length >= 1600) {
+          const pcm = new Int16Array(this.out.length);
+          let peak = 0;
+          for (let j = 0; j < this.out.length; j++) {
+            const v = Math.max(-1, Math.min(1, this.out[j]));
+            pcm[j] = v * 32767; peak = Math.max(peak, Math.abs(v));
+          }
+          this.port.postMessage({ pcm: pcm.buffer, peak }, [pcm.buffer]);
+          this.out = [];
+        }
+      }
+    }
+    return true;
+  }
+}
+registerProcessor("down", Down);`;
+
+const $ = (id) => document.getElementById(id);
+let ws = null, ctx = null, stream = null;
+try { $("token").value = sessionStorage.getItem("stt-token") || ""; } catch (e) {}
+
+function status(text, err) { $("status").textContent = text; $("status").className = err ? "err" : ""; }
+
+function add(m) {
+  const li = document.createElement("li");
+  const meta = document.createElement("div");
+  meta.className = "meta";
+  const lang = document.createElement("span");
+  lang.className = "lang"; lang.textContent = m.lang;
+  meta.append(lang, ` · confidence ${Number(m.confidence).toFixed(2)} · ${(m.start_ms / 1000).toFixed(1)}–${(m.end_ms / 1000).toFixed(1)} s`);
+  const text = document.createElement("div");
+  text.textContent = m.text;
+  li.append(meta, text);
+  $("out").prepend(li);
+}
+
+async function start() {
+  const langs = $("langs").value.replace(/\s+/g, "");
+  const token = $("token").value.trim();
+  try { sessionStorage.setItem("stt-token", token); } catch (e) {}
+  const url = new URL("listen", location.href);
+  url.protocol = location.protocol === "https:" ? "wss:" : "ws:";
+  url.searchParams.set("langs", langs);
+  // Browsers cannot set an Authorization header on a WebSocket, so the token rides in the URL.
+  if (token) url.searchParams.set("token", token);
+  stream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true } });
+  ctx = new AudioContext();
+  await ctx.audioWorklet.addModule(URL.createObjectURL(new Blob([WORKLET], { type: "text/javascript" })));
+  const node = new AudioWorkletNode(ctx, "down");
+  ctx.createMediaStreamSource(stream).connect(node);
+  ws = new WebSocket(url);
+  ws.binaryType = "arraybuffer";
+  ws.onopen = () => status("Connected…");
+  ws.onmessage = (ev) => {
+    const m = JSON.parse(ev.data);
+    if (m.type === "hello") status(`Listening (${m.langs.join(", ")}), mic at ${ctx.sampleRate} Hz.`);
+    else if (m.type === "inputTranscript") add(m);
+    else if (m.type === "error") status(m.detail, true);
+  };
+  ws.onclose = (ev) => { if (ws) { status(`Closed${ev.reason ? ": " + ev.reason : ""} (${ev.code}).`, ev.code !== 1000); stop(); } };
+  node.port.onmessage = (ev) => {
+    $("meter").firstElementChild.style.width = Math.min(100, ev.data.peak * 140) + "%";
+    if (ws && ws.readyState === 1) ws.send(ev.data.pcm);
+  };
+  $("go").textContent = "Stop"; $("go").className = "stop";
+}
+
+function stop() {
+  const w = ws; ws = null;
+  if (w && w.readyState <= 1) w.close(1000);
+  if (stream) stream.getTracks().forEach((t) => t.stop());
+  if (ctx) ctx.close();
+  stream = ctx = null;
+  $("meter").firstElementChild.style.width = "0";
+  $("go").textContent = "Start"; $("go").className = "";
+}
+
+$("f").onsubmit = async (e) => {
+  e.preventDefault();
+  if (ws) { stop(); status("Stopped."); return; }
+  try { await start(); } catch (err) { status(String(err.message || err), true); stop(); }
+};
+</script>
+</body>
+</html>

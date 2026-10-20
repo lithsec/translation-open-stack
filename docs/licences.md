@@ -126,6 +126,14 @@ the class); one that declares nothing is ❓. `tests/test_licences.py` fails whe
 when the tables in sections 3 and 7 here drift from the data (they are
 generated: `python3 server/stack_config.py docs`).
 
+**Services.** A service under `services/` that loads a voice by repo, outside
+`languages.toml`, takes its licence from the same file (`SERVICE_VOICES`):
+`services/omni-stt`'s `/speak` (MMS `mms-tts-hat` ⛔, Coqui OpenBible ⚠️) has
+the same `EDITION` (default **commercial** there, so a deployment that says
+nothing never loads MMS) and the same per-connection rule for `EDITION=both`
+(the token's `ed` claim; none: commercial). `tests/test_licences.py` fails when
+a `services/*/voices.py` names a repo with no entry.
+
 **Unclear items: your own review.** A ❓ item loads in commercial only when you
 have looked at it yourself and written that down in `languages.toml`:
 

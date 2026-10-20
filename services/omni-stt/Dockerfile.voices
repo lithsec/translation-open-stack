@@ -1,0 +1,33 @@
+# The Haitian Creole voices (/speak) layered on an omni-stt image built before
+# them (only Coqui TTS, the new server files and the two voice models are added),
+# so an image carrying a fine-tuned card keeps it without a rebuild or the
+# weights leaving its registry.
+#
+#   ./deploy.sh build-voices     # Cloud Build: BASE_TAG -> <BASE_TAG>-voices
+#
+# A from-scratch build (Dockerfile) installs and fetches the same things.
+#
+# PRIVATE when BASE_TAG is: an image with fine-tuned weights stays in the private
+# registry it came from, whatever is layered on it.
+#
+# Licences baked in (server/licences.py): facebook/mms-tts-hat CC-BY-NC-4.0
+# (non-commercial use only; the service loads it only with EDITION=nonprofit or
+# both), multilingual-tts/VITS-OpenBible-Haitian-Creole CC-BY-SA-4.0 (credit the
+# OpenBible voice).
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+
+USER root
+COPY constraints.txt /tmp/constraints.txt
+# Dockerfile has the reasoning for these pins.
+RUN grep -vE '^(librosa|contourpy)==' /tmp/constraints.txt > /tmp/voices-c.txt \
+ && pip install -c /tmp/voices-c.txt coqui-tts==0.27.5 numpy==1.26.4 scipy==1.13.1 torch==2.8.0 torchaudio==2.8.0 \
+ && rm /tmp/voices-c.txt /tmp/constraints.txt && pip check \
+ && python -c "import TTS, transformers, numpy, omnilingual_asr; print('coqui-tts', TTS.__version__, 'transformers', transformers.__version__, 'numpy', numpy.__version__)"
+# The server and the stack files it imports (engines/ now with mms.py and coqui.py).
+COPY server.py omni_batch.py voices.py ht_numbers.py mic.html audio_in.py stack_auth.py licences.py /opt/stt/
+COPY engines/ /opt/stt/engines/
+USER stt
+# Only the voices are fetched (the base image has the rest): online for this step.
+RUN HF_HUB_OFFLINE=0 python -c "import server; from voices import Voices; Voices('cpu')" \
+ && du -sh /opt/models/hf

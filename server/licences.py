@@ -281,6 +281,28 @@ MODELS = {
 # Which key of a [models.<name>] table names the model.
 MODEL_KEYS = ("repo", "model", "card")
 
+# ------------------------------------------------------------------ services
+
+# Voices a service under services/ loads by Hugging Face repo, outside
+# languages.toml: services/omni-stt/voices.py (/speak). Each is the same Lic as
+# the stack's own entry for it, so there is one classification per voice.
+# tests/test_licences.py fails when a services/*/voices.py names a repo that is
+# not here. `revision`: the commit whose model card was read (2026-10-20).
+SERVICE_VOICES = {
+    "facebook/mms-tts-hat": ENGINES["mms"]._replace(
+        reason="model card (front matter license: cc-by-nc-4.0; \"The model is licensed as CC-BY-NC 4.0\")",
+        revision="0ea3b8deddbce7014e3b830517c36b538c33df12"),
+    "multilingual-tts/VITS-OpenBible-Haitian-Creole":
+        ITEMS["coqui"]["multilingual-tts/VITS-OpenBible-Haitian-Creole"]._replace(
+            revision="0fdf90dcab40543c928a77ca5d283bec2c1e498b"),
+}
+
+
+def service_voice_lookup(repo):
+    """The Lic of a voice a service loads by repo (SERVICE_VOICES); unclear when not listed."""
+    lic = SERVICE_VOICES.get(repo)
+    return lic if lic is not None else _unclear(f"voice {repo!r} has no entry in server/licences.py SERVICE_VOICES")
+
 # Libraries: never blocked (they matter when you DISTRIBUTE the image or a
 # volume, not when you run the stack). Printed by `check` in commercial.
 LIBRARY_NOTE = ("libraries: espeak-ng, piper-tts and phonemizer-fork are GPL-3.0, coqui-tts MPL-2.0 — no duty "

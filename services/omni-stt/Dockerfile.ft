@@ -1,0 +1,31 @@
+# omni-stt plus a fine-tuned Omnilingual checkpoint, layered on an existing
+# omni-stt image (only the weights and a fairseq2 card are added; the base model
+# stays, so OMNI_CARD switches between them without a rebuild).
+#
+#   ./deploy.sh build-ft        # Cloud Build: fetch the weights, build, push
+#
+# PRIVATE: fine-tuned weights may be derived from licensed content. Build this
+# image only into a private registry; never push it to a public one (ghcr), and
+# never commit the weights. The build context (ft/) is fetched by Cloud Build
+# from a private bucket (FT_WEIGHTS) and never leaves Google Cloud.
+#
+# Context: ft/<card>.pt and ft/SHA256SUMS. The card is written here with the
+# in-image checkpoint path (the exported card names the trainer's path).
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+ARG FT_CARD
+ARG FT_BASE_CARD=omniASR_LLM_300M
+
+USER root
+COPY ft/ /opt/models/ft/
+RUN cd /opt/models/ft && sha256sum -c SHA256SUMS \
+ && printf 'name: %s\nbase: %s\ncheckpoint: file:///opt/models/ft/%s.pt\n' \
+      "$FT_CARD" "$FT_BASE_CARD" "$FT_CARD" > "$FT_CARD.yaml" \
+ && cat "$FT_CARD.yaml"
+# (No chmod/chown on the weights: changing their mode in a later layer would copy
+# the 3 GB again. They are root's, world-readable, which is all stt needs.)
+USER stt
+
+# fairseq2 reads extra cards from here. OMNI_CARD stays the base model's by
+# default; the deploy picks the card (deploy.sh: OMNI_CARD).
+ENV FAIRSEQ2_USER_ASSET_DIR=/opt/models/ft
