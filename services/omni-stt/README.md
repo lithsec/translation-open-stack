@@ -178,7 +178,16 @@ openssl rand -hex 32 | ./deploy.sh secret    # Secret Manager secret omni-stt-to
 ./deploy.sh build                            # Cloud Build (32 GB machine) -> Artifact Registry
 ./deploy.sh deploy                           # gcloud run deploy --gpu 1 --gpu-type nvidia-l4 ...
 BASE_TAG=<tag> ./deploy.sh build-voices      # the voices layered on an image built before them
+BASE_TAG=<tag> ./deploy.sh build-ft          # a fine-tuned card (FT_CARD, FT_WEIGHTS) on that image
+DRY_RUN=1 ./deploy.sh build-ft               # print the gcloud/docker commands, run nothing
 ```
+
+Private settings (a fine-tuned card's name, its private bucket, your project and
+registry) go in `private.env` beside the script, which git ignores; start from
+`private.env.example`. `build-ft` and `build-voices` refuse any image that is not
+in an Artifact Registry repository (`<region>-docker.pkg.dev`), and anything naming
+ghcr.io, docker.io or another public registry: a fine-tuned card may be derived
+from data you may not redistribute.
 
 Needed first, once: the APIs (Run, Artifact Registry, Cloud Build, Secret Manager),
 an Artifact Registry Docker repository `omni-stt` in `us-central1`, and Cloud Run L4

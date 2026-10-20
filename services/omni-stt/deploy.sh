@@ -24,16 +24,27 @@
 # BATCH_MAX (8), BATCH_WAIT_MS (10): the GPU micro-batcher (STT_BATCH_MAX,
 # STT_BATCH_WAIT_MS); MAX_SPEAKERS (4): open /speak sockets (STT_MAX_SPEAKERS).
 #
-# build-ft: FT_WEIGHTS (required; a PRIVATE gs:// folder holding <FT_CARD>.pt and
-# SHA256SUMS), FT_CARD (required; the card's name), BASE_TAG (the omni-stt image tag to
-# layer on), TAG (default: <BASE_TAG>-<FT_CARD>). The weights go from the bucket
-# into the image inside Cloud Build; keep REPO a private registry. Then deploy
-# with TAG=<that tag> OMNI_CARD=<FT_CARD>; OMNI_CARD=omniASR_LLM_300M on the same
-# image serves the base model again.
+# build-ft: FT_CARD and FT_WEIGHTS (both required: the card's name, and a PRIVATE
+# gs:// folder holding <FT_CARD>.pt and SHA256SUMS), BASE_TAG (the omni-stt image
+# tag to layer on), TAG (default: <BASE_TAG>-<FT_CARD>). The weights go from the
+# bucket into the image inside Cloud Build. Then deploy with TAG=<that tag>
+# OMNI_CARD=<FT_CARD>; OMNI_CARD=omniASR_LLM_300M on the same image serves the
+# base model again.
 #
 # build-voices: BASE_TAG (required; the omni-stt image tag to layer on), TAG
 # (default: <BASE_TAG>-voices). Built in Cloud Build from the staged context;
 # the base image (and any fine-tuned weights in it) never leaves the registry.
+#
+# Private settings (a fine-tuned card's name, its bucket, your project and
+# registry) live in private.env beside this script, which git ignores (copy
+# private.env.example). It holds KEY=value lines only; it is read, not run, and
+# a variable already in the environment wins. PRIVATE_ENV names another file.
+#
+# The private-registry guard: build-ft and build-voices (whose base may carry
+# fine-tuned weights) refuse unless the image is an Artifact Registry
+# (<region>-docker.pkg.dev) one, and refuse anything naming ghcr.io, docker.io
+# or another public registry. DRY_RUN=1 prints the gcloud/docker commands
+# instead of running them (tests/test_omni_stt_deploy.py).
 #
 # Before the first deploy, once per project (not done by this script):
 #   gcloud services enable run.googleapis.com artifactregistry.googleapis.com \
@@ -44,6 +55,48 @@
 #   L4 GPU allocation without zonal redundancy, per project per region"); new
 #   projects have 0 or a small grant.
 set -euo pipefail
+
+HERE="$(cd "$(dirname "$0")" && pwd)"
+ROOT="$(cd "$HERE/../.." && pwd)"
+
+# private.env: KEY=value lines, never executed; the environment wins.
+PRIVATE_ENV="${PRIVATE_ENV:-$HERE/private.env}"
+if [ -f "$PRIVATE_ENV" ]; then
+  while IFS= read -r line || [ -n "$line" ]; do
+    line="${line%$'\r'}"
+    case "$line" in ''|'#'*) continue ;; esac
+    key="${line%%=*}"
+    val="${line#*=}"
+    [[ "$key" =~ ^[A-Z_][A-Z0-9_]*$ ]] || { echo "private.env: ignoring a line that is not KEY=value" >&2; continue; }
+    val="${val#\"}"; val="${val%\"}"; val="${val#\'}"; val="${val%\'}"
+    [ -n "${!key+x}" ] || export "$key=$val"
+  done < "$PRIVATE_ENV"
+fi
+
+# DRY_RUN=1: print what would run (gcloud, docker), run nothing.
+run() {
+  if [ "${DRY_RUN:-0}" = 1 ]; then
+    printf '+'; printf ' %q' "$@"; printf '\n'
+  else
+    "$@"
+  fi
+}
+
+# Fine-tuned weights may be derived from licensed content: an image that
+# carries them (or may: build-voices layers on any base) only goes to a
+# private Artifact Registry repository, never a public registry.
+require_private_registry() {
+  local what="$1"
+  case "$IMAGE$PROJECT$REPO" in
+    *ghcr.io*|*docker.io*|*quay.io*|*gcr.io/*|*public.ecr.aws*)
+      echo "refusing $what: $IMAGE names a public registry; fine-tuned images stay in a private Artifact Registry repository" >&2
+      exit 3 ;;
+  esac
+  if ! [[ "$IMAGE" =~ ^[a-z0-9-]+-docker\.pkg\.dev/[a-z0-9-]+/[a-z0-9._-]+/[a-z0-9._-]+:[A-Za-z0-9._-]+$ ]]; then
+    echo "refusing $what: $IMAGE is not an Artifact Registry image (<region>-docker.pkg.dev/<project>/<repo>/<name>:<tag>)" >&2
+    exit 3
+  fi
+}
 
 : "${PROJECT:?set PROJECT to the Google Cloud project id}"
 REGION="${REGION:-us-east4}"
@@ -60,11 +113,9 @@ EDITION="${EDITION:-commercial}"
 BATCH_MAX="${BATCH_MAX:-8}"
 BATCH_WAIT_MS="${BATCH_WAIT_MS:-10}"
 MAX_SPEAKERS="${MAX_SPEAKERS:-4}"
-FT_CARD="${FT_CARD:-}"
-HERE="$(cd "$(dirname "$0")" && pwd)"
-ROOT="$(cd "$HERE/../.." && pwd)"
 if [ "${1:-}" = build-ft ]; then
-  : "${FT_CARD:?set FT_CARD to the fine-tuned card name}"
+  : "${FT_CARD:?set FT_CARD to the fine-tuned card name (private.env)}"
+  : "${FT_WEIGHTS:?set FT_WEIGHTS to the private gs:// folder with the checkpoint (private.env)}"
   : "${BASE_TAG:?set BASE_TAG to the omni-stt image tag to layer the weights on}"
   TAG="${TAG:-$BASE_TAG-$FT_CARD}"
 fi
@@ -73,8 +124,8 @@ if [ "${1:-}" = build-voices ]; then
   TAG="${TAG:-$BASE_TAG-voices}"
 fi
 TAG="${TAG:-$(git -C "$ROOT" rev-parse --short HEAD 2>/dev/null || date +%Y%m%d%H%M)}"
-# The image's registry may be in another region than the service (lithos-talk:
-# us-central1 registry, us-east4 service, where the L4 quota is).
+# The image's registry may be in another region than the service (e.g. a
+# us-central1 registry for a us-east4 service, where the L4 quota is).
 REPO_REGION="${REPO_REGION:-$REGION}"
 IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG"
 
@@ -92,6 +143,7 @@ stage() {
 
 case "${1:-}" in
   secret)
+    [ "${DRY_RUN:-0}" != 1 ] || { echo "+ (secret: reads the token from stdin; nothing done in a dry run)"; exit 0; }
     # The token comes from stdin so it never lands in shell history or argv:
     #   openssl rand -hex 32 | ./deploy.sh secret
     if gcloud secrets describe "$SECRET" --project "$PROJECT" >/dev/null 2>&1; then
@@ -102,7 +154,7 @@ case "${1:-}" in
     # The service's runtime identity (the default compute service account
     # unless you deploy with --service-account) must be able to read it.
     num="$(gcloud projects describe "$PROJECT" --format 'value(projectNumber)')"
-    gcloud secrets add-iam-policy-binding "$SECRET" --project "$PROJECT" \
+    run gcloud secrets add-iam-policy-binding "$SECRET" --project "$PROJECT" \
       --member "serviceAccount:$num-compute@developer.gserviceaccount.com" \
       --role roles/secretmanager.secretAccessor >/dev/null
     echo "secret $SECRET updated"
@@ -112,13 +164,18 @@ case "${1:-}" in
     # 32 GB build machine: the model fetch loads the checkpoint in float32 on its CPU.
     # No --region: regional build pools refuse e2-highcpu-32 on a new project;
     # the global pool takes it.
-    gcloud builds submit "$ctx" --tag "$IMAGE" --project "$PROJECT" \
+    run gcloud builds submit "$ctx" --tag "$IMAGE" --project "$PROJECT" \
       --machine-type e2-highcpu-32 --timeout 3600s
     rm -rf "$ctx"
     echo "built $IMAGE"
     ;;
   build-ft)
-    : "${FT_WEIGHTS:?set FT_WEIGHTS to the private gs:// folder with the checkpoint}"
+    require_private_registry build-ft
+    case "$FT_WEIGHTS" in
+      gs://*) ;;
+      *) echo "refusing build-ft: FT_WEIGHTS must be a gs:// folder (got a non-gs:// value)" >&2; exit 3 ;;
+    esac
+    [[ "$FT_CARD" =~ ^[A-Za-z0-9._-]+$ ]] || { echo "refusing build-ft: FT_CARD must be a plain card name" >&2; exit 3; }
     base="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$BASE_TAG"
     ctx="$(mktemp -d)"
     cp "$HERE/Dockerfile.ft" "$ctx/Dockerfile"
@@ -137,11 +194,12 @@ options:
   diskSizeGb: 100
 timeout: 3600s
 YAML
-    gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
+    run gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
     rm -rf "$ctx"
     echo "built $IMAGE (deploy with TAG=$TAG OMNI_CARD=$FT_CARD)"
     ;;
   build-voices)
+    require_private_registry build-voices
     base="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$BASE_TAG"
     ctx="$(stage)"
     cp "$HERE/Dockerfile.voices" "$ctx/Dockerfile"
@@ -155,17 +213,17 @@ options:
   diskSizeGb: 100
 timeout: 3600s
 YAML
-    gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
+    run gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
     rm -rf "$ctx"
     echo "built $IMAGE (deploy with TAG=$TAG, and the base's OMNI_CARD)"
     ;;
   build-local)
     ctx="$(stage)"
-    docker build --platform linux/amd64 -t "$IMAGE" "$ctx"
+    run docker build --platform linux/amd64 -t "$IMAGE" "$ctx"
     rm -rf "$ctx"
-    docker image ls "$IMAGE"
-    gcloud auth configure-docker "$REPO_REGION-docker.pkg.dev" --quiet
-    docker push "$IMAGE"
+    run docker image ls "$IMAGE"
+    run gcloud auth configure-docker "$REPO_REGION-docker.pkg.dev" --quiet
+    run docker push "$IMAGE"
     ;;
   deploy)
     # GPU services need at least 4 CPUs and 16 GiB. Always-allocated CPU
@@ -180,7 +238,7 @@ YAML
     # restricted-sharing policy refuses; this skips the check without that grant.)
     # --no-gpu-zonal-redundancy: cheaper and needs the smaller quota; a zone
     # outage means a failed cold start, which a reconnecting client retries.
-    gcloud run deploy "$SERVICE" --project "$PROJECT" --region "$REGION" --image "$IMAGE" \
+    run gcloud run deploy "$SERVICE" --project "$PROJECT" --region "$REGION" --image "$IMAGE" \
       --gpu 1 --gpu-type nvidia-l4 --no-gpu-zonal-redundancy \
       --cpu 4 --memory 16Gi --no-cpu-throttling \
       --min-instances 0 --max-instances 1 \
@@ -188,6 +246,7 @@ YAML
       --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,OMNI_CARD=$OMNI_CARD,HT_VOICE=$HT_VOICE,EDITION=$EDITION,STT_MAX_SPEAKERS=$MAX_SPEAKERS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS" \
       --set-secrets "STT_TOKEN=$SECRET:latest" \
       --no-invoker-iam-check ${DEPLOY_FLAGS:-}
+    [ "${DRY_RUN:-0}" != 1 ] || exit 0
     url="$(gcloud run services describe "$SERVICE" --project "$PROJECT" --region "$REGION" --format 'value(status.url)')"
     echo "health: $url/health   mic test: $url/mic   stream: ${url/https:/wss:}/listen?langs=ht,en   voices: ${url/https:/wss:}/speak"
     ;;
@@ -195,7 +254,7 @@ YAML
     stage
     ;;
   *)
-    sed -n '2,35p' "$0"
+    sed -n '2,/^set -euo/p' "$0" | sed '$d'
     exit 2
     ;;
 esac
