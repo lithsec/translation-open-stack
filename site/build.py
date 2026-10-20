@@ -57,8 +57,9 @@ INPUTS = {
     "azg_readme": "eval/2026-10-azure-stt-gemini/README.md",
     "omni_readme": "services/omni-stt/README.md",
     "latency": "eval/2026-10-latency/results.json",  # optional: rendered when present
+    "lat_readme": "eval/2026-10-latency/README.md",  # optional, with it
 }
-OPTIONAL_INPUTS = {"latency"}
+OPTIONAL_INPUTS = {"latency", "lat_readme"}
 
 # ---------------------------------------------------------------- names
 # Every system that appears on a chart. vendor = the company whose cloud
@@ -274,8 +275,8 @@ def hbar(title, sub, rows, *, fmt=lambda v: pct(v), maxv=None, cap=None, legend=
     return chart_frame(cid, title, sub, out, _table(table_headers, table_rows), vendor_named, legend, note)
 
 
-def grouped(title, sub, groups, series, *, fmt=lambda v: pct(v), maxv=None, vendor_named=False, note=None, clamp_zero=True):
-    """groups: [(label, [value per series or None], hl)]; series: [(name, cls)]."""
+def grouped(title, sub, groups, series, *, fmt=lambda v: pct(v), maxv=None, vendor_named=False, note=None, clamp_zero=True, nav="n/a"):
+    """groups: [(label, [value per series or None], hl)]; series: [(name, cls)]; nav: text for a missing value."""
     cid = _cid("chart")
     vals = [v for _, vs, _ in groups for v in vs if v is not None]
     top = maxv if maxv is not None else max(vals)
@@ -284,13 +285,13 @@ def grouped(title, sub, groups, series, *, fmt=lambda v: pct(v), maxv=None, vend
         lines = ""
         for (sname, cls), v in zip(series, vs):
             if v is None:
-                lines += f'<div class="bar-line">{_bar_svg(0, cls)}<span class="v">n/a</span></div>'
+                lines += f'<div class="bar-line">{_bar_svg(0, cls)}<span class="v">{esc(nav)}</span></div>'
             else:
                 lines += (f'<div class="bar-line">{_bar_svg((max(v, 0) if clamp_zero else v) / top, cls, False, f"{label}, {sname}: {fmt(v)}")}'
                           f'<span class="v">{esc(fmt(v))}</span></div>')
         out += f'<div class="bar-row{" hl" if hl else ""}"><div class="lab">{esc(label)}</div><div class="bar-track">{lines}</div></div>'
     out += "</div>"
-    trows = [[label] + [fmt(v) if v is not None else "n/a" for v in vs] for label, vs, _ in groups]
+    trows = [[label] + [fmt(v) if v is not None else nav for v in vs] for label, vs, _ in groups]
     return chart_frame(cid, title, sub, out, _table([""] + [s for s, _ in series], trows), vendor_named,
                        legend=series, note=note)
 
@@ -535,7 +536,7 @@ def build_home(D, S1):
 <li><strong>Feed recognition from a sound board or a close mic.</strong> Compression barely matters; distance and noise do. <a href="findings.html#audio">Audio quality</a></li>
 <li><strong>Per language (September):</strong> the open stack beat {L('sept:gemini-live')} end to end in {E['wins']} of {E['n']} directions ({pct(E['stack'], 0)} against {pct(E['gl'], 0)}, mean over all {E['n']}); every language's recognition, translation and voice scores, and which ones the commercial edition can still voice. <a href="languages.html">Languages</a></li>
 <li><strong>Latency, labelled:</strong> the open stack's first translated audio about 0.8 s after the speaker stops; a cloud recogniser feeding a cloud voice about 1.3 s after each sentence ends; and what each other delay measures. <a href="latency.html">Latency</a></li>
-<li><strong>Haitian Creole voices:</strong> hear the seven voices we compared. <a href="voices.html">Voices</a></li>
+{home_e2e(D)}<li><strong>Haitian Creole voices:</strong> hear the seven voices we compared. <a href="voices.html">Voices</a></li>
 </ul>
 
 <h2>Run it</h2>
@@ -1086,6 +1087,10 @@ def load_more(D):
         D[k] = J(INPUTS[k])
     p = os.path.join(ROOT, INPUTS["latency"])
     D["latency"] = J(INPUTS["latency"]) if os.path.isfile(p) else None
+    p = os.path.join(ROOT, INPUTS["lat_readme"])
+    if os.path.isfile(p):
+        with open(p, encoding="utf-8") as f:
+            D["text"]["lat_readme"] = f.read()
     # Which voices each edition runs, exactly as the server decides it.
     sys.path.insert(0, os.path.join(ROOT, "server"))
     import stack_config as sc
@@ -1372,6 +1377,36 @@ def build_languages(D):
     return {"wins": wins}
 
 
+LAT_PAIRS = ["en-es", "es-en", "en-ja", "km-en", "ht-en", "en-ht"]
+LANG_NAME = {"en": "English", "es": "Spanish", "ja": "Japanese", "km": "Khmer", "ht": "Haitian Creole"}
+STREAMING_ROUTES = {"azure-gemini-stream", "gemini-lt"}
+# one colour per route, distinct within every direction
+LAT_CLS = {"azure-foundry": "c1", "ht-exception": "c1", "ht-voice-coqui": "c1", "gemini-lt": "c2",
+           "azure-gemini": "c3", "ht-voice-gemini": "c3", "azure-gemini-stream": "c4"}
+
+
+def pair_name(p):
+    a, b = p.split("-")
+    return f"{LANG_NAME.get(a, a)} → {LANG_NAME.get(b, b)}"
+
+
+def lat_route(route):
+    """A route of eval/2026-10-latency by what it chains; each cloud part becomes "Vendor X <what>" when anonymised."""
+    az_r = VN("microsoft", "Azure STT", "recogniser")
+    az_v = VN("microsoft", "Azure voice", "voice")
+    llm = VN("openai", "GPT-5.6-sol (Foundry)", "LLM")
+    gem = VN("google", "Gemini Live", "voice model")
+    return {
+        "azure-foundry": f"{az_r} → {llm} → {az_v}",
+        "azure-gemini": f"{az_r} → {gem}, a sentence at a time",
+        "azure-gemini-stream": f"{az_r} → {gem}, streaming words",
+        "gemini-lt": VN("google", "Gemini Live Translate", "speech-to-speech translator"),
+        "ht-exception": f"Omnilingual (omni-stt) → {llm} → {az_v}",
+        "ht-voice-gemini": f"{az_r} → {llm} → {VN('google', 'Gemini voice', 'voice')}",
+        "ht-voice-coqui": f"{az_r} → {llm} → Coqui VITS on omni-stt",
+    }.get(route, anon_text(route))
+
+
 def _lat_rows_generic(data):
     """Rows of an eval/2026-10-latency/results.json, whatever its exact shape."""
     if isinstance(data, list):
@@ -1382,14 +1417,7 @@ def _lat_rows_generic(data):
     return []
 
 
-def latency_results_section(D):
-    data = D["latency"]
-    head = '<h2 id="routes">End-to-end comparison of current routes</h2>'
-    if data is None:
-        return (f'{head}<div class="placeholder" role="note"><p><strong>In progress.</strong> '
-                f'A test of the current routes end to end, measured the same way for each, is running. '
-                f'Its results will appear here when <code>eval/2026-10-latency/results.json</code> is committed; '
-                f'the site renders that file automatically.</p></div>')
+def _latency_generic(D, head, data):
     meta = ""
     if isinstance(data, dict):
         for k in ("date", "what", "measures", "audio", "method", "note"):
@@ -1406,16 +1434,164 @@ def latency_results_section(D):
     name_key = next((k for k in ("route", "name", "label", "system") if k in cols), cols[0])
     cols = [name_key] + [c for c in cols if c != name_key]
     trows = [[anon_text(r.get(c, "")) if isinstance(r.get(c), str) else ("–" if r.get(c) is None else r.get(c)) for c in cols] for r in rows]
-    chart = ""
-    num = next((c for c in cols if c != name_key and all(isinstance(r.get(c), (int, float)) or r.get(c) is None for r in rows)
-                and ("ms" in c or c.endswith("_s"))), None)
-    if num:
-        scale = 1000 if "ms" in num else 1
-        bars = [{"label": anon_text(r.get(name_key, "")), "value": (r[num] / scale) if r.get(num) is not None else None,
-                 "cls": "c1"} for r in rows]
-        chart = hbar(f"Current routes: {num}", "Seconds; lower is better. From " + esc(INPUTS["latency"]) + ".", bars,
-                     fmt=lambda v: f"{v:.2f} s", vendor_named=True, table_headers=cols, table_rows=trows)
-    return head + (f'<div class="prose"><ul>{meta}</ul></div>' if meta else "") + (chart or _table(cols, trows, numeric_from=1))
+    return head + (f'<div class="prose"><ul>{meta}</ul></div>' if meta else "") + _table(cols, trows, numeric_from=1)
+
+
+def _p(r, k, q="p50"):
+    v = (r.get(k) or {}).get(q)
+    return None if v is None else v / 1000
+
+
+def _s(v, d=1):
+    return "–" if v is None else f"{v:.{d}f}"
+
+
+def _rng(vals, d=1):
+    vals = [v for v in vals if v is not None]
+    return f"{min(vals):.{d}f}–{max(vals):.{d}f}"
+
+
+def home_e2e(D):
+    """One "What we found" line on the October end-to-end latency test, when its results are committed."""
+    data = D.get("latency")
+    rows = [r for r in _lat_rows_generic(data) if isinstance(r, dict)] if data else []
+    af = [_p(r, "stop_to_tail_audio_ms") for r in rows if r.get("route") == "azure-foundry" and r.get("lang_pair") in ("en-es", "es-en", "en-ja")]
+    lt = [_p(r, "start_to_first_audio_ms") for r in rows if r.get("route") == "gemini-lt"]
+    if not af or not lt:
+        return ""
+    return (f'<li><strong>Current routes, end to end (October):</strong> the quickest pipeline ({esc(lat_route("azure-foundry"))}) starts the last words of a sentence '
+            f'{_rng(af)} s after the speaker stops; a streaming speech-to-speech route ({esc(lat_route("gemini-lt"))}) starts {_rng(lt)} s after the speaker starts, mid-sentence, '
+            f'and is the fastest, but graded lower in some directions. <a href="latency.html#routes">Latency</a></li>\n')
+
+
+def latency_results_section(D):
+    data = D["latency"]
+    head = '<h2 id="routes">End-to-end comparison of current routes</h2>'
+    if data is None:
+        return (f'{head}<div class="placeholder" role="note"><p><strong>In progress.</strong> '
+                f'A test of the current routes end to end, measured the same way for each, is running. '
+                f'Its results will appear here when <code>eval/2026-10-latency/results.json</code> is committed; '
+                f'the site renders that file automatically.</p></div>')
+    rows = [r for r in _lat_rows_generic(data) if isinstance(r, dict)]
+    if not rows or not all("lang_pair" in r and "start_to_first_audio_ms" in r and "quality" in r for r in rows):
+        return _latency_generic(D, head, data)
+    rd = "eval/2026-10-latency/README.md"
+    readme = D["text"].get("lat_readme", "")
+    has = lambda needle: _ws(needle) in _ws(readme)  # noqa: E731
+    cite(D, "lat_readme", "Azure ends a segment on a 150 ms pause")
+    cite(D, "lat_readme", "Open stack (RunPod): not run.")
+    cite(D, "lat_readme", "The quality judge is gemini-3.5-flash and may favour Gemini outputs.")
+    cite(D, "lat_readme", "The Haitian→English references are model-made")
+    cite(D, "lat_readme", "One location and one afternoon")
+    cite(D, "lat_readme", "Read speech with clean pauses")
+    by = {}
+    for r in rows:
+        by.setdefault(r["lang_pair"], []).append(r)
+    pairs = [p for p in LAT_PAIRS if p in by] + sorted(p for p in by if p not in LAT_PAIRS)
+    for p in pairs:
+        by[p].sort(key=lambda r: _p(r, "start_to_first_audio_ms") or 1e9)
+    top = max(v for r in rows for v in (_p(r, "start_to_first_audio_ms"), _p(r, "stop_to_tail_audio_ms"), _p(r, "stop_to_audio_end_ms")) if v is not None)
+    top = 2 * -(-top // 2)
+    series = [("Speaker starts → first translated audio", "c1"),
+              ("Speaker stops → audio of the last words", "c2"),
+              ("Speaker stops → translation finishes", "c3")]
+    charts = ""
+    for p in pairs:
+        groups = [(lat_route(r["route"]),
+                   [_p(r, "start_to_first_audio_ms"), _p(r, "stop_to_tail_audio_ms"), _p(r, "stop_to_audio_end_ms")], False)
+                  for r in by[p]]
+        charts += grouped(f"{pair_name(p)}", "Median seconds, 40 read sentences. Lower is better. Routes in order of the first bar.",
+                          groups, series, fmt=lambda v: f"{v:.1f} s", maxv=top, vendor_named=True, nav="streams",
+                          note="“streams”: a streaming route speaks mid-sentence, while the speaker is still talking, so it has no separate last-words piece; its third bar is the comparable one.")
+    # quality against delay, one small plot per pair
+    xt = tuple(range(0, int(top) + 1, 2))
+    scat = ""
+    for p in pairs:
+        pts = []
+        for r in by[p]:
+            x, y = _p(r, "start_to_first_audio_ms"), r["quality"]["pct_of_max"]
+            pts.append({"x": x, "y": y, "label": lat_route(r["route"]), "short": "",
+                        "cls": LAT_CLS.get(r["route"], "c1")})
+        scat += scatter(pair_name(p), "Quality (judge's mean, % of maximum) against median seconds from the speaker starting to the first translated audio. Up and left is better; hover a point for its route.",
+                        pts, xlabel="Speaker starts → first audio (s)", ylabel="Quality (%)", xlog=False, xticks=xt,
+                        yticks=(0, 25, 50, 75, 100), xfmt=lambda v: f"{v:g}", yfmt=lambda v: f"{v:g}%", vendor_named=True,
+                        legend=[(pt["label"] + (" (streaming)" if r["route"] in STREAMING_ROUTES else ""), pt["cls"]) for pt, r in zip(pts, by[p])],
+                        table_headers=["Route", "Start → first audio (s)", "Quality", "Missing"],
+                        table_rows=[[pt["label"], f'{pt["x"]:.1f}', f'{pt["y"]}%', f'{r["quality"]["missing"]}/{r["n"]}'] for pt, r in zip(pts, by[p])])
+    # full table
+    hdr = ["Pair", "Route", "Start → first audio p50 / p90", "Stop → first audio p50 / p90", "Stop → last words' audio p50 / p90",
+           "Stop → first caption p50", "Stop → translation finishes p50", "Voiced before the speaker finished", "Quality (missing)"]
+    body = ""
+    for p in pairs:
+        for r in by[p]:
+            tail = "mid-sentence" if _p(r, "stop_to_tail_audio_ms") is None else f'{_s(_p(r, "stop_to_tail_audio_ms"))} / {_s(_p(r, "stop_to_tail_audio_ms", "p90"))}'
+            cells = [f'{_s(_p(r, "start_to_first_audio_ms"))} / {_s(_p(r, "start_to_first_audio_ms", "p90"))}',
+                     f'{_s(_p(r, "stop_to_first_audio_ms"))} / {_s(_p(r, "stop_to_first_audio_ms", "p90"))}', tail,
+                     _s(_p(r, "stop_to_first_text_ms")), _s(_p(r, "stop_to_audio_end_ms")),
+                     f'{r["mid_sentence_share"] * 100:.0f}%', f'{r["quality"]["pct_of_max"]}% ({r["quality"]["missing"]}/{r["n"]})']
+            body += (f'<tr><td>{esc(pair_name(p))}</td><th scope="row">{esc(lat_route(r["route"]))}</th>'
+                     + "".join(f'<td class="num">{esc(c)}</td>' for c in cells) + "</tr>")
+    tbl = ('<div class="table-wrap"><table class="wide"><thead><tr>'
+           + "".join(f'<th scope="col"{" class=num" if i >= 2 else ""}>{esc(h)}</th>' for i, h in enumerate(hdr))
+           + f"</tr></thead><tbody>{body}</tbody></table></div>")
+    # route list
+    rl = ""
+    for route in dict.fromkeys(r["route"] for r in rows):
+        r0 = next(r for r in rows if r["route"] == route)
+        models = "" if ANON else " <small>(" + esc("; ".join(f"{v}" for k, v in r0.get("models", {}).items() if isinstance(v, str))) + ")</small>"
+        rl += f'<li><strong>{esc(lat_route(route))}</strong>: {esc(", ".join(pair_name(p) for p in pairs if any(x["route"] == route for x in by[p])))}{models}</li>'
+    # numbers quoted in the prose, all from results.json
+    g = lambda route, pp: next((r for r in by.get(pp, []) if r["route"] == route), None)  # noqa: E731
+    big3 = ["en-es", "es-en", "en-ja"]
+    af_tail = _rng([_p(g("azure-foundry", q), "stop_to_tail_audio_ms") for q in big3 if g("azure-foundry", q)])
+    ag_tail = _rng([_p(g("azure-gemini", q), "stop_to_tail_audio_ms") for q in pairs if g("azure-gemini", q)])
+    lt = [g("gemini-lt", q) for q in pairs if g("gemini-lt", q)]
+    lt_start = _rng([_p(r, "start_to_first_audio_ms") for r in lt])
+    lt_end = _rng([_p(r, "stop_to_audio_end_ms") for r in lt])
+    af_end = _rng([_p(r, "stop_to_audio_end_ms") for r in rows if r["route"] == "azure-foundry"])
+    hx = g("ht-exception", "ht-en")
+    A, B, C = VN("microsoft", "Azure", "recogniser"), VN("google", "Gemini Live Translate", "speech-to-speech translator"), VN("openai", "Foundry", "LLM")
+    gem_judge = f"a {vendor('google')} model" if ANON else "a Gemini model (gemini-3.5-flash)"
+    stall = ""
+    miss = "; ".join(f'{pair_name(q)}: {g("azure-gemini-stream", q)["quality"]["missing"]} of {g("azure-gemini-stream", q)["n"]}'
+                     for q in pairs if g("azure-gemini-stream", q) and g("azure-gemini-stream", q)["quality"]["missing"])
+    if has("In 2 of its 8 runs"):
+        cite(D, "lat_readme", "In 2 of its 8 runs")
+        stall = (f"<li>The streaming {esc(VN('microsoft', 'Azure', 'recogniser'))} → {esc(VN('google', 'Gemini Live', 'voice model'))} route went silent in 2 of its 8 runs: "
+                 "the voice stopped answering for the rest of the clip and the app's reconnecting wrapper did not step in. "
+                 f"Its missing sentences ({miss}) count as zero in its quality score.</li>")
+    throttle = ""
+    if has("That round was rerun (`r4`)"):
+        cite(D, "lat_readme", "That round was rerun (`r4`)")
+        throttle = (f"<li>The translation deployment behind the {esc(C)} routes (50 requests per minute) returned “too many requests” errors in one round, even with one session; "
+                    "that round was rerun, and every run kept is free of those errors.</li>")
+    intro = f"""<div class="prose">
+<p>Every route the Live Translation app offers today, run the same way on the same audio: the app's own provider code, fed read sentences at real-time pace in 100 ms chunks as a microphone delivers them, on {esc(data.get("date", ""))} from {esc(anon_text(data.get("location", "")))}. 20 sentences per language, two rounds: 40 per route and direction. Source: {src_link(rd)} and {src_link(INPUTS["latency"])}.</p>
+<h3>What the numbers measure</h3>
+<ul>
+<li><strong>Speaker starts → first translated audio:</strong> from the moment the speaker begins a sentence to the first voiced sound of its translation. This is the one measure every route has, so the charts sort by it.</li>
+<li><strong>Speaker stops → first translated audio:</strong> from the moment the speaker finishes. It can be negative: the translation was already playing. Streaming routes, which translate words as they arrive, start <em>mid-sentence</em> nearly every time.</li>
+<li><strong>Speaker stops → audio of the last words:</strong> pipelines only. {esc(A)} ends a segment on a 150 ms pause, so a sentence often reaches the listener in pieces, and its first piece can sound before the speaker has finished. The wait that matters after the speaker stops is until the piece holding the sentence's <em>last</em> words starts to play.</li>
+<li><strong>Speaker stops → translation finishes:</strong> until the translation of that sentence has been fully spoken (its own audio, nothing queued ahead of it). This compares streaming routes and pipelines on the same footing.</li>
+<li><strong>Quality:</strong> {esc(gem_judge)} grades each sentence 0–3 against the source and a reference; shown as the mean, % of the maximum. A sentence with no translation scores 0 (“missing”).</li>
+</ul>
+</div>"""
+    shows = f"""<div class="prose">
+<h3>What it shows</h3>
+<ul>
+<li><strong>Pipelines:</strong> {esc(lat_route("azure-foundry"))} was the quickest pipeline after the speaker stopped: the last words started {af_tail} s after the stop into Spanish, English and Japanese (median). Sending each sentence to {esc(VN("google", "Gemini Live", "voice model"))} took {ag_tail} s. It also graded best of the pipelines.</li>
+<li><strong>Streaming:</strong> {esc(B)} started {lt_start} s after the speaker started and finished each sentence {lt_end} s after the speaker did, against {af_end} s for the quickest pipeline; it was the fastest route in every direction. It graded below that pipeline into Japanese, from Khmer and from Haitian Creole.</li>
+<li><strong>Haitian Creole:</strong> from Haitian, Omnilingual on omni-stt feeding the pipeline started the translation {_s(_p(hx, "stop_to_tail_audio_ms")) if hx else "–"} s after the stop and was the best graded route ({hx["quality"]["pct_of_max"] if hx else "–"}%). Into Haitian, the open Coqui voice started sooner than the cloud voice at about the same grade.</li>
+</ul>
+</div>"""
+    sept = f"""<p class="caveat">Caveats. One location and one afternoon (about 14:00–17:00 US Eastern, {esc(data.get("date", ""))}); every endpoint was in the US. Read speech with clean pauses: not preaching, not a room's echo, no language switching. The judge is {esc(gem_judge)} and may favour {"that vendor's own routes" if ANON else "the Gemini routes"}; the Haitian Creole → English references were written by a model, and English → Haitian Creole has no reference, so read the scores as a ranking within a direction, not as absolute quality. Streaming sentences were matched to their source by a model label, accurate to about 1 s. The open stack was not run this round (no stack server was running); September's “about 0.8 s after the speaker stops” comes from a different setup (synthetic audio, its own server) and is not comparable with these numbers.</p>"""
+    notes = f'<div class="prose"><h3>Also seen</h3><ul>{stall}{throttle}</ul></div>' if (stall or throttle) else ""
+    return (f"{head}{intro}{sept}"
+            f'<h3>Waits by route, per direction</h3>{charts}'
+            f'<h3>Quality against delay</h3><div class="grid2">{scat}</div>'
+            f"{shows}{notes}"
+            f'<h3>All measures</h3><p class="note">Seconds, median (p50) and 90th percentile (p90) over 40 sentences; sentences with no audio are left out of the timings and score 0 in quality.</p>{tbl}'
+            f'<div class="prose"><h3>Routes</h3><ul>{rl}</ul></div>')
 
 
 def azg(rel="eval/2026-10-azure-stt-gemini", text=None, link=True):
