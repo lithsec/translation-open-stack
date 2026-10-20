@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Hosted speech to text: Meta Omnilingual ASR, with spoken-language ID among
-the languages a room actually uses. No translation, no voices.
+the languages a room actually uses; and Haitian Creole voices (/speak). No translation.
 
     STT_TOKEN=... python3 services/omni-stt/server.py          # port $PORT, default 8080
     STT_OPEN=1    python3 services/omni-stt/server.py          # no token (a laptop test only)
@@ -18,6 +18,18 @@ Protocol:
                       "confidence":0.93,"start_ms":1200,"end_ms":4810}   then its words
                      {"type":"flushed"}   after a flush, once everything before it is sent
                      {"type":"error","detail":"..."}
+
+    client connects  wss://host/speak[?voice=mms|coqui]   (same token)
+    server sends     {"type":"hello","lang":"ht","voices":["mms","coqui"],"voice":"coqui","rate":24000}
+    client sends     {"type":"speak","text":"...","voice":"mms","id":"7"}   voice, id optional
+    server sends     per sentence: {"type":"sentence","id":"7","index":0,"bytes":96000}
+                     then that sentence's audio as binary frames: 24 kHz mono PCM16
+                     {"type":"done","id":"7","voice":"mms","sentences":2,
+                      "audio_ms":4100,"first_audio_ms":180,"ms":420}   after the last
+                     {"type":"error","id":"7","detail":"..."}   (a failed request; the socket stays open)
+    Requests on one socket are spoken in order; a client may keep it open.
+    Before the voices have loaded (they load beside the recogniser) the hello
+    waits; if they failed to load the socket is closed with 4503.
 
     GET /health      200 "ok" once the models are loaded (the port opens only then)
     GET /mic         a microphone test page (mic.html): speak, see each transcript
@@ -43,7 +55,18 @@ the room has one language. Omnilingual gives no confidence of its own.
 
 start_ms/end_ms count from the first sample of this connection, at 16 kHz.
 
-Environment: STT_TOKEN (or STT_SIGNING_KEY, the stack's signed tokens), STT_OPEN=1,
+/speak (voices.py): Haitian Creole only, by the stack's MMS-TTS (facebook/mms-tts-hat,
+CC-BY-NC-4.0: non-commercial use, which a non-profit service is) or Coqui
+VITS (multilingual-tts/VITS-OpenBible-Haitian-Creole, CC-BY-SA-4.0) engines. Numbers
+are spelled out first (ht_numbers.py: neither voice says digits). A WebSocket, not
+an HTTP POST: the websockets server here answers GET only, and a socket lets the
+first sentence's audio go out while the rest is made. Text never goes in the URL
+(URLs are logged).
+
+Environment: HT_VOICE (mms|coqui, default coqui: the voice when a request names none),
+STT_VOICES (the voices loaded, default "mms,coqui"), STT_MAX_SPEAKERS (open /speak
+sockets, default 4), STT_SERVE ("listen,speak" by default; "speak" skips the
+recogniser's models, for a laptop test of the voices), STT_TOKEN (or STT_SIGNING_KEY, the stack's signed tokens), STT_OPEN=1,
 PORT, STT_DEVICE (default: cuda when torch sees one, else cpu), OMNI_CARD,
 STT_MAX_CONNECTIONS, STT_MAX_PENDING, ENDPOINT_MS (default 300), MAX_UTTERANCE_S
 (default 6.0), MIN_SPEECH_MS (default 400), STT_MODELS (the baked models).
@@ -52,6 +75,7 @@ import asyncio
 import json
 import os
 import sys
+import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
 
@@ -116,10 +140,16 @@ TRAILING_KEEP_MS = 250
 # dropped (and logged): a backlog only makes every caption later.
 MAX_PENDING = int(os.environ.get("STT_MAX_PENDING", "3"))
 MAX_FRAME_BYTES = 256 * 1024
+# /speak: characters per request, and audio per binary frame (1 s at 24 kHz).
+SPEAK_MAX_CHARS = 2000
+SPEAK_FRAME_BYTES = 48000
 
 CLOSE_BAD_REQUEST = 4400
 CLOSE_UNAUTHORIZED = 4401
 CLOSE_BUSY = 4429
+CLOSE_UNAVAILABLE = 4503
+# How long a /speak connection waits for the voices to finish loading.
+VOICES_WAIT_S = 120
 
 
 class BadRequest(ValueError):
@@ -363,16 +393,54 @@ class Models:
     language ID run on one worker thread (MODEL_POOL): a single GPU gains
     nothing from two at once, and neither model is documented as thread-safe."""
 
-    def __init__(self, device=None, card=None):
+    def __init__(self, device=None, card=None, serve=None, voice_names=None):
         import copy
         import torch
         self.copy = copy
         self.device = device or os.environ.get("STT_DEVICE") or ("cuda" if torch.cuda.is_available() else "cpu")
         self.card = card or os.environ.get("OMNI_CARD", "omniASR_LLM_300M")
-        print(f"[stt] device={self.device} torch={torch.__version__}", flush=True)
-        self.vad = load_vad()
-        self.lid, self.lid_index = load_lid(self.device)
-        self.omni = load_omni(self.device, self.card)
+        self.serve = serve if serve is not None else served()
+        print(f"[stt] device={self.device} torch={torch.__version__} serving {','.join(sorted(self.serve))}", flush=True)
+        self.lid_index = {}
+        self.omni = None
+        # The voices load on a thread of their own, beside the recogniser: on a
+        # cold Cloud Run instance Coqui's import alone took ~30 s (2026-10-19),
+        # which /listen, the service's first job, should not wait for. /speak
+        # waits for voices_ready instead.
+        self.voices = None
+        self.voices_error = None
+        self.voices_ready = threading.Event()
+        loader = None
+        if "speak" in self.serve:
+            names = voice_names if voice_names is not None else voice_list()
+            loader = threading.Thread(target=self._load_voices, args=(names,), name="voices-load", daemon=True)
+            loader.start()
+        else:
+            self.voices_ready.set()
+        if "listen" in self.serve:
+            self.vad = load_vad()
+            self.lid, self.lid_index = load_lid(self.device)
+            self.omni = load_omni(self.device, self.card)
+        elif loader:
+            loader.join()
+
+    def _load_voices(self, names):
+        try:
+            from voices import Voices
+            t0 = time.time()
+            voices = Voices(self.device, names)
+            # (Each voice already spoke once at load; this times a sentence warm.)
+            for name in voices.names:
+                t1 = time.time()
+                voices.synthesise(name, "Bonjou tout moun, mèsi paske nou la jodi a.")
+                print(f"[stt] voice {name}: a sentence in {time.time() - t1:.2f}s", flush=True)
+            self.voices = voices
+            print(f"[stt] voices ready in {time.time() - t0:.0f}s", flush=True)
+        except BaseException as e:  # SystemExit from Voices included: /listen carries on without them
+            self.voices_error = f"{type(e).__name__}: {clean(e, 200)}"
+            print(f"[stt] voices failed to load: {self.voices_error}", flush=True)
+        finally:
+            self.voices_ready.set()
 
     def new_vad(self):
         """Silero keeps state between calls, so each stream gets its own copy
@@ -393,6 +461,36 @@ class Models:
 
     def transcribe(self, pcm16k, lang):
         return self.omni.transcribe(pcm16k, lang)
+
+
+def served(env=None):
+    """STT_SERVE -> {"listen", "speak"} (default both)."""
+    env = os.environ if env is None else env
+    want = {p.strip() for p in env.get("STT_SERVE", "listen,speak").split(",") if p.strip()}
+    if not want or want - {"listen", "speak"}:
+        raise SystemExit("[stt] STT_SERVE must name listen and/or speak")
+    return want
+
+
+def voice_list(env=None):
+    """STT_VOICES -> the voices to load (default every one)."""
+    from voices import VOICES
+    env = os.environ if env is None else env
+    names = [v.strip() for v in env.get("STT_VOICES", ",".join(VOICES)).split(",") if v.strip()]
+    if not names or any(v not in VOICES for v in names):
+        raise SystemExit(f"[stt] STT_VOICES must be among {','.join(VOICES)}")
+    return names
+
+
+def default_voice(names, env=None):
+    """HT_VOICE when loaded, else coqui, else the first voice loaded."""
+    env = os.environ if env is None else env
+    want = env.get("HT_VOICE", "").strip().lower() or "coqui"
+    if want in names:
+        return want
+    if env.get("HT_VOICE"):
+        print(f"[stt] HT_VOICE={clean(want, 16)} is not loaded; using {names[0]}", flush=True)
+    return "coqui" if "coqui" in names else names[0]
 
 
 def load_vad():
@@ -539,42 +637,171 @@ async def handle(ws, models, sub="open"):
                   f"real-time factor {heard['busy_s'] / heard['audio_s']:.2f}", flush=True)
 
 
+# ---------------------------------------------------------------- /speak
+
+# Synthesis runs here, not on MODEL_POOL: a sentence being voiced never waits
+# behind an utterance being transcribed. Two threads, one per voice; each
+# voice's own lock makes two requests on the same voice take turns.
+VOICE_POOL = ThreadPoolExecutor(2, thread_name_prefix="voice")
+
+
+async def speak_one(voices, voice, text, req_id, send):
+    """One request: each sentence's audio as soon as it is made, then "done".
+    Returns (sentences spoken, audio ms)."""
+    from voices import prepare
+    loop = asyncio.get_running_loop()
+    t0 = time.monotonic()
+    first_ms = None
+    spoken, nbytes, failed = 0, 0, 0
+    tag = {"id": req_id} if req_id is not None else {}
+    for piece in prepare(text):
+        pcm = await loop.run_in_executor(VOICE_POOL, voices.synthesise, voice, piece)
+        if not pcm:
+            failed += 1
+            continue
+        if first_ms is None:
+            first_ms = int((time.monotonic() - t0) * 1000)
+        await send({"type": "sentence", **tag, "index": spoken, "bytes": len(pcm)})
+        for off in range(0, len(pcm), SPEAK_FRAME_BYTES):
+            await send(pcm[off:off + SPEAK_FRAME_BYTES])
+        spoken += 1
+        nbytes += len(pcm)
+    audio_ms = nbytes * 1000 // 48000
+    if failed and not spoken:
+        await send({"type": "error", **tag, "detail": "the voice could not say that"})
+    await send({"type": "done", **tag, "voice": voice, "sentences": spoken, "audio_ms": audio_ms,
+                "first_audio_ms": first_ms, "ms": int((time.monotonic() - t0) * 1000)})
+    return spoken, audio_ms
+
+
+def parse_speak(msg, default_voice, names):
+    """A client text message -> (text, voice, id), or BadRequest."""
+    from voices import parse_voice
+    try:
+        m = json.loads(msg)
+    except Exception:
+        raise BadRequest('send {"type":"speak","text":"..."}')
+    if not isinstance(m, dict) or m.get("type") != "speak":
+        raise BadRequest('send {"type":"speak","text":"..."}')
+    text = m.get("text")
+    if not isinstance(text, str) or not text.strip():
+        raise BadRequest("text is required")
+    if len(text) > SPEAK_MAX_CHARS:
+        raise BadRequest(f"text is at most {SPEAK_MAX_CHARS} characters")
+    try:
+        voice = parse_voice(m.get("voice") if isinstance(m.get("voice"), str) else "", default_voice)
+    except ValueError as e:
+        raise BadRequest(str(e))
+    if voice not in names:
+        raise BadRequest(f"voice {voice} is not loaded here")
+    req_id = m.get("id")
+    req_id = clean(req_id, 64) if isinstance(req_id, (str, int)) and not isinstance(req_id, bool) else None
+    return text, voice, req_id
+
+
+async def handle_speak(ws, voices, sub="open", env=None):
+    """One /speak connection, after auth and admission."""
+    from urllib.parse import urlparse, parse_qs
+    from voices import parse_voice, LANG
+    q = parse_qs(urlparse(ws.request.path).query)
+    names = voices.names
+    try:
+        voice = parse_voice((q.get("voice") or [""])[0], default_voice(names, env))
+        if voice not in names:
+            raise ValueError(f"voice {voice} is not loaded here")
+    except ValueError as e:
+        await ws.send(json.dumps({"type": "error", "detail": str(e)}))
+        await ws.close(code=CLOSE_BAD_REQUEST, reason="bad request")
+        return
+    await ws.send(json.dumps({"type": "hello", "lang": LANG, "voices": names, "voice": voice, "rate": 24000}))
+    who = clean(sub, 24)
+
+    async def send(m):
+        await ws.send(m if isinstance(m, bytes) else json.dumps(m, ensure_ascii=False))
+
+    n, audio_ms = 0, 0
+    async for msg in ws:
+        if isinstance(msg, bytes):
+            await send({"type": "error", "detail": "send text messages: {\"type\":\"speak\",\"text\":\"...\"}"})
+            continue
+        try:
+            text, v, req_id = parse_speak(msg, voice, names)
+        except BadRequest as e:
+            await send({"type": "error", "detail": str(e)})
+            continue
+        try:
+            said, ms = await speak_one(voices, v, text, req_id, send)
+        except Exception as e:  # one bad request must not end the socket
+            if type(e).__name__.startswith("Connection"):
+                raise
+            print(f"[stt] {who}: speech failed: {type(e).__name__}: {clean(e, 200)}", flush=True)
+            await send({"type": "error", **({"id": req_id} if req_id is not None else {}),
+                        "detail": "speech failed"})
+            continue
+        n += 1
+        audio_ms += ms
+        # Lengths and timings only: the text is the client's, and is not logged.
+        print(f"[stt] {who}: spoke {len(text)} chars, {said} sentences, {ms} ms of audio ({v})", flush=True)
+    if n:
+        print(f"[stt] {who}: speak closed; {n} requests, {audio_ms / 1000:.0f}s of audio", flush=True)
+
+
+# ---------------------------------------------------------------- serving
+
 LIMITS = None
+SPEAK_LIMITS = None
+ENDPOINTS = ("/listen", "/speak")
 
 
 async def guarded(ws, models):
     """Auth, admission and a fence: one client's failure never reaches the serve loop."""
     from urllib.parse import urlparse, parse_qs
     url = urlparse(ws.request.path)
-    if url.path.rstrip("/") != "/listen":
-        await ws.close(code=CLOSE_BAD_REQUEST, reason="the endpoint is /listen")
+    path = url.path.rstrip("/")
+    open_paths = [p for p in ENDPOINTS if p.lstrip("/") in models.serve]
+    if path not in open_paths:
+        await ws.close(code=CLOSE_BAD_REQUEST, reason=f"the endpoints are {' and '.join(open_paths)}")
         return
     sub = subject_for(ws.request.headers, parse_qs(url.query))
     if sub is None:
         print("[stt] refused: bad or missing token", flush=True)
         await ws.close(code=CLOSE_UNAUTHORIZED, reason="unauthorized")
         return
-    why = LIMITS.admit(sub)
+    limits = SPEAK_LIMITS if path == "/speak" else LIMITS
+    why = limits.admit(sub)
     if why:
         await ws.close(code=CLOSE_BUSY, reason=why)
         return
     try:
-        await handle(ws, models, sub)
+        if path == "/speak":
+            ready = getattr(models, "voices_ready", None)
+            if ready is not None and not ready.is_set():
+                # Still loading (a cold start): wait rather than refuse.
+                await asyncio.get_running_loop().run_in_executor(None, ready.wait, VOICES_WAIT_S)
+            if models.voices is None:
+                await ws.send(json.dumps({"type": "error", "detail": "the voices are not available on this server"}))
+                await ws.close(code=CLOSE_UNAVAILABLE, reason="voices unavailable")
+                return
+            await handle_speak(ws, models.voices, sub)
+        else:
+            await handle(ws, models, sub)
     except Exception as e:
         print(f"[stt] client ended: {type(e).__name__}: {clean(e, 200)}", flush=True)
     finally:
-        LIMITS.release(sub)
+        limits.release(sub)
 
 
 def warmup(models):
     """The first decode builds kernels and caches; pay it before the port opens."""
     import numpy as np
     t0 = time.time()
-    rng = np.random.default_rng(0)
-    noise = (rng.standard_normal(VAD_RATE * 2) * 0.01).astype(np.float32)
-    models.transcribe(noise, "en")
-    if len(models.lid_index) > 1:
-        models.identify(noise, ["en", "ht"])
+    if models.omni is not None:
+        rng = np.random.default_rng(0)
+        noise = (rng.standard_normal(VAD_RATE * 2) * 0.01).astype(np.float32)
+        models.transcribe(noise, "en")
+        if len(models.lid_index) > 1:
+            models.identify(noise, ["en", "ht"])
+    # (The voices warm themselves on their loading thread: Models._load_voices.)
     print(f"[stt] warm in {time.time() - t0:.1f}s", flush=True)
 
 
@@ -585,10 +812,12 @@ async def main():
     t0 = time.time()
     models = Models()
     warmup(models)
-    global LIMITS
+    global LIMITS, SPEAK_LIMITS
     import stack_auth
     n = int(os.environ.get("STT_MAX_CONNECTIONS", "8"))
     LIMITS = stack_auth.Limits(per_client=n, total=n)
+    k = int(os.environ.get("STT_MAX_SPEAKERS", "4"))
+    SPEAK_LIMITS = stack_auth.Limits(per_client=k, total=k)
 
     import websockets
     from http import HTTPStatus
@@ -615,7 +844,9 @@ async def main():
     # audio flows, so the server sends none.
     async with websockets.serve(lambda ws: guarded(ws, models), "0.0.0.0", port,
                                 max_size=MAX_FRAME_BYTES, ping_interval=None, process_request=http):
-        print(f"[stt] ready on :{port} ({mode}; card {models.card}; loaded in {time.time() - t0:.0f}s)",
+        voices = "; voices loading" if "speak" in models.serve and not models.voices_ready.is_set() else (
+            f"; voices {','.join(models.voices.names)}, default {default_voice(models.voices.names)}" if models.voices else "")
+        print(f"[stt] ready on :{port} ({mode}; card {models.card}{voices}; loaded in {time.time() - t0:.0f}s)",
               flush=True)
         await asyncio.Future()
 
@@ -623,7 +854,10 @@ async def main():
 def fetch():
     """Image build: load every model once, by the same code the server runs, so
     each lands in the cache the server will look in (deploy.sh, Dockerfile)."""
-    Models(device="cpu")
+    models = Models(device="cpu", serve={"listen", "speak"})
+    models.voices_ready.wait()
+    if models.voices is None:
+        raise SystemExit(f"[stt] voices: {models.voices_error}")
     print("[stt] models fetched", flush=True)
 
 

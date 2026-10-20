@@ -7,6 +7,7 @@
 #   ./deploy.sh deploy                   # gcloud run deploy
 #   ./deploy.sh build-local              # or: docker build + push from this machine (linux/amd64)
 #   ./deploy.sh build-ft                 # a fine-tuned checkpoint layered on BASE_TAG (Dockerfile.ft)
+#   ./deploy.sh build-voices             # the Haitian Creole voices layered on BASE_TAG (Dockerfile.voices)
 #
 # Optional: REGION (us-east4: has Cloud Run L4 and, on a new project, the only
 # GPU quota we found; us-central1 had none, 2026-10-17), REPO (Artifact Registry
@@ -14,7 +15,8 @@
 # SECRET (omni-stt-token), MAX_STREAMS (4: connections one instance takes),
 # ENDPOINT_MS (300), MAX_UTTERANCE_S (6.0), MIN_SPEECH_MS (400): endpointing,
 # passed to the service by "deploy" (README, Endpointing). OMNI_CARD (default
-# omniASR_LLM_300M): the Omnilingual card the service loads. DEPLOY_FLAGS: extra
+# omniASR_LLM_300M): the Omnilingual card the service loads. HT_VOICE (coqui):
+# /speak's voice when a request names none (mms|coqui). DEPLOY_FLAGS: extra
 # gcloud run deploy flags, e.g. "--no-traffic --tag ft" to test a revision first.
 #
 # build-ft: FT_WEIGHTS (required; a PRIVATE gs:// folder holding <FT_CARD>.pt and
@@ -23,6 +25,10 @@
 # into the image inside Cloud Build; keep REPO a private registry. Then deploy
 # with TAG=<that tag> OMNI_CARD=<FT_CARD>; OMNI_CARD=omniASR_LLM_300M on the same
 # image serves the base model again.
+#
+# build-voices: BASE_TAG (required; the omni-stt image tag to layer on), TAG
+# (default: <BASE_TAG>-voices). Built in Cloud Build from the staged context;
+# the base image (and any fine-tuned weights in it) never leaves the registry.
 #
 # Before the first deploy, once per project (not done by this script):
 #   gcloud services enable run.googleapis.com artifactregistry.googleapis.com \
@@ -44,6 +50,7 @@ ENDPOINT_MS="${ENDPOINT_MS:-300}"
 MAX_UTTERANCE_S="${MAX_UTTERANCE_S:-6.0}"
 MIN_SPEECH_MS="${MIN_SPEECH_MS:-400}"
 OMNI_CARD="${OMNI_CARD:-omniASR_LLM_300M}"
+HT_VOICE="${HT_VOICE:-coqui}"
 FT_CARD="${FT_CARD:-}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$HERE/../.." && pwd)"
@@ -51,6 +58,10 @@ if [ "${1:-}" = build-ft ]; then
   : "${FT_CARD:?set FT_CARD to the fine-tuned card name}"
   : "${BASE_TAG:?set BASE_TAG to the omni-stt image tag to layer the weights on}"
   TAG="${TAG:-$BASE_TAG-$FT_CARD}"
+fi
+if [ "${1:-}" = build-voices ]; then
+  : "${BASE_TAG:?set BASE_TAG to the omni-stt image tag to layer the voices on}"
+  TAG="${TAG:-$BASE_TAG-voices}"
 fi
 TAG="${TAG:-$(git -C "$ROOT" rev-parse --short HEAD 2>/dev/null || date +%Y%m%d%H%M)}"
 # The image's registry may be in another region than the service (lithos-talk:
@@ -63,10 +74,10 @@ stage() {
   # neither the eval audio nor .git is uploaded to Cloud Build.
   local dir
   dir="$(mktemp -d)"
-  cp "$HERE/server.py" "$HERE/mic.html" "$HERE/Dockerfile" "$dir/"
+  cp "$HERE/server.py" "$HERE/voices.py" "$HERE/ht_numbers.py" "$HERE/mic.html" "$HERE/Dockerfile" "$dir/"
   cp "$ROOT/server/audio_in.py" "$ROOT/server/stack_auth.py" "$ROOT/constraints.txt" "$dir/"
   mkdir "$dir/engines"
-  cp "$ROOT/server/engines/"{__init__,base,common,omnilingual}.py "$dir/engines/"
+  cp "$ROOT/server/engines/"{__init__,base,common,omnilingual,mms,coqui}.py "$dir/engines/"
   echo "$dir"
 }
 
@@ -121,6 +132,24 @@ YAML
     rm -rf "$ctx"
     echo "built $IMAGE (deploy with TAG=$TAG OMNI_CARD=$FT_CARD)"
     ;;
+  build-voices)
+    base="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$BASE_TAG"
+    ctx="$(stage)"
+    cp "$HERE/Dockerfile.voices" "$ctx/Dockerfile"
+    cat > "$ctx/cloudbuild.yaml" <<YAML
+steps:
+- name: gcr.io/cloud-builders/docker
+  args: ["build", "--build-arg", "BASE_IMAGE=$base", "-t", "$IMAGE", "."]
+images: ["$IMAGE"]
+options:
+  machineType: E2_HIGHCPU_8
+  diskSizeGb: 100
+timeout: 3600s
+YAML
+    gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
+    rm -rf "$ctx"
+    echo "built $IMAGE (deploy with TAG=$TAG, and the base's OMNI_CARD)"
+    ;;
   build-local)
     ctx="$(stage)"
     docker build --platform linux/amd64 -t "$IMAGE" "$ctx"
@@ -147,11 +176,11 @@ YAML
       --cpu 4 --memory 16Gi --no-cpu-throttling \
       --min-instances 0 --max-instances 1 \
       --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
-      --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,OMNI_CARD=$OMNI_CARD" \
+      --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,OMNI_CARD=$OMNI_CARD,HT_VOICE=$HT_VOICE" \
       --set-secrets "STT_TOKEN=$SECRET:latest" \
       --no-invoker-iam-check ${DEPLOY_FLAGS:-}
     url="$(gcloud run services describe "$SERVICE" --project "$PROJECT" --region "$REGION" --format 'value(status.url)')"
-    echo "health: $url/health   mic test: $url/mic   stream: ${url/https:/wss:}/listen?langs=ht,en"
+    echo "health: $url/health   mic test: $url/mic   stream: ${url/https:/wss:}/listen?langs=ht,en   voices: ${url/https:/wss:}/speak"
     ;;
   stage)
     stage

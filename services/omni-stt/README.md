@@ -7,8 +7,10 @@ languages commercial speech APIs don't serve well or at all (Haitian Creole firs
 then Khmer, Lao and the rest of the stack's `asr = "omni:..."` languages) and is
 meant for Google Cloud Run on an NVIDIA L4, scaled to zero.
 
-No translation, no voices: that is the stack's job (`server/server.py`). This
-service reuses the stack's parts rather than copying them:
+It also speaks Haitian Creole (`/speak`, below) with two open voices, so a client
+whose speech service has no Haitian voice (Azure) need not send the text elsewhere.
+No translation: that is the stack's job (`server/server.py`). This service reuses
+the stack's parts rather than copying them:
 
 | Part | From the stack |
 |---|---|
@@ -16,6 +18,7 @@ service reuses the stack's parts rather than copying them:
 | Language ID | VoxLingua107 ECAPA (`speechbrain/lang-id-voxlingua107-ecapa`, the stack's pinned revision) with the stack's constrained argmax (`Pipeline.identify_conf`) |
 | Endpointing | Silero VAD v6.2.3 and the stack's forced-cut rule, with shorter values than the stack's (see Endpointing below); a VAD copy per connection |
 | Audio input | `server/audio_in.py` (fixed 96 ms blocks; 24 kHz resampled with carried filter state) |
+| Voices | `server/engines/mms.py` and `coqui.py` (the same engine classes and fixes: 24 kHz resample with 3 ms edge ramps, peak level, Coqui's dead-air trim, MMS's empty-input guard), each with its own lock |
 | Tokens | `server/stack_auth.py` (`STT_TOKEN` static, or `STT_SIGNING_KEY` for the stack's signed tokens) |
 
 ## Protocol
@@ -55,6 +58,48 @@ GET /mic      a one-file microphone test page: type the languages and the token,
   than mixing them. Each connection keeps at most 3 utterances waiting (`STT_MAX_PENDING`);
   past that the oldest is dropped and logged.
 
+### /speak: Haitian Creole voices
+
+```
+connect   wss://<host>/speak[?voice=mms|coqui]      same token as /listen
+server    {"type":"hello","lang":"ht","voices":["mms","coqui"],"voice":"coqui","rate":24000}
+client    {"type":"speak","text":"Nou gen 600 moun jodi a.","voice":"mms","id":"7"}   voice and id optional
+server    {"type":"sentence","id":"7","index":0,"bytes":96000}   then that sentence's audio:
+          binary frames of mono PCM16 at 24 kHz (at most 1 s each)
+server    {"type":"done","id":"7","voice":"mms","sentences":1,"audio_ms":2000,"first_audio_ms":180,"ms":190}
+server    {"type":"error","id":"7","detail":"..."}   a refused or failed request; the socket stays open
+```
+
+- Voices: `mms` = Meta MMS-TTS `facebook/mms-tts-hat`, **CC-BY-NC-4.0**: non-commercial
+  use only (fine for a non-profit service; not for a paid product).
+  `coqui` = Coqui VITS `multilingual-tts/VITS-OpenBible-Haitian-Creole`, **CC-BY-SA-4.0**:
+  credit the OpenBible voice. Both are baked into the image.
+- The voice: the request's `voice`, else the socket's `?voice=`, else `HT_VOICE`
+  (default `coqui`). `STT_VOICES` limits which are loaded.
+- Numbers are spelled out first (`ht_numbers.py`): neither voice says digits, so
+  "600" would vanish. 0 to 999 999 999 999, years ("1804" -> "mil ui san kat"),
+  simple ordinals ("2e" -> "dezyèm"), decimals, `%` and `$`; the sources and
+  the spelling choices are at the top of that file.
+- The text is spoken a sentence at a time (long sentences are cut at commas), so
+  the first sentence's audio goes out while the rest is made. Requests on one
+  socket are answered in order; keep the socket open between sentences.
+- The voices load beside the recogniser, not before the port opens (Coqui's import
+  took ~30 s on a cold instance): a `/speak` socket opened meanwhile waits for them
+  (up to 120 s) before its hello; if they failed to load it is closed with 4503.
+- At most 2000 characters per request; `STT_MAX_SPEAKERS` (4) open sockets,
+  counted apart from `/listen`'s. Nothing about the text is logged but its length.
+- A WebSocket rather than an HTTP POST: the `websockets` server here answers GET
+  only, and text in a URL would land in the request logs.
+- Time to first audio, one sentence, warm: on a MacBook (M2 Pro CPU) ~0.22-0.28 s
+  for MMS and ~0.3-0.5 s for Coqui. On the L4 (2026-10-19, tagged revision): ~0.10-0.12 s
+  at the server for either voice, ~0.14-0.18 s at a client in the US over an open socket.
+  A cold instance answers /listen at its usual time and /speak about 30 s later
+  (Coqui's import on a fresh instance).
+
+`STT_SERVE=speak STT_OPEN=1 python3 services/omni-stt/server.py` runs the voices
+alone (no Omnilingual), which a laptop handles; it needs `coqui-tts==0.27.5` and
+`transformers==4.57.6` beside the packages below.
+
 ### Endpointing
 
 An utterance's `language` message can only go out once the utterance ends, and
@@ -73,7 +118,8 @@ are cut short:
 
 `deploy.sh deploy` passes all three through when they are set in its environment.
 Other settings: `STT_MAX_CONNECTIONS`, `STT_MAX_PENDING`, `STT_DEVICE`, `OMNI_CARD`,
-`STT_MODELS`, `PORT` (see the top of `server.py`).
+`STT_MODELS`, `PORT`, `HT_VOICE`, `STT_VOICES`, `STT_MAX_SPEAKERS`, `STT_SERVE`
+(see the top of `server.py`).
 
 VoxLingua107 covers ht (Haitian), km (Central Khmer) and lo (Lao), checked
 against the model's `label_encoder.txt` (107 labels; ht = 37, km = 49, lo = 55).
@@ -104,6 +150,7 @@ export PROJECT=<project id>
 openssl rand -hex 32 | ./deploy.sh secret    # Secret Manager secret omni-stt-token
 ./deploy.sh build                            # Cloud Build (32 GB machine) -> Artifact Registry
 ./deploy.sh deploy                           # gcloud run deploy --gpu 1 --gpu-type nvidia-l4 ...
+BASE_TAG=<tag> ./deploy.sh build-voices      # the voices layered on an image built before them
 ```
 
 Needed first, once: the APIs (Run, Artifact Registry, Cloud Build, Secret Manager),

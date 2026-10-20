@@ -1,8 +1,10 @@
 # omni-stt for Cloud Run with a GPU (NVIDIA L4): Omnilingual ASR, VoxLingua107
-# language ID and Silero VAD, with every model inside the image.
+# language ID and Silero VAD, and the Haitian Creole voices (MMS-TTS, CC-BY-NC;
+# Coqui VITS OpenBible, CC-BY-SA), with every model inside the image.
 #
 # Build context: the directory deploy.sh stages (this folder plus the stack files
 # it reuses: server/audio_in.py, stack_auth.py, engines/, constraints.txt).
+# Dockerfile.voices adds the voices to an image built before them.
 #   ./deploy.sh build-local      # docker build here
 #   ./deploy.sh build            # Cloud Build
 #
@@ -43,6 +45,18 @@ RUN pip install -c constraints.txt torch==2.8.0 torchaudio==2.8.0 \
  && pip install -c constraints.txt omnilingual-asr torchaudio==2.8.0 scipy==1.13.1 \
       speechbrain websockets huggingface_hub \
  && python -c "import torch, omnilingual_asr, speechbrain, websockets; print('torch', torch.__version__, 'cuda', torch.version.cuda)"
+
+# The Haitian Creole voices (/speak, voices.py): Coqui TTS for the OpenBible VITS
+# (MMS-TTS needs only transformers, already here). Its own step so the layer
+# above is reused. librosa and contourpy are left free (their lock versions
+# want numpy 2) and resolve to 0.11.0 and 1.3.3, which accept fairseq2's numpy
+# 1.26.4: pip check is clean, where the stack's install order leaves three
+# conflicts. No [codec] extra: torchcodec is for PyTorch 2.9+ (coqui-tts's
+# README), and synthesis never decodes audio.
+RUN grep -vE '^(librosa|contourpy)==' constraints.txt > /tmp/voices-c.txt \
+ && pip install -c /tmp/voices-c.txt coqui-tts==0.27.5 numpy==1.26.4 scipy==1.13.1 torch==2.8.0 torchaudio==2.8.0 \
+ && rm /tmp/voices-c.txt && pip check \
+ && python -c "import TTS, transformers, numpy, omnilingual_asr; print('coqui-tts', TTS.__version__, 'transformers', transformers.__version__, 'numpy', numpy.__version__)"
 
 # Where the models live, at build time and at run time alike.
 ENV STT_MODELS=/opt/models \
