@@ -68,8 +68,22 @@ INPUTS = {
     "fcost": "eval/2026-10-translation-cost/results.json",
     "fcost_readme": "eval/2026-10-translation-cost/README.md",
     "prices": "site/data/list-prices.json",
+    "cost_tool": "eval/tools/cost.py",  # the page's formulas, as a script; imported below
 }
 OPTIONAL_INPUTS = {"latency", "lat_readme"}
+
+
+def _cost_tool():
+    """eval/tools/cost.py as a module: the cost page's arithmetic lives there, so
+    `python3 eval/tools/cost.py` and the page cannot drift."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("cost_tool", os.path.join(ROOT, INPUTS["cost_tool"]))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+COST = _cost_tool()
 
 # ---------------------------------------------------------------- names
 # Every system that appears on a chart. vendor = the company whose cloud
@@ -1949,8 +1963,7 @@ def continuous_section(D):
 
 # ---------------------------------------------------------------- cost
 
-def money(v, d=2):
-    return f"${v:,.{d}f}"
+money = COST.money
 
 
 def build_cost(D):
@@ -1967,33 +1980,19 @@ def build_cost(D):
     gem = VN("google", "Gemini", "cloud B")
     glt = VN("google", "Gemini Live Translate", "speech-to-speech translator")
     run = VN("google", "Cloud Run", "cloud B's container service")
-    # per-hour building blocks
-    voice_h = a["voice_chars_per_hour"] * p["azure_tts_per_million_chars"] / 1e6
-    omni_h = p["cloud_run_l4_gpu_per_hour"] + p["cloud_run_4vcpu_per_hour"] + p["cloud_run_16gib_per_hour"]
-    tail = a["omni_stt_idle_tail_h"] * omni_h
-    lt_h = p["gemini_lt_per_minute"] * 60
-    choice = {"fr": ("en-fr", "none"), "pt": ("en-pt", "none"), "es": ("en-es", "none"), "ht": ("en-ht", "low")}
-    fh = {l: news[pp][eff]["usd_per_hour"] for l, (pp, eff) in choice.items()}
-    stt_lid = p["azure_stt_per_hour"] + p["azure_language_id_per_hour"]
+    # The arithmetic: eval/tools/cost.py (building blocks, routes, the two
+    # worked examples), with this build's service names.
+    E = COST.estimate(PR, F, names={"az": az, "azs": azs, "fdy": fdy, "gem": gem, "glt": glt})
+    B = E["blocks"]
+    voice_h, omni_h, tail, lt_h = B["voice_h"]["value"], B["omni_h"]["value"], B["omni_tail"]["value"], B["lt_h"]["value"]
+    fh = {l: B[f"foundry_{l}"]["value"] for l in COST.FOUNDRY_CHOICE}
     # worked example 1: one room, one hour, English -> fr/pt/es/ht
-    ex1 = [("Recognise the English speaker, language detection on", f'{money(p["azure_stt_per_hour"])} + {money(p["azure_language_id_per_hour"])}', stt_lid),
-           ("Translate into French, Portuguese, Spanish (reasoning none)", " + ".join(money(fh[l]) for l in ("fr", "pt", "es")), fh["fr"] + fh["pt"] + fh["es"]),
-           ("Translate into Haitian Creole (reasoning low)", money(fh["ht"]), fh["ht"]),
-           (f"{az} voices for French, Portuguese, Spanish", f'3 × {a["voice_chars_per_hour"]:,} chars × {money(p["azure_tts_per_million_chars"])}/M', 3 * voice_h),
-           (f"{gem} voice for Haitian Creole (estimate)", money(a["gemini_voice_per_hour"]), a["gemini_voice_per_hour"])]
-    t1 = sum(x[2] for x in ex1)
-    lt1 = 4 * lt_h
-    lt1c = 5 * lt_h
+    ex1 = [(r["part"], r["formula"], r["per_hour"]) for r in E["example1"]["rows"]]
+    t1, lt1, lt1c = E["example1"]["total"], E["example1"]["live_translate_4"], E["example1"]["live_translate_5"]
     # worked example 2: two rooms, short comments back into English
     cm = a["comment_minutes_per_room_hour"]
-    req_cost_back = news["ht-en"]["low"]["usd_per_request"]
-    ex2 = [("Recognise the comments, language detection on", f'{cm} min × ({money(p["azure_stt_per_hour"])} + {money(p["azure_language_id_per_hour"])})/60', cm * stt_lid / 60),
-           ("Translate the comments into English", f'{cm} min × {a["foundry_comment_requests_per_minute"]:g} requests/min × {money(req_cost_back, 4)}', cm * a["foundry_comment_requests_per_minute"] * req_cost_back),
-           ("English voice for the comments", f'{cm}/60 × {money(voice_h)}', cm / 60 * voice_h),
-           ("omni-stt for Haitian Creole comments, one instance shared by the two rooms", f'({money(omni_h)} × (1 + {a["omni_stt_idle_tail_h"]:g} h idle tail)) ÷ 2', omni_h * (1 + a["omni_stt_idle_tail_h"]) / 2)]
-    t2 = t1 + sum(x[2] for x in ex2)
-    lt2_open = lt1c
-    lt2_ptt = lt1 + cm * p["gemini_lt_per_minute"]
+    ex2 = [(r["part"], r["formula"], r["per_hour"]) for r in E["example2"]["rows"]]
+    t2, lt2_open, lt2_ptt = E["example2"]["total"], E["example2"]["live_translate_open"], E["example2"]["live_translate_ptt"]
 
     def ex_table(rows, total, label):
         body = "".join(f'<tr><th scope="row">{esc(r[0])}</th><td>{esc(r[1])}</td><td class="num">{money(r[2])}</td></tr>' for r in rows)
@@ -2003,21 +2002,7 @@ def build_cost(D):
     price_tbl = _table(["List price", "Value"], [[anon_text(v["what"]), (money(v["value"], 3) if v["value"] < 0.1 else money(v["value"]))]
                                                   for v in PR["prices"].values()], numeric_from=1)
     # routes, one listener language, one hour of continuous speech
-    routes = [
-        (f"{azs} translation → {az} voice", f'{money(p["azure_speech_translation_per_hour"])} + {money(voice_h)}', p["azure_speech_translation_per_hour"] + voice_h,
-         "one target language; Haitian Creole has no voice on this route"),
-        (f"{az} STT → {fdy} → {az} voice, into Spanish", f'{money(p["azure_stt_per_hour"])} + {money(fh["es"])} + {money(voice_h)}', p["azure_stt_per_hour"] + fh["es"] + voice_h,
-         "French and Portuguese within a few cents"),
-        (f"{az} STT → {fdy} → {gem} voice, into Haitian Creole", f'{money(p["azure_stt_per_hour"])} + {money(fh["ht"])} + {money(a["gemini_voice_per_hour"])}',
-         p["azure_stt_per_hour"] + fh["ht"] + a["gemini_voice_per_hour"], "the voice price is an estimate"),
-        (f"omni-stt → {fdy} → {az} voice, Haitian Creole into English, alone on its instance",
-         f'{money(omni_h)} × (1 + {a["omni_stt_idle_tail_h"]:g}) + {money(news["ht-en"]["low"]["usd_per_hour"])} + {money(voice_h)}',
-         omni_h * (1 + a["omni_stt_idle_tail_h"]) + news["ht-en"]["low"]["usd_per_hour"] + voice_h, "one session, including the idle tail"),
-        ("the same, sharing a full instance",
-         f'{money(omni_h)} ÷ {a["omni_stt_streams_300m"]} + {money(news["ht-en"]["low"]["usd_per_hour"])} + {money(voice_h)}',
-         omni_h / a["omni_stt_streams_300m"] + news["ht-en"]["low"]["usd_per_hour"] + voice_h, f'{a["omni_stt_streams_300m"]} streams per instance (about {a["omni_stt_streams_7b"]} with the 7B model)'),
-        (glt, f'{money(p["gemini_lt_per_minute"], 3)} × 60', lt_h, "per target language; speech to speech in one step"),
-    ]
+    routes = [(r["route"], r["formula"], r["per_hour"], r["note"]) for r in E["routes"]]
     route_tbl = ('<div class="table-wrap"><table class="wide"><thead><tr><th scope="col">Route</th><th scope="col">Formula</th><th scope="col" class="num">Per hour</th><th scope="col">Note</th></tr></thead><tbody>'
                  + "".join(f'<tr><th scope="row">{esc(r[0])}</th><td>{esc(r[1])}</td><td class="num">{money(r[2])}</td><td>{esc(r[3])}</td></tr>' for r in routes)
                  + "</tbody></table></div>")
@@ -2041,7 +2026,7 @@ def build_cost(D):
     body = f"""<div class="prose">
 <h1>Cost</h1>
 <p class="lede">What an hour of live translation costs on each route, worked out from list prices. Every figure here is a list-price estimate, with its formula and assumptions shown, not an amount from a bill.</p>
-<p class="caveat">Prices as of {esc(PR["as_of"])}, pay as you go, US regions, before tax and without volume discounts. The {esc(fdy)} rates are as billed for a Data Zone deployment. Vendors change prices; edit {src_link(INPUTS["prices"])} and rebuild to see the effect of a change.</p>
+<p class="caveat">Prices as of {esc(PR["as_of"])}, pay as you go, US regions, before tax and without volume discounts. The {esc(fdy)} rates are as billed for a Data Zone deployment. Vendors change prices; edit {src_link(INPUTS["prices"])} and rebuild to see the effect of a change. The same formulas run from the command line: {src_link(INPUTS["cost_tool"])} prints every route with its formula and assumptions (<code>--json</code> for JSON, <code>--prices</code> for another price file), and this page takes its numbers from it.</p>
 </div>
 <div class="prose"><h2 id="prices">List prices</h2></div>
 {price_tbl}
