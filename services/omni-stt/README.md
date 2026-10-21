@@ -34,6 +34,10 @@ server    {"type":"inputTranscript","text":"...","lang":"ht","confidence":0.93,"
 server    {"type":"flushed"}                       everything before the flush has been sent
 server    {"type":"error","detail":"..."}
 
+          with STT_PARTIALS=1 only (off by default), while a piece is still being spoken:
+server    {"type":"partial","text":"...","lang":"ht","confidence":0.93,"start_ms":1200,"end_ms":2700}
+server    {"type":"stable","text":"...","delta":"...","lang":"ht","confidence":0.93,"start_ms":1200,"end_ms":2700}
+
 GET /health   200 "ok" (the port opens only once the models are loaded and warm)
 GET /mic      a one-file microphone test page: type the languages and the token, press Start, talk
 ```
@@ -84,6 +88,17 @@ GET /mic      a one-file microphone test page: type the languages and the token,
   words, `STT_MAX_REPEATS` = 6 or more times in a row) is cut back to the words
   before the loop plus one copy; one longer than `STT_MAX_CHARS_PER_S` (30) per
   second of audio, plus 10, is dropped. Fired guards are logged with lengths only.
+- Partial text (`STT_PARTIALS=1`; off by default): about every `STT_PARTIAL_MS`
+  (1500) of audio the piece being spoken is decoded again as it stands, and
+  the whole hypothesis goes out as `partial`; the leading words that two
+  passes in a row agree on go out as `stable` (`text`: everything committed so
+  far for the piece; `delta`: the words this message adds). A `stable` is never
+  retracted within a piece, but the final `inputTranscript` replaces every
+  partial of its piece, and is exactly what it would be with partials off.
+  `start_ms` is the piece's (the same as its final's); `end_ms` is how far the
+  pass heard. The pass's `lang` is the language ID's guess on the audio so
+  far, and may differ from the final's. Costs the GPU about 3-4x per piece:
+  [docs/dev/omni-stt-partials.md](../../docs/dev/omni-stt-partials.md).
 
 ### /speak: Haitian Creole voices
 
@@ -234,7 +249,10 @@ and the five `CUT_*` settings and the four `STT_DENOISE*` settings when set
 (unset: the defaults above and below).
 Other settings: `STT_MAX_CONNECTIONS`, `STT_MAX_PENDING`, `STT_DEVICE`, `OMNI_CARD`,
 `STT_MODELS`, `PORT`, `EDITION`, `HT_VOICE`, `STT_VOICES`, `STT_MAX_SPEAKERS`, `STT_SERVE`
-(see the top of `server.py`).
+(see the top of `server.py`); `STT_PARTIALS` (default 0: off) and `STT_PARTIAL_MS`
+(1500), the partial text above, which when on costs the GPU about 3-4x per piece
+(the growing piece is decoded again every interval; `deploy.sh` passes both
+through when set).
 
 ### Noisy input
 

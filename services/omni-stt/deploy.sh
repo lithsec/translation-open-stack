@@ -142,7 +142,8 @@ MAX_UTTERANCE_S="${MAX_UTTERANCE_S:-10.0}"
 MIN_SPEECH_MS="${MIN_SPEECH_MS:-1000}"
 CUT_ENV=""
 for k in CUT_WINDOW_S CUT_DIP_PROB CUT_DIP_MS CUT_ENDPOINT_MS CUT_EARLY_S \
-         STT_DENOISE STT_DENOISE_NR_DB STT_DENOISE_TRACK_S STT_DENOISE_OVERSUB; do
+         STT_DENOISE STT_DENOISE_NR_DB STT_DENOISE_TRACK_S STT_DENOISE_OVERSUB \
+         STT_PARTIALS STT_PARTIAL_MS; do
   [ -n "${!k:-}" ] || continue
   [[ "${!k}" =~ ^[0-9]+(\.[0-9]+)?$ ]] || { echo "refusing: $k must be a number" >&2; exit 3; }
   CUT_ENV="$CUT_ENV,$k=${!k}"
@@ -174,7 +175,7 @@ stage() {
   # neither the eval audio nor .git is uploaded to Cloud Build.
   local dir
   dir="$(mktemp -d)"
-  cp "$HERE/server.py" "$HERE/omni_batch.py" "$HERE/denoise.py" "$HERE/voices.py" "$HERE/ht_numbers.py" "$HERE/mic.html" "$HERE/Dockerfile" "$dir/"
+  cp "$HERE/server.py" "$HERE/omni_batch.py" "$HERE/denoise.py" "$HERE/partials.py" "$HERE/dips.py" "$HERE/voices.py" "$HERE/ht_numbers.py" "$HERE/mic.html" "$HERE/Dockerfile" "$dir/"
   cp "$ROOT/server/audio_in.py" "$ROOT/server/stack_auth.py" "$ROOT/server/licences.py" "$ROOT/constraints.txt" "$dir/"
   mkdir "$dir/engines"
   cp "$ROOT/server/engines/"{__init__,base,common,omnilingual,mms,coqui}.py "$dir/engines/"
