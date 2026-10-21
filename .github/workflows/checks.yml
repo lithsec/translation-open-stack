@@ -49,6 +49,7 @@ jobs:
           python tests/test_editions.py
           python tests/test_audio_in.py
           python tests/test_omni_stt.py
+          python tests/test_eval_tools.py
 
       - name: Language config (both editions)
         run: |

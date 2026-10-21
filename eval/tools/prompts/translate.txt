@@ -1,0 +1,3 @@
+Translate each {LANGUAGE} sentence below into accurate, natural English. Keep names, numbers and meaning exact; translate one-to-one (same ids). Return JSON {"sentences":[{"id":int,"text":"..."}]}.
+
+{SENTENCES}
