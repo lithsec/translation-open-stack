@@ -471,6 +471,71 @@ def test_vad_loads_before_any_loader_thread():
             os.environ["STT_PARALLEL_LOAD"] = old
 
 
+def test_voices_load_only_after_the_recogniser_is_built():
+    """transformers builds a voice under init_empty_weights, which patches
+    torch.nn.Module.register_parameter for every thread: a recogniser built at
+    the same time came up with meta-device weights and the warm-up crashed
+    (2026-10-21). So the voices thread starts only after the recogniser and
+    language ID are built (and, with defer_voices, when main says: after warm-up)."""
+    try:
+        import torch  # noqa: F401  (Models() imports it)
+    except ImportError:
+        print("skip: no torch")
+        return
+    import threading
+    import time
+    saved = {k: getattr(stt, k) for k in ("load_vad", "load_lid", "load_omni")}
+    saved_voices = stt.Models._load_voices
+    done, at_voices = set(), []
+
+    def lid(device):
+        time.sleep(0.05)
+        done.add("lid")
+        return "lid", {"en": 0, "ht": 1}
+
+    def omni(device, card):
+        time.sleep(0.1)             # slower than language ID: the parallel load's last
+        done.add("omni")
+        return "omni"
+
+    def voices(self, names):
+        at_voices.append((set(done), sorted(t.name for t in threading.enumerate() if t.name == "omni-load")))
+        self.voices_ready.set()
+    old = os.environ.get("STT_PARALLEL_LOAD")
+    try:
+        stt.load_vad, stt.load_lid, stt.load_omni = (lambda: "vad"), lid, omni
+        stt.Models._load_voices = voices
+        for parallel in ("1", "0"):
+            os.environ["STT_PARALLEL_LOAD"] = parallel
+            done.clear(); at_voices.clear()
+            m = stt.Models(device="cpu", card="c", serve={"listen", "speak"}, voice_names=[])
+            assert m.voices_ready.wait(5)
+            assert at_voices == [({"lid", "omni"}, [])], at_voices
+            # Deferred (main: Models, warm-up, then start_voices): nothing until asked, once.
+            done.clear(); at_voices.clear()
+            m = stt.Models(device="cpu", card="c", serve={"listen", "speak"}, voice_names=[], defer_voices=True)
+            time.sleep(0.05)
+            assert at_voices == [] and not m.voices_ready.is_set()
+            m.start_voices().join(5)
+            assert at_voices == [({"lid", "omni"}, [])] and m.start_voices() is None
+        # /speak only: no recogniser, the voices load at once (and Models waits for them).
+        at_voices.clear()
+        m = stt.Models(device="cpu", card="c", serve={"speak"}, voice_names=[])
+        assert m.voices_ready.is_set() and len(at_voices) == 1
+        # /listen only: no voices thread at all.
+        at_voices.clear()
+        m = stt.Models(device="cpu", card="c", serve={"listen"}, voice_names=[])
+        assert m.voices_ready.is_set() and m.start_voices() is None and at_voices == []
+    finally:
+        for k, v in saved.items():
+            setattr(stt, k, v)
+        stt.Models._load_voices = saved_voices
+        if old is None:
+            os.environ.pop("STT_PARALLEL_LOAD", None)
+        else:
+            os.environ["STT_PARALLEL_LOAD"] = old
+
+
 def test_backlog_drops_the_oldest_utterance_never_a_flush():
     def u(name):
         return (np.zeros(1600, dtype=np.float32), name, 0)
