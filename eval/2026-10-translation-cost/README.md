@@ -77,4 +77,4 @@ $0.44–0.49 per hour and the same quality (97–100%) at both.
 - One judge model, two rounds; 24 and 33 sentences per direction.
 - The news set's references are model-made (see `../2026-10-continuous-ht`).
 - 392 sentences per hour is an assumption for continuous speech; fewer
-  sentences (more pauses, shorter talks) cost proportionally less.
+  sentences (more pauses, shorter sessions) cost proportionally less.

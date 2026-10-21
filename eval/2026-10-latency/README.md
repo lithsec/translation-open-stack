@@ -175,7 +175,7 @@ and quality. The `metric_notes` field defines each measure.
   reference. The rubric is strict: speech recognition errors such as
   numbers and names count. Read the scores as a ranking within a
   direction, not as absolute quality.
-- Read speech with clean pauses: not preaching, not a room's echo, no
+- Read speech with clean pauses: not continuous speech, not a room's echo, no
   language switching. LT's per-room settings were used: fixed speaker
   language, and auto for the Haitian exception.
 - Open stack not measured, since no pod was running (see Routes).

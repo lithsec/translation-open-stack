@@ -8,7 +8,11 @@
 #   - every file under site/ (sources and the built site/_site/), text content,
 #     binary files' printable strings (metadata included) and file names; and
 #   - every repository file the build reads (python3 site/build.py --list-inputs),
-#     because their text can end up on a page.
+#     because their text can end up on a page; and
+#   - every text file under docs/ and every README.md under eval/, which the
+#     site links to and which are public in the repository. (Binary files under
+#     docs/ are not scanned: they are not published on the site, and short
+#     terms such as _gc turn up by chance in compressed image data.)
 # This script is the only file not scanned: it has to spell the terms out.
 # Nothing is allow-listed.
 set -euo pipefail
@@ -18,12 +22,13 @@ root="$(dirname "$here")"
 self="$here/check_private.sh"
 
 # Private model-card suffixes, private training repo, private organisation and
-# event names, private data descriptions, any Google Cloud Storage bucket
+# event names, private data descriptions, church-context words (preach, sermon,
+# ward, stake, congregation), any Google Cloud Storage bucket
 # (gs://<anything>) or concrete Artifact Registry host (<region>-docker.pkg.dev
 # as a placeholder is fine), Google Cloud project
 # references and 12-digit project numbers, and secret formats (Google API keys,
 # PEM blocks, OpenAI-style sk- keys, Hugging Face tokens).
-pattern='_gc|300M_gc|_joint|lithos-training|intellectual[[:space:]_-]*reserve|general[[:space:]_-]*conference|(^|[^[:alnum:]])conferences?([^[:alnum:]]|$)|church|gospel|held[[:space:]_-]*out|talk[[:space:]_-]*clips?|gs://|[[:alnum:]]-docker\.pkg\.dev|\.pkg\.dev/[[:alnum:]]|projects/[a-z0-9-]{6,}|[a-z][a-z0-9-]{4,28}\.iam\.gserviceaccount\.com|(^|[^[:alnum:].])[0-9]{12}([^[:alnum:].]|$)|AIza[0-9A-Za-z_-]{20,}|-----BEGIN|(^|[^[:alnum:]])sk-[A-Za-z0-9_-]{16,}|(^|[^[:alnum:]])hf_[A-Za-z0-9]{20,}'
+pattern='_gc|300M_gc|_joint|lithos-training|intellectual[[:space:]_-]*reserve|general[[:space:]_-]*conference|(^|[^[:alnum:]])conferences?([^[:alnum:]]|$)|church|gospel|held[[:space:]_-]*out|talk[[:space:]_-]*clips?|preach|sermon|(^|[^[:alnum:]])(wards?|stakes?)([^[:alnum:]]|$)|congregation|gs://|[[:alnum:]]-docker\.pkg\.dev|\.pkg\.dev/[[:alnum:]]|projects/[a-z0-9-]{6,}|[a-z][a-z0-9-]{4,28}\.iam\.gserviceaccount\.com|(^|[^[:alnum:].])[0-9]{12}([^[:alnum:].]|$)|AIza[0-9A-Za-z_-]{20,}|-----BEGIN|(^|[^[:alnum:]])sk-[A-Za-z0-9_-]{16,}|(^|[^[:alnum:]])hf_[A-Za-z0-9]{20,}'
 
 if [ ! -d "$here/_site" ]; then
   echo "check_private: site/_site not found; run python3 site/build.py first" >&2
@@ -43,6 +48,14 @@ while IFS= read -r rel; do
     targets+=("$p")
   fi
 done < <(python3 "$here/build.py" --list-inputs)
+if [ -d "$root/docs" ]; then
+  while IFS= read -r -d '' f; do
+    grep -I -q '' "$f" 2>/dev/null && targets+=("$f")
+  done < <(find "$root/docs" -type f -print0)
+fi
+if [ -d "$root/eval" ]; then
+  while IFS= read -r -d '' f; do targets+=("$f"); done < <(find "$root/eval" -type f -name README.md -print0)
+fi
 
 fail=0
 # Content of text files.

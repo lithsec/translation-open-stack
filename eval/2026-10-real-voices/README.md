@@ -12,8 +12,8 @@ Institute, Carnegie Mellon University, used under its COPYING terms.
 
 Each recording's silence at both ends is trimmed (relative to its own loudness)
 and the sentences joined with 0.8 s pauses, as in the synthetic rounds. Read
-speech, not preaching: real voices and accents, not spontaneous speech or a
-church room's echo.
+speech: real voices and accents, not continuous or spontaneous speech or a
+large room's echo.
 
 Four systems: Azure alone, Azure STT → Gemini, **Gladia STT → Gemini**
 (`gladia_stt.mjs`, Solaria-1 live; it lists Haitian Creole, Khmer and Lao),
