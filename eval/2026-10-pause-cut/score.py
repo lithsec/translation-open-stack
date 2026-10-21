@@ -17,9 +17,17 @@ each stream named by its file (audio/<lang>.wav). Per stream:
                better than either alone ("mache" + "y" for "machey"): a word
                cut in two. Found on a word alignment of the joined text with
                the joined references (rapidfuzz Levenshtein opcodes).
+  damaged      (ht, en) cuts whose neighbourhood is not clean: the last word
+               before or the first after is not the reference word aligned to
+               it, or reference words between them are missing (a word lost
+               at the cut, the usual result of cutting inside one), split_words
+               included
   bnd_cer      character error rate in a 10-character window of the reference
                around each cut (every language), against cer for the clip:
                what a cut costs where it lands
+  long_cuts, long_bnd_cer, long_damaged   the same for the cuts after an
+               utterance of LONG_S (11.4 s) or more: the cap's cuts (forced,
+               or early in its last 3.5 s), not a pause that ended a turn
   cer          judge.cer(joined references, joined transcripts)
 """
 import argparse
@@ -41,6 +49,7 @@ from judge import cer, norm  # noqa: E402
 SPACED = {"ht", "en", "fr", "es"}
 GAP_SLACK_MS = 60
 WINDOW = 5
+LONG_S = 11.4
 
 
 def words(text):
@@ -87,11 +96,15 @@ def score(run, marks, refs, lang):
         bounds.append(len(hc))
     m, err = h2r_map(rc, hc)
     wins = []
+    long_ = [(u["end_ms"] - u["start_ms"]) / 1000 >= LONG_S for u in us[:-1]]
     for b in bounds[:-1]:
         r = m[b] if b < len(hc) else len(rc)
         lo, hi = max(0, r - WINDOW), min(len(rc), r + WINDOW)
         wins.append(sum(err[lo:hi]) / max(1, hi - lo))
     row["bnd_cer"] = round(statistics.mean(wins), 3) if wins else None
+    lw = [w for w, k in zip(wins, long_) if k]
+    row["long_cuts"] = len(lw)
+    row["long_bnd_cer"] = round(statistics.mean(lw), 3) if lw else None
     if lang in SPACED:
         rw = words(" ".join(refs))
         hw, wb = [], []
@@ -99,11 +112,15 @@ def score(run, marks, refs, lang):
             hw += words(u["text"])
             wb.append(len(hw))
         mw, _ = h2r_map(rw, hw)
-        split = 0
-        for j in wb[:-1]:
+        split = damaged = long_damaged = 0
+        for j, k in zip(wb[:-1], long_):
             if j == 0 or j >= len(hw):
                 continue
             a, b = hw[j - 1], hw[j]
+            ra, rb = mw[j - 1], mw[j]
+            if not (rb == ra + 1 and rw[ra] == a and rb < len(rw) and rw[rb] == b):
+                damaged += 1
+                long_damaged += k
             cands = {x for r in (mw[j - 1], mw[j]) for x in (r - 1, r, r + 1) if 0 <= x < len(rw)}
             for x in cands:
                 r = rw[x]
@@ -115,6 +132,8 @@ def score(run, marks, refs, lang):
                     split += 1
                     break
         row["split_words"] = split
+        row["damaged"] = damaged
+        row["long_damaged"] = long_damaged
     return row
 
 
@@ -133,10 +152,11 @@ def main():
             marks = json.load(open(os.path.join(a.audio, f"{lang}.json")))["sentences"]
             refs = json.load(open(os.path.join(a.refs, f"{lang}.json")))
             rows.append({"run": Path(p).stem} | score(run, marks, refs, lang))
-    cols = ["run", "lang", "utts", "len_med", "len_p90", "len_max", "short", "cuts", "in_gap", "split_words", "bnd_cer", "cer"]
-    print(" ".join(f"{c:>11}" for c in cols))
+    cols = ["run", "lang", "utts", "len_med", "len_p90", "len_max", "short", "cuts", "in_gap", "split_words", "damaged",
+            "bnd_cer", "long_cuts", "long_damaged", "long_bnd_cer", "cer"]
+    print(" ".join(f"{c[:12]:>12}" for c in cols))
     for r in rows:
-        print(" ".join(f"{str(r.get(c, '-')):>11}" for c in cols))
+        print(" ".join(f"{str(r.get(c, '-')):>12}" for c in cols))
     if a.json:
         Path(a.json).write_text(json.dumps(rows, ensure_ascii=False, indent=1))
 
