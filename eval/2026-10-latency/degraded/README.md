@@ -21,7 +21,7 @@ copy (`../harness/setup_lt.sh` + `../languages/omni-solo.patch`).
 |---|---|
 | `azure` | Azure alone: Azure Speech translation, then the Azure neural voice |
 | `azure-foundry` | Azure STT, then Foundry `gpt-5.6-sol-us`, then the Azure voice |
-| `omni-foundry` | LT's solo room with the speaker language fixed: omni-stt `/listen` (Omnilingual 300M Haitian card; Khmer on the 7B), then Foundry, then the Azure voice. Azure still runs beside it (see "Duplicates") |
+| `omni-foundry` | LT's solo room with the speaker language fixed: omni-stt `/listen` (Omnilingual 300M, privately fine-tuned for Haitian Creole and not in the repo; Khmer on the public 7B), then Foundry, then the Azure voice. Azure still runs beside it (see "Duplicates") |
 | `ht-exception` | ht→en only, replacing the Azure routes because Azure has no Haitian recogniser: speaker language on auto, omni-stt beside Azure, then Foundry, then the English voice |
 | `gemini-lt` | Gemini Live Translate `gemini-3.5-live-translate-preview`, speech to speech, voice Kore |
 
@@ -283,8 +283,10 @@ Per run (start→first audio p50, stop→last words p90, duplicates (judge), bot
   recognition errors. For gemini-lt, last words is the end of the audio,
   not its onset (see Method).
 - The omni-foundry route runs Azure-served languages through
-  `omni-solo.patch` (not how LT routes them today), on the Haitian-fine-tuned
-  300M card. Khmer uses the 7B, as in LT.
+  `omni-solo.patch` (not how LT routes them today), on Omnilingual 300M
+  privately fine-tuned for Haitian Creole (not in the repo). Khmer uses the
+  public 7B, as in LT. Azure STT ran beside it and delivered 36% of its
+  segments clean, 72% in hall reverb and 92% in room-mic (see Duplicates).
 - Cost is an estimate, not read from billing. About 270 session-minutes in
   total. Azure Speech translation (53 min) ≈ $2.2. Azure STT beside the
   Foundry / Omnilingual routes (125 min) ≈ $2.1. Azure TTS (78k characters)

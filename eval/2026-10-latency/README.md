@@ -53,7 +53,7 @@ the environment.
 | `azure-gemini` | Azure + Gemini, sentence mode: each Azure final to a fresh Gemini Live session that translates and speaks it | `gemini-2.5-flash-native-audio-preview-09-2025` (LT's default voice model) |
 | `azure-gemini-stream` | Azure + Gemini, streaming mode: Azure's stable partial words to one Gemini Live session, 3 words at a time | `gemini-3.8-live` (what LT recommends for this mode) |
 | `gemini-lt` | Gemini Live Translate, speech to speech, target language only, voice Kore | `gemini-3.5-live-translate-preview` |
-| `ht-exception` | Haitian Creole exception, speaker language on auto: omni-stt `/listen` (Omnilingual) hears the room beside Azure, Foundry translates its Haitian sentences, the English Azure voice speaks | omni-stt (Cloud Run), `gpt-5.6-sol-us` |
+| `ht-exception` | Haitian Creole exception, speaker language on auto: omni-stt `/listen` (Omnilingual 300M, privately fine-tuned for Haitian Creole; not in the repo) hears the room beside Azure, Foundry translates its Haitian sentences, the English Azure voice speaks | omni-stt (Cloud Run), `gpt-5.6-sol-us` |
 | `ht-voice-gemini` | English → Haitian Creole on Azure + Foundry, Gemini reading the translation (LT's default Haitian voice) | Gemini 2.5 native audio, read mode |
 | `ht-voice-coqui` | the same with omni-stt `/speak?voice=coqui` (Coqui VITS OpenBible) | omni-stt |
 

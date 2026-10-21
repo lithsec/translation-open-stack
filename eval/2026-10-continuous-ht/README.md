@@ -25,7 +25,8 @@ in the US Northeast on a wired connection; every endpoint in the US.
 ## Route and pacing
 
 - Live Translation's solo room with the speaker language fixed to Haitian
-  Creole: omni-stt (Omnilingual 300M, Haitian fine-tune) on a Cloud Run L4,
+  Creole: omni-stt (Omnilingual 300M, privately fine-tuned for Haitian Creole; not in
+  the repo) on a Cloud Run L4,
   then GPT-5.6-sol on Azure AI Foundry (reasoning low, one piece per
   request), then the Azure neural English voice. Azure Speech also runs
   beside it, as in the app; its output was not used here.

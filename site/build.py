@@ -83,6 +83,10 @@ SYSTEMS = {
     "azure-speech": ("Azure Speech, real time", "microsoft", "live recogniser"),
     "gemini-3.5-transcribe-live": ("Google gemini-3.5-transcribe-live", "google", "live recogniser"),
     "omni": ("Omnilingual ASR 300M (open stack, live)", None, ""),
+    # The 17 October Haitian Creole run: which checkpoint omni-stt served (the
+    # public card or the private Haitian fine-tune) was not recorded.
+    "omni-ht": ("Omnilingual ASR 300M, live, 17 October (checkpoint not recorded: public card or a private Haitian Creole fine-tune)", None, ""),
+    "omni-ht-public": ("Omnilingual ASR 300M, public card, one sentence at a time", None, ""),
     "aai-batch": ("AssemblyAI batch (Universal-3.5 Pro / Universal-2), whole clip", "assemblyai", "batch recogniser"),
     "aai-stream": ("AssemblyAI Universal-3.6 Pro Streaming", "assemblyai", "live recogniser"),
     "el-realtime": ("ElevenLabs Scribe v2 Realtime, VAD 1.5 s (default)", "elevenlabs", "live recogniser, default"),
@@ -153,6 +157,12 @@ def vendor(v):
     if not ANON:
         return VENDOR_NAME[v]
     return "Vendor " + "ABCDEFGH"[VENDOR_ORDER.index(v)]
+
+
+# omni-stt served Omnilingual 300M privately fine-tuned for Haitian Creole in the
+# 20-21 October tests (latency, degraded audio, continuous speech). The card's
+# name and its training data are not public.
+OMNI_FT = "Omnilingual 300M, privately fine-tuned for Haitian Creole (not in the repo)"
 
 
 def L(key):
@@ -515,6 +525,7 @@ def build_home(D, S1):
                  note="Open stack route = Hy-MT2 where it has the language, MADLAD for Lao and Haitian Creole.")
     live = {(r["system"], r["lang"], r["mode"]): r for r in D["live"]["runs"]}
     hcer = D["live"]["haitian_reference_cer"]["Meta Omnilingual ASR (open stack, live)"]
+    ht_pub = next(r for r in D["sizes"]["runs"] if r["card"] == "omniASR_LLM_300M")["cer"]["ht"]
     sol = S1["foundry-gpt-5.6-sol@low"][all25]["score"]
     route = S1["stack-route"][all25]["score"]
     dg = degrade_means(D)[0]
@@ -527,7 +538,7 @@ def build_home(D, S1):
 <p class="lede">Translation Open Stack is an open-source server: a client streams microphone audio in and gets back captions and spoken translation for every language its listeners need, in 25 languages, from open-weight models on one GPU. This site publishes what we measured in September and October 2026 while choosing how to hear, translate and voice live speech — including where the open models fall short.</p>
 </div>
 <section class="stats" aria-label="Headline numbers">
-<div class="stat"><div class="n">{pct(hcer)}</div><div class="t">characters wrong: Omnilingual ASR hearing real Haitian Creole speakers, live</div></div>
+<div class="stat"><div class="n">{pct(hcer)}</div><div class="t">characters wrong: Omnilingual ASR 300M hearing real Haitian Creole speakers, live (17 October; whether the public card or a private Haitian Creole fine-tune served it was not recorded — the public card scores {pct(ht_pub)} one sentence at a time)</div></div>
 <div class="stat"><div class="n">{pct(route, 0)}</div><div class="t">translation score for the open stack's own translators over 25 directions ({pct(sol, 0)} for the best cloud LLM)</div></div>
 <div class="stat"><div class="n">+{dg['revnoise10'][0]:.0f} to +{dg['revnoise10'][1]:.0f}</div><div class="t">points of character error added by a room microphone — the biggest single factor</div></div>
 <div class="stat"><div class="n">{pct(lo_old, 0)} → {pct(lo_new, 0)}</div><div class="t">Lao character error when live sentence cutting waits 0.7 s instead of 0.3 s</div></div>
@@ -555,7 +566,7 @@ cp .env.example .env            # set STACK_TOKEN (openssl rand -hex 32)
 docker compose up -d --build    # first start downloads and builds the models
 curl http://localhost:8790/health</code></pre>
 <p>Then point a client at <code>ws://&lt;host&gt;:8790</code> with the token as its key. Full steps: the <a href="{BLOB}docs/user-guide.md">user guide</a>; the wire format: <a href="{BLOB}docs/dev/protocol.md">protocol</a>. The code is Apache 2.0; the models keep their own licences, and some are non-commercial — see <a href="models.html">Models &amp; licences</a>.</p>
-<p class="caveat">Cloud models change often. The October results were measured on 18–19 October 2026 (the September ones on 26–29 September) with the versions named on the <a href="methodology.html">methodology</a> page; treat vendor numbers as a snapshot, not a ranking that will hold.</p>
+<p class="caveat">Cloud models change often. The October results were measured on 17–21 October 2026 (the September ones on 26–29 September) with the versions named on the <a href="methodology.html">methodology</a> page; treat vendor numbers as a snapshot, not a ranking that will hold.</p>
 </div>
 """
     page("index.html", "Translation Open Stack Research",
@@ -628,7 +639,9 @@ def build_findings(D, S1):
                        maxv=0.1, legend=[("Live (streaming)", "c1")], vendor_named=True)
     href = D["live"]["haitian_reference_cer"]
     ht_rows = [
-        {"label": SYSTEMS["omni"][0], "value": href["Meta Omnilingual ASR (open stack, live)"], "cls": "c3", "hl": True},
+        {"label": L("omni-ht"), "value": href["Meta Omnilingual ASR (open stack, live)"], "cls": "c3", "hl": True},
+        {"label": L("omni-ht-public"), "value": next(r for r in D["sizes"]["runs"] if r["card"] == "omniASR_LLM_300M")["cer"]["ht"], "cls": "c3",
+         "extra": "clips cut per sentence (model sizes test)"},
         {"label": L("ht:gemini-2.5-pro"), "value": href["gemini-2.5-pro (batch, per sentence)"], "cls": "c2"},
         {"label": L("gemini-3.5-transcribe-live"), "value": live[("gemini-3.5-transcribe-live", "ht", "ht-HT")]["cer"], "cls": "c1", "extra": "told ht-HT"},
         {"label": L("gemini-3.5-transcribe-live"), "value": live[("gemini-3.5-transcribe-live", "ht", "auto")]["cer"], "cls": "c1", "extra": "auto language: writes French"},
@@ -649,7 +662,7 @@ def build_findings(D, S1):
 <ul>
 <li><strong>Nothing streams Lao well.</strong> The best Lao score is a slow per-sentence LLM ({L('gem__gemini-3.1-pro-preview')}, {pct(runs[('gem__gemini-3.1-pro-preview','lo')]['cer'])} at a median {runs[('gem__gemini-3.1-pro-preview','lo')]['request_ms_median']/1000:.0f} s a sentence). Several recognisers write Lao in Thai script.</li>
 <li><strong>Khmer:</strong> the best is batch ({L('el-scribe-v2')}, {pct(runs[('el-scribe-v2','km')]['cer'])}); live, {L('gemini-3.5-transcribe-live')} told <code>km-KH</code> scores {pct(live[('gemini-3.5-transcribe-live','km','km-KH')]['cer'])} against {pct(base['Azure Speech (live)']['km'])}.</li>
-<li><strong>Haitian Creole:</strong> the open Omnilingual model is the best live recogniser ({pct(href['Meta Omnilingual ASR (open stack, live)'])}). A cloud recogniser left on automatic language detection writes the speakers down as French ({pct(live[('gemini-3.5-transcribe-live','ht','auto')]['cer'])}); given the code it scores {pct(live[('gemini-3.5-transcribe-live','ht','ht-HT')]['cer'])}.</li>
+<li><strong>Haitian Creole:</strong> Omnilingual 300M was the best live recogniser ({pct(href['Meta Omnilingual ASR (open stack, live)'])}), though the run did not record whether omni-stt served the public card or a private Haitian Creole fine-tune; the public card scores {pct(next(r for r in D['sizes']['runs'] if r['card'] == 'omniASR_LLM_300M')['cer']['ht'])} one sentence at a time (<a href="#sizes">model sizes</a>). A cloud recogniser left on automatic language detection writes the speakers down as French ({pct(live[('gemini-3.5-transcribe-live','ht','auto')]['cer'])}); given the code it scores {pct(live[('gemini-3.5-transcribe-live','ht','ht-HT')]['cer'])}.</li>
 <li>The Omnilingual numbers for English, Japanese, Khmer and Lao below come from the service's earlier sentence cutting; <a href="#endpointing">section 5</a> shows how much the newer cutting recovers.</li>
 </ul>
 </div>
@@ -839,7 +852,7 @@ def build_findings(D, S1):
     toc = """<ul class="toc"><li><a href="#hearing">Speech recognition</a></li><li><a href="#translation">Translation</a></li><li><a href="#sizes">Model sizes</a></li><li><a href="#endpointing">Endpointing</a></li><li><a href="#audio">Audio quality</a></li><li><a href="#selected">Selected setup</a></li></ul>"""
     body = f"""<div class="prose"><h1>Findings, October 2026</h1>
 <p class="lede">Speech recognition by language and provider, translation quality, model size, sentence cutting and audio quality. Every chart has its data table; numbers come from the result files in <a href="{TREE}eval">eval/</a>.</p>
-<p class="caveat">Grades come from one blind LLM grader per round and move 5–10 points between rounds: compare numbers inside one chart only. Cloud models change; these are 18–19 October 2026 results.</p>
+<p class="caveat">Grades come from one blind LLM grader per round and move 5–10 points between rounds: compare numbers inside one chart only. Cloud models change; these are 17–21 October 2026 results.</p>
 {toc}</div>""" + "".join(sections)
     page("findings.html", "Findings", body, "Speech recognition, translation, model size, endpointing and audio-quality results, October 2026.")
 
@@ -1409,12 +1422,12 @@ def lat_route(route):
     gem = VN("google", "Gemini Live", "voice model")
     return {
         "azure": f"{VN('microsoft', 'Azure speech translation', 'speech translation')} → {az_v}",
-        "omni-foundry": f"Omnilingual (omni-stt) → {llm} → {az_v}, speaker language fixed",
+        "omni-foundry": f"Omnilingual (omni-stt), {az_r} beside it → {llm} → {az_v}, speaker language fixed",
         "azure-foundry": f"{az_r} → {llm} → {az_v}",
         "azure-gemini": f"{az_r} → {gem}, a sentence at a time",
         "azure-gemini-stream": f"{az_r} → {gem}, streaming words",
         "gemini-lt": VN("google", "Gemini Live Translate", "speech-to-speech translator"),
-        "ht-exception": f"Omnilingual (omni-stt) → {llm} → {az_v}",
+        "ht-exception": f"{OMNI_FT}, {az_r} beside it → {llm} → {az_v}",
         "ht-voice-gemini": f"{az_r} → {llm} → {VN('google', 'Gemini voice', 'voice')}",
         "ht-voice-coqui": f"{az_r} → {llm} → Coqui VITS on omni-stt",
     }.get(route, anon_text(route))
@@ -1482,7 +1495,8 @@ def home_new(D):
     R = {r["run"]: r for r in D["cont"]["runs"]}
     b, br = R["ht-solo-15"], R["ht-breath"]
     return (f'<li><strong>Degraded audio:</strong> in a reverberant hall, the streaming speech-to-speech route held up best from English; '
-            f'from Khmer and Haitian Creole the open recogniser\'s routes led in every condition. <a href="latency.html#degraded">Latency</a></li>\n'
+            f'from Haitian Creole, the route that hears with {esc(OMNI_FT)} led clearly on a Bluetooth headset and in hall reverb, where Omnilingual did nearly all the hearing; '
+            f'with a room mic, the cloud recogniser running beside it delivered half the sentences. <a href="latency.html#degraded">Latency</a></li>\n'
             f'<li><strong>Continuous speech:</strong> on five minutes of unbroken Haitian Creole news, cutting at breaths instead of 0.7 s pauses brought the first translated audio from '
             f'{b["start_to_first_audio_s"]:g} s to {br["start_to_first_audio_s"]:g} s; giving the translator context recovered the quality that shorter pieces lost. <a href="latency.html#continuous">Latency</a></li>\n'
             f'<li><strong>Cost:</strong> per-hour list-price estimates for every route, with the formulas. <a href="cost.html">Cost</a></li>\n')
@@ -1605,7 +1619,7 @@ def latency_results_section(D):
 <ul>
 <li><strong>Pipelines:</strong> {esc(lat_route("azure-foundry"))} was the quickest pipeline after the speaker stopped: the last words started {af_tail} s after the stop into Spanish, English and Japanese (median). Sending each sentence to {esc(VN("google", "Gemini Live", "voice model"))} took {ag_tail} s. It also graded best of the pipelines.</li>
 <li><strong>Streaming:</strong> {esc(B)} started {lt_start} s after the speaker started and finished each sentence {lt_end} s after the speaker did, against {af_end} s for the quickest pipeline; it was the fastest route in every direction. It graded below that pipeline into Japanese, from Khmer and from Haitian Creole.</li>
-<li><strong>Haitian Creole:</strong> from Haitian, Omnilingual on omni-stt feeding the pipeline started the translation {_s(_p(hx, "stop_to_tail_audio_ms")) if hx else "–"} s after the stop and was the best graded route ({hx["quality"]["pct_of_max"] if hx else "–"}%). Into Haitian, the open Coqui voice started sooner than the cloud voice at about the same grade.</li>
+<li><strong>Haitian Creole:</strong> from Haitian, {esc(OMNI_FT)} on omni-stt, feeding the pipeline, started the translation {_s(_p(hx, "stop_to_tail_audio_ms")) if hx else "–"} s after the stop and was the best graded route ({hx["quality"]["pct_of_max"] if hx else "–"}%). Into Haitian, the open Coqui voice started sooner than the cloud voice at about the same grade.</li>
 </ul>
 </div>"""
     sept = f"""<p class="caveat">Caveats. One location and one afternoon (about 14:00–17:00 US Eastern, {esc(data.get("date", ""))}); every endpoint was in the US. Read speech with clean pauses: not continuous speech, not a room's echo, no language switching. The judge is {esc(gem_judge)} and may favour {"that vendor's own routes" if ANON else "the Gemini routes"}; the Haitian Creole → English references were written by a model, and English → Haitian Creole has no reference, so read the scores as a ranking within a direction, not as absolute quality. Streaming sentences were matched to their source by a model label, accurate to about 1 s. The open stack was not run this round (no stack server was running); September's “about 0.8 s after the speaker stops” comes from a different setup (synthetic audio, its own server) and is not comparable with these numbers.</p>"""
@@ -1676,6 +1690,30 @@ def degraded_section(D):
            + f"</tr></thead><tbody>{body}</tbody></table></div>")
     a = lambda rt, c: avg[(rt, c)]  # noqa: E731
     q = lambda rt, c: round(a(rt, c)["q"] * 100)  # noqa: E731
+    dq = lambda rt, c: round((a(rt, c)["q"] - a(rt, "clean")["q"]) * 100)  # noqa: E731  (unrounded means, rounded once)
+
+    def az_share(rt, c, pairs):
+        """(segments the Azure recogniser delivered, all delivered segments) for an Omnilingual route."""
+        az = sum(cell[(rt, c, p)]["sources"]["segments_by_source"].get("azure-final", 0) for p in pairs)
+        om = sum(cell[(rt, c, p)]["sources"]["segments_by_source"].get("omni-final", 0) for p in pairs)
+        return az, az + om
+
+    def share_txt(rt, pairs):
+        out = []
+        for c, lab in DEG_CONDS:
+            az, n = az_share(rt, c, pairs)
+            out.append(f"{round(100 * az / n)}% " + {"clean": "on clean audio", "room-mic": "with a room mic", "noise-10dB": "in noise",
+                                                     "bt-narrowband": "on Bluetooth", "hall-reverb": "in hall reverb"}[c])
+        return ", ".join(out)
+
+    of_first = sum(1 for (rt, _, _), r in cell.items() if rt == "omni-foundry" and r["sources"]["first_sentence_both"])
+    of_runs = sum(1 for (rt, _, _) in cell if rt == "omni-foundry")
+    AZR = VN("microsoft", "Azure STT", "recogniser")
+
+    def own(rt, c, pairs):
+        az, n = az_share(rt, c, pairs)
+        return f"{n - az} of {n}"
+    others = lambda c, p: max(g(rt, c, p) for rt in DEG_ROUTES if rt != "omni-foundry")  # noqa: E731
     g = lambda rt, c, p: cell[(rt, c, p)]["quality"]["pct_of_max"]  # noqa: E731
     gem_judge = f"a {vendor('google')} model" if ANON else "a Gemini model (gemini-3.5-flash)"
     AZ, LT, OF = lat_route("azure"), lat_route("gemini-lt"), lat_route("omni-foundry")
@@ -1688,7 +1726,8 @@ def degraded_section(D):
 <li><strong>Audio:</strong> the first 15 sentences of the latency clips — the same news sentences read in English, Spanish and Khmer (FLEURS, real speakers) and Haitian Creole (CMU Haitian Creole speech), with 1–2 s pauses. Every condition uses the same 15 sentences.</li>
 <li><strong>Conditions</strong> (simulated, as in the October recognition test): <em>hall reverb</em> (reverberation time 1.5 s, as much reflected as direct sound); <em>noise</em> (air-conditioning hum plus a crowd of other voices, 10 dB below the speech); <em>room mic</em> (both together); <em>Bluetooth headset</em> (the narrowband 8 kHz hands-free codec).</li>
 <li><strong>Routes:</strong> {esc(AZ)}; {esc(AF)}; {esc(OF)}; {esc(LT)}; and, for Haitian Creole → English only, {esc(HX)}.</li>
-<li><strong>Pacing:</strong> real time, in 100 ms chunks, through the app's own provider code. One run per condition, route and direction: 15 sentences per cell, 91 sessions in all.</li>
+<li><strong>The Omnilingual routes are not Omnilingual alone.</strong> The Omnilingual route ({esc(OF)}) is the app's solo room with the speaker language fixed: {esc(OMNI_FT)} heard English and Spanish, and Omnilingual 7B (the public card) heard Khmer. The app's {esc(AZR)} kept running beside it, and its sentences were translated and voiced too (an app bug, not fixed for this test). Of the segments the route delivered, {esc(AZR)} supplied {share_txt("omni-foundry", DEG_PAIRS)}. The first sentence was voiced twice in {of_first} of {of_runs} runs. The Haitian Creole exception route (speaker language on automatic) also runs {esc(AZR)} beside {esc(OMNI_FT)}; there {esc(AZR)} supplied {share_txt("ht-exception", ["ht-en"])}.</li>
+<li><strong>Pacing:</strong> real time, in 100 ms chunks, through the app's own provider code. One run per condition, route and direction: 15 sentences per cell: 90 sessions, plus one rerun of a stalled session.</li>
 <li><strong>Quality:</strong> {esc(gem_judge)} grades each sentence 0–3 against the source and a reference translation; shown as % of the maximum. <strong>Missing</strong> = a sentence with no translation at all (scores 0).</li>
 <li><strong>Last words:</strong> pipelines, from the speaker stopping to the first audio of the piece holding the sentence's last words; {esc(LT)}, which streams, to the end of that sentence's audio. The two are not directly comparable.</li>
 </ul>
@@ -1697,9 +1736,9 @@ def degraded_section(D):
 <h3>What it shows</h3>
 <ul>
 <li><strong>No route is best everywhere; it depends on the speaker's language.</strong> From English, {esc(LT)} held up far better under hall reverb ({g("gemini-lt", "hall-reverb", "en-es")}% / {g("gemini-lt", "hall-reverb", "en-ja")}% into Spanish / Japanese, against {g("azure-foundry", "hall-reverb", "en-es")}% / {g("azure-foundry", "hall-reverb", "en-ja")}% for {esc(AF)}) and on a Bluetooth headset ({g("gemini-lt", "bt-narrowband", "en-es")}% / {g("gemini-lt", "bt-narrowband", "en-ja")}% against {g("azure-foundry", "bt-narrowband", "en-es")}% / {g("azure-foundry", "bt-narrowband", "en-ja")}%).</li>
-<li><strong>From Khmer and Haitian Creole the open recogniser leads.</strong> {esc(OF)} was the best Khmer → English route in every condition ({min(g("omni-foundry", c, "km-en") for c, _ in DEG_CONDS)}–{max(g("omni-foundry", c, "km-en") for c, _ in DEG_CONDS)}%); from Haitian Creole the exception route scored {min(g("ht-exception", c, "ht-en") for c, _ in DEG_CONDS)}–{max(g("ht-exception", c, "ht-en") for c, _ in DEG_CONDS)}% against {min(g("gemini-lt", c, "ht-en") for c, _ in DEG_CONDS)}–{max(g("gemini-lt", c, "ht-en") for c, _ in DEG_CONDS)}% for {esc(LT)}.</li>
-<li><strong>Averaged over four directions,</strong> {esc(LT)} lost the least to Bluetooth ({q("gemini-lt", "bt-narrowband") - q("gemini-lt", "clean")} points) and reverb ({q("gemini-lt", "hall-reverb") - q("gemini-lt", "clean")}), against {q("azure", "bt-narrowband") - q("azure", "clean")} and {q("azure", "hall-reverb") - q("azure", "clean")} for {esc(AZ)}. {esc(OF)} kept the highest absolute score on Bluetooth ({q("omni-foundry", "bt-narrowband")}%) but was the slowest (last words {_s(a("omni-foundry", "bt-narrowband")["last"])} s on average).</li>
-<li><strong>Noise and a room mic hurt every route</strong> (−{min(q(rt, "clean") - q(rt, "noise-10dB") for rt in DEG_ROUTES)} to −{max(q(rt, "clean") - q(rt, "room-mic") for rt in DEG_ROUTES)} points). English in noise was the worst case: the {esc(VN("microsoft", "Azure", "recogniser"))} routes returned nothing for 14 of 15 sentences, and {esc(LT)} dropped 9 of 15. Rerunning English noise 7 dB louder gave the same collapse, so it is not a level artefact.</li>
+<li><strong>From Haitian Creole and Khmer, the Omnilingual routes led where Omnilingual did the hearing.</strong> From Haitian Creole, the exception route scored {g("ht-exception", "bt-narrowband", "ht-en")}% on Bluetooth and {g("ht-exception", "hall-reverb", "ht-en")}% in hall reverb, against {g("gemini-lt", "bt-narrowband", "ht-en")}% and {g("gemini-lt", "hall-reverb", "ht-en")}% for {esc(LT)}; Omnilingual itself delivered {own("ht-exception", "bt-narrowband", ["ht-en"])} and {own("ht-exception", "hall-reverb", ["ht-en"])} of the segments. From Khmer, the Omnilingual route (Omnilingual 7B) scored {g("omni-foundry", "bt-narrowband", "km-en")}% on Bluetooth against {others("bt-narrowband", "km-en")}% for the next route, but {esc(AZR)} supplied {az_share("omni-foundry", "bt-narrowband", ["km-en"])[0]} of its {az_share("omni-foundry", "bt-narrowband", ["km-en"])[1]} segments there; in hall reverb its lead ({g("omni-foundry", "hall-reverb", "km-en")}% against {others("hall-reverb", "km-en")}%) is within noise. With a room mic every Khmer score was within noise ({min(g(rt, "room-mic", "km-en") for rt in DEG_ROUTES)}–{max(g(rt, "room-mic", "km-en") for rt in DEG_ROUTES)}%), and from Haitian Creole {esc(AZR)} delivered {az_share("ht-exception", "room-mic", ["ht-en"])[0]} of the exception route’s {az_share("ht-exception", "room-mic", ["ht-en"])[1]} segments.</li>
+<li><strong>Averaged over four directions,</strong> {esc(LT)} lost the least to Bluetooth ({dq("gemini-lt", "bt-narrowband")} points) and reverb ({dq("gemini-lt", "hall-reverb")}), against {dq("azure", "bt-narrowband")} and {dq("azure", "hall-reverb")} for {esc(AZ)}. The Omnilingual route kept the highest absolute score on Bluetooth ({q("omni-foundry", "bt-narrowband")}%, {az_share("omni-foundry", "bt-narrowband", DEG_PAIRS)[0]} of its {az_share("omni-foundry", "bt-narrowband", DEG_PAIRS)[1]} segments from {esc(AZR)}) but was the slowest (last words {_s(a("omni-foundry", "bt-narrowband")["last"])} s on average).</li>
+<li><strong>Noise and a room mic hurt every route</strong> (−{min(-dq(rt, "noise-10dB") for rt in DEG_ROUTES)} to −{max(-dq(rt, "room-mic") for rt in DEG_ROUTES)} points). English in noise was the worst case: the {esc(VN("microsoft", "Azure", "recogniser"))} routes returned nothing for 14 of 15 sentences, and {esc(LT)} dropped 9 of 15. Rerunning English noise 7 dB louder gave the same collapse, so it is not a level artefact.</li>
 <li><strong>Practical advice:</strong> feed the system from a sound board or a close microphone. Distance and noise cost far more than any choice of route.</li>
 </ul>
 </div>
@@ -1790,7 +1829,7 @@ def continuous_section(D):
 <h3>How it was run</h3>
 <ul>
 <li><strong>Audio:</strong> one clip, five minutes of a VOA Kreyòl news programme (a US-government work, in the public domain): one male presenter in a studio, continuous speech, no music. Only metrics are published; no transcript or translation text.</li>
-<li><strong>Route:</strong> the app's solo room with the speaker language fixed to Haitian Creole: Omnilingual 300M (the Haitian fine-tune) on omni-stt, then {esc(llm)} (reasoning low, one piece per request), then the {esc(az_v)}.</li>
+<li><strong>Route:</strong> the app's solo room with the speaker language fixed to Haitian Creole: {esc(OMNI_FT)} on omni-stt, then {esc(llm)} (reasoning low, one piece per request), then the {esc(az_v)}.</li>
 <li><strong>Pacing:</strong> real time, 100 ms chunks, as a microphone delivers them; the same harness as the latency test.</li>
 <li><strong>Pieces:</strong> omni-stt cuts speech into pieces at pauses. Three settings decide where: the pause that ends a piece, the longest a piece may run before it is cut anyway (the cap), and the least speech a piece must hold. Each run set them on the service.</li>
 <li><strong>Reference:</strong> a Haitian transcript and English translation of the clip made by a model from the audio, in 33 sentences with approximate times; not checked by a person.</li>
