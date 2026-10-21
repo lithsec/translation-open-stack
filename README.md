@@ -63,6 +63,7 @@ step in between: the [user guide](docs/user-guide.md).
 | Understand the server, or add a recogniser, translator or voice | [docs/dev/architecture.md](docs/dev/architecture.md), [docs/dev/adding-an-engine.md](docs/dev/adding-an-engine.md) |
 | See what was tested, what won, and why | [docs/dev/model-evaluation.md](docs/dev/model-evaluation.md) (raw data in [eval/](eval/README.md)) |
 | Learn from what broke | [docs/dev/lessons-learned.md](docs/dev/lessons-learned.md) |
+| See the plan for the next translation test (Haitian Creole, Lao, Khmer with an open LLM and context) | [docs/dev/low-resource-translation-plan.md](docs/dev/low-resource-translation-plan.md) |
 
 ## Licence
 
