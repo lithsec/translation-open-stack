@@ -69,9 +69,11 @@ in the US Northeast on a wired connection; every endpoint in the US.
   window (omni-stt's VAD, streamed the same way), a gap being the windows
   under the threshold.
 - **Simulated settings** (`sim.py`): omni-stt's own `Segmenter` class
-  (`services/omni-stt/server.py`, main `9351de9`), fed the clip's audio and
-  VAD probabilities, for several settings. No recognition, network or GPU:
-  it shows only where the pieces would be cut.
+  (`services/omni-stt/server.py`, main `9351de9`; the rows marked
+  "progressive" need the progressive pause cut added after it, which leaves
+  the other rows unchanged), fed the clip's audio and VAD probabilities, for
+  several settings. No recognition, network or GPU: it shows only where the
+  pieces would be cut.
 
 All numbers are in `results.json`.
 
@@ -120,6 +122,24 @@ more (21 a minute) but only 29 of 500 ms or more (6 a minute). Speech between
 gaps of at least 200 ms runs 2.2 s (median), 4.5 s (p90), 9.5 s at most;
 between gaps of at least 500 ms it already runs 6.6 s, 16.3 s and 31.3 s, so
 a 700 ms pause rule leaves the 15 s cap to do most of the cutting.
+
+## The progressive pause cut
+
+After these runs, 200 ms / 10 s / 1 s became omni-stt's defaults, and the
+segmenter gained a progressive pause cut (`CUT_EARLY_S`, default 4 s): once a
+piece has run 4 s, the quiet that ends it falls in a straight line from the
+pause setting to 200 ms (`CUT_ENDPOINT_MS`) at the cap, so a long piece ends
+at a breath of its own before the cap. Simulated on the same clip (the
+"progressive" rows in `results.json`): with the 700 ms pause and 15 s cap it
+gives 32 pieces instead of 27, a median of 8.9 s instead of 12.7 s, the first
+piece out at 5.8 s instead of 13.0 s, no cut at the cap (2 before), every cut
+still in a gap of the VAD's, and 11 of the cuts within a second of a
+reference sentence end (10 before). With a 300 ms pause and the 10 s cap: 58
+pieces instead of 54, 5.1 s instead of 5.4 s, 15 of them ended by the shorter
+pause, cuts at the cap 2 to 1. With the 200 ms default pause it changes
+nothing, since the pause is already at the floor; lowering the floor to
+100 ms would give 74 pieces of 3.4 s with 24 ended early, which was not
+tested live.
 
 ## Caveats
 

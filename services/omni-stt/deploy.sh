@@ -25,10 +25,11 @@
 # GPU quota we found; us-central1 had none, 2026-10-17), REPO (Artifact Registry
 # repository, omni-stt), SERVICE (omni-stt), TAG (default: the git commit),
 # SECRET (omni-stt-token), MAX_STREAMS (4: connections one instance takes),
-# ENDPOINT_MS (300), MAX_UTTERANCE_S (6.0), MIN_SPEECH_MS (400): endpointing,
+# ENDPOINT_MS (200), MAX_UTTERANCE_S (10.0), MIN_SPEECH_MS (1000): endpointing,
 # passed to the service by "deploy" (README, Endpointing); CUT_WINDOW_S,
-# CUT_DIP_PROB, CUT_DIP_MS, CUT_ENDPOINT_MS (where a forced cut lands; unset:
-# the server's defaults) are passed by "deploy" and "7b-deploy" when set. OMNI_CARD (default
+# CUT_DIP_PROB, CUT_DIP_MS, CUT_ENDPOINT_MS (where a forced cut lands) and
+# CUT_EARLY_S (the progressive pause cut; unset: the server's defaults) are
+# passed by "deploy" and "7b-deploy" when set. OMNI_CARD (default
 # omniASR_LLM_300M): the Omnilingual card the service loads. HT_VOICE (coqui):
 # /speak's voice when a request names none (mms|coqui). EDITION (commercial):
 # which voices /speak may use (server.py; commercial never loads MMS, which is
@@ -134,11 +135,11 @@ for pair in "STT_SIGNING_KEY=$SIGNING_SECRET" "STT_TOKEN_NONPROFIT=$NONPROFIT_SE
   SECRETS="$SECRETS,${pair%%=*}=$name:latest"
 done
 MAX_STREAMS="${MAX_STREAMS:-4}"
-ENDPOINT_MS="${ENDPOINT_MS:-300}"
-MAX_UTTERANCE_S="${MAX_UTTERANCE_S:-6.0}"
-MIN_SPEECH_MS="${MIN_SPEECH_MS:-400}"
+ENDPOINT_MS="${ENDPOINT_MS:-200}"
+MAX_UTTERANCE_S="${MAX_UTTERANCE_S:-10.0}"
+MIN_SPEECH_MS="${MIN_SPEECH_MS:-1000}"
 CUT_ENV=""
-for k in CUT_WINDOW_S CUT_DIP_PROB CUT_DIP_MS CUT_ENDPOINT_MS; do
+for k in CUT_WINDOW_S CUT_DIP_PROB CUT_DIP_MS CUT_ENDPOINT_MS CUT_EARLY_S; do
   [ -n "${!k:-}" ] || continue
   [[ "${!k}" =~ ^[0-9]+(\.[0-9]+)?$ ]] || { echo "refusing: $k must be a number" >&2; exit 3; }
   CUT_ENV="$CUT_ENV,$k=${!k}"

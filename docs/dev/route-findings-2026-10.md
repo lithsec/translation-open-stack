@@ -336,6 +336,14 @@ of Haitian Creole the service now returns 15 segments instead of 24, following
 sentence boundaries. Cost: ~0.4 s more wait per turn, and up to 15 s before
 text if the speaker never pauses.
 
+Revised 2026-10-21: on five minutes of continuous news speech those settings
+left the 15 s cap doing most of the cutting (12.7 s pieces, first translated
+audio at 19.5 s). The defaults are now `ENDPOINT_MS=200`, `MAX_UTTERANCE_S=10`,
+`MIN_SPEECH_MS=1000`, with the translator given the previous pieces as context
+to make up for the shorter pieces, and a progressive pause cut (`CUT_EARLY_S`)
+for anyone who keeps a longer pause: `eval/2026-10-continuous-ht/README.md`
+and the omni-stt README's Endpointing section.
+
 Separately, very quiet input (peaks below −30 to −40 dBFS) is never heard by
 the speech detector and dropped whole; gain normalisation before it would fix
 that.
