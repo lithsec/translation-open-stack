@@ -45,7 +45,8 @@ Protocol:
 Per utterance, the stack's own pipeline minus the translation (server/server.py):
 Silero VAD ends a turn after ENDPOINT_MS of quiet (300 ms; a turn with less
 than MIN_SPEECH_MS of speech waits longer), with a forced cut by MAX_UTTERANCE_S
-(6 s) at the quietest recent instant; VoxLingua107 picks the
+(6 s) at the best pause of the last CUT_WINDOW_S (3.5 s; see pause_cut), the
+rest kept for the next utterance; VoxLingua107 picks the
 language, but only among ?langs (one language: no guess at all); Omnilingual
 transcribes with that language's code. The recogniser is the stack's engine
 (server/engines/omnilingual.py), the audio input its AudioIn (server/audio_in.py),
@@ -84,7 +85,9 @@ recogniser's models, for a laptop test of the voices), STT_TOKEN, STT_TOKEN_NONP
 STT_SIGNING_KEY (Credentials, below), STT_OPEN=1,
 PORT, STT_DEVICE (default: cuda when torch sees one, else cpu), OMNI_CARD,
 STT_MAX_CONNECTIONS, STT_MAX_PENDING, ENDPOINT_MS (default 300), MAX_UTTERANCE_S
-(default 6.0), MIN_SPEECH_MS (default 400), STT_MODELS (the baked models).
+(default 6.0), MIN_SPEECH_MS (default 400), CUT_WINDOW_S (default 3.5), CUT_DIP_PROB
+(0.5), CUT_DIP_MS (96), CUT_ENDPOINT_MS (200): where a forced cut lands (Endpointing,
+below), STT_MODELS (the baked models).
 STT_BATCH_MAX (default 8) and STT_BATCH_WAIT_MS (default 10): the GPU micro-batcher
 (Batcher); STT_LID_BATCH=0 runs language ID one utterance at a time inside a batch;
 STT_ALIGNED=0 decodes batches with the library's own batched call (omni_batch.py
@@ -162,8 +165,8 @@ VAD_REF = "5cd7945676eb32225748052e2e6a0580e4686a08"
 # Translation holds its other recogniser's sentences until the Haitian
 # utterance beside them is named, so every second an utterance runs on is a
 # second of everyone's captions. 300 ms of quiet ends a turn (a breath between
-# clauses is enough), and a speaker who never pauses is cut by 6 s, at the
-# quietest instant of the last 2 s.
+# clauses is enough), and a speaker who never pauses is cut by 6 s, at the best
+# pause of the last few seconds (CUT_WINDOW_S, below).
 ENDPOINT_MS = int(os.environ.get("ENDPOINT_MS", "300"))
 MAX_UTTERANCE_S = float(os.environ.get("MAX_UTTERANCE_S", "6.0"))
 # A turn with less speech than this is not ended by a short pause: VoxLingua107
@@ -179,6 +182,26 @@ MAX_UTTERANCE_S = float(os.environ.get("MAX_UTTERANCE_S", "6.0"))
 MIN_SPEECH_MS = int(os.environ.get("MIN_SPEECH_MS", "400"))
 SHORT_TURN_ENDPOINT_MS = 700
 TRAILING_KEEP_MS = 250
+# Where a forced cut lands. A speaker who never pauses for ENDPOINT_MS still
+# breathes, or lets the VAD's speech probability sag between phrases, and that
+# is where a cut belongs: at MAX_UTTERANCE_S the Segmenter looks back over the
+# last CUT_WINDOW_S for runs of Silero's 32 ms windows under CUT_DIP_PROB that
+# last CUT_DIP_MS or more, and cuts in the longest (then the lowest, then the
+# latest), at its quietest 20 ms. Only when no such dip exists does it fall back
+# to the old rule (the quietest 20 ms of the last 2 s: quietest_cut), which on
+# unbroken speech is often inside a word: a 20 ms energy minimum is as likely a
+# stop consonant's closure as a gap. The audio after the cut stays in the buffer
+# and starts the next utterance: nothing lost, nothing sent twice.
+# CUT_ENDPOINT_MS: inside that last window a shorter pause (this much quiet)
+# ends the turn at once, instead of waiting for the cap to cut back to it.
+# CUT_WINDOW_S=0 restores the old forced cut.
+CUT_WINDOW_S = float(os.environ.get("CUT_WINDOW_S", "3.5"))
+CUT_DIP_PROB = float(os.environ.get("CUT_DIP_PROB", "0.5"))
+CUT_DIP_MS = int(os.environ.get("CUT_DIP_MS", "96"))
+CUT_ENDPOINT_MS = int(os.environ.get("CUT_ENDPOINT_MS", "200"))
+# Silero's probability falls a window or two after the speech stops: a dip's
+# quiet starts up to this much before its first low window.
+VAD_LAG_MS = 64
 # Utterances waiting for the model, per connection, before the oldest is
 # dropped (and logged): a backlog only makes every caption later.
 MAX_PENDING = int(os.environ.get("STT_MAX_PENDING", "3"))
@@ -439,19 +462,80 @@ def quietest_cut(buf, window_s=2.0, frame_ms=20):
     return start + int(np.argmin(energies[: n - keep])) * frame
 
 
+def pause_cut(buf, buf_start, probs, window_s, dip_prob=0.5, dip_ms=96, frame_ms=20):
+    """Where to force-cut buf (an index into it), or None when the last
+    window_s holds no pause. probs: (stream start sample, end sample, speech
+    probability) per VAD window, oldest first; buf_start: the stream sample of
+    buf[0]. A pause is a run of windows under dip_prob lasting dip_ms or more,
+    after the buffer's first speech (never the quiet it starts with: that
+    would send a sliver of pre-roll as an utterance); the longest wins (then the lowest mean probability, then the latest), and
+    the cut goes at its quietest frame_ms (ties: the one nearest the middle),
+    searched from VAD_LAG_MS before the run (the probability lags the audio)
+    to its end."""
+    import numpy as np
+    end = buf_start + len(buf)
+    lo = max(buf_start, end - int(VAD_RATE * window_s))
+    need = int(round(VAD_RATE * dip_ms / 1000))
+    runs, cur, talked = [], None, False
+    for s, e, p in probs:
+        if e <= buf_start or s >= end:
+            continue
+        if not talked:
+            talked = p >= dip_prob
+            continue
+        if e <= lo:
+            continue
+        s = max(s, lo)
+        if p < dip_prob:
+            if cur and s <= cur[1]:
+                cur[1], cur[2], cur[3] = e, cur[2] + p, cur[3] + 1
+            else:
+                if cur:
+                    runs.append(cur)
+                cur = [s, e, p, 1]
+        elif cur:
+            runs.append(cur)
+            cur = None
+    if cur:
+        runs.append(cur)
+    runs = [r for r in runs if r[1] - r[0] >= need]
+    if not runs:
+        return None
+    a, b, _, _ = max(runs, key=lambda r: (r[1] - r[0], -r[2] / r[3], r[1]))
+    a = max(buf_start, a - int(VAD_RATE * VAD_LAG_MS / 1000)) - buf_start
+    b = min(end, b) - buf_start
+    frame = max(1, int(VAD_RATE * frame_ms / 1000))
+    n = (b - a) // frame
+    if n < 1:
+        return (a + b) // 2
+    energies = np.abs(buf[a:a + n * frame].reshape(n, frame)).mean(axis=1)
+    # Nearly as quiet nearer the middle wins: clear of the last word's release
+    # and the next one's onset (and the middle, in digital silence).
+    dist = np.abs(np.arange(n) - (n - 1) / 2) / n
+    return a + int(np.argmin(energies * (1 + dist) + 1e-6 * dist)) * frame + frame // 2
+
+
 class Segmenter:
     """One stream's turn-taking: feed 16 kHz blocks with their speech
-    probability, get back finished utterances as (samples, start_ms, end_ms).
+    probability (one number, or one per VAD window of the block: vad_windows),
+    get back finished utterances as (samples, start_ms, end_ms).
     No model inside, so tests drive it directly."""
 
     def __init__(self, endpoint_ms=None, max_s=None, min_speech_ms=None,
-                 short_endpoint_ms=SHORT_TURN_ENDPOINT_MS):
+                 short_endpoint_ms=SHORT_TURN_ENDPOINT_MS, cut_window_s=None,
+                 cut_dip_prob=None, cut_dip_ms=None, cut_endpoint_ms=None):
         import numpy as np
         self.np = np
         self.endpoint_ms = ENDPOINT_MS if endpoint_ms is None else endpoint_ms
         self.max_s = MAX_UTTERANCE_S if max_s is None else max_s
         self.min_speech_ms = MIN_SPEECH_MS if min_speech_ms is None else min_speech_ms
         self.short_endpoint_ms = max(self.endpoint_ms, short_endpoint_ms)
+        # (At most a third of the cap: with the default 6 s, the old rule's 2 s.)
+        self.cut_window_s = min(CUT_WINDOW_S if cut_window_s is None else cut_window_s, self.max_s / 3)
+        self.cut_dip_prob = CUT_DIP_PROB if cut_dip_prob is None else cut_dip_prob
+        self.cut_dip_ms = CUT_DIP_MS if cut_dip_ms is None else cut_dip_ms
+        self.cut_endpoint_ms = CUT_ENDPOINT_MS if cut_endpoint_ms is None else cut_endpoint_ms
+        self.probs = []             # (stream start, end sample, probability) per VAD window in buf
         self.buf = np.zeros(0, dtype=np.float32)
         self.buf_start = 0          # stream sample index of buf[0]
         self.total = 0              # samples seen on this stream
@@ -466,10 +550,53 @@ class Segmenter:
         end_ms = int((self.buf_start + n) * 1000 / VAD_RATE)
         self.buf = self.buf[n:]
         self.buf_start += n
+        self._drop_probs()
         return u, start_ms, end_ms
+
+    def _drop_probs(self):
+        """Forget the probabilities of audio no longer in the buffer."""
+        i = 0
+        while i < len(self.probs) and self.probs[i][1] <= self.buf_start:
+            i += 1
+        if i:
+            del self.probs[:i]
+
+    def _restate(self):
+        """After a forced cut: the speech and the trailing quiet of what is
+        left, from its VAD windows (a rest that is all quiet is idle again)."""
+        speech, quiet = 0, 0
+        for s, e, p in self.probs:
+            n = e - max(s, self.buf_start)
+            if p > 0.5:
+                speech, quiet = speech + n, 0
+            else:
+                quiet += n
+        self.speech_ms = speech * 1000 / VAD_RATE
+        self.quiet_ms = quiet * 1000 / VAD_RATE
+        if not speech:
+            self.speech_seen = False
+
+    def _cut(self, window_s=None):
+        """The forced cut's index into the buffer (pause_cut over the last
+        window_s, default cut_window_s; else quietest_cut)."""
+        cut = None
+        if self.cut_window_s > 0:
+            cut = pause_cut(self.buf, self.buf_start, self.probs, window_s or self.cut_window_s,
+                            self.cut_dip_prob, self.cut_dip_ms)
+        if cut is None or not 0 < cut <= len(self.buf):
+            cut = quietest_cut(self.buf)
+        return cut
 
     def feed(self, block, prob):
         np = self.np
+        if np.ndim(prob) == 0:
+            windows = [float(prob)]
+        else:
+            windows = [float(p) for p in prob] or [0.0]
+        prob = max(windows)
+        step = len(block) / len(windows)
+        self.probs.extend((self.total + int(i * step), self.total + int((i + 1) * step), p)
+                          for i, p in enumerate(windows))
         self.buf = np.concatenate([self.buf, block]) if len(self.buf) else np.asarray(block, dtype=np.float32)
         self.total += len(block)
         chunk_ms = len(block) / VAD_RATE * 1000
@@ -483,13 +610,22 @@ class Segmenter:
             # Idle: keep a half-second pre-roll so the first word keeps its onset.
             drop = max(0, len(self.buf) - VAD_RATE // 2)
             self.buf, self.buf_start = self.buf[drop:], self.buf_start + drop
+            self._drop_probs()
             return []
-        if len(self.buf) / VAD_RATE >= self.max_s:
-            # Still talking: cut at the quietest instant and keep listening.
-            out = [self._take(quietest_cut(self.buf))]
-            self.quiet_ms = 0.0
-            # The rest was all talk (no pause long enough to end a turn).
-            self.speech_ms = len(self.buf) / VAD_RATE * 1000
+        near_cap = (self.cut_window_s > 0 and self.cut_endpoint_ms > 0
+                    and len(self.buf) / VAD_RATE >= self.max_s - self.cut_window_s
+                    and self.speech_ms >= self.min_speech_ms and self.quiet_ms >= self.cut_endpoint_ms)
+        over = len(self.buf) / VAD_RATE >= self.max_s
+        if over or near_cap:
+            # Still talking: cut at the best pause of the last few seconds
+            # (pause_cut) and keep listening; the rest starts the next
+            # utterance. Near the cap a short pause cuts at once (near_cap),
+            # rather than the cap cutting back to it a few seconds later: in
+            # that pause (the window: just it), not at its end, where the VAD
+            # can still be under 0.5 on the first 30 ms of the next word.
+            window_s = (self.quiet_ms + VAD_LAG_MS) / 1000 if near_cap and not over else None
+            out = [self._take(self._cut(window_s))]
+            self._restate()
             return out
         need_ms = self.endpoint_ms if self.speech_ms >= self.min_speech_ms else self.short_endpoint_ms
         if self.quiet_ms < need_ms:
@@ -505,6 +641,7 @@ class Segmenter:
         # The trimmed silence is gone from the buffer too: the next turn starts after it.
         self.buf_start += len(self.buf)
         self.buf = self.np.zeros(0, dtype=self.np.float32)
+        self.probs.clear()
         self.quiet_ms = 0.0
         self.speech_ms = 0.0
         self.speech_seen = False
@@ -515,9 +652,24 @@ class Segmenter:
         if not self.speech_seen or len(self.buf) < VAD_RATE // 4:
             self.buf_start += len(self.buf)
             self.buf = self.np.zeros(0, dtype=self.np.float32)
+            self.probs.clear()
             self.speech_seen, self.quiet_ms, self.speech_ms = False, 0.0, 0.0
             return []
         return [self._end_turn()]
+
+
+def vad_windows(vad, block):
+    """audio_in.vad_block's probabilities, one per 512-sample window instead
+    of only the highest: the Segmenter ends turns on the highest (as the stack
+    does) and looks for a forced cut's pause in the windows."""
+    import torch
+    from audio_in import VAD_WINDOW
+    out = []
+    with torch.inference_mode():
+        for i in range(0, len(block) - VAD_WINDOW + 1, VAD_WINDOW):
+            w = torch.tensor(block[i:i + VAD_WINDOW], dtype=torch.float32)
+            out.append(vad(w, VAD_RATE).item())
+    return out
 
 
 class PassThrough:
@@ -1291,7 +1443,6 @@ def push_bounded(queue, utt, limit):
 async def handle(ws, models, sub="open"):
     """One /listen connection, after auth and admission."""
     from urllib.parse import urlparse, parse_qs
-    from audio_in import vad_block
     q = parse_qs(urlparse(ws.request.path).query)
     try:
         langs = parse_langs((q.get("langs") or [""])[0], set(models.lid_index))
@@ -1357,7 +1508,7 @@ async def handle(ws, models, sub="open"):
                     await ws.send(json.dumps({"type": "error", "detail": "text messages: only {\"type\":\"flush\"}"}))
                 continue
             for block in conn_in.feed(msg):
-                enqueue(seg.feed(block, vad_block(vad, block)))
+                enqueue(seg.feed(block, vad_windows(vad, block)))
         # Disconnected: nothing more can be sent, so the unfinished turn is dropped.
     finally:
         batcher.closed()

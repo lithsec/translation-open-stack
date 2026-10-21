@@ -16,7 +16,7 @@ the stack's parts rather than copying them:
 |---|---|
 | Recogniser | `server/engines/omnilingual.py` (the same engine class, model card `omniASR_LLM_300M`) |
 | Language ID | VoxLingua107 ECAPA (`speechbrain/lang-id-voxlingua107-ecapa`, the stack's pinned revision) with the stack's constrained argmax (`Pipeline.identify_conf`) |
-| Endpointing | Silero VAD v6.2.3 and the stack's forced-cut rule, with shorter values than the stack's (see Endpointing below); a VAD copy per connection |
+| Endpointing | Silero VAD v6.2.3, shorter values than the stack's, and a forced cut at a pause the VAD heard (the stack's quietest-instant rule only as a fallback) (see Endpointing below); a VAD copy per connection |
 | Audio input | `server/audio_in.py` (fixed 96 ms blocks; 24 kHz resampled with carried filter state) |
 | Voices | `server/engines/mms.py` and `coqui.py` (the same engine classes and fixes: 24 kHz resample with 3 ms edge ramps, peak level, Coqui's dead-air trim, MMS's empty-input guard), each with its own lock |
 | Tokens | `server/stack_auth.py` (`STT_TOKEN` static, or `STT_SIGNING_KEY` for the stack's signed tokens), plus `STT_TOKEN_NONPROFIT` (below, Credentials) |
@@ -154,16 +154,25 @@ Live Translation holds its other recogniser's sentences until then, so turns
 are cut short:
 
 - `ENDPOINT_MS` (default 300): this much quiet ends a turn. The stack uses 700.
-- `MAX_UTTERANCE_S` (default 6.0): a speaker who never pauses is cut by then, at
-  the quietest 20 ms of the last 2 s (never the live last 300 ms), so the cut
-  falls between words rather than mid-word. The stack uses 9.
+- `MAX_UTTERANCE_S` (default 6.0): a speaker who never pauses is cut by then. The
+  stack uses 9. The cut goes at the best pause of the last `CUT_WINDOW_S` (3.5 s,
+  at most a third of the cap): a run of Silero's 32 ms windows under
+  `CUT_DIP_PROB` (0.5) lasting `CUT_DIP_MS` (96) or more, the longest (then the
+  lowest, then the latest), at its quietest 20 ms. The audio after the cut starts
+  the next utterance (nothing lost, nothing sent twice). Inside that window a
+  shorter pause, `CUT_ENDPOINT_MS` (200) of quiet, cuts at once rather than
+  waiting for the cap (0: off). With no pause at all it falls back to the old
+  rule, the quietest 20 ms of the last 2 s, which on unbroken speech often lands
+  inside a word (a stop consonant's closure is as quiet as a gap);
+  `CUT_WINDOW_S=0` restores that rule. Measured in `eval/2026-10-pause-cut`.
 - `MIN_SPEECH_MS` (default 400): a turn with less speech than this ("wi", a
   cough) is not ended by a 300 ms pause; it waits up to 700 ms for more speech,
   which joins it. Language ID on a lone syllable is close to a guess, and a wrong
   `language` sends the utterance to the wrong recogniser in the client. A word
   that really stands alone still goes out, 700 ms after it ends.
 
-`deploy.sh deploy` passes all three through when they are set in its environment.
+`deploy.sh deploy` passes all three through when they are set in its environment,
+and the four `CUT_*` settings when set (unset: the defaults above).
 Other settings: `STT_MAX_CONNECTIONS`, `STT_MAX_PENDING`, `STT_DEVICE`, `OMNI_CARD`,
 `STT_MODELS`, `PORT`, `EDITION`, `HT_VOICE`, `STT_VOICES`, `STT_MAX_SPEAKERS`, `STT_SERVE`
 (see the top of `server.py`).

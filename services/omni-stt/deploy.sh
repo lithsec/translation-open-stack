@@ -26,7 +26,9 @@
 # repository, omni-stt), SERVICE (omni-stt), TAG (default: the git commit),
 # SECRET (omni-stt-token), MAX_STREAMS (4: connections one instance takes),
 # ENDPOINT_MS (300), MAX_UTTERANCE_S (6.0), MIN_SPEECH_MS (400): endpointing,
-# passed to the service by "deploy" (README, Endpointing). OMNI_CARD (default
+# passed to the service by "deploy" (README, Endpointing); CUT_WINDOW_S,
+# CUT_DIP_PROB, CUT_DIP_MS, CUT_ENDPOINT_MS (where a forced cut lands; unset:
+# the server's defaults) are passed by "deploy" and "7b-deploy" when set. OMNI_CARD (default
 # omniASR_LLM_300M): the Omnilingual card the service loads. HT_VOICE (coqui):
 # /speak's voice when a request names none (mms|coqui). EDITION (commercial):
 # which voices /speak may use (server.py; commercial never loads MMS, which is
@@ -135,6 +137,12 @@ MAX_STREAMS="${MAX_STREAMS:-4}"
 ENDPOINT_MS="${ENDPOINT_MS:-300}"
 MAX_UTTERANCE_S="${MAX_UTTERANCE_S:-6.0}"
 MIN_SPEECH_MS="${MIN_SPEECH_MS:-400}"
+CUT_ENV=""
+for k in CUT_WINDOW_S CUT_DIP_PROB CUT_DIP_MS CUT_ENDPOINT_MS; do
+  [ -n "${!k:-}" ] || continue
+  [[ "${!k}" =~ ^[0-9]+(\.[0-9]+)?$ ]] || { echo "refusing: $k must be a number" >&2; exit 3; }
+  CUT_ENV="$CUT_ENV,$k=${!k}"
+done
 OMNI_CARD="${OMNI_CARD:-omniASR_LLM_300M}"
 HT_VOICE="${HT_VOICE:-coqui}"
 EDITION="${EDITION:-commercial}"
@@ -271,7 +279,7 @@ YAML
       --cpu 4 --memory 16Gi --no-cpu-throttling \
       --min-instances 0 --max-instances 1 \
       --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
-      --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,OMNI_CARD=$OMNI_CARD,HT_VOICE=$HT_VOICE,EDITION=$EDITION,STT_MAX_SPEAKERS=$MAX_SPEAKERS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS" \
+      --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,OMNI_CARD=$OMNI_CARD,HT_VOICE=$HT_VOICE,EDITION=$EDITION,STT_MAX_SPEAKERS=$MAX_SPEAKERS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS$CUT_ENV" \
       --set-secrets "$SECRETS" \
       --no-invoker-iam-check ${DEPLOY_FLAGS:-}
     [ "${DRY_RUN:-0}" != 1 ] || exit 0
@@ -344,7 +352,7 @@ YAML
     STORAGE="${STORAGE:-baked}"
     MAX_STREAMS="${MAX_STREAMS_7B:-6}"
     extra=()
-    envs="STT_SERVE=listen,STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS,OMNI_MMAP=${OMNI_MMAP:-1}${EXTRA_ENV:+,$EXTRA_ENV}"
+    envs="STT_SERVE=listen,STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS,OMNI_MMAP=${OMNI_MMAP:-1}$CUT_ENV${EXTRA_ENV:+,$EXTRA_ENV}"
     case "$STORAGE" in
       baked) IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/omni-stt:$TAG-7b"; envs="$envs,OMNI_CARD=omniASR_LLM_7B_bf16" ;;
       gcs)   IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/omni-stt:$TAG-7b-base"; envs="$envs,OMNI_CARD=omniASR_LLM_7B_bf16_volume"
