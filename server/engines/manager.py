@@ -275,11 +275,18 @@ class EngineSet:
             return eng
         return self.engines["translator"][FALLBACK_TRANSLATOR]
 
-    def translate_batch(self, text, langs, src=None):
+    def translate_batch(self, text, langs, src=None, context=None):
         """ONE batched call per translator for every target language — the
         second half of the economic claim. Seven sequential decodes serialized
         the GPU and put the last language ~15s behind the first; a batch of
-        seven is one forward pass per step and they all finish together."""
+        seven is one forward pass per step and they all finish together.
+
+        `context` (server/translation_context.py: the previous pieces and their
+        translations, when the client asked for them) goes only to an engine
+        that declares takes_context, and only when it reads the source itself:
+        on the English pivot the earlier pieces are in a language it does not
+        know. Without context, or for every other engine, the calls are exactly
+        the ones made before context existed (MADLAD never sees it)."""
         sentences = split_sentences(text)
         src = src or "en"
         base = self.engines["translator"][FALLBACK_TRANSLATOR]
@@ -297,8 +304,11 @@ class EngineSet:
             pivot, via = sentences, src
             if not eng.supports_source(src):
                 pivot, via = base.to_english(sentences), "en"
+            extra = {}
+            if context and pivot is sentences and getattr(eng, "takes_context", False):
+                extra["context"] = context
             try:
-                got = eng.translate(pivot, via, targets, text=text if pivot is sentences else None) or {}
+                got = eng.translate(pivot, via, targets, text=text if pivot is sentences else None, **extra) or {}
             except Exception as e:
                 print(f"[stack] {eng.title or name} failed ({e}) — MADLAD instead", flush=True)
                 got = {}

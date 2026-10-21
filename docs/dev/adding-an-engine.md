@@ -36,7 +36,7 @@ digits and `_`, unique across all three kinds, and not one of the table keys
 | Kind | Named by | You implement | Returns |
 |---|---|---|---|
 | `Recognizer` | `asr = "<name>"` or `"<name>:<arg>"` for a **source** language | `transcribe(pcm16k, lang, want_segments=False)`; optionally `words(pcm16k, lang)` | text (`""` for non-speech); with `want_segments`, `(text, [(segment_text, end_s), ...])`; `words` gives `[(word, end_s), ...]` or `None` |
-| `Translator` | `translator = "<name>"` for a **target** language | `translate(sentences, src, targets, text=None)`; optionally `supports_source(lang)` | `{lang: translation}` |
+| `Translator` | `translator = "<name>"` for a **target** language | `translate(sentences, src, targets, text=None)`; optionally `supports_source(lang)`; with `takes_context = True`, `translate(..., context=None)` | `{lang: translation}` |
 | `Voice` | `<name> = <value>` in a language, and/or `voice = ["<name>", ...]` | `synthesise(text, lang)`; optionally `stream(text, lang, fallback)` | 24 kHz mono PCM16 `bytes`, or `None` to let the next voice try |
 
 Every engine may also set or override:
@@ -64,7 +64,16 @@ Kind-specific:
 - **Translator** `languages`: the target codes it can do, or `None` for any;
   checked by `stack_config.py check`. `supports_source(lang) -> False` makes
   MADLAD pivot the sentences into English first (Hy-MT2 does this for Haitian
-  Creole speakers).
+  Creole speakers). `takes_context = True` (default `False`) adds a
+  `context=None` argument to `translate()`: when a client asked for it
+  (`?context=1`, [protocol.md](protocol.md#context-from-the-previous-pieces))
+  and there is some, `{"pieces": [earlier source text, oldest first],
+  "translations": {lang: its newest translation}}`, at most two pieces and
+  a bounded number of characters. It is context only: the answer is still the
+  translation of `sentences`. A model that can read text without translating
+  it (a prompted LM such as Hy-MT2, `engines/hymt.py`) can use it; one that
+  takes a single tagged sentence (MADLAD) leaves the attribute off and is
+  called exactly as before.
 - **Voice** `priority` (place in the default chain, lowest first; the built-ins
   are kokoro 10, voxcpm 20, coqui 30, piper 40, mms 50; a new voice defaults
   to 0, first), `lock_policy` ([§5](#5-threads-and-locks)), `streaming`
@@ -81,7 +90,9 @@ What the pipeline does around them (`server/engines/manager.py`):
   (whole utterance); an exception does that for every target of that call
   (logged). Sentences are pre-split (`engines.common.split_sentences`:
   MADLAD dropped sentences when given several at once), and `text` is the
-  utterance as heard for engines that prefer it whole.
+  utterance as heard for engines that prefer it whole. An engine with
+  `takes_context` also gets `context=` when the client asked for it and the
+  engine reads the source itself (not on the English pivot).
 - **Voices**: the chain is tried in order, the first non-`None` answer is
   spoken. Returning `None` means "not me, try the next"; raising means "this
   sentence fails" (logged, nothing spoken for it). Empty or punctuation-only

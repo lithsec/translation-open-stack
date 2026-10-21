@@ -445,6 +445,15 @@ sentences as one input it dropped one of them for Ukrainian and Japanese.
 Hy-MT2's output cap is generous (10x the source tokens): Khmer took 136 tokens
 for an 18-token English sentence, and a 3x cap truncated every Khmer line.
 
+**Context from the previous pieces** (`?context=1`,
+[protocol.md](dev/protocol.md#context-from-the-previous-pieces)): a client
+may ask for the last two pieces and the last translation to be given to the
+translator as context only, bounded (600 characters of source, 300 per
+translation), forgotten on a language change and after 30 s idle. Hy-MT2
+takes it in its prompt; MADLAD cannot, so its languages are unaffected. Off
+by default, and nothing changes when it is off. Its effect on Hy-MT2's
+quality has not been measured.
+
 **TranslateGemma 12B** (Google, Gemma licence) was also tested and is the one
 alternative worth keeping in mind: 92% in the major languages, 77% in Haitian
 Creole, so a single model could replace both translators. It lost in Khmer (67%
@@ -686,6 +695,7 @@ NG case is skipped without `espeak-ng`):
 python3 tests/test_stack_auth.py && python3 tests/test_stack_config.py
 python3 tests/test_nonspeech.py && python3 tests/test_streaming.py
 python3 tests/test_engines.py && python3 tests/test_licences.py
+python3 tests/test_translation_context.py
 python3 tests/test_doc_links.py && python3 tests/test_capacity.py
 python3 tests/test_profiles.py
 python3 server/stack_config.py check

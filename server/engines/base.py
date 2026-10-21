@@ -191,6 +191,12 @@ class Translator(Engine):
     kind = "translator"
     # Target languages it can do, for languages.toml validation; None = any.
     languages = None
+    # True: translate() accepts `context=` (below), and gets it when the client
+    # asked for context (?context=1) and there is some. False (the default):
+    # translate() is called exactly as before, so an engine written against the
+    # older signature keeps working. Hy-MT2, a prompted LM, takes it; MADLAD,
+    # which reads one tagged sentence, cannot.
+    takes_context = False
 
     def supports(self, lang):
         """Translate into this language?"""
@@ -207,7 +213,15 @@ class Translator(Engine):
         nothing for zh/ja: engines.common.join_sentences). `text` is the
         utterance as heard, for engines that prefer it whole. A target left
         out, or mapped to "", is translated by MADLAD instead; raising does the
-        same for every target."""
+        same for every target.
+
+        An engine with takes_context = True declares translate(sentences, src,
+        targets, text=None, context=None) and is given, when there is one,
+        context = {"pieces": [earlier source text in `src`, oldest first],
+        "translations": {lang: that language's newest translation}}
+        (server/translation_context.py: at most two pieces, bounded text). It
+        is context ONLY: the answer is still the translation of `sentences`
+        and nothing else."""
         raise NotImplementedError
 
 
