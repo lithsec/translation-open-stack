@@ -52,6 +52,7 @@ jobs:
           python tests/test_audio_in.py
           python tests/test_omni_stt.py
           python tests/test_eval_tools.py
+          python tests/test_omni_stt_denoise.py
 
       - name: Language config (both editions)
         run: |

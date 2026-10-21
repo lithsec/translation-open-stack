@@ -27,9 +27,11 @@
 # SECRET (omni-stt-token), MAX_STREAMS (4: connections one instance takes),
 # ENDPOINT_MS (200), MAX_UTTERANCE_S (10.0), MIN_SPEECH_MS (1000): endpointing,
 # passed to the service by "deploy" (README, Endpointing); CUT_WINDOW_S,
-# CUT_DIP_PROB, CUT_DIP_MS, CUT_ENDPOINT_MS (where a forced cut lands) and
-# CUT_EARLY_S (the progressive pause cut; unset: the server's defaults) are
-# passed by "deploy" and "7b-deploy" when set. OMNI_CARD (default
+# CUT_DIP_PROB, CUT_DIP_MS, CUT_ENDPOINT_MS (where a forced cut lands),
+# CUT_EARLY_S (the progressive pause cut; unset: the server's defaults) and
+# STT_DENOISE, STT_DENOISE_NR_DB, STT_DENOISE_TRACK_S, STT_DENOISE_OVERSUB (the
+# optional noise reducer, README "Noisy input"; unset: off) are passed by
+# "deploy" and "7b-deploy" when set. OMNI_CARD (default
 # omniASR_LLM_300M): the Omnilingual card the service loads. HT_VOICE (coqui):
 # /speak's voice when a request names none (mms|coqui). EDITION (commercial):
 # which voices /speak may use (server.py; commercial never loads MMS, which is
@@ -139,7 +141,8 @@ ENDPOINT_MS="${ENDPOINT_MS:-200}"
 MAX_UTTERANCE_S="${MAX_UTTERANCE_S:-10.0}"
 MIN_SPEECH_MS="${MIN_SPEECH_MS:-1000}"
 CUT_ENV=""
-for k in CUT_WINDOW_S CUT_DIP_PROB CUT_DIP_MS CUT_ENDPOINT_MS CUT_EARLY_S; do
+for k in CUT_WINDOW_S CUT_DIP_PROB CUT_DIP_MS CUT_ENDPOINT_MS CUT_EARLY_S \
+         STT_DENOISE STT_DENOISE_NR_DB STT_DENOISE_TRACK_S STT_DENOISE_OVERSUB; do
   [ -n "${!k:-}" ] || continue
   [[ "${!k}" =~ ^[0-9]+(\.[0-9]+)?$ ]] || { echo "refusing: $k must be a number" >&2; exit 3; }
   CUT_ENV="$CUT_ENV,$k=${!k}"
@@ -171,7 +174,7 @@ stage() {
   # neither the eval audio nor .git is uploaded to Cloud Build.
   local dir
   dir="$(mktemp -d)"
-  cp "$HERE/server.py" "$HERE/omni_batch.py" "$HERE/voices.py" "$HERE/ht_numbers.py" "$HERE/mic.html" "$HERE/Dockerfile" "$dir/"
+  cp "$HERE/server.py" "$HERE/omni_batch.py" "$HERE/denoise.py" "$HERE/voices.py" "$HERE/ht_numbers.py" "$HERE/mic.html" "$HERE/Dockerfile" "$dir/"
   cp "$ROOT/server/audio_in.py" "$ROOT/server/stack_auth.py" "$ROOT/server/licences.py" "$ROOT/constraints.txt" "$dir/"
   mkdir "$dir/engines"
   cp "$ROOT/server/engines/"{__init__,base,common,omnilingual,mms,coqui}.py "$dir/engines/"

@@ -96,6 +96,10 @@ says why the default is not that); STT_BATCH_GEN_RATIO tunes the length grouping
 that path needs (pick_group).
 STT_MAX_CHARS_PER_S (default 30) and STT_MAX_REPEATS (default 6): the repetition
 guard (repetition_guard).
+STT_DENOISE=1 (default 0): a spectral noise reducer in front of the VAD, per
+connection (denoise.py; STT_DENOISE_NR_DB, STT_DENOISE_TRACK_S,
+STT_DENOISE_OVERSUB tune it). For a distant or noisy microphone; off by default
+because it can cost a little on clean close-mic audio (README, Noisy input).
 
 Credentials, any or all; each app gets its own, and with it its edition:
 
@@ -727,12 +731,15 @@ class PassThrough:
 
 def audio_input(rate, label):
     """The stack's AudioIn (fixed 96 ms blocks whatever the message size, issue
-    #13): 24 kHz resampled as the stack does, 16 kHz passed through."""
+    #13): 24 kHz resampled as the stack does, 16 kHz passed through. With
+    STT_DENOISE=1 the blocks pass through a spectral noise reducer with this
+    connection's own state (denoise.py) before the VAD hears them."""
     from audio_in import AudioIn
+    import denoise
     conn_in = AudioIn(label)
     if rate == VAD_RATE:
         conn_in.rs = PassThrough()
-    return conn_in
+    return denoise.wrap(conn_in, os.environ)
 
 
 # ---------------------------------------------------------------- repetition guard
