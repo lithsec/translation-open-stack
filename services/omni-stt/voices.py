@@ -1,6 +1,7 @@
 """Haitian Creole voices for /speak: the stack's MMS-TTS and Coqui VITS engines
 (server/engines/mms.py and coqui.py, with their fixes: to_pcm16's 24 kHz
-resample and 3 ms edge ramps, peak_normalise's level, Coqui's dead-air trim,
+resample and 3 ms edge ramps, peak_normalise's level, trim_silence's cut of
+the dead air both voices pad (60 ms kept before the speech, 80 ms after),
 MMS's empty-input guard), so a fix there is a fix here.
 
     mms    facebook/mms-tts-hat                             CC-BY-NC-4.0: non-commercial use only

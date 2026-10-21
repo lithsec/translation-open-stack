@@ -114,6 +114,80 @@ def peak_normalise(pcm):
     return pcm
 
 
+# Leading and trailing silence a voice model pads onto a sentence is pure
+# listener lag: the first sound arrives late, and the next sentence waits for
+# the dead air to play out. What the trim keeps around the speech: 60 ms
+# before the first voiced frame (a soft onset below the threshold is inside
+# it) and 80 ms after the last (a release or a final fricative tails off, and
+# the gap to the next sentence is still a natural one). Measured on the stored
+# Haitian Creole samples (eval/2026-10-ht-voices/silence.py): MMS pads 10-300 ms
+# in front and 50-380 ms behind, 7% of its output (2-17% per sentence); Coqui
+# about a second at each end before its first trim.
+TRIM_LEAD_MS = 60
+TRIM_TAIL_MS = 80
+# A 10 ms frame is voiced when its RMS is within 40 dB of the clip's peak
+# (the voices are peak-normalised to -1 dBFS first, so that is -41 dBFS) and
+# above -45 dBFS. Both open voices' dead air sits 65-80 dB below the peak, and
+# their speech edges are sharp: thresholds from 35 to 50 dB below the peak
+# moved the edges by 30 ms at most, so 40 dB is nowhere near the speech. The
+# absolute floor keeps a quiet hiss, or a clip that is nothing but hiss, from
+# counting as speech.
+TRIM_FRAME_MS = 10
+TRIM_BELOW_PEAK_DB = 40.0
+TRIM_FLOOR_DBFS = -45.0
+
+
+def voiced_span(pcm, rate, frame_ms=TRIM_FRAME_MS, below_peak_db=TRIM_BELOW_PEAK_DB,
+                floor_dbfs=TRIM_FLOOR_DBFS):
+    """(start, end) in samples of the voiced part of `pcm` (float32, any rate):
+    the first and the last frame whose RMS clears the threshold, frames
+    inclusive; None when no frame does (silence, or a hiss under the floor)."""
+    import numpy as np
+    n = max(1, int(rate * frame_ms / 1000))
+    if len(pcm) == 0:
+        return None
+    pcm = np.asarray(pcm, dtype="float32")
+    peak = float(np.abs(pcm).max())
+    if peak <= 0.0:
+        return None
+    frames = len(pcm) // n
+    if frames == 0:
+        rms = np.sqrt(float((pcm ** 2).mean()))
+        rms_db = np.array([20 * np.log10(max(rms, 1e-9))])
+        n, frames = len(pcm), 1
+    else:
+        tail = pcm[frames * n:]
+        rms = np.sqrt((pcm[:frames * n].reshape(frames, n) ** 2).mean(axis=1))
+        rms_db = 20 * np.log10(np.maximum(rms, 1e-9))
+        if len(tail):                   # a last, short frame counts too
+            t = np.sqrt(float((tail ** 2).mean()))
+            rms_db = np.append(rms_db, 20 * np.log10(max(t, 1e-9)))
+    threshold = max(20 * np.log10(peak) - below_peak_db, floor_dbfs)
+    voiced = np.flatnonzero(rms_db > threshold)
+    if not len(voiced):
+        return None
+    start = int(voiced[0]) * n
+    end = min(len(pcm), (int(voiced[-1]) + 1) * n)
+    return start, end
+
+
+def trim_silence(pcm, rate, lead_ms=TRIM_LEAD_MS, tail_ms=TRIM_TAIL_MS):
+    """`pcm` (float32 at `rate`) with its leading and trailing silence cut to
+    at most `lead_ms` before and `tail_ms` after the speech. A clip with no
+    voiced frame comes back as it is; one whose silence is already shorter is
+    not padded. Call it before to_pcm16, whose 3 ms edge ramps then sit on the
+    new ends, so the trim adds no click."""
+    span = voiced_span(pcm, rate)
+    if span is None:
+        return pcm
+    start, end = span
+    a = max(0, start - int(rate * lead_ms / 1000))
+    b = min(len(pcm), end + int(rate * tail_ms / 1000))
+    if a == 0 and b == len(pcm):
+        return pcm
+    return pcm[a:b]
+
+
 # The streaming soft limiter and fixed gain for VoxCPM2 live in
 # server/voxcpm_service.py: that service runs in its own virtualenv and
 # process, so it cannot import this module.

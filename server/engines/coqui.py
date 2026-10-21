@@ -8,7 +8,7 @@ obligation, but a redistributable one.
 """
 from engines import register
 from engines.base import Voice
-from engines.common import is_gpu, on_device, peak_normalise, to_pcm16
+from engines.common import is_gpu, on_device, peak_normalise, to_pcm16, trim_silence
 
 
 @register
@@ -65,13 +65,11 @@ class Coqui(Voice):
             # This model pads roughly a SECOND of dead air onto each end —
             # measured 3.86s of audio for 1.68s of speech. Left in, every
             # Haitian utterance would arrive a second late and hold the line
-            # open a second after it finished. Trim to the speech, keeping 50ms
-            # so no onset or release is clipped.
-            idx = np.where(np.abs(pcm) > 0.01)[0]
-            if len(idx):
-                keep = int(syn.output_sample_rate * 0.05)
-                pcm = pcm[max(0, idx[0] - keep):min(len(pcm), idx[-1] + keep)]
-            return to_pcm16(peak_normalise(pcm), int(syn.output_sample_rate))
+            # open a second after it finished. Trim to the speech (the shared
+            # rule: 60 ms kept before it, 80 ms after, so no onset or release
+            # is clipped), after the level is set and before the edge ramps.
+            rate = int(syn.output_sample_rate)
+            return to_pcm16(trim_silence(peak_normalise(pcm), rate), rate)
         except Exception as e:
             print(f"[stack] Coqui {lang} failed ({e}) — falling back", flush=True)
             return None
