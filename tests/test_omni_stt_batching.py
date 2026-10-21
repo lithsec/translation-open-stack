@@ -682,8 +682,7 @@ class ProtoModels(BatchModels):
 
 
 def test_many_streams_batched_and_unmixed():
-    import audio_in
-    audio_in.vad_block = lambda vad, block: 1.0 if np.abs(block).max() > 0.05 else 0.0
+    stt.vad_windows = lambda vad, block: [1.0 if np.abs(block).max() > 0.05 else 0.0] * 3
     models = ProtoModels()
     flush = json.dumps({"type": "flush"})
     levels = [0.11, 0.62, 0.23, 0.74, 0.35, 0.86, 0.17, 0.98]

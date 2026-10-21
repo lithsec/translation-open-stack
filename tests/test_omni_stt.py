@@ -258,6 +258,177 @@ def test_segmenter_short_turn_waits_and_merges():
     assert len(utts) == 1 and len(utts[0][0]) < 16000
 
 
+# Forced cuts at a pause (pause_cut): synthetic speech probabilities, one per
+# 32 ms VAD window (three a 96 ms block), as vad_windows gives the Segmenter.
+
+W = 512                                   # samples per VAD window
+
+
+def _probs(seconds, dips=(), base=0.95):
+    """Window probabilities over `seconds`: base, with (start_s, length_ms, p) dips."""
+    p = np.full(int(seconds * 16000) // W, base)
+    for start_s, length_ms, low in dips:
+        a = int(start_s * 16000) // W
+        p[a:a + max(1, round(length_ms * 16 / W))] = low
+    return p
+
+
+def _feed(seg, probs, level=0.3, quiet_level=0.001):
+    """Blocks whose samples are loud where the VAD says speech, near-silent in a dip."""
+    out, blocks = [], []
+    for b in range(len(probs) // 3):
+        ps = probs[b * 3:b * 3 + 3]
+        block = np.concatenate([np.full(W, level if q > 0.5 else quiet_level, dtype=np.float32) for q in ps])
+        blocks.append(block)
+        out += seg.feed(block, list(ps))
+    return out, np.concatenate(blocks)
+
+
+def _spans(start_sample, probs):
+    return [(start_sample + i * W, start_sample + (i + 1) * W, float(q)) for i, q in enumerate(probs)]
+
+
+def test_cut_defaults():
+    if not any(k in os.environ for k in ("CUT_WINDOW_S", "CUT_DIP_PROB", "CUT_DIP_MS", "CUT_ENDPOINT_MS")):
+        assert (stt.CUT_WINDOW_S, stt.CUT_DIP_PROB, stt.CUT_DIP_MS, stt.CUT_ENDPOINT_MS) == (3.5, 0.5, 96, 200)
+    # The window is at most a third of the cap (6 s: the old rule's 2 s).
+    assert stt.Segmenter(max_s=15, cut_window_s=3.5).cut_window_s == 3.5
+    assert stt.Segmenter(max_s=6, cut_window_s=3.5).cut_window_s == 2.0
+
+
+def test_pause_cut_longest_dip_in_the_window():
+    probs = _probs(15.0, dips=[(10.0, 640, 0.05),         # longest, but before the 3.5 s window
+                               (12.0, 160, 0.10),         # the winner: 5 windows
+                               (13.5, 96, 0.01),          # deeper but shorter
+                               (14.5, 64, 0.0)])          # under CUT_DIP_MS: not a pause
+    buf = np.where(np.repeat(probs, W) > 0.5, 0.3, 0.001).astype(np.float32)
+    cut = stt.pause_cut(buf, 0, _spans(0, probs), 3.5, 0.5, 96)
+    a = int(12.0 * 16000) // W * W
+    assert a - 64 * 16 <= cut <= a + 5 * W, (cut, a)
+    assert buf[cut] < 0.01                                 # in the quiet, not in a word
+    # A stream offset (buf_start) changes nothing but the numbering.
+    assert stt.pause_cut(buf, 160000, _spans(160000, probs), 3.5, 0.5, 96) == cut
+
+
+def test_pause_cut_ties_and_none():
+    # Two dips of one length: the lower one wins; equal too: the later one.
+    probs = _probs(15.0, dips=[(12.0, 96, 0.2), (13.0, 96, 0.1)])
+    buf = np.full(len(probs) * W, 0.3, dtype=np.float32)
+    cut = stt.pause_cut(buf, 0, _spans(0, probs), 3.5, 0.5, 96)
+    assert 13.0 * 16000 - 2 * W <= cut <= 13.0 * 16000 + 3 * W, cut
+    probs = _probs(15.0, dips=[(12.0, 96, 0.1), (13.0, 96, 0.1)])
+    cut = stt.pause_cut(buf, 0, _spans(0, probs), 3.5, 0.5, 96)
+    assert cut > 12.5 * 16000, cut
+    # No window under the threshold for long enough: None (the caller falls back).
+    probs = _probs(15.0, dips=[(13.0, 64, 0.1)], base=0.9)
+    assert stt.pause_cut(buf, 0, _spans(0, probs), 3.5, 0.5, 96) is None
+    soft = _probs(15.0, dips=[(13.0, 160, 0.6)])          # a sag, not under 0.5
+    assert stt.pause_cut(buf, 0, _spans(0, soft), 3.5, 0.5, 96) is None
+    # A lower threshold or a shorter minimum finds what the defaults would not.
+    probs = _probs(15.0, dips=[(13.0, 64, 0.1)])
+    assert stt.pause_cut(buf, 0, _spans(0, probs), 3.5, 0.5, 64) is not None
+    assert stt.pause_cut(buf, 0, _spans(0, soft), 3.5, 0.7, 96) is not None
+
+
+def test_pause_cut_never_the_leading_quiet():
+    # A buffer that starts with its pre-roll: that quiet is not a pause to cut
+    # at (it would send a sliver of silence as an utterance).
+    probs = np.concatenate([np.full(15, 0.02), _probs(3.0)])
+    buf = np.full(len(probs) * W, 0.3, dtype=np.float32)
+    assert stt.pause_cut(buf, 0, _spans(0, probs), 3.5, 0.5, 96) is None
+
+
+def test_pause_cut_quietest_frame_in_the_dip():
+    # The probability lags the audio: the cut is the dip's quietest 20 ms,
+    # searched from VAD_LAG_MS before its first low window.
+    probs = _probs(15.0, dips=[(13.0, 192, 0.05)])
+    buf = np.full(len(probs) * W, 0.3, dtype=np.float32)
+    a = int(13.0 * 16000) // W * W
+    buf[a - 1024:a - 704] = 0.0                            # the real gap (20 ms), just before the low windows
+    buf[a:a + 6 * W] = 0.05
+    cut = stt.pause_cut(buf, 0, _spans(0, probs), 3.5, 0.5, 96)
+    assert a - 1024 <= cut < a - 704, (cut, a)
+
+
+def test_segmenter_forced_cut_at_a_pause_keeps_the_rest():
+    # 40 s of talk that never pauses for ENDPOINT_MS (700 ms, as live) but dips
+    # for 160 ms every ~4 s: every forced cut lands in a dip, the utterances
+    # tile the stream exactly (nothing lost, nothing twice), none over the cap.
+    dips = [(t, 160, 0.05) for t in np.arange(2.3, 40, 4.1)]
+    seg = stt.Segmenter(endpoint_ms=700, max_s=15.0, min_speech_ms=400, cut_endpoint_ms=0)
+    probs = _probs(40.0, dips=dips)
+    utts, audio = _feed(seg, probs)
+    utts += seg.flush()
+    assert len(utts) >= 3
+    for u, start_ms, end_ms in utts[:-1]:
+        assert len(u) <= 15.0 * 16000
+        assert np.abs(u[-W // 2:]).max() < 0.01, end_ms   # ends in a dip
+        assert any(abs(end_ms / 1000 - (t + 0.08)) < 0.2 for t, _, _ in dips), end_ms
+    for (a, _, ae), (b, bs, _) in zip(utts, utts[1:]):
+        assert bs == ae
+    joined = np.concatenate([u for u, _, _ in utts])
+    first = utts[0][1] * 16
+    assert np.array_equal(joined, audio[first:first + len(joined)])
+    assert first + len(joined) == len(audio)
+
+
+def test_segmenter_forced_cut_without_a_pause_falls_back():
+    # No dip at all: the old rule (the quietest 20 ms of the last 2 s).
+    seg = stt.Segmenter(endpoint_ms=700, max_s=15.0, min_speech_ms=400)
+    probs = _probs(16.0)
+    blocks = [np.full(1536, 0.3, dtype=np.float32) for _ in range(len(probs) // 3)]
+    blocks[150][:320] = 0.1                                # samples 230400..230720, at 14.4 s
+    utts = []
+    for i, b in enumerate(blocks):
+        utts += seg.feed(b, list(probs[i * 3:i * 3 + 3]))
+    assert len(utts) == 1 and 230400 - 320 < len(utts[0][0]) < 230720, len(utts[0][0])   # (20 ms frames)
+
+
+def test_segmenter_near_the_cap_a_short_pause_cuts_at_once():
+    # A 300 ms pause at 12.5 s (under the 700 ms endpoint, inside the last
+    # 3.5 s): cut there right away, in the pause, not at 15 s.
+    seg = stt.Segmenter(endpoint_ms=700, max_s=15.0, min_speech_ms=400)
+    probs = _probs(20.0, dips=[(12.5, 300, 0.02)])
+    out, emitted_at = [], None
+    for b in range(len(probs) // 3):
+        ps = probs[b * 3:b * 3 + 3]
+        block = np.concatenate([np.full(W, 0.3 if q > 0.5 else 0.001, dtype=np.float32) for q in ps])
+        got = seg.feed(block, list(ps))
+        if got and emitted_at is None:
+            emitted_at = seg.total / 16000
+        out += got
+    assert out and emitted_at < 13.0, emitted_at
+    u, start_ms, end_ms = out[0]
+    assert 12450 <= end_ms <= 12800, end_ms
+    assert np.abs(u[-W // 2:]).max() < 0.01
+    # Earlier in the turn the same pause does not end it (700 ms still rules).
+    seg = stt.Segmenter(endpoint_ms=700, max_s=15.0, min_speech_ms=400)
+    out, _ = _feed(seg, _probs(9.0, dips=[(6.0, 300, 0.02)]))
+    assert out == []
+    # CUT_ENDPOINT_MS=0: no early cut; the cap cuts back to the pause at 15 s.
+    seg = stt.Segmenter(endpoint_ms=700, max_s=15.0, min_speech_ms=400, cut_endpoint_ms=0)
+    out, _ = _feed(seg, _probs(15.5, dips=[(12.5, 300, 0.02)]))
+    assert len(out) == 1 and 12450 <= out[0][2] <= 12800, out[0][2]
+
+
+def test_segmenter_cut_window_zero_is_the_old_rule():
+    # CUT_WINDOW_S=0: the dip is ignored; the quietest 20 ms of the last 2 s
+    # (here a soft spot in a "word", the old rule's mid-word cut).
+    probs = _probs(16.0, dips=[(13.9, 160, 0.05)])
+    for window, lo, hi in ((0, 220000, 221000), (3.5, 13.8 * 16000, 14.2 * 16000)):
+        seg = stt.Segmenter(endpoint_ms=700, max_s=15.0, min_speech_ms=400, cut_window_s=window, cut_endpoint_ms=0)
+        blocks, utts = [], []
+        for b in range(len(probs) // 3):
+            ps = probs[b * 3:b * 3 + 3]
+            block = np.full(1536, 0.3, dtype=np.float32)
+            if b == 143:
+                block[:500] = 0.0                          # samples 219648..220148: quieter than the dip
+            utts += seg.feed(block, list(ps))
+        assert len(utts) == 1
+        n = len(utts[0][0])
+        assert (219648 <= n < 220148) if window == 0 else (lo <= n <= hi), (window, n)
+
+
 # ---------------------------------------------------------------- protocol, with fakes
 
 class FakeModels:
@@ -324,8 +495,8 @@ def _speech(level, rate=16000):
 
 
 def _fake_vad():
-    import audio_in
-    audio_in.vad_block = lambda vad, block: 1.0 if np.abs(block).max() > 0.05 else 0.0
+    # The server's per-window probabilities (vad_windows): three 32 ms windows a block.
+    stt.vad_windows = lambda vad, block: [1.0 if np.abs(block).max() > 0.05 else 0.0] * 3
 
 
 def test_listen_protocol():
