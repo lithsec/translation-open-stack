@@ -618,7 +618,7 @@ class Models:
     utterances per call: neither model is documented as thread-safe, and one
     batched call keeps the GPU busier than the same utterances one by one."""
 
-    def __init__(self, device=None, card=None, serve=None, voice_names=None):
+    def __init__(self, device=None, card=None, serve=None, voice_names=None, defer_voices=False):
         import copy
         import torch
         self.copy = copy
@@ -628,10 +628,19 @@ class Models:
         print(f"[stt] device={self.device} torch={torch.__version__} serving {','.join(sorted(self.serve))}", flush=True)
         self.lid_index = {}
         self.omni = None
-        # The voices load on a thread of their own, beside the recogniser: on a
-        # cold Cloud Run instance Coqui's import alone took ~30 s (2026-10-19),
-        # which /listen, the service's first job, should not wait for. /speak
-        # waits for voices_ready instead.
+        # The voices load on a thread of their own: on a cold Cloud Run
+        # instance Coqui's import alone took ~30 s (2026-10-19), which /listen,
+        # the service's first job, should not wait for. /speak waits for
+        # voices_ready instead. But that thread starts only once the
+        # recogniser is BUILT (and, from main, warm): never beside it.
+        # transformers' from_pretrained (MMS's VITS, Coqui's XTTS parts) builds
+        # its model under accelerate-style init_empty_weights, which swaps
+        # torch.nn.Module.register_parameter process-wide for the duration, not
+        # per thread; a module the omni-load thread created meanwhile got its
+        # parameters on the meta device, loading the checkpoint left them
+        # there, and the warm-up decode died with "Tensor on device meta is not
+        # on the expected device cuda:0" (most cold starts of the voices image,
+        # 2026-10-21). Built one after the other, /listen still comes first.
         self.voices = None
         self.voices_error = None
         self.voices_ready = threading.Event()
@@ -643,12 +652,9 @@ class Models:
             # omni-load thread died with ModuleNotFoundError: fairseq2).
             # Silero's load is short; nothing else here touches sys.path.
             self.vad = load_vad()
-        loader = None
-        if "speak" in self.serve:
-            names = voice_names if voice_names is not None else voice_list()
-            loader = threading.Thread(target=self._load_voices, args=(names,), name="voices-load", daemon=True)
-            loader.start()
-        else:
+        self._voice_names = voice_names
+        self._voices_started = False
+        if "speak" not in self.serve:
             self.voices_ready.set()
         if "listen" in self.serve:
             # The recogniser loads on its own thread while language ID loads
@@ -674,8 +680,21 @@ class Models:
                 self.lid, self.lid_index = load_lid(self.device)
                 self.omni = load_omni(self.device, self.card)
             print(f"[stt] models loaded", flush=True)
-        elif loader:
-            loader.join()
+            if not defer_voices:
+                self.start_voices()
+        elif "speak" in self.serve:
+            self.start_voices().join()
+
+    def start_voices(self):
+        """Start loading the voices (once; after the recogniser: __init__ says
+        why). Returns the loading thread, or None."""
+        if "speak" not in self.serve or self._voices_started:
+            return None
+        self._voices_started = True
+        names = self._voice_names if self._voice_names is not None else voice_list()
+        loader = threading.Thread(target=self._load_voices, args=(names,), name="voices-load", daemon=True)
+        loader.start()
+        return loader
 
     def _load_voices(self, names):
         try:
@@ -1579,8 +1598,9 @@ async def main():
     print(f"[stt] edition: {'both' if len(eds) > 1 else eds[0]}", flush=True)
     t0 = time.time()
     print("[stt] starting", flush=True)
-    models = Models()
+    models = Models(defer_voices=True)
     warmup(models)
+    models.start_voices()           # only now: nothing else is building a model (Models.__init__)
     global LIMITS, SPEAK_LIMITS
     import stack_auth
     n = int(os.environ.get("STT_MAX_CONNECTIONS", "8"))

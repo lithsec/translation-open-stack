@@ -126,8 +126,12 @@ server    {"type":"error","id":"7","detail":"..."}   a refused or failed request
 - The text is spoken a sentence at a time (long sentences are cut at commas), so
   the first sentence's audio goes out while the rest is made. Requests on one
   socket are answered in order; keep the socket open between sentences.
-- The voices load beside the recogniser, not before the port opens (Coqui's import
-  took ~30 s on a cold instance): a `/speak` socket opened meanwhile waits for them
+- The voices load after the recogniser is built and warm, while the port is
+  already open (Coqui's import took ~30 s on a cold instance). Not at the same
+  time as the recogniser: transformers builds a voice under `init_empty_weights`,
+  which patches `torch.nn.Module.register_parameter` for every thread, and a
+  recogniser built meanwhile came up with weights on the meta device (cold
+  starts crashed in the warm-up, 2026-10-21). A `/speak` socket opened meanwhile waits for them
   (up to 120 s) before its hello; if they failed to load it is closed with 4503.
 - At most 2000 characters per request; `STT_MAX_SPEAKERS` (4) open sockets,
   counted apart from `/listen`'s. Nothing about the text is logged but its length.
