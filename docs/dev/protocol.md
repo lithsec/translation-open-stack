@@ -72,6 +72,7 @@ most `STACK_MAX_SESSION_MIN` minutes (360).
 | `priority` | no | `1` = translate this language ahead of the others in the room |
 | `route` | no | `to` (the only value; no room) = translate whatever is spoken INTO `lang` and skip speech already in `lang`: one connection per direction of a two-way conversation |
 | `cands` | no | with `src=auto`, no room: the only languages the conversation uses, e.g. `en,es`. Detection chooses among these instead of every language the server knows. At most 8, each a language the server knows |
+| `context` | no | `1` = give the translator the previous pieces as context — see [Context from the previous pieces](#context-from-the-previous-pieces). Off by default; in a room, the primary connection's value counts |
 
 Parameters are checked before `hello`. An unknown `lang`, `src`, `route`,
 `cands` language or a malformed `room` gets one message,
@@ -89,7 +90,9 @@ The server replies immediately:
 `rate` is authoritative — use it rather than assuming 24000. `edition` is the
 voice set this connection is served in (`EDITION=both` picks it from the
 token's `ed` claim; a client that must not hear non-commercial voices can check
-it says `commercial`).
+it says `commercial`). A connection that asked for `context=1` also gets
+`"context": true`; without it the field is absent, so an older client sees
+the hello it always saw.
 
 ## Send
 
@@ -161,6 +164,55 @@ A connection whose `lang` equals the detected source gets the **microphone
 audio itself**, not a synthesised re-reading of the speaker's own words — no MT
 and no TTS in the path. Only when language identification is confident;
 otherwise it falls back to translating.
+
+## Context from the previous pieces
+
+Each utterance (or, in simultaneous mode, each clause) is translated on its
+own. When the pieces are short, that loses what the piece before settled: a
+name, the subject of a sentence cut in two. Measured on five minutes of
+continuous news speech ([eval/2026-10-continuous-ht](../../eval/2026-10-continuous-ht/README.md)):
+cutting at breaths halved the delay but took a 0-3 translation grade from 2.52
+to 2.15-2.21, and sending the previous two pieces and the last translation as
+context only brought it back to 2.52-2.67. That measurement used a cloud LLM
+as the translator. `context=1` asks the stack to do the same with its own
+translators:
+
+- **What is kept** (`server/translation_context.py`): the last 2 source pieces
+  as heard, and the newest translation into each listening language. At most
+  600 characters of source over the pieces and 300 per translation (the end
+  of a longer text is kept), so a prompt never grows past that.
+- **When it is forgotten**: when the source language changes (the `src` you
+  connected with, or the `route` the server detects per utterance), and
+  after 30 s without a translated piece. A room keeps one memory for all its
+  members, set by the primary connection's `context` value, like `stream`.
+- **Which translators use it**: only one that can read text without
+  translating it. **Hy-MT2** (the default for its 36 languages) is a prompted
+  language model, and the context goes into its prompt, marked as context
+  only, before the piece to translate (`server/engines/hymt.py`). **MADLAD**
+  takes one tagged sentence and nothing else, so the languages it serves
+  (Haitian Creole among them, the language of the measurement above) and
+  every target that falls back to it translate each piece alone, whatever
+  this option says. When a source Hy-MT2 does not read is pivoted through
+  English, the context is not sent either: the earlier pieces are in a
+  language it does not know.
+- **What it does to the output** is only the translation of the current
+  piece, as before. With the option off, nothing changes anywhere: the
+  translation calls are the ones the stack always made
+  (`tests/test_translation_context.py`).
+
+**Unmeasured.** Whether context helps Hy-MT2 as it helped the cloud LLM is
+not known: Hy-MT2 was not tuned for it, and the stack cannot run it without a
+GPU. Before relying on it, grade the two prompts side by side the way
+[eval/2026-10-translator-shootout](../../eval/2026-10-translator-shootout/README.md)
+grades translators (`shootout.py translate` then `grade`, with `mt_pod.py`
+started once with the plain prompt and once with `engines.hymt.prompt(lang,
+text, context)` fed the previous sentences), or run the continuous clip of
+`eval/2026-10-continuous-ht` through a stack started with Hy-MT2 for a
+language it supports, with and without `context=1`, and grade both outputs
+with that folder's rubric.
+
+There is no text-only input: the server takes audio, and JSON sent upstream
+is ignored, so the option applies to what is heard.
 
 ## A minimal client
 

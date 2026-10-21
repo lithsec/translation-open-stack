@@ -21,6 +21,7 @@ translation for every listening language, and a voice per language. Since
 | File | What it holds |
 |---|---|
 | `server/server.py` | The pipeline and the protocol: WebSocket handling, auth and limits (with `stack_auth.py`), Silero VAD and endpointing, forced cuts, VoxLingua107 language ID, rooms (shared VAD/ASR/MT, priority decode, passthrough, primary promotion), simultaneous mode (LocalAgreement, trimming), solo connections (`route=to`, `cands`), warm-up, `/health`, flags. `Pipeline` owns the VAD and language ID, and an `EngineSet` for everything else. |
+| `server/translation_context.py` | `TranslationMemory`: the previous pieces and translations a `?context=1` connection or room gives its translator, bounded, forgotten on a language change or after 30 s idle. |
 | `server/stack_config.py` | Reads and validates `languages.toml` (language tables and `[models]`) against the registered engines; `check`, `engines`, `get`, `piper` for scripts. |
 | `server/engines/__init__.py` | The registry: `@register`, discovery of `engines/*.py` and `STACK_ENGINES_PATH`. |
 | `server/engines/base.py` | The interfaces (`Recognizer`, `Translator`, `Voice`), `Context`, `AudioStream`, the audio rates. |
@@ -28,7 +29,7 @@ translation for every listening language, and a voice per language. Since
 | `server/engines/common.py` | Shared helpers: `to_pcm16` (resample, pad, ramp), `peak_normalise`, sentence splitting and joining, the non-speech filter (`is_nonspeech`, `content_units`, `SHORT_NOISE_*`), `hf_snapshot`. |
 | `server/engines/whisper.py` | faster-whisper, English and multilingual slots, the segment gates, word timings for sentence cuts. |
 | `server/engines/omnilingual.py` | Omnilingual ASR (`asr = "omni:<code>"`). |
-| `server/engines/hymt.py` | Hy-MT2 7B 4-bit (`HYMT_NAMES`, the prompt, its lock). |
+| `server/engines/hymt.py` | Hy-MT2 7B 4-bit (`HYMT_NAMES`, the prompt with and without context, its lock). |
 | `server/engines/madlad.py` | MADLAD-400 through CTranslate2 or transformers: the fallback translator and the English pivot (`MT_BEAM`). |
 | `server/engines/kokoro.py`, `voxcpm.py`, `coqui.py`, `piper.py`, `mms.py`, `cosyvoice.py` | The voices. `voxcpm.py` is an HTTP client of `server/voxcpm_service.py`, which runs the model in its own virtualenv. |
 | `server/engines/echo.py` | A test translator (source text back). |
@@ -47,7 +48,12 @@ translation for every listening language, and a voice per language. Since
    `transcribe`.
 5. `Pipeline.translate_batch` → `EngineSet.translate_batch`: targets grouped by
    translator, one batch each, MADLAD for the pivot and the gaps. A room's
-   `priority` language gets its own call first.
+   `priority` language gets its own call first. With `?context=1`, the
+   connection's or room's `TranslationMemory` (`server/translation_context.py`)
+   hands the previous two pieces and the last translation to a translator that
+   declares `takes_context` (Hy-MT2 puts them in its prompt as context only;
+   MADLAD cannot take them), and records the piece afterwards. It forgets on a
+   source-language change and after 30 s idle; off, it changes nothing.
 6. `Pipeline.synthesise_futures` → `EngineSet.synthesise_futures`: one pool task
    per sentence through the language's voice chain (or one lazy stream per
    sentence for a streaming voice), sent in order as each is ready.

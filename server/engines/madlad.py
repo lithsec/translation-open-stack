@@ -11,6 +11,13 @@ Two decode paths, one prompt format (`<2xx> text`):
   otherwise      the transformers T5 model named by --mt-model, in bfloat16 on
                  the GPU (t5-small in the CPU tests: a plumbing stand-in that
                  ignores the language tags and emits junk on purpose).
+
+No context (?context=1, server/translation_context.py): MADLAD's whole input
+is that one tagged sentence, and there is no place in it for text that must be
+read but not translated (given two sentences it translates both, or drops one;
+see translate() below). takes_context stays False, so the pipeline never hands
+it any, and the languages MADLAD serves (Haitian Creole among them) translate
+each piece alone whatever the client asked.
 """
 import os
 
@@ -35,6 +42,7 @@ class Madlad(Translator):
     title = "MADLAD-400"
     lang_key = str            # madlad = "<tag>": MADLAD's target tag, when it differs
     licence = "Apache-2.0"
+    takes_context = False     # one tagged sentence in, nothing else: see the module docstring
 
     @classmethod
     def enabled(cls, ctx):

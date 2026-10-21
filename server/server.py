@@ -101,6 +101,7 @@ from engines.common import (  # noqa: F401
 from engines.hymt import HYMT_NAMES  # noqa: F401  (tests/test_stack_config.py)
 from engines.madlad import MT_BEAM  # noqa: F401
 from engines.piper import TTS_THREADS  # noqa: F401
+from translation_context import TranslationMemory
 
 # Per-language model choices (voice chain, recogniser, translator): the defaults
 # in stack_config.py, overridden by languages.toml / $STACK_CONFIG. Nothing below
@@ -473,12 +474,14 @@ class Pipeline:
         (asr = ...; Whisper when it names none, or its engine is not running)."""
         return self.engines.transcribe(pcm16k, src, want_segments=want_segments)
 
-    def translate(self, text, lang, src=None):
-        return self.translate_batch(text, [lang], src)[0]
+    def translate(self, text, lang, src=None, context=None):
+        return self.translate_batch(text, [lang], src, context)[0]
 
-    def translate_batch(self, text, langs, src=None):
-        """Every target language at once, one batch per translator (engines/manager.py)."""
-        return self.engines.translate_batch(text, langs, src)
+    def translate_batch(self, text, langs, src=None, context=None):
+        """Every target language at once, one batch per translator (engines/manager.py).
+        `context`: TranslationMemory.before(src), the previous pieces for a
+        client that asked (?context=1); None, and nothing changes, otherwise."""
+        return self.engines.translate_batch(text, langs, src, context=context)
 
     def synthesise_futures(self, text, lang, edition=None):
         """This utterance's audio, one future per sentence, in order (engines/manager.py),
@@ -528,7 +531,7 @@ def common_prefix_words(a, b):
     return out
 
 
-async def handle_streaming(ws, pipe, src, lang, edition=None):
+async def handle_streaming(ws, pipe, src, lang, edition=None, memory=None):
     """Translate WHILE the speaker talks.
 
     Every second the whole current utterance is re-transcribed; words identical
@@ -552,6 +555,7 @@ async def handle_streaming(ws, pipe, src, lang, edition=None):
     vad = pipe.new_vad()
     meter = AudioMeter()
     loop = asyncio.get_running_loop()
+    memory = memory or TranslationMemory(False)   # the previous clauses, for ?context=1
     from audio_in import AudioIn, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn("streaming client")
 
@@ -570,7 +574,9 @@ async def handle_streaming(ws, pipe, src, lang, edition=None):
             return
         segment = " ".join(pending[:clause_end])
         translated_n += clause_end
-        translated = await loop.run_in_executor(None, pipe.translate, segment, lang, src)
+        context = memory.before(src)
+        translated = await loop.run_in_executor(None, pipe.translate, segment, lang, src, context)
+        memory.after(src, segment, {lang: translated})
         await ws.send(json.dumps({"type": "transcript", "delta": translated + " "}))
         await speak_to(ws, pipe, translated, lang, edition)
 
@@ -677,6 +683,10 @@ class Room:
         # Connections that said ?priority=1 — the room's PA feed. Their
         # languages are translated in their own decode, ahead of the batch.
         self.priority_ws = set()
+        # The previous pieces for the translator (?context=1 on the primary, a
+        # room-wide setting like `stream`; translation_context.py). Off here;
+        # the primary replaces it when it joins.
+        self.context = TranslationMemory(False)
 
     @property
     def priority(self):
@@ -943,12 +953,15 @@ async def room_utterance(pipe, room, utterance, src):
     # actually experiences.
     prio = room.priority
     order = sorted(range(len(members)), key=lambda i: members[i][0] not in prio)
+    # The previous pieces, for a room that asked (?context=1): the same context
+    # for both decodes of this piece, remembered once they are both done.
+    context = room.context.before(this_src)
     if prio and any(members[i][0] in prio for i in order):
         first = [i for i in order if members[i][0] in prio]
         rest = [i for i in order if members[i][0] not in prio]
         translations = [None] * len(members)
         got = await loop.run_in_executor(
-            None, pipe.translate_batch, text, [members[i][0] for i in first], this_src)
+            None, pipe.translate_batch, text, [members[i][0] for i in first], this_src, context)
         for i, tr in zip(first, got):
             translations[i] = tr
         stage["mt1"] = time.perf_counter() - t0
@@ -957,12 +970,13 @@ async def room_utterance(pipe, room, utterance, src):
         speaking = [asyncio.create_task(stream_to(*members[i], translations[i])) for i in first]
         if rest:
             got = await loop.run_in_executor(
-                None, pipe.translate_batch, text, [members[i][0] for i in rest], this_src)
+                None, pipe.translate_batch, text, [members[i][0] for i in rest], this_src, context)
             for i, tr in zip(rest, got):
                 translations[i] = tr
             for i in rest:
                 await send_json(members[i][1], {"type": "transcript", "delta": translations[i]})
         stage["mt"] = time.perf_counter() - t0
+        room.context.after(this_src, text, {members[i][0]: translations[i] for i in range(len(members))})
         await asyncio.gather(*speaking,
                              *[stream_to(*members[i], translations[i]) for i in rest])
         stage["done"] = time.perf_counter() - t0
@@ -970,7 +984,8 @@ async def room_utterance(pipe, room, utterance, src):
               + " ".join(f"{k} {v:.2f}s" for k, v in stage.items()), flush=True)
         return
     langs = [lg for lg, _ in members]
-    translations = await loop.run_in_executor(None, pipe.translate_batch, text, langs, this_src)
+    translations = await loop.run_in_executor(None, pipe.translate_batch, text, langs, this_src, context)
+    room.context.after(this_src, text, dict(zip(langs, translations)))
     stage["mt"] = time.perf_counter() - t0
     for (lg, w), tr in zip(members, translations):
         await send_json(w, {"type": "transcript", "delta": tr})
@@ -1079,7 +1094,9 @@ async def room_flush(pipe, room, words, final):
     if not members:
         return
     langs = [lg for lg, _ in members]
-    translations = await loop.run_in_executor(None, pipe.translate_batch, segment, langs, room.turn_src)
+    context = room.context.before(room.turn_src)    # the previous clauses, for ?context=1
+    translations = await loop.run_in_executor(None, pipe.translate_batch, segment, langs, room.turn_src, context)
+    room.context.after(room.turn_src, segment, dict(zip(langs, translations)))
 
     async def speak(lg, w, tr):
         out = Fanout(w)      # everyone listening to lg
@@ -1245,7 +1262,7 @@ async def forced_cut(pipe, buf, src, fallback_src="en", only=None):
     return (found[0], found[1]) if found else (quietest_cut(buf), "quietest")
 
 
-async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False):
+async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, context=False):
     """One connection in the room `key`: (token subject, ?room= id, edition). The
     edition is part of the key, so a room's voices are always its members' edition."""
     import numpy as np
@@ -1265,6 +1282,7 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False):
     if is_primary:
         room.primary = ws
         room.stream = stream
+        room.context = TranslationMemory(context)
         room.queue = asyncio.Queue()
         room.worker = asyncio.create_task(room_worker(pipe, room, src))
         if os.environ.get("LITHOS_ROOM_HEARTBEAT") == "1":
@@ -1456,7 +1474,7 @@ def parse_request(q, pipe):
 
     flag = lambda name: arg(name, "0") not in ("0", "", "false")  # noqa: E731
     return {"lang": lang, "src": src, "route_to": route == "to", "cands": cands, "room": room,
-            "stream": flag("stream"), "priority": flag("priority")}
+            "stream": flag("stream"), "priority": flag("priority"), "context": flag("context")}
 
 
 async def handle(ws, pipe, sub="open", edition=None):
@@ -1488,15 +1506,22 @@ async def handle(ws, pipe, sub="open", edition=None):
         await ws.send(json.dumps({"type": "error", "detail": "server not started with --xeng"}))
         await ws.close()
         return
-    await ws.send(json.dumps({"type": "hello", "lang": lang, "src": src, "rate": RATE,
-                              "mode": "streaming" if getattr(pipe, "streaming", False) else "utterance",
-                              "edition": edition or pipe.default_edition}))
-    print(f"[stack] client: {src} -> {lang}")
+    hello = {"type": "hello", "lang": lang, "src": src, "rate": RATE,
+             "mode": "streaming" if getattr(pipe, "streaming", False) else "utterance",
+             "edition": edition or pipe.default_edition}
+    # ?context=1: the previous pieces go to the translator as context
+    # (translation_context.py). Echoed only when asked, so the hello a client
+    # without it sees is the one it always saw.
+    if req["context"]:
+        hello["context"] = True
+    await ws.send(json.dumps(hello))
+    print(f"[stack] client: {src} -> {lang}" + (" (context)" if req["context"] else ""))
 
     if req["room"]:
         # Shared-pipeline mode (see Room). src is fixed per room. The room is
         # this subject's: another token's ?room=main is a different room.
-        await handle_room(ws, pipe, (sub, req["room"], edition), lang, src, req["stream"], req["priority"])
+        await handle_room(ws, pipe, (sub, req["room"], edition), lang, src, req["stream"], req["priority"],
+                          req["context"])
         return
 
     if getattr(pipe, "streaming", False):
@@ -1507,7 +1532,7 @@ async def handle(ws, pipe, sub="open", edition=None):
             await ws.send(json.dumps({"type": "error", "detail": "--streaming needs a fixed ?src"}))
             await ws.close()
             return
-        await handle_streaming(ws, pipe, src, lang, edition)
+        await handle_streaming(ws, pipe, src, lang, edition, TranslationMemory(req["context"]))
         return
 
     # route=to (Lithos Talk): translate whatever is spoken INTO `lang`, and skip
@@ -1518,6 +1543,9 @@ async def handle(ws, pipe, sub="open", edition=None):
     # ?cands=en,es: the only languages this conversation uses (Lithos Talk). Auto
     # detection chooses among these instead of every --srcs language.
     cands = req["cands"]
+    # The previous pieces for the translator, if asked for (?context=1). One
+    # memory per connection: it forgets on a route change and after 30 s idle.
+    memory = TranslationMemory(req["context"])
     buf = np.zeros(0, dtype=np.float32)
     quiet_ms = 0.0
     speech_seen = False
@@ -1581,7 +1609,9 @@ async def handle(ws, pipe, sub="open", edition=None):
             if not text:
                 continue
             await ws.send(json.dumps({"type": "inputTranscript", "text": text}))
-            translated = await loop.run_in_executor(None, pipe.translate, text, this_lang, this_src)
+            context = memory.before(this_src)
+            translated = await loop.run_in_executor(None, pipe.translate, text, this_lang, this_src, context)
+            memory.after(this_src, text, {this_lang: translated})
             await ws.send(json.dumps({"type": "transcript", "delta": translated}))
             print(f"[stack] solo {this_src}->{this_lang}: {len(text)} chars heard, {len(translated)} out", flush=True)
             await speak_to(ws, pipe, translated, this_lang, edition)

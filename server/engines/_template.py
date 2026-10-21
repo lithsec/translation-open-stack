@@ -57,6 +57,11 @@ class MadladWhole(Translator):
         """MADLAD reads any language, so no English pivot is needed."""
         return True
 
+    # takes_context = True would add `context=None` to translate() below: the
+    # previous pieces and their translations, when a client asks for them
+    # (?context=1; engines/base.py Translator.translate says what it holds,
+    # engines/hymt.py puts it in a prompt). MADLAD has nowhere to put it.
+
     def translate(self, sentences, src, targets, text=None):
         """{lang: translation}. Called from a worker thread, possibly while
         another utterance is being translated: keep no per-call state on self,
