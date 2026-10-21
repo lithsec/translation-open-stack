@@ -1,0 +1,26 @@
+{
+ "ir": {
+  "rt60_T20_s": 1.5,
+  "rt60_T30_s": 1.54,
+  "drr_db": 0.0,
+  "length_s": 2.6
+ },
+ "clip_gain": {
+  "clean/en": 1.0,
+  "hall-reverb/en": 0.923,
+  "noise-10dB/en": 1.0,
+  "room-mic/en": 0.904,
+  "clean/es": 1.0,
+  "hall-reverb/es": 0.642,
+  "noise-10dB/es": 1.0,
+  "room-mic/es": 0.633,
+  "clean/ht": 1.0,
+  "hall-reverb/ht": 0.695,
+  "noise-10dB/ht": 1.0,
+  "room-mic/ht": 0.701,
+  "clean/km": 0.98,
+  "hall-reverb/km": 0.338,
+  "noise-10dB/km": 0.934,
+  "room-mic/km": 0.332
+ }
+}
