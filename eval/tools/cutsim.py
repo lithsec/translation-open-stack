@@ -21,9 +21,10 @@ old, i.e. cut_window_s = max_s - short_pause_after_s). --settings is a JSON
 list of {"name": ..., "params": {...}}; --set is "name=key:value,key:value".
 Without either, the settings of eval/2026-10-continuous-ht run.
 
-The module constants the Segmenter reads (CONSTANTS below) are taken from
-server.py's own assignments, so they track its defaults; the names must track
-server.py's settings when those change. Standard library and numpy.
+The module settings the Segmenter reads are discovered from server.py's
+endpointing section and evaluated from server.py's own assignments
+(constants_of below), so a setting added there is picked up here without a
+change. Standard library and numpy.
 """
 import argparse
 import json
@@ -38,10 +39,20 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 SERVER = os.path.join(ROOT, "services", "omni-stt", "server.py")
 RATE, BLOCK, WINDOW = 16000, 1536, 512
 
-# Module-level settings server.py's endpointing code reads. Keep in step with
-# services/omni-stt/server.py; a name missing from it is reported.
-CONSTANTS = ("VAD_RATE", "VAD_LAG_MS", "TRAILING_KEEP_MS", "SHORT_TURN_ENDPOINT_MS", "ENDPOINT_MS",
-             "MAX_UTTERANCE_S", "MIN_SPEECH_MS", "CUT_WINDOW_S", "CUT_DIP_PROB", "CUT_DIP_MS", "CUT_ENDPOINT_MS")
+# The endpointing section of server.py (quietest_cut .. vad_windows) reads
+# module-level settings such as ENDPOINT_MS. They are discovered from the
+# section itself (every UPPER_CASE name it uses) and evaluated from server.py's
+# own assignment of each, so a setting added there is picked up without a
+# change here. Only these assignment forms are evaluated:
+#   NAME = int(os.environ.get("NAME", "300"))      NAME = float(os.environ.get(...))
+#   NAME = 700                                     NAME = 256 * 1024
+# A name with no such assignment falls back to FALLBACK (the values at the
+# time of writing) and is reported; one not even there stops the run.
+SECTION_START, SECTION_END = "def quietest_cut", "def vad_windows"
+ASSIGNMENT = re.compile(r"^([A-Z][A-Z0-9_]*) = (.+?)\s*(#.*)?$", re.M)
+SAFE_VALUE = re.compile(r'^(int|float)\(os\.environ\.get\("[A-Z0-9_]+", "[0-9.]+"\)\)$'
+                        r"|^[0-9][0-9.]*( [*+] [0-9][0-9.]*)*$")
+NAME_IN_CODE = re.compile(r"(?<![\w.])([A-Z][A-Z0-9_]{2,})(?![\w(])")
 FALLBACK = dict(VAD_RATE=16000, VAD_LAG_MS=64, TRAILING_KEEP_MS=250, SHORT_TURN_ENDPOINT_MS=700, ENDPOINT_MS=300,
                 MAX_UTTERANCE_S=6.0, MIN_SPEECH_MS=400, CUT_WINDOW_S=3.5, CUT_DIP_PROB=0.5, CUT_DIP_MS=96,
                 CUT_ENDPOINT_MS=200)
@@ -62,24 +73,46 @@ DEFAULT_SETTINGS = [
 ]
 
 
-def load_segmenter(server_path):
-    """The Segmenter class, exec'd from server.py's endpointing section with
-    the constants read from the same file."""
-    src = open(server_path, encoding="utf-8").read()
-    code = src[src.index("def quietest_cut"):src.index("def vad_windows")]
-    g = {"os": os}
-    missing = []
-    for name in CONSTANTS:
-        m = re.search(rf"^{name} = (.+)$", src, re.M)
-        if m:
-            exec(f"{name} = {m.group(1)}", g)          # the same expression server.py evaluates
+def constants_of(src):
+    """The module-level settings the endpointing section of server.py's source
+    reads, evaluated from the file's own assignments: {name: value}, plus the
+    names that had to come from FALLBACK."""
+    section = src[src.index(SECTION_START):src.index(SECTION_END)]
+    section = re.sub(r"#.*", "", re.sub(r'"""[\s\S]*?"""', "", section))     # code only, not its comments
+    assigned = {}
+    for name, value, _ in ASSIGNMENT.findall(src[:src.index(SECTION_START)]):
+        if SAFE_VALUE.match(value):
+            assigned.setdefault(name, value)
+    names = sorted(set(NAME_IN_CODE.findall(section)) & (set(assigned) | set(FALLBACK)))
+    g, missing = {"os": os}, []
+    for name in names:
+        if name in assigned:
+            exec(f"{name} = {assigned[name]}", g)       # the same expression server.py evaluates
         else:
             missing.append(name)
             g[name] = FALLBACK[name]
+    unknown = sorted(n for n in set(NAME_IN_CODE.findall(section)) - set(names)
+                     if re.search(rf"^{n} = ", src[:src.index(SECTION_START)], re.M))
+    if unknown:
+        raise SystemExit(f"cutsim: cannot evaluate {', '.join(unknown)} from server.py "
+                         "(an assignment form constants_of does not accept)")
+    return {k: g[k] for k in names}, missing
+
+
+def segmenter_from_source(src, label="server.py"):
+    """The Segmenter class, exec'd from server.py's endpointing section with
+    the constants read from the same source."""
+    consts, missing = constants_of(src)
     if missing:
-        print(f"cutsim: {', '.join(missing)} not found in {server_path}; using built-in defaults", file=sys.stderr)
-    exec(code, g)
-    return g["Segmenter"], {k: g[k] for k in CONSTANTS}
+        print(f"cutsim: {', '.join(missing)} not assigned in {label}; using built-in defaults", file=sys.stderr)
+    g = {"os": os}
+    g.update(consts)
+    exec(src[src.index(SECTION_START):src.index(SECTION_END)], g)
+    return g["Segmenter"], consts
+
+
+def load_segmenter(server_path):
+    return segmenter_from_source(open(server_path, encoding="utf-8").read(), server_path)
 
 
 def gap_at(p, sample, thr=0.5):

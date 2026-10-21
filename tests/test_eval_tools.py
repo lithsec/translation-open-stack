@@ -228,6 +228,50 @@ def test_speech_bounds():
 
 # ---------------------------------------------------------------- cutsim.py
 
+SYNTHETIC_SERVER = '''
+import os
+VAD_RATE = 16000
+ENDPOINT_MS = int(os.environ.get("ENDPOINT_MS", "250"))
+EXTRA_S = float(os.environ.get("EXTRA_S", "4.0"))      # a setting cutsim.py has never heard of
+PLAIN = 256 * 1024
+RATES = (16000, 24000)
+LATER = 5
+
+
+def quietest_cut(buf):
+    """RATES and VAD_RATE in a docstring do not count."""
+    return len(buf)
+
+
+class Segmenter:
+    def __init__(self, endpoint_ms=None):
+        self.endpoint_ms = ENDPOINT_MS if endpoint_ms is None else endpoint_ms
+        self.extra = EXTRA_S + PLAIN      # RATES in a comment does not count either
+
+
+def vad_windows():
+    return LATER
+'''
+
+
+def test_cutsim_discovers_constants():
+    Segmenter, consts = cutsim.segmenter_from_source(SYNTHETIC_SERVER, "synthetic")
+    assert consts == {"ENDPOINT_MS": 250, "EXTRA_S": 4.0, "PLAIN": 262144}, consts
+    assert Segmenter().endpoint_ms == 250 and Segmenter(100).extra == 4.0 + 262144
+    # A setting the section uses but server.py assigns in a form that is not evaluated: refused, not guessed.
+    bad = SYNTHETIC_SERVER.replace("self.extra = EXTRA_S + PLAIN", "self.extra = EXTRA_S + RATES[0]")
+    try:
+        cutsim.segmenter_from_source(bad, "bad")
+    except SystemExit as e:
+        assert "RATES" in str(e)
+    else:
+        raise AssertionError("RATES was not refused")
+    # The real server.py: every setting the segmenter reads is found there, none from the fallback.
+    consts, missing = cutsim.constants_of(open(cutsim.SERVER, encoding="utf-8").read())
+    assert not missing, missing
+    assert {"ENDPOINT_MS", "MAX_UTTERANCE_S", "MIN_SPEECH_MS", "CUT_WINDOW_S", "VAD_LAG_MS"} <= set(consts)
+
+
 def test_cutsim_runs_omni_stt_segmenter():
     Segmenter, consts = cutsim.load_segmenter(cutsim.SERVER)
     assert consts["VAD_RATE"] == 16000 and consts["CUT_DIP_MS"] == 96

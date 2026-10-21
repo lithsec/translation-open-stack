@@ -223,9 +223,12 @@ only numpy.
 pieces, their lengths, cuts at the cap, cuts with no VAD gap at them, and,
 with `--ref-ends`, cuts within a second of a reference sentence end. It shows
 only where the pieces would be cut: no recognition, network or GPU. The
-module constants the segmenter reads are taken from `server.py`'s own
-assignments (`CONSTANTS` in `cutsim.py`); that list must track `server.py`'s
-settings when they change, and a missing name is reported.
+module settings the segmenter reads (`ENDPOINT_MS` and the rest) are
+discovered from that section of `server.py` and evaluated from the file's
+own assignments (`NAME = int(os.environ.get(...))`, `float(...)`, or a plain
+number), so they track `server.py` as it changes; a setting assigned in any
+other form stops the run rather than being guessed, and one with no
+assignment falls back to the value in `cutsim.py` and is reported.
 
 `dips.py` is the cutter-without-a-VAD view: energy drops under the running
 loud level, how many per minute, and whether given times (an event log's
