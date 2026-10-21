@@ -230,10 +230,51 @@ gets no context may prefer `ENDPOINT_MS=300` or more, with `CUT_EARLY_S` to keep
 the cap from doing the cutting.
 
 `deploy.sh deploy` passes all three through when they are set in its environment,
-and the five `CUT_*` settings when set (unset: the defaults above).
+and the five `CUT_*` settings and the four `STT_DENOISE*` settings when set
+(unset: the defaults above and below).
 Other settings: `STT_MAX_CONNECTIONS`, `STT_MAX_PENDING`, `STT_DEVICE`, `OMNI_CARD`,
 `STT_MODELS`, `PORT`, `EDITION`, `HT_VOICE`, `STT_VOICES`, `STT_MAX_SPEAKERS`, `STT_SERVE`
 (see the top of `server.py`).
+
+### Noisy input
+
+Off by default. `STT_DENOISE=1` puts a spectral noise reducer (`denoise.py`,
+numpy only) in front of the VAD on each connection, with its own state:
+
+- `STT_DENOISE_NR_DB` (default 12): the most any band is attenuated, in dB
+  (ffmpeg `afftdn`'s `nr`). The residual it leaves keeps speech from sounding
+  hollowed out and the gaps from warbling.
+- `STT_DENOISE_TRACK_S` (default 1.5): the noise floor of a band is the
+  quietest it has been in this long (minimum statistics). A drop in the noise
+  is followed at once, a rise after this long; a tone held longer than this
+  starts to count as noise, as it would for any tracking reducer.
+- `STT_DENOISE_OVERSUB` (default 3.0): over-subtraction, how far above its
+  floor a band must be to count as speech. The tracked minimum sits below the
+  noise's mean power, and this makes up for it.
+
+The method: 512-point STFT at 16 kHz, 256-sample hop, Hann window (its root at
+analysis and at synthesis), a Wiener gain from a decision-directed a priori SNR
+against the tracked floor, never below `-NR_DB`, overlap-add. It adds 16 ms of
+latency (the overlap), no model, no dependency, and about 0.2 ms of CPU per
+96 ms block (a laptop core; real-time factor 0.002). The
+VAD hears the denoised audio, because the measured gain came from the
+segmenter getting its pauses back; the cost is that a soft onset the reducer
+attenuates is one the VAD may miss too.
+
+When to use it: a distant or noisy microphone. In the audio-degradation test
+(`eval/2026-10-real-voices/README.md`, "Cleanup on the room mic";
+`docs/dev/route-findings-2026-10.md`, section 9) ffmpeg's `afftdn` (nr 12 dB)
+in front of Omnilingual brought a room mic (reverb plus noise at 10 dB SNR)
+from +54 to +39 character-error points over clean, mostly by stopping whole
+sentences from vanishing (English: 25 of 30 dropped, 9 with the filter). The
+same filter made Azure a little worse (+44 to +45) and RNNoise made Azure worse
+still (+54), which is why this is a plain spectral method and not a learned
+one, and why it is off unless asked for. That measurement was ffmpeg's filter on
+files; this implementation is an equivalent of it (on speech plus white noise at
+5 dB SNR both gain about 7 dB, `tests/test_omni_stt_denoise.py`), and its
+effect through the service has not been measured yet. On clean close-mic audio
+it can only cost a little (under 0.2 dB of level on the test clips, more on
+speech with no pauses), so leave it off there.
 
 VoxLingua107 covers ht (Haitian), km (Central Khmer) and lo (Lao), checked
 against the model's `label_encoder.txt` (107 labels; ht = 37, km = 49, lo = 55).

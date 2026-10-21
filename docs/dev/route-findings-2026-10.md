@@ -290,7 +290,11 @@ points, Azure / Omnilingual (`eval/2026-10-real-voices/README.md`,
 
 Azure English silently dropped 23 of 30 sentences in noise. Compression is
 harmless; distance and noise are not. **Feed recognition from the sound
-board or a close mic.** Bluetooth headsets should use wideband.
+board or a close mic.** Bluetooth headsets should use wideband. Where a
+room mic is all there is, omni-stt has an equivalent of that `afftdn`
+denoiser built in, off by default: `STT_DENOISE=1`
+(`services/omni-stt/README.md`, "Noisy input"); its effect through the
+service is not yet measured.
 
 ## 10. Omnilingual model sizes (2026-10-19)
 
