@@ -269,7 +269,7 @@ stock `omniASR_LLM_7B` (no fine-tuned weights) converted to bf16 (`7b/to_bf16.py
 only the URL; `?langs=lo` (or `km`) skips language ID.
 
 ```
-REPO_REGION=us-east4 EXTRA_REPO_REGIONS=us-central1 MODEL_BUCKET=gs://<private bucket> ./deploy.sh 7b-build
+REPO_REGION=us-east4 EXTRA_REPO_REGIONS=us-central1 MODEL_BUCKET=<your private bucket URL> ./deploy.sh 7b-build
 TAG=<tag> REPO_REGION=us-east4 STORAGE=baked MAX_STREAMS_7B=6 ENDPOINT_MS=700 MAX_UTTERANCE_S=15 ./deploy.sh 7b-deploy
 ```
 

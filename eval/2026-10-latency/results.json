@@ -1,0 +1,1160 @@
+{
+ "date": "2026-10-20",
+ "location": "US Northeast (Massachusetts), wired connection, from a Mac",
+ "metric_notes": {
+  "timeline": "ms on the source clip's speech timeline; 100 ms chunks of 16 kHz PCM sent in real time, each when it ends (as a mic delivers it)",
+  "speech_end": "end of the sentence's speech found from the audio (last 20 ms frame >= 20% of the sentence's p90 loudness)",
+  "stop_to_first_audio_ms": "speech end -> first VOICED sample of that sentence's translation, played on arrival (negative = it began speaking before the speaker finished)",
+  "stop_to_first_audio_played_ms": "the same through one sequential player, i.e. also waiting for earlier translation still playing",
+  "stop_to_tail_audio_ms": "pipelines only: speech end -> first voiced audio of the segment holding the sentence's last words (Azure ends segments on 150 ms pauses, so some sentences arrive in pieces)",
+  "stop_to_first_text_ms": "speech end -> first caption text for that sentence",
+  "stop_to_final_text_ms": "speech end -> last caption text for that sentence",
+  "start_to_first_audio_ms": "speech start -> first voiced translated audio of that sentence",
+  "stop_to_audio_end_ms": "speech end -> end of that sentence's translated speech, its own audio played through from its first sample (nothing earlier queued)",
+  "speaks_mid_sentence": "true when >= 25% of sentences' first translated audio arrives before the speaker finished the sentence (mid_sentence_share gives the share)",
+  "pooling": "p50/p90 over all sentences of all runs of the route x pair; sentences with no audio are left out of the audio percentiles (n_with_audio) and score 0 in quality",
+  "quality": "gemini-3.5-flash (temperature 0) grades each sentence 0-3 against source + reference; Gemini grading Gemini outputs may favour them; ht-en references are model-made (Gemini 2.5 Pro), en-ht has none"
+ },
+ "routes": [
+  {
+   "route": "azure-foundry",
+   "label": "Azure STT -> Foundry gpt-5.6-sol -> Azure voice",
+   "vendor_named": true,
+   "lang_pair": "en-es",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": 1452,
+    "p90": 3542
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 14002,
+    "p90": 19169
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 2334,
+    "p90": 3648
+   },
+   "stop_to_first_text_ms": {
+    "p50": 1245,
+    "p90": 3268
+   },
+   "stop_to_final_text_ms": {
+    "p50": 2154,
+    "p90": 3433
+   },
+   "start_to_first_audio_ms": {
+    "p50": 8055,
+    "p90": 11455
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 8851,
+    "p90": 13106
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 22404,
+    "p90": 26415
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 0.33,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.93,
+    "pct_of_max": 64,
+    "critical": 11,
+    "missing": 0
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt": "Foundry gpt-5.6-sol-us",
+    "voice": "Azure neural (locale default)"
+   }
+  },
+  {
+   "route": "azure-foundry",
+   "label": "Azure STT -> Foundry gpt-5.6-sol -> Azure voice",
+   "vendor_named": true,
+   "lang_pair": "en-ja",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": 1939,
+    "p90": 3496
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 25102,
+    "p90": 33888
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 2514,
+    "p90": 4192
+   },
+   "stop_to_first_text_ms": {
+    "p50": 1591,
+    "p90": 3192
+   },
+   "stop_to_final_text_ms": {
+    "p50": 2266,
+    "p90": 3928
+   },
+   "start_to_first_audio_ms": {
+    "p50": 8734,
+    "p90": 10895
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 9782,
+    "p90": 14036
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 35540,
+    "p90": 43342
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 0.25,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 2.08,
+    "pct_of_max": 69,
+    "critical": 9,
+    "missing": 0
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt": "Foundry gpt-5.6-sol-us",
+    "voice": "Azure neural (locale default)"
+   }
+  },
+  {
+   "route": "azure-foundry",
+   "label": "Azure STT -> Foundry gpt-5.6-sol -> Azure voice",
+   "vendor_named": true,
+   "lang_pair": "es-en",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": -1583,
+    "p90": 2057
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -92,
+    "p90": 2057
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 2128,
+    "p90": 2975
+   },
+   "stop_to_first_text_ms": {
+    "p50": -1754,
+    "p90": 1772
+   },
+   "stop_to_final_text_ms": {
+    "p50": 1878,
+    "p90": 2734
+   },
+   "start_to_first_audio_ms": {
+    "p50": 6406,
+    "p90": 10267
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 7598,
+    "p90": 9582
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 8694,
+    "p90": 9882
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 0.7,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.82,
+    "pct_of_max": 61,
+    "critical": 17,
+    "missing": 0
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt": "Foundry gpt-5.6-sol-us",
+    "voice": "Azure neural (locale default)"
+   }
+  },
+  {
+   "route": "azure-foundry",
+   "label": "Azure STT -> Foundry gpt-5.6-sol -> Azure voice",
+   "vendor_named": true,
+   "lang_pair": "km-en",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": -2102,
+    "p90": 3560
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -1444,
+    "p90": 3560
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 4417,
+    "p90": 7250
+   },
+   "stop_to_first_text_ms": {
+    "p50": -2738,
+    "p90": 3358
+   },
+   "stop_to_final_text_ms": {
+    "p50": 4178,
+    "p90": 6906
+   },
+   "start_to_first_audio_ms": {
+    "p50": 8872,
+    "p90": 12743
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 9220,
+    "p90": 12087
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 9578,
+    "p90": 12267
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 0.65,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.35,
+    "pct_of_max": 45,
+    "critical": 22,
+    "missing": 0
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt": "Foundry gpt-5.6-sol-us",
+    "voice": "Azure neural (locale default)"
+   }
+  },
+  {
+   "route": "azure-gemini",
+   "label": "Azure STT -> Gemini Live (sentence at a time)",
+   "vendor_named": true,
+   "lang_pair": "en-es",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 39,
+   "stop_to_first_audio_ms": {
+    "p50": 2301,
+    "p90": 7387
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 5140,
+    "p90": 16783
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 5259,
+    "p90": 9152
+   },
+   "stop_to_first_text_ms": {
+    "p50": 2006,
+    "p90": 7387
+   },
+   "stop_to_final_text_ms": {
+    "p50": 6892,
+    "p90": 10264
+   },
+   "start_to_first_audio_ms": {
+    "p50": 9877,
+    "p90": 13271
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 11363,
+    "p90": 14841
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 13414,
+    "p90": 26113
+   },
+   "speaks_mid_sentence": false,
+   "mid_sentence_share": 0.23,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.7,
+    "pct_of_max": 57,
+    "critical": 9,
+    "missing": 1
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt_voice": "Gemini Live gemini-2.5-flash-native-audio-preview-09-2025",
+    "streaming": false
+   }
+  },
+  {
+   "route": "azure-gemini",
+   "label": "Azure STT -> Gemini Live (sentence at a time)",
+   "vendor_named": true,
+   "lang_pair": "en-ja",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 39,
+   "stop_to_first_audio_ms": {
+    "p50": 2929,
+    "p90": 6396
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 3673,
+    "p90": 6931
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 4747,
+    "p90": 8794
+   },
+   "stop_to_first_text_ms": {
+    "p50": 2276,
+    "p90": 6388
+   },
+   "stop_to_final_text_ms": {
+    "p50": 7094,
+    "p90": 9176
+   },
+   "start_to_first_audio_ms": {
+    "p50": 10269,
+    "p90": 12550
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 10202,
+    "p90": 12916
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 11275,
+    "p90": 13776
+   },
+   "speaks_mid_sentence": false,
+   "mid_sentence_share": 0.18,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.25,
+    "pct_of_max": 42,
+    "critical": 15,
+    "missing": 1
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt_voice": "Gemini Live gemini-2.5-flash-native-audio-preview-09-2025",
+    "streaming": false
+   }
+  },
+  {
+   "route": "azure-gemini",
+   "label": "Azure STT -> Gemini Live (sentence at a time)",
+   "vendor_named": true,
+   "lang_pair": "es-en",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": 720,
+    "p90": 3879
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 2292,
+    "p90": 4790
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 5183,
+    "p90": 8543
+   },
+   "stop_to_first_text_ms": {
+    "p50": 444,
+    "p90": 3481
+   },
+   "stop_to_final_text_ms": {
+    "p50": 6628,
+    "p90": 9201
+   },
+   "start_to_first_audio_ms": {
+    "p50": 9369,
+    "p90": 12256
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 10029,
+    "p90": 12883
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 11182,
+    "p90": 13645
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 0.4,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.8,
+    "pct_of_max": 60,
+    "critical": 17,
+    "missing": 0
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt_voice": "Gemini Live gemini-2.5-flash-native-audio-preview-09-2025",
+    "streaming": false
+   }
+  },
+  {
+   "route": "azure-gemini",
+   "label": "Azure STT -> Gemini Live (sentence at a time)",
+   "vendor_named": true,
+   "lang_pair": "km-en",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 39,
+   "stop_to_first_audio_ms": {
+    "p50": -2954,
+    "p90": 3385
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -1393,
+    "p90": 3385
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 4083,
+    "p90": 7880
+   },
+   "stop_to_first_text_ms": {
+    "p50": -2974,
+    "p90": 3009
+   },
+   "stop_to_final_text_ms": {
+    "p50": 4053,
+    "p90": 8375
+   },
+   "start_to_first_audio_ms": {
+    "p50": 8505,
+    "p90": 12175
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 8996,
+    "p90": 11458
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 9378,
+    "p90": 11628
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 0.64,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1,
+    "pct_of_max": 33,
+    "critical": 28,
+    "missing": 1
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt_voice": "Gemini Live gemini-2.5-flash-native-audio-preview-09-2025",
+    "streaming": false
+   }
+  },
+  {
+   "route": "azure-gemini-stream",
+   "label": "Azure STT -> Gemini Live (streaming words)",
+   "vendor_named": true,
+   "lang_pair": "en-es",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 30,
+   "stop_to_first_audio_ms": {
+    "p50": -3738,
+    "p90": 1160
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -856,
+    "p90": 1767
+   },
+   "stop_to_tail_audio_ms": null,
+   "stop_to_first_text_ms": {
+    "p50": -3788,
+    "p90": 1133
+   },
+   "stop_to_final_text_ms": {
+    "p50": 1879,
+    "p90": 2924
+   },
+   "start_to_first_audio_ms": {
+    "p50": 2698,
+    "p90": 8397
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 6131,
+    "p90": 9186
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 7233,
+    "p90": 9604
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 0.83,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.05,
+    "pct_of_max": 35,
+    "critical": 12,
+    "missing": 10
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt_voice": "Gemini Live gemini-3.8-live",
+    "streaming": true
+   }
+  },
+  {
+   "route": "azure-gemini-stream",
+   "label": "Azure STT -> Gemini Live (streaming words)",
+   "vendor_named": true,
+   "lang_pair": "en-ja",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": -2524,
+    "p90": 1994
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -246,
+    "p90": 2477
+   },
+   "stop_to_tail_audio_ms": null,
+   "stop_to_first_text_ms": {
+    "p50": -2920,
+    "p90": 1141
+   },
+   "stop_to_final_text_ms": {
+    "p50": 2150,
+    "p90": 3020
+   },
+   "start_to_first_audio_ms": {
+    "p50": 3736,
+    "p90": 8456
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 6126,
+    "p90": 8803
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 6718,
+    "p90": 9542
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 0.75,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.52,
+    "pct_of_max": 51,
+    "critical": 17,
+    "missing": 0
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt_voice": "Gemini Live gemini-3.8-live",
+    "streaming": true
+   }
+  },
+  {
+   "route": "azure-gemini-stream",
+   "label": "Azure STT -> Gemini Live (streaming words)",
+   "vendor_named": true,
+   "lang_pair": "es-en",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 23,
+   "stop_to_first_audio_ms": {
+    "p50": -5263,
+    "p90": -1024
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -2526,
+    "p90": 1604
+   },
+   "stop_to_tail_audio_ms": null,
+   "stop_to_first_text_ms": {
+    "p50": -5293,
+    "p90": -1048
+   },
+   "stop_to_final_text_ms": {
+    "p50": 2128,
+    "p90": 2659
+   },
+   "start_to_first_audio_ms": {
+    "p50": 3848,
+    "p90": 6917
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 6064,
+    "p90": 8524
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 7558,
+    "p90": 10220
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 0.91,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 0.8,
+    "pct_of_max": 27,
+    "critical": 7,
+    "missing": 17
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt_voice": "Gemini Live gemini-3.8-live",
+    "streaming": true
+   }
+  },
+  {
+   "route": "azure-gemini-stream",
+   "label": "Azure STT -> Gemini Live (streaming words)",
+   "vendor_named": true,
+   "lang_pair": "km-en",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": -7377,
+    "p90": -4146
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -6611,
+    "p90": -229
+   },
+   "stop_to_tail_audio_ms": null,
+   "stop_to_first_text_ms": {
+    "p50": -7404,
+    "p90": -4160
+   },
+   "stop_to_final_text_ms": {
+    "p50": 2187,
+    "p90": 2805
+   },
+   "start_to_first_audio_ms": {
+    "p50": 3207,
+    "p90": 5771
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 4824,
+    "p90": 7561
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 4985,
+    "p90": 8603
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 0.97,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.18,
+    "pct_of_max": 39,
+    "critical": 26,
+    "missing": 0
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt_voice": "Gemini Live gemini-3.8-live",
+    "streaming": true
+   }
+  },
+  {
+   "route": "gemini-lt",
+   "label": "Gemini Live Translate (speech to speech)",
+   "vendor_named": true,
+   "lang_pair": "en-es",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": -5042,
+    "p90": -2550
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -4724,
+    "p90": -2223
+   },
+   "stop_to_tail_audio_ms": null,
+   "stop_to_first_text_ms": {
+    "p50": -5106,
+    "p90": -3024
+   },
+   "stop_to_final_text_ms": {
+    "p50": 1634,
+    "p90": 2633
+   },
+   "start_to_first_audio_ms": {
+    "p50": 1879,
+    "p90": 3793
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 3192,
+    "p90": 3677
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 3476,
+    "p90": 3945
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 1.0,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.7,
+    "pct_of_max": 57,
+    "critical": 15,
+    "missing": 0
+   },
+   "models": {
+    "model": "gemini-3.5-live-translate-preview",
+    "voice": "Kore"
+   }
+  },
+  {
+   "route": "gemini-lt",
+   "label": "Gemini Live Translate (speech to speech)",
+   "vendor_named": true,
+   "lang_pair": "en-ht",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": -4414,
+    "p90": -2194
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -4093,
+    "p90": -1852
+   },
+   "stop_to_tail_audio_ms": null,
+   "stop_to_first_text_ms": {
+    "p50": -4729,
+    "p90": -2732
+   },
+   "stop_to_final_text_ms": {
+    "p50": 1714,
+    "p90": 2154
+   },
+   "start_to_first_audio_ms": {
+    "p50": 1876,
+    "p90": 3991
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 2942,
+    "p90": 3582
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 3257,
+    "p90": 3856
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 1.0,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.65,
+    "pct_of_max": 55,
+    "critical": 14,
+    "missing": 0
+   },
+   "models": {
+    "model": "gemini-3.5-live-translate-preview",
+    "voice": "Kore"
+   }
+  },
+  {
+   "route": "gemini-lt",
+   "label": "Gemini Live Translate (speech to speech)",
+   "vendor_named": true,
+   "lang_pair": "en-ja",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": -4600,
+    "p90": -2378
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -4296,
+    "p90": -2082
+   },
+   "stop_to_tail_audio_ms": null,
+   "stop_to_first_text_ms": {
+    "p50": -5018,
+    "p90": -2384
+   },
+   "stop_to_final_text_ms": {
+    "p50": 1828,
+    "p90": 2927
+   },
+   "start_to_first_audio_ms": {
+    "p50": 2258,
+    "p90": 3510
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 3124,
+    "p90": 4028
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 3435,
+    "p90": 4314
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 1.0,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.25,
+    "pct_of_max": 42,
+    "critical": 18,
+    "missing": 0
+   },
+   "models": {
+    "model": "gemini-3.5-live-translate-preview",
+    "voice": "Kore"
+   }
+  },
+  {
+   "route": "gemini-lt",
+   "label": "Gemini Live Translate (speech to speech)",
+   "vendor_named": true,
+   "lang_pair": "es-en",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": -6647,
+    "p90": -2900
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -6342,
+    "p90": -2581
+   },
+   "stop_to_tail_audio_ms": null,
+   "stop_to_first_text_ms": {
+    "p50": -6763,
+    "p90": -3908
+   },
+   "stop_to_final_text_ms": {
+    "p50": 1640,
+    "p90": 2044
+   },
+   "start_to_first_audio_ms": {
+    "p50": 1734,
+    "p90": 3388
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 3219,
+    "p90": 3768
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 3518,
+    "p90": 4047
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 1.0,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 2.1,
+    "pct_of_max": 70,
+    "critical": 6,
+    "missing": 0
+   },
+   "models": {
+    "model": "gemini-3.5-live-translate-preview",
+    "voice": "Kore"
+   }
+  },
+  {
+   "route": "gemini-lt",
+   "label": "Gemini Live Translate (speech to speech)",
+   "vendor_named": true,
+   "lang_pair": "ht-en",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": -6402,
+    "p90": -1763
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -5960,
+    "p90": -1441
+   },
+   "stop_to_tail_audio_ms": null,
+   "stop_to_first_text_ms": {
+    "p50": -7492,
+    "p90": -3184
+   },
+   "stop_to_final_text_ms": {
+    "p50": 1084,
+    "p90": 1943
+   },
+   "start_to_first_audio_ms": {
+    "p50": 3128,
+    "p90": 4217
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 2854,
+    "p90": 3519
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 3255,
+    "p90": 3824
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 0.9,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 0.93,
+    "pct_of_max": 31,
+    "critical": 19,
+    "missing": 0
+   },
+   "models": {
+    "model": "gemini-3.5-live-translate-preview",
+    "voice": "Kore"
+   }
+  },
+  {
+   "route": "gemini-lt",
+   "label": "Gemini Live Translate (speech to speech)",
+   "vendor_named": true,
+   "lang_pair": "km-en",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": -8472,
+    "p90": -3143
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -8140,
+    "p90": -2836
+   },
+   "stop_to_tail_audio_ms": null,
+   "stop_to_first_text_ms": {
+    "p50": -8944,
+    "p90": -4221
+   },
+   "stop_to_final_text_ms": {
+    "p50": 1466,
+    "p90": 1878
+   },
+   "start_to_first_audio_ms": {
+    "p50": 3520,
+    "p90": 5132
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 3334,
+    "p90": 3953
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 3627,
+    "p90": 4177
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 1.0,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 1.07,
+    "pct_of_max": 36,
+    "critical": 18,
+    "missing": 0
+   },
+   "models": {
+    "model": "gemini-3.5-live-translate-preview",
+    "voice": "Kore"
+   }
+  },
+  {
+   "route": "ht-exception",
+   "label": "omni-stt /listen (beside Azure) -> Foundry gpt-5.6-sol -> Azure voice",
+   "vendor_named": true,
+   "lang_pair": "ht-en",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": 4404,
+    "p90": 5817
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 4546,
+    "p90": 6218
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 4637,
+    "p90": 6967
+   },
+   "stop_to_first_text_ms": {
+    "p50": 4093,
+    "p90": 5443
+   },
+   "stop_to_final_text_ms": {
+    "p50": 4386,
+    "p90": 6826
+   },
+   "start_to_first_audio_ms": {
+    "p50": 12926,
+    "p90": 16508
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 9717,
+    "p90": 11952
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 9896,
+    "p90": 11952
+   },
+   "speaks_mid_sentence": false,
+   "mid_sentence_share": 0.12,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 2.2,
+    "pct_of_max": 73,
+    "critical": 11,
+    "missing": 0
+   },
+   "models": {
+    "stt": "omni-stt /listen (Omnilingual) beside Azure",
+    "mt": "Foundry gpt-5.6-sol-us",
+    "voice": "Azure neural (en-US default)"
+   }
+  },
+  {
+   "route": "ht-voice-coqui",
+   "label": "Azure STT -> Foundry gpt-5.6-sol -> omni-stt /speak Coqui (Haitian Creole)",
+   "vendor_named": true,
+   "lang_pair": "en-ht",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 40,
+   "stop_to_first_audio_ms": {
+    "p50": 2485,
+    "p90": 4217
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 31806,
+    "p90": 44251
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 3262,
+    "p90": 4855
+   },
+   "stop_to_first_text_ms": {
+    "p50": 2260,
+    "p90": 3956
+   },
+   "stop_to_final_text_ms": {
+    "p50": 3041,
+    "p90": 4667
+   },
+   "start_to_first_audio_ms": {
+    "p50": 9197,
+    "p90": 11952
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 13238,
+    "p90": 17105
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 43313,
+    "p90": 53845
+   },
+   "speaks_mid_sentence": false,
+   "mid_sentence_share": 0.17,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 2.05,
+    "pct_of_max": 68,
+    "critical": 12,
+    "missing": 0
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt": "Foundry gpt-5.6-sol-us",
+    "voice": "omni-stt /speak coqui"
+   }
+  },
+  {
+   "route": "ht-voice-gemini",
+   "label": "Azure STT -> Foundry gpt-5.6-sol -> Gemini voice (Haitian Creole)",
+   "vendor_named": true,
+   "lang_pair": "en-ht",
+   "runs": 2,
+   "n": 40,
+   "n_with_audio": 35,
+   "stop_to_first_audio_ms": {
+    "p50": 3809,
+    "p90": 6708
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 14284,
+    "p90": 24128
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 5057,
+    "p90": 6808
+   },
+   "stop_to_first_text_ms": {
+    "p50": 2208,
+    "p90": 4312
+   },
+   "stop_to_final_text_ms": {
+    "p50": 2892,
+    "p90": 4449
+   },
+   "start_to_first_audio_ms": {
+    "p50": 10824,
+    "p90": 14577
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 13943,
+    "p90": 17367
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 27095,
+    "p90": 34595
+   },
+   "speaks_mid_sentence": false,
+   "mid_sentence_share": 0.14,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 2,
+    "pct_of_max": 67,
+    "critical": 8,
+    "missing": 0
+   },
+   "models": {
+    "stt": "Azure Speech",
+    "mt": "Foundry gpt-5.6-sol-us",
+    "voice": "Gemini Live gemini-2.5-flash-native-audio-preview-09-2025 (read mode)"
+   }
+  }
+ ]
+}

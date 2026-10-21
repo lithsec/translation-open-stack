@@ -1,0 +1,154 @@
+{
+ "date": "2026-10-21",
+ "location": "unspecified",
+ "metric_notes": {
+  "timeline": "ms on the source clip's speech timeline; 100 ms chunks of 16 kHz PCM sent in real time, each when it ends (as a mic delivers it)",
+  "speech_end": "end of the sentence's speech found from the audio (last 20 ms frame >= 20% of the sentence's p90 loudness)",
+  "stop_to_first_audio_ms": "speech end -> first VOICED sample of that sentence's translation, played on arrival (negative = it began speaking before the speaker finished)",
+  "stop_to_first_audio_played_ms": "the same through one sequential player, i.e. also waiting for earlier translation still playing",
+  "stop_to_tail_audio_ms": "pipelines only: speech end -> first voiced audio of the segment holding the sentence's last words (Azure ends segments on 150 ms pauses, so some sentences arrive in pieces)",
+  "stop_to_first_text_ms": "speech end -> first caption text for that sentence",
+  "stop_to_final_text_ms": "speech end -> last caption text for that sentence",
+  "start_to_first_audio_ms": "speech start -> first voiced translated audio of that sentence",
+  "stop_to_audio_end_ms": "speech end -> end of that sentence's translated speech, its own audio played through from its first sample (nothing earlier queued)",
+  "speaks_mid_sentence": "true when >= 25% of sentences' first translated audio arrives before the speaker finished the sentence (mid_sentence_share gives the share)",
+  "pooling": "one run of each condition x route x pair, 15 sentences; sentences with no audio are left out of the audio percentiles (n_with_audio) and score 0 in quality",
+  "quality": "gemini-3.5-flash (temperature 0) grades each sentence 0-3 against source + reference; Gemini grading Gemini outputs may favour them; ht-en references are model-made (Gemini 2.5 Pro), every direction has a reference: FLoRes text of the target language (ht-en: the model-made English meanings)",
+  "split_share": "pipelines only: share of sentences that reached the listener as more than one segment",
+  "condition": "audio condition of the source clip, see README (clean, room-mic, noise-10dB, bt-narrowband, hall-reverb); speech bounds always from the clean clip",
+  "quality.partial": "judge (gemini-3.5-flash): output present but a meaningful part of the source (clause, name, number, qualifier) absent",
+  "quality.duplicates": "judge (gemini-3.5-flash): output says some content twice",
+  "sources": "omni-stt routes: delivered segments by the final they came from (Azure's vs omni-stt's), and sentences delivered from both",
+  "last_words": "stop_to_tail_audio_ms for pipelines; for gemini-lt (streaming) the README table uses stop_to_audio_end_ms instead (no segment boundary)"
+ },
+ "routes": [
+  {
+   "condition": "noise-10dB",
+   "route": "azure-foundry",
+   "label": "Azure STT -> Foundry gpt-5.6-sol -> Azure voice",
+   "vendor_named": true,
+   "lang_pair": "en-es",
+   "runs": 1,
+   "n": 15,
+   "n_with_audio": 1,
+   "stop_to_first_audio_ms": {
+    "p50": 2235,
+    "p90": 2235
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 2235,
+    "p90": 2235
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 2235,
+    "p90": 2235
+   },
+   "stop_to_first_text_ms": {
+    "p50": 1840,
+    "p90": 1840
+   },
+   "stop_to_final_text_ms": {
+    "p50": 1947,
+    "p90": 1947
+   },
+   "start_to_first_audio_ms": {
+    "p50": 11515,
+    "p90": 11515
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 5588,
+    "p90": 5588
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 6288,
+    "p90": 6288
+   },
+   "speaks_mid_sentence": false,
+   "mid_sentence_share": 0.0,
+   "split_share": 0.0,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 0.07,
+    "pct_of_max": 2,
+    "critical": 1,
+    "missing": 14,
+    "partial": 1,
+    "duplicates": 0
+   },
+   "redials": 4,
+   "models": {
+    "stt": "Azure Speech",
+    "mt": "Foundry gpt-5.6-sol-us",
+    "voice": "Azure neural (locale default)"
+   },
+   "foundry_requests": {
+    "requests": 6,
+    "429": 5,
+    "errors": 0
+   },
+   "date": "2026-10-21T00:53:26.047Z"
+  },
+  {
+   "condition": "noise-10dB",
+   "route": "gemini-lt",
+   "label": "Gemini Live Translate (speech to speech)",
+   "vendor_named": true,
+   "lang_pair": "en-es",
+   "runs": 1,
+   "n": 15,
+   "n_with_audio": 4,
+   "stop_to_first_audio_ms": {
+    "p50": -5367,
+    "p90": -2120
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -5078,
+    "p90": -1820
+   },
+   "stop_to_tail_audio_ms": null,
+   "stop_to_first_text_ms": {
+    "p50": -5442,
+    "p90": -2556
+   },
+   "stop_to_final_text_ms": {
+    "p50": 15064,
+    "p90": 52933
+   },
+   "start_to_first_audio_ms": {
+    "p50": 1356,
+    "p90": 4222
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 15787,
+    "p90": 54119
+   },
+   "stop_to_audio_end_played_ms": {
+    "p50": 16057,
+    "p90": 54407
+   },
+   "speaks_mid_sentence": true,
+   "mid_sentence_share": 1.0,
+   "quality": {
+    "judge": "gemini-3.5-flash",
+    "scale": "0-3 per sentence",
+    "mean": 0.13,
+    "pct_of_max": 4,
+    "critical": 1,
+    "missing": 11,
+    "partial": 3,
+    "duplicates": 1
+   },
+   "stall": {
+    "stall_check": null,
+    "rerun_after": null
+   },
+   "redials": 0,
+   "models": {
+    "model": "gemini-3.5-live-translate-preview",
+    "voice": "Kore"
+   },
+   "date": "2026-10-21T00:53:58.436Z"
+  }
+ ]
+}

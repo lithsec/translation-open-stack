@@ -8,3 +8,6 @@ out-*/
 .DS_Store
 # Private deploy settings (services/omni-stt/deploy.sh): a fine-tuned card, its bucket, the registry
 services/*/private.env
+
+# Research site build output (python3 site/build.py)
+site/_site/

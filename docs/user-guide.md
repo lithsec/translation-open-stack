@@ -552,7 +552,7 @@ slower, but Piper runs at roughly 20x real time, so a tier upgrade is usually
 affordable. Listen before deciding: quality differences between speakers
 within a tier are often larger than between tiers. **Accent is a real
 choice**: Spanish has no `es_ES` voice at `high` (the high voices are Mexican
-and Argentine), and a congregation will notice which one you pick. Check the
+and Argentine), and an audience will notice which one you pick. Check the
 voice's licence ([licences.md §7](licences.md#7-piper-voices-one-by-one))
 before a commercial deployment.
 

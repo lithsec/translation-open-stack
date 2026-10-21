@@ -12,8 +12,8 @@ Institute, Carnegie Mellon University, used under its COPYING terms.
 
 Each recording's silence at both ends is trimmed (relative to its own loudness)
 and the sentences joined with 0.8 s pauses, as in the synthetic rounds. Read
-speech, not preaching: real voices and accents, not spontaneous speech or a
-church room's echo.
+speech: real voices and accents, not continuous or spontaneous speech or a
+large room's echo.
 
 Four systems: Azure alone, Azure STT → Gemini, **Gladia STT → Gemini**
 (`gladia_stt.mjs`, Solaria-1 live; it lists Haitian Creole, Khmer and Lao),
@@ -66,8 +66,10 @@ sentences each.
 | en | Azure, en-US | **6.4%** | 25 | 1276 / 10504 |
 
 Haitian Creole, the same CMU clip, earlier runs (`text-mt/out/stt_cer.json`):
-Gemini 2.5 Pro batch per sentence 3.8%, Meta Omnilingual ASR (open stack, live)
-5.7%, Gemini 2.5 Flash batch 7.1%, Gladia live 18.9%, Gemini Live Translate's
+Gemini 2.5 Pro batch per sentence 3.8%, Meta Omnilingual ASR 300M (live; whether
+the public card or a private Haitian Creole fine-tune served it was not
+recorded; the public card scores 4.2% one sentence at a time in
+`../2026-10-omni-sizes`) 5.7%, Gemini 2.5 Flash batch 7.1%, Gladia live 18.9%, Gemini Live Translate's
 input transcript 49.4%. Azure can't hear Haitian Creole.
 
 What it shows:

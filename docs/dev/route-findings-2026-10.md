@@ -13,7 +13,8 @@ one table**.
   Foundry resource** (reasoning low) → Azure voice. sol was first or tied in
   22 of 25 directions. It was also 2.3× quicker than Gemini 3.5 Flash
   (2.0 s against 4.7 s per sentence, medians over the directions).
-- **Haitian Creole:** **Omnilingual** hears it best (5.7% of characters wrong).
+- **Haitian Creole:** **Omnilingual** hears it best (5.7% of characters wrong
+  live; 4.2% one sentence at a time with the public card).
   Azure can't hear it at all. sol and Gemini Flash are the only usable
   translators. Into English from real speakers: sol 93%, Flash 90%, Azure
   Translator and the open translators 34–36%.
@@ -48,7 +49,7 @@ lower is better).
 
 | Recogniser | CER | Notes |
 |---|---|---|
-| **Omnilingual ASR** (omni-stt, Cloud Run L4) | **5.7%** | Full clip. The stack's recogniser for ht/km/lo/sw |
+| **Omnilingual ASR 300M** (omni-stt, live) | **5.7%** | Full clip, 17 October. Whether the public card or a private Haitian Creole fine-tune served it was not recorded; the public card scores 4.2% one sentence at a time (`eval/2026-10-omni-sizes`) |
 | Gemini 3.5 Transcribe Live, `ht-HT` | 6.3% | With the language given. Auto-detect: 46.7% |
 | OpenAI gpt-transcribe (per sentence) | 6.8% | 4 sentences only; about 0.8 s. "ht" is refused as a code, so the prompt names the language |
 | gpt-4o-transcribe | 7.5% | 4 sentences |
@@ -167,7 +168,7 @@ resource. Pages:
   - The deployments include a gpt-5.6-sol **Data Zone Standard** (US)
     deployment (`<deployment>`).
   - Only Whisper is offered for speech among the Foundry models in eastus.
-- **Live Translation** (PR #217, merged as `c23a357`). The Haitian Creole
+- **Live Translation.** The Haitian Creole
   exception can translate with a Foundry deployment instead of Gemini, and a
   new **Azure + Foundry** mode streams Azure speech-to-text into sol for every
   language.
@@ -217,7 +218,7 @@ resource. Pages:
 2. **Apply for modified abuse monitoring** on the Foundry resource. With it,
    Microsoft's documentation describes no storage on Azure → sol → Azure
    (to be confirmed in writing for our resource).
-3. **Hear the Talk test routes on real conversations** (builds 12–13: streaming, hybrid, Haitian Creole voice).
+3. **Hear the Talk test routes on real conversations** (streaming, hybrid, Haitian Creole voice).
 4. **More Haitian Creole training speech.** Speech with a matching published
    text can fine-tune hearing, but where the audio is live interpretation
    rather than a reading of the text, keep an utterance only where

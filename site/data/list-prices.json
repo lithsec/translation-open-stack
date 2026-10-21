@@ -1,0 +1,81 @@
+{
+ "as_of": "2026-10-21",
+ "currency": "USD",
+ "note": "List prices (pay as you go, US regions) used by the cost page, plus the assumptions behind the worked example. Estimates only: no figure here is read from a bill. Change a value here and rebuild to see its effect.",
+ "prices": {
+  "azure_stt_per_hour": {
+   "value": 1.0,
+   "what": "Azure Speech, real-time speech to text, per audio hour"
+  },
+  "azure_speech_translation_per_hour": {
+   "value": 2.5,
+   "what": "Azure Speech translation, per audio hour"
+  },
+  "azure_language_id_per_hour": {
+   "value": 0.3,
+   "what": "Azure Speech language identification add-on, per audio hour (approximate)"
+  },
+  "azure_tts_per_million_chars": {
+   "value": 15.0,
+   "what": "Azure neural text to speech, per million characters"
+  },
+  "foundry_sol_input_per_million": {
+   "value": 4.4,
+   "what": "GPT-5.6-sol on Azure AI Foundry, Data Zone deployment, input tokens per million (as billed)"
+  },
+  "foundry_sol_output_per_million": {
+   "value": 22.0,
+   "what": "GPT-5.6-sol on Azure AI Foundry, Data Zone deployment, output tokens per million, reasoning included (as billed)"
+  },
+  "gemini_lt_per_minute": {
+   "value": 0.037,
+   "what": "Gemini Live Translate, per minute per target language (published post-preview rate)"
+  },
+  "cloud_run_l4_gpu_per_hour": {
+   "value": 0.67,
+   "what": "Cloud Run, one NVIDIA L4 GPU, per running hour"
+  },
+  "cloud_run_4vcpu_per_hour": {
+   "value": 0.26,
+   "what": "Cloud Run, 4 vCPU, per running hour"
+  },
+  "cloud_run_16gib_per_hour": {
+   "value": 0.12,
+   "what": "Cloud Run, 16 GiB memory, per running hour"
+  }
+ },
+ "assumptions": {
+  "voice_chars_per_hour": {
+   "value": 65000,
+   "what": "characters of translated speech the voice reads in an hour of continuous speech (about 150 words a minute)"
+  },
+  "omni_stt_idle_tail_h": {
+   "value": 0.25,
+   "what": "omni-stt scales to zero, but an instance keeps running (and billing) about 15 minutes after its last stream"
+  },
+  "omni_stt_streams_300m": {
+   "value": 8,
+   "what": "streams one omni-stt L4 instance serves with the 300M model (about 6 with the 7B)"
+  },
+  "omni_stt_streams_7b": {
+   "value": 6,
+   "what": "streams per instance with the 7B model"
+  },
+  "comment_minutes_per_room_hour": {
+   "value": 5,
+   "what": "minutes of listeners' short comments translated back into English, per room-hour"
+  },
+  "foundry_from": {
+   "value": "eval/2026-10-translation-cost/results.json",
+   "what": "Foundry cost per listener-language hour is measured there (news set, 392 sentences an hour): French, Portuguese and Spanish at reasoning none, Haitian Creole at reasoning low"
+  },
+  "gemini_voice_per_hour": {
+   "value": 1.0,
+   "what": "Gemini voice for Haitian Creole (Azure has no Haitian voice), about $1 per hour of continuous speech; an estimate, not a list price"
+  },
+  "foundry_comment_requests_per_minute": {
+   "value": 6.5,
+   "what": "translation requests per minute of comment speech (392 an hour)"
+  }
+ }
+}

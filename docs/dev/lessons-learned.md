@@ -630,7 +630,7 @@ The stack has no accounts; the token is the only lock (`server/stack_auth.py`).
   *The report URL* has no default: a pod reports only where `STACK_REPORT_URL`
   (or `/workspace/.stack-report-url`) says. Details:
   [the reference, "Access, rooms and limits"](../reference.md#access-rooms-and-limits).
-- Privacy scope: a marketplace GPU is fine for test clips; for real congregation
+- Privacy scope: a marketplace GPU is fine for test clips; for real audience
   audio it is a third party like any provider.
 
 ---

@@ -1,0 +1,76 @@
+# Build the research site (site/) from the eval results and deploy it to
+# GitHub Pages. The private-term check runs before anything is uploaded.
+#
+# Vendor names: until the cloud vendors' terms on publishing benchmarks have
+# been checked, the site is built with --anonymise-vendors. Set the repository
+# variable SHOW_VENDOR_NAMES to "true" to publish with names.
+#
+# Pages must be enabled in the repository settings (Source: GitHub Actions)
+# before the deploy job can succeed.
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'eval/**'
+      - 'docs/**'
+      - 'languages.toml'
+      - '.github/workflows/pages.yml'
+  pull_request:
+    paths:
+      - 'site/**'
+      - 'eval/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build
+        env:
+          SHOW_VENDOR_NAMES: ${{ vars.SHOW_VENDOR_NAMES }}
+        run: |
+          if [ "$SHOW_VENDOR_NAMES" = "true" ]; then
+            python3 site/build.py
+          else
+            python3 site/build.py --anonymise-vendors
+          fi
+
+      - name: Private-term check
+        run: bash site/check_private.sh
+
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: site/_site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
