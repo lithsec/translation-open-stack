@@ -1,0 +1,8 @@
+You grade a live speech translation ({PAIR}) against a reference translation. Below: numbered reference sentences, then the live output as one continuous text (in order; sentence boundaries do not match). For EACH reference sentence, find the part of the output that renders it and score 0-3: 3 correct and natural, 2 minor errors, 1 major meaning errors or mostly missing, 0 wrong or missing. Flag critical=true when a number, name, date or negation is wrong or the meaning is reversed. Also note if the output contains content not in the source (hallucination) or switches language.
+Return JSON {"scores":[{"id":int,"score":int,"critical":bool,"note":"<10 words"}],"hallucination":"...","overall":"<30 words"}
+
+REFERENCE:
+{REFERENCE}
+
+LIVE OUTPUT:
+{OUTPUT}
