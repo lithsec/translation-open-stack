@@ -1,0 +1,803 @@
+{
+ "date": "2026-10-20/21",
+ "clip": {
+  "source": "VOA Kreyol news programme (US government work, public domain)",
+  "language": "ht",
+  "seconds": 300,
+  "speakers": 1,
+  "style": "studio news presenter, continuous speech, no music",
+  "reference_sentences": 33,
+  "reference": "model-made: Haitian transcript and English translation by gemini-3.1-pro-preview from the audio, with approximate sentence times; not checked by a human"
+ },
+ "route": "Live Translation solo room, speaker language fixed to Haitian Creole: omni-stt (Omnilingual 300M, Haitian fine-tune) -> GPT-5.6-sol on Azure AI Foundry (reasoning low, one piece per request) -> Azure neural voice (English)",
+ "pacing": "real time, 100 ms chunks of 16 kHz PCM, as a microphone delivers them",
+ "judge": {
+  "scale": "0-3 per reference sentence (3 correct and natural, 2 minor errors, 1 major meaning errors or mostly missing, 0 wrong or missing); critical = a wrong number, name, date or negation, or reversed meaning",
+  "how": "the whole output text graded against the 33 numbered reference sentences in one request, temperature 0"
+ },
+ "pauses": [
+  {
+   "threshold": 0.5,
+   "span_s": 300,
+   "gaps": 179,
+   "gaps_at_least_ms": {
+    "80": 144,
+    "120": 132,
+    "160": 124,
+    "200": 105,
+    "300": 71,
+    "500": 29
+   },
+   "gaps_per_min_at_least_ms": {
+    "200": 21,
+    "300": 14,
+    "500": 6
+   },
+   "speech_between_gaps_at_least_ms": {
+    "96": {
+     "p50_s": 1.6,
+     "p90_s": 3.0,
+     "max_s": 5.8
+    },
+    "160": {
+     "p50_s": 1.8,
+     "p90_s": 3.3,
+     "max_s": 6.6
+    },
+    "200": {
+     "p50_s": 2.2,
+     "p90_s": 4.5,
+     "max_s": 9.5
+    },
+    "300": {
+     "p50_s": 3.0,
+     "p90_s": 6.8,
+     "max_s": 17.2
+    },
+    "500": {
+     "p50_s": 6.6,
+     "p90_s": 16.3,
+     "max_s": 31.3
+    }
+   }
+  },
+  {
+   "threshold": 0.35,
+   "span_s": 300,
+   "gaps": 172,
+   "gaps_at_least_ms": {
+    "80": 140,
+    "120": 131,
+    "160": 122,
+    "200": 100,
+    "300": 67,
+    "500": 29
+   },
+   "gaps_per_min_at_least_ms": {
+    "200": 20,
+    "300": 13,
+    "500": 6
+   },
+   "speech_between_gaps_at_least_ms": {
+    "96": {
+     "p50_s": 1.6,
+     "p90_s": 3.2,
+     "max_s": 5.9
+    },
+    "160": {
+     "p50_s": 1.9,
+     "p90_s": 3.4,
+     "max_s": 6.6
+    },
+    "200": {
+     "p50_s": 2.2,
+     "p90_s": 5.0,
+     "max_s": 9.5
+    },
+    "300": {
+     "p50_s": 3.0,
+     "p90_s": 6.9,
+     "max_s": 17.3
+    },
+    "500": {
+     "p50_s": 6.6,
+     "p90_s": 16.3,
+     "max_s": 31.3
+    }
+   }
+  },
+  {
+   "threshold": 0.2,
+   "span_s": 300,
+   "gaps": 166,
+   "gaps_at_least_ms": {
+    "80": 137,
+    "120": 122,
+    "160": 113,
+    "200": 96,
+    "300": 62,
+    "500": 25
+   },
+   "gaps_per_min_at_least_ms": {
+    "200": 19,
+    "300": 12,
+    "500": 5
+   },
+   "speech_between_gaps_at_least_ms": {
+    "96": {
+     "p50_s": 1.7,
+     "p90_s": 3.2,
+     "max_s": 5.9
+    },
+    "160": {
+     "p50_s": 2.0,
+     "p90_s": 3.9,
+     "max_s": 9.5
+    },
+    "200": {
+     "p50_s": 2.3,
+     "p90_s": 5.1,
+     "max_s": 11.3
+    },
+    "300": {
+     "p50_s": 3.2,
+     "p90_s": 7.5,
+     "max_s": 17.3
+    },
+    "500": {
+     "p50_s": 6.6,
+     "p90_s": 21.7,
+     "max_s": 31.3
+    }
+   }
+  }
+ ],
+ "simulated_settings": [
+  {
+   "pieces": 27,
+   "len_p50_s": 12.7,
+   "len_p90_s": 14.2,
+   "len_max_s": 14.9,
+   "cuts_at_cap": 2,
+   "cuts_mid_speech": 0,
+   "cuts_near_sentence_end": 10,
+   "pieces_under_1_5_s": 0,
+   "first_piece_out_s": 13.0,
+   "setting": "700 ms pause, 15 s cap (live setting before)",
+   "params": {
+    "endpoint_ms": 700,
+    "max_s": 15
+   }
+  },
+  {
+   "pieces": 75,
+   "len_p50_s": 4.1,
+   "len_p90_s": 5.6,
+   "len_max_s": 6.0,
+   "cuts_at_cap": 20,
+   "cuts_mid_speech": 4,
+   "cuts_near_sentence_end": 25,
+   "pieces_under_1_5_s": 8,
+   "first_piece_out_s": 5.4,
+   "setting": "300 ms pause, 6 s cap (code defaults)",
+   "params": {
+    "endpoint_ms": 300,
+    "max_s": 6
+   }
+  },
+  {
+   "pieces": 63,
+   "len_p50_s": 4.8,
+   "len_p90_s": 7.4,
+   "len_max_s": 7.8,
+   "cuts_at_cap": 7,
+   "cuts_mid_speech": 0,
+   "cuts_near_sentence_end": 17,
+   "pieces_under_1_5_s": 3,
+   "first_piece_out_s": 5.4,
+   "setting": "300 ms pause, 8 s cap",
+   "params": {
+    "endpoint_ms": 300,
+    "max_s": 8
+   }
+  },
+  {
+   "pieces": 57,
+   "len_p50_s": 5.3,
+   "len_p90_s": 8.8,
+   "len_max_s": 10.0,
+   "cuts_at_cap": 2,
+   "cuts_mid_speech": 0,
+   "cuts_near_sentence_end": 18,
+   "pieces_under_1_5_s": 6,
+   "first_piece_out_s": 5.5,
+   "setting": "300 ms pause, 10 s cap",
+   "params": {
+    "endpoint_ms": 300,
+    "max_s": 10
+   }
+  },
+  {
+   "pieces": 54,
+   "len_p50_s": 5.4,
+   "len_p90_s": 8.7,
+   "len_max_s": 10.0,
+   "cuts_at_cap": 2,
+   "cuts_mid_speech": 0,
+   "cuts_near_sentence_end": 16,
+   "pieces_under_1_5_s": 2,
+   "first_piece_out_s": 5.5,
+   "setting": "300 ms pause, 10 s cap, 1 s minimum speech (run 'breath300')",
+   "params": {
+    "endpoint_ms": 300,
+    "max_s": 10,
+    "min_speech_ms": 1000
+   }
+  },
+  {
+   "pieces": 45,
+   "len_p50_s": 7.1,
+   "len_p90_s": 9.0,
+   "len_max_s": 10.0,
+   "cuts_at_cap": 5,
+   "cuts_mid_speech": 0,
+   "cuts_near_sentence_end": 15,
+   "pieces_under_1_5_s": 0,
+   "first_piece_out_s": 5.6,
+   "setting": "400 ms pause, 10 s cap, 1 s minimum speech",
+   "params": {
+    "endpoint_ms": 400,
+    "max_s": 10,
+    "min_speech_ms": 1000
+   }
+  },
+  {
+   "pieces": 79,
+   "len_p50_s": 3.3,
+   "len_p90_s": 6.5,
+   "len_max_s": 7.7,
+   "cuts_at_cap": 4,
+   "cuts_mid_speech": 0,
+   "cuts_near_sentence_end": 20,
+   "pieces_under_1_5_s": 7,
+   "first_piece_out_s": 5.4,
+   "setting": "200 ms pause, 8 s cap",
+   "params": {
+    "endpoint_ms": 200,
+    "max_s": 8
+   }
+  },
+  {
+   "pieces": 75,
+   "len_p50_s": 3.3,
+   "len_p90_s": 6.9,
+   "len_max_s": 10.1,
+   "cuts_at_cap": 1,
+   "cuts_mid_speech": 0,
+   "cuts_near_sentence_end": 20,
+   "pieces_under_1_5_s": 9,
+   "first_piece_out_s": 5.4,
+   "setting": "200 ms pause, 10 s cap",
+   "params": {
+    "endpoint_ms": 200,
+    "max_s": 10
+   }
+  },
+  {
+   "pieces": 70,
+   "len_p50_s": 3.8,
+   "len_p90_s": 7.2,
+   "len_max_s": 10.1,
+   "cuts_at_cap": 1,
+   "cuts_mid_speech": 0,
+   "cuts_near_sentence_end": 19,
+   "pieces_under_1_5_s": 3,
+   "first_piece_out_s": 5.4,
+   "setting": "200 ms pause, 10 s cap, 1 s minimum speech (run 'breath')",
+   "params": {
+    "endpoint_ms": 200,
+    "max_s": 10,
+    "min_speech_ms": 1000
+   }
+  },
+  {
+   "pieces": 102,
+   "len_p50_s": 2.7,
+   "len_p90_s": 5.5,
+   "len_max_s": 7.8,
+   "cuts_at_cap": 2,
+   "cuts_mid_speech": 0,
+   "cuts_near_sentence_end": 25,
+   "pieces_under_1_5_s": 16,
+   "first_piece_out_s": 4.3,
+   "setting": "150 ms pause, 8 s cap",
+   "params": {
+    "endpoint_ms": 150,
+    "max_s": 8
+   }
+  },
+  {
+   "pieces": 70,
+   "len_p50_s": 4.1,
+   "len_p90_s": 6.8,
+   "len_max_s": 10.0,
+   "cuts_at_cap": 0,
+   "cuts_mid_speech": 0,
+   "cuts_near_sentence_end": 21,
+   "pieces_under_1_5_s": 9,
+   "first_piece_out_s": 4.3,
+   "setting": "300 ms pause, 10 s cap, 100 ms pause accepted after 4 s",
+   "params": {
+    "endpoint_ms": 300,
+    "max_s": 10,
+    "cut_endpoint_ms": 100,
+    "short_pause_after_s": 4
+   }
+  }
+ ],
+ "simulated_with": "services/omni-stt/server.py at main 9351de9 (its Segmenter class), Silero VAD probabilities of the clip",
+ "runs": [
+  {
+   "name": "baseline",
+   "run": "ht-solo-15",
+   "omni_stt": {
+    "endpoint_ms": 700,
+    "max_utterance_s": 15,
+    "min_speech_ms": 400
+   },
+   "context": "none",
+   "cer": 0.09,
+   "quality": {
+    "n": 33,
+    "mean": 2.52,
+    "critical": 5,
+    "scores": {
+     "1": 3,
+     "2": 10,
+     "3": 20
+    },
+    "model": "gemini-2.5-pro"
+   },
+   "translation_requests": {
+    "requests": 27,
+    "ok": 27,
+    "rate_limited_429": 0,
+    "refused_400": 0,
+    "other": 0
+   },
+   "pieces": 27,
+   "piece_len_s": {
+    "p50": 12.7,
+    "p90": 14.2,
+    "max": 14.9
+   },
+   "piece_words": {
+    "p50": 31,
+    "p90": 42,
+    "max": 50
+   },
+   "start_to_first_audio_s": 19.5,
+   "piece_start_to_its_audio_s": {
+    "p50": 18.2,
+    "p90": 23.1
+   },
+   "piece_end_to_its_audio_s": {
+    "p50": 6.3,
+    "p90": 9.4
+   },
+   "speech_end_to_recognised_s": {
+    "p50": 2.9,
+    "p90": 3.4
+   },
+   "translation_request_s": {
+    "p50": 2.7,
+    "p90": 6.7
+   },
+   "last_word_to_end_of_translation_s": 15.9,
+   "pieces_untranslated": 0,
+   "pieces_without_voice": 0
+  },
+  {
+   "name": "breath",
+   "run": "ht-breath",
+   "omni_stt": {
+    "endpoint_ms": 200,
+    "max_utterance_s": 10,
+    "min_speech_ms": 1000
+   },
+   "context": "none",
+   "cer": 0.102,
+   "quality": {
+    "n": 33,
+    "mean": 2.21,
+    "critical": 7,
+    "scores": {
+     "0": 1,
+     "1": 5,
+     "2": 13,
+     "3": 14
+    },
+    "model": "gemini-2.5-pro"
+   },
+   "translation_requests": {
+    "requests": 69,
+    "ok": 68,
+    "rate_limited_429": 0,
+    "refused_400": 0,
+    "other": 1
+   },
+   "pieces": 69,
+   "piece_len_s": {
+    "p50": 3.8,
+    "p90": 7.2,
+    "max": 10.1
+   },
+   "piece_words": {
+    "p50": 10,
+    "p90": 21,
+    "max": 32
+   },
+   "start_to_first_audio_s": 8.4,
+   "piece_start_to_its_audio_s": {
+    "p50": 9.1,
+    "p90": 13.5
+   },
+   "piece_end_to_its_audio_s": {
+    "p50": 4.6,
+    "p90": 7.9
+   },
+   "speech_end_to_recognised_s": {
+    "p50": 0.9,
+    "p90": 1.9
+   },
+   "translation_request_s": {
+    "p50": 2.7,
+    "p90": 7.2
+   },
+   "last_word_to_end_of_translation_s": 10.6,
+   "pieces_untranslated": 1,
+   "pieces_without_voice": 1
+  },
+  {
+   "name": "breath300",
+   "run": "ht-breath300",
+   "omni_stt": {
+    "endpoint_ms": 300,
+    "max_utterance_s": 10,
+    "min_speech_ms": 1000
+   },
+   "context": "none",
+   "cer": 0.099,
+   "quality": {
+    "n": 33,
+    "mean": 2.21,
+    "critical": 7,
+    "scores": {
+     "1": 6,
+     "2": 14,
+     "3": 13
+    },
+    "model": "gemini-pro-latest"
+   },
+   "translation_requests": {
+    "requests": 53,
+    "ok": 53,
+    "rate_limited_429": 0,
+    "refused_400": 0,
+    "other": 0
+   },
+   "pieces": 53,
+   "piece_len_s": {
+    "p50": 5.4,
+    "p90": 8.7,
+    "max": 10.0
+   },
+   "piece_words": {
+    "p50": 14,
+    "p90": 28,
+    "max": 32
+   },
+   "start_to_first_audio_s": 8.4,
+   "piece_start_to_its_audio_s": {
+    "p50": 10.7,
+    "p90": 15.6
+   },
+   "piece_end_to_its_audio_s": {
+    "p50": 4.9,
+    "p90": 8.4
+   },
+   "speech_end_to_recognised_s": {
+    "p50": 1.3,
+    "p90": 2.4
+   },
+   "translation_request_s": {
+    "p50": 2.8,
+    "p90": 5.6
+   },
+   "last_word_to_end_of_translation_s": 14.2,
+   "pieces_untranslated": 0,
+   "pieces_without_voice": 0
+  },
+  {
+   "name": "breath, no context (control)",
+   "run": "ht-breath-ctl66",
+   "omni_stt": {
+    "endpoint_ms": 200,
+    "max_utterance_s": 10,
+    "min_speech_ms": 1000
+   },
+   "context": "none",
+   "cer": 0.102,
+   "quality": {
+    "n": 33,
+    "mean": 2.15,
+    "critical": 7,
+    "scores": {
+     "0": 2,
+     "1": 4,
+     "2": 14,
+     "3": 13
+    },
+    "model": "gemini-pro-latest"
+   },
+   "translation_requests": {
+    "requests": 69,
+    "ok": 69,
+    "rate_limited_429": 0,
+    "refused_400": 0,
+    "other": 0
+   },
+   "pieces": 69,
+   "piece_len_s": {
+    "p50": 3.8,
+    "p90": 7.2,
+    "max": 10.1
+   },
+   "piece_words": {
+    "p50": 10,
+    "p90": 21,
+    "max": 32
+   },
+   "start_to_first_audio_s": 8.2,
+   "piece_start_to_its_audio_s": {
+    "p50": 8.4,
+    "p90": 13.3
+   },
+   "piece_end_to_its_audio_s": {
+    "p50": 4.4,
+    "p90": 8.1
+   },
+   "speech_end_to_recognised_s": {
+    "p50": 1.0,
+    "p90": 2.0
+   },
+   "translation_request_s": {
+    "p50": 2.3,
+    "p90": 6.2
+   },
+   "last_word_to_end_of_translation_s": 11.7,
+   "pieces_untranslated": 0,
+   "pieces_without_voice": 0
+  },
+  {
+   "name": "breath + context, run 1",
+   "run": "ht-breath-ctx1",
+   "omni_stt": {
+    "endpoint_ms": 200,
+    "max_utterance_s": 10,
+    "min_speech_ms": 1000
+   },
+   "context": "previous 2 source pieces and the last translation, as context only",
+   "cer": 0.102,
+   "quality": {
+    "n": 33,
+    "mean": 2.52,
+    "critical": 3,
+    "scores": {
+     "1": 3,
+     "2": 10,
+     "3": 20
+    },
+    "model": "gemini-pro-latest"
+   },
+   "translation_requests": {
+    "requests": 71,
+    "ok": 65,
+    "rate_limited_429": 4,
+    "refused_400": 2,
+    "other": 0
+   },
+   "pieces": 69,
+   "piece_len_s": {
+    "p50": 3.8,
+    "p90": 7.2,
+    "max": 10.1
+   },
+   "piece_words": {
+    "p50": 10,
+    "p90": 21,
+    "max": 32
+   },
+   "start_to_first_audio_s": 8.2,
+   "piece_start_to_its_audio_s": {
+    "p50": 7.4,
+    "p90": 12.6
+   },
+   "piece_end_to_its_audio_s": {
+    "p50": 3.5,
+    "p90": 5.4
+   },
+   "speech_end_to_recognised_s": {
+    "p50": 0.9,
+    "p90": 2.0
+   },
+   "translation_request_s": {
+    "p50": 1.9,
+    "p90": 3.5
+   },
+   "last_word_to_end_of_translation_s": 11.0,
+   "pieces_untranslated": 4,
+   "pieces_without_voice": 0
+  },
+  {
+   "name": "breath + context, run 2",
+   "run": "ht-breath-ctx2",
+   "omni_stt": {
+    "endpoint_ms": 200,
+    "max_utterance_s": 10,
+    "min_speech_ms": 1000
+   },
+   "context": "previous 2 source pieces and the last translation, as context only",
+   "cer": 0.102,
+   "quality": {
+    "n": 33,
+    "mean": 2.67,
+    "critical": 2,
+    "scores": {
+     "1": 1,
+     "2": 9,
+     "3": 23
+    },
+    "model": "gemini-pro-latest"
+   },
+   "translation_requests": {
+    "requests": 69,
+    "ok": 68,
+    "rate_limited_429": 0,
+    "refused_400": 1,
+    "other": 0
+   },
+   "pieces": 69,
+   "piece_len_s": {
+    "p50": 3.8,
+    "p90": 7.2,
+    "max": 10.1
+   },
+   "piece_words": {
+    "p50": 10,
+    "p90": 21,
+    "max": 32
+   },
+   "start_to_first_audio_s": 8.1,
+   "piece_start_to_its_audio_s": {
+    "p50": 8.0,
+    "p90": 12.4
+   },
+   "piece_end_to_its_audio_s": {
+    "p50": 3.7,
+    "p90": 6.8
+   },
+   "speech_end_to_recognised_s": {
+    "p50": 0.9,
+    "p90": 1.9
+   },
+   "translation_request_s": {
+    "p50": 1.7,
+    "p90": 4.8
+   },
+   "last_word_to_end_of_translation_s": 10.3,
+   "pieces_untranslated": 1,
+   "pieces_without_voice": 0
+  },
+  {
+   "name": "breath + context, run 3",
+   "run": "ht-breath-ctx3",
+   "omni_stt": {
+    "endpoint_ms": 200,
+    "max_utterance_s": 10,
+    "min_speech_ms": 1000
+   },
+   "context": "previous 2 source pieces and the last translation, as context only",
+   "cer": 0.102,
+   "quality": {
+    "n": 33,
+    "mean": 2.21,
+    "critical": 4,
+    "scores": {
+     "0": 3,
+     "1": 4,
+     "2": 9,
+     "3": 17
+    },
+    "model": "gemini-pro-latest"
+   },
+   "translation_requests": {
+    "requests": 81,
+    "ok": 60,
+    "rate_limited_429": 18,
+    "refused_400": 2,
+    "other": 1
+   },
+   "pieces": 69,
+   "piece_len_s": {
+    "p50": 3.8,
+    "p90": 7.2,
+    "max": 10.1
+   },
+   "piece_words": {
+    "p50": 10,
+    "p90": 21,
+    "max": 32
+   },
+   "start_to_first_audio_s": 8.0,
+   "piece_start_to_its_audio_s": {
+    "p50": 8.2,
+    "p90": 12.2
+   },
+   "piece_end_to_its_audio_s": {
+    "p50": 3.5,
+    "p90": 7.9
+   },
+   "speech_end_to_recognised_s": {
+    "p50": 0.9,
+    "p90": 1.9
+   },
+   "translation_request_s": {
+    "p50": 1.0,
+    "p90": 6.0
+   },
+   "last_word_to_end_of_translation_s": 11.2,
+   "pieces_untranslated": 9,
+   "pieces_without_voice": 3
+  }
+ ],
+ "gemini_lt_same_clip": {
+  "start_to_first_audio_s": 3.2,
+  "last_word_to_end_of_translation_s": 4.8,
+  "judge": {
+   "n": 33,
+   "mean": 1.82,
+   "critical": 14,
+   "scores": {
+    "1": 10,
+    "2": 19,
+    "3": 4
+   },
+   "model": "gemini-3.1-pro-preview"
+  },
+  "baseline_same_judge": {
+   "n": 33,
+   "mean": 2.55,
+   "critical": 3,
+   "scores": {
+    "1": 3,
+    "2": 9,
+    "3": 21
+   },
+   "model": "gemini-3.1-pro-preview"
+  }
+ },
+ "rejudge_check": {
+  "what": "baseline re-graded with gemini-pro-latest",
+  "quality": {
+   "n": 33,
+   "mean": 2.52,
+   "critical": 5,
+   "scores": {
+    "1": 3,
+    "2": 10,
+    "3": 20
+   }
+  }
+ }
+}

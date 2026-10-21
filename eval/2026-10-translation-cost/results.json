@@ -1,0 +1,457 @@
+{
+ "date": "2026-10-21",
+ "model": "GPT-5.6-sol on Azure AI Foundry, Data Zone Standard deployment",
+ "prompt": "the Live Translation app's own translation prompt: a system message (fix obvious recognition errors, translate, keep numbers, names and negation exact) and the sentence in a user message; one sentence per request, no context",
+ "rates_usd_per_million": {
+  "input": 4.4,
+  "output": 22.0,
+  "note": "billed rates; reasoning tokens are billed as output"
+ },
+ "sentences_per_listener_language_hour": 392,
+ "judge": {
+  "model": "gemini-pro-latest",
+  "rounds": 2,
+  "how": "blind, side by side: each direction's outputs at both reasoning settings shuffled under letters and graded in one request, 0-3 per sentence against the English meaning, plus a critical flag (wrong number, time, date, amount, negation or who-did-what); quality = share of the possible points, %"
+ },
+ "sets": {
+  "short": {
+   "what": "24 short, clean sentences (the September synthetic set, eval/2026-09-model-eval/sentences), typed text",
+   "n": 24
+  },
+  "news": {
+   "what": "33 long spoken sentences: the reference transcript and English translation of the five-minute news clip of eval/2026-10-continuous-ht (clean text, not raw recognition output)",
+   "n": 33
+  }
+ },
+ "results": {
+  "short": {
+   "en-ht": {
+    "none": {
+     "input_tokens": 169.5,
+     "cached_tokens": 0,
+     "output_tokens": 22.5,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.00124,
+     "usd_per_hour": 0.49,
+     "latency_p50_s": 1.566,
+     "quality_pct": 98.6,
+     "quality_by_round": [
+      98.6,
+      98.6
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    },
+    "low": {
+     "input_tokens": 169.5,
+     "cached_tokens": 0,
+     "output_tokens": 22.3,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001237,
+     "usd_per_hour": 0.48,
+     "latency_p50_s": 1.544,
+     "quality_pct": 99.3,
+     "quality_by_round": [
+      98.6,
+      100.0
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    }
+   },
+   "en-fr": {
+    "none": {
+     "input_tokens": 165.5,
+     "cached_tokens": 0,
+     "output_tokens": 19.5,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001157,
+     "usd_per_hour": 0.45,
+     "latency_p50_s": 1.303,
+     "quality_pct": 100.0,
+     "quality_by_round": [
+      100.0,
+      100.0
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    },
+    "low": {
+     "input_tokens": 165.5,
+     "cached_tokens": 0,
+     "output_tokens": 19.5,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001156,
+     "usd_per_hour": 0.45,
+     "latency_p50_s": 1.208,
+     "quality_pct": 100.0,
+     "quality_by_round": [
+      100.0,
+      100.0
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    }
+   },
+   "en-es": {
+    "low": {
+     "input_tokens": 165.5,
+     "cached_tokens": 0,
+     "output_tokens": 18.2,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.00113,
+     "usd_per_hour": 0.44,
+     "latency_p50_s": 1.339,
+     "quality_pct": 100.0,
+     "quality_by_round": [
+      100.0,
+      100.0
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    },
+    "none": {
+     "input_tokens": 165.5,
+     "cached_tokens": 0,
+     "output_tokens": 18.4,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001132,
+     "usd_per_hour": 0.44,
+     "latency_p50_s": 1.141,
+     "quality_pct": 100.0,
+     "quality_by_round": [
+      100.0,
+      100.0
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    }
+   },
+   "es-en": {
+    "none": {
+     "input_tokens": 167.2,
+     "cached_tokens": 0,
+     "output_tokens": 17.1,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001112,
+     "usd_per_hour": 0.44,
+     "latency_p50_s": 1.068,
+     "quality_pct": 100.0,
+     "quality_by_round": [
+      100.0,
+      100.0
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    },
+    "low": {
+     "input_tokens": 167.2,
+     "cached_tokens": 0,
+     "output_tokens": 17.0,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001111,
+     "usd_per_hour": 0.44,
+     "latency_p50_s": 1.161,
+     "quality_pct": 100.0,
+     "quality_by_round": [
+      100.0,
+      100.0
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    }
+   },
+   "fr-en": {
+    "low": {
+     "input_tokens": 168.2,
+     "cached_tokens": 0,
+     "output_tokens": 17.2,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001119,
+     "usd_per_hour": 0.44,
+     "latency_p50_s": 1.231,
+     "quality_pct": 97.2,
+     "quality_by_round": [
+      97.2,
+      97.2
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    },
+    "none": {
+     "input_tokens": 168.2,
+     "cached_tokens": 0,
+     "output_tokens": 17.2,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001118,
+     "usd_per_hour": 0.44,
+     "latency_p50_s": 1.229,
+     "quality_pct": 97.2,
+     "quality_by_round": [
+      97.2,
+      97.2
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    }
+   },
+   "en-pt": {
+    "low": {
+     "input_tokens": 165.5,
+     "cached_tokens": 0,
+     "output_tokens": 18.2,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.00113,
+     "usd_per_hour": 0.44,
+     "latency_p50_s": 1.206,
+     "quality_pct": 100.0,
+     "quality_by_round": [
+      100.0,
+      100.0
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    },
+    "none": {
+     "input_tokens": 165.5,
+     "cached_tokens": 0,
+     "output_tokens": 18.3,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001131,
+     "usd_per_hour": 0.44,
+     "latency_p50_s": 1.138,
+     "quality_pct": 100.0,
+     "quality_by_round": [
+      100.0,
+      100.0
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    }
+   }
+  },
+  "news": {
+   "ht-en": {
+    "none": {
+     "input_tokens": 190.1,
+     "cached_tokens": 0,
+     "output_tokens": 29.6,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001487,
+     "usd_per_hour": 0.58,
+     "latency_p50_s": 1.304,
+     "quality_pct": 95.5,
+     "quality_by_round": [
+      96.0,
+      94.9
+     ],
+     "critical_by_round": [
+      1,
+      1
+     ]
+    },
+    "low": {
+     "input_tokens": 190.1,
+     "cached_tokens": 0,
+     "output_tokens": 64.2,
+     "reasoning_tokens": 32.4,
+     "usd_per_request": 0.002249,
+     "usd_per_hour": 0.88,
+     "latency_p50_s": 1.548,
+     "quality_pct": 96.5,
+     "quality_by_round": [
+      97.0,
+      96.0
+     ],
+     "critical_by_round": [
+      0,
+      2
+     ]
+    }
+   },
+   "en-ht": {
+    "low": {
+     "input_tokens": 185.6,
+     "cached_tokens": 0,
+     "output_tokens": 64.7,
+     "reasoning_tokens": 23.3,
+     "usd_per_request": 0.00224,
+     "usd_per_hour": 0.88,
+     "latency_p50_s": 2.188,
+     "quality_pct": 95.5,
+     "quality_by_round": [
+      94.9,
+      96.0
+     ],
+     "critical_by_round": [
+      1,
+      1
+     ]
+    },
+    "none": {
+     "input_tokens": 185.6,
+     "cached_tokens": 0,
+     "output_tokens": 38.7,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001669,
+     "usd_per_hour": 0.65,
+     "latency_p50_s": 1.763,
+     "quality_pct": 95.5,
+     "quality_by_round": [
+      94.9,
+      96.0
+     ],
+     "critical_by_round": [
+      1,
+      1
+     ]
+    }
+   },
+   "en-es": {
+    "low": {
+     "input_tokens": 181.6,
+     "cached_tokens": 0,
+     "output_tokens": 69.8,
+     "reasoning_tokens": 33.6,
+     "usd_per_request": 0.002336,
+     "usd_per_hour": 0.92,
+     "latency_p50_s": 1.526,
+     "quality_pct": 93.9,
+     "quality_by_round": [
+      96.0,
+      91.9
+     ],
+     "critical_by_round": [
+      0,
+      2
+     ]
+    },
+    "none": {
+     "input_tokens": 181.6,
+     "cached_tokens": 0,
+     "output_tokens": 33.6,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001539,
+     "usd_per_hour": 0.6,
+     "latency_p50_s": 1.307,
+     "quality_pct": 98.0,
+     "quality_by_round": [
+      98.0,
+      98.0
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    }
+   },
+   "en-fr": {
+    "none": {
+     "input_tokens": 181.6,
+     "cached_tokens": 0,
+     "output_tokens": 36.8,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001608,
+     "usd_per_hour": 0.63,
+     "latency_p50_s": 1.511,
+     "quality_pct": 100.0,
+     "quality_by_round": [
+      100.0,
+      100.0
+     ],
+     "critical_by_round": [
+      0,
+      0
+     ]
+    },
+    "low": {
+     "input_tokens": 181.6,
+     "cached_tokens": 0,
+     "output_tokens": 70.2,
+     "reasoning_tokens": 31.0,
+     "usd_per_request": 0.002344,
+     "usd_per_hour": 0.92,
+     "latency_p50_s": 1.715,
+     "quality_pct": 96.0,
+     "quality_by_round": [
+      96.0,
+      96.0
+     ],
+     "critical_by_round": [
+      2,
+      2
+     ]
+    }
+   },
+   "en-pt": {
+    "none": {
+     "input_tokens": 181.6,
+     "cached_tokens": 0,
+     "output_tokens": 33.6,
+     "reasoning_tokens": 0,
+     "usd_per_request": 0.001538,
+     "usd_per_hour": 0.6,
+     "latency_p50_s": 1.404,
+     "quality_pct": 98.0,
+     "quality_by_round": [
+      98.0,
+      98.0
+     ],
+     "critical_by_round": [
+      1,
+      1
+     ]
+    },
+    "low": {
+     "input_tokens": 181.6,
+     "cached_tokens": 0,
+     "output_tokens": 67.7,
+     "reasoning_tokens": 31.1,
+     "usd_per_request": 0.002289,
+     "usd_per_hour": 0.9,
+     "latency_p50_s": 1.757,
+     "quality_pct": 96.0,
+     "quality_by_round": [
+      96.0,
+      96.0
+     ],
+     "critical_by_round": [
+      1,
+      1
+     ]
+    }
+   }
+  }
+ },
+ "caching": {
+  "prompt_tokens": "about 160-190 per request",
+  "minimum_cacheable_tokens": 1024,
+  "result": "nothing cached: the prompt is below the minimum",
+  "padding_test": "a system prompt padded past 1,024 tokens was cached, but saved only about 1.5% per request, and a cache miss is billed as a cache write at 1.25x the input rate; not worth it",
+  "source": "console output of the caching probe (8 requests per mode); not saved as a file"
+ }
+}
