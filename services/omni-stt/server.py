@@ -24,6 +24,12 @@ Protocol:
                       "confidence":0.93,"start_ms":1200,"end_ms":4810}   then its words
                      {"type":"flushed"}   after a flush, once everything before it is sent
                      {"type":"error","detail":"..."}
+                     With STT_PARTIALS=1 (off by default; partials.py), while a piece is
+                     still being spoken, about every STT_PARTIAL_MS of audio:
+                     {"type":"partial","text":"...","lang":"ht","confidence":0.93,
+                      "start_ms":1200,"end_ms":2700}   the whole current hypothesis
+                     {"type":"stable","text":"...","delta":"...", ...same fields}
+                                          the prefix two passes agreed on (never retracted)
 
     client connects  wss://host/speak[?voice=mms|coqui]   (same token)
     server sends     {"type":"hello","lang":"ht","voices":["mms","coqui"],"voice":"coqui","rate":24000,
@@ -137,6 +143,7 @@ for p in (HERE, os.path.join(HERE, "..", "..", "server")):
     if os.path.isdir(os.path.join(p, "engines")):
         sys.path.insert(0, os.path.abspath(p))
         break
+import partials  # noqa: E402  (beside this file, as omni_batch is)
 
 VAD_RATE = 16000
 RATES = (16000, 24000)
@@ -1544,6 +1551,15 @@ async def handle(ws, models, sub="open"):
             if dropped is not None:
                 print(f"[stt] {who}: behind, dropped a {len(dropped[0]) / VAD_RATE:.1f}s utterance", flush=True)
 
+    # Partial text while a piece is still being spoken (STT_PARTIALS=1 only;
+    # partials.py): extra passes over a copy of the Segmenter's buffer, through
+    # the same Batcher; the final goes out by the path above, unchanged.
+    partial = None
+    if partials.ENABLED:
+        partial = partials.PartialStream(langs, transcribe, batcher.submit,
+                                         lambda m: ws.send(json.dumps(m, ensure_ascii=False)),
+                                         busy=lambda: partials.queue_busy(batcher), who=who)
+
     task = asyncio.create_task(worker())
     batcher.opened()
     try:
@@ -1554,16 +1570,23 @@ async def handle(ws, models, sub="open"):
                 except Exception:
                     kind = None
                 if kind == "flush":
+                    if partial:
+                        partial.piece_ended()
                     enqueue(seg.flush())
                     queue.put_nowait("flush")
                 else:
                     await ws.send(json.dumps({"type": "error", "detail": "text messages: only {\"type\":\"flush\"}"}))
                 continue
             for block in conn_in.feed(msg):
-                enqueue(seg.feed(block, vad_windows(vad, block)))
+                utts = seg.feed(block, vad_windows(vad, block))
+                enqueue(utts)
+                if partial:
+                    partial.after_feed(seg, utts)
         # Disconnected: nothing more can be sent, so the unfinished turn is dropped.
     finally:
         batcher.closed()
+        if partial:
+            partial.close()
         task.cancel()
         if heard["audio_s"]:
             print(f"[stt] {who}: closed; {heard['n']} transcripts, {heard['audio_s']:.0f}s of speech, "

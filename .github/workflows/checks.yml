@@ -54,6 +54,7 @@ jobs:
           python tests/test_omni_stt.py
           python tests/test_eval_tools.py
           python tests/test_omni_stt_denoise.py
+          python tests/test_omni_stt_partials.py
 
       - name: Language config (both editions)
         run: |
