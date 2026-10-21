@@ -18,7 +18,7 @@ the stack's parts rather than copying them:
 | Language ID | VoxLingua107 ECAPA (`speechbrain/lang-id-voxlingua107-ecapa`, the stack's pinned revision) with the stack's constrained argmax (`Pipeline.identify_conf`) |
 | Endpointing | Silero VAD v6.2.3, shorter values than the stack's, and a forced cut at a pause the VAD heard (the stack's quietest-instant rule only as a fallback) (see Endpointing below); a VAD copy per connection |
 | Audio input | `server/audio_in.py` (fixed 96 ms blocks; 24 kHz resampled with carried filter state) |
-| Voices | `server/engines/mms.py` and `coqui.py` (the same engine classes and fixes: 24 kHz resample with 3 ms edge ramps, peak level, Coqui's dead-air trim, MMS's empty-input guard), each with its own lock |
+| Voices | `server/engines/mms.py` and `coqui.py` (the same engine classes and fixes: 24 kHz resample with 3 ms edge ramps, peak level, the dead-air trim, MMS's empty-input guard), each with its own lock |
 | Tokens | `server/stack_auth.py` (`STT_TOKEN` static, or `STT_SIGNING_KEY` for the stack's signed tokens), plus `STT_TOKEN_NONPROFIT` (below, Credentials) |
 
 ## Protocol
@@ -126,6 +126,23 @@ server    {"type":"error","id":"7","detail":"..."}   a refused or failed request
 - The text is spoken a sentence at a time (long sentences are cut at commas), so
   the first sentence's audio goes out while the rest is made. Requests on one
   socket are answered in order; keep the socket open between sentences.
+- Dead air is trimmed (`trim_silence` in `server/engines/common.py`, shared with
+  the stack): both voices pad silence onto each sentence, and the listener waits
+  through it twice, before the first sound and before the next sentence. A 10 ms
+  frame counts as voiced when its RMS is within 40 dB of the clip's peak (the
+  audio is peak-normalised to -1 dBFS first) and above -45 dBFS; the sentence
+  keeps 60 ms before the first voiced frame and 80 ms after the last, nothing is
+  padded when there was less, and audio with no voiced frame is sent as it is.
+  The 3 ms edge ramps are applied after the trim. Measured on the stored samples
+  of `eval/2026-10-ht-voices` (six sentences per voice, `silence.py`): MMS
+  padded 10-300 ms in front (median 280) and 50-380 ms behind (median 266),
+  7% of its audio and up to 17% of a short sentence, so the trim takes 5% off;
+  Coqui had already been cut by its earlier rule (a second of dead air at each
+  end, trimmed to 50 ms) and showed 40-50 ms in front and 35-51 ms behind, 1%,
+  which the new rule leaves alone. Thresholds from 35 to 50 dB below the peak
+  moved the edges by at most 30 ms on these samples, so the rule is nowhere
+  near the speech. Not yet measured: the live voices on the GPU with the trim
+  in place (the samples here went through an MP3 round trip).
 - The voices load after the recogniser is built and warm, while the port is
   already open (Coqui's import took ~30 s on a cold instance). Not at the same
   time as the recogniser: transformers builds a voice under `init_empty_weights`,

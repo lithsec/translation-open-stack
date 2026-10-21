@@ -6,7 +6,7 @@ session usually needs one of them. Last in the chain, behind Piper.
 """
 from engines import register
 from engines.base import Voice
-from engines.common import peak_normalise, to_pcm16
+from engines.common import peak_normalise, to_pcm16, trim_silence
 
 
 @register
@@ -56,8 +56,10 @@ class MMS(Voice):
             native = int(model.config.sampling_rate)
             # MMS renders about 11dB below Piper (Haitian RMS -25.5 dBFS against
             # -14 to -15 for the Piper voices), so a listener on that language
-            # has to turn the phone up and may still lose it in a room.
-            return to_pcm16(peak_normalise(pcm), native)
+            # has to turn the phone up and may still lose it in a room. It also
+            # pads dead air: 10-300 ms before the speech and 50-380 ms after it
+            # on the Haitian samples (7% of the audio), trimmed to 60/80 ms.
+            return to_pcm16(trim_silence(peak_normalise(pcm), native), native)
         except Exception as e:
             print(f"[stack] MMS {lang} failed ({e}) — text only")
             return None

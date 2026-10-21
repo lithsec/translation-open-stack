@@ -31,4 +31,31 @@ audio in: "sounds Haitian" 1–5 (1 = French accent) and "clear" 1–5.
 
 Files: `run.mjs` (Gemini and gpt-4o-mini-tts samples, timing, judge),
 `gen_open.py` (Coqui and MMS on CPU), `judge.json`, `scores.json`, `mp3/`,
-`listen.html` (built by `build_listen.py` from `listen_template.html`).
+`listen.html` (built by `build_listen.py` from `listen_template.html`),
+`silence.py` (leading and trailing silence, below).
+
+## Leading and trailing silence (2026-10-21)
+
+Dead air at the ends of a sentence is listener lag twice over: before the
+first sound, and before the next sentence can start. `silence.py` measures it
+with the rule the stack's voices now trim by (`server/engines/common.py`,
+`trim_silence`): a 10 ms frame is voiced when its RMS is within 40 dB of the
+clip's peak and above -45 dBFS; the trim keeps 60 ms before the first voiced
+frame and 80 ms after the last. On the stored samples (`mp3/`, six sentences
+per voice, decoded with ffmpeg; an MP3 round trip can move an edge by a few
+tens of milliseconds):
+
+| Voice | Lead ms (min-median-max) | Tail ms | Silence, of all audio | The trim removes |
+|---|---|---|---|---|
+| Meta MMS-TTS (raw model output) | 10-280-300 | 48-266-380 | 7.0% (2.4-17.4% per sentence) | 5.0% |
+| Coqui VITS OpenBible (after its earlier 50 ms trim) | 40-50-50 | 35-45-51 | 1.2% | 0 |
+| gpt-4o-mini-tts, coral | 10-170-570 | 140-280-410 | 5.1% | 3.7% |
+| gpt-4o-mini-tts, sage + accent | 0-50-530 | 180-530-550 | 5.9% | 4.6% |
+| Gemini 3.8 Flash TTS, Flash Lite | 0 | 0 | 0 | 0 |
+
+Thresholds from 35 to 50 dB below the peak moved the edges by at most 30 ms
+on these samples: the speech edges are sharp and the dead air sits 65-80 dB
+below the peak, so a 40 dB rule is nowhere near the speech. The Gemini
+samples here were stored without their dead air. eSpeak NG (the stack's
+last-resort voice, five sentences made on a Mac) ends every sentence with
+300 ms of silence, 9-16% of a short sentence; it is not trimmed yet.

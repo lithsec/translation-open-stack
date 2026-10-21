@@ -268,8 +268,12 @@ connections run at once. So:
   (gain capped at 4×). Use it unless the model is already mastered like Piper:
   a room hears a language switch as a level jump, and MMS was 11 dB quieter
   than the rest.
-- **Dead air**: trim leading and trailing silence if the model pads (Coqui's
-  OpenBible voice padded a second at each end; `engines/coqui.py`).
+- **Dead air**: trim leading and trailing silence if the model pads, with
+  `engines.common.trim_silence(pcm, native_rate)` after `peak_normalise` and
+  before `to_pcm16`: it keeps 60 ms before the first voiced 10 ms frame and
+  80 ms after the last, and leaves a clip with no voiced frame alone (Coqui's
+  OpenBible voice padded a second at each end, MMS a few hundred milliseconds;
+  `engines/coqui.py`, `engines/mms.py`).
 - **Streaming voices** yield 24 kHz PCM16 chunks of whole samples. A stream
   can't know its peak, so it can't normalise; VoxCPM2 uses a fixed gain and a
   soft limiter in its service (`server/voxcpm_service.py`). If `stream()`

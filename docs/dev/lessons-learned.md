@@ -397,7 +397,10 @@ OpenBible or MMS for Haitian Creole by edition. See
   dropped every capital, so each sentence lost its first sound. Text is lowercased
   for voices whose `phoneme_type` is `text` (`server/engines/piper.py`).
 - **Coqui OpenBible (Haitian) pads about a second of dead air at each end**: 3.86 s
-  of audio for 1.68 s of speech. The path trims before normalising.
+  of audio for 1.68 s of speech, and MMS pads 10-300 ms in front and 50-380 ms
+  behind (7% of its Haitian output). One shared trim (`trim_silence` in
+  `server/engines/common.py`, 2026-10-21) keeps 60 ms before the speech and
+  80 ms after it, applied after the level is set and before the edge ramps.
 - **Voice names are exact.** The Japanese Piper fallback was configured as
   `ja_JA-hi_fi_captain-medium`, which doesn't exist; it is `ja_JP-…`. An earlier
   comment also claimed Piper had no ja/ko voices, which left them text-only for no
