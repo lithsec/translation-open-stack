@@ -168,7 +168,7 @@ resource. Pages:
   - The deployments include a gpt-5.6-sol **Data Zone Standard** (US)
     deployment (`<deployment>`).
   - Only Whisper is offered for speech among the Foundry models in eastus.
-- **Live Translation** (PR #217, merged as `c23a357`). The Haitian Creole
+- **Live Translation.** The Haitian Creole
   exception can translate with a Foundry deployment instead of Gemini, and a
   new **Azure + Foundry** mode streams Azure speech-to-text into sol for every
   language.

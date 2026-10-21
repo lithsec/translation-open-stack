@@ -2119,7 +2119,7 @@ def build_latency(D, S1):
     az, gem, gla = VN("microsoft", "Azure", "recogniser"), VN("google", "Gemini Live", "voice model"), VN("gladia", "Gladia", "recogniser")
     cite(D, "oct_doc", "The delay is about 1.3 s after each sentence ends.")
     cite(D, "azg_readme", "Azure's final ~0.8 s, Gemini's first audio ~0.5 s after that")
-    cite(D, "oct_doc", "(first audio 0.67 s against 0.95 s)")
+    cite(D, "oct_doc", "(first audio 0.67 s")
     cite(D, "omni_readme", "~0.10-0.12 s at the server for either voice, ~0.14-0.18 s at a client in the US over an open socket")
     cite(D, "oct_doc", "~1.1 s GPU (Khmer 5–8 s)")
     cite(D, "omni_readme", "**One instance** (`--max-instances 1`), up to 4 streams")

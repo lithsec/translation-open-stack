@@ -15,6 +15,7 @@ on:
     paths:
       - 'site/**'
       - 'eval/**'
+      - 'docs/**'
       - 'languages.toml'
       - '.github/workflows/pages.yml'
   pull_request:
