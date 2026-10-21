@@ -123,6 +123,12 @@ a 700 ms pause rule leaves the 15 s cap to do most of the cutting.
 
 ## Caveats
 
+- The per-piece lag figures are likely low. The harness attributes voice
+  audio to pieces by arrival, which under-counts the lag when the voice is
+  backlogged: on a Spanish run measured both ways
+  (`../2026-10-continuous-azure`) it gave 2.1 s where attributing by the
+  speech service's byte offsets gives 5.3 s. First audio and final lag are
+  unaffected.
 - One five-minute clip, one speaker, one genre (studio news), one language.
 - One run per setting, apart from the three context runs. Differences of a
   few tenths on the 0–3 scale are within run-to-run noise: the context runs

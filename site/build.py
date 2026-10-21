@@ -62,6 +62,8 @@ INPUTS = {
     "degr_readme": "eval/2026-10-latency/degraded/README.md",
     "cont": "eval/2026-10-continuous-ht/results.json",
     "cont_readme": "eval/2026-10-continuous-ht/README.md",
+    "caz": "eval/2026-10-continuous-azure/results.json",
+    "caz_readme": "eval/2026-10-continuous-azure/README.md",
     # Cost page
     "fcost": "eval/2026-10-translation-cost/results.json",
     "fcost_readme": "eval/2026-10-translation-cost/README.md",
@@ -971,6 +973,7 @@ def build_methodology(D):
 <tr><th scope="row">Endpointing sweep</th><td>{esc(sw['date'])}</td><td>{esc(sw['service_ref'])}. {esc(sw['gpu'])}. Silero VAD at <code>5cd79456</code> (v6.2.3).</td></tr>
 <tr><th scope="row">Live routes on degraded audio</th><td>{esc(D['degr']['date'])}</td><td>The latency test's harness and routes; four simulated conditions; one run per cell, 15 sentences. See <a href="latency.html#degraded">Latency</a>.</td></tr>
 <tr><th scope="row">Continuous speech, Haitian Creole</th><td>2026-10-20 to 10-21</td><td>Five minutes of public-domain news speech, real time; omni-stt piece settings as listed; seven runs. See <a href="latency.html#continuous">Latency</a>.</td></tr>
+<tr><th scope="row">Continuous speech, Spanish / French / Japanese</th><td>2026-10-21</td><td>Five minutes of broadcast news per language (copyrighted; metrics only), real time, Live Translation <code>66ae717</code>; references and judge gemini-3.1-pro-preview. See <a href="latency.html#continuous-more">Latency</a>.</td></tr>
 <tr><th scope="row">Translation step cost</th><td>{esc(D['fcost']['date'])}</td><td>{esc(VN('openai', 'GPT-5.6-sol on Azure AI Foundry (Data Zone)', 'LLM'))}, reasoning low and none; 24 + 33 sentences per direction; two grading rounds. See <a href="cost.html#translation-step">Cost</a>.</td></tr>
 <tr><th scope="row">Haitian Creole voices</th><td>2026-10-19</td><td>Seven voices as labelled; open voices on CPU.</td></tr>
 </tbody></table></div>
@@ -1104,10 +1107,10 @@ def cite(D, key, needle):
 
 def load_more(D):
     D["text"] = {}
-    for k in ("sept_doc", "oct_doc", "htv_readme", "azg_readme", "omni_readme", "degr_readme", "cont_readme", "fcost_readme"):
+    for k in ("sept_doc", "oct_doc", "htv_readme", "azg_readme", "omni_readme", "degr_readme", "cont_readme", "caz_readme", "fcost_readme"):
         with open(os.path.join(ROOT, INPUTS[k]), encoding="utf-8") as f:
             D["text"][k] = f.read()
-    for k in ("derived", "r6lao", "asr300", "nat", "voxspeed", "r8asr", "r8mt", "r8nat", "degr", "cont", "fcost", "prices"):
+    for k in ("derived", "r6lao", "asr300", "nat", "voxspeed", "r8asr", "r8mt", "r8nat", "degr", "cont", "caz", "fcost", "prices"):
         D[k] = J(INPUTS[k])
     p = os.path.join(ROOT, INPUTS["latency"])
     D["latency"] = J(INPUTS["latency"]) if os.path.isfile(p) else None
@@ -1747,6 +1750,76 @@ def degraded_section(D):
             f'<h3>Every direction</h3><p class="note">Each cell: quality · sentences missing (of 15) · last words, median seconds.</p>{tbl}')
 
 
+def continuous_azure(D):
+    """Continuous speech through the Azure + Foundry route (eval/2026-10-continuous-azure)."""
+    C = D["caz"]
+    rd = INPUTS["caz_readme"]
+    for n in ("only metrics are kept here", "not human captions", "Approximate, model-made references and one judge model",
+              "which LT sets to 20 s", "it was not adopted"):
+        cite(D, "caz_readme", n)
+    L3 = C["langs"]
+    name = {"es": "Spanish", "fr": "French", "ja": "Japanese"}
+    src = {"es": "a Spanish TV news programme", "fr": "a French radio news bulletin", "ja": "a Japanese radio newscast"}
+    az = VN("microsoft", "Azure", "cloud A")
+    azr = VN("microsoft", "Azure STT", "recogniser")
+    fdy = VN("openai", "GPT-5.6-sol on Azure AI Foundry", "LLM")
+    azv = VN("microsoft", "Azure neural English voice", "voice")
+    glt = VN("google", "Gemini Live Translate", "speech-to-speech translator")
+    judge = f"a {vendor('google')} model" if ANON else f"a Gemini model ({C['judge']})"
+    pr = C["prices_usd_per_million_tokens"]
+
+    def qtxt(x):
+        return f'{x["quality"]["pct_of_max"]}% ({x["quality"]["critical"]})' if x and x.get("quality") else "–"
+
+    rows = []
+    for l in ("es", "fr", "ja"):
+        v = L3[l]
+        d, r = v["default"], v.get("default_repeat")
+        rows.append([name[l], v["pauses_at_least_ms"]["150"], f'{d["chunk_s"]["p50"]} / {d["chunk_s"]["p90"]} / {d["chunk_s"]["max"]} s',
+                     f'{d["start_to_first_audio_s"]} s', f'{d["chunk_start_to_its_audio_s"]["p50"]} / {d["chunk_start_to_its_audio_s"]["p90"]} s',
+                     f'{d["last_word_to_end_of_translation_s"]} s', qtxt(d) + (f"; repeat {qtxt(r)}" if r else ""),
+                     f'{v["gemini_lt"]["start_to_first_audio_s"]:.1f} / {v["gemini_lt"]["last_word_to_end_of_translation_s"]:.1f} s', qtxt(v["gemini_lt"])])
+    tbl = _table(["Clip", "Pauses ≥ 150 ms", "Chunk length p50 / p90 / max", "First audio", "Per-chunk lag p50 / p90", "Final lag",
+                  "Quality (critical)", f"{glt}: first audio / final lag", f"{glt}: quality (critical)"], rows)
+    groups = [(name[l], [L3[l]["default"]["start_to_first_audio_s"], L3[l]["default"]["chunk_start_to_its_audio_s"]["p50"],
+                         L3[l]["default"]["last_word_to_end_of_translation_s"]], l == "fr") for l in ("es", "fr", "ja")]
+    chart = grouped(f"Continuous news through {az} + {fdy.split(' on ')[0]}: how far behind the listener is",
+                    "Five minutes per language, one run each (the first run where repeated). Seconds; lower is better.",
+                    groups, [("Speech starts → first translated audio", "c1"), ("Each chunk: its start → its audio (median)", "c2"),
+                             ("Last word → translation finishes", "c3")], fmt=lambda v: f"{v:.1f} s", vendor_named=True)
+    sem = [(l, L3[l]["semantic"], L3[l].get("semantic_repeat")) for l in ("es", "fr")]
+    sem_p90 = [x["chunk_s"]["p90"] for _, a, b in sem for x in (a, b) if x and "chunk_s" in x]
+    sem_fin = {l: sorted(x["last_word_to_end_of_translation_s"] for x in (a, b) if x and "last_word_to_end_of_translation_s" in x) for l, a, b in sem}
+    fin = lambda l: "–".join(f"{v:.1f}" for v in dict.fromkeys(sem_fin[l])) + " s"  # noqa: E731
+    sem_max = [x["chunk_s"]["max"] for _, a, b in sem for x in (a, b) if x and "chunk_s" in x]
+    sp = {l: L3[l]["speculation"] for l in ("es", "fr", "ja")}
+    tok = {l: L3[l]["translation_tokens"] for l in ("es", "fr", "ja")}
+    ratio = [sp[l]["translation_calls_answered"] / tok[l]["calls"] for l in sp]
+    fr, es, ja = L3["fr"], L3["es"], L3["ja"]
+    gl = [L3[l]["gemini_lt"] for l in ("es", "fr", "ja")]
+    return f"""<h3 id="continuous-more">{esc(az)} continuous speech: Spanish, French and Japanese</h3>
+<div class="prose">
+<p>The same question for the {esc(azr)} → {esc(fdy)} → {esc(azv)} route, on five minutes of broadcast news in each of three languages: {src['es']}, {src['fr']} and {src['ja']} ({esc(C['date'])}). The app's own provider code at <code>{esc(C['lt_commit'])}</code>, at real-time pace; {esc(glt)} on the same clips for scale. The broadcasts are copyrighted, so only metrics are published. Source: {src_link(rd)} and {src_link(INPUTS["caz"])}.</p>
+<ul>
+<li><strong>Chunks:</strong> each {esc(azr)} final is translated and voiced on its own. The app ends a chunk on a pause (600 ms, then 150 ms once it sees the speaker running sentences together), and the recogniser cuts one anyway at 20 s, the shortest maximum it accepts.</li>
+<li><strong>Measures</strong> as above, with chunks for pieces. Voice audio is attributed to chunks by the speech service's byte offsets, so a backlogged voice is counted correctly.</li>
+<li><strong>Quality:</strong> {esc(judge)} grades each reference sentence 0–3 (% of the maximum; critical errors in brackets). The references are model-made transcripts and translations, not human captions: approximate, good for ranking runs.</li>
+</ul>
+<h3>What it shows</h3>
+<ul>
+<li><strong>Long chunks come from the audio, not the language.</strong> The French bulletin has almost no pauses ({fr["pauses_at_least_ms"]["150"]} of 150 ms or more in five minutes), so its chunks run into the 20 s cap: {fr["default"]["chunk_s"]["p50"]:g} s median, and the listener ends {fr["default"]["last_word_to_end_of_translation_s"]:g} s behind the last word, at {fr["default"]["quality"]["pct_of_max"]}% quality. Spanish ({es["pauses_at_least_ms"]["150"]} such pauses) gave {es["default"]["chunk_s"]["p50"]:g} s chunks, a {es["default"]["last_word_to_end_of_translation_s"]:g} s final lag and {es["default"]["quality"]["pct_of_max"]}–{es["default_repeat"]["quality"]["pct_of_max"]}%; Japanese {ja["default"]["chunk_s"]["p50"]:g} s, {ja["default"]["last_word_to_end_of_translation_s"]:g} s and {ja["default"]["quality"]["pct_of_max"]}%.</li>
+<li><strong>{esc(glt)}</strong> started {min(g["start_to_first_audio_s"] for g in gl):.1f}–{max(g["start_to_first_audio_s"] for g in gl):.1f} s in and finished {min(g["last_word_to_end_of_translation_s"] for g in gl):.1f}–{max(g["last_word_to_end_of_translation_s"] for g in gl):.1f} s after the last word, at {" / ".join(str(g["quality"]["pct_of_max"]) + "%" for g in gl)} quality (Spanish / French / Japanese).</li>
+<li><strong>Semantic segmentation</strong> (the recogniser cuts at the end of a meaning rather than at a pause) made Spanish and French chunks run to {min(sem_p90):.0f}–{max(sem_p90):.0f} s at the 90th percentile ({min(sem_max):.0f}–{max(sem_max):.0f} s at most) and the final lag {fin("es")} (Spanish) and {fin("fr")} (French). Spanish quality rose to {es["semantic"]["quality"]["pct_of_max"]}%, but the delay rules it out for live use, so it was not adopted.</li>
+<li><strong>Experimental streaming</strong> of each translation into the voice fell {es["streaming_max_voice_behind_s"]:.0f} s (Spanish) and {fr["streaming_max_voice_behind_s"]:.0f} s (French) behind on nonstop speech.</li>
+<li><strong>Speculative translation</strong> (translating partial results before the final arrives) hit {sp["es"]["finals_hit"]} of {sp["es"]["finals"]}, {sp["fr"]["finals_hit"]} of {sp["fr"]["finals"]} and {sp["ja"]["finals_hit"]} of {sp["ja"]["finals"]} finals, for {min(ratio):.0f}–{max(ratio):.0f} times the answered translation calls.</li>
+<li><strong>Translation tokens</strong> for one target language, per hour of speech, at ${pr["input"]:.2f} / ${pr["output"]:.0f} per million input / output tokens (reasoning low): Spanish {money(tok["es"]["usd_per_hour"])} ({tok["es"]["calls_per_hour"]} calls an hour), French {money(tok["fr"]["usd_per_hour"])}, Japanese {money(tok["ja"]["usd_per_hour"])}. Nothing was cached: the prompts are under the caching minimum.</li>
+</ul>
+</div>
+{chart}
+{tbl}
+<p class="caveat">Limits. One five-minute clip per language, one genre (broadcast news); one run per setting, with one repeat of the Spanish and French default runs. Approximate, model-made references and one judge model.</p>"""
+
+
 INTERPRETER_NOTE = ("<p><strong>How a human interpreter compares.</strong> Studies of simultaneous interpreting describe the "
                     "<em>ear–voice span</em>, how far the interpreter's speech trails the speaker's, as typically about 2–3 seconds, "
                     "and longer, roughly 4–6 seconds, between languages where the verb comes at the end of the sentence and the "
@@ -1869,9 +1942,8 @@ def continuous_section(D):
 {sim_tbl}
 <h3>All runs</h3>
 {runs_tbl}
-<p class="caveat">Limits. One five-minute clip, one speaker, one genre (studio news), one language. One run per setting, apart from the context runs; the three context runs alone spread from {min(x["mean"] for x in cq):.2f} to {max(x["mean"] for x in cq):.2f}, so differences of a few tenths are within run-to-run noise. One judge per run, grading against an approximate, model-made reference. Two judge models were used across the runs; re-grading the old setting with the second gave the same {C["rejudge_check"]["quality"]["mean"]:.2f}.</p>
-<h3 id="continuous-more">{esc(VN("microsoft", "Azure", "cloud A"))} continuous speech: Spanish, French and Japanese</h3>
-<div class="placeholder" role="note"><p><strong>Pending.</strong> The same continuous-speech test for {esc(VN("microsoft", "Azure", "recogniser"))}'s live recognition in Spanish, French and Japanese, including its semantic segmentation mode (cutting at the end of a meaning rather than at a pause), is still running. Its results will be added here when it finishes.</p></div>"""
+<p class="caveat">Limits. The per-piece lag figures here are likely low: this harness attributes voice audio to pieces by arrival, which under-counts the lag when the voice is backlogged (on a Spanish run measured both ways, 2.1 s against 5.3 s; see <a href="#continuous-more">below</a>). First audio and final lag are unaffected. One five-minute clip, one speaker, one genre (studio news), one language. One run per setting, apart from the context runs; the three context runs alone spread from {min(x["mean"] for x in cq):.2f} to {max(x["mean"] for x in cq):.2f}, so differences of a few tenths are within run-to-run noise. One judge per run, grading against an approximate, model-made reference. Two judge models were used across the runs; re-grading the old setting with the second gave the same {C["rejudge_check"]["quality"]["mean"]:.2f}.</p>
+{continuous_azure(D)}"""
 
 
 # ---------------------------------------------------------------- cost
