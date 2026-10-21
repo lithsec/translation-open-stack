@@ -43,9 +43,10 @@ Protocol:
     GET /mic         a microphone test page (mic.html): speak, see each transcript
 
 Per utterance, the stack's own pipeline minus the translation (server/server.py):
-Silero VAD ends a turn after ENDPOINT_MS of quiet (300 ms; a turn with less
-than MIN_SPEECH_MS of speech waits longer), with a forced cut by MAX_UTTERANCE_S
-(6 s) at the best pause of the last CUT_WINDOW_S (3.5 s; see pause_cut), the
+Silero VAD ends a turn after ENDPOINT_MS of quiet (200 ms; a turn with less
+than MIN_SPEECH_MS of speech waits longer; past CUT_EARLY_S a shorter pause
+will do), with a forced cut by MAX_UTTERANCE_S (10 s) at the best pause of the
+last CUT_WINDOW_S (3.5 s, at most a third of the cap; see pause_cut), the
 rest kept for the next utterance; VoxLingua107 picks the
 language, but only among ?langs (one language: no guess at all); Omnilingual
 transcribes with that language's code. The recogniser is the stack's engine
@@ -84,10 +85,10 @@ sockets, default 4), STT_SERVE ("listen,speak" by default; "speak" skips the
 recogniser's models, for a laptop test of the voices), STT_TOKEN, STT_TOKEN_NONPROFIT,
 STT_SIGNING_KEY (Credentials, below), STT_OPEN=1,
 PORT, STT_DEVICE (default: cuda when torch sees one, else cpu), OMNI_CARD,
-STT_MAX_CONNECTIONS, STT_MAX_PENDING, ENDPOINT_MS (default 300), MAX_UTTERANCE_S
-(default 6.0), MIN_SPEECH_MS (default 400), CUT_WINDOW_S (default 3.5), CUT_DIP_PROB
-(0.5), CUT_DIP_MS (96), CUT_ENDPOINT_MS (200): where a forced cut lands (Endpointing,
-below), STT_MODELS (the baked models).
+STT_MAX_CONNECTIONS, STT_MAX_PENDING, ENDPOINT_MS (default 200), MAX_UTTERANCE_S
+(default 10.0), MIN_SPEECH_MS (default 1000), CUT_WINDOW_S (default 3.5), CUT_DIP_PROB
+(0.5), CUT_DIP_MS (96), CUT_ENDPOINT_MS (200): where a forced cut lands, CUT_EARLY_S
+(4.0): the progressive pause cut (Endpointing, below), STT_MODELS (the baked models).
 STT_BATCH_MAX (default 8) and STT_BATCH_WAIT_MS (default 10): the GPU micro-batcher
 (Batcher); STT_LID_BATCH=0 runs language ID one utterance at a time inside a batch;
 STT_ALIGNED=0 decodes batches with the library's own batched call (omni_batch.py
@@ -164,11 +165,20 @@ VAD_REF = "5cd7945676eb32225748052e2e6a0580e4686a08"
 # 5 s, a forced cut at 9 s), because a client here waits on this service: Live
 # Translation holds its other recogniser's sentences until the Haitian
 # utterance beside them is named, so every second an utterance runs on is a
-# second of everyone's captions. 300 ms of quiet ends a turn (a breath between
-# clauses is enough), and a speaker who never pauses is cut by 6 s, at the best
+# second of everyone's captions. 200 ms of quiet ends a turn (a breath between
+# clauses is enough), and a speaker who never pauses is cut by 10 s, at the best
 # pause of the last few seconds (CUT_WINDOW_S, below).
-ENDPOINT_MS = int(os.environ.get("ENDPOINT_MS", "300"))
-MAX_UTTERANCE_S = float(os.environ.get("MAX_UTTERANCE_S", "6.0"))
+# Measured on five minutes of continuous news speech
+# (eval/2026-10-continuous-ht): a presenter takes 21 breaths a minute of
+# 200 ms or more but only 6 of 500 ms, so with 700 ms / 15 s the cap did the
+# cutting (12.7 s pieces, first audio at 19.5 s, each piece 18.2 s behind);
+# 200 ms / 10 s / 1 s of minimum speech gave 3.8 s pieces, first audio at
+# 8.4 s, 9.1 s behind. The trade-off: a short piece gives the translator less
+# to work out a misheard name or phrase from (quality 2.52 -> 2.21 on a 0-3
+# scale) unless it gets context, which the companion apps now send (the
+# previous pieces and the last translation, as context only: 2.52-2.67).
+ENDPOINT_MS = int(os.environ.get("ENDPOINT_MS", "200"))
+MAX_UTTERANCE_S = float(os.environ.get("MAX_UTTERANCE_S", "10.0"))
 # A turn with less speech than this is not ended by a short pause: VoxLingua107
 # picks a language from the whole clip, and on a lone syllable ("wi", "OK") or
 # a cough its choice is close to a coin toss -- and a wrong "language" message
@@ -178,8 +188,14 @@ MAX_UTTERANCE_S = float(os.environ.get("MAX_UTTERANCE_S", "6.0"))
 # really stands alone still goes out, as late as it did before this change.
 # Merging beats skipping the language ID: the client needs every utterance
 # named to release what it holds, and beats a guess: one-word answers are
-# where a room's languages are most alike.
-MIN_SPEECH_MS = int(os.environ.get("MIN_SPEECH_MS", "400"))
+# where a room's languages are most alike. 1 s (was 400 ms) with the 200 ms
+# endpoint: a 200 ms breath comes after a phrase as often as after a sentence,
+# and a sub-second fragment is both a poor language ID clip and a poor piece
+# to translate; on the news clip it took the pieces under 1.5 s from 9 to 3
+# and the median from 3.3 s to 3.8 s. The 700 ms wait stays: a phrase under
+# 1 s followed by a 200-700 ms breath joins the next one, and a word that
+# really stands alone still goes out 700 ms after it ends, as before.
+MIN_SPEECH_MS = int(os.environ.get("MIN_SPEECH_MS", "1000"))
 SHORT_TURN_ENDPOINT_MS = 700
 TRAILING_KEEP_MS = 250
 # Where a forced cut lands. A speaker who never pauses for ENDPOINT_MS still
@@ -194,11 +210,24 @@ TRAILING_KEEP_MS = 250
 # and starts the next utterance: nothing lost, nothing sent twice.
 # CUT_ENDPOINT_MS: inside that last window a shorter pause (this much quiet)
 # ends the turn at once, instead of waiting for the cap to cut back to it.
-# CUT_WINDOW_S=0 restores the old forced cut.
+# CUT_WINDOW_S=0 restores the old forced cut. (The window is at most a third
+# of the cap: 3.33 s with the 10 s cap, so the near-cap rule runs from 6.67 s.)
 CUT_WINDOW_S = float(os.environ.get("CUT_WINDOW_S", "3.5"))
 CUT_DIP_PROB = float(os.environ.get("CUT_DIP_PROB", "0.5"))
 CUT_DIP_MS = int(os.environ.get("CUT_DIP_MS", "96"))
 CUT_ENDPOINT_MS = int(os.environ.get("CUT_ENDPOINT_MS", "200"))
+# Progressive pause cut. A piece that has run past CUT_EARLY_S is already long
+# enough to translate, so from there the quiet that ends it falls, in a
+# straight line, from ENDPOINT_MS at CUT_EARLY_S to CUT_ENDPOINT_MS at the cap
+# (Segmenter._need_ms): the longer a piece runs, the shorter the breath that
+# ends it, and it usually ends at a breath of its own well before the cap
+# instead of at the cap's look-back. The VAD runs in 96 ms blocks, so the
+# line is really a few steps (with 700 ms -> 200 ms over 4 s -> 15 s: 672,
+# 576, 480, 384, 288 ms, each about 2 s later). It matters only when
+# ENDPOINT_MS is above CUT_ENDPOINT_MS (a 500 ms endpoint for a language whose
+# recogniser wants longer pieces, say): with the 200 ms default the two are
+# equal and nothing changes. 0 disables it, as does CUT_ENDPOINT_MS=0.
+CUT_EARLY_S = float(os.environ.get("CUT_EARLY_S", "4.0"))
 # Silero's probability falls a window or two after the speech stops: a dip's
 # quiet starts up to this much before its first low window.
 VAD_LAG_MS = 64
@@ -523,18 +552,20 @@ class Segmenter:
 
     def __init__(self, endpoint_ms=None, max_s=None, min_speech_ms=None,
                  short_endpoint_ms=SHORT_TURN_ENDPOINT_MS, cut_window_s=None,
-                 cut_dip_prob=None, cut_dip_ms=None, cut_endpoint_ms=None):
+                 cut_dip_prob=None, cut_dip_ms=None, cut_endpoint_ms=None, cut_early_s=None):
         import numpy as np
         self.np = np
         self.endpoint_ms = ENDPOINT_MS if endpoint_ms is None else endpoint_ms
         self.max_s = MAX_UTTERANCE_S if max_s is None else max_s
         self.min_speech_ms = MIN_SPEECH_MS if min_speech_ms is None else min_speech_ms
         self.short_endpoint_ms = max(self.endpoint_ms, short_endpoint_ms)
-        # (At most a third of the cap: with the default 6 s, the old rule's 2 s.)
+        # (At most a third of the cap: 3.33 s with the default 10 s; with a
+        # 6 s cap, the old rule's 2 s.)
         self.cut_window_s = min(CUT_WINDOW_S if cut_window_s is None else cut_window_s, self.max_s / 3)
         self.cut_dip_prob = CUT_DIP_PROB if cut_dip_prob is None else cut_dip_prob
         self.cut_dip_ms = CUT_DIP_MS if cut_dip_ms is None else cut_dip_ms
         self.cut_endpoint_ms = CUT_ENDPOINT_MS if cut_endpoint_ms is None else cut_endpoint_ms
+        self.cut_early_s = CUT_EARLY_S if cut_early_s is None else cut_early_s
         self.probs = []             # (stream start, end sample, probability) per VAD window in buf
         self.buf = np.zeros(0, dtype=np.float32)
         self.buf_start = 0          # stream sample index of buf[0]
@@ -627,10 +658,24 @@ class Segmenter:
             out = [self._take(self._cut(window_s))]
             self._restate()
             return out
-        need_ms = self.endpoint_ms if self.speech_ms >= self.min_speech_ms else self.short_endpoint_ms
-        if self.quiet_ms < need_ms:
+        if self.quiet_ms < self._need_ms():
             return []
         return [self._end_turn()]
+
+    def _need_ms(self):
+        """The quiet that ends the turn now: SHORT_TURN_ENDPOINT_MS while the
+        turn holds less than MIN_SPEECH_MS of speech, else ENDPOINT_MS, falling
+        in a straight line to CUT_ENDPOINT_MS as the buffer grows from
+        CUT_EARLY_S to the cap (the progressive pause cut; off when either
+        is 0, or when ENDPOINT_MS is not above CUT_ENDPOINT_MS)."""
+        if self.speech_ms < self.min_speech_ms:
+            return self.short_endpoint_ms
+        if (self.cut_early_s <= 0 or self.cut_endpoint_ms <= 0
+                or self.cut_endpoint_ms >= self.endpoint_ms or self.max_s <= self.cut_early_s):
+            return self.endpoint_ms
+        run = (len(self.buf) / VAD_RATE - self.cut_early_s) / (self.max_s - self.cut_early_s)
+        run = min(1.0, max(0.0, run))
+        return self.endpoint_ms - run * (self.endpoint_ms - self.cut_endpoint_ms)
 
     def _end_turn(self):
         # The speech, not the pause that ended it (a recogniser fills silence

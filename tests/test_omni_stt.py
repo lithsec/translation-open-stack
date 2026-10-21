@@ -174,10 +174,12 @@ def _run(seg, blocks):
 
 def test_segmenter_defaults():
     # The values Live Translation's latency depends on (README, Endpointing).
+    # (200 ms / 10 s / 1 s: eval/2026-10-continuous-ht, the 'breath' run.)
     if not any(k in os.environ for k in ("ENDPOINT_MS", "MAX_UTTERANCE_S", "MIN_SPEECH_MS")):
-        assert (stt.ENDPOINT_MS, stt.MAX_UTTERANCE_S, stt.MIN_SPEECH_MS) == (300, 6.0, 400)
-    seg = stt.Segmenter(endpoint_ms=300, max_s=6.0, min_speech_ms=400)
+        assert (stt.ENDPOINT_MS, stt.MAX_UTTERANCE_S, stt.MIN_SPEECH_MS) == (200, 10.0, 1000)
+    seg = stt.Segmenter(endpoint_ms=200, max_s=10.0, min_speech_ms=1000)
     assert seg.short_endpoint_ms == 700
+    assert seg.cut_window_s == 10.0 / 3                    # a third of the cap, under CUT_WINDOW_S
 
 
 def test_segmenter_endpoint():
@@ -289,8 +291,8 @@ def _spans(start_sample, probs):
 
 
 def test_cut_defaults():
-    if not any(k in os.environ for k in ("CUT_WINDOW_S", "CUT_DIP_PROB", "CUT_DIP_MS", "CUT_ENDPOINT_MS")):
-        assert (stt.CUT_WINDOW_S, stt.CUT_DIP_PROB, stt.CUT_DIP_MS, stt.CUT_ENDPOINT_MS) == (3.5, 0.5, 96, 200)
+    if not any(k in os.environ for k in ("CUT_WINDOW_S", "CUT_DIP_PROB", "CUT_DIP_MS", "CUT_ENDPOINT_MS", "CUT_EARLY_S")):
+        assert (stt.CUT_WINDOW_S, stt.CUT_DIP_PROB, stt.CUT_DIP_MS, stt.CUT_ENDPOINT_MS, stt.CUT_EARLY_S) == (3.5, 0.5, 96, 200, 4.0)
     # The window is at most a third of the cap (6 s: the old rule's 2 s).
     assert stt.Segmenter(max_s=15, cut_window_s=3.5).cut_window_s == 3.5
     assert stt.Segmenter(max_s=6, cut_window_s=3.5).cut_window_s == 2.0
@@ -427,6 +429,73 @@ def test_segmenter_cut_window_zero_is_the_old_rule():
         assert len(utts) == 1
         n = len(utts[0][0])
         assert (219648 <= n < 220148) if window == 0 else (lo <= n <= hi), (window, n)
+
+
+# The progressive pause cut (CUT_EARLY_S): past 4 s the quiet that ends a turn
+# falls from ENDPOINT_MS to CUT_ENDPOINT_MS at the cap. 700 ms -> 200 ms over
+# 4 s -> 15 s here, so a 640 ms pause (the Segmenter counts quiet in whole
+# 96 ms blocks: six of them, 576 ms) ends the turn once the line is under
+# 576 ms, from 6.7 s on, and never did before.
+
+def _pause_ends_turn(at_s, cut_early_s, **kw):
+    """Whether a 640 ms pause at at_s ends a 700 ms / 15 s turn, and where."""
+    seg = stt.Segmenter(endpoint_ms=700, max_s=15.0, min_speech_ms=400, cut_early_s=cut_early_s, **kw)
+    out, _ = _feed(seg, _probs(at_s + 1.5, dips=[(at_s, 640, 0.02)]))
+    assert len(out) <= 1
+    return out[0][2] if out else None
+
+
+def test_progressive_need_ms_line():
+    seg = stt.Segmenter(endpoint_ms=700, max_s=15.0, min_speech_ms=400, cut_early_s=4.0)
+    seg.speech_ms = 1000
+    for seconds, want in ((0, 700), (4.0, 700), (6.4, 700 - 500 * 2.4 / 11), (9.5, 450), (15.0, 200), (20.0, 200)):
+        seg.buf = np.zeros(int(seconds * 16000), dtype=np.float32)
+        assert abs(seg._need_ms() - want) < 1e-6, (seconds, seg._need_ms())
+    seg.speech_ms = 100                                    # too little speech: the short-turn wait
+    assert seg._need_ms() == 700
+
+
+def test_progressive_no_effect_below_cut_early():
+    # A 640 ms pause at 3 s (the piece is under 4 s): 700 ms still rules.
+    assert _pause_ends_turn(3.0, 4.0) is None
+    # And at 4.5 s the line has only just started down (~650 ms): no.
+    assert _pause_ends_turn(4.5, 4.0) is None
+
+
+def test_progressive_shorter_pause_ends_the_turn_before_the_cap():
+    # The same pause at 8 s (the line is under 500 ms, the piece well short of
+    # the near-cap window): the turn ends there, in the pause, with nothing
+    # left over, as a normal end of turn.
+    seg = stt.Segmenter(endpoint_ms=700, max_s=15.0, min_speech_ms=400, cut_early_s=4.0)
+    out, _ = _feed(seg, _probs(9.5, dips=[(8.0, 640, 0.02)]))
+    assert len(out) == 1
+    u, start_ms, end_ms = out[0]
+    assert 8200 <= end_ms <= 8600, end_ms
+    assert np.abs(u[-W // 2:]).max() < 0.01                # ends in the pause
+    # The speech after the pause is a new turn that starts right after it
+    # (nothing kept back, as a forced cut would), ended here by a 1 s pause.
+    more, _ = _feed(seg, _probs(3.5, dips=[(2.0, 1000, 0.02)]))
+    assert len(more) == 1 and end_ms <= more[0][1] <= end_ms + 700, (end_ms, more[0][1])
+
+
+def test_progressive_cap_still_cuts():
+    # No pause the line ever reaches (160 ms dips only): the cap cuts at 15 s
+    # as before, back to the best dip of the last 3.5 s.
+    seg = stt.Segmenter(endpoint_ms=700, max_s=15.0, min_speech_ms=400, cut_early_s=4.0, cut_endpoint_ms=200)
+    out, _ = _feed(seg, _probs(16.0, dips=[(13.0, 160, 0.05)]))
+    assert len(out) == 1 and 12900 <= out[0][2] <= 13300, out[0][2]
+    assert len(seg.buf) > 0                                # the rest starts the next utterance
+
+
+def test_progressive_disabled():
+    # CUT_EARLY_S=0: the 400 ms pause at 8 s does not end the turn...
+    assert _pause_ends_turn(8.0, 0) is None
+    # ...nor with CUT_ENDPOINT_MS=0 (no floor to fall to), nor when the
+    # endpoint is already at the floor (the 200 ms default: nothing to fall from).
+    assert _pause_ends_turn(8.0, 4.0, cut_endpoint_ms=0) is None
+    seg = stt.Segmenter(endpoint_ms=200, max_s=10.0, min_speech_ms=1000, cut_early_s=4.0)
+    seg.speech_ms, seg.buf = 2000, np.zeros(8 * 16000, dtype=np.float32)
+    assert seg._need_ms() == 200
 
 
 # ---------------------------------------------------------------- protocol, with fakes

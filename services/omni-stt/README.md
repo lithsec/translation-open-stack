@@ -153,26 +153,67 @@ An utterance's `language` message can only go out once the utterance ends, and
 Live Translation holds its other recogniser's sentences until then, so turns
 are cut short:
 
-- `ENDPOINT_MS` (default 300): this much quiet ends a turn. The stack uses 700.
-- `MAX_UTTERANCE_S` (default 6.0): a speaker who never pauses is cut by then. The
+- `ENDPOINT_MS` (default 200): this much quiet ends a turn. The stack uses 700.
+- `MAX_UTTERANCE_S` (default 10.0): a speaker who never pauses is cut by then. The
   stack uses 9. The cut goes at the best pause of the last `CUT_WINDOW_S` (3.5 s,
-  at most a third of the cap): a run of Silero's 32 ms windows under
-  `CUT_DIP_PROB` (0.5) lasting `CUT_DIP_MS` (96) or more, the longest (then the
-  lowest, then the latest), at its quietest 20 ms. The audio after the cut starts
-  the next utterance (nothing lost, nothing sent twice). Inside that window a
-  shorter pause, `CUT_ENDPOINT_MS` (200) of quiet, cuts at once rather than
-  waiting for the cap (0: off). With no pause at all it falls back to the old
-  rule, the quietest 20 ms of the last 2 s, which on unbroken speech often lands
-  inside a word (a stop consonant's closure is as quiet as a gap);
-  `CUT_WINDOW_S=0` restores that rule. Measured in `eval/2026-10-pause-cut`.
-- `MIN_SPEECH_MS` (default 400): a turn with less speech than this ("wi", a
-  cough) is not ended by a 300 ms pause; it waits up to 700 ms for more speech,
-  which joins it. Language ID on a lone syllable is close to a guess, and a wrong
-  `language` sends the utterance to the wrong recogniser in the client. A word
+  at most a third of the cap: 3.33 s with the default): a run of Silero's 32 ms
+  windows under `CUT_DIP_PROB` (0.5) lasting `CUT_DIP_MS` (96) or more, the
+  longest (then the lowest, then the latest), at its quietest 20 ms. The audio
+  after the cut starts the next utterance (nothing lost, nothing sent twice).
+  Inside that window a shorter pause, `CUT_ENDPOINT_MS` (200) of quiet, cuts at
+  once rather than waiting for the cap (0: off). With no pause at all it falls
+  back to the old rule, the quietest 20 ms of the last 2 s, which on unbroken
+  speech often lands inside a word (a stop consonant's closure is as quiet as a
+  gap); `CUT_WINDOW_S=0` restores that rule. Measured in `eval/2026-10-pause-cut`.
+- `CUT_EARLY_S` (default 4.0): the progressive pause cut. Once a turn has run
+  this long, the quiet that ends it falls in a straight line from `ENDPOINT_MS`
+  to `CUT_ENDPOINT_MS` at the cap, so a long piece ends at a breath of its own
+  well before the cap instead of at the cap's look-back. It only matters when
+  `ENDPOINT_MS` is above `CUT_ENDPOINT_MS` (with the 200 ms default the two are
+  equal); 0 disables it. On the news clip below, 700 ms / 15 s with it gives
+  32 pieces of 8.9 s (median) and none cut at the cap, against 27 of 12.7 s.
+- `MIN_SPEECH_MS` (default 1000): a turn with less speech than this ("wi", a
+  cough, a phrase under a second) is not ended by a 200 ms pause; it waits up to
+  700 ms for more speech, which joins it. Language ID on a lone syllable is close
+  to a guess, and a wrong `language` sends the utterance to the wrong recogniser
+  in the client; a sub-second fragment is also a poor piece to translate. A word
   that really stands alone still goes out, 700 ms after it ends.
 
+The defaults were 300 ms / 6 s / 400 ms, and the Haitian Creole service ran at
+700 ms / 15 s until 2026-10-21. Five minutes of continuous news speech
+(`eval/2026-10-continuous-ht`, one presenter) showed what each setting does.
+The presenter's pauses, from Silero's probability per 32 ms window (threshold 0.5):
+
+| Gaps of at least | Per minute | Speech between them, p50 / p90 / max |
+|---|---|---|
+| 200 ms | 21 | 2.2 / 4.5 / 9.5 s |
+| 300 ms | 14 | 3.0 / 6.8 / 17.2 s |
+| 500 ms | 6 | 6.6 / 16.3 / 31.3 s |
+
+So a 700 ms pause rule leaves a 15 s cap to do most of the cutting. The
+segmenter alone (`sim.py` there, this `Segmenter` class fed the clip's audio and
+VAD probabilities) on the same clip:
+
+| Pause / cap / min. speech | Pieces | Length p50 / p90 | Cut at the cap | Cut mid-speech | Within 1 s of a sentence end | First piece out |
+|---|---|---|---|---|---|---|
+| 700 ms / 15 s / 0.4 s (the service before) | 27 | 12.7 / 14.2 s | 2 | 0 | 10 | 13.0 s |
+| 300 ms / 6 s / 0.4 s (the old defaults) | 75 | 4.1 / 5.6 s | 20 | 4 | 25 | 5.4 s |
+| 300 ms / 10 s / 1 s | 54 | 5.4 / 8.7 s | 2 | 0 | 16 | 5.5 s |
+| **200 ms / 10 s / 1 s (now)** | 70 | 3.8 / 7.2 s | 1 | 0 | 19 | 5.4 s |
+| 700 ms / 15 s / 0.4 s, progressive from 4 s | 32 | 8.9 / 13.8 s | 0 | 0 | 11 | 5.8 s |
+
+Live, through the whole route (recogniser, translator, voice), 700 ms / 15 s
+put the first translated audio out at 19.5 s and each piece 18.2 s behind the
+speaker; 200 ms / 10 s / 1 s gave 8.4 s and 9.1 s. The trade-off is translation
+quality: a 3.8 s piece gives the translator less to work out a misheard name or
+phrase from (2.52 to 2.21 on the eval's 0-3 scale), unless it is sent the
+previous pieces and the last translation as context, which restores it
+(2.52-2.67) and which the companion apps now do. A client whose translator
+gets no context may prefer `ENDPOINT_MS=300` or more, with `CUT_EARLY_S` to keep
+the cap from doing the cutting.
+
 `deploy.sh deploy` passes all three through when they are set in its environment,
-and the four `CUT_*` settings when set (unset: the defaults above).
+and the five `CUT_*` settings when set (unset: the defaults above).
 Other settings: `STT_MAX_CONNECTIONS`, `STT_MAX_PENDING`, `STT_DEVICE`, `OMNI_CARD`,
 `STT_MODELS`, `PORT`, `EDITION`, `HT_VOICE`, `STT_VOICES`, `STT_MAX_SPEAKERS`, `STT_SERVE`
 (see the top of `server.py`).
@@ -270,8 +311,11 @@ only the URL; `?langs=lo` (or `km`) skips language ID.
 
 ```
 REPO_REGION=us-east4 EXTRA_REPO_REGIONS=us-central1 MODEL_BUCKET=<your private bucket URL> ./deploy.sh 7b-build
-TAG=<tag> REPO_REGION=us-east4 STORAGE=baked MAX_STREAMS_7B=6 ENDPOINT_MS=700 MAX_UTTERANCE_S=15 ./deploy.sh 7b-deploy
+TAG=<tag> REPO_REGION=us-east4 STORAGE=baked MAX_STREAMS_7B=6 ./deploy.sh 7b-deploy
 ```
+
+(Endpointing as the defaults above; `ENDPOINT_MS`, `MAX_UTTERANCE_S` and
+`MIN_SPEECH_MS` in the environment override them, as for `deploy`.)
 
 Cold start, zero to the hello (2026-10-20, us-east4, L4, 4 vCPU / 16 GiB):
 
@@ -290,8 +334,9 @@ the checkpoint read: `STT_PARALLEL_LOAD`), ~4-6 s warm-up.
 `OMNI_MMAP=1` keeps the process at ~1.6 GB of RAM, so 16 GiB is enough (fetch
 needs 32 GiB: /tmp is memory).
 
-Accuracy through the service (real-voice clips streamed at real time, ENDPOINT_MS
-700, MAX_UTTERANCE_S 15, CER on the joined text; quiet km sentences the VAD never
+Accuracy through the service (real-voice clips streamed at real time, measured
+with ENDPOINT_MS 700 and MAX_UTTERANCE_S 15, the settings of the time, not the
+defaults now; CER on the joined text; quiet km sentences the VAD never
 hears count against both): lo 13.5% (7B) vs 17.8% (omni-stt, its 300M card),
 km 24.7% vs 28.1%. The aligned batched decode (omni_batch.py) works for the 7B card
 (same decoder): six streams at once gave the same CER as one, 72 of 76 utterances
