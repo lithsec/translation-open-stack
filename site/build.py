@@ -837,6 +837,7 @@ def build_findings(D, S1):
 <li><strong>Cleanup does not rescue a room mic.</strong> Denoisers hurt the cloud recogniser and help Omnilingual a little; gain normalisation is safe.</li>
 <li><strong>Bluetooth:</strong> wideband hands-free costs about a point; narrowband (8 kHz) costs {means['hfp_nb'][0]:.0f} / {means['hfp_nb'][1]:.1f}.</li>
 <li><strong>Practical advice:</strong> take a sound-board feed or a close mic.</li>
+<li><strong>Which Omnilingual:</strong> the cloud recogniser's four languages are English, Japanese, Khmer and Lao; Omnilingual 300M's are English, Khmer, Lao and Haitian Creole, on omni-stt (19 October). For these numbers, as for the 5.7% Haitian Creole headline, it was not recorded whether omni-stt served the public card or a private Haitian Creole fine-tune.</li>
 </ul>
 </div>
 {dgc}
@@ -966,7 +967,7 @@ def build_methodology(D):
 <tr><th scope="row">September model evaluation</th><td>2026-09-26 to 09-29</td><td>24 synthetic-set sentences per direction, mostly synthetic speech; FLEURS for round-8 recognition. One RTX PRO 4500 Blackwell 32 GB (Romanian: RTX 6000 Ada). Grader {esc(L('grader-old'))}. See <a href="languages.html">Languages</a>.</td></tr>
 <tr><th scope="row">Cloud routes, delay</th><td>2026-10-17</td><td>September's synthetic clips; delay = end of sentence to start of translated audio, median of 24. See <a href="latency.html">Latency</a>.</td></tr>
 <tr><th scope="row">Recognition bake-off</th><td>{esc(D['bakeoff']['date'])}</td><td>Model names as on the chart labels. Cloud regions: US.</td></tr>
-<tr><th scope="row">Audio conditions</th><td>{esc(deg['date'])}</td><td>{esc(L('azure-speech'))}; Omnilingual LLM 300M on a cloud L4 service. Room impulse response RT60 {deg['audio']['ir']['rt60_T20_s']} s (T20), DRR {deg['audio']['ir']['drr_db']} dB.</td></tr>
+<tr><th scope="row">Audio conditions</th><td>{esc(deg['date'])}</td><td>{esc(L('azure-speech'))}; Omnilingual LLM 300M on a cloud L4 service (whether the public card or a private Haitian Creole fine-tune was served was not recorded). Room impulse response RT60 {deg['audio']['ir']['rt60_T20_s']} s (T20), DRR {deg['audio']['ir']['drr_db']} dB.</td></tr>
 <tr><th scope="row">Translator round 1</th><td>2026-10-19</td><td>Hy-MT2 7B at revision <code>9b0eb4e8</code>, bitsandbytes NF4; MADLAD-400 7B at <code>1ff63ce7</code>, CTranslate2 int8, beam 4; TranslateGemma 12B bf16. One RTX 6000 Ada 48 GB. Cloud LLMs at temperature 0 or their reasoning setting as labelled.</td></tr>
 <tr><th scope="row">Translator round 2</th><td>2026-10-19</td><td>gpt-oss-120b <code>b5c939de</code>, gpt-oss-20b <code>6cee5e81</code> (MXFP4), Qwen3.8-27B-FP8 <code>017b9c7a</code>; vLLM 0.31.0 on one H100 80 GB.</td></tr>
 <tr><th scope="row">Omnilingual sizes</th><td>{esc(D['sizes']['date'])}</td><td>{esc(D['sizes']['package'])}. {esc(D['sizes']['gpu_note'])}.</td></tr>
