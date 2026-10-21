@@ -58,6 +58,14 @@ INPUTS = {
     "omni_readme": "services/omni-stt/README.md",
     "latency": "eval/2026-10-latency/results.json",  # optional: rendered when present
     "lat_readme": "eval/2026-10-latency/README.md",  # optional, with it
+    "degr": "eval/2026-10-latency/degraded/results.json",
+    "degr_readme": "eval/2026-10-latency/degraded/README.md",
+    "cont": "eval/2026-10-continuous-ht/results.json",
+    "cont_readme": "eval/2026-10-continuous-ht/README.md",
+    # Cost page
+    "fcost": "eval/2026-10-translation-cost/results.json",
+    "fcost_readme": "eval/2026-10-translation-cost/README.md",
+    "prices": "site/data/list-prices.json",
 }
 OPTIONAL_INPUTS = {"latency", "lat_readme"}
 
@@ -163,7 +171,7 @@ def VN(v, real, what):
 # vendors and their products; anonymised builds replace them.
 _ANON_PATTERNS = [
     ("microsoft", r"Microsoft(?: Azure)?|Azure(?: AI)?(?: Foundry| Speech| Translator| OpenAI)?|Foundry"),
-    ("google", r"Google(?: Cloud)?|Vertex(?: AI)?|gemini-[\w.\-@]+|Gemini(?: [\d.]+)?(?: (?:Pro|Flash|Lite|Live|TTS))*|Chirp ?\d*"),
+    ("google", r"Google(?: Cloud)?|Vertex(?: AI)?|gemini-[\w.\-@]+|Gemini(?: [\d.]+)?(?: (?:Pro|Flash|Lite|Live|TTS))*|Chirp ?\d*|Cloud Run"),
     ("openai", r"OpenAI|gpt-(?!oss)[\w.\-@]+|GPT-(?!oss)[\w.\-@]+"),
     ("elevenlabs", r"ElevenLabs|Scribe(?: v2)?(?: Realtime)?"),
     ("assemblyai", r"AssemblyAI|Universal-[\w.\-]+"),
@@ -379,7 +387,7 @@ def lines(title, sub, xcats, series, *, ylabel, yticks, yfmt, vendor_named=False
 # ---------------------------------------------------------------- page shell
 
 PAGES = [("index.html", "Home"), ("findings.html", "Findings"), ("languages.html", "Languages"),
-         ("latency.html", "Latency"), ("voices.html", "Voices"),
+         ("latency.html", "Latency"), ("cost.html", "Cost"), ("voices.html", "Voices"),
          ("methodology.html", "Methodology"), ("models.html", "Models & licences")]
 
 
@@ -536,7 +544,7 @@ def build_home(D, S1):
 <li><strong>Feed recognition from a sound board or a close mic.</strong> Compression barely matters; distance and noise do. <a href="findings.html#audio">Audio quality</a></li>
 <li><strong>Per language (September):</strong> the open stack beat {L('sept:gemini-live')} end to end in {E['wins']} of {E['n']} directions ({pct(E['stack'], 0)} against {pct(E['gl'], 0)}, mean over all {E['n']}); every language's recognition, translation and voice scores, and which ones the commercial edition can still voice. <a href="languages.html">Languages</a></li>
 <li><strong>Latency, labelled:</strong> the open stack's first translated audio about 0.8 s after the speaker stops; a cloud recogniser feeding a cloud voice about 1.3 s after each sentence ends; and what each other delay measures. <a href="latency.html">Latency</a></li>
-{home_e2e(D)}<li><strong>Haitian Creole voices:</strong> hear the seven voices we compared. <a href="voices.html">Voices</a></li>
+{home_e2e(D)}{home_new(D)}<li><strong>Haitian Creole voices:</strong> hear the seven voices we compared. <a href="voices.html">Voices</a></li>
 </ul>
 
 <h2>Run it</h2>
@@ -948,6 +956,9 @@ def build_methodology(D):
 <tr><th scope="row">Translator round 2</th><td>2026-10-19</td><td>gpt-oss-120b <code>b5c939de</code>, gpt-oss-20b <code>6cee5e81</code> (MXFP4), Qwen3.8-27B-FP8 <code>017b9c7a</code>; vLLM 0.31.0 on one H100 80 GB.</td></tr>
 <tr><th scope="row">Omnilingual sizes</th><td>{esc(D['sizes']['date'])}</td><td>{esc(D['sizes']['package'])}. {esc(D['sizes']['gpu_note'])}.</td></tr>
 <tr><th scope="row">Endpointing sweep</th><td>{esc(sw['date'])}</td><td>{esc(sw['service_ref'])}. {esc(sw['gpu'])}. Silero VAD at <code>5cd79456</code> (v6.2.3).</td></tr>
+<tr><th scope="row">Live routes on degraded audio</th><td>{esc(D['degr']['date'])}</td><td>The latency test's harness and routes; four simulated conditions; one run per cell, 15 sentences. See <a href="latency.html#degraded">Latency</a>.</td></tr>
+<tr><th scope="row">Continuous speech, Haitian Creole</th><td>2026-10-20 to 10-21</td><td>Five minutes of public-domain news speech, real time; omni-stt piece settings as listed; seven runs. See <a href="latency.html#continuous">Latency</a>.</td></tr>
+<tr><th scope="row">Translation step cost</th><td>{esc(D['fcost']['date'])}</td><td>{esc(VN('openai', 'GPT-5.6-sol on Azure AI Foundry (Data Zone)', 'LLM'))}, reasoning low and none; 24 + 33 sentences per direction; two grading rounds. See <a href="cost.html#translation-step">Cost</a>.</td></tr>
 <tr><th scope="row">Haitian Creole voices</th><td>2026-10-19</td><td>Seven voices as labelled; open voices on CPU.</td></tr>
 </tbody></table></div>
 
@@ -1080,10 +1091,10 @@ def cite(D, key, needle):
 
 def load_more(D):
     D["text"] = {}
-    for k in ("sept_doc", "oct_doc", "htv_readme", "azg_readme", "omni_readme"):
+    for k in ("sept_doc", "oct_doc", "htv_readme", "azg_readme", "omni_readme", "degr_readme", "cont_readme", "fcost_readme"):
         with open(os.path.join(ROOT, INPUTS[k]), encoding="utf-8") as f:
             D["text"][k] = f.read()
-    for k in ("derived", "r6lao", "asr300", "nat", "voxspeed", "r8asr", "r8mt", "r8nat"):
+    for k in ("derived", "r6lao", "asr300", "nat", "voxspeed", "r8asr", "r8mt", "r8nat", "degr", "cont", "fcost", "prices"):
         D[k] = J(INPUTS[k])
     p = os.path.join(ROOT, INPUTS["latency"])
     D["latency"] = J(INPUTS["latency"]) if os.path.isfile(p) else None
@@ -1378,7 +1389,7 @@ def build_languages(D):
 
 
 LAT_PAIRS = ["en-es", "es-en", "en-ja", "km-en", "ht-en", "en-ht"]
-LANG_NAME = {"en": "English", "es": "Spanish", "ja": "Japanese", "km": "Khmer", "ht": "Haitian Creole"}
+LANG_NAME = {"en": "English", "es": "Spanish", "ja": "Japanese", "km": "Khmer", "ht": "Haitian Creole", "fr": "French", "pt": "Portuguese"}
 STREAMING_ROUTES = {"azure-gemini-stream", "gemini-lt"}
 # one colour per route, distinct within every direction
 LAT_CLS = {"azure-foundry": "c1", "ht-exception": "c1", "ht-voice-coqui": "c1", "gemini-lt": "c2",
@@ -1397,6 +1408,8 @@ def lat_route(route):
     llm = VN("openai", "GPT-5.6-sol (Foundry)", "LLM")
     gem = VN("google", "Gemini Live", "voice model")
     return {
+        "azure": f"{VN('microsoft', 'Azure speech translation', 'speech translation')} → {az_v}",
+        "omni-foundry": f"Omnilingual (omni-stt) → {llm} → {az_v}, speaker language fixed",
         "azure-foundry": f"{az_r} → {llm} → {az_v}",
         "azure-gemini": f"{az_r} → {gem}, a sentence at a time",
         "azure-gemini-stream": f"{az_r} → {gem}, streaming words",
@@ -1462,6 +1475,17 @@ def home_e2e(D):
     return (f'<li><strong>Current routes, end to end (October):</strong> the quickest pipeline ({esc(lat_route("azure-foundry"))}) starts the last words of a sentence '
             f'{_rng(af)} s after the speaker stops; a streaming speech-to-speech route ({esc(lat_route("gemini-lt"))}) starts {_rng(lt)} s after the speaker starts, mid-sentence, '
             f'and is the fastest, but graded lower in some directions. <a href="latency.html#routes">Latency</a></li>\n')
+
+
+def home_new(D):
+    """"What we found" lines for the degraded-audio, continuous-speech and cost work."""
+    R = {r["run"]: r for r in D["cont"]["runs"]}
+    b, br = R["ht-solo-15"], R["ht-breath"]
+    return (f'<li><strong>Degraded audio:</strong> in a reverberant hall, the streaming speech-to-speech route held up best from English; '
+            f'from Khmer and Haitian Creole the open recogniser\'s routes led in every condition. <a href="latency.html#degraded">Latency</a></li>\n'
+            f'<li><strong>Continuous speech:</strong> on five minutes of unbroken Haitian Creole news, cutting at breaths instead of 0.7 s pauses brought the first translated audio from '
+            f'{b["start_to_first_audio_s"]:g} s to {br["start_to_first_audio_s"]:g} s; giving the translator context recovered the quality that shorter pieces lost. <a href="latency.html#continuous">Latency</a></li>\n'
+            f'<li><strong>Cost:</strong> per-hour list-price estimates for every route, with the formulas. <a href="cost.html">Cost</a></li>\n')
 
 
 def latency_results_section(D):
@@ -1592,6 +1616,381 @@ def latency_results_section(D):
             f"{shows}{notes}"
             f'<h3>All measures</h3><p class="note">Seconds, median (p50) and 90th percentile (p90) over 40 sentences; sentences with no audio are left out of the timings and score 0 in quality.</p>{tbl}'
             f'<div class="prose"><h3>Routes</h3><ul>{rl}</ul></div>')
+
+
+DEG_CONDS = [("clean", "Clean"), ("room-mic", "Room mic (reverb + noise)"), ("noise-10dB", "Noise, 10 dB SNR"),
+             ("bt-narrowband", "Bluetooth headset (narrowband)"), ("hall-reverb", "Hall reverb")]
+DEG_ROUTES = ["azure", "azure-foundry", "omni-foundry", "gemini-lt"]
+DEG_PAIRS = ["en-es", "es-en", "en-ja", "km-en"]
+
+
+def degraded_section(D):
+    """Live routes on degraded audio (eval/2026-10-latency/degraded)."""
+    data = D["degr"]
+    rd = INPUTS["degr_readme"]
+    for n in ("One run per cell, n = 15", "The judge (gemini-3.5-flash) may favour Gemini outputs",
+              "English noise is not a level artefact", "The degradations are simulated and severe on purpose",
+              "Treat differences under about 10 points as noise"):
+        cite(D, "degr_readme", n)
+    rows = data["routes"]
+    cell = {(r["route"], r["condition"], r["lang_pair"]): r for r in rows}
+
+    def last(r):
+        k = "stop_to_audio_end_ms" if r["route"] == "gemini-lt" else "stop_to_tail_audio_ms"
+        v = (r.get(k) or {}).get("p50")
+        return None if v is None else v / 1000
+
+    avg = {}
+    for rt in DEG_ROUTES:
+        for c, _ in DEG_CONDS:
+            rs = [cell[(rt, c, p)] for p in DEG_PAIRS]
+            avg[(rt, c)] = {"q": st.mean(r["quality"]["pct_of_max"] for r in rs) / 100,
+                            "miss": sum(r["quality"]["missing"] for r in rs), "n": sum(r["n"] for r in rs),
+                            "last": st.mean(last(r) for r in rs)}
+    series = [(lat_route(rt), c) for rt, c in zip(DEG_ROUTES, SERIES)]
+    groups = [(lab, [avg[(rt, c)]["q"] for rt in DEG_ROUTES], c == "clean") for c, lab in DEG_CONDS]
+    qchart = grouped("Translation quality by audio condition, four directions averaged",
+                     "English → Spanish, Spanish → English, English → Japanese, Khmer → English; 15 sentences each, one run. "
+                     "Judge's mean, % of the maximum; a missing sentence scores 0. Higher is better.",
+                     groups, series, maxv=1, vendor_named=True, fmt=lambda v: pct(v, 0),
+                     note="Differences under about 10 points are within the noise of one run of 15 sentences.")
+    mgroups = [(lab, [avg[(rt, c)]["miss"] for rt in DEG_ROUTES], c == "clean") for c, lab in DEG_CONDS]
+    mchart = grouped("Sentences with no translation at all, of 60",
+                     "Same runs: the four directions together. Lower is better.",
+                     mgroups, series, maxv=60, vendor_named=True, fmt=lambda v: f"{v:g}")
+    # per direction table
+    hdr = ["Direction", "Route"] + [lab for _, lab in DEG_CONDS]
+    body = ""
+    for p in DEG_PAIRS + ["ht-en"]:
+        for rt in DEG_ROUTES + ["ht-exception"]:
+            if (rt, "clean", p) not in cell:
+                continue
+            cells = []
+            for c, _ in DEG_CONDS:
+                r = cell[(rt, c, p)]
+                cells.append(f'{r["quality"]["pct_of_max"]}% · {r["quality"]["missing"]} · {_s(last(r))} s')
+            body += (f'<tr><td>{esc(pair_name(p))}</td><th scope="row">{esc(lat_route(rt))}</th>'
+                     + "".join(f'<td class="num">{esc(x)}</td>' for x in cells) + "</tr>")
+    tbl = ('<div class="table-wrap"><table class="wide"><thead><tr>'
+           + "".join(f'<th scope="col"{" class=num" if i >= 2 else ""}>{esc(h)}</th>' for i, h in enumerate(hdr))
+           + f"</tr></thead><tbody>{body}</tbody></table></div>")
+    a = lambda rt, c: avg[(rt, c)]  # noqa: E731
+    q = lambda rt, c: round(a(rt, c)["q"] * 100)  # noqa: E731
+    g = lambda rt, c, p: cell[(rt, c, p)]["quality"]["pct_of_max"]  # noqa: E731
+    gem_judge = f"a {vendor('google')} model" if ANON else "a Gemini model (gemini-3.5-flash)"
+    AZ, LT, OF = lat_route("azure"), lat_route("gemini-lt"), lat_route("omni-foundry")
+    AF, HX = lat_route("azure-foundry"), lat_route("ht-exception")
+    head = f"""<h2 id="degraded">Degraded audio: room, noise, Bluetooth and reverb</h2>
+<div class="prose">
+<p>The comparison above used clean recordings. A real microphone is a few metres away in a hall, picks up crowd and air-conditioning noise, or is a Bluetooth hands-free headset. This test ran the same routes on clean audio and on four degraded copies of the same clips (20 October 2026). Source: {src_link(rd)} and {src_link(INPUTS["degr"])}.</p>
+<h3>How it was run</h3>
+<ul>
+<li><strong>Audio:</strong> the first 15 sentences of the latency clips — the same news sentences read in English, Spanish and Khmer (FLEURS, real speakers) and Haitian Creole (CMU Haitian Creole speech), with 1–2 s pauses. Every condition uses the same 15 sentences.</li>
+<li><strong>Conditions</strong> (simulated, as in the October recognition test): <em>hall reverb</em> (reverberation time 1.5 s, as much reflected as direct sound); <em>noise</em> (air-conditioning hum plus a crowd of other voices, 10 dB below the speech); <em>room mic</em> (both together); <em>Bluetooth headset</em> (the narrowband 8 kHz hands-free codec).</li>
+<li><strong>Routes:</strong> {esc(AZ)}; {esc(AF)}; {esc(OF)}; {esc(LT)}; and, for Haitian Creole → English only, {esc(HX)}.</li>
+<li><strong>Pacing:</strong> real time, in 100 ms chunks, through the app's own provider code. One run per condition, route and direction: 15 sentences per cell, 91 sessions in all.</li>
+<li><strong>Quality:</strong> {esc(gem_judge)} grades each sentence 0–3 against the source and a reference translation; shown as % of the maximum. <strong>Missing</strong> = a sentence with no translation at all (scores 0).</li>
+<li><strong>Last words:</strong> pipelines, from the speaker stopping to the first audio of the piece holding the sentence's last words; {esc(LT)}, which streams, to the end of that sentence's audio. The two are not directly comparable.</li>
+</ul>
+</div>"""
+    shows = f"""<div class="prose">
+<h3>What it shows</h3>
+<ul>
+<li><strong>No route is best everywhere; it depends on the speaker's language.</strong> From English, {esc(LT)} held up far better under hall reverb ({g("gemini-lt", "hall-reverb", "en-es")}% / {g("gemini-lt", "hall-reverb", "en-ja")}% into Spanish / Japanese, against {g("azure-foundry", "hall-reverb", "en-es")}% / {g("azure-foundry", "hall-reverb", "en-ja")}% for {esc(AF)}) and on a Bluetooth headset ({g("gemini-lt", "bt-narrowband", "en-es")}% / {g("gemini-lt", "bt-narrowband", "en-ja")}% against {g("azure-foundry", "bt-narrowband", "en-es")}% / {g("azure-foundry", "bt-narrowband", "en-ja")}%).</li>
+<li><strong>From Khmer and Haitian Creole the open recogniser leads.</strong> {esc(OF)} was the best Khmer → English route in every condition ({min(g("omni-foundry", c, "km-en") for c, _ in DEG_CONDS)}–{max(g("omni-foundry", c, "km-en") for c, _ in DEG_CONDS)}%); from Haitian Creole the exception route scored {min(g("ht-exception", c, "ht-en") for c, _ in DEG_CONDS)}–{max(g("ht-exception", c, "ht-en") for c, _ in DEG_CONDS)}% against {min(g("gemini-lt", c, "ht-en") for c, _ in DEG_CONDS)}–{max(g("gemini-lt", c, "ht-en") for c, _ in DEG_CONDS)}% for {esc(LT)}.</li>
+<li><strong>Averaged over four directions,</strong> {esc(LT)} lost the least to Bluetooth ({q("gemini-lt", "bt-narrowband") - q("gemini-lt", "clean")} points) and reverb ({q("gemini-lt", "hall-reverb") - q("gemini-lt", "clean")}), against {q("azure", "bt-narrowband") - q("azure", "clean")} and {q("azure", "hall-reverb") - q("azure", "clean")} for {esc(AZ)}. {esc(OF)} kept the highest absolute score on Bluetooth ({q("omni-foundry", "bt-narrowband")}%) but was the slowest (last words {_s(a("omni-foundry", "bt-narrowband")["last"])} s on average).</li>
+<li><strong>Noise and a room mic hurt every route</strong> (−{min(q(rt, "clean") - q(rt, "noise-10dB") for rt in DEG_ROUTES)} to −{max(q(rt, "clean") - q(rt, "room-mic") for rt in DEG_ROUTES)} points). English in noise was the worst case: the {esc(VN("microsoft", "Azure", "recogniser"))} routes returned nothing for 14 of 15 sentences, and {esc(LT)} dropped 9 of 15. Rerunning English noise 7 dB louder gave the same collapse, so it is not a level artefact.</li>
+<li><strong>Practical advice:</strong> feed the system from a sound board or a close microphone. Distance and noise cost far more than any choice of route.</li>
+</ul>
+</div>
+<p class="caveat">Limits. One run per cell, 15 sentences: treat differences under about 10 points as noise, and cells near 0% (English in noise or a room) do not rank the routes. The degradations are simulated and severe on purpose (one synthetic hall, a mixed noise at 10 dB); real rooms vary. English is one FLEURS voice set that was already the fragile case in the recognition test. The judge is {esc(gem_judge)} and may favour {"that vendor's own route" if ANON else "the Gemini route"}; the Haitian Creole → English references are model-made. Read speech with clean pauses, not continuous speech (see the next section).</p>"""
+    return (f"{head}{qchart}{mchart}{shows}"
+            f'<h3>Every direction</h3><p class="note">Each cell: quality · sentences missing (of 15) · last words, median seconds.</p>{tbl}')
+
+
+INTERPRETER_NOTE = ("<p><strong>How a human interpreter compares.</strong> Studies of simultaneous interpreting describe the "
+                    "<em>ear–voice span</em>, how far the interpreter's speech trails the speaker's, as typically about 2–3 seconds, "
+                    "and longer, roughly 4–6 seconds, between languages where the verb comes at the end of the sentence and the "
+                    "interpreter has to wait for it. This is general background from the interpreting literature, not something we "
+                    "measured. A sentence-by-sentence pipeline that waits for a pause and then translates trails the speaker by "
+                    "considerably more than that.</p>")
+
+
+def continuous_section(D):
+    """Continuous speech, Haitian Creole (eval/2026-10-continuous-ht)."""
+    C = D["cont"]
+    rd = INPUTS["cont_readme"]
+    for n in ("Only metrics are kept here", "Nobody checked them by hand", "One five-minute clip, one speaker, one genre",
+              "One judge per run (a Gemini model)", "One piece was refused by the provider's content filter only when sent with context"):
+        cite(D, "cont_readme", n)
+    R = {r["run"]: r for r in C["runs"]}
+    base, br, b3, ctl = R["ht-solo-15"], R["ht-breath"], R["ht-breath300"], R["ht-breath-ctl66"]
+    ctx = [R[k] for k in ("ht-breath-ctx1", "ht-breath-ctx2", "ht-breath-ctx3")]
+    llm = VN("openai", "GPT-5.6-sol on Azure AI Foundry", "LLM")
+    az_v = VN("microsoft", "Azure neural English voice", "voice")
+    lt = VN("google", "Gemini Live Translate", "speech-to-speech translator")
+    judge_names = sorted({r["quality"]["model"] for r in C["runs"]})
+    judges = f"a {vendor('google')} model" if ANON else "a Gemini model (" + " or ".join(judge_names) + ", per run as listed in the result file)"
+    lab = {"ht-solo-15": "Before: 0.7 s pause, 15 s cap", "ht-breath": "Breath: 0.2 s pause, 10 s cap",
+           "ht-breath300": "0.3 s pause, 10 s cap", "ht-breath-ctl66": "Breath, rerun (no context)",
+           "ht-breath-ctx1": "Breath + context, run 1", "ht-breath-ctx2": "Breath + context, run 2", "ht-breath-ctx3": "Breath + context, run 3"}
+    order = ["ht-solo-15", "ht-breath300", "ht-breath", "ht-breath-ctl66", "ht-breath-ctx1", "ht-breath-ctx2", "ht-breath-ctx3"]
+    tchart = grouped("Continuous speech: how far behind the speaker the listener is",
+                     "Five minutes of continuous Haitian Creole news, one run each. Seconds; lower is better.",
+                     [(lab[k], [R[k]["start_to_first_audio_s"], R[k]["piece_start_to_its_audio_s"]["p50"], R[k]["last_word_to_end_of_translation_s"]], k == "ht-breath")
+                      for k in order],
+                     [("Speech starts → first translated audio", "c1"), ("Each piece: its start → its audio (median)", "c2"),
+                      ("Last word → translation finishes", "c3")],
+                     fmt=lambda v: f"{v:.1f} s", vendor_named=False)
+    qrows = [{"label": lab[k], "value": R[k]["quality"]["mean"], "cls": "c3" if "ctx" in k else "c1", "hl": k == "ht-solo-15",
+              "extra": f'{R[k]["quality"]["critical"]} critical errors'} for k in order]
+    qchart = hbar("Continuous speech: translation quality", "Judge's mean, 0–3 per reference sentence (33 sentences). Higher is better.",
+                  qrows, fmt=lambda v: f"{v:.2f}", maxv=3, legend=[("No context", "c1"), ("With context", "c3")], vendor_named=False,
+                  table_headers=["Run", "Mean (0–3)", "Critical errors", "Judge"],
+                  table_rows=[[lab[k], f'{R[k]["quality"]["mean"]:.2f}', R[k]["quality"]["critical"], "" if ANON else R[k]["quality"]["model"]] for k in order])
+    hdr = ["Run", "Pieces", "Piece length p50 / p90", "First audio", "Per-piece lag p50 / p90", "Final lag", "CER", "Quality (critical)", "Untranslated pieces", "Rate-limited requests"]
+    body = ""
+    for k in order:
+        r = R[k]
+        cells = [r["pieces"], f'{r["piece_len_s"]["p50"]} / {r["piece_len_s"]["p90"]} s', f'{r["start_to_first_audio_s"]} s',
+                 f'{r["piece_start_to_its_audio_s"]["p50"]} / {r["piece_start_to_its_audio_s"]["p90"]} s', f'{r["last_word_to_end_of_translation_s"]} s',
+                 pct(r["cer"]), f'{r["quality"]["mean"]:.2f} ({r["quality"]["critical"]})', r["pieces_untranslated"], r["translation_requests"]["rate_limited_429"]]
+        body += f'<tr><th scope="row">{esc(lab[k])}</th>' + "".join(f'<td class="num">{esc(c)}</td>' for c in cells) + "</tr>"
+    runs_tbl = ('<div class="table-wrap"><table class="wide"><thead><tr>'
+                + "".join(f'<th scope="col"{" class=num" if i else ""}>{esc(h)}</th>' for i, h in enumerate(hdr))
+                + f"</tr></thead><tbody>{body}</tbody></table></div>")
+    # pauses
+    P = {p["threshold"]: p for p in C["pauses"]}
+    p5 = P[0.5]
+    ps_tbl = _table(["Gap at least", "Gaps in 5 min", "Speech between such gaps: median", "p90", "longest"],
+                    [[f"{k} ms", p5["gaps_at_least_ms"].get(k, "–"), f'{v["p50_s"]} s', f'{v["p90_s"]} s', f'{v["max_s"]} s']
+                     for k, v in p5["speech_between_gaps_at_least_ms"].items()])
+    ps_more = _table(["VAD threshold", "Gaps ≥ 160 ms", "≥ 200 ms", "≥ 300 ms", "≥ 500 ms", "Speech between ≥ 200 ms gaps, median / p90"],
+                     [[f'{p["threshold"]}', p["gaps_at_least_ms"]["160"], p["gaps_at_least_ms"]["200"], p["gaps_at_least_ms"]["300"], p["gaps_at_least_ms"]["500"],
+                       f'{p["speech_between_gaps_at_least_ms"]["200"]["p50_s"]} / {p["speech_between_gaps_at_least_ms"]["200"]["p90_s"]} s'] for p in C["pauses"]])
+    sim_tbl = _table(["Setting", "Pieces", "Length p50 / p90 / max", "Cut at the cap", "Cut mid-speech", "Cut within 1 s of a sentence end",
+                      "Pieces under 1.5 s", "First piece out"],
+                     [[r["setting"], r["pieces"], f'{r["len_p50_s"]} / {r["len_p90_s"]} / {r["len_max_s"]} s', r["cuts_at_cap"], r["cuts_mid_speech"],
+                       r["cuts_near_sentence_end"], r["pieces_under_1_5_s"], f'{r["first_piece_out_s"]} s'] for r in C["simulated_settings"]])
+    G = C["gemini_lt_same_clip"]
+    cq = [r["quality"] for r in ctx]
+    clat = [r["piece_start_to_its_audio_s"]["p50"] for r in ctx]
+    cfin = [r["last_word_to_end_of_translation_s"] for r in ctx]
+    r3 = R["ht-breath-ctx3"]
+    return f"""<h2 id="continuous">Continuous speech: Haitian Creole news</h2>
+<div class="prose">
+<p>Every test above used read sentences with clean pauses between them. A news presenter or lecturer speaks continuously, taking only short breaths. This test fed five minutes of continuous Haitian Creole news through the Haitian Creole route and asked what decides how far behind the speaker the listener is (20–21 October 2026). Source: {src_link(rd)} and {src_link(INPUTS["cont"])}.</p>
+</div>
+<section class="stats" aria-label="Continuous speech headline numbers">
+<div class="stat"><div class="n">{base["start_to_first_audio_s"]:g} s → {br["start_to_first_audio_s"]:g} s</div><div class="t">to the first translated audio, when pieces are cut at breaths instead of 0.7 s pauses</div></div>
+<div class="stat"><div class="n">{base["piece_start_to_its_audio_s"]["p50"]:g} s → {br["piece_start_to_its_audio_s"]["p50"]:g} s</div><div class="t">how far each piece's translation trails its start (median)</div></div>
+<div class="stat"><div class="n">{base["quality"]["mean"]:.2f} → {br["quality"]["mean"]:.2f} → {max(x["mean"] for x in cq):.2f}</div><div class="t">quality (0–3): before, with short pieces, and with short pieces plus context (best of 3 runs)</div></div>
+</section>
+<div class="prose">
+<h3>How it was run</h3>
+<ul>
+<li><strong>Audio:</strong> one clip, five minutes of a VOA Kreyòl news programme (a US-government work, in the public domain): one male presenter in a studio, continuous speech, no music. Only metrics are published; no transcript or translation text.</li>
+<li><strong>Route:</strong> the app's solo room with the speaker language fixed to Haitian Creole: Omnilingual 300M (the Haitian fine-tune) on omni-stt, then {esc(llm)} (reasoning low, one piece per request), then the {esc(az_v)}.</li>
+<li><strong>Pacing:</strong> real time, 100 ms chunks, as a microphone delivers them; the same harness as the latency test.</li>
+<li><strong>Pieces:</strong> omni-stt cuts speech into pieces at pauses. Three settings decide where: the pause that ends a piece, the longest a piece may run before it is cut anyway (the cap), and the least speech a piece must hold. Each run set them on the service.</li>
+<li><strong>Reference:</strong> a Haitian transcript and English translation of the clip made by a model from the audio, in 33 sentences with approximate times; not checked by a person.</li>
+<li><strong>Measures.</strong> <em>First audio</em>: speech starts → first voiced translated sound. <em>Per-piece lag</em>: for each piece, the moment its speech starts → the first sound of its translation, as played; this is how far behind the speaker the listener hears each thought. <em>Final lag</em>: the last word → the end of the last translated audio. <em>CER</em>: character error rate of the Haitian transcript against the reference. <em>Quality</em>: {esc(judges)} reads the whole English output and grades each of the 33 reference sentences 0–3 (3 correct and natural, 0 wrong or missing), flagging <em>critical</em> errors (a wrong name, number, date or negation).</li>
+<li><strong>Runs:</strong> the old setting once, 0.3 s pauses once, and 0.2 s pauses twice without context and three times with context: seven runs, each of the whole clip.</li>
+</ul>
+<h3>What it shows</h3>
+<ul>
+<li><strong>The pause settings, not the speaker, set the piece length.</strong> With a 0.7 s pause and a 15 s cap, a presenter who only takes short breaths runs into the cap: pieces were {base["piece_len_s"]["p50"]:g} s long (median), the first translated audio came {base["start_to_first_audio_s"]:g} s in, and each piece's translation trailed its start by {base["piece_start_to_its_audio_s"]["p50"]:g} s.</li>
+<li><strong>Cutting at 0.2 s breaths with a 10 s cap</strong> gave {br["piece_len_s"]["p50"]:g} s pieces, first audio at {br["start_to_first_audio_s"]:g} s and a per-piece lag of {br["piece_start_to_its_audio_s"]["p50"]:g} s, about half.</li>
+<li><strong>Quality fell</strong> from {base["quality"]["mean"]:.2f} to {br["quality"]["mean"]:.2f} ({base["quality"]["critical"]} → {br["quality"]["critical"]} critical errors): a short piece gives the translator less to work out a misheard name or phrase from. Recognition barely changed (CER {pct(base["cer"])} → {pct(br["cer"])}).</li>
+<li>For scale, {esc(lt)} on the same clip started speaking {G["start_to_first_audio_s"]:g} s in and finished {G["last_word_to_end_of_translation_s"]:g} s after the last word, but graded {G["judge"]["mean"]:.2f} with {G["judge"]["critical"]} critical errors (from a different judge model, which gave the old setting {G["baseline_same_judge"]["mean"]:.2f}).</li>
+</ul>
+{INTERPRETER_NOTE}
+</div>
+{tchart}
+{qchart}
+<div class="prose">
+<h3 id="continuous-context">Fix: give the translator context</h3>
+<p>Each short piece was sent with the previous 2 source pieces and the last translation, marked as context only (not to be translated again).</p>
+<ul>
+<li><strong>Quality came back.</strong> Three runs scored {", ".join(f'{x["mean"]:.2f} ({x["critical"]} critical)' for x in cq)}, against {min(ctl["quality"]["mean"], br["quality"]["mean"]):.2f}–{max(ctl["quality"]["mean"], br["quality"]["mean"]):.2f} with {br["quality"]["critical"]} critical errors for the two runs without context, and {base["quality"]["mean"]:.2f} with {base["quality"]["critical"]} before the change.</li>
+<li><strong>Latency stayed the same or improved:</strong> first audio about {round(st.mean(r["start_to_first_audio_s"] for r in ctx)):g} s, per-piece lag {min(clat):g}–{max(clat):g} s (median), final lag {min(cfin):g}–{max(cfin):g} s.</li>
+<li><strong>Recognition was identical</strong> in every run at 0.2 s (CER {pct(br["cer"])}): only the translation step changed.</li>
+<li><strong>Run 3 was rate-limited</strong> by the translation service: {r3["translation_requests"]["rate_limited_429"]} requests were refused as “too many requests” and retried, and {r3["pieces_untranslated"]} pieces were never translated, which counts against its score.</li>
+<li>One piece was refused by the provider's content filter only when sent with context; it is now retried without context.</li>
+</ul>
+<h3>Pauses in the clip</h3>
+<p>Speech probability from omni-stt's voice detector (Silero), per 32 ms window; a gap is a run of windows below 0.5. In five minutes there are many short breaths but few long pauses, so a 0.7 s rule leaves the cap to do most of the cutting.</p>
+</div>
+{ps_tbl}
+<details class="data"><summary>The same at other detector thresholds</summary>{ps_more}</details>
+<div class="prose">
+<h3>Simulated settings</h3>
+<p>omni-stt's own segmenter code, fed this clip's audio and detector output, for several settings. It shows only where the pieces would be cut — no recognition, network or GPU. “Cut mid-speech” = a cut with no pause under it; “within 1 s of a sentence end” uses the reference's approximate sentence times. The live runs' piece counts are close to the simulation (69 live against 70 simulated at 0.2 s with 1 s minimum speech).</p>
+</div>
+{sim_tbl}
+<h3>All runs</h3>
+{runs_tbl}
+<p class="caveat">Limits. One five-minute clip, one speaker, one genre (studio news), one language. One run per setting, apart from the context runs; the three context runs alone spread from {min(x["mean"] for x in cq):.2f} to {max(x["mean"] for x in cq):.2f}, so differences of a few tenths are within run-to-run noise. One judge per run, grading against an approximate, model-made reference. Two judge models were used across the runs; re-grading the old setting with the second gave the same {C["rejudge_check"]["quality"]["mean"]:.2f}.</p>
+<h3 id="continuous-more">{esc(VN("microsoft", "Azure", "cloud A"))} continuous speech: Spanish, French and Japanese</h3>
+<div class="placeholder" role="note"><p><strong>Pending.</strong> The same continuous-speech test for {esc(VN("microsoft", "Azure", "recogniser"))}'s live recognition in Spanish, French and Japanese, including its semantic segmentation mode (cutting at the end of a meaning rather than at a pause), is still running. Its results will be added here when it finishes.</p></div>"""
+
+
+# ---------------------------------------------------------------- cost
+
+def money(v, d=2):
+    return f"${v:,.{d}f}"
+
+
+def build_cost(D):
+    PR = D["prices"]
+    p = {k: v["value"] for k, v in PR["prices"].items()}
+    a = {k: v.get("value") for k, v in PR["assumptions"].items()}
+    F = D["fcost"]
+    for n in ("Clean reference text, not raw speech recognition output", "French and Spanish into English were measured only on the short set",
+              "One judge model, two rounds", "below the 1,024-token minimum for caching"):
+        cite(D, "fcost_readme", n)
+    news, short = F["results"]["news"], F["results"]["short"]
+    az, azs = VN("microsoft", "Azure", "cloud A"), VN("microsoft", "Azure Speech", "speech service")
+    fdy = VN("openai", "GPT-5.6-sol on Azure AI Foundry", "LLM")
+    gem = VN("google", "Gemini", "cloud B")
+    glt = VN("google", "Gemini Live Translate", "speech-to-speech translator")
+    run = VN("google", "Cloud Run", "cloud B's container service")
+    # per-hour building blocks
+    voice_h = a["voice_chars_per_hour"] * p["azure_tts_per_million_chars"] / 1e6
+    omni_h = p["cloud_run_l4_gpu_per_hour"] + p["cloud_run_4vcpu_per_hour"] + p["cloud_run_16gib_per_hour"]
+    tail = a["omni_stt_idle_tail_h"] * omni_h
+    lt_h = p["gemini_lt_per_minute"] * 60
+    choice = {"fr": ("en-fr", "none"), "pt": ("en-pt", "none"), "es": ("en-es", "none"), "ht": ("en-ht", "low")}
+    fh = {l: news[pp][eff]["usd_per_hour"] for l, (pp, eff) in choice.items()}
+    stt_lid = p["azure_stt_per_hour"] + p["azure_language_id_per_hour"]
+    # worked example 1: one room, one hour, English -> fr/pt/es/ht
+    ex1 = [("Recognise the English speaker, language detection on", f'{money(p["azure_stt_per_hour"])} + {money(p["azure_language_id_per_hour"])}', stt_lid),
+           ("Translate into French, Portuguese, Spanish (reasoning none)", " + ".join(money(fh[l]) for l in ("fr", "pt", "es")), fh["fr"] + fh["pt"] + fh["es"]),
+           ("Translate into Haitian Creole (reasoning low)", money(fh["ht"]), fh["ht"]),
+           (f"{az} voices for French, Portuguese, Spanish", f'3 × {a["voice_chars_per_hour"]:,} chars × {money(p["azure_tts_per_million_chars"])}/M', 3 * voice_h),
+           (f"{gem} voice for Haitian Creole (estimate)", money(a["gemini_voice_per_hour"]), a["gemini_voice_per_hour"])]
+    t1 = sum(x[2] for x in ex1)
+    lt1 = 4 * lt_h
+    lt1c = 5 * lt_h
+    # worked example 2: two rooms, short comments back into English
+    cm = a["comment_minutes_per_room_hour"]
+    req_cost_back = news["ht-en"]["low"]["usd_per_request"]
+    ex2 = [("Recognise the comments, language detection on", f'{cm} min × ({money(p["azure_stt_per_hour"])} + {money(p["azure_language_id_per_hour"])})/60', cm * stt_lid / 60),
+           ("Translate the comments into English", f'{cm} min × {a["foundry_comment_requests_per_minute"]:g} requests/min × {money(req_cost_back, 4)}', cm * a["foundry_comment_requests_per_minute"] * req_cost_back),
+           ("English voice for the comments", f'{cm}/60 × {money(voice_h)}', cm / 60 * voice_h),
+           ("omni-stt for Haitian Creole comments, one instance shared by the two rooms", f'({money(omni_h)} × (1 + {a["omni_stt_idle_tail_h"]:g} h idle tail)) ÷ 2', omni_h * (1 + a["omni_stt_idle_tail_h"]) / 2)]
+    t2 = t1 + sum(x[2] for x in ex2)
+    lt2_open = lt1c
+    lt2_ptt = lt1 + cm * p["gemini_lt_per_minute"]
+
+    def ex_table(rows, total, label):
+        body = "".join(f'<tr><th scope="row">{esc(r[0])}</th><td>{esc(r[1])}</td><td class="num">{money(r[2])}</td></tr>' for r in rows)
+        body += f'<tr><th scope="row"><strong>{esc(label)}</strong></th><td></td><td class="num"><strong>{money(total)}</strong></td></tr>'
+        return f'<div class="table-wrap"><table><thead><tr><th scope="col">Part</th><th scope="col">Formula</th><th scope="col" class="num">Per room-hour</th></tr></thead><tbody>{body}</tbody></table></div>'
+
+    price_tbl = _table(["List price", "Value"], [[anon_text(v["what"]), (money(v["value"], 3) if v["value"] < 0.1 else money(v["value"]))]
+                                                  for v in PR["prices"].values()], numeric_from=1)
+    # routes, one listener language, one hour of continuous speech
+    routes = [
+        (f"{azs} translation → {az} voice", f'{money(p["azure_speech_translation_per_hour"])} + {money(voice_h)}', p["azure_speech_translation_per_hour"] + voice_h,
+         "one target language; Haitian Creole has no voice on this route"),
+        (f"{az} STT → {fdy} → {az} voice, into Spanish", f'{money(p["azure_stt_per_hour"])} + {money(fh["es"])} + {money(voice_h)}', p["azure_stt_per_hour"] + fh["es"] + voice_h,
+         "French and Portuguese within a few cents"),
+        (f"{az} STT → {fdy} → {gem} voice, into Haitian Creole", f'{money(p["azure_stt_per_hour"])} + {money(fh["ht"])} + {money(a["gemini_voice_per_hour"])}',
+         p["azure_stt_per_hour"] + fh["ht"] + a["gemini_voice_per_hour"], "the voice price is an estimate"),
+        (f"omni-stt → {fdy} → {az} voice, Haitian Creole into English, alone on its instance",
+         f'{money(omni_h)} × (1 + {a["omni_stt_idle_tail_h"]:g}) + {money(news["ht-en"]["low"]["usd_per_hour"])} + {money(voice_h)}',
+         omni_h * (1 + a["omni_stt_idle_tail_h"]) + news["ht-en"]["low"]["usd_per_hour"] + voice_h, "one session, including the idle tail"),
+        ("the same, sharing a full instance",
+         f'{money(omni_h)} ÷ {a["omni_stt_streams_300m"]} + {money(news["ht-en"]["low"]["usd_per_hour"])} + {money(voice_h)}',
+         omni_h / a["omni_stt_streams_300m"] + news["ht-en"]["low"]["usd_per_hour"] + voice_h, f'{a["omni_stt_streams_300m"]} streams per instance (about {a["omni_stt_streams_7b"]} with the 7B model)'),
+        (glt, f'{money(p["gemini_lt_per_minute"], 3)} × 60', lt_h, "per target language; speech to speech in one step"),
+    ]
+    route_tbl = ('<div class="table-wrap"><table class="wide"><thead><tr><th scope="col">Route</th><th scope="col">Formula</th><th scope="col" class="num">Per hour</th><th scope="col">Note</th></tr></thead><tbody>'
+                 + "".join(f'<tr><th scope="row">{esc(r[0])}</th><td>{esc(r[1])}</td><td class="num">{money(r[2])}</td><td>{esc(r[3])}</td></tr>' for r in routes)
+                 + "</tbody></table></div>")
+    # Foundry measured
+    fd_rows = []
+    for pp in ("en-fr", "en-pt", "en-es", "en-ht", "ht-en"):
+        lo, no = news[pp]["low"], news[pp]["none"]
+        fd_rows.append([pair_name(pp), f'{money(lo["usd_per_hour"])} → {money(no["usd_per_hour"])}', f'{lo["quality_pct"]:g} → {no["quality_pct"]:g}',
+                        f'{lo["reasoning_tokens"]:.0f}', f'{lo["input_tokens"]:.0f} / {lo["output_tokens"]:.0f} → {no["output_tokens"]:.0f}',
+                        f'{lo["latency_p50_s"]:.2f} → {no["latency_p50_s"]:.2f} s'])
+    fd_tbl = _table(["Direction", "Cost per hour, low → none", "Quality %, low → none", "Reasoning tokens per request (low)", "Tokens in / out (low → none)", "Latency p50, low → none"], fd_rows)
+    fgroups = [(pair_name(pp), [news[pp]["low"]["usd_per_hour"], news[pp]["none"]["usd_per_hour"]], False) for pp in ("en-fr", "en-pt", "en-es", "en-ht", "ht-en")]
+    fchart = grouped("Translation step: cost per listener-language hour",
+                     f'{fdy}, long spoken sentences (the news clip set, 33), {F["sentences_per_listener_language_hour"]} sentences an hour. Lower is cheaper.',
+                     fgroups, [("Reasoning low", "c1"), ("Reasoning none", "c3")], fmt=lambda v: money(v), vendor_named=True)
+    short_cost = [v[e]["usd_per_hour"] for v in short.values() for e in v]
+    short_q = [v[e]["quality_pct"] for v in short.values() for e in v]
+    short_r = max(v[e]["reasoning_tokens"] for v in short.values() for e in v)
+    judge = "a " + vendor("google") + " model" if ANON else F["judge"]["model"]
+    cache = F["caching"]
+    body = f"""<div class="prose">
+<h1>Cost</h1>
+<p class="lede">What an hour of live translation costs on each route, worked out from list prices. Every figure here is a list-price estimate, with its formula and assumptions shown, not an amount from a bill.</p>
+<p class="caveat">Prices as of {esc(PR["as_of"])}, pay as you go, US regions, before tax and without volume discounts. The {esc(fdy)} rates are as billed for a Data Zone deployment. Vendors change prices; edit {src_link(INPUTS["prices"])} and rebuild to see the effect of a change.</p>
+</div>
+<div class="prose"><h2 id="prices">List prices</h2></div>
+{price_tbl}
+<div class="prose">
+<h2 id="assumptions">Assumptions</h2>
+<ul>
+<li><strong>Continuous speech.</strong> An hour means an hour of someone speaking. A voice reads about {a["voice_chars_per_hour"]:,} characters of translation an hour, so an {esc(az)} neural voice costs {a["voice_chars_per_hour"]:,} × {money(p["azure_tts_per_million_chars"])} ÷ 1,000,000 = <strong>{money(voice_h)}</strong> an hour per language.</li>
+<li><strong>Translation step:</strong> measured, not assumed — see <a href="#translation-step">below</a>. About {F["sentences_per_listener_language_hour"]} requests an hour per listener language.</li>
+<li><strong>omni-stt on {esc(run)}:</strong> one L4 instance costs {money(p["cloud_run_l4_gpu_per_hour"])} (GPU) + {money(p["cloud_run_4vcpu_per_hour"])} (4 vCPU) + {money(p["cloud_run_16gib_per_hour"])} (16 GiB) = <strong>{money(omni_h)}</strong> an hour while running. It scales to zero, but keeps running about {a["omni_stt_idle_tail_h"] * 60:.0f} minutes after its last stream ({money(tail)} per session), and serves about {a["omni_stt_streams_300m"]} streams at once ({a["omni_stt_streams_7b"]} with the 7B model).</li>
+<li><strong>{esc(glt)}</strong> is billed per minute per target language: {money(p["gemini_lt_per_minute"], 3)} × 60 = <strong>{money(lt_h)}</strong> an hour per language.</li>
+<li><strong>Not counted:</strong> the app's own servers and bandwidth, which are small next to these.</li>
+</ul>
+<h2 id="routes">Per hour, by route</h2>
+<p>One speaker, one listener language, one hour of continuous speech.</p>
+</div>
+{route_tbl}
+<div class="prose">
+<h2 id="translation-step">The translation step, measured</h2>
+<p>Tokens and cost of {esc(fdy)} with the app's own translation prompt, one sentence per request, at reasoning <em>low</em> (the setting the app used) against <em>none</em> (21 October 2026). Source: {src_link(INPUTS["fcost_readme"])} and {src_link(INPUTS["fcost"])}.</p>
+<h3>How it was run</h3>
+<ul>
+<li><strong>Two sentence sets:</strong> the news clip set (33 long spoken sentences: the reference transcript and translation of the continuous-speech clip on the <a href="latency.html#continuous">Latency</a> page; clean text, not raw recognition output) and 24 short, clean sentences from the September evaluation.</li>
+<li><strong>Not paced:</strong> requests sent four at a time, the two settings interleaved so that load hit both alike.</li>
+<li><strong>Cost:</strong> each response's token counts at {money(F["rates_usd_per_million"]["input"])} per million input and {money(F["rates_usd_per_million"]["output"])} per million output tokens (hidden reasoning is billed as output), times {F["sentences_per_listener_language_hour"]} sentences an hour.</li>
+<li><strong>Quality:</strong> {esc(judge)}, blind and side by side, 0–3 per sentence against the English meaning with a critical-error flag; shown as % of the maximum, the mean of {F["judge"]["rounds"]} grading rounds. <strong>Latency:</strong> median request time from a client in the US.</li>
+</ul>
+</div>
+{fchart}
+{fd_tbl}
+<div class="prose">
+<h3>What it shows</h3>
+<ul>
+<li><strong>Reasoning was the part worth cutting.</strong> At <em>low</em>, the model spent about 30 hidden reasoning tokens on each long sentence — about half its output, and about 30% of the cost, because output costs five times as much as input.</li>
+<li><strong>For French, Portuguese and Spanish, <em>none</em> cut the translation cost by about a third</strong>, to about {money(min(fh["fr"], fh["pt"], fh["es"]))}–{money(max(fh["fr"], fh["pt"], fh["es"]))} an hour per language, was 0.2–0.4 s quicker per request, and graded as well or better.</li>
+<li><strong>Haitian Creole is priced at <em>low</em></strong> ({money(fh["ht"])} an hour), the cautious choice for a low-resource language; in this test <em>none</em> graded the same into Haitian Creole and one point lower out of it.</li>
+<li><strong>Short, clean sentences need no reasoning:</strong> {short_r:.0f} reasoning tokens at either setting, {money(min(short_cost))}–{money(max(short_cost))} an hour, quality {min(short_q):g}–{max(short_q):g}% at both.</li>
+<li><strong>Prompt caching does not apply.</strong> The prompt is about 160–190 tokens, below the {cache["minimum_cacheable_tokens"]:,}-token minimum, so nothing is cached. Padding the prompt past the minimum was tested: it saved only about 1.5% per request, and a cache miss is billed as a cache write at 1.25× the input rate. Not worth it.</li>
+</ul>
+<p class="caveat">Limits. Clean reference text, not raw recognition output, which has mishearings that may make the model reason more. French and Spanish into English were measured only on the short set. One judge model, two rounds; 24 and 33 sentences per direction; the news clip set's references are model-made.</p>
+<h2 id="example">Worked example: English into four languages</h2>
+<p>A speaker talks in English for an hour; listeners hear French, Portuguese, Spanish and Haitian Creole.</p>
+<h3>One room, one hour</h3>
+</div>
+{ex_table(ex1, t1, f"{az} + {fdy} route")}
+<div class="prose">
+<p>The same hour on {esc(glt)}: 4 languages × {money(lt_h)} = <strong>{money(lt1)}</strong>. If a fifth session stays open all hour so that listeners can be translated back into English, {money(lt1c)}.</p>
+<h3>Two rooms, with short comments back into English</h3>
+<p>Two such rooms at once; in each, listeners make about {cm} minutes of short comments an hour that are translated back into English for the speaker. Per room-hour, on top of the one-room figure:</p>
+</div>
+{ex_table(ex2, t2, f"Per room-hour, with comments ({money(t1)} + the parts above)")}
+<div class="prose">
+<p>On {esc(glt)}, with an English session open all hour in each room: <strong>{money(lt2_open)}</strong> per room-hour; if a return session opens only while someone speaks, about {money(lt2_ptt)}.</p>
+<h3>In short</h3>
+<ul>
+<li>About <strong>{money(t1, 0)}–{money(t2, 0)} per room-hour</strong> on the {esc(az)} + {esc(fdy)} route, against <strong>{money(lt1, 0)}–{money(lt2_open, 0)}</strong> on {esc(glt)}.</li>
+<li>On the pipeline, the voices are now the largest part ({money(3 * voice_h + a["gemini_voice_per_hour"])} of {money(t1)}); translation is {money(sum(fh.values()))} after turning reasoning off where it did not help.</li>
+<li>The pipeline's cost grows by about {money(fh["es"] + voice_h)} for each extra well-resourced language; {esc(glt)}'s by {money(lt_h)}.</li>
+</ul>
+<p class="caveat">These are list-price estimates for continuous speech, not bills. Real rooms pause, which lowers the voice and translation lines (they scale with speech) but not recognition, which is billed for the audio streamed. The {esc(gem)} voice price for Haitian Creole is an estimate. {esc(glt)}'s rate is its published rate after the preview.</p>
+</div>"""
+    page("cost.html", "Cost", body, "Per-hour cost of each live translation route, from list prices, with formulas, assumptions and a worked example.")
 
 
 def azg(rel="eval/2026-10-azure-stt-gemini", text=None, link=True):
@@ -1772,11 +2171,13 @@ def build_latency(D, S1):
 <p>Batching decodes the waiting utterances of every connection in one GPU call, with prompts left-padded so they finish together (<a href="{PR18}">PR #18</a>).</p></div>
 {load_tbl}
 {latency_results_section(D)}
+{degraded_section(D)}
+{continuous_section(D)}
 <div class="prose">
 <h2>Sources</h2>
 <ul>
 <li>{sept_doc}, {oct_doc}, {src_link('eval/2026-10-ht-voices/README.md')}, {src_link('services/omni-stt/README.md')}, <a href="{PR18}">PR #18</a>.</li>
-<li>Result files: {src_link('eval/2026-10-real-voices')}, {src_link('eval/2026-10-translator-shootout')}, {src_link('eval/2026-10-omni-sizes/results.json')}, {azg('eval/2026-10-azure-stt-gemini/results.json')} (delays copied by <code>site/extract_derived.py</code>), {src_link('eval/2026-09-model-eval/results/voxcpm_speed.json')}.</li>
+<li>Result files: {src_link('eval/2026-10-real-voices')}, {src_link('eval/2026-10-translator-shootout')}, {src_link('eval/2026-10-omni-sizes/results.json')}, {azg('eval/2026-10-azure-stt-gemini/results.json')} (delays copied by <code>site/extract_derived.py</code>), {src_link('eval/2026-09-model-eval/results/voxcpm_speed.json')}, {src_link('eval/2026-10-latency/degraded')}, {src_link('eval/2026-10-continuous-ht')}.</li>
 </ul>
 </div>"""
     page("latency.html", "Latency", body, "Every latency the open stack project has measured, each labelled with exactly what it measures.")
@@ -1810,6 +2211,7 @@ def main():
     build_findings(D, S1)
     build_languages(D)
     build_latency(D, S1)
+    build_cost(D)
     build_voices(D)
     build_methodology(D)
     build_models(D)
