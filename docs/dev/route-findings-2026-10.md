@@ -217,7 +217,7 @@ resource. Pages:
 2. **Apply for modified abuse monitoring** on the Foundry resource. With it,
    Microsoft's documentation describes no storage on Azure → sol → Azure
    (to be confirmed in writing for our resource).
-3. **Hear the Talk test routes on real conversations** (builds 12–13: streaming, hybrid, Haitian Creole voice).
+3. **Hear the Talk test routes on real conversations** (streaming, hybrid, Haitian Creole voice).
 4. **More Haitian Creole training speech.** Speech with a matching published
    text can fine-tune hearing, but where the audio is live interpretation
    rather than a reading of the text, keep an utterance only where
