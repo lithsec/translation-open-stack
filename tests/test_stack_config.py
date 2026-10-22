@@ -29,8 +29,10 @@ BEFORE = {
         "ar": "ar", "hi": "hi", "vi": "vi", "fa": "fa", "id": "id", "tr": "tr", "bn": "bn", "ur": "ur",
         "tl": "fil", "ro": "ro"},
     "MADLAD_ONLY": {"sw", "ht", "lo", "ro"},  # none of which Hy-MT2 supports: routing is unchanged
-    # Added 2026-10-22: Lao and Khmer wait 700 ms for a pause and up to 15 s.
-    "ENDPOINTING": {"km": (700, 15), "lo": (700, 15)},
+    # Added 2026-10-22: longer turns for Japanese, Haitian Creole, Khmer and Lao (eval/2026-10-pauses;
+    # Lao and Khmer had 700 ms / 15 s from eval/2026-10-lao-khmer-7b before).
+    "ENDPOINTING": {l: {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500, "max_utterance_s": 15,
+                        "min_speech_ms": 2500} for l in ("ja", "ht", "km", "lo")},
 }
 
 

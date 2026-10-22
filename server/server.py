@@ -141,17 +141,39 @@ MAX_UTTERANCE_S = 9.0
 def endpointing(src):
     """(endpoint_ms, long_utterance_s, long_endpoint_ms, max_utterance_s) for
     speech in `src`. The flags above, unless languages.toml gives the language
-    endpoint_ms / max_utterance_s: then that pause always ends a turn (no
-    shorter clause gap on long ones) and that length forces a cut. Lao and
-    Khmer wait 700 ms and up to 15 s: Omnilingual mishears short pieces of
-    them far more than whole sentences (eval/2026-10-omni-sizes). src=auto is
-    not known until a turn is over, so it keeps the flags."""
-    ep, max_s = _T.get("ENDPOINTING", {}).get(src, (None, None))
-    if ep is None and max_s is None:
-        return ENDPOINT_MS, LONG_UTTERANCE_S, LONG_ENDPOINT_MS, MAX_UTTERANCE_S
-    ep = ENDPOINT_MS if ep is None else ep
-    max_s = MAX_UTTERANCE_S if max_s is None else max_s
-    return ep, max_s, ep, max_s
+    its own turn rules (stack_config.TURN_KEYS). endpoint_ms / max_utterance_s
+    alone: that pause always ends a turn (no shorter clause gap on long ones)
+    and that length forces a cut. Lao and Khmer wait 700 ms and up to 15 s:
+    Omnilingual mishears short pieces of them far more than whole sentences
+    (eval/2026-10-omni-sizes). long_utterance_s / long_endpoint_ms keep the
+    clause gap, at the language's own length and pause (eval/2026-10-pauses).
+    src=auto is not known until a turn is over, so it keeps the flags."""
+    t = _T.get("ENDPOINTING", {}).get(src) or {}
+    ep = t.get("endpoint_ms", ENDPOINT_MS)
+    max_s = t.get("max_utterance_s", MAX_UTTERANCE_S)
+    if "long_utterance_s" in t or "long_endpoint_ms" in t:
+        return ep, t.get("long_utterance_s", LONG_UTTERANCE_S), t.get("long_endpoint_ms", LONG_ENDPOINT_MS), max_s
+    if "endpoint_ms" in t or "max_utterance_s" in t:
+        return ep, max_s, ep, max_s
+    return ENDPOINT_MS, LONG_UTTERANCE_S, LONG_ENDPOINT_MS, MAX_UTTERANCE_S
+
+
+# A pause doesn't end a turn holding less than the language's min_speech_ms of
+# speech (languages.toml; 0 = any) until the quiet has lasted this long: the
+# piece waits for the rest of its sentence, but a speaker who said only that
+# much and stopped is still answered.
+SHORT_TURN_HOLD_MS = 1500
+
+
+def min_speech_ms(src):
+    return (_T.get("ENDPOINTING", {}).get(src) or {}).get("min_speech_ms", 0)
+
+
+def short_turn(buf_s, quiet_ms, need_ms, min_ms):
+    """True when a pause that would end the turn should wait: the buffer
+    (buf_s seconds, the last quiet_ms of them quiet) holds under min_ms of
+    speech and the quiet hasn't reached max(need_ms, SHORT_TURN_HOLD_MS)."""
+    return buf_s * 1000 - quiet_ms < min_ms and quiet_ms < max(need_ms, SHORT_TURN_HOLD_MS)
 
 
 # Forced cuts land after the last sentence end (LITHOS_SENTENCE_CUT=0: quietest point, the old way).
@@ -1305,6 +1327,7 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, co
     from audio_in import AudioIn, QuietBoost, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn(f"room {room_id}")
     endpoint_ms, long_utterance_s, long_endpoint_ms, max_utterance_s = endpointing(src)
+    min_ms = min_speech_ms(src)
     is_primary = room.primary is None
     if is_primary:
         room.primary = ws
@@ -1367,6 +1390,8 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, co
                 forced = buf_s >= max_utterance_s
                 if not forced and (room.quiet_ms < need_ms or len(room.buf) < VAD_RATE):
                     continue
+                if not forced and short_turn(buf_s, room.quiet_ms, need_ms, min_ms):
+                    continue   # a short piece: wait for the rest of its sentence
                 if forced:
                     # No pause for MAX_UTTERANCE_S (a speech, a reading): cut after the
                     # last sentence the recogniser heard, carrying the unfinished one
@@ -1582,6 +1607,7 @@ async def handle(ws, pipe, sub="open", edition=None):
     from audio_in import AudioIn, QuietBoost, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn(clean(sub, 24))
     endpoint_ms, _, _, max_utterance_s = endpointing(src)
+    min_ms = min_speech_ms(src)
     boost = QuietBoost()   # the VAD's copy of a quiet talker, brought up (audio_in.py)
 
     async for msg in ws:
@@ -1610,6 +1636,8 @@ async def handle(ws, pipe, sub="open", edition=None):
             forced = buf_s >= max_utterance_s
             if not forced and (quiet_ms < endpoint_ms or len(buf) < VAD_RATE):  # not ended, or under 1 s of audio
                 continue
+            if not forced and short_turn(buf_s, quiet_ms, endpoint_ms, min_ms):
+                continue   # a short piece: wait for the rest of its sentence
 
             if forced:
                 cut, how = await forced_cut(pipe, buf, src, "en", cands)
