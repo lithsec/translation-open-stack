@@ -1,0 +1,12 @@
+# One NVIDIA card of 80 GB or more (A100 80 GB, H100, RTX PRO 6000 96 GB):
+# everything the 48 GB reference loads, plus Omnilingual's 7B card (~15 GB)
+# for the languages with omni = "large" in languages.toml (Lao and Khmer). One
+# sentence at a time Lao goes from 15.6% of characters wrong to 8.5% on it.
+#
+#   STACK_PROFILE=cuda-80gb
+#
+# The card downloads on the first start (~16 GB to the fairseq2 cache).
+description = "One 80 GB+ NVIDIA GPU: the reference, plus Omnilingual 7B for Lao and Khmer"
+
+[env]
+OMNI_LARGE = "1"

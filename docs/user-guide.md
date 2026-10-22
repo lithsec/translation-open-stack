@@ -749,6 +749,7 @@ STACK_PROFILE=cuda-2gpu                             # in .env, or the pod's envi
 | `cuda-48gb` | one 48 GB NVIDIA GPU | the reference; same as no profile |
 | `cuda-32gb` | one 32 GB NVIDIA GPU | `MADLAD=3b` ([above](#fitting-a-32-gb-card)) |
 | `cuda-2gpu` | two NVIDIA GPUs, 24 GB+ each | translators on GPU 0, recognition and voices on GPU 1 |
+| `cuda-80gb` | one NVIDIA GPU, 80 GB+ | the reference plus Omnilingual 7B for Lao and Khmer (`OMNI_LARGE=1`) |
 | `radeon-32+16` | AMD R9700 32 GB + RX 9060 XT 16 GB | **preview, not yet run**; [install without Docker](#install-without-docker-linux-nvidia-or-amd) |
 
 ### Create a profile

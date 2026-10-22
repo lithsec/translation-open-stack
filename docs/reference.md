@@ -152,6 +152,9 @@ entirely. All keys are optional.
 | `piper` | `"<voice name>"` | A Piper voice (CPU), e.g. `"de_DE-thorsten-high"`; must be in `voices.lock`. |
 | `mms` | `"<hugging face repo>"` | Meta MMS-TTS (CC-BY-NC; nonprofit only). |
 | `asr` | `"whisper"` \| `"omni:<code>"` | Recogniser when this language is **spoken**. |
+| `omni` | `"large"` \| `"base"` | With `asr = "omni:..."`: `[models.omnilingual_large]` (the 7B) when the server loaded it (`OMNI_LARGE=1`, `--omni-large`), the base card otherwise. Lao and Khmer say `"large"`. |
+| `endpoint_ms` | integer, 100–3000 | When this language is spoken (fixed `?src=`): the pause that ends an utterance, at any length, instead of `--endpoint-ms` and the shorter gap past `--long-utterance-s`. Lao and Khmer: 700. |
+| `max_utterance_s` | integer, 3–30 | ... and where an utterance with no such pause is cut, instead of `--max-utterance-s`. Lao and Khmer: 15. |
 | `translator` | `"hymt"` \| `"madlad"` | Translator **into** this language. Hy-MT2 covers the 36 languages in `stack_config.HYMT_LANGS`; anything else must be `"madlad"`. |
 | `madlad` | `"<code>"` | MADLAD's language tag, when it differs from the code (Tagalog: `fil`). |
 | `voice` | `["<name>", ...]` | The voice chain in this order, instead of the default. |
@@ -193,6 +196,7 @@ so give only the keys you change. A revision of `""` means unpinned.
 |---|---|---|---|
 | `whisper` | `model` (`large-v3`), `revision` (of `model`'s repo, Systran/faster-whisper-large-v3), `multi_model` (`""` = same model, loaded once), `multi_revision` (the revision of `multi_model` when it differs; `""` = unpinned, avoid) | `scripts/run.sh` → `--asr-model`, `--asr-revision`, `--asr-multi-model`, `--asr-multi-revision` | downloads on the next start |
 | `omnilingual` | `card` (`omniASR_LLM_300M`; a fairseq2 card names one fixed checkpoint, no revision) | `server/engines/omnilingual.py` | downloads on the next start (fairseq2 cache) |
+| `omnilingual_large` | `card` (`omniASR_LLM_7B`), for the `omni = "large"` languages | `server/engines/omnilingual.py`, only with `OMNI_LARGE=1` | downloads on the next start (~16 GB) |
 | `lid` | `repo` (`speechbrain/lang-id-voxlingua107-ecapa`), `revision` | `server/server.py` | downloads on the next start |
 | `vad` | `repo` (`snakers4/silero-vad`), `ref` (a git tag, branch or commit; pinned to the commit of tag v6.2.3) | `server/server.py` (torch.hub) | downloads on the next start |
 | `hymt` | `repo` (`tencent/Hy-MT2-7B`), `revision` (required) | `scripts/prepare-mt.sh` | **rebuilt** (4-bit quantisation, needs the GPU) |
@@ -227,6 +231,7 @@ Shipped profiles:
 | `cuda-48gb` | One 48 GB NVIDIA GPU, all 25 languages. The reference; the same as no profile. |
 | `cuda-32gb` | One 32 GB NVIDIA GPU: `MADLAD=3b`. |
 | `cuda-2gpu` | Two NVIDIA GPUs of 24 GB or more: translators on GPU 0, recognition and voices (and VoxCPM2) on GPU 1. |
+| `cuda-80gb` | One NVIDIA GPU of 80 GB or more: the reference plus Omnilingual's 7B card for Lao and Khmer (`OMNI_LARGE=1`). |
 | `radeon-32+16` | **Preview, not yet run:** AMD Radeon AI PRO R9700 32 GB + RX 9060 XT 16 GB under ROCm, installed without Docker (the image is CUDA only). Sets `HYMT_QUANT=bf16` and `MADLAD=3b`. |
 
 **`[devices]`** (in `languages.toml`, a profile, or `STACK_DEVICES`, each
@@ -297,6 +302,7 @@ connect):
 | `--langs`, `--srcs` | `LANGS`, `SRCS`. |
 | `--asr-model large-v3`, `--asr-multi-model`, `--asr-revision`, `--asr-multi-revision` | From `[models.whisper]`. large-v3 adds ~0.2 s for proper nouns and capitalisation, and replaces the multilingual model rather than adding one, so memory goes down. (`server.py` alone defaults to distil-large-v3.) |
 | `--xeng --omni --kokoro` | Any-language sources, Omnilingual, Kokoro. |
+| `--omni-large` (`OMNI_LARGE=1`) | Omnilingual's 7B card for the `omni = "large"` languages (Lao, Khmer). The server reads `OMNI_LARGE` itself; `STACK_PROFILE=cuda-80gb` sets it. |
 | `--mms` (nonprofit) / `--coqui` (commercial), `--edition` | The edition's voices; the server enforces the edition. |
 | `--voxcpm <urls>`, `--voxcpm-langs` | The VoxCPM2 instances that came up. |
 | `--espeak` | The last-resort voice, when `espeak-ng` is installed and `ESPEAK=1`. |
