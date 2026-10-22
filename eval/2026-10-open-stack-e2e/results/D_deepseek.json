@@ -1,0 +1,480 @@
+{
+ "round_D": {
+  "real:en-ja": {
+   "ds_v4flash_direct": [
+    72.2,
+    6
+   ],
+   "stack": [
+    70.0,
+    5
+   ],
+   "ds_v4flash_ctx": [
+    70.0,
+    6
+   ],
+   "sol": [
+    77.8,
+    5
+   ]
+  },
+  "real:en-km": {
+   "stack": [
+    68.9,
+    9
+   ],
+   "ds_v4flash_direct": [
+    63.3,
+    6
+   ],
+   "sol": [
+    80.0,
+    5
+   ],
+   "ds_v4flash_ctx": [
+    63.3,
+    5
+   ]
+  },
+  "real:en-lo": {
+   "sol": [
+    83.3,
+    4
+   ],
+   "stack": [
+    58.9,
+    9
+   ],
+   "ds_v4flash_direct": [
+    70.0,
+    7
+   ],
+   "ds_v4flash_ctx": [
+    72.2,
+    6
+   ]
+  },
+  "real:en-ht": {
+   "ds_v4flash_ctx": [
+    72.2,
+    2
+   ],
+   "stack": [
+    47.8,
+    6
+   ],
+   "ds_v4flash_direct": [
+    64.4,
+    3
+   ],
+   "sol": [
+    82.2,
+    2
+   ]
+  },
+  "real:km-en": {
+   "ds_v4flash_ctx": [
+    43.3,
+    16
+   ],
+   "sol": [
+    63.3,
+    8
+   ],
+   "ds_v4flash_direct": [
+    44.4,
+    16
+   ],
+   "stack": [
+    51.1,
+    13
+   ]
+  },
+  "real:lo-en": {
+   "sol": [
+    66.7,
+    11
+   ],
+   "stack": [
+    36.7,
+    18
+   ],
+   "ds_v4flash_direct": [
+    36.7,
+    15
+   ],
+   "ds_v4flash_ctx": [
+    38.9,
+    13
+   ]
+  },
+  "real:ht-en": {
+   "stack": [
+    40.0,
+    8
+   ],
+   "ds_v4flash_ctx": [
+    62.2,
+    5
+   ],
+   "ds_v4flash_direct": [
+    47.8,
+    6
+   ],
+   "sol": [
+    92.2,
+    2
+   ]
+  }
+ },
+ "round_B": {
+  "real:en-ja": {
+   "sol": [
+    81.1,
+    4
+   ],
+   "hymt30": [
+    72.2,
+    7
+   ],
+   "qwen_direct": [
+    70.0,
+    7
+   ],
+   "qwen_ctx": [
+    68.9,
+    7
+   ],
+   "stack": [
+    73.3,
+    6
+   ],
+   "qwen_repair": [
+    68.9,
+    8
+   ]
+  },
+  "real:en-km": {
+   "sol": [
+    85.6,
+    3
+   ],
+   "stack": [
+    74.4,
+    6
+   ],
+   "hymt30": [
+    75.6,
+    5
+   ],
+   "qwen_direct": [
+    57.8,
+    10
+   ],
+   "qwen_repair": [
+    68.9,
+    7
+   ],
+   "qwen_ctx": [
+    54.4,
+    10
+   ]
+  },
+  "real:en-lo": {
+   "qwen_repair": [
+    57.8,
+    5
+   ],
+   "qwen_ctx": [
+    53.3,
+    6
+   ],
+   "sol": [
+    82.2,
+    3
+   ],
+   "qwen_direct": [
+    45.6,
+    7
+   ],
+   "stack": [
+    58.9,
+    6
+   ],
+   "hymt30": [
+    0.0,
+    0
+   ]
+  },
+  "real:en-ht": {
+   "qwen_repair": [
+    61.1,
+    9
+   ],
+   "qwen_ctx": [
+    62.2,
+    8
+   ],
+   "sol": [
+    81.1,
+    5
+   ],
+   "stack": [
+    46.7,
+    14
+   ],
+   "hymt30": [
+    61.1,
+    7
+   ],
+   "qwen_direct": [
+    58.9,
+    9
+   ]
+  },
+  "real:km-en": {
+   "stack": [
+    57.8,
+    16
+   ],
+   "qwen_repair": [
+    61.1,
+    14
+   ],
+   "sol": [
+    71.1,
+    9
+   ],
+   "qwen_ctx": [
+    51.1,
+    18
+   ],
+   "hymt30": [
+    56.7,
+    16
+   ],
+   "qwen_direct": [
+    52.2,
+    18
+   ]
+  },
+  "real:lo-en": {
+   "sol": [
+    62.2,
+    13
+   ],
+   "stack": [
+    32.2,
+    22
+   ],
+   "qwen_ctx": [
+    36.7,
+    21
+   ],
+   "hymt30": [
+    27.8,
+    21
+   ],
+   "qwen_repair": [
+    34.4,
+    22
+   ],
+   "qwen_direct": [
+    33.3,
+    22
+   ]
+  },
+  "real:ht-en": {
+   "sol": [
+    93.3,
+    2
+   ],
+   "qwen_repair": [
+    52.2,
+    13
+   ],
+   "hymt30": [
+    24.4,
+    25
+   ],
+   "qwen_ctx": [
+    54.4,
+    14
+   ],
+   "qwen_direct": [
+    48.9,
+    14
+   ],
+   "stack": [
+    40.0,
+    13
+   ]
+  }
+ },
+ "pooled_7": {
+  "D:stack": [
+   53.3,
+   68
+  ],
+  "D:sol": [
+   77.9,
+   37
+  ],
+  "D:ds_v4flash_direct": [
+   57.0,
+   59
+  ],
+  "D:ds_v4flash_ctx": [
+   60.3,
+   53
+  ],
+  "B:stack": [
+   54.8,
+   83
+  ],
+  "B:sol": [
+   79.5,
+   39
+  ],
+  "B:qwen_direct": [
+   52.4,
+   87
+  ],
+  "B:qwen_ctx": [
+   54.4,
+   84
+  ],
+  "B:qwen_repair": [
+   57.8,
+   78
+  ],
+  "B:hymt30": [
+   45.4,
+   81
+  ]
+ },
+ "deepseek_api": {
+  "ds_v4flash_direct": {
+   "api_p50_s": 1.713,
+   "api_p90_s": 4.845,
+   "n": 537,
+   "completion_tokens": 31757,
+   "reasoning_tokens": 1866,
+   "reasoning_text_returned": 4,
+   "providers": [
+    "AtlasCloud",
+    "Azure",
+    "DigitalOcean",
+    "GMICloud",
+    "Parasail",
+    "Relace",
+    "SiliconFlow",
+    "StreamLake",
+    "Venice",
+    "Wafer"
+   ]
+  },
+  "ds_v4flash_ctx": {
+   "api_p50_s": 2.207,
+   "api_p90_s": 5.808,
+   "n": 537,
+   "completion_tokens": 35008,
+   "reasoning_tokens": 3028,
+   "reasoning_text_returned": 10,
+   "providers": [
+    "AtlasCloud",
+    "Azure",
+    "DigitalOcean",
+    "GMICloud",
+    "Mancer 2",
+    "Parasail",
+    "Relace",
+    "SiliconFlow",
+    "StreamLake",
+    "Venice",
+    "Wafer"
+   ]
+  },
+  "ds_v41flash_direct": {
+   "api_p50_s": 0.652,
+   "api_p90_s": 1.658,
+   "n": 537,
+   "completion_tokens": 28566,
+   "reasoning_tokens": 0,
+   "reasoning_text_returned": 0,
+   "providers": [
+    "AtlasCloud",
+    "BaseTen",
+    "CoreWeave",
+    "Crusoe",
+    "Decart",
+    "DeepInfra",
+    "DigitalOcean",
+    "Fireworks",
+    "InferenceNet",
+    "Ionstream",
+    "Makora",
+    "Morph",
+    "Parasail",
+    "PrimeIntellect",
+    "Sail Research",
+    "Together",
+    "Venice",
+    "Wafer"
+   ]
+  },
+  "ds_v41flash_ctx": {
+   "api_p50_s": 0.662,
+   "api_p90_s": 1.632,
+   "n": 537,
+   "completion_tokens": 29751,
+   "reasoning_tokens": 1135,
+   "reasoning_text_returned": 3,
+   "providers": [
+    "AtlasCloud",
+    "BaseTen",
+    "CoreWeave",
+    "Decart",
+    "DeepInfra",
+    "DigitalOcean",
+    "Fireworks",
+    "InferenceNet",
+    "Ionstream",
+    "Makora",
+    "Morph",
+    "Novita",
+    "Parasail",
+    "Phala",
+    "PrimeIntellect",
+    "Sail Research",
+    "Together",
+    "Venice",
+    "Wafer"
+   ]
+  },
+  "ds_v4pro_direct": {
+   "api_p50_s": 1.901,
+   "api_p90_s": 6.43,
+   "n": 537,
+   "completion_tokens": 28739,
+   "reasoning_tokens": 0,
+   "reasoning_text_returned": 0,
+   "providers": [
+    "Alibaba",
+    "AtlasCloud",
+    "Baidu",
+    "Cloudflare",
+    "DeepInfra",
+    "DigitalOcean",
+    "GMICloud",
+    "Novita",
+    "Parasail",
+    "Reka",
+    "Relace",
+    "SiliconFlow",
+    "StreamLake",
+    "Venice"
+   ]
+  }
+ }
+}

@@ -1,0 +1,160 @@
+{
+ "A:e2e20:km-en": {
+  "stack|seg700:15|7B": {
+   "score": 47,
+   "critical": 4,
+   "full": 4
+  },
+  "sol|seg700:15|7B": {
+   "score": 63,
+   "critical": 1,
+   "full": 9
+  },
+  "sol|seg200:10|300M": {
+   "score": 50,
+   "critical": 4,
+   "full": 6
+  },
+  "sol|seg200:10|7B": {
+   "score": 55,
+   "critical": 4,
+   "full": 7
+  },
+  "stack|gold|-": {
+   "score": 85,
+   "critical": 2,
+   "full": 13
+  },
+  "stack|e2e-live|300M": {
+   "score": 27,
+   "critical": 10,
+   "full": 0
+  },
+  "stack|seg700:15|300M": {
+   "score": 28,
+   "critical": 10,
+   "full": 0
+  },
+  "stack|seg200:10|7B": {
+   "score": 43,
+   "critical": 5,
+   "full": 3
+  },
+  "sol|seg700:15|300M": {
+   "score": 52,
+   "critical": 3,
+   "full": 6
+  },
+  "stack|seg200:10|300M": {
+   "score": 30,
+   "critical": 9,
+   "full": 0
+  },
+  "sol|e2e-live|300M": {
+   "score": 48,
+   "critical": 5,
+   "full": 6
+  }
+ },
+ "A:rv30:km-en": {
+  "sol|ps|7B": {
+   "score": 79,
+   "critical": 4,
+   "full": 16
+  },
+  "stack|ps|7B": {
+   "score": 60,
+   "critical": 7,
+   "full": 7
+  },
+  "stack|ps|300M": {
+   "score": 50,
+   "critical": 10,
+   "full": 5
+  },
+  "sol|ps|300M": {
+   "score": 71,
+   "critical": 5,
+   "full": 14
+  }
+ },
+ "A:e2e20:lo-en": {
+  "stack|seg200:10|7B": {
+   "score": 33,
+   "critical": 12,
+   "full": 1
+  },
+  "sol|seg200:10|7B": {
+   "score": 77,
+   "critical": 4,
+   "full": 12
+  },
+  "sol|seg700:15|7B": {
+   "score": 83,
+   "critical": 2,
+   "full": 14
+  },
+  "stack|e2e-live|300M": {
+   "score": 32,
+   "critical": 14,
+   "full": 0
+  },
+  "stack|seg200:10|300M": {
+   "score": 30,
+   "critical": 16,
+   "full": 1
+  },
+  "sol|seg200:10|300M": {
+   "score": 70,
+   "critical": 5,
+   "full": 8
+  },
+  "stack|seg700:15|7B": {
+   "score": 53,
+   "critical": 9,
+   "full": 5
+  },
+  "stack|seg700:15|300M": {
+   "score": 28,
+   "critical": 16,
+   "full": 1
+  },
+  "stack|gold|-": {
+   "score": 90,
+   "critical": 0,
+   "full": 15
+  },
+  "sol|e2e-live|300M": {
+   "score": 75,
+   "critical": 4,
+   "full": 10
+  },
+  "sol|seg700:15|300M": {
+   "score": 58,
+   "critical": 8,
+   "full": 7
+  }
+ },
+ "A:rv30:lo-en": {
+  "stack|ps|300M": {
+   "score": 32,
+   "critical": 12,
+   "full": 2
+  },
+  "stack|ps|7B": {
+   "score": 53,
+   "critical": 8,
+   "full": 9
+  },
+  "sol|ps|300M": {
+   "score": 69,
+   "critical": 7,
+   "full": 15
+  },
+  "sol|ps|7B": {
+   "score": 84,
+   "critical": 3,
+   "full": 20
+  }
+ }
+}

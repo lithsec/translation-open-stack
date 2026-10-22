@@ -1,0 +1,77 @@
+{
+ "canary:en": {
+  "cer": 0.0726,
+  "wer": 0.1035,
+  "empty": 0,
+  "rtf": 0.0331,
+  "mem_peak_gb_torch": 4.86,
+  "decode_p50_s": 0.268,
+  "decode_p90_s": 0.287
+ },
+ "parakeet:en": {
+  "cer": 0.0925,
+  "wer": 0.1237,
+  "empty": 0,
+  "rtf": 0.0076,
+  "mem_peak_gb_torch": 4.74,
+  "decode_p50_s": 0.059,
+  "decode_p90_s": 0.087
+ },
+ "parakeet:es": {
+  "cer": 0.0063,
+  "wer": 0.0183,
+  "empty": 0,
+  "rtf": 0.0076,
+  "mem_peak_gb_torch": 4.74,
+  "decode_p50_s": 0.049,
+  "decode_p90_s": 0.091
+ },
+ "parakeet:fr": {
+  "cer": 0.0518,
+  "wer": 0.1221,
+  "empty": 0,
+  "rtf": 0.0076,
+  "mem_peak_gb_torch": 4.74,
+  "decode_p50_s": 0.071,
+  "decode_p90_s": 0.094
+ },
+ "whisper:en": {
+  "cer": 0.047,
+  "wer": 0.0808,
+  "empty": 0,
+  "rtf": 0.0234,
+  "mem_peak_gb_torch": 0.0,
+  "decode_p50_s": 0.147,
+  "decode_p90_s": 0.187
+ },
+ "whisper:es": {
+  "cer": 0.0042,
+  "wer": 0.0163,
+  "empty": 0,
+  "rtf": 0.0234,
+  "mem_peak_gb_torch": 0.0,
+  "decode_p50_s": 0.197,
+  "decode_p90_s": 0.304
+ },
+ "whisper:fr": {
+  "cer": 0.0215,
+  "wer": 0.0945,
+  "empty": 0,
+  "rtf": 0.0234,
+  "mem_peak_gb_torch": 0.0,
+  "decode_p50_s": 0.184,
+  "decode_p90_s": 0.259
+ },
+ "e2e-live-whisper:en": {
+  "cer": 0.113,
+  "wer": 0.149
+ },
+ "e2e-live-whisper:es": {
+  "cer": 0.0042,
+  "wer": 0.0163
+ },
+ "e2e-live-whisper:fr": {
+  "cer": 0.0444,
+  "wer": 0.1244
+ }
+}
