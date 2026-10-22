@@ -56,10 +56,11 @@ def test_builtin_keys_are_the_old_keys():
     ones languages.toml always had (plus `voice`, the new chain list, and
     `commercial`, the [<lang>.commercial] voices, and `espeak`, which only
     ever takes the last-resort voice out with `espeak = false`; and since
-    2026-10-22 `omni`, the Omnilingual card, and per-language endpointing)."""
+    2026-10-22 `omni`, the Omnilingual card, and the per-language turn rules)."""
     assert c.keys() == {"kokoro": str, "voxcpm": bool, "coqui": str, "piper": str, "mms": str, "asr": str,
                         "translator": str, "madlad": str, "voice": list, "commercial": dict, "espeak": bool,
-                        "omni": str, "endpoint_ms": int, "max_utterance_s": int}
+                        "omni": str, "endpoint_ms": int, "max_utterance_s": int, "long_utterance_s": int,
+                        "long_endpoint_ms": int, "min_speech_ms": int}
 
 
 def test_default_voice_order():

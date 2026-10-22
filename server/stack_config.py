@@ -31,6 +31,11 @@ Per-language keys (all optional):
                                         gap on long ones, as --long-utterance-s allows)
     max_utterance_s  <int>              ... and where a pause-less utterance is cut
                                         (instead of --endpoint-ms / --max-utterance-s)
+    long_utterance_s <int>              ... past this much audio, a shorter pause will do:
+    long_endpoint_ms <int>              this one (with endpoint_ms set and these not,
+                                        endpoint_ms holds at any length)
+    min_speech_ms    <int>              a pause ends a turn only once it holds this much
+                                        speech, or the quiet lasts SHORT_TURN_HOLD_MS
     translator  "hymt" | "madlad"       Hy-MT2 only covers the languages in
                                         engines/hymt.py's HYMT_NAMES; others use MADLAD
     madlad      "<code>"                MADLAD's target tag, when it differs
@@ -100,6 +105,9 @@ HYMT_LANGS = {
 # "commercial": the voices EDITION=commercial uses instead (docs/licences.md §3);
 # a language without one keeps its own voices, minus any that licences.py does
 # not allow commercially (pt zh ja hi keep Kokoro; fa and ro get eSpeak NG only).
+# The longer turns Japanese, Haitian Creole, Khmer and Lao take when spoken (languages.toml, eval/2026-10-pauses).
+LONG_TURNS = {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500, "max_utterance_s": 15,
+              "min_speech_ms": 2500}
 DEFAULTS = {
     "en": {"kokoro": "a:am_michael", "piper": "en_US-lessac-medium", "asr": "whisper", "translator": "hymt",
            "commercial": {"kokoro": "a:am_michael", "piper": "en_US-norman-medium"}},
@@ -119,7 +127,7 @@ DEFAULTS = {
     "zh": {"kokoro": "z:zf_xiaobei", "piper": "zh_CN-huayan-medium", "asr": "whisper", "translator": "hymt",
            "madlad": "zh"},
     "ja": {"kokoro": "j:jf_alpha", "piper": "ja_JP-hi_fi_captain-medium", "asr": "whisper",
-           "translator": "hymt", "madlad": "ja"},
+           **LONG_TURNS, "translator": "hymt", "madlad": "ja"},
     "ko": {"piper": "ko_KR-kss-medium", "asr": "whisper", "translator": "hymt", "madlad": "ko",
            "commercial": {"voxcpm": True}},
     "vi": {"piper": "vi_VN-vais1000-medium", "asr": "whisper", "translator": "hymt", "madlad": "vi",
@@ -139,11 +147,11 @@ DEFAULTS = {
            "commercial": {"voxcpm": True}},
     "ro": {"piper": "ro_RO-mihai-medium", "asr": "whisper", "translator": "madlad", "madlad": "ro"},
     "ht": {"coqui": "multilingual-tts/VITS-OpenBible-Haitian-Creole", "mms": "facebook/mms-tts-hat",
-           "asr": "omni:hat_Latn", "translator": "madlad", "madlad": "ht"},
+           "asr": "omni:hat_Latn", "translator": "madlad", "madlad": "ht", **LONG_TURNS},
     "km": {"voxcpm": True, "mms": "facebook/mms-tts-khm", "asr": "omni:khm_Khmr", "omni": "large",
-           "endpoint_ms": 700, "max_utterance_s": 15, "translator": "hymt", "madlad": "km"},
+           **LONG_TURNS, "translator": "hymt", "madlad": "km"},
     "lo": {"voxcpm": True, "mms": "facebook/mms-tts-lao", "asr": "omni:lao_Laoo", "omni": "large",
-           "endpoint_ms": 700, "max_utterance_s": 15, "translator": "madlad", "madlad": "lo"},
+           **LONG_TURNS, "translator": "madlad", "madlad": "lo"},
     # MADLAD's code for Tagalog is fil (<2tl> is not in its vocabulary).
     "tl": {"voxcpm": True, "mms": "facebook/mms-tts-tgl", "asr": "whisper", "translator": "hymt",
            "madlad": "fil"},
@@ -189,11 +197,13 @@ MODELS_PINNED = {"hymt", "madlad", "madlad3b", "voxcpm"}
 # The keys a language table may use: these, plus every registered engine that
 # takes a per-language value (keys()). The built-in engines give exactly the
 # set this file always had: kokoro voxcpm coqui piper mms madlad.
-BASE_KEYS = {"asr": str, "translator": str, "voice": list, "commercial": dict,
-             "endpoint_ms": int, "max_utterance_s": int}
-# Per-language endpointing outside these is a typo, not a setting.
-ENDPOINT_MS_RANGE = (100, 3000)
-MAX_UTTERANCE_S_RANGE = (3, 30)
+# Per-language turn rules (server.endpointing) and their allowed range: outside
+# these is a typo, not a setting.
+TURN_KEYS = {"endpoint_ms": (100, 3000), "max_utterance_s": (3, 30), "long_utterance_s": (2, 30),
+             "long_endpoint_ms": (100, 3000), "min_speech_ms": (0, 5000)}
+ENDPOINT_MS_RANGE = TURN_KEYS["endpoint_ms"]
+MAX_UTTERANCE_S_RANGE = TURN_KEYS["max_utterance_s"]
+BASE_KEYS = {"asr": str, "translator": str, "voice": list, "commercial": dict, **{k: int for k in TURN_KEYS}}
 
 
 def _engines():
@@ -243,9 +253,9 @@ def validate(table):
                 raise ValueError(f"[{lang}] unknown key {k!r} (known: {', '.join(known)})")
             if not isinstance(v, known[k]) or (known[k] is int and isinstance(v, bool)):
                 raise ValueError(f"[{lang}] {k} must be a {known[k].__name__}")
-            for key, (lo, hi) in (("endpoint_ms", ENDPOINT_MS_RANGE), ("max_utterance_s", MAX_UTTERANCE_S_RANGE)):
-                if k == key and not lo <= v <= hi:
-                    raise ValueError(f"[{lang}] {k} = {v} is outside {lo}..{hi}")
+            if k in TURN_KEYS and not TURN_KEYS[k][0] <= v <= TURN_KEYS[k][1]:
+                lo, hi = TURN_KEYS[k]
+                raise ValueError(f"[{lang}] {k} = {v} is outside {lo}..{hi}")
             if k not in BASE_KEYS:
                 cls = next(c for r in eng.registry().values() for n, c in r.items() if n == k)
                 why = cls.check_lang(lang, v)
@@ -852,9 +862,9 @@ def tables(table):
         "PIPER_VOICES": {l: e["piper"] for l, e in table.items() if "piper" in e},
         "MMS_VOICES": {l: e["mms"] for l, e in table.items() if "mms" in e},
         "OMNI_LANGS": {l: e["asr"][5:] for l, e in table.items() if e.get("asr", "").startswith("omni:")},
-        # Spoken language -> (endpoint_ms, max_utterance_s), for the languages that set either.
-        "ENDPOINTING": {l: (e.get("endpoint_ms"), e.get("max_utterance_s")) for l, e in table.items()
-                        if "endpoint_ms" in e or "max_utterance_s" in e},
+        # Spoken language -> its turn rules ({key: value}, TURN_KEYS), for the languages that set any.
+        "ENDPOINTING": {l: {k: e[k] for k in TURN_KEYS if k in e} for l, e in table.items()
+                        if any(k in e for k in TURN_KEYS)},
         "LANG_TO_MADLAD": {l: e["madlad"] for l, e in table.items() if "madlad" in e},
         # Languages kept off Hy-MT2 even though it supports them.
         "MADLAD_ONLY": {l for l, e in table.items() if e.get("translator") == "madlad"},

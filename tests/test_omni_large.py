@@ -140,21 +140,60 @@ def test_endpointing_per_spoken_language():
     s = _server()
     flags = (s.ENDPOINT_MS, s.LONG_UTTERANCE_S, s.LONG_ENDPOINT_MS, s.MAX_UTTERANCE_S)
     assert s.endpointing("en") == flags
-    assert s.endpointing("ht") == flags
+    assert s.endpointing("es") == flags
     assert s.endpointing("auto") == flags
-    # 700 ms at any length (no shorter clause gap), forced cut at 15 s.
-    assert s.endpointing("lo") == (700, 15, 700, 15)
-    assert s.endpointing("km") == (700, 15, 700, 15)
-    s.ENDPOINT_MS, s.MAX_UTTERANCE_S = 900, 12     # what run.sh passes: Lao keeps its own
-    assert s.endpointing("lo") == (700, 15, 700, 15)
-    assert s.endpointing("es")[0] == 900 and s.endpointing("es")[3] == 12
+    # 900 ms, 500 ms past 8 s, forced cut at 15 s; at least 2.5 s of speech (eval/2026-10-pauses).
+    for lang in ("ja", "ht", "km", "lo"):
+        assert s.endpointing(lang) == (900, 8, 500, 15)
+        assert s.min_speech_ms(lang) == 2500
+    assert s.min_speech_ms("en") == 0
+    s.ENDPOINT_MS, s.MAX_UTTERANCE_S = 600, 12     # an operator's flags: these languages keep their own
+    assert s.endpointing("lo") == (900, 8, 500, 15)
+    assert s.endpointing("es")[0] == 600 and s.endpointing("es")[3] == 12
 
 
 def test_endpointing_one_key_keeps_the_flag_for_the_other():
     s = _server()
-    s._T = dict(s._T, ENDPOINTING={"xx": (None, 20)})
+    s._T = dict(s._T, ENDPOINTING={"xx": {"max_utterance_s": 20}})
     assert s.endpointing("xx") == (s.ENDPOINT_MS, 20, s.ENDPOINT_MS, 20)
 
+
+
+def test_turn_keys_are_checked():
+    ok = '[ht]\nasr = "omni:hat_Latn"\nlong_utterance_s = 8\nlong_endpoint_ms = 400\nmin_speech_ms = 2000\n'
+    assert _bad(ok) is None
+    assert "outside" in _bad('[ht]\nlong_endpoint_ms = 50\n')
+    assert "outside" in _bad('[ht]\nlong_utterance_s = 1\n')
+    assert "outside" in _bad('[ht]\nmin_speech_ms = 9000\n')
+    assert "must be a int" in _bad('[ht]\nmin_speech_ms = 1.5\n')
+
+
+def test_clause_gap_per_language():
+    s = _server()
+    # Both long keys: the clause gap at the language's own length and pause.
+    s._T = dict(s._T, ENDPOINTING={"xx": {"long_utterance_s": 8, "long_endpoint_ms": 400, "max_utterance_s": 15}})
+    assert s.endpointing("xx") == (s.ENDPOINT_MS, 8, 400, 15)
+    # One of them: the flag for the other.
+    s._T = dict(s._T, ENDPOINTING={"xx": {"long_utterance_s": 8}})
+    assert s.endpointing("xx") == (s.ENDPOINT_MS, 8, s.LONG_ENDPOINT_MS, s.MAX_UTTERANCE_S)
+    # Only min_speech_ms: the flags for the rest.
+    s._T = dict(s._T, ENDPOINTING={"xx": {"min_speech_ms": 2000}})
+    assert s.endpointing("xx") == (s.ENDPOINT_MS, s.LONG_UTTERANCE_S, s.LONG_ENDPOINT_MS, s.MAX_UTTERANCE_S)
+    assert s.min_speech_ms("xx") == 2000 and s.min_speech_ms("en") == 0
+
+
+def test_short_turn_waits_for_the_rest_of_its_sentence():
+    s = _server()
+    # 1.2 s of speech then 0.9 s quiet: under 2 s of speech, quiet under the 1.5 s hold -> wait.
+    assert s.short_turn(2.1, 900, 900, 2000)
+    # The quiet reaches the hold: a speaker who stopped is answered.
+    assert not s.short_turn(2.7, 1500, 900, 2000)
+    # Enough speech: the pause ends the turn as before.
+    assert not s.short_turn(3.4, 900, 900, 2000)
+    # min 0 (every language that doesn't set it): never waits.
+    assert not s.short_turn(1.2, 900, 900, 0)
+    # A pause longer than the hold (Lao's 700 ms is not) still has to reach the endpoint.
+    assert s.short_turn(2.5, 1600, 2000, 2000)
 
 if __name__ == "__main__":
     for name, fn in list(globals().items()):

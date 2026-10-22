@@ -211,10 +211,23 @@ asr = "whisper"
 translator = "hymt"
 madlad = "zh"
 
+# Japanese, Haitian Creole, Khmer and Lao: longer turns when they're spoken (fixed
+# ?src=). A 900 ms pause ends a turn, 500 ms will do past 8 s, a forced cut at
+# 15 s, and a pause doesn't end one holding under 2.5 s of speech (unless the
+# quiet lasts 1.5 s). Their readers pause inside sentences, and the recognisers
+# (Omnilingual most) mishear pieces of sentences: in the October clips this cut
+# them into 21-27 pieces for 20 sentences instead of 27-42, and their
+# characters wrong by 1.3-2.4 points, with the wait after a sentence about the
+# same (eval/2026-10-pauses). English, Spanish and French keep the flags.
 [ja]
 kokoro = "j:jf_alpha"
 piper = "ja_JP-hi_fi_captain-medium"
 asr = "whisper"
+endpoint_ms = 900
+long_utterance_s = 8
+long_endpoint_ms = 500
+max_utterance_s = 15
+min_speech_ms = 2500
 translator = "hymt"
 madlad = "ja"
 
@@ -333,6 +346,11 @@ madlad = "ro"
 coqui = "multilingual-tts/VITS-OpenBible-Haitian-Creole"
 mms = "facebook/mms-tts-hat"
 asr = "omni:hat_Latn"
+endpoint_ms = 900
+long_utterance_s = 8
+long_endpoint_ms = 500
+max_utterance_s = 15
+min_speech_ms = 2500
 translator = "madlad"
 madlad = "ht"
 
@@ -342,17 +360,18 @@ madlad = "ht"
 # for languages with nothing else. MMS is the nonprofit fallback.
 #
 # Hearing them: Omnilingual's 7B card where it is loaded (omni = "large"), and
-# a longer turn: always 700 ms of pause, and up to 15 s before a forced cut,
-# instead of settling for a clause gap after 5 s and cutting at --max-utterance-s.
-# Short pieces cost these two languages most (eval/2026-10-omni-sizes,
-# eval/2026-10-lao-khmer-7b).
+# longer turns (see [ja]). Short pieces cost these two languages most
+# (eval/2026-10-omni-sizes, eval/2026-10-lao-khmer-7b, eval/2026-10-pauses).
 [km]
 voxcpm = true
 mms = "facebook/mms-tts-khm"
 asr = "omni:khm_Khmr"
 omni = "large"
-endpoint_ms = 700
+endpoint_ms = 900
+long_utterance_s = 8
+long_endpoint_ms = 500
 max_utterance_s = 15
+min_speech_ms = 2500
 translator = "hymt"
 madlad = "km"
 
@@ -361,8 +380,11 @@ voxcpm = true
 mms = "facebook/mms-tts-lao"
 asr = "omni:lao_Laoo"
 omni = "large"
-endpoint_ms = 700
+endpoint_ms = 900
+long_utterance_s = 8
+long_endpoint_ms = 500
 max_utterance_s = 15
+min_speech_ms = 2500
 translator = "madlad"
 madlad = "lo"
 
