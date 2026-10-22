@@ -579,9 +579,10 @@ async def handle_streaming(ws, pipe, src, lang, edition=None, memory=None):
     meter = AudioMeter()
     loop = asyncio.get_running_loop()
     memory = memory or TranslationMemory(False)   # the previous clauses, for ?context=1
-    from audio_in import AudioIn, vad_block  # numpy: loaded with the rest, not at import
+    from audio_in import AudioIn, QuietBoost, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn("streaming client")
     endpoint_ms, _, _, max_utterance_s = endpointing(src)
+    boost = QuietBoost()   # the VAD's copy of a quiet talker, brought up (audio_in.py)
 
     async def flush(words, force=False):
         nonlocal translated_n
@@ -614,7 +615,7 @@ async def handle_streaming(ws, pipe, src, lang, edition=None, memory=None):
         for pcm16 in conn_in.feed(msg):
             buf = np.concatenate([buf, pcm16])
             chunk_ms = len(pcm16) / VAD_RATE * 1000
-            prob = vad_block(vad, pcm16)
+            prob = vad_block(vad, boost(pcm16))
             quiet_ms = 0.0 if prob > 0.5 else quiet_ms + chunk_ms
             since_asr_ms += chunk_ms
 
@@ -667,6 +668,7 @@ class Room:
         self.buf = np.zeros(0, dtype=np.float32)
         self.quiet_ms = 0.0
         self.vad = None  # the room's own speech detector (pipe.new_vad), made on first audio
+        self.boost = None  # and the gain for its copy of the audio (audio_in.QuietBoost)
         # No utterance until a human has actually spoken. The benches never
         # exposed this: their clips speak immediately. A LIVE microphone idles,
         # and without this gate silence alone satisfied the endpoint — the
@@ -1300,7 +1302,7 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, co
     if priority:
         room.priority_ws.add(ws)
     meter = AudioMeter()
-    from audio_in import AudioIn, vad_block  # numpy: loaded with the rest, not at import
+    from audio_in import AudioIn, QuietBoost, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn(f"room {room_id}")
     endpoint_ms, long_utterance_s, long_endpoint_ms, max_utterance_s = endpointing(src)
     is_primary = room.primary is None
@@ -1335,7 +1337,8 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, co
                 chunk_ms = len(pcm16) / VAD_RATE * 1000
                 if room.vad is None:
                     room.vad = pipe.new_vad()
-                prob = vad_block(room.vad, pcm16)
+                    room.boost = QuietBoost()   # a quiet talker, brought up for the VAD (audio_in.py)
+                prob = vad_block(room.vad, room.boost(pcm16))
                 if prob > 0.5:
                     room.speech_seen = True
                     room.quiet_ms = 0.0
@@ -1576,9 +1579,10 @@ async def handle(ws, pipe, sub="open", edition=None):
     speech_seen = False
     vad = pipe.new_vad()
     meter = AudioMeter()
-    from audio_in import AudioIn, vad_block  # numpy: loaded with the rest, not at import
+    from audio_in import AudioIn, QuietBoost, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn(clean(sub, 24))
     endpoint_ms, _, _, max_utterance_s = endpointing(src)
+    boost = QuietBoost()   # the VAD's copy of a quiet talker, brought up (audio_in.py)
 
     async for msg in ws:
         if not meter.take(len(msg)):
@@ -1591,7 +1595,7 @@ async def handle(ws, pipe, sub="open", edition=None):
             buf = np.concatenate([buf, pcm16])
             # Endpoint on Silero: an utterance ends after endpoint_ms without speech.
             chunk_ms = len(pcm16) / VAD_RATE * 1000
-            prob = vad_block(vad, pcm16)
+            prob = vad_block(vad, boost(pcm16))
             if prob > 0.5:
                 speech_seen = True
                 quiet_ms = 0.0
