@@ -119,6 +119,17 @@ QUIET_TARGET = 0.1        # the peak a quiet talker is brought up to (-20 dBFS)
 QUIET_MAX_GAIN = 16.0     # +24 dB at most, so a noise floor stays a noise floor
 QUIET_HALF_LIFE_S = 1.5   # how fast it forgets a louder voice (4 s: a quiet reader after a loud one went unheard)
 QUIET_FLOOR = 0.0005      # below this (-66 dBFS) nothing is speech: no extra gain
+# A quiet talker right after a loud one (eval/2026-10-quiet-after-loud): over a 1-2 s
+# pause a 1.5 s half-life still remembered the loud voice, so the quiet one's first
+# words reached Silero at gain ~1 and were trimmed as idle audio. While the audio is
+# far under the remembered level (a pause, or a much quieter voice) the level is
+# forgotten faster; inside one talker's speech, word gaps are short and the slow
+# half-life holds.
+QUIET_FAST_BELOW = 0.1        # a block peaking 20 dB or more under the level...
+QUIET_FAST_HALF_LIFE_S = 0.25  # ...forgets it at this half-life (0 turns this off)
+# Boost the audio the recogniser hears as well as the VAD's copy (off: the
+# recogniser gets the stream as sent).
+QUIET_ASR = False
 
 
 class QuietBoost:
@@ -132,10 +143,12 @@ class QuietBoost:
     def __init__(self, block_s=BLOCK / OUT_RATE):
         self.level = 0.0
         self.decay = 0.5 ** (block_s / QUIET_HALF_LIFE_S)
+        self.fast = 0.5 ** (block_s / QUIET_FAST_HALF_LIFE_S) if QUIET_FAST_HALF_LIFE_S > 0 else self.decay
 
     def gain(self, block):
         peak = float(np.max(np.abs(block))) if len(block) else 0.0
-        self.level = max(peak, self.level * self.decay)
+        decay = self.fast if peak < QUIET_FAST_BELOW * self.level else self.decay
+        self.level = max(peak, self.level * decay)
         if self.level < QUIET_FLOOR:
             return 1.0
         return float(min(QUIET_MAX_GAIN, max(1.0, QUIET_TARGET / self.level)))
