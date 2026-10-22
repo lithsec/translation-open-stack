@@ -1,0 +1,342 @@
+{
+ "note": "Transcript repair by DeepSeek V4-Pro (OpenRouter, zdr) on the stack's own per-sentence transcripts; translations by V4-Pro; one blind gemini-pro-latest round per direction. [score %, critical count]. CER: punctuation and symbols stripped, no spaces for ja/km/lo.",
+ "cer": {
+  "en": {
+   "raw": 0.1104,
+   "rep_none": 0.1035,
+   "rep_ctx": 0.1031,
+   "changed_none": 11,
+   "changed_ctx": 10
+  },
+  "es": {
+   "raw": 0.0042,
+   "rep_none": 0.0028,
+   "rep_ctx": 0.0017,
+   "changed_none": 5,
+   "changed_ctx": 7
+  },
+  "ja": {
+   "raw": 0.1843,
+   "rep_none": 0.1728,
+   "rep_ctx": 0.1707,
+   "changed_none": 9,
+   "changed_ctx": 10
+  },
+  "fr": {
+   "raw": 0.0436,
+   "rep_none": 0.0432,
+   "rep_ctx": 0.039,
+   "changed_none": 10,
+   "changed_ctx": 9
+  },
+  "km": {
+   "raw": 0.3947,
+   "rep_none": 0.3951,
+   "rep_ctx": 0.3879,
+   "changed_none": 14,
+   "changed_ctx": 12
+  },
+  "ht": {
+   "raw": 0.0797,
+   "rep_none": 0.0641,
+   "rep_ctx": 0.0641,
+   "changed_none": 14,
+   "changed_ctx": 16
+  },
+  "lo": {
+   "raw": 0.194,
+   "rep_none": 0.1756,
+   "rep_ctx": 0.185,
+   "changed_none": 18,
+   "changed_ctx": 18
+  }
+ },
+ "quality": {
+  "en-es": {
+   "v4pro_rep_none": [
+    70.0,
+    4
+   ],
+   "stack_raw": [
+    53.3,
+    5
+   ],
+   "v4pro_rep_ctx": [
+    70.0,
+    4
+   ],
+   "stack_gold": [
+    96.7,
+    0
+   ],
+   "v4pro_raw": [
+    60.0,
+    5
+   ]
+  },
+  "es-en": {
+   "v4pro_rep_none": [
+    86.7,
+    1
+   ],
+   "v4pro_raw": [
+    86.7,
+    1
+   ],
+   "stack_raw": [
+    80.0,
+    2
+   ],
+   "stack_gold": [
+    91.7,
+    1
+   ],
+   "v4pro_rep_ctx": [
+    91.7,
+    0
+   ]
+  },
+  "en-ja": {
+   "v4pro_rep_none": [
+    85.0,
+    3
+   ],
+   "stack_gold": [
+    93.3,
+    0
+   ],
+   "v4pro_rep_ctx": [
+    83.3,
+    3
+   ],
+   "v4pro_raw": [
+    78.3,
+    4
+   ],
+   "stack_raw": [
+    65.0,
+    4
+   ]
+  },
+  "ja-en": {
+   "v4pro_raw": [
+    73.3,
+    3
+   ],
+   "stack_gold": [
+    90.0,
+    1
+   ],
+   "stack_raw": [
+    60.0,
+    3
+   ],
+   "v4pro_rep_ctx": [
+    68.3,
+    3
+   ],
+   "v4pro_rep_none": [
+    73.3,
+    3
+   ]
+  },
+  "en-fr": {
+   "stack_gold": [
+    91.7,
+    0
+   ],
+   "v4pro_rep_ctx": [
+    75.0,
+    2
+   ],
+   "stack_raw": [
+    56.7,
+    3
+   ],
+   "v4pro_raw": [
+    71.7,
+    2
+   ],
+   "v4pro_rep_none": [
+    75.0,
+    2
+   ]
+  },
+  "fr-en": {
+   "stack_raw": [
+    75.0,
+    4
+   ],
+   "stack_gold": [
+    98.3,
+    0
+   ],
+   "v4pro_rep_ctx": [
+    78.3,
+    4
+   ],
+   "v4pro_rep_none": [
+    80.0,
+    4
+   ],
+   "v4pro_raw": [
+    76.7,
+    4
+   ]
+  },
+  "en-km": {
+   "v4pro_rep_ctx": [
+    83.3,
+    2
+   ],
+   "stack_raw": [
+    63.3,
+    6
+   ],
+   "v4pro_rep_none": [
+    81.7,
+    2
+   ],
+   "stack_gold": [
+    93.3,
+    1
+   ],
+   "v4pro_raw": [
+    73.3,
+    3
+   ]
+  },
+  "km-en": {
+   "stack_raw": [
+    28.3,
+    15
+   ],
+   "v4pro_rep_none": [
+    40.0,
+    12
+   ],
+   "stack_gold": [
+    76.7,
+    2
+   ],
+   "v4pro_raw": [
+    33.3,
+    15
+   ],
+   "v4pro_rep_ctx": [
+    41.7,
+    12
+   ]
+  },
+  "ht-en": {
+   "v4pro_rep_ctx": [
+    53.3,
+    12
+   ],
+   "v4pro_raw": [
+    48.3,
+    13
+   ],
+   "stack_gold": [
+    78.3,
+    5
+   ],
+   "v4pro_rep_none": [
+    58.3,
+    10
+   ],
+   "stack_raw": [
+    36.7,
+    15
+   ]
+  },
+  "en-ht": {
+   "v4pro_rep_ctx": [
+    81.7,
+    2
+   ],
+   "stack_gold": [
+    51.7,
+    6
+   ],
+   "stack_raw": [
+    33.3,
+    9
+   ],
+   "v4pro_raw": [
+    70.0,
+    2
+   ],
+   "v4pro_rep_none": [
+    81.7,
+    2
+   ]
+  },
+  "lo-en": {
+   "stack_raw": [
+    35.0,
+    15
+   ],
+   "stack_gold": [
+    85.0,
+    2
+   ],
+   "v4pro_rep_ctx": [
+    56.7,
+    9
+   ],
+   "v4pro_raw": [
+    60.0,
+    7
+   ],
+   "v4pro_rep_none": [
+    56.7,
+    8
+   ]
+  },
+  "en-lo": {
+   "v4pro_rep_ctx": [
+    80.0,
+    2
+   ],
+   "v4pro_raw": [
+    71.7,
+    4
+   ],
+   "v4pro_rep_none": [
+    83.3,
+    2
+   ],
+   "stack_raw": [
+    51.7,
+    5
+   ],
+   "stack_gold": [
+    76.7,
+    4
+   ]
+  },
+  "ALL": {
+   "v4pro_rep_none": [
+    72.6,
+    53
+   ],
+   "stack_raw": [
+    53.2,
+    86
+   ],
+   "v4pro_rep_ctx": [
+    71.9,
+    55
+   ],
+   "stack_gold": [
+    85.3,
+    22
+   ],
+   "v4pro_raw": [
+    66.9,
+    63
+   ]
+  }
+ }
+}

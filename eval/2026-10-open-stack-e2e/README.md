@@ -193,14 +193,71 @@ on some requests.
 +7 with context: a little ahead of Qwen-122B on the same directions in
 round B, about 18 points behind sol.
 
+## 6. DeepSeek V4-Pro, the largest open model tried (round E)
+
+The ceiling for open weights without fine-tuning: DeepSeek V4-Pro through
+OpenRouter with zero data retention enforced per request
+(`scripts/analysis/ds_zdr.py`, `provider.zdr`), graded blind beside the
+stack, sol, V4-Flash and V4.1-Flash (both with context) on round D's 10
+real-voice directions (`scripts/analysis/roundE.py`,
+`results/E_v4pro.json`). Its own grading round: compare inside this table.
+
+| | 7 hard directions | All 10 |
+|---|---|---|
+| sol | **76.5** (50) | **78.6** (60) |
+| V4-Pro direct | 61.3 (80) | 63.8 (102) |
+| V4-Pro ctx | 61.0 (78) | 64.7 (94) |
+| V4-Flash ctx | 58.7 (83) | 61.8 (103) |
+| V4.1-Flash ctx | 58.3 (89) | 62.1 (110) |
+| Stack | 51.0 (100) | 55.6 (121) |
+
+V4-Pro is within 3–8 points of sol out of English into Japanese, Lao and
+Haitian Creole, but Haitian Creole into English is 42–49 against sol's 90.
+Size buys little: V4-Pro is about 3 points over V4-Flash. API round trip
+1.1 / 2.9 s (p50 / p90). V4.1-Flash grades level with V4-Flash.
+
+## 7. An LLM repairing the transcript before translation (round R)
+
+V4-Pro (zero data retention) corrects the stack's own per-sentence
+transcripts, with no context or with the previous sentence; V4-Pro then
+translates raw and repaired text; one blind round per direction with the
+stack's translator on its transcript and on the gold text
+(`scripts/analysis/repair.py`, `results/R_repair.json`).
+
+| Source | CER raw | repaired | repaired + previous sentence |
+|---|---|---|---|
+| English | 11.0% | 10.3% | 10.3% |
+| Spanish | 0.4% | 0.3% | 0.2% |
+| French | 4.4% | 4.3% | 3.9% |
+| Japanese | 18.4% | 17.3% | 17.1% |
+| Haitian Creole | 8.0% | 6.4% | 6.4% |
+| Lao | 19.4% | 17.6% | 18.5% |
+| Khmer | 39.5% | 39.5% | 38.8% |
+
+| All 12 directions | Score (critical) |
+|---|---|
+| Stack translator, gold text | 85.3 (22) |
+| V4-Pro, repaired | **72.6 (53)** |
+| V4-Pro, repaired with previous sentence | 71.9 (55) |
+| V4-Pro, raw transcript | 66.9 (63) |
+| Stack translator, transcript | 53.2 (86) |
+
+Repair adds about 6 points overall while barely moving the character error
+rate: most of the gain is sentence boundaries, punctuation and stray
+neighbouring words, which CER ignores. Largest out of English (+10 to +12
+into es, km, ht, lo) and Haitian Creole into English (+10); Lao into English
+is no better. The previous sentence as context added nothing. The repairer
+here is far larger than one GPU holds; a smaller one will gain less, and
+the stack's own segmentation fix leaves less to repair.
+
 ## Conclusions
 
 1. **Hear Lao (and try Khmer) with Omnilingual 7B**, with the repetition
    guard and 700 ms : 15 s pauses. The clearest win: +21 to +25 points into
-   English.
+   English. (Done: `eval/2026-10-lao-khmer-7b`.)
 2. **Fix how the stack cuts speech before recognition.** It costs 12–15
    points for English and more on the Omnilingual languages, more than any
-   model swap here gains.
+   model swap here gains. (Quiet speech: `eval/2026-10-segmentation`.)
 3. **No open translator is close to sol.** Bigger LLMs, a repair pass, a QE
    pick and DeepSeek V4-Flash each add 3–7 points overall.
 4. **Haitian Creole:** Qwen3.5-122B with context is a real upgrade over
@@ -208,3 +265,9 @@ round B, about 18 points behind sol.
    Haitian Creole may get there more cheaply.
 5. **Out of English:** Hy-MT2-30B is +5 over the stack, without Lao or
    Haitian Creole.
+6. **The largest open model (V4-Pro) is still ~15 points behind sol**, and
+   ~45 behind on Haitian Creole into English. Matching sol on these
+   languages needs fine-tuning (with recognition noise in the training
+   data), not a bigger GPU.
+7. **A repair pass is worth about 6 points** with a very large model; if
+   tried, fold it into the translation call rather than a separate step.

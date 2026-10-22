@@ -421,3 +421,9 @@ directions, then experiments on its recognition and translation
   V4-Flash add 3–7 points overall; sol stays ~18 points ahead. Exceptions:
   Qwen with context is +14 on Haitian Creole; Hy-MT2-30B is +5 out of English
   (no Lao or Haitian Creole).
+- **The ceiling without fine-tuning:** DeepSeek V4-Pro, the largest open
+  model tried, is ~15 points behind sol (64.7 against 78.6 over 10
+  directions) and 42–49 against 90 on Haitian Creole into English.
+- **Transcript repair:** V4-Pro correcting the stack's transcripts before
+  translating adds ~6 points (66.9 → 72.6), mostly sentence boundaries and
+  punctuation; the previous sentence as context adds nothing.
