@@ -1,0 +1,80 @@
+{
+ "e2e:en-es": {
+  "sol": {
+   "score": 75.0,
+   "critical": 3
+  },
+  "C_hymt_whisper_ps": {
+   "score": 80.0,
+   "critical": 3
+  },
+  "C_hymt_canary_ps": {
+   "score": 78.3,
+   "critical": 3
+  },
+  "stack": {
+   "score": 66.7,
+   "critical": 4
+  },
+  "C_stack_gold": {
+   "score": 100.0,
+   "critical": 0
+  },
+  "qwen_direct": {
+   "score": 68.3,
+   "critical": 3
+  }
+ },
+ "e2e:en-fr": {
+  "stack": {
+   "score": 55.0,
+   "critical": 5
+  },
+  "C_stack_gold": {
+   "score": 91.7,
+   "critical": 0
+  },
+  "C_hymt_whisper_ps": {
+   "score": 66.7,
+   "critical": 3
+  },
+  "qwen_direct": {
+   "score": 63.3,
+   "critical": 5
+  },
+  "C_hymt_canary_ps": {
+   "score": 73.3,
+   "critical": 3
+  },
+  "sol": {
+   "score": 76.7,
+   "critical": 3
+  }
+ },
+ "e2e:en-ja": {
+  "stack": {
+   "score": 63.3,
+   "critical": 2
+  },
+  "C_hymt_canary_ps": {
+   "score": 78.3,
+   "critical": 2
+  },
+  "C_hymt_whisper_ps": {
+   "score": 75.0,
+   "critical": 3
+  },
+  "C_stack_gold": {
+   "score": 93.3,
+   "critical": 0
+  },
+  "sol": {
+   "score": 76.7,
+   "critical": 1
+  },
+  "qwen_direct": {
+   "score": 70.0,
+   "critical": 3
+  }
+ }
+}

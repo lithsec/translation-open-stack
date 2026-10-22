@@ -1,0 +1,100 @@
+{
+ "km": {
+  "e2e_live_300M": {
+   "cer": 0.3635
+  },
+  "per_sentence_300M": {
+   "cer": 0.141,
+   "cer_unguarded": 0.141,
+   "cer_first20": 0.1659,
+   "guarded": 0,
+   "empty": 0,
+   "rtf_all": 0.1778,
+   "mem_peak_gb": 3.53,
+   "gpu": "NVIDIA A40"
+  },
+  "seg_200:10_300M": {
+   "cer": 0.357,
+   "cer_unguarded": 0.357,
+   "segments": 38,
+   "guarded": 0
+  },
+  "seg_700:15_300M": {
+   "cer": 0.3512,
+   "cer_unguarded": 0.3512,
+   "segments": 22,
+   "guarded": 0
+  },
+  "per_sentence_7B": {
+   "cer": 0.1264,
+   "cer_unguarded": 0.1264,
+   "cer_first20": 0.1582,
+   "guarded": 0,
+   "empty": 0,
+   "rtf_all": 0.1862,
+   "mem_peak_gb": 15.08,
+   "gpu": "NVIDIA A40"
+  },
+  "seg_200:10_7B": {
+   "cer": 0.328,
+   "cer_unguarded": 0.328,
+   "segments": 38,
+   "guarded": 0
+  },
+  "seg_700:15_7B": {
+   "cer": 0.315,
+   "cer_unguarded": 0.315,
+   "segments": 22,
+   "guarded": 0
+  }
+ },
+ "lo": {
+  "e2e_live_300M": {
+   "cer": 0.196
+  },
+  "per_sentence_300M": {
+   "cer": 0.1559,
+   "cer_unguarded": 0.1559,
+   "cer_first20": 0.1695,
+   "guarded": 0,
+   "empty": 0,
+   "rtf_all": 0.1778,
+   "mem_peak_gb": 3.53,
+   "gpu": "NVIDIA A40"
+  },
+  "seg_200:10_300M": {
+   "cer": 0.2132,
+   "cer_unguarded": 0.2276,
+   "segments": 70,
+   "guarded": 1
+  },
+  "seg_700:15_300M": {
+   "cer": 0.1931,
+   "cer_unguarded": 0.1931,
+   "segments": 36,
+   "guarded": 0
+  },
+  "per_sentence_7B": {
+   "cer": 0.0846,
+   "cer_unguarded": 0.0846,
+   "cer_first20": 0.0943,
+   "guarded": 0,
+   "empty": 0,
+   "rtf_all": 0.1862,
+   "mem_peak_gb": 15.08,
+   "gpu": "NVIDIA A40"
+  },
+  "seg_200:10_7B": {
+   "cer": 0.1833,
+   "cer_unguarded": 0.4644,
+   "segments": 70,
+   "guarded": 4
+  },
+  "seg_700:15_7B": {
+   "cer": 0.1569,
+   "cer_unguarded": 0.2948,
+   "segments": 36,
+   "guarded": 2
+  }
+ }
+}

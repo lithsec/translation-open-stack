@@ -1,0 +1,2675 @@
+{
+ "per_direction": {
+  "real:en-ja": {
+   "sol": {
+    "score": 81.1,
+    "critical": 4,
+    "n": 30
+   },
+   "hymt30": {
+    "score": 72.2,
+    "critical": 7,
+    "n": 30
+   },
+   "qwen_direct": {
+    "score": 70.0,
+    "critical": 7,
+    "n": 30
+   },
+   "qwen_ctx": {
+    "score": 68.9,
+    "critical": 7,
+    "n": 30
+   },
+   "stack": {
+    "score": 73.3,
+    "critical": 6,
+    "n": 30
+   },
+   "qwen_repair": {
+    "score": 68.9,
+    "critical": 8,
+    "n": 30
+   },
+   "qe_pick": {
+    "score": 68.9,
+    "critical": 8,
+    "n": 30
+   },
+   "esc_qwen_direct_T2": {
+    "score": 67.8,
+    "critical": 8,
+    "n": 30
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 66.7,
+    "critical": 8,
+    "n": 30
+   },
+   "esc_qwen_direct_T3": {
+    "score": 70.0,
+    "critical": 8,
+    "n": 30
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 68.9,
+    "critical": 8,
+    "n": 30
+   },
+   "esc_qwen_direct_T4": {
+    "score": 71.1,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 71.1,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_direct_T5": {
+    "score": 73.3,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 73.3,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_direct_T6": {
+    "score": 73.3,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 73.3,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_direct_T8": {
+    "score": 73.3,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 73.3,
+    "critical": 6,
+    "n": 30
+   }
+  },
+  "real:en-km": {
+   "sol": {
+    "score": 85.6,
+    "critical": 3,
+    "n": 30
+   },
+   "hymt30": {
+    "score": 75.6,
+    "critical": 5,
+    "n": 30
+   },
+   "qwen_direct": {
+    "score": 57.8,
+    "critical": 10,
+    "n": 30
+   },
+   "qwen_ctx": {
+    "score": 54.4,
+    "critical": 10,
+    "n": 30
+   },
+   "stack": {
+    "score": 74.4,
+    "critical": 6,
+    "n": 30
+   },
+   "qwen_repair": {
+    "score": 68.9,
+    "critical": 7,
+    "n": 30
+   },
+   "qe_pick": {
+    "score": 75.6,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_direct_T2": {
+    "score": 67.8,
+    "critical": 8,
+    "n": 30
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 67.8,
+    "critical": 8,
+    "n": 30
+   },
+   "esc_qwen_direct_T3": {
+    "score": 73.3,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 74.4,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_direct_T4": {
+    "score": 74.4,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 75.6,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_direct_T5": {
+    "score": 74.4,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 75.6,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_direct_T6": {
+    "score": 74.4,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 75.6,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_direct_T8": {
+    "score": 74.4,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 74.4,
+    "critical": 6,
+    "n": 30
+   }
+  },
+  "real:en-lo": {
+   "sol": {
+    "score": 82.2,
+    "critical": 3,
+    "n": 30
+   },
+   "hymt30": {
+    "score": 0.0,
+    "critical": 0,
+    "n": 30
+   },
+   "qwen_direct": {
+    "score": 45.6,
+    "critical": 7,
+    "n": 30
+   },
+   "qwen_ctx": {
+    "score": 53.3,
+    "critical": 6,
+    "n": 30
+   },
+   "stack": {
+    "score": 58.9,
+    "critical": 6,
+    "n": 30
+   },
+   "qwen_repair": {
+    "score": 57.8,
+    "critical": 5,
+    "n": 30
+   },
+   "qe_pick": {
+    "score": 63.3,
+    "critical": 5,
+    "n": 30
+   },
+   "esc_qwen_direct_T2": {
+    "score": 48.9,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 57.8,
+    "critical": 5,
+    "n": 30
+   },
+   "esc_qwen_direct_T3": {
+    "score": 57.8,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 63.3,
+    "critical": 5,
+    "n": 30
+   },
+   "esc_qwen_direct_T4": {
+    "score": 60.0,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 64.4,
+    "critical": 5,
+    "n": 30
+   },
+   "esc_qwen_direct_T5": {
+    "score": 60.0,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 62.2,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_direct_T6": {
+    "score": 58.9,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 58.9,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_direct_T8": {
+    "score": 58.9,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 58.9,
+    "critical": 6,
+    "n": 30
+   }
+  },
+  "real:en-ht": {
+   "sol": {
+    "score": 81.1,
+    "critical": 5,
+    "n": 30
+   },
+   "hymt30": {
+    "score": 61.1,
+    "critical": 7,
+    "n": 30
+   },
+   "qwen_direct": {
+    "score": 58.9,
+    "critical": 9,
+    "n": 30
+   },
+   "qwen_ctx": {
+    "score": 62.2,
+    "critical": 8,
+    "n": 30
+   },
+   "stack": {
+    "score": 46.7,
+    "critical": 14,
+    "n": 30
+   },
+   "qwen_repair": {
+    "score": 61.1,
+    "critical": 9,
+    "n": 30
+   },
+   "qe_pick": {
+    "score": 58.9,
+    "critical": 10,
+    "n": 30
+   },
+   "esc_qwen_direct_T2": {
+    "score": 60.0,
+    "critical": 9,
+    "n": 30
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 63.3,
+    "critical": 8,
+    "n": 30
+   },
+   "esc_qwen_direct_T3": {
+    "score": 53.3,
+    "critical": 12,
+    "n": 30
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 54.4,
+    "critical": 12,
+    "n": 30
+   },
+   "esc_qwen_direct_T4": {
+    "score": 52.2,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 52.2,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_direct_T5": {
+    "score": 52.2,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 52.2,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_direct_T6": {
+    "score": 51.1,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 51.1,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_direct_T8": {
+    "score": 48.9,
+    "critical": 14,
+    "n": 30
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 48.9,
+    "critical": 14,
+    "n": 30
+   }
+  },
+  "real:en-fr": {
+   "sol": {
+    "score": 81.1,
+    "critical": 4,
+    "n": 30
+   },
+   "hymt30": {
+    "score": 73.3,
+    "critical": 6,
+    "n": 30
+   },
+   "qwen_direct": {
+    "score": 68.9,
+    "critical": 7,
+    "n": 30
+   },
+   "qwen_ctx": {
+    "score": 68.9,
+    "critical": 7,
+    "n": 30
+   },
+   "stack": {
+    "score": 68.9,
+    "critical": 6,
+    "n": 30
+   },
+   "qwen_repair": {
+    "score": 71.1,
+    "critical": 5,
+    "n": 30
+   },
+   "qe_pick": {
+    "score": 71.1,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_direct_T2": {
+    "score": 68.9,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 70.0,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_direct_T3": {
+    "score": 71.1,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 71.1,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_direct_T4": {
+    "score": 71.1,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 71.1,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_direct_T5": {
+    "score": 68.9,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 68.9,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_direct_T6": {
+    "score": 68.9,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 68.9,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_direct_T8": {
+    "score": 68.9,
+    "critical": 6,
+    "n": 30
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 68.9,
+    "critical": 6,
+    "n": 30
+   }
+  },
+  "real:ja-en": {
+   "sol": {
+    "score": 84.4,
+    "critical": 4,
+    "n": 30
+   },
+   "hymt30": {
+    "score": 64.4,
+    "critical": 13,
+    "n": 30
+   },
+   "qwen_direct": {
+    "score": 62.2,
+    "critical": 13,
+    "n": 30
+   },
+   "qwen_ctx": {
+    "score": 62.2,
+    "critical": 13,
+    "n": 30
+   },
+   "stack": {
+    "score": 61.1,
+    "critical": 13,
+    "n": 30
+   },
+   "qwen_repair": {
+    "score": 62.2,
+    "critical": 13,
+    "n": 30
+   },
+   "qe_pick": {
+    "score": 61.1,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_direct_T2": {
+    "score": 63.3,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 63.3,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_direct_T3": {
+    "score": 63.3,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 63.3,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_direct_T4": {
+    "score": 62.2,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 62.2,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_direct_T5": {
+    "score": 62.2,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 62.2,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_direct_T6": {
+    "score": 62.2,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 62.2,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_direct_T8": {
+    "score": 61.1,
+    "critical": 13,
+    "n": 30
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 61.1,
+    "critical": 13,
+    "n": 30
+   }
+  },
+  "real:km-en": {
+   "sol": {
+    "score": 71.1,
+    "critical": 9,
+    "n": 30
+   },
+   "hymt30": {
+    "score": 56.7,
+    "critical": 16,
+    "n": 30
+   },
+   "qwen_direct": {
+    "score": 52.2,
+    "critical": 18,
+    "n": 30
+   },
+   "qwen_ctx": {
+    "score": 51.1,
+    "critical": 18,
+    "n": 30
+   },
+   "stack": {
+    "score": 57.8,
+    "critical": 16,
+    "n": 30
+   },
+   "qwen_repair": {
+    "score": 61.1,
+    "critical": 14,
+    "n": 30
+   },
+   "qe_pick": {
+    "score": 56.7,
+    "critical": 16,
+    "n": 30
+   },
+   "esc_qwen_direct_T2": {
+    "score": 53.3,
+    "critical": 18,
+    "n": 30
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 51.1,
+    "critical": 18,
+    "n": 30
+   },
+   "esc_qwen_direct_T3": {
+    "score": 54.4,
+    "critical": 17,
+    "n": 30
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 52.2,
+    "critical": 17,
+    "n": 30
+   },
+   "esc_qwen_direct_T4": {
+    "score": 56.7,
+    "critical": 16,
+    "n": 30
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 56.7,
+    "critical": 15,
+    "n": 30
+   },
+   "esc_qwen_direct_T5": {
+    "score": 56.7,
+    "critical": 16,
+    "n": 30
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 55.6,
+    "critical": 16,
+    "n": 30
+   },
+   "esc_qwen_direct_T6": {
+    "score": 56.7,
+    "critical": 16,
+    "n": 30
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 55.6,
+    "critical": 16,
+    "n": 30
+   },
+   "esc_qwen_direct_T8": {
+    "score": 56.7,
+    "critical": 16,
+    "n": 30
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 55.6,
+    "critical": 16,
+    "n": 30
+   }
+  },
+  "real:lo-en": {
+   "sol": {
+    "score": 62.2,
+    "critical": 13,
+    "n": 30
+   },
+   "hymt30": {
+    "score": 27.8,
+    "critical": 21,
+    "n": 30
+   },
+   "qwen_direct": {
+    "score": 33.3,
+    "critical": 22,
+    "n": 30
+   },
+   "qwen_ctx": {
+    "score": 36.7,
+    "critical": 21,
+    "n": 30
+   },
+   "stack": {
+    "score": 32.2,
+    "critical": 22,
+    "n": 30
+   },
+   "qwen_repair": {
+    "score": 34.4,
+    "critical": 22,
+    "n": 30
+   },
+   "qe_pick": {
+    "score": 32.2,
+    "critical": 22,
+    "n": 30
+   },
+   "esc_qwen_direct_T2": {
+    "score": 32.2,
+    "critical": 22,
+    "n": 30
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 33.3,
+    "critical": 21,
+    "n": 30
+   },
+   "esc_qwen_direct_T3": {
+    "score": 32.2,
+    "critical": 23,
+    "n": 30
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 33.3,
+    "critical": 22,
+    "n": 30
+   },
+   "esc_qwen_direct_T4": {
+    "score": 34.4,
+    "critical": 22,
+    "n": 30
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 34.4,
+    "critical": 22,
+    "n": 30
+   },
+   "esc_qwen_direct_T5": {
+    "score": 33.3,
+    "critical": 22,
+    "n": 30
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 34.4,
+    "critical": 22,
+    "n": 30
+   },
+   "esc_qwen_direct_T6": {
+    "score": 33.3,
+    "critical": 22,
+    "n": 30
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 34.4,
+    "critical": 22,
+    "n": 30
+   },
+   "esc_qwen_direct_T8": {
+    "score": 33.3,
+    "critical": 22,
+    "n": 30
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 34.4,
+    "critical": 22,
+    "n": 30
+   }
+  },
+  "real:fr-en": {
+   "sol": {
+    "score": 88.9,
+    "critical": 5,
+    "n": 30
+   },
+   "hymt30": {
+    "score": 82.2,
+    "critical": 8,
+    "n": 30
+   },
+   "qwen_direct": {
+    "score": 76.7,
+    "critical": 9,
+    "n": 30
+   },
+   "qwen_ctx": {
+    "score": 78.9,
+    "critical": 9,
+    "n": 30
+   },
+   "stack": {
+    "score": 80.0,
+    "critical": 7,
+    "n": 30
+   },
+   "qwen_repair": {
+    "score": 81.1,
+    "critical": 8,
+    "n": 30
+   },
+   "qe_pick": {
+    "score": 78.9,
+    "critical": 9,
+    "n": 30
+   },
+   "esc_qwen_direct_T2": {
+    "score": 76.7,
+    "critical": 9,
+    "n": 30
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 78.9,
+    "critical": 9,
+    "n": 30
+   },
+   "esc_qwen_direct_T3": {
+    "score": 76.7,
+    "critical": 9,
+    "n": 30
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 78.9,
+    "critical": 9,
+    "n": 30
+   },
+   "esc_qwen_direct_T4": {
+    "score": 75.6,
+    "critical": 9,
+    "n": 30
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 77.8,
+    "critical": 9,
+    "n": 30
+   },
+   "esc_qwen_direct_T5": {
+    "score": 76.7,
+    "critical": 8,
+    "n": 30
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 77.8,
+    "critical": 8,
+    "n": 30
+   },
+   "esc_qwen_direct_T6": {
+    "score": 80.0,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 80.0,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_direct_T8": {
+    "score": 80.0,
+    "critical": 7,
+    "n": 30
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 80.0,
+    "critical": 7,
+    "n": 30
+   }
+  },
+  "real:ht-en": {
+   "sol": {
+    "score": 93.3,
+    "critical": 2,
+    "n": 30
+   },
+   "hymt30": {
+    "score": 24.4,
+    "critical": 25,
+    "n": 30
+   },
+   "qwen_direct": {
+    "score": 48.9,
+    "critical": 14,
+    "n": 30
+   },
+   "qwen_ctx": {
+    "score": 54.4,
+    "critical": 14,
+    "n": 30
+   },
+   "stack": {
+    "score": 40.0,
+    "critical": 13,
+    "n": 30
+   },
+   "qwen_repair": {
+    "score": 52.2,
+    "critical": 13,
+    "n": 30
+   },
+   "qe_pick": {
+    "score": 51.1,
+    "critical": 15,
+    "n": 30
+   },
+   "esc_qwen_direct_T2": {
+    "score": 48.9,
+    "critical": 14,
+    "n": 30
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 54.4,
+    "critical": 14,
+    "n": 30
+   },
+   "esc_qwen_direct_T3": {
+    "score": 48.9,
+    "critical": 14,
+    "n": 30
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 52.2,
+    "critical": 15,
+    "n": 30
+   },
+   "esc_qwen_direct_T4": {
+    "score": 50.0,
+    "critical": 14,
+    "n": 30
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 52.2,
+    "critical": 15,
+    "n": 30
+   },
+   "esc_qwen_direct_T5": {
+    "score": 48.9,
+    "critical": 15,
+    "n": 30
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 51.1,
+    "critical": 15,
+    "n": 30
+   },
+   "esc_qwen_direct_T6": {
+    "score": 47.8,
+    "critical": 15,
+    "n": 30
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 50.0,
+    "critical": 14,
+    "n": 30
+   },
+   "esc_qwen_direct_T8": {
+    "score": 47.8,
+    "critical": 15,
+    "n": 30
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 50.0,
+    "critical": 14,
+    "n": 30
+   }
+  },
+  "e2e:en-es": {
+   "sol": {
+    "score": 75.0,
+    "critical": 3,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 75.0,
+    "critical": 4,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 68.3,
+    "critical": 3,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 68.3,
+    "critical": 4,
+    "n": 20
+   },
+   "stack": {
+    "score": 66.7,
+    "critical": 4,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 71.7,
+    "critical": 4,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 70.0,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 63.3,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 66.7,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 65.0,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 68.3,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 65.0,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 68.3,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 65.0,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 68.3,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 65.0,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 68.3,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 66.7,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 66.7,
+    "critical": 4,
+    "n": 20
+   }
+  },
+  "e2e:es-en": {
+   "sol": {
+    "score": 95.0,
+    "critical": 0,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 88.3,
+    "critical": 0,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 86.7,
+    "critical": 0,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 93.3,
+    "critical": 0,
+    "n": 20
+   },
+   "stack": {
+    "score": 83.3,
+    "critical": 0,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 88.3,
+    "critical": 0,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 88.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 88.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 88.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 88.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 88.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 83.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 83.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 83.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 83.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 83.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 83.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 83.3,
+    "critical": 0,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 83.3,
+    "critical": 0,
+    "n": 20
+   }
+  },
+  "e2e:en-ja": {
+   "sol": {
+    "score": 76.7,
+    "critical": 1,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 73.3,
+    "critical": 1,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 70.0,
+    "critical": 3,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 66.7,
+    "critical": 3,
+    "n": 20
+   },
+   "stack": {
+    "score": 63.3,
+    "critical": 2,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 68.3,
+    "critical": 3,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 66.7,
+    "critical": 3,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 70.0,
+    "critical": 3,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 66.7,
+    "critical": 3,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 63.3,
+    "critical": 3,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 63.3,
+    "critical": 3,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 63.3,
+    "critical": 3,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 63.3,
+    "critical": 3,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 66.7,
+    "critical": 2,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 66.7,
+    "critical": 2,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 66.7,
+    "critical": 2,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 66.7,
+    "critical": 2,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 63.3,
+    "critical": 2,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 63.3,
+    "critical": 2,
+    "n": 20
+   }
+  },
+  "e2e:ja-en": {
+   "sol": {
+    "score": 76.7,
+    "critical": 4,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 65.0,
+    "critical": 5,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 61.7,
+    "critical": 5,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 63.3,
+    "critical": 5,
+    "n": 20
+   },
+   "stack": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 63.3,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 63.3,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 63.3,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 61.7,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 61.7,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   }
+  },
+  "e2e:en-fr": {
+   "sol": {
+    "score": 76.7,
+    "critical": 3,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 66.7,
+    "critical": 4,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 63.3,
+    "critical": 5,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 63.3,
+    "critical": 5,
+    "n": 20
+   },
+   "stack": {
+    "score": 55.0,
+    "critical": 5,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 65.0,
+    "critical": 4,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 66.7,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 58.3,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 58.3,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 60.0,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 56.7,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 56.7,
+    "critical": 5,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 58.3,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 58.3,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 58.3,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 58.3,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 58.3,
+    "critical": 4,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 58.3,
+    "critical": 4,
+    "n": 20
+   }
+  },
+  "e2e:fr-en": {
+   "sol": {
+    "score": 86.7,
+    "critical": 3,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 71.7,
+    "critical": 6,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 70.0,
+    "critical": 6,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 71.7,
+    "critical": 6,
+    "n": 20
+   },
+   "stack": {
+    "score": 68.3,
+    "critical": 6,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 73.3,
+    "critical": 6,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 73.3,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 71.7,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 71.7,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 70.0,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 70.0,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 70.0,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 70.0,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 68.3,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 68.3,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 68.3,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 68.3,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 68.3,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 68.3,
+    "critical": 6,
+    "n": 20
+   }
+  },
+  "e2e:en-km": {
+   "sol": {
+    "score": 80.0,
+    "critical": 3,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 66.7,
+    "critical": 6,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 41.7,
+    "critical": 7,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 40.0,
+    "critical": 8,
+    "n": 20
+   },
+   "stack": {
+    "score": 61.7,
+    "critical": 6,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 60.0,
+    "critical": 7,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 63.3,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 55.0,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 55.0,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 61.7,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 61.7,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 65.0,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 63.3,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 65.0,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 63.3,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 61.7,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 61.7,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 61.7,
+    "critical": 6,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 61.7,
+    "critical": 6,
+    "n": 20
+   }
+  },
+  "e2e:km-en": {
+   "sol": {
+    "score": 36.7,
+    "critical": 14,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 23.3,
+    "critical": 18,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 28.3,
+    "critical": 16,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 21.7,
+    "critical": 18,
+    "n": 20
+   },
+   "stack": {
+    "score": 25.0,
+    "critical": 17,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 23.3,
+    "critical": 17,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 31.7,
+    "critical": 15,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 28.3,
+    "critical": 16,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 21.7,
+    "critical": 18,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 28.3,
+    "critical": 16,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 21.7,
+    "critical": 18,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 28.3,
+    "critical": 16,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 21.7,
+    "critical": 18,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 30.0,
+    "critical": 15,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 23.3,
+    "critical": 17,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 28.3,
+    "critical": 16,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 25.0,
+    "critical": 17,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 25.0,
+    "critical": 17,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 25.0,
+    "critical": 17,
+    "n": 20
+   }
+  },
+  "e2e:ht-en": {
+   "sol": {
+    "score": 75.0,
+    "critical": 6,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 16.7,
+    "critical": 17,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 50.0,
+    "critical": 10,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 45.0,
+    "critical": 12,
+    "n": 20
+   },
+   "stack": {
+    "score": 35.0,
+    "critical": 14,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 40.0,
+    "critical": 12,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 43.3,
+    "critical": 13,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 51.7,
+    "critical": 10,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 46.7,
+    "critical": 12,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 50.0,
+    "critical": 10,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 43.3,
+    "critical": 13,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 48.3,
+    "critical": 10,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 45.0,
+    "critical": 12,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 46.7,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 45.0,
+    "critical": 12,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 43.3,
+    "critical": 12,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 43.3,
+    "critical": 12,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 41.7,
+    "critical": 13,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 41.7,
+    "critical": 13,
+    "n": 20
+   }
+  },
+  "e2e:en-ht": {
+   "sol": {
+    "score": 78.3,
+    "critical": 3,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 48.3,
+    "critical": 8,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 56.7,
+    "critical": 8,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 53.3,
+    "critical": 8,
+    "n": 20
+   },
+   "stack": {
+    "score": 36.7,
+    "critical": 14,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 50.0,
+    "critical": 10,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 51.7,
+    "critical": 9,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 55.0,
+    "critical": 8,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 51.7,
+    "critical": 8,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 51.7,
+    "critical": 9,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 48.3,
+    "critical": 9,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 48.3,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 43.3,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 48.3,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 43.3,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 48.3,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 43.3,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 46.7,
+    "critical": 12,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 41.7,
+    "critical": 12,
+    "n": 20
+   }
+  },
+  "e2e:lo-en": {
+   "sol": {
+    "score": 78.3,
+    "critical": 6,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 26.7,
+    "critical": 19,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 43.3,
+    "critical": 14,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 48.3,
+    "critical": 13,
+    "n": 20
+   },
+   "stack": {
+    "score": 36.7,
+    "critical": 17,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 36.7,
+    "critical": 17,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 48.3,
+    "critical": 13,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 43.3,
+    "critical": 14,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 48.3,
+    "critical": 13,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 38.3,
+    "critical": 15,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 43.3,
+    "critical": 15,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 38.3,
+    "critical": 15,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 45.0,
+    "critical": 14,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 40.0,
+    "critical": 15,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 46.7,
+    "critical": 14,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 38.3,
+    "critical": 16,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 40.0,
+    "critical": 16,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 36.7,
+    "critical": 17,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 36.7,
+    "critical": 17,
+    "n": 20
+   }
+  },
+  "e2e:en-lo": {
+   "sol": {
+    "score": 80.0,
+    "critical": 5,
+    "n": 20
+   },
+   "hymt30": {
+    "score": 0.0,
+    "critical": 20,
+    "n": 20
+   },
+   "qwen_direct": {
+    "score": 45.0,
+    "critical": 12,
+    "n": 20
+   },
+   "qwen_ctx": {
+    "score": 51.7,
+    "critical": 11,
+    "n": 20
+   },
+   "stack": {
+    "score": 56.7,
+    "critical": 11,
+    "n": 20
+   },
+   "qwen_repair": {
+    "score": 55.0,
+    "critical": 12,
+    "n": 20
+   },
+   "qe_pick": {
+    "score": 58.3,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_direct_T2": {
+    "score": 48.3,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 51.7,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_direct_T3": {
+    "score": 55.0,
+    "critical": 10,
+    "n": 20
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 56.7,
+    "critical": 10,
+    "n": 20
+   },
+   "esc_qwen_direct_T4": {
+    "score": 58.3,
+    "critical": 10,
+    "n": 20
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 56.7,
+    "critical": 10,
+    "n": 20
+   },
+   "esc_qwen_direct_T5": {
+    "score": 58.3,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 55.0,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_direct_T6": {
+    "score": 58.3,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 55.0,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_direct_T8": {
+    "score": 58.3,
+    "critical": 11,
+    "n": 20
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 55.0,
+    "critical": 11,
+    "n": 20
+   }
+  }
+ },
+ "groups": {
+  "Out of English (ja km fr es)": {
+   "sol": {
+    "score": 80.0,
+    "critical": 21,
+    "n": 170
+   },
+   "hymt30": {
+    "score": 72.2,
+    "critical": 33,
+    "n": 170
+   },
+   "qwen_direct": {
+    "score": 63.3,
+    "critical": 42,
+    "n": 170
+   },
+   "qwen_ctx": {
+    "score": 62.0,
+    "critical": 44,
+    "n": 170
+   },
+   "stack": {
+    "score": 67.3,
+    "critical": 35,
+    "n": 170
+   },
+   "qwen_repair": {
+    "score": 68.0,
+    "critical": 38,
+    "n": 170
+   },
+   "qe_pick": {
+    "score": 69.4,
+    "critical": 39,
+    "n": 170
+   },
+   "esc_qwen_direct_T2": {
+    "score": 65.1,
+    "critical": 41,
+    "n": 170
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 65.3,
+    "critical": 41,
+    "n": 170
+   },
+   "esc_qwen_direct_T3": {
+    "score": 67.1,
+    "critical": 39,
+    "n": 170
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 67.6,
+    "critical": 39,
+    "n": 170
+   },
+   "esc_qwen_direct_T4": {
+    "score": 67.6,
+    "critical": 38,
+    "n": 170
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 68.0,
+    "critical": 38,
+    "n": 170
+   },
+   "esc_qwen_direct_T5": {
+    "score": 68.2,
+    "critical": 34,
+    "n": 170
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 68.6,
+    "critical": 34,
+    "n": 170
+   },
+   "esc_qwen_direct_T6": {
+    "score": 67.8,
+    "critical": 34,
+    "n": 170
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 68.4,
+    "critical": 34,
+    "n": 170
+   },
+   "esc_qwen_direct_T8": {
+    "score": 67.6,
+    "critical": 34,
+    "n": 170
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 67.6,
+    "critical": 34,
+    "n": 170
+   }
+  },
+  "Lao (both ways)": {
+   "sol": {
+    "score": 75.0,
+    "critical": 27,
+    "n": 100
+   },
+   "hymt30": {
+    "score": 13.7,
+    "critical": 60,
+    "n": 100
+   },
+   "qwen_direct": {
+    "score": 41.3,
+    "critical": 55,
+    "n": 100
+   },
+   "qwen_ctx": {
+    "score": 47.0,
+    "critical": 51,
+    "n": 100
+   },
+   "stack": {
+    "score": 46.0,
+    "critical": 56,
+    "n": 100
+   },
+   "qwen_repair": {
+    "score": 46.0,
+    "critical": 56,
+    "n": 100
+   },
+   "qe_pick": {
+    "score": 50.0,
+    "critical": 51,
+    "n": 100
+   },
+   "esc_qwen_direct_T2": {
+    "score": 42.7,
+    "critical": 53,
+    "n": 100
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 47.3,
+    "critical": 50,
+    "n": 100
+   },
+   "esc_qwen_direct_T3": {
+    "score": 45.7,
+    "critical": 54,
+    "n": 100
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 49.0,
+    "critical": 52,
+    "n": 100
+   },
+   "esc_qwen_direct_T4": {
+    "score": 47.7,
+    "critical": 53,
+    "n": 100
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 50.0,
+    "critical": 51,
+    "n": 100
+   },
+   "esc_qwen_direct_T5": {
+    "score": 47.7,
+    "critical": 54,
+    "n": 100
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 49.3,
+    "critical": 53,
+    "n": 100
+   },
+   "esc_qwen_direct_T6": {
+    "score": 47.0,
+    "critical": 55,
+    "n": 100
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 47.0,
+    "critical": 55,
+    "n": 100
+   },
+   "esc_qwen_direct_T8": {
+    "score": 46.7,
+    "critical": 56,
+    "n": 100
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 46.3,
+    "critical": 56,
+    "n": 100
+   }
+  },
+  "Haitian Creole (both ways)": {
+   "sol": {
+    "score": 83.0,
+    "critical": 16,
+    "n": 100
+   },
+   "hymt30": {
+    "score": 38.7,
+    "critical": 57,
+    "n": 100
+   },
+   "qwen_direct": {
+    "score": 53.7,
+    "critical": 41,
+    "n": 100
+   },
+   "qwen_ctx": {
+    "score": 54.7,
+    "critical": 42,
+    "n": 100
+   },
+   "stack": {
+    "score": 40.3,
+    "critical": 55,
+    "n": 100
+   },
+   "qwen_repair": {
+    "score": 52.0,
+    "critical": 44,
+    "n": 100
+   },
+   "qe_pick": {
+    "score": 52.0,
+    "critical": 47,
+    "n": 100
+   },
+   "esc_qwen_direct_T2": {
+    "score": 54.0,
+    "critical": 41,
+    "n": 100
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 55.0,
+    "critical": 42,
+    "n": 100
+   },
+   "esc_qwen_direct_T3": {
+    "score": 51.0,
+    "critical": 45,
+    "n": 100
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 50.3,
+    "critical": 49,
+    "n": 100
+   },
+   "esc_qwen_direct_T4": {
+    "score": 50.0,
+    "critical": 48,
+    "n": 100
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 49.0,
+    "critical": 51,
+    "n": 100
+   },
+   "esc_qwen_direct_T5": {
+    "score": 49.3,
+    "critical": 50,
+    "n": 100
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 48.7,
+    "critical": 51,
+    "n": 100
+   },
+   "esc_qwen_direct_T6": {
+    "score": 48.0,
+    "critical": 51,
+    "n": 100
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 47.7,
+    "critical": 50,
+    "n": 100
+   },
+   "esc_qwen_direct_T8": {
+    "score": 46.7,
+    "critical": 54,
+    "n": 100
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 46.3,
+    "critical": 53,
+    "n": 100
+   }
+  },
+  "Into English (ja km fr es)": {
+   "sol": {
+    "score": 77.8,
+    "critical": 39,
+    "n": 170
+   },
+   "hymt30": {
+    "score": 65.1,
+    "critical": 66,
+    "n": 170
+   },
+   "qwen_direct": {
+    "score": 62.7,
+    "critical": 67,
+    "n": 170
+   },
+   "qwen_ctx": {
+    "score": 63.3,
+    "critical": 69,
+    "n": 170
+   },
+   "stack": {
+    "score": 62.9,
+    "critical": 64,
+    "n": 170
+   },
+   "qwen_repair": {
+    "score": 64.9,
+    "critical": 63,
+    "n": 170
+   },
+   "qe_pick": {
+    "score": 64.9,
+    "critical": 64,
+    "n": 170
+   },
+   "esc_qwen_direct_T2": {
+    "score": 63.7,
+    "critical": 67,
+    "n": 170
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 62.9,
+    "critical": 69,
+    "n": 170
+   },
+   "esc_qwen_direct_T3": {
+    "score": 63.5,
+    "critical": 66,
+    "n": 170
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 62.5,
+    "critical": 68,
+    "n": 170
+   },
+   "esc_qwen_direct_T4": {
+    "score": 62.9,
+    "critical": 65,
+    "n": 170
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 62.4,
+    "critical": 66,
+    "n": 170
+   },
+   "esc_qwen_direct_T5": {
+    "score": 62.9,
+    "critical": 63,
+    "n": 170
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 62.2,
+    "critical": 65,
+    "n": 170
+   },
+   "esc_qwen_direct_T6": {
+    "score": 63.3,
+    "critical": 63,
+    "n": 170
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 62.7,
+    "critical": 64,
+    "n": 170
+   },
+   "esc_qwen_direct_T8": {
+    "score": 62.7,
+    "critical": 64,
+    "n": 170
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 62.5,
+    "critical": 64,
+    "n": 170
+   }
+  },
+  "All 22 directions": {
+   "sol": {
+    "score": 79.0,
+    "critical": 103,
+    "n": 540
+   },
+   "hymt30": {
+    "score": 52.9,
+    "critical": 216,
+    "n": 540
+   },
+   "qwen_direct": {
+    "score": 57.3,
+    "critical": 205,
+    "n": 540
+   },
+   "qwen_ctx": {
+    "score": 58.3,
+    "critical": 206,
+    "n": 540
+   },
+   "stack": {
+    "score": 57.0,
+    "critical": 210,
+    "n": 540
+   },
+   "qwen_repair": {
+    "score": 60.0,
+    "critical": 201,
+    "n": 540
+   },
+   "qe_pick": {
+    "score": 61.2,
+    "critical": 201,
+    "n": 540
+   },
+   "esc_qwen_direct_T2": {
+    "score": 58.5,
+    "critical": 202,
+    "n": 540
+   },
+   "esc_qwen_ctx_T2": {
+    "score": 59.3,
+    "critical": 202,
+    "n": 540
+   },
+   "esc_qwen_direct_T3": {
+    "score": 59.0,
+    "critical": 204,
+    "n": 540
+   },
+   "esc_qwen_ctx_T3": {
+    "score": 59.4,
+    "critical": 208,
+    "n": 540
+   },
+   "esc_qwen_direct_T4": {
+    "score": 59.2,
+    "critical": 204,
+    "n": 540
+   },
+   "esc_qwen_ctx_T4": {
+    "score": 59.4,
+    "critical": 206,
+    "n": 540
+   },
+   "esc_qwen_direct_T5": {
+    "score": 59.3,
+    "critical": 201,
+    "n": 540
+   },
+   "esc_qwen_ctx_T5": {
+    "score": 59.3,
+    "critical": 203,
+    "n": 540
+   },
+   "esc_qwen_direct_T6": {
+    "score": 58.9,
+    "critical": 203,
+    "n": 540
+   },
+   "esc_qwen_ctx_T6": {
+    "score": 58.8,
+    "critical": 203,
+    "n": 540
+   },
+   "esc_qwen_direct_T8": {
+    "score": 58.3,
+    "critical": 208,
+    "n": 540
+   },
+   "esc_qwen_ctx_T8": {
+    "score": 58.1,
+    "critical": 207,
+    "n": 540
+   }
+  }
+ },
+ "escalation_rate": {
+  "esc_qwen_direct_T2": 0.698,
+  "esc_qwen_ctx_T2": 0.698,
+  "esc_qwen_direct_T3": 0.444,
+  "esc_qwen_ctx_T3": 0.444,
+  "esc_qwen_direct_T4": 0.311,
+  "esc_qwen_ctx_T4": 0.311,
+  "esc_qwen_direct_T5": 0.209,
+  "esc_qwen_ctx_T5": 0.209,
+  "esc_qwen_direct_T6": 0.139,
+  "esc_qwen_ctx_T6": 0.139,
+  "esc_qwen_direct_T8": 0.063,
+  "esc_qwen_ctx_T8": 0.063
+ },
+ "qe_pick_share": {
+  "stack": 0.53,
+  "qwen_direct": 0.248,
+  "qwen_ctx": 0.222
+ },
+ "metricx_mean": {
+  "stack": 3.57,
+  "qwen_direct": 3.77,
+  "qwen_ctx": 3.84,
+  "qwen_repair": 3.32,
+  "hymt30": 3.57,
+  "sol": 3.12
+ },
+ "latency_single_stream": {
+  "qwen_direct": {
+   "p50_s": 0.982,
+   "p90_s": 2.947,
+   "max_s": 3.446,
+   "n": 60,
+   "tokens_p50": 34.0
+  },
+  "qwen_ctx": {
+   "p50_s": 1.084,
+   "p90_s": 2.813,
+   "max_s": 3.437,
+   "n": 60,
+   "tokens_p50": 33.5
+  },
+  "hymt30": {
+   "p50_s": 0.248,
+   "p90_s": 1.335,
+   "max_s": 1.805,
+   "n": 60,
+   "tokens_p50": 34.0
+  }
+ }
+}
