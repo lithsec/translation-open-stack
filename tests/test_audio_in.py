@@ -6,7 +6,8 @@ at both ends of each, and the stack heard noise."""
 import os, sys
 import numpy as np
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "server"))
-from audio_in import AudioIn, StreamResampler, BLOCK, IN_RATE, OUT_RATE  # noqa: E402
+from audio_in import AudioIn, StreamResampler, QuietBoost, BLOCK, IN_RATE, OUT_RATE  # noqa: E402
+import audio_in  # noqa: E402
 from scipy.signal import resample_poly  # noqa: E402
 
 
@@ -81,6 +82,52 @@ def test_small_messages_are_reported_once(capsys=None):
         for _ in range(400):
             b.feed(b"\x00\x00" * 2400)  # 100 ms
     assert "ms audio messages" not in buf.getvalue()
+
+
+def blocks_of(x):
+    return [x[i:i + BLOCK] for i in range(0, len(x) - BLOCK + 1, BLOCK)]
+
+
+def peak_after(boost, x):
+    return max(float(np.max(np.abs(boost(b)))) for b in blocks_of(x))
+
+
+def test_quiet_talker_is_brought_up_for_the_vad():
+    # A sentence peaking at -45 dBFS (the October FLEURS clips that Silero
+    # scored under 0.5 throughout) reaches the VAD near -20 dBFS.
+    quiet = (0.006 / 0.2 * signal(3.0)[::3][:3 * OUT_RATE] / 1.6).astype(np.float32)
+    b = QuietBoost()
+    assert peak_after(b, quiet) > 0.05
+
+
+def test_normal_speech_is_untouched():
+    loud = signal(3.0)[::3][:3 * OUT_RATE]
+    b = QuietBoost()
+    for blk in blocks_of(loud):
+        assert np.array_equal(b(blk), blk)
+
+
+def test_gain_is_bounded_and_silence_stays_silent():
+    b = QuietBoost()
+    hiss = (1e-4 * np.random.default_rng(3).standard_normal(5 * OUT_RATE)).astype(np.float32)
+    assert peak_after(b, hiss) < 0.002              # under the floor: no gain at all
+    floor = (0.002 * np.random.default_rng(4).standard_normal(5 * OUT_RATE)).astype(np.float32)
+    g = [QuietBoost().gain(blk) for blk in blocks_of(floor)]
+    assert max(g) <= audio_in.QUIET_MAX_GAIN
+    zeros = np.zeros(BLOCK, dtype=np.float32)
+    assert np.array_equal(QuietBoost()(zeros), zeros)
+
+
+def test_a_loud_word_lowers_the_gain_at_once():
+    b = QuietBoost()
+    quiet = np.full(BLOCK, 0.004, dtype=np.float32)
+    for _ in range(20):
+        b(quiet)
+    assert b.gain(np.full(BLOCK, 0.5, dtype=np.float32)) == 1.0     # no clipping the next loud word
+    # ...and after the speaker has gone quiet again for a few half-lives, a quiet voice is brought up again.
+    for _ in range(int(7 * audio_in.QUIET_HALF_LIFE_S * OUT_RATE / BLOCK)):
+        g = b.gain(quiet)
+    assert g > 8
 
 
 if __name__ == "__main__":

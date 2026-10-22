@@ -107,3 +107,40 @@ def vad_block(vad, block):
             w = torch.tensor(block[i:i + VAD_WINDOW], dtype=torch.float32)
             best = max(best, vad(w, OUT_RATE).item())
     return best
+
+
+# Quiet talkers. Silero's speech probability depends on level: a whole read
+# sentence peaking at -45 dBFS (a distant or soft voice, a mic with no gain)
+# scored under 0.5 throughout, so it never started an utterance and the idle
+# pre-roll trim threw it away. In the October end-to-end run that lost whole
+# sentences in English, Japanese and Khmer, and the quiet last word of others
+# (eval/2026-10-segmentation). Speech at a normal level is left alone.
+QUIET_TARGET = 0.1        # the peak a quiet talker is brought up to (-20 dBFS)
+QUIET_MAX_GAIN = 16.0     # +24 dB at most, so a noise floor stays a noise floor
+QUIET_HALF_LIFE_S = 1.5   # how fast it forgets a louder voice (4 s: a quiet reader after a loud one went unheard)
+QUIET_FLOOR = 0.0005      # below this (-66 dBFS) nothing is speech: no extra gain
+
+
+class QuietBoost:
+    """Gain for the VAD's copy of one stream: the block times
+    min(QUIET_MAX_GAIN, QUIET_TARGET / level), never below 1, where level is a
+    running peak that decays with a QUIET_HALF_LIFE_S half-life. Loud speech
+    sets a high level (gain 1); a quiet talker's own peaks set a low one; a
+    louder word after a quiet stretch lowers the gain at once (the peak is
+    taken before the decay can lag behind it)."""
+
+    def __init__(self, block_s=BLOCK / OUT_RATE):
+        self.level = 0.0
+        self.decay = 0.5 ** (block_s / QUIET_HALF_LIFE_S)
+
+    def gain(self, block):
+        peak = float(np.max(np.abs(block))) if len(block) else 0.0
+        self.level = max(peak, self.level * self.decay)
+        if self.level < QUIET_FLOOR:
+            return 1.0
+        return float(min(QUIET_MAX_GAIN, max(1.0, QUIET_TARGET / self.level)))
+
+    def __call__(self, block):
+        g = self.gain(block)
+        return block if g == 1.0 else (block * g).astype(np.float32)
+
