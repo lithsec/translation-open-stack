@@ -4,6 +4,7 @@
 |---|---|
 | `2026-09-model-eval/` | Translation, recognition and voice evaluations behind [`docs/dev/model-evaluation.md`](../docs/dev/model-evaluation.md). See its README. |
 | `2026-09-commercial-refs/` | Metadata (text, engine, timing, recognition error, pitch) and picks for candidate reference voices. No audio is stored. |
+| `2026-10-open-stack-e2e/` | The open stack end to end on real read speech (12 directions: latency, recognition, translation), plus Omnilingual 300M vs 7B for Lao/Khmer, English recognisers, Qwen3.5-122B / Hy-MT2-30B / QE pick, and DeepSeek V4-Flash. See its README and section 14 of [`docs/dev/route-findings-2026-10.md`](../docs/dev/route-findings-2026-10.md). |
 | `2026-10-pauses/` | Turn rules per spoken language: an offline sweep of the stack's cutting and a live before/after with blind quality grading. See [its README](2026-10-pauses/README.md). |
 | `tools/` | The continuous-speech harness: stream a clip at real time to the stack, omni-stt or your own service, and measure first audio, per-piece lag, final lag, pauses, cuts and quality from its event log. See [its README](tools/README.md). |
 

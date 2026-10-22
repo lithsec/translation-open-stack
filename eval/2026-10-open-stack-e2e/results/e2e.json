@@ -1,0 +1,1014 @@
+{
+ "latency": {
+  "en-es": {
+   "src": "en",
+   "tgt": "es",
+   "err": "",
+   "utterances": 23,
+   "missing_audio": 1,
+   "cer": 0.113,
+   "voiced_before_stop": 0.1,
+   "stop_to_first_audio_ms": {
+    "p50": 2419,
+    "p90": 3906,
+    "n": 19
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 2597,
+    "p90": 3906,
+    "n": 19
+   },
+   "start_to_first_audio_ms": {
+    "p50": 9293,
+    "p90": 12260,
+    "n": 19
+   },
+   "stop_to_first_text_ms": {
+    "p50": 2086,
+    "p90": 3539,
+    "n": 19
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 9703,
+    "p90": 13658,
+    "n": 19
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 4556,
+    "p90": 8704,
+    "n": 19
+   },
+   "stage": {
+    "dropped_utterances": 0,
+    "utterances_logged": 23,
+    "speech_s": 140.4,
+    "asr_s": 7.35,
+    "asr_rtf": 0.052,
+    "mt_s": 35.71,
+    "mt_rtf": 0.254,
+    "done_s": 47.7,
+    "pipeline_rtf": 0.34,
+    "asr_median_s": 0.32,
+    "mt_median_s": 1.46,
+    "first_tts_median_s": 0.14
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 31620,
+    "mem_used_mb_min": 31440,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 8.6,
+    "util_pct_max": 94,
+    "samples": 186
+   }
+  },
+  "es-en": {
+   "src": "es",
+   "tgt": "en",
+   "err": "",
+   "utterances": 26,
+   "missing_audio": 0,
+   "cer": 0.004,
+   "voiced_before_stop": 0.25,
+   "stop_to_first_audio_ms": {
+    "p50": 2830,
+    "p90": 3389,
+    "n": 20
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 2916,
+    "p90": 3389,
+    "n": 20
+   },
+   "start_to_first_audio_ms": {
+    "p50": 9830,
+    "p90": 12223,
+    "n": 20
+   },
+   "stop_to_first_text_ms": {
+    "p50": 2267,
+    "p90": 2821,
+    "n": 20
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 9903,
+    "p90": 14499,
+    "n": 20
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 3548,
+    "p90": 7279,
+    "n": 20
+   },
+   "stage": {
+    "dropped_utterances": 0,
+    "utterances_logged": 26,
+    "speech_s": 191.5,
+    "asr_s": 10.65,
+    "asr_rtf": 0.056,
+    "mt_s": 28.76,
+    "mt_rtf": 0.15,
+    "done_s": 44.42,
+    "pipeline_rtf": 0.232,
+    "asr_median_s": 0.43,
+    "mt_median_s": 1.1,
+    "first_tts_median_s": 0.13
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 31684,
+    "mem_used_mb_min": 31620,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 8.2,
+    "util_pct_max": 100,
+    "samples": 219
+   }
+  },
+  "en-ja": {
+   "src": "en",
+   "tgt": "ja",
+   "err": "",
+   "utterances": 23,
+   "missing_audio": 1,
+   "cer": 0.113,
+   "voiced_before_stop": 0.1,
+   "stop_to_first_audio_ms": {
+    "p50": 2856,
+    "p90": 4243,
+    "n": 19
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 2856,
+    "p90": 4243,
+    "n": 19
+   },
+   "start_to_first_audio_ms": {
+    "p50": 9659,
+    "p90": 11667,
+    "n": 19
+   },
+   "stop_to_first_text_ms": {
+    "p50": 2457,
+    "p90": 3754,
+    "n": 19
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 10549,
+    "p90": 14292,
+    "n": 19
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 9434,
+    "p90": 11859,
+    "n": 19
+   },
+   "stage": {
+    "dropped_utterances": 0,
+    "utterances_logged": 23,
+    "speech_s": 140.4,
+    "asr_s": 7.23,
+    "asr_rtf": 0.051,
+    "mt_s": 41.28,
+    "mt_rtf": 0.294,
+    "done_s": 52.79,
+    "pipeline_rtf": 0.376,
+    "asr_median_s": 0.32,
+    "mt_median_s": 1.76,
+    "first_tts_median_s": 0.13
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 31889,
+    "mem_used_mb_min": 31622,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 12.1,
+    "util_pct_max": 100,
+    "samples": 186
+   }
+  },
+  "ja-en": {
+   "src": "ja",
+   "tgt": "en",
+   "err": "",
+   "utterances": 21,
+   "missing_audio": 2,
+   "cer": 0.184,
+   "voiced_before_stop": 0.1,
+   "stop_to_first_audio_ms": {
+    "p50": 1074,
+    "p90": 3378,
+    "n": 18
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 1074,
+    "p90": 3396,
+    "n": 18
+   },
+   "start_to_first_audio_ms": {
+    "p50": 10952,
+    "p90": 14431,
+    "n": 18
+   },
+   "stop_to_first_text_ms": {
+    "p50": 500,
+    "p90": 2791,
+    "n": 18
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 8595,
+    "p90": 13405,
+    "n": 18
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 1074,
+    "p90": 4423,
+    "n": 18
+   },
+   "stage": {
+    "dropped_utterances": 0,
+    "utterances_logged": 21,
+    "speech_s": 154.6,
+    "asr_s": 9.37,
+    "asr_rtf": 0.061,
+    "mt_s": 24.42,
+    "mt_rtf": 0.158,
+    "done_s": 38.05,
+    "pipeline_rtf": 0.246,
+    "asr_median_s": 0.44,
+    "mt_median_s": 1.16,
+    "first_tts_median_s": 0.12
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 31690,
+    "mem_used_mb_min": 31626,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 7.7,
+    "util_pct_max": 100,
+    "samples": 265
+   }
+  },
+  "en-fr": {
+   "src": "en",
+   "tgt": "fr",
+   "err": "",
+   "utterances": 23,
+   "missing_audio": 1,
+   "cer": 0.113,
+   "voiced_before_stop": 0.1,
+   "stop_to_first_audio_ms": {
+    "p50": 2757,
+    "p90": 3849,
+    "n": 19
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 2757,
+    "p90": 3849,
+    "n": 19
+   },
+   "start_to_first_audio_ms": {
+    "p50": 9599,
+    "p90": 11723,
+    "n": 19
+   },
+   "stop_to_first_text_ms": {
+    "p50": 2224,
+    "p90": 3337,
+    "n": 19
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 8948,
+    "p90": 13220,
+    "n": 19
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 3984,
+    "p90": 6394,
+    "n": 19
+   },
+   "stage": {
+    "dropped_utterances": 0,
+    "utterances_logged": 23,
+    "speech_s": 140.4,
+    "asr_s": 7.5,
+    "asr_rtf": 0.053,
+    "mt_s": 33.68,
+    "mt_rtf": 0.24,
+    "done_s": 45.41,
+    "pipeline_rtf": 0.323,
+    "asr_median_s": 0.33,
+    "mt_median_s": 1.46,
+    "first_tts_median_s": 0.11
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 31692,
+    "mem_used_mb_min": 31626,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 10.4,
+    "util_pct_max": 100,
+    "samples": 186
+   }
+  },
+  "fr-en": {
+   "src": "fr",
+   "tgt": "en",
+   "err": "",
+   "utterances": 23,
+   "missing_audio": 0,
+   "cer": 0.044,
+   "voiced_before_stop": 0.1,
+   "stop_to_first_audio_ms": {
+    "p50": 2628,
+    "p90": 3169,
+    "n": 20
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 2703,
+    "p90": 3169,
+    "n": 20
+   },
+   "start_to_first_audio_ms": {
+    "p50": 8778,
+    "p90": 11935,
+    "n": 20
+   },
+   "stop_to_first_text_ms": {
+    "p50": 2084,
+    "p90": 2598,
+    "n": 20
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 9824,
+    "p90": 12726,
+    "n": 20
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 9148,
+    "p90": 11273,
+    "n": 20
+   },
+   "stage": {
+    "dropped_utterances": 0,
+    "utterances_logged": 23,
+    "speech_s": 149.3,
+    "asr_s": 9.13,
+    "asr_rtf": 0.061,
+    "mt_s": 23.77,
+    "mt_rtf": 0.159,
+    "done_s": 37.48,
+    "pipeline_rtf": 0.251,
+    "asr_median_s": 0.4,
+    "mt_median_s": 1.03,
+    "first_tts_median_s": 0.12
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 31628,
+    "mem_used_mb_min": 31628,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 10.8,
+    "util_pct_max": 100,
+    "samples": 180
+   }
+  },
+  "en-km": {
+   "src": "en",
+   "tgt": "km",
+   "err": "",
+   "utterances": 16,
+   "missing_audio": 6,
+   "cer": 0.385,
+   "voiced_before_stop": 0.0,
+   "stop_to_first_audio_ms": {
+    "p50": 22545,
+    "p90": 32452,
+    "n": 14
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 25526,
+    "p90": 32774,
+    "n": 14
+   },
+   "start_to_first_audio_ms": {
+    "p50": 29875,
+    "p90": 43249,
+    "n": 14
+   },
+   "stop_to_first_text_ms": {
+    "p50": 22210,
+    "p90": 32096,
+    "n": 14
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 29996,
+    "p90": 41593,
+    "n": 14
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 22556,
+    "p90": 32455,
+    "n": 14
+   },
+   "stage": {
+    "dropped_utterances": 7,
+    "utterances_logged": 16,
+    "speech_s": 96.7,
+    "asr_s": 5.07,
+    "asr_rtf": 0.052,
+    "mt_s": 106.86,
+    "mt_rtf": 1.105,
+    "done_s": 203.08,
+    "pipeline_rtf": 2.1,
+    "asr_median_s": 0.32,
+    "mt_median_s": 6.91,
+    "first_tts_median_s": 0.0
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 32055,
+    "mem_used_mb_min": 31628,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 59.3,
+    "util_pct_max": 100,
+    "samples": 217
+   }
+  },
+  "km-en": {
+   "src": "km",
+   "tgt": "en",
+   "err": "",
+   "utterances": 31,
+   "missing_audio": 2,
+   "cer": 0.363,
+   "voiced_before_stop": 0.55,
+   "stop_to_first_audio_ms": {
+    "p50": -476,
+    "p90": 3344,
+    "n": 18
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 3004,
+    "p90": 3924,
+    "n": 18
+   },
+   "start_to_first_audio_ms": {
+    "p50": 10448,
+    "p90": 13673,
+    "n": 18
+   },
+   "stop_to_first_text_ms": {
+    "p50": -1044,
+    "p90": 2759,
+    "n": 18
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 9696,
+    "p90": 12153,
+    "n": 18
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -49,
+    "p90": 3904,
+    "n": 18
+   },
+   "stage": {
+    "dropped_utterances": 0,
+    "utterances_logged": 31,
+    "speech_s": 185.0,
+    "asr_s": 30.93,
+    "asr_rtf": 0.167,
+    "mt_s": 25.08,
+    "mt_rtf": 0.136,
+    "done_s": 61.71,
+    "pipeline_rtf": 0.334,
+    "asr_median_s": 1.07,
+    "mt_median_s": 0.75,
+    "first_tts_median_s": 0.12
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 31842,
+    "mem_used_mb_min": 30984,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 10.8,
+    "util_pct_max": 90,
+    "samples": 267
+   }
+  },
+  "ht-en": {
+   "src": "ht",
+   "tgt": "en",
+   "err": "",
+   "utterances": 35,
+   "missing_audio": 0,
+   "cer": 0.075,
+   "voiced_before_stop": 0.55,
+   "stop_to_first_audio_ms": {
+    "p50": -1192,
+    "p90": 3369,
+    "n": 20
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 2608,
+    "p90": 3369,
+    "n": 20
+   },
+   "start_to_first_audio_ms": {
+    "p50": 8358,
+    "p90": 12166,
+    "n": 20
+   },
+   "stop_to_first_text_ms": {
+    "p50": -1694,
+    "p90": 2821,
+    "n": 20
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 5414,
+    "p90": 9293,
+    "n": 20
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -786,
+    "p90": 3788,
+    "n": 20
+   },
+   "stage": {
+    "dropped_utterances": 0,
+    "utterances_logged": 35,
+    "speech_s": 186.1,
+    "asr_s": 22.43,
+    "asr_rtf": 0.121,
+    "mt_s": 29.97,
+    "mt_rtf": 0.161,
+    "done_s": 57.6,
+    "pipeline_rtf": 0.31,
+    "asr_median_s": 0.57,
+    "mt_median_s": 0.83,
+    "first_tts_median_s": 0.11
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 31210,
+    "mem_used_mb_min": 30980,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 14.1,
+    "util_pct_max": 99,
+    "samples": 230
+   }
+  },
+  "en-ht": {
+   "src": "en",
+   "tgt": "ht",
+   "err": "",
+   "utterances": 23,
+   "missing_audio": 1,
+   "cer": 0.113,
+   "voiced_before_stop": 0.25,
+   "stop_to_first_audio_ms": {
+    "p50": 1673,
+    "p90": 2318,
+    "n": 19
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 1963,
+    "p90": 2318,
+    "n": 19
+   },
+   "start_to_first_audio_ms": {
+    "p50": 8244,
+    "p90": 10196,
+    "n": 19
+   },
+   "stop_to_first_text_ms": {
+    "p50": 1539,
+    "p90": 1848,
+    "n": 19
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 9369,
+    "p90": 10894,
+    "n": 19
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 2607,
+    "p90": 5147,
+    "n": 19
+   },
+   "stage": {
+    "dropped_utterances": 0,
+    "utterances_logged": 23,
+    "speech_s": 140.4,
+    "asr_s": 8.12,
+    "asr_rtf": 0.058,
+    "mt_s": 12.1,
+    "mt_rtf": 0.086,
+    "done_s": 24.3,
+    "pipeline_rtf": 0.173,
+    "asr_median_s": 0.37,
+    "mt_median_s": 0.54,
+    "first_tts_median_s": 0.1
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 31212,
+    "mem_used_mb_min": 31044,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 10.2,
+    "util_pct_max": 100,
+    "samples": 186
+   }
+  },
+  "lo-en": {
+   "src": "lo",
+   "tgt": "en",
+   "err": "",
+   "utterances": 44,
+   "missing_audio": 0,
+   "cer": 0.196,
+   "voiced_before_stop": 0.6,
+   "stop_to_first_audio_ms": {
+    "p50": -3750,
+    "p90": 3885,
+    "n": 20
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 2842,
+    "p90": 4202,
+    "n": 20
+   },
+   "start_to_first_audio_ms": {
+    "p50": 8387,
+    "p90": 11616,
+    "n": 20
+   },
+   "stop_to_first_text_ms": {
+    "p50": -4285,
+    "p90": 3349,
+    "n": 20
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 8599,
+    "p90": 12343,
+    "n": 20
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": -1252,
+    "p90": 4203,
+    "n": 20
+   },
+   "stage": {
+    "dropped_utterances": 0,
+    "utterances_logged": 44,
+    "speech_s": 226.1,
+    "asr_s": 33.87,
+    "asr_rtf": 0.15,
+    "mt_s": 45.17,
+    "mt_rtf": 0.2,
+    "done_s": 86.24,
+    "pipeline_rtf": 0.381,
+    "asr_median_s": 0.67,
+    "mt_median_s": 1.02,
+    "first_tts_median_s": 0.12
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 31313,
+    "mem_used_mb_min": 30962,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 16.9,
+    "util_pct_max": 99,
+    "samples": 280
+   }
+  },
+  "en-lo": {
+   "src": "en",
+   "tgt": "lo",
+   "err": "",
+   "utterances": 23,
+   "missing_audio": 1,
+   "cer": 0.113,
+   "voiced_before_stop": 0.05,
+   "stop_to_first_audio_ms": {
+    "p50": 8612,
+    "p90": 10629,
+    "n": 19
+   },
+   "stop_to_tail_audio_ms": {
+    "p50": 9882,
+    "p90": 13724,
+    "n": 19
+   },
+   "start_to_first_audio_ms": {
+    "p50": 15331,
+    "p90": 18320,
+    "n": 19
+   },
+   "stop_to_first_text_ms": {
+    "p50": 8252,
+    "p90": 10220,
+    "n": 19
+   },
+   "stop_to_audio_end_ms": {
+    "p50": 16258,
+    "p90": 18362,
+    "n": 19
+   },
+   "stop_to_first_audio_played_ms": {
+    "p50": 10836,
+    "p90": 13250,
+    "n": 19
+   },
+   "stage": {
+    "dropped_utterances": 0,
+    "utterances_logged": 23,
+    "speech_s": 140.4,
+    "asr_s": 7.9,
+    "asr_rtf": 0.056,
+    "mt_s": 15.54,
+    "mt_rtf": 0.111,
+    "done_s": 174.97,
+    "pipeline_rtf": 1.246,
+    "asr_median_s": 0.33,
+    "mt_median_s": 0.63,
+    "first_tts_median_s": 0.0
+   },
+   "gpu": {
+    "name": "NVIDIA A40",
+    "mem_used_mb_max": 31212,
+    "mem_used_mb_min": 31108,
+    "mem_total_mb": 46068,
+    "util_pct_mean": 82.9,
+    "util_pct_max": 100,
+    "samples": 191
+   }
+  }
+ },
+ "quality": {
+  "en-es": {
+   "live": {
+    "score": 50,
+    "critical": 8,
+    "full": 5
+   },
+   "sol:transcript": {
+    "score": 68,
+    "critical": 4,
+    "full": 11
+   },
+   "stack-mt:gold": {
+    "score": 100,
+    "critical": 0,
+    "full": 20
+   },
+   "stack-mt:transcript": {
+    "score": 55,
+    "critical": 6,
+    "full": 6
+   }
+  },
+  "es-en": {
+   "sol:transcript": {
+    "score": 92,
+    "critical": 0,
+    "full": 15
+   },
+   "stack-mt:gold": {
+    "score": 90,
+    "critical": 0,
+    "full": 16
+   },
+   "live": {
+    "score": 70,
+    "critical": 1,
+    "full": 8
+   },
+   "stack-mt:transcript": {
+    "score": 82,
+    "critical": 0,
+    "full": 11
+   }
+  },
+  "en-ja": {
+   "live": {
+    "score": 53,
+    "critical": 4,
+    "full": 4
+   },
+   "sol:transcript": {
+    "score": 75,
+    "critical": 3,
+    "full": 10
+   },
+   "stack-mt:transcript": {
+    "score": 58,
+    "critical": 4,
+    "full": 5
+   },
+   "stack-mt:gold": {
+    "score": 92,
+    "critical": 0,
+    "full": 15
+   }
+  },
+  "ja-en": {
+   "sol:transcript": {
+    "score": 78,
+    "critical": 6,
+    "full": 13
+   },
+   "live": {
+    "score": 58,
+    "critical": 12,
+    "full": 7
+   },
+   "stack-mt:gold": {
+    "score": 90,
+    "critical": 3,
+    "full": 16
+   },
+   "stack-mt:transcript": {
+    "score": 63,
+    "critical": 11,
+    "full": 8
+   }
+  },
+  "en-fr": {
+   "stack-mt:gold": {
+    "score": 92,
+    "critical": 0,
+    "full": 16
+   },
+   "live": {
+    "score": 52,
+    "critical": 4,
+    "full": 3
+   },
+   "stack-mt:transcript": {
+    "score": 55,
+    "critical": 4,
+    "full": 4
+   },
+   "sol:transcript": {
+    "score": 75,
+    "critical": 3,
+    "full": 12
+   }
+  },
+  "fr-en": {
+   "stack-mt:transcript": {
+    "score": 75,
+    "critical": 5,
+    "full": 11
+   },
+   "live": {
+    "score": 75,
+    "critical": 5,
+    "full": 11
+   },
+   "sol:transcript": {
+    "score": 88,
+    "critical": 2,
+    "full": 15
+   },
+   "stack-mt:gold": {
+    "score": 98,
+    "critical": 0,
+    "full": 19
+   }
+  },
+  "en-km": {
+   "stack-mt:transcript": {
+    "score": 62,
+    "critical": 8,
+    "full": 6
+   },
+   "stack-mt:gold": {
+    "score": 97,
+    "critical": 1,
+    "full": 19
+   },
+   "live": {
+    "score": 38,
+    "critical": 14,
+    "full": 3
+   },
+   "sol:transcript": {
+    "score": 80,
+    "critical": 4,
+    "full": 13
+   }
+  },
+  "km-en": {
+   "stack-mt:transcript": {
+    "score": 30,
+    "critical": 10,
+    "full": 1
+   },
+   "live": {
+    "score": 27,
+    "critical": 10,
+    "full": 1
+   },
+   "stack-mt:gold": {
+    "score": 80,
+    "critical": 2,
+    "full": 10
+   },
+   "sol:transcript": {
+    "score": 45,
+    "critical": 7,
+    "full": 6
+   }
+  },
+  "ht-en": {
+   "stack-mt:gold": {
+    "score": 72,
+    "critical": 6,
+    "full": 10
+   },
+   "stack-mt:transcript": {
+    "score": 35,
+    "critical": 16,
+    "full": 1
+   },
+   "sol:transcript": {
+    "score": 78,
+    "critical": 5,
+    "full": 12
+   },
+   "live": {
+    "score": 22,
+    "critical": 16,
+    "full": 0
+   }
+  },
+  "en-ht": {
+   "live": {
+    "score": 38,
+    "critical": 10,
+    "full": 1
+   },
+   "stack-mt:gold": {
+    "score": 53,
+    "critical": 7,
+    "full": 4
+   },
+   "stack-mt:transcript": {
+    "score": 38,
+    "critical": 10,
+    "full": 1
+   },
+   "sol:transcript": {
+    "score": 80,
+    "critical": 3,
+    "full": 13
+   }
+  },
+  "lo-en": {
+   "stack-mt:transcript": {
+    "score": 33,
+    "critical": 15,
+    "full": 1
+   },
+   "sol:transcript": {
+    "score": 77,
+    "critical": 6,
+    "full": 12
+   },
+   "live": {
+    "score": 13,
+    "critical": 17,
+    "full": 0
+   },
+   "stack-mt:gold": {
+    "score": 85,
+    "critical": 1,
+    "full": 13
+   }
+  },
+  "en-lo": {
+   "stack-mt:gold": {
+    "score": 63,
+    "critical": 7,
+    "full": 8
+   },
+   "stack-mt:transcript": {
+    "score": 43,
+    "critical": 9,
+    "full": 4
+   },
+   "sol:transcript": {
+    "score": 77,
+    "critical": 4,
+    "full": 13
+   },
+   "live": {
+    "score": 43,
+    "critical": 9,
+    "full": 4
+   }
+  }
+ }
+}

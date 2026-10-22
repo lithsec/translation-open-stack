@@ -33,6 +33,9 @@ one table**.
   Azure voice for every language except Haitian Creole, which goes
   Omnilingual → sol → Gemini 3.8 Flash TTS (section 12). Lao is the weak spot:
   no recogniser we can stream does it well yet.
+- **The open stack end to end (section 14):** recognition and sentence
+  cutting cost more than translation; Omnilingual 7B is the clear win for
+  Lao; no open translator tried comes within ~18 points of sol.
 - **Sentence cutting mattered more than the model** for live Omnilingual:
   waiting 0.7 s instead of 0.3 s for a pause, and forcing a cut at 15 s
   instead of 6 s, halved Lao's errors and cut Haitian Creole's by 40%
@@ -396,3 +399,31 @@ Azure + Foundry gets captions only (everything on Microsoft) or, set to
 Azure + Gemini, Gemini's voice. A native listener should confirm with the
 blind mode in `listen.html`: the judge is a Google model and the sample is
 small.
+
+## 14. The open stack end to end, and what would improve it (2026-10-22)
+
+The published stack image, run end to end on real read speech in 12
+directions, then experiments on its recognition and translation
+(`eval/2026-10-open-stack-e2e`):
+
+- **Latency:** first translated audio 2.4–2.9 s after the speaker stops for
+  Whisper languages. English→Khmer falls 2× behind real time (Hy-MT2 is
+  token-heavy into Khmer); English→Lao waits 8.6–10.6 s.
+- **Recognition is the bigger loss in 9 of 12 directions.** For English it is
+  the stack's segmentation, not Whisper: 11.3% character error live, 4.7%
+  one sentence at a time. Canary-Qwen 2.5B (7.3%) and Parakeet v3 (9.3%) are
+  no better. Whole sentences recover 12–15 points out of English.
+- **Lao:** Omnilingual 7B with the repetition guard and 700 ms : 15 s pauses
+  lifts the stack's Lao→English from 28–32 to 53 (sol on the same transcript
+  83–84). At 200 ms : 10 s the gain is only 3 points.
+- **Bigger translators:** Qwen3.5-122B (direct, with context, or repairing
+  the stack's translation), a MetricX QE pick, Hy-MT2-30B and DeepSeek
+  V4-Flash add 3–7 points overall; sol stays ~18 points ahead. Exceptions:
+  Qwen with context is +14 on Haitian Creole; Hy-MT2-30B is +5 out of English
+  (no Lao or Haitian Creole).
+- **The ceiling without fine-tuning:** DeepSeek V4-Pro, the largest open
+  model tried, is ~15 points behind sol (64.7 against 78.6 over 10
+  directions) and 42–49 against 90 on Haitian Creole into English.
+- **Transcript repair:** V4-Pro correcting the stack's transcripts before
+  translating adds ~6 points (66.9 → 72.6), mostly sentence boundaries and
+  punctuation; the previous sentence as context adds nothing.
