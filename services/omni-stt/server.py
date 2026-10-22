@@ -751,63 +751,11 @@ def audio_input(rate, label):
 
 # ---------------------------------------------------------------- repetition guard
 
-# The fine-tuned 300M card (and the 7B) sometimes turn a fragment under a second
-# into 150-200+ characters of one syllable over and over: the LLM decoder loops
-# and the pipeline's own stop (a compression check every 250 steps) comes too
-# late for a short clip. Speech runs at ~10-18 characters a second in every
-# language served here; 30 a second, plus a little slack for a lone word on a
-# very short clip, is past anything a person says.
-MAX_CHARS_PER_S = float(os.environ.get("STT_MAX_CHARS_PER_S", "30"))
-# A unit (two characters up to a few words) said this many times in a row is
-# the decoder looping, not a speaker: "alelouya" sung four times survives, a
-# syllable sixty times does not. (Two characters at least, so "1000000" or a
-# held "mmmmm" is not a loop; "aaaaaaaaaaaa" still is, as "aa" six times.)
-MAX_REPEATS = int(os.environ.get("STT_MAX_REPEATS", "6"))
-GUARD_SLACK_CHARS = 10
-REPEAT_UNIT_MAX_CHARS = 40
-_LOOPS = {}
-
-
-def _loop_re(n):
-    if n not in _LOOPS:
-        # The shortest unit (2..40 characters, non-greedy) followed by n-1 more
-        # copies of itself, anywhere in the text (re.search: the leftmost loop).
-        _LOOPS[n] = re.compile(r"(.{2,%d}?)\1{%d,}" % (REPEAT_UNIT_MAX_CHARS, max(1, n - 1)), re.S)
-    return _LOOPS[n]
-
-
-def repetition_guard(text, audio_s, max_cps=None, max_repeats=None):
-    """(text to send, what the guard did: None | "truncated" | "dropped").
-
-    1. A loop (a unit repeated max_repeats times or more in a row) is cut back to
-       the text before it plus one copy of the unit. Truncate, not drop: when
-       the decoder loops after real words, the words before the loop are the
-       good part of the utterance (and one copy of the unit may be what was
-       said). Matched on the text with a trailing space, so the last word of a
-       loop that ends the text counts as a copy.
-    2. Then the rate: more than max_cps characters per audio second (+ slack)
-       is dropped whole. Without a loop to cut at there is no telling which
-       part is real, and an invented sentence on a cough is worse than none.
-       A loop that WAS the whole over-long text (nothing before it) is dropped
-       too, rather than sent as a lone syllable."""
-    if not text:
-        return text, None
-    max_cps = MAX_CHARS_PER_S if max_cps is None else max_cps
-    max_repeats = MAX_REPEATS if max_repeats is None else max_repeats
-    limit = max_cps * max(0.0, audio_s) + GUARD_SLACK_CHARS
-    action = None
-    out = text
-    if max_repeats > 1:
-        m = _loop_re(max_repeats).search(text + " ")
-        if m:
-            prefix = text[:m.start()]
-            out = (prefix + m.group(1)).strip()
-            action = "truncated"
-            if not prefix.strip() and len(text) > limit:
-                return "", "dropped"
-    if max_cps > 0 and len(out) > limit:
-        return "", "dropped"
-    return out, action
+# The guard itself lives in server/engines/common.py, shared with the stack
+# (which runs it on the Omnilingual 7B's Lao and Khmer). Re-exported here: the
+# batcher below and the tests call it as this module's.
+from engines.common import (MAX_CHARS_PER_S, MAX_REPEATS, repetition_guard,  # noqa: E402,F401
+                            _loop_re)
 
 
 def guard_log(action, before, after, audio_s):

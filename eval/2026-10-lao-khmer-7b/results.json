@@ -1,0 +1,114 @@
+{
+ "lo-en": {
+  "before": {
+   "cer": 0.196,
+   "utterances": 44,
+   "missing_audio": 0,
+   "stop_to_tail_audio_ms": {
+    "p50": 2842,
+    "p90": 4202,
+    "n": 20
+   },
+   "start_to_first_audio_ms": {
+    "p50": 8387,
+    "p90": 11616,
+    "n": 20
+   },
+   "quality_pct": 15.0,
+   "critical": 15,
+   "sentences": 20
+  },
+  "300m-turns": {
+   "cer": 0.193,
+   "utterances": 31,
+   "missing_audio": 0,
+   "stop_to_tail_audio_ms": {
+    "p50": 3592,
+    "p90": 4595,
+    "n": 20
+   },
+   "start_to_first_audio_ms": {
+    "p50": 11407,
+    "p90": 17898,
+    "n": 20
+   },
+   "quality_pct": 21.7,
+   "critical": 13,
+   "sentences": 20
+  },
+  "7b": {
+   "cer": 0.159,
+   "utterances": 31,
+   "missing_audio": 0,
+   "stop_to_tail_audio_ms": {
+    "p50": 3986,
+    "p90": 5273,
+    "n": 20
+   },
+   "start_to_first_audio_ms": {
+    "p50": 11143,
+    "p90": 18122,
+    "n": 20
+   },
+   "quality_pct": 46.7,
+   "critical": 9,
+   "sentences": 20
+  }
+ },
+ "km-en": {
+  "before": {
+   "cer": 0.363,
+   "utterances": 31,
+   "missing_audio": 2,
+   "stop_to_tail_audio_ms": {
+    "p50": 3004,
+    "p90": 3924,
+    "n": 18
+   },
+   "start_to_first_audio_ms": {
+    "p50": 10448,
+    "p90": 13673,
+    "n": 18
+   },
+   "quality_pct": 23.3,
+   "critical": 5,
+   "sentences": 20
+  },
+  "300m-turns": {
+   "cer": 0.355,
+   "utterances": 22,
+   "missing_audio": 3,
+   "stop_to_tail_audio_ms": {
+    "p50": 3028,
+    "p90": 4571,
+    "n": 17
+   },
+   "start_to_first_audio_ms": {
+    "p50": 15924,
+    "p90": 18169,
+    "n": 17
+   },
+   "quality_pct": 30.0,
+   "critical": 5,
+   "sentences": 20
+  },
+  "7b": {
+   "cer": 0.32,
+   "utterances": 21,
+   "missing_audio": 2,
+   "stop_to_tail_audio_ms": {
+    "p50": 3454,
+    "p90": 4596,
+    "n": 18
+   },
+   "start_to_first_audio_ms": {
+    "p50": 15272,
+    "p90": 18209,
+    "n": 18
+   },
+   "quality_pct": 46.7,
+   "critical": 3,
+   "sentences": 20
+  }
+ }
+}

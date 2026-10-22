@@ -267,6 +267,7 @@ MODELS = {
     "distil-large-v3": Lic(PERMISSIVE, "MIT", "distil-whisper: MIT",
                            "https://huggingface.co/distil-whisper/distil-large-v3"),
     "omniASR_LLM_300M": ENGINES["omni"],
+    "omniASR_LLM_7B": ENGINES["omni"],
     "speechbrain/lang-id-voxlingua107-ecapa": Lic(
         PERMISSIVE, "Apache-2.0", "model card: apache-2.0 (its VoxLingua107 training data is CC-BY 4.0)",
         "https://huggingface.co/speechbrain/lang-id-voxlingua107-ecapa"),

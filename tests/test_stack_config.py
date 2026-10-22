@@ -29,6 +29,8 @@ BEFORE = {
         "ar": "ar", "hi": "hi", "vi": "vi", "fa": "fa", "id": "id", "tr": "tr", "bn": "bn", "ur": "ur",
         "tl": "fil", "ro": "ro"},
     "MADLAD_ONLY": {"sw", "ht", "lo", "ro"},  # none of which Hy-MT2 supports: routing is unchanged
+    # Added 2026-10-22: Lao and Khmer wait 700 ms for a pause and up to 15 s.
+    "ENDPOINTING": {"km": (700, 15), "lo": (700, 15)},
 }
 
 
@@ -43,6 +45,7 @@ MODELS_BEFORE = {
     "whisper": {"model": "large-v3", "multi_model": "", "multi_revision": "",
                 "revision": "edaa852ec7e145841d8ffdb056a99866b5f0a478"},
     "omnilingual": {"card": "omniASR_LLM_300M"},
+    "omnilingual_large": {"card": "omniASR_LLM_7B"},   # added 2026-10-22, loaded only with OMNI_LARGE=1
     "lid": {"repo": "speechbrain/lang-id-voxlingua107-ecapa", "revision": "0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9"},
     "vad": {"repo": "snakers4/silero-vad", "ref": "5cd7945676eb32225748052e2e6a0580e4686a08"},  # tag v6.2.3
     "hymt": {"repo": "tencent/Hy-MT2-7B", "revision": "9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223"},

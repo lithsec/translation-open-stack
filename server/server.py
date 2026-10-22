@@ -62,6 +62,10 @@ OPTIONAL EXTRAS, so one g6 session can test every experiment:
                   (fairseq2-based, its own heavy dependency tree, which is why
                   it is a flag and not the default).
 
+  --omni-large    with --omni: Lao and Khmer (omni = "large" in languages.toml)
+                  on Omnilingual's 7B card, ~20 GB more (OMNI_LARGE=1 does the
+                  same; profiles/cuda-80gb.toml sets it).
+
   --clone ref.wav route es/fr/pt through CosyVoice2 zero-shot cloning of the
                   reference voice instead of Piper. The one capability no
                   provider offers — the translation in the preacher's own
@@ -132,6 +136,24 @@ ENDPOINT_MS = 700
 LONG_UTTERANCE_S = 5.0
 LONG_ENDPOINT_MS = 280
 MAX_UTTERANCE_S = 9.0
+
+
+def endpointing(src):
+    """(endpoint_ms, long_utterance_s, long_endpoint_ms, max_utterance_s) for
+    speech in `src`. The flags above, unless languages.toml gives the language
+    endpoint_ms / max_utterance_s: then that pause always ends a turn (no
+    shorter clause gap on long ones) and that length forces a cut. Lao and
+    Khmer wait 700 ms and up to 15 s: Omnilingual mishears short pieces of
+    them far more than whole sentences (eval/2026-10-omni-sizes). src=auto is
+    not known until a turn is over, so it keeps the flags."""
+    ep, max_s = _T.get("ENDPOINTING", {}).get(src, (None, None))
+    if ep is None and max_s is None:
+        return ENDPOINT_MS, LONG_UTTERANCE_S, LONG_ENDPOINT_MS, MAX_UTTERANCE_S
+    ep = ENDPOINT_MS if ep is None else ep
+    max_s = MAX_UTTERANCE_S if max_s is None else max_s
+    return ep, max_s, ep, max_s
+
+
 # Forced cuts land after the last sentence end (LITHOS_SENTENCE_CUT=0: quietest point, the old way).
 SENTENCE_CUT = os.environ.get("LITHOS_SENTENCE_CUT", "1") != "0"
 # Confidence and length a language guess must clear before the microphone is
@@ -257,7 +279,7 @@ class Pipeline:
                  mt_ct2=None, kokoro=False, coqui=False, serial_tts=False,
                  asr_multi_model="large-v3", voices_dir=None, hymt=None, voxcpm=None, voxcpm_langs=None,
                  asr_revision=None, edition="nonprofit", voxcpm_max_inflight=None, espeak=False,
-                 asr_multi_revision=None):
+                 asr_multi_revision=None, omni_large=False):
         # Imported here, first, in the order the server always has: the
         # heavyweight libraries (fairseq2, coqui) rearrange the environment,
         # and import order is part of what was measured.
@@ -304,7 +326,8 @@ class Pipeline:
             return Context(
                 device=self.device, devices=devices, models=MODELS, table=copy.deepcopy(LANG_CONFIG), tables=_T,
                 langs=langs, srcs=self.srcs,
-                options=dict(xeng=xeng, clone_ref=clone_ref, omni=omni, mms=mms, asr_model=asr_model,
+                options=dict(xeng=xeng, clone_ref=clone_ref, omni=omni, omni_large=omni_large, mms=mms,
+                             asr_model=asr_model,
                              asr_multi_model=asr_multi_model, asr_revision=asr_revision,
                              asr_multi_revision=asr_multi_revision, mt_model=mt_model,
                              mt_ct2=mt_ct2, kokoro=kokoro, coqui=coqui, voices_dir=voices_dir, hymt=hymt,
@@ -558,6 +581,7 @@ async def handle_streaming(ws, pipe, src, lang, edition=None, memory=None):
     memory = memory or TranslationMemory(False)   # the previous clauses, for ?context=1
     from audio_in import AudioIn, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn("streaming client")
+    endpoint_ms, _, _, max_utterance_s = endpointing(src)
 
     async def flush(words, force=False):
         nonlocal translated_n
@@ -596,8 +620,8 @@ async def handle_streaming(ws, pipe, src, lang, edition=None, memory=None):
 
             # The turn ends on a pause, or at MAX_UTTERANCE_S whatever the speaker
             # does (the buffer is re-transcribed every pass, so it must stay short).
-            forced = len(buf) / VAD_RATE >= MAX_UTTERANCE_S
-            if forced or (quiet_ms >= ENDPOINT_MS and len(buf) >= VAD_RATE // 2):
+            forced = len(buf) / VAD_RATE >= max_utterance_s
+            if forced or (quiet_ms >= endpoint_ms and len(buf) >= VAD_RATE // 2):
                 # Turn over: everything not yet committed is now final.
                 cut = quietest_cut(buf) if forced else len(buf)
                 text = await loop.run_in_executor(None, pipe.transcribe, buf[:cut], src)
@@ -1278,6 +1302,7 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, co
     meter = AudioMeter()
     from audio_in import AudioIn, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn(f"room {room_id}")
+    endpoint_ms, long_utterance_s, long_endpoint_ms, max_utterance_s = endpointing(src)
     is_primary = room.primary is None
     if is_primary:
         room.primary = ws
@@ -1335,8 +1360,8 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, co
                                                 "fixed": list(room.fixed_words)}))
                 buf_s = len(room.buf) / VAD_RATE
                 # Long buffer -> settle for a clause gap; very long -> cut anyway.
-                need_ms = ENDPOINT_MS if buf_s < LONG_UTTERANCE_S else LONG_ENDPOINT_MS
-                forced = buf_s >= MAX_UTTERANCE_S
+                need_ms = endpoint_ms if buf_s < long_utterance_s else long_endpoint_ms
+                forced = buf_s >= max_utterance_s
                 if not forced and (room.quiet_ms < need_ms or len(room.buf) < VAD_RATE):
                     continue
                 if forced:
@@ -1553,6 +1578,7 @@ async def handle(ws, pipe, sub="open", edition=None):
     meter = AudioMeter()
     from audio_in import AudioIn, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn(clean(sub, 24))
+    endpoint_ms, _, _, max_utterance_s = endpointing(src)
 
     async for msg in ws:
         if not meter.take(len(msg)):
@@ -1563,7 +1589,7 @@ async def handle(ws, pipe, sub="open", edition=None):
         # Fixed 96 ms blocks, whatever size of message the client sends (audio_in.py, issue #13).
         for pcm16 in conn_in.feed(msg):
             buf = np.concatenate([buf, pcm16])
-            # Endpoint on Silero: an utterance ends after 700 ms without speech.
+            # Endpoint on Silero: an utterance ends after endpoint_ms without speech.
             chunk_ms = len(pcm16) / VAD_RATE * 1000
             prob = vad_block(vad, pcm16)
             if prob > 0.5:
@@ -1577,8 +1603,8 @@ async def handle(ws, pipe, sub="open", edition=None):
             # No pause for MAX_UTTERANCE_S: cut anyway, as rooms do. Without this
             # a client that never paused grew one buffer without limit.
             buf_s = len(buf) / VAD_RATE
-            forced = buf_s >= MAX_UTTERANCE_S
-            if not forced and (quiet_ms < ENDPOINT_MS or len(buf) < VAD_RATE):  # not ended, or under 1 s of audio
+            forced = buf_s >= max_utterance_s
+            if not forced and (quiet_ms < endpoint_ms or len(buf) < VAD_RATE):  # not ended, or under 1 s of audio
                 continue
 
             if forced:
@@ -1795,6 +1821,9 @@ async def main():
                     help="synthesise ht/km/lo with MMS-TTS (CC-BY-NC, downloaded by YOU, not shipped)")
     ap.add_argument("--omni", action="store_true",
                     help="with --xeng: Omnilingual ASR for ht/km/lo/sw sources (pip install omnilingual-asr)")
+    ap.add_argument("--omni-large", action="store_true", default=os.environ.get("OMNI_LARGE") == "1",
+                    help="with --omni: also load [models.omnilingual_large] (the 7B, ~20 GB) for the languages "
+                         "with omni = \"large\" (Lao, Khmer). Default: $OMNI_LARGE=1")
     args = ap.parse_args()
     langs = [l.strip() for l in args.langs.split(",") if l.strip()]
     # X->eng needs an English voice on the way out.
@@ -1823,7 +1852,8 @@ async def main():
                     voices_dir=args.voices_dir, hymt=args.hymt,
                     voxcpm=args.voxcpm, voxcpm_langs=[l for l in args.voxcpm_langs.split(",") if l],
                     asr_revision=args.asr_revision, edition=args.edition,
-                    voxcpm_max_inflight=args.voxcpm_max_inflight, espeak=args.espeak)
+                    voxcpm_max_inflight=args.voxcpm_max_inflight, espeak=args.espeak,
+                    omni_large=args.omni_large)
     pipe.streaming = args.streaming
     global ENDPOINT_MS, LONG_UTTERANCE_S, MAX_UTTERANCE_S
     ENDPOINT_MS = args.endpoint_ms

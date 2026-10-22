@@ -73,6 +73,11 @@ revision = "edaa852ec7e145841d8ffdb056a99866b5f0a478"
 [models.omnilingual]
 card = "omniASR_LLM_300M"
 
+# The larger card, for languages with omni = "large" (Lao, Khmer). Loaded only
+# with OMNI_LARGE=1, which needs ~20 GB beside the rest (profiles/cuda-80gb.toml).
+[models.omnilingual_large]
+card = "omniASR_LLM_7B"
+
 # Spoken-language identification for src=auto (VoxLingua107, SpeechBrain).
 [models.lid]
 repo = "speechbrain/lang-id-voxlingua107-ecapa"
@@ -335,10 +340,19 @@ madlad = "ht"
 # character error against MMS's 22.8% / 15%), in the fixed reference voice
 # voices/voxcpm/<lang>.wav. It sustains ~2 real-time voices per GPU, so it is kept
 # for languages with nothing else. MMS is the nonprofit fallback.
+#
+# Hearing them: Omnilingual's 7B card where it is loaded (omni = "large"), and
+# a longer turn: always 700 ms of pause, and up to 15 s before a forced cut,
+# instead of settling for a clause gap after 5 s and cutting at --max-utterance-s.
+# Short pieces cost these two languages most (eval/2026-10-omni-sizes,
+# eval/2026-10-lao-khmer-7b).
 [km]
 voxcpm = true
 mms = "facebook/mms-tts-khm"
 asr = "omni:khm_Khmr"
+omni = "large"
+endpoint_ms = 700
+max_utterance_s = 15
 translator = "hymt"
 madlad = "km"
 
@@ -346,6 +360,9 @@ madlad = "km"
 voxcpm = true
 mms = "facebook/mms-tts-lao"
 asr = "omni:lao_Laoo"
+omni = "large"
+endpoint_ms = 700
+max_utterance_s = 15
 translator = "madlad"
 madlad = "lo"
 

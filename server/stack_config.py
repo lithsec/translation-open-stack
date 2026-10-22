@@ -23,6 +23,14 @@ Per-language keys (all optional):
                                         (scripts/fetch-voices.sh downloads it)
     mms         "<hf repo>"             Meta MMS-TTS (CC-BY-NC)
     asr         "whisper" | "omni:<code>"   the recogniser for this SOURCE language
+    omni        "large" | "base"        with asr = "omni:...": the larger Omnilingual
+                                        card ([models.omnilingual_large]) when it is
+                                        loaded (OMNI_LARGE=1); the base card otherwise
+    endpoint_ms      <int>              when this language is SPOKEN: the pause that
+                                        ends an utterance, always (no shorter clause
+                                        gap on long ones, as --long-utterance-s allows)
+    max_utterance_s  <int>              ... and where a pause-less utterance is cut
+                                        (instead of --endpoint-ms / --max-utterance-s)
     translator  "hymt" | "madlad"       Hy-MT2 only covers the languages in
                                         engines/hymt.py's HYMT_NAMES; others use MADLAD
     madlad      "<code>"                MADLAD's target tag, when it differs
@@ -132,10 +140,10 @@ DEFAULTS = {
     "ro": {"piper": "ro_RO-mihai-medium", "asr": "whisper", "translator": "madlad", "madlad": "ro"},
     "ht": {"coqui": "multilingual-tts/VITS-OpenBible-Haitian-Creole", "mms": "facebook/mms-tts-hat",
            "asr": "omni:hat_Latn", "translator": "madlad", "madlad": "ht"},
-    "km": {"voxcpm": True, "mms": "facebook/mms-tts-khm", "asr": "omni:khm_Khmr", "translator": "hymt",
-           "madlad": "km"},
-    "lo": {"voxcpm": True, "mms": "facebook/mms-tts-lao", "asr": "omni:lao_Laoo", "translator": "madlad",
-           "madlad": "lo"},
+    "km": {"voxcpm": True, "mms": "facebook/mms-tts-khm", "asr": "omni:khm_Khmr", "omni": "large",
+           "endpoint_ms": 700, "max_utterance_s": 15, "translator": "hymt", "madlad": "km"},
+    "lo": {"voxcpm": True, "mms": "facebook/mms-tts-lao", "asr": "omni:lao_Laoo", "omni": "large",
+           "endpoint_ms": 700, "max_utterance_s": 15, "translator": "madlad", "madlad": "lo"},
     # MADLAD's code for Tagalog is fil (<2tl> is not in its vocabulary).
     "tl": {"voxcpm": True, "mms": "facebook/mms-tts-tgl", "asr": "whisper", "translator": "hymt",
            "madlad": "fil"},
@@ -155,6 +163,9 @@ MODEL_DEFAULTS = {
     # Meta Omnilingual ASR, for the languages with asr = "omni:<code>". A fairseq2
     # model card names one fixed checkpoint; there is no revision to pin.
     "omnilingual": {"card": "omniASR_LLM_300M"},
+    # The larger card, for the languages with omni = "large", loaded only with
+    # OMNI_LARGE=1 (~20 GB more: profiles/cuda-80gb.toml sets it).
+    "omnilingual_large": {"card": "omniASR_LLM_7B"},
     # Spoken-language ID for src=auto (SpeechBrain).
     "lid": {"repo": "speechbrain/lang-id-voxlingua107-ecapa",
             "revision": "0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9"},
@@ -178,7 +189,11 @@ MODELS_PINNED = {"hymt", "madlad", "madlad3b", "voxcpm"}
 # The keys a language table may use: these, plus every registered engine that
 # takes a per-language value (keys()). The built-in engines give exactly the
 # set this file always had: kokoro voxcpm coqui piper mms madlad.
-BASE_KEYS = {"asr": str, "translator": str, "voice": list, "commercial": dict}
+BASE_KEYS = {"asr": str, "translator": str, "voice": list, "commercial": dict,
+             "endpoint_ms": int, "max_utterance_s": int}
+# Per-language endpointing outside these is a typo, not a setting.
+ENDPOINT_MS_RANGE = (100, 3000)
+MAX_UTTERANCE_S_RANGE = (3, 30)
 
 
 def _engines():
@@ -226,8 +241,11 @@ def validate(table):
         for k, v in entry.items():
             if k not in known:
                 raise ValueError(f"[{lang}] unknown key {k!r} (known: {', '.join(known)})")
-            if not isinstance(v, known[k]):
+            if not isinstance(v, known[k]) or (known[k] is int and isinstance(v, bool)):
                 raise ValueError(f"[{lang}] {k} must be a {known[k].__name__}")
+            for key, (lo, hi) in (("endpoint_ms", ENDPOINT_MS_RANGE), ("max_utterance_s", MAX_UTTERANCE_S_RANGE)):
+                if k == key and not lo <= v <= hi:
+                    raise ValueError(f"[{lang}] {k} = {v} is outside {lo}..{hi}")
             if k not in BASE_KEYS:
                 cls = next(c for r in eng.registry().values() for n, c in r.items() if n == k)
                 why = cls.check_lang(lang, v)
@@ -834,6 +852,9 @@ def tables(table):
         "PIPER_VOICES": {l: e["piper"] for l, e in table.items() if "piper" in e},
         "MMS_VOICES": {l: e["mms"] for l, e in table.items() if "mms" in e},
         "OMNI_LANGS": {l: e["asr"][5:] for l, e in table.items() if e.get("asr", "").startswith("omni:")},
+        # Spoken language -> (endpoint_ms, max_utterance_s), for the languages that set either.
+        "ENDPOINTING": {l: (e.get("endpoint_ms"), e.get("max_utterance_s")) for l, e in table.items()
+                        if "endpoint_ms" in e or "max_utterance_s" in e},
         "LANG_TO_MADLAD": {l: e["madlad"] for l, e in table.items() if "madlad" in e},
         # Languages kept off Hy-MT2 even though it supports them.
         "MADLAD_ONLY": {l for l, e in table.items() if e.get("translator") == "madlad"},

@@ -55,9 +55,11 @@ def test_builtin_keys_are_the_old_keys():
     """The per-language keys the built-in engines contribute are exactly the
     ones languages.toml always had (plus `voice`, the new chain list, and
     `commercial`, the [<lang>.commercial] voices, and `espeak`, which only
-    ever takes the last-resort voice out with `espeak = false`)."""
+    ever takes the last-resort voice out with `espeak = false`; and since
+    2026-10-22 `omni`, the Omnilingual card, and per-language endpointing)."""
     assert c.keys() == {"kokoro": str, "voxcpm": bool, "coqui": str, "piper": str, "mms": str, "asr": str,
-                        "translator": str, "madlad": str, "voice": list, "commercial": dict, "espeak": bool}
+                        "translator": str, "madlad": str, "voice": list, "commercial": dict, "espeak": bool,
+                        "omni": str, "endpoint_ms": int, "max_utterance_s": int}
 
 
 def test_default_voice_order():
