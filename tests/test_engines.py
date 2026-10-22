@@ -510,6 +510,20 @@ def test_voice_locks():
     assert v.lock("es") is not es.voice_lock("es")
 
 
+def test_abbreviations_do_not_end_sentences():
+    """"U.S." used to split an utterance in two for the translator, which came back
+    "anunció que Estados Unidos… Las tropas estarían saliendo" (eval/2026-10-english-80)."""
+    from engines.common import voice_sentences
+    t = "Late on Sunday, the President announced U.S. troops would be leaving Syria."
+    assert split_sentences(t) == [t] and voice_sentences(t) == [t]
+    assert split_sentences("Dr. Smith is here today. She is fine now.") == ["Dr. Smith is here today.", "She is fine now."]
+    assert split_sentences("We met J. R. R. Tolkien once. He was very kind.") == \
+        ["We met J. R. R. Tolkien once.", "He was very kind."]
+    # real sentence ends still split, numbers included
+    assert split_sentences("The bridge is 15 meters. It opened in March 2017. Nobody came.") == \
+        ["The bridge is 15 meters.", "It opened in March 2017. Nobody came."]
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

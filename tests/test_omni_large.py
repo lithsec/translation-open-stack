@@ -139,8 +139,9 @@ def _server():
 def test_endpointing_per_spoken_language():
     s = _server()
     flags = (s.ENDPOINT_MS, s.LONG_UTTERANCE_S, s.LONG_ENDPOINT_MS, s.MAX_UTTERANCE_S)
-    assert s.endpointing("en") == flags
     assert s.endpointing("es") == flags
+    # English: the shorter gap from 8 s at 400 ms, cut at 15 s (eval/2026-10-english-80).
+    assert s.endpointing("en") == (900, 8, 400, 15)
     assert s.endpointing("auto") == flags
     # 900 ms, 500 ms past 8 s, forced cut at 15 s; at least 2.5 s of speech (eval/2026-10-pauses).
     for lang in ("ja", "ht", "km", "lo"):

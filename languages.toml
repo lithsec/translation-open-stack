@@ -125,6 +125,13 @@ revision = "32279effe8c19989596f05d353d1447f51d9e915"
 kokoro = "a:am_michael"
 piper = "en_US-lessac-medium"
 asr = "whisper"
+# English source: the shorter gap waits until 8 s and is 400 ms (flags: 5 s, 280 ms). At 280 ms a
+# breath after a comma ended the turn: 4 of 20 read sentences reached the translator in two pieces
+# (eval/2026-10-english-80). Median +0.2 s at the end of a sentence.
+endpoint_ms = 900
+long_utterance_s = 8
+long_endpoint_ms = 400
+max_utterance_s = 15
 translator = "hymt"
 
 # EDITION=commercial: lessac's data is research-only (⛔). norman: public-domain

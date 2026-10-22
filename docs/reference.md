@@ -153,10 +153,10 @@ entirely. All keys are optional.
 | `mms` | `"<hugging face repo>"` | Meta MMS-TTS (CC-BY-NC; nonprofit only). |
 | `asr` | `"whisper"` \| `"omni:<code>"` | Recogniser when this language is **spoken**. |
 | `omni` | `"large"` \| `"base"` | With `asr = "omni:..."`: `[models.omnilingual_large]` (the 7B) when the server loaded it (`OMNI_LARGE=1`, `--omni-large`), the base card otherwise. Lao and Khmer say `"large"`. |
-| `endpoint_ms` | integer, 100–3000 | When this language is spoken (fixed `?src=`): the pause that ends an utterance, instead of `--endpoint-ms`. Set alone (without the two `long_` keys), it holds at any length: no shorter gap past `--long-utterance-s`. Japanese, Haitian Creole, Khmer, Lao: 900. |
-| `max_utterance_s` | integer, 3–30 | ... and where an utterance with no such pause is cut, instead of `--max-utterance-s`. Japanese, Haitian Creole, Khmer, Lao: 15. |
-| `long_utterance_s` | integer, 2–30 | ... past this much audio a shorter pause will do (a clause gap), instead of `--long-utterance-s`. Japanese, Haitian Creole, Khmer, Lao: 8. |
-| `long_endpoint_ms` | integer, 100–3000 | ... this one, instead of the built-in 280 ms. Japanese, Haitian Creole, Khmer, Lao: 500. |
+| `endpoint_ms` | integer, 100–3000 | When this language is spoken (fixed `?src=`): the pause that ends an utterance, instead of `--endpoint-ms`. Set alone (without the two `long_` keys), it holds at any length: no shorter gap past `--long-utterance-s`. English, Japanese, Haitian Creole, Khmer, Lao: 900. |
+| `max_utterance_s` | integer, 3–30 | ... and where an utterance with no such pause is cut, instead of `--max-utterance-s`. English, Japanese, Haitian Creole, Khmer, Lao: 15. |
+| `long_utterance_s` | integer, 2–30 | ... past this much audio a shorter pause will do (a clause gap), instead of `--long-utterance-s`. English, Japanese, Haitian Creole, Khmer, Lao: 8. |
+| `long_endpoint_ms` | integer, 100–3000 | ... this one, instead of the built-in 280 ms. Japanese, Haitian Creole, Khmer, Lao: 500; English: 400 ([eval/2026-10-english-80](../eval/2026-10-english-80/)). |
 | `min_speech_ms` | integer, 0–5000 | ... and a pause doesn't end an utterance holding less speech than this unless the quiet lasts 1.5 s: a short piece waits for the rest of its sentence. Japanese, Haitian Creole, Khmer, Lao: 2500 ([eval/2026-10-pauses](../eval/2026-10-pauses/)). Utterance mode only; simultaneous mode keeps its own rules. |
 | `translator` | `"hymt"` \| `"madlad"` | Translator **into** this language. Hy-MT2 covers the 36 languages in `stack_config.HYMT_LANGS`; anything else must be `"madlad"`. |
 | `madlad` | `"<code>"` | MADLAD's language tag, when it differs from the code (Tagalog: `fil`). |
