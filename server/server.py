@@ -63,7 +63,7 @@ OPTIONAL EXTRAS, so one g6 session can test every experiment:
                   it is a flag and not the default).
 
   --omni-large    with --omni: Lao and Khmer (omni = "large" in languages.toml)
-                  on Omnilingual's 7B card, ~15 GB more (OMNI_LARGE=1 does the
+                  on Omnilingual's 7B card, ~20 GB more (OMNI_LARGE=1 does the
                   same; profiles/cuda-80gb.toml sets it).
 
   --clone ref.wav route es/fr/pt through CosyVoice2 zero-shot cloning of the
@@ -1822,7 +1822,7 @@ async def main():
     ap.add_argument("--omni", action="store_true",
                     help="with --xeng: Omnilingual ASR for ht/km/lo/sw sources (pip install omnilingual-asr)")
     ap.add_argument("--omni-large", action="store_true", default=os.environ.get("OMNI_LARGE") == "1",
-                    help="with --omni: also load [models.omnilingual_large] (the 7B, ~15 GB) for the languages "
+                    help="with --omni: also load [models.omnilingual_large] (the 7B, ~20 GB) for the languages "
                          "with omni = \"large\" (Lao, Khmer). Default: $OMNI_LARGE=1")
     args = ap.parse_args()
     langs = [l.strip() for l in args.langs.split(",") if l.strip()]

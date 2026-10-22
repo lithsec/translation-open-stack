@@ -74,7 +74,7 @@ revision = "edaa852ec7e145841d8ffdb056a99866b5f0a478"
 card = "omniASR_LLM_300M"
 
 # The larger card, for languages with omni = "large" (Lao, Khmer). Loaded only
-# with OMNI_LARGE=1, which needs ~15 GB beside the rest (profiles/cuda-80gb.toml).
+# with OMNI_LARGE=1, which needs ~20 GB beside the rest (profiles/cuda-80gb.toml).
 [models.omnilingual_large]
 card = "omniASR_LLM_7B"
 
@@ -345,7 +345,7 @@ madlad = "ht"
 # a longer turn: always 700 ms of pause, and up to 15 s before a forced cut,
 # instead of settling for a clause gap after 5 s and cutting at --max-utterance-s.
 # Short pieces cost these two languages most (eval/2026-10-omni-sizes,
-# eval/2026-10-open-stack-e2e).
+# eval/2026-10-lao-khmer-7b).
 [km]
 voxcpm = true
 mms = "facebook/mms-tts-khm"

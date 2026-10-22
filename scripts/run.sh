@@ -19,7 +19,7 @@
 # In commercial it runs one instance per GPU by default (VOXCPM_INSTANCES, below).
 # VOICES_DIR (default /workspace/voices): the Piper voices, as fetch-voices.sh puts them.
 # OMNI_LARGE=1: Lao and Khmer on Omnilingual's 7B card (omni = "large" in languages.toml),
-#   ~15 GB more; STACK_PROFILE=cuda-80gb sets it. Without it they use the 300M card.
+#   ~20 GB more; STACK_PROFILE=cuda-80gb sets it. Without it they use the 300M card.
 # STACK_TOKEN, if set, is required from every client (Authorization: Bearer <token>;
 # see docs/dev/protocol.md).
 #

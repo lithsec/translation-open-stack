@@ -164,7 +164,7 @@ MODEL_DEFAULTS = {
     # model card names one fixed checkpoint; there is no revision to pin.
     "omnilingual": {"card": "omniASR_LLM_300M"},
     # The larger card, for the languages with omni = "large", loaded only with
-    # OMNI_LARGE=1 (~15 GB more: profiles/cuda-80gb.toml sets it).
+    # OMNI_LARGE=1 (~20 GB more: profiles/cuda-80gb.toml sets it).
     "omnilingual_large": {"card": "omniASR_LLM_7B"},
     # Spoken-language ID for src=auto (SpeechBrain).
     "lid": {"repo": "speechbrain/lang-id-voxlingua107-ecapa",

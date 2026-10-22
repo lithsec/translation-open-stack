@@ -12,10 +12,10 @@ so its languages keep the quietest-point forced cut and no streaming trims.
 
 A language may ask for the larger card ([models.omnilingual_large], the 7B)
 with `omni = "large"`. It loads only with --omni-large (OMNI_LARGE=1, set by the
-profiles with room for it: ~15 GB more); without it those languages stay on
+profiles with room for it: ~20 GB more); without it those languages stay on
 [models.omnilingual]. Lao and Khmer ask for it: one sentence at a time Lao goes
-from 15.6% of characters wrong to 8.5%, Khmer from 14.1% to 12.6%
-(eval/2026-10-open-stack-e2e). Every text from this engine passes the
+from 15.6% of characters wrong to 8.5%, Khmer from 14.1% to 12.6%; live, the
+stack's English from Lao went from 22% to 47% (eval/2026-10-lao-khmer-7b). Every text from this engine passes the
 repetition guard (engines/common.py), which the 7B needs most: its decoder
 loops on Lao fragments.
 
