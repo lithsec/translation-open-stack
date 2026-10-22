@@ -9,16 +9,15 @@ everything else, so this engine talks HTTP to a server started beside it:
 
     vllm serve google/gemma-4-31B-it-qat-w4a16-ct --port 8101 --gpu-memory-utilization 0.3 ...
 
-languages.toml names the server once, under [models.llmmt], as
-"<style> <base url> <model id>", and a language picks it with llmmt = "<name>":
-
-    [models.llmmt]
-    gemma4 = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
-    milmmt = "milmmt http://127.0.0.1:8102/v1 xiaomi-research/MiLMMT-46-12B-v0.1"
+A language names its server in languages.toml as "<style> <base url> <model id>":
 
     [ht]
     translator = "llmmt"
-    llmmt = "gemma4"
+    llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+
+    [lo]
+    translator = "llmmt"
+    llmmt = "milmmt http://127.0.0.1:8102/v1 xiaomi-research/MiLMMT-46-12B-v0.1"
 
 The stack picks a translator by the TARGET language. For ht -> en the target is
 English, so [en] can say translator = "llmmt" too: a pair is sent to the server
@@ -84,17 +83,17 @@ class LlmMT(Translator):
     name = "llmmt"
     title = "LLM translator (OpenAI-compatible server)"
     lang_key = str
-    licence = "the served model's (see [models.llmmt])"
-    # Every server named under [models.llmmt]; none by default.
-    models = {}
+    licence = "the served model's (see each language's llmmt = ...)"
+
+    @classmethod
+    def check_lang(cls, lang, value):
+        try:
+            parse_server(value)
+        except ValueError as e:
+            return str(e)
+        return None
 
     def load(self):
-        self.servers = {}
-        for key, value in (self.ctx.models.get(self.name) or {}).items():
-            try:
-                self.servers[key] = parse_server(value)
-            except ValueError as e:
-                print(f"[stack] llmmt: [models.llmmt] {key}: {e}", flush=True)
         self.pool = ThreadPoolExecutor(max_workers=16)
         self.available = True
 
@@ -104,9 +103,9 @@ class LlmMT(Translator):
     def server_for(self, src, tgt):
         """The server the pair's non-English side names, or None."""
         for lang in (src, tgt):
-            name = self.setting(lang)
-            if name and name in self.servers:
-                return self.servers[name]
+            value = self.setting(lang)
+            if value:
+                return parse_server(value)
         return None
 
     def call(self, server, sentence, src, tgt):

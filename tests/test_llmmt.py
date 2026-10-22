@@ -62,10 +62,8 @@ class FakeHyMT:
 
 def engine():
     a, b = serve(), serve()
-    ctx = Context(models={"llmmt": {"gemma4": f"chat http://127.0.0.1:{a}/v1 g4",
-                                    "milmmt": f"milmmt http://127.0.0.1:{b}/v1 mi"}},
-                  table={"ht": {"translator": "llmmt", "llmmt": "gemma4"},
-                         "lo": {"translator": "llmmt", "llmmt": "milmmt"},
+    ctx = Context(table={"ht": {"translator": "llmmt", "llmmt": f"chat http://127.0.0.1:{a}/v1 g4"},
+                         "lo": {"translator": "llmmt", "llmmt": f"milmmt http://127.0.0.1:{b}/v1 mi"},
                          "en": {"translator": "llmmt"}})
     ctx.engine = lambda kind, name: FakeHyMT() if name == "hymt" else None
     e = llmmt.LlmMT(ctx)
@@ -106,11 +104,9 @@ def test_a_failed_sentence_leaves_the_target_to_madlad():
     assert e.translate(["fine", "FAIL"], "en", ["ht"]) == {}   # nothing half-translated
 
 
-def test_a_bad_server_line_is_reported_not_loaded():
-    ctx = Context(models={"llmmt": {"x": "chat not-a-url m"}}, table={})
-    e = llmmt.LlmMT(ctx)
-    e.load()
-    assert e.servers == {} and e.available
+def test_a_bad_server_line_is_refused_by_the_config_check():
+    assert llmmt.LlmMT.check_lang("ht", "chat not-a-url m")
+    assert llmmt.LlmMT.check_lang("ht", "chat http://127.0.0.1:8101/v1 some/model") is None
 
 
 if __name__ == "__main__":
