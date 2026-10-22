@@ -1,0 +1,58 @@
+{
+ "nllb-200-3.3b": {
+  "label": "NLLB-200 3.3B",
+  "short": "NLLB 3.3B",
+  "licence": "CC-BY-NC-4.0 (non-profit only)",
+  "where": "pod: transformers bf16, beam 4"
+ },
+ "translategemma-27b": {
+  "label": "TranslateGemma 27B",
+  "short": "TGemma 27B",
+  "licence": "Gemma terms (commercial OK under its use policy)",
+  "where": "pod: vLLM bf16, the card's template"
+ },
+ "milmmt-46-12b": {
+  "label": "MiLMMT-46 12B (Lao only)",
+  "short": "MiLMMT 12B",
+  "licence": "Gemma terms (commercial OK under its use policy)",
+  "where": "pod: vLLM bf16, the card's prompt"
+ },
+ "qwen3.5-122b-a10b@or": {
+  "label": "Qwen3.5-122B-A10B",
+  "short": "Qwen3.5-122B",
+  "licence": "Apache-2.0 (commercial OK)",
+  "where": "OpenRouter, bf16, thinking off",
+  "pod_timing": "qwen3.5-122b-a10b-int4-80gb"
+ },
+ "gemma-4-31b-it@or": {
+  "label": "Gemma 4 31B",
+  "short": "Gemma 4 31B",
+  "licence": "Apache-2.0 (commercial OK)",
+  "where": "OpenRouter, bf16",
+  "pod_timing": "gemma-4-31b-it"
+ },
+ "gpt-oss-120b@low@or": {
+  "label": "gpt-oss-120b @low",
+  "short": "oss-120b",
+  "licence": "Apache-2.0 (commercial OK)",
+  "where": "OpenRouter, fp4 (its release format)"
+ },
+ "gpt-5.6-sol@low": {
+  "label": "GPT-5.6-sol @low (cloud reference, closed)",
+  "short": "sol",
+  "licence": "closed (Azure AI Foundry, Data Zone)",
+  "where": "Azure AI Foundry"
+ },
+ "madlad-10b-bf16": {
+  "label": "MADLAD-400 10B, bf16",
+  "short": "MADLAD 10B",
+  "licence": "Apache-2.0 (commercial OK)",
+  "where": "pod: transformers bf16, beam 4 (its CTranslate2 int8 conversion did not finish)"
+ },
+ "madlad-7b-bf16": {
+  "label": "MADLAD-400 7B (the stack's translator; bf16 here, int8 in the stack)",
+  "short": "MADLAD 7B",
+  "licence": "Apache-2.0 (commercial OK)",
+  "where": "pod: transformers bf16, beam 4"
+ }
+}
