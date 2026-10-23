@@ -1,0 +1,713 @@
+{
+ "note": "Scores only (no transcript text). Methods and scenes: see README.md.",
+ "results": {
+  "nopa": {
+   "automix_gate": {
+    "owner_speech_passed": 0.9526,
+    "others_only_passed": 0.1141,
+    "pa_only_passed": null,
+    "turns_duplicated": 7,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.1078,
+    "first_words_lost": 0.25,
+    "other_talker_words_leaked": 0.0547,
+    "pa_words_leaked": null,
+    "frames_sent": 2696,
+    "pa_dropped": 0,
+    "mix_closed": 1054,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.276
+    }
+   },
+   "automix_share": {
+    "owner_speech_passed": 0.9537,
+    "others_only_passed": 0.2981,
+    "pa_only_passed": null,
+    "turns_duplicated": 11,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.1127,
+    "first_words_lost": 0.2083,
+    "other_talker_words_leaked": 0.2149,
+    "pa_words_leaked": null,
+    "frames_sent": 2696,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.551
+    }
+   },
+   "ownvoice": {
+    "owner_speech_passed": 0.9537,
+    "others_only_passed": 0.2983,
+    "pa_only_passed": null,
+    "turns_duplicated": 11,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.1176,
+    "first_words_lost": 0.25,
+    "other_talker_words_leaked": 0.241,
+    "pa_words_leaked": null,
+    "frames_sent": 2696,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.001
+    }
+   },
+   "slider": {
+    "owner_speech_passed": 0.955,
+    "others_only_passed": 0.3111,
+    "pa_only_passed": null,
+    "turns_duplicated": 13,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.1176,
+    "first_words_lost": 0.25,
+    "other_talker_words_leaked": 0.2647,
+    "pa_words_leaked": null,
+    "frames_sent": 2751,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.003
+    }
+   }
+  },
+  "pa20": {
+   "automix_gate": {
+    "owner_speech_passed": 0.9545,
+    "others_only_passed": 0.144,
+    "pa_only_passed": 0.0359,
+    "turns_duplicated": 8,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.1201,
+    "first_words_lost": 0.1667,
+    "other_talker_words_leaked": 0.058,
+    "pa_words_leaked": 0.0012,
+    "frames_sent": 2722,
+    "pa_dropped": 0,
+    "mix_closed": 979,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.279
+    }
+   },
+   "automix_pa_predict": {
+    "owner_speech_passed": 0.8459,
+    "others_only_passed": 0.1802,
+    "pa_only_passed": 0.0104,
+    "turns_duplicated": 10,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 8,
+    "owner_words_lost": 0.1593,
+    "first_words_lost": 0.2917,
+    "other_talker_words_leaked": 0.1242,
+    "pa_words_leaked": 0.0012,
+    "frames_sent": 2722,
+    "pa_dropped": 380,
+    "mix_closed": 694,
+    "pa_lag_ms": [
+     445.625,
+     418.25,
+     426.75,
+     469.125
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 2.537,
+     "automix_room_of_4": 0.309
+    }
+   },
+   "automix_share": {
+    "owner_speech_passed": 0.955,
+    "others_only_passed": 0.3038,
+    "pa_only_passed": 0.0383,
+    "turns_duplicated": 12,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.1054,
+    "first_words_lost": 0.1667,
+    "other_talker_words_leaked": 0.1855,
+    "pa_words_leaked": 0.0012,
+    "frames_sent": 2722,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.555
+    }
+   },
+   "ownvoice": {
+    "owner_speech_passed": 0.955,
+    "others_only_passed": 0.3041,
+    "pa_only_passed": 0.0383,
+    "turns_duplicated": 12,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.1152,
+    "first_words_lost": 0.2083,
+    "other_talker_words_leaked": 0.2288,
+    "pa_words_leaked": 0.0012,
+    "frames_sent": 2722,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.001
+    }
+   },
+   "pa_gate": {
+    "owner_speech_passed": 0.9045,
+    "others_only_passed": 0.2855,
+    "pa_only_passed": 0.02,
+    "turns_duplicated": 12,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 6,
+    "owner_words_lost": 0.1078,
+    "first_words_lost": 0.2083,
+    "other_talker_words_leaked": 0.2247,
+    "pa_words_leaked": 0.0012,
+    "frames_sent": 2722,
+    "pa_dropped": 191,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     445.625,
+     418.25,
+     426.75,
+     469.125
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 2.929,
+     "automix_room_of_4": 0.003
+    }
+   },
+   "pa_nlms": {
+    "owner_speech_passed": 0.955,
+    "others_only_passed": 0.3041,
+    "pa_only_passed": 0.0383,
+    "turns_duplicated": 12,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.8676,
+    "first_words_lost": 0.875,
+    "other_talker_words_leaked": 0.0564,
+    "pa_words_leaked": 0.2048,
+    "frames_sent": 2722,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     445.625,
+     418.25,
+     426.75,
+     469.125
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 2.773,
+     "automix_room_of_4": 0.002
+    }
+   },
+   "pa_predict": {
+    "owner_speech_passed": 0.847,
+    "others_only_passed": 0.2674,
+    "pa_only_passed": 0.0112,
+    "turns_duplicated": 10,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 8,
+    "owner_words_lost": 0.1544,
+    "first_words_lost": 0.25,
+    "other_talker_words_leaked": 0.2312,
+    "pa_words_leaked": 0.0012,
+    "frames_sent": 2722,
+    "pa_dropped": 380,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     445.625,
+     418.25,
+     426.75,
+     469.125
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 2.527,
+     "automix_room_of_4": 0.004
+    }
+   },
+   "slider": {
+    "owner_speech_passed": 0.955,
+    "others_only_passed": 0.3167,
+    "pa_only_passed": 0.0383,
+    "turns_duplicated": 13,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.1152,
+    "first_words_lost": 0.2083,
+    "other_talker_words_leaked": 0.2443,
+    "pa_words_leaked": 0.0012,
+    "frames_sent": 2769,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.001
+    }
+   }
+  },
+  "pa10": {
+   "automix_gate": {
+    "owner_speech_passed": 0.9567,
+    "others_only_passed": 0.2997,
+    "pa_only_passed": 0.0535,
+    "turns_duplicated": 16,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.1397,
+    "first_words_lost": 0.2083,
+    "other_talker_words_leaked": 0.1307,
+    "pa_words_leaked": 0.0053,
+    "frames_sent": 3325,
+    "pa_dropped": 0,
+    "mix_closed": 933,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.343
+    }
+   },
+   "automix_pa_predict": {
+    "owner_speech_passed": 0.8458,
+    "others_only_passed": 0.2874,
+    "pa_only_passed": 0.0144,
+    "turns_duplicated": 16,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 7,
+    "owner_words_lost": 0.1691,
+    "first_words_lost": 0.2083,
+    "other_talker_words_leaked": 0.1283,
+    "pa_words_leaked": 0.0023,
+    "frames_sent": 3325,
+    "pa_dropped": 590,
+    "mix_closed": 698,
+    "pa_lag_ms": [
+     446.25,
+     404.25,
+     426.25,
+     434.125
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 2.608,
+     "automix_room_of_4": 0.358
+    }
+   },
+   "automix_share": {
+    "owner_speech_passed": 0.9567,
+    "others_only_passed": 0.4363,
+    "pa_only_passed": 0.0551,
+    "turns_duplicated": 18,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.125,
+    "first_words_lost": 0.25,
+    "other_talker_words_leaked": 0.1626,
+    "pa_words_leaked": 0.0076,
+    "frames_sent": 3325,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.751
+    }
+   },
+   "ownvoice": {
+    "owner_speech_passed": 0.9567,
+    "others_only_passed": 0.4365,
+    "pa_only_passed": 0.0551,
+    "turns_duplicated": 18,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.125,
+    "first_words_lost": 0.2083,
+    "other_talker_words_leaked": 0.2369,
+    "pa_words_leaked": 0.0023,
+    "frames_sent": 3325,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.001
+    }
+   },
+   "pa_gate": {
+    "owner_speech_passed": 0.8233,
+    "others_only_passed": 0.3471,
+    "pa_only_passed": 0.0232,
+    "turns_duplicated": 17,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 8,
+    "owner_words_lost": 0.25,
+    "first_words_lost": 0.375,
+    "other_talker_words_leaked": 0.1855,
+    "pa_words_leaked": 0.0012,
+    "frames_sent": 3325,
+    "pa_dropped": 677,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     446.25,
+     404.25,
+     426.25,
+     434.125
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 2.95,
+     "automix_room_of_4": 0.001
+    }
+   },
+   "pa_nlms": {
+    "owner_speech_passed": 0.9557,
+    "others_only_passed": 0.4345,
+    "pa_only_passed": 0.0543,
+    "turns_duplicated": 18,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.9069,
+    "first_words_lost": 0.9167,
+    "other_talker_words_leaked": 0.0507,
+    "pa_words_leaked": 0.3192,
+    "frames_sent": 3325,
+    "pa_dropped": 13,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     446.25,
+     404.25,
+     426.25,
+     434.125
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 2.899,
+     "automix_room_of_4": 0.001
+    }
+   },
+   "pa_predict": {
+    "owner_speech_passed": 0.8464,
+    "others_only_passed": 0.362,
+    "pa_only_passed": 0.0144,
+    "turns_duplicated": 16,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 7,
+    "owner_words_lost": 0.1691,
+    "first_words_lost": 0.25,
+    "other_talker_words_leaked": 0.2222,
+    "pa_words_leaked": 0.0035,
+    "frames_sent": 3325,
+    "pa_dropped": 590,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     446.25,
+     404.25,
+     426.25,
+     434.125
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 2.642,
+     "automix_room_of_4": 0.006
+    }
+   },
+   "slider": {
+    "owner_speech_passed": 0.9567,
+    "others_only_passed": 0.4392,
+    "pa_only_passed": 0.0559,
+    "turns_duplicated": 18,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 5,
+    "owner_words_lost": 0.1225,
+    "first_words_lost": 0.2083,
+    "other_talker_words_leaked": 0.2386,
+    "pa_words_leaked": 0.0035,
+    "frames_sent": 3347,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.0
+    }
+   }
+  },
+  "pa0": {
+   "automix_gate": {
+    "owner_speech_passed": 0.9793,
+    "others_only_passed": 0.7906,
+    "pa_only_passed": 0.9089,
+    "turns_duplicated": 24,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 2,
+    "owner_words_lost": 0.6275,
+    "first_words_lost": 0.625,
+    "other_talker_words_leaked": 0.0278,
+    "pa_words_leaked": 0.662,
+    "frames_sent": 6848,
+    "pa_dropped": 0,
+    "mix_closed": 1391,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.559
+    }
+   },
+   "automix_pa_predict": {
+    "owner_speech_passed": 0.8803,
+    "others_only_passed": 0.5473,
+    "pa_only_passed": 0.5296,
+    "turns_duplicated": 24,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 2,
+    "owner_words_lost": 0.5049,
+    "first_words_lost": 0.5,
+    "other_talker_words_leaked": 0.0253,
+    "pa_words_leaked": 0.2447,
+    "frames_sent": 6848,
+    "pa_dropped": 1776,
+    "mix_closed": 1326,
+    "pa_lag_ms": [
+     445.25,
+     404.25,
+     429,
+     427.875
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 2.809,
+     "automix_room_of_4": 0.47
+    }
+   },
+   "automix_share": {
+    "owner_speech_passed": 0.9793,
+    "others_only_passed": 0.9229,
+    "pa_only_passed": 0.9433,
+    "turns_duplicated": 24,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 2,
+    "owner_words_lost": 0.5441,
+    "first_words_lost": 0.5833,
+    "other_talker_words_leaked": 0.0466,
+    "pa_words_leaked": 0.7177,
+    "frames_sent": 6848,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 1.309
+    }
+   },
+   "ownvoice": {
+    "owner_speech_passed": 0.9793,
+    "others_only_passed": 0.9231,
+    "pa_only_passed": 0.9489,
+    "turns_duplicated": 24,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 2,
+    "owner_words_lost": 0.6936,
+    "first_words_lost": 0.7083,
+    "other_talker_words_leaked": 0.0596,
+    "pa_words_leaked": 0.7289,
+    "frames_sent": 6848,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.0
+    }
+   },
+   "pa_gate": {
+    "owner_speech_passed": 0.6577,
+    "others_only_passed": 0.521,
+    "pa_only_passed": 0.4065,
+    "turns_duplicated": 24,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 13,
+    "owner_words_lost": 0.6348,
+    "first_words_lost": 0.5,
+    "other_talker_words_leaked": 0.0784,
+    "pa_words_leaked": 0.0393,
+    "frames_sent": 6848,
+    "pa_dropped": 3113,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     445.25,
+     404.25,
+     429,
+     427.875
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 3.193,
+     "automix_room_of_4": 0.001
+    }
+   },
+   "pa_nlms": {
+    "owner_speech_passed": 0.978,
+    "others_only_passed": 0.9183,
+    "pa_only_passed": 0.9473,
+    "turns_duplicated": 24,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 2,
+    "owner_words_lost": 0.9093,
+    "first_words_lost": 0.875,
+    "other_talker_words_leaked": 0.0335,
+    "pa_words_leaked": 0.8198,
+    "frames_sent": 6848,
+    "pa_dropped": 27,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     445.25,
+     404.25,
+     429,
+     427.875
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 3.159,
+     "automix_room_of_4": 0.002
+    }
+   },
+   "pa_predict": {
+    "owner_speech_passed": 0.8803,
+    "others_only_passed": 0.6937,
+    "pa_only_passed": 0.5431,
+    "turns_duplicated": 24,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 2,
+    "owner_words_lost": 0.4828,
+    "first_words_lost": 0.5,
+    "other_talker_words_leaked": 0.0809,
+    "pa_words_leaked": 0.2741,
+    "frames_sent": 6848,
+    "pa_dropped": 1776,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     445.25,
+     404.25,
+     429,
+     427.875
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 2.823,
+     "automix_room_of_4": 0.005
+    }
+   },
+   "slider": {
+    "owner_speech_passed": 0.9793,
+    "others_only_passed": 0.9231,
+    "pa_only_passed": 0.9513,
+    "turns_duplicated": 24,
+    "turns": 24,
+    "turns_first_0.5s_clipped": 2,
+    "owner_words_lost": 0.6936,
+    "first_words_lost": 0.6667,
+    "other_talker_words_leaked": 0.0596,
+    "pa_words_leaked": 0.73,
+    "frames_sent": 6855,
+    "pa_dropped": 0,
+    "mix_closed": 0,
+    "pa_lag_ms": [
+     null,
+     null,
+     null,
+     null
+    ],
+    "cpu_ms_per_audio_s": {
+     "pa_per_phone": 0.0,
+     "automix_room_of_4": 0.001
+    }
+   }
+  }
+ }
+}
