@@ -1,0 +1,734 @@
+{
+ "grader": "gemini-3.1-pro-preview",
+ "sets": {
+  "sept:en-ht": {
+   "n": 24,
+   "private_text": false,
+   "gemma-4-31b-it@or": {
+    "points": 67,
+    "critical": 1,
+    "score": 0.931
+   },
+   "gpt-5.6-sol@low": {
+    "points": 72,
+    "critical": 0,
+    "score": 1.0
+   },
+   "gpt-oss-120b@low@or": {
+    "points": 67,
+    "critical": 0,
+    "score": 0.931
+   },
+   "madlad-10b-bf16": {
+    "points": 58,
+    "critical": 4,
+    "score": 0.806
+   },
+   "madlad-7b-bf16": {
+    "points": 59,
+    "critical": 5,
+    "score": 0.819
+   },
+   "nllb-200-3.3b": {
+    "points": 63,
+    "critical": 2,
+    "score": 0.875
+   },
+   "qwen3.5-122b-a10b@or": {
+    "points": 57,
+    "critical": 3,
+    "score": 0.792
+   },
+   "translategemma-27b": {
+    "points": 67,
+    "critical": 2,
+    "score": 0.931
+   }
+  },
+  "sept:ht-en": {
+   "n": 24,
+   "private_text": false,
+   "gemma-4-31b-it@or": {
+    "points": 64,
+    "critical": 3,
+    "score": 0.889
+   },
+   "gpt-5.6-sol@low": {
+    "points": 72,
+    "critical": 0,
+    "score": 1.0
+   },
+   "gpt-oss-120b@low@or": {
+    "points": 57,
+    "critical": 6,
+    "score": 0.792
+   },
+   "madlad-10b-bf16": {
+    "points": 47,
+    "critical": 10,
+    "score": 0.653
+   },
+   "madlad-7b-bf16": {
+    "points": 55,
+    "critical": 7,
+    "score": 0.764
+   },
+   "nllb-200-3.3b": {
+    "points": 58,
+    "critical": 6,
+    "score": 0.806
+   },
+   "qwen3.5-122b-a10b@or": {
+    "points": 61,
+    "critical": 3,
+    "score": 0.847
+   },
+   "translategemma-27b": {
+    "points": 56,
+    "critical": 7,
+    "score": 0.778
+   }
+  },
+  "sept:en-lo": {
+   "n": 24,
+   "private_text": false,
+   "gemma-4-31b-it@or": {
+    "points": 71,
+    "critical": 0,
+    "score": 0.986
+   },
+   "gpt-5.6-sol@low": {
+    "points": 72,
+    "critical": 0,
+    "score": 1.0
+   },
+   "gpt-oss-120b@low@or": {
+    "points": 20,
+    "critical": 17,
+    "score": 0.278
+   },
+   "madlad-10b-bf16": {
+    "points": 59,
+    "critical": 4,
+    "score": 0.819
+   },
+   "madlad-7b-bf16": {
+    "points": 61,
+    "critical": 3,
+    "score": 0.847
+   },
+   "milmmt-46-12b": {
+    "points": 70,
+    "critical": 0,
+    "score": 0.972
+   },
+   "nllb-200-3.3b": {
+    "points": 60,
+    "critical": 4,
+    "score": 0.833
+   },
+   "qwen3.5-122b-a10b@or": {
+    "points": 46,
+    "critical": 8,
+    "score": 0.639
+   },
+   "translategemma-27b": {
+    "points": 60,
+    "critical": 3,
+    "score": 0.833
+   }
+  },
+  "sept:lo-en": {
+   "n": 24,
+   "private_text": false,
+   "gemma-4-31b-it@or": {
+    "points": 72,
+    "critical": 0,
+    "score": 1.0
+   },
+   "gpt-5.6-sol@low": {
+    "points": 72,
+    "critical": 0,
+    "score": 1.0
+   },
+   "gpt-oss-120b@low@or": {
+    "points": 27,
+    "critical": 17,
+    "score": 0.375
+   },
+   "madlad-10b-bf16": {
+    "points": 61,
+    "critical": 5,
+    "score": 0.847
+   },
+   "madlad-7b-bf16": {
+    "points": 66,
+    "critical": 3,
+    "score": 0.917
+   },
+   "milmmt-46-12b": {
+    "points": 72,
+    "critical": 0,
+    "score": 1.0
+   },
+   "nllb-200-3.3b": {
+    "points": 55,
+    "critical": 8,
+    "score": 0.764
+   },
+   "qwen3.5-122b-a10b@or": {
+    "points": 66,
+    "critical": 3,
+    "score": 0.917
+   },
+   "translategemma-27b": {
+    "points": 70,
+    "critical": 1,
+    "score": 0.972
+   }
+  },
+  "fleurs:en-lo": {
+   "n": 60,
+   "private_text": false,
+   "gemma-4-31b-it@or": {
+    "points": 166,
+    "critical": 2,
+    "score": 0.922
+   },
+   "gpt-5.6-sol@low": {
+    "points": 177,
+    "critical": 0,
+    "score": 0.983
+   },
+   "gpt-oss-120b@low@or": {
+    "points": 20,
+    "critical": 29,
+    "score": 0.111
+   },
+   "madlad-10b-bf16": {
+    "points": 124,
+    "critical": 14,
+    "score": 0.689
+   },
+   "madlad-7b-bf16": {
+    "points": 140,
+    "critical": 7,
+    "score": 0.778
+   },
+   "milmmt-46-12b": {
+    "points": 166,
+    "critical": 2,
+    "score": 0.922
+   },
+   "nllb-200-3.3b": {
+    "points": 128,
+    "critical": 13,
+    "score": 0.711
+   },
+   "qwen3.5-122b-a10b@or": {
+    "points": 109,
+    "critical": 16,
+    "score": 0.606
+   },
+   "translategemma-27b": {
+    "points": 158,
+    "critical": 4,
+    "score": 0.878
+   }
+  },
+  "fleurs:lo-en": {
+   "n": 60,
+   "private_text": false,
+   "gemma-4-31b-it@or": {
+    "points": 167,
+    "critical": 1,
+    "score": 0.928
+   },
+   "gpt-5.6-sol@low": {
+    "points": 175,
+    "critical": 0,
+    "score": 0.972
+   },
+   "gpt-oss-120b@low@or": {
+    "points": 60,
+    "critical": 29,
+    "score": 0.333
+   },
+   "madlad-10b-bf16": {
+    "points": 155,
+    "critical": 5,
+    "score": 0.861
+   },
+   "madlad-7b-bf16": {
+    "points": 157,
+    "critical": 4,
+    "score": 0.872
+   },
+   "milmmt-46-12b": {
+    "points": 174,
+    "critical": 0,
+    "score": 0.967
+   },
+   "nllb-200-3.3b": {
+    "points": 146,
+    "critical": 7,
+    "score": 0.811
+   },
+   "qwen3.5-122b-a10b@or": {
+    "points": 156,
+    "critical": 4,
+    "score": 0.867
+   },
+   "translategemma-27b": {
+    "points": 161,
+    "critical": 3,
+    "score": 0.894
+   }
+  },
+  "fleurs:en-ht": {
+   "n": 40,
+   "private_text": false,
+   "gemma-4-31b-it@or": {
+    "points": 99,
+    "critical": 1,
+    "score": 0.825
+   },
+   "gpt-5.6-sol@low": {
+    "points": 119,
+    "critical": 0,
+    "score": 0.992
+   },
+   "gpt-oss-120b@low@or": {
+    "points": 94,
+    "critical": 2,
+    "score": 0.783
+   },
+   "madlad-10b-bf16": {
+    "points": 70,
+    "critical": 8,
+    "score": 0.583
+   },
+   "madlad-7b-bf16": {
+    "points": 79,
+    "critical": 8,
+    "score": 0.658
+   },
+   "nllb-200-3.3b": {
+    "points": 79,
+    "critical": 2,
+    "score": 0.658
+   },
+   "qwen3.5-122b-a10b@or": {
+    "points": 81,
+    "critical": 6,
+    "score": 0.675
+   },
+   "translategemma-27b": {
+    "points": 102,
+    "critical": 2,
+    "score": 0.85
+   }
+  },
+  "cmu:ht-en": {
+   "n": 30,
+   "private_text": false,
+   "gemma-4-31b-it@or": {
+    "points": 76,
+    "critical": 5,
+    "score": 0.844
+   },
+   "gpt-5.6-sol@low": {
+    "points": 87,
+    "critical": 1,
+    "score": 0.967
+   },
+   "gpt-oss-120b@low@or": {
+    "points": 70,
+    "critical": 7,
+    "score": 0.778
+   },
+   "madlad-10b-bf16": {
+    "points": 62,
+    "critical": 8,
+    "score": 0.689
+   },
+   "madlad-7b-bf16": {
+    "points": 74,
+    "critical": 5,
+    "score": 0.822
+   },
+   "nllb-200-3.3b": {
+    "points": 69,
+    "critical": 6,
+    "score": 0.767
+   },
+   "qwen3.5-122b-a10b@or": {
+    "points": 79,
+    "critical": 3,
+    "score": 0.878
+   },
+   "translategemma-27b": {
+    "points": 63,
+    "critical": 11,
+    "score": 0.7
+   }
+  },
+  "news:ht-en": {
+   "n": 33,
+   "private_text": true,
+   "gemma-4-31b-it@or": {
+    "points": 85,
+    "critical": 5,
+    "score": 0.859
+   },
+   "gpt-5.6-sol@low": {
+    "points": 96,
+    "critical": 1,
+    "score": 0.97
+   },
+   "gpt-oss-120b@low@or": {
+    "points": 85,
+    "critical": 3,
+    "score": 0.859
+   },
+   "madlad-10b-bf16": {
+    "points": 71,
+    "critical": 8,
+    "score": 0.717
+   },
+   "madlad-7b-bf16": {
+    "points": 73,
+    "critical": 7,
+    "score": 0.737
+   },
+   "nllb-200-3.3b": {
+    "points": 84,
+    "critical": 3,
+    "score": 0.848
+   },
+   "qwen3.5-122b-a10b@or": {
+    "points": 88,
+    "critical": 3,
+    "score": 0.889
+   },
+   "translategemma-27b": {
+    "points": 86,
+    "critical": 4,
+    "score": 0.869
+   }
+  },
+  "news:en-ht": {
+   "n": 33,
+   "private_text": true,
+   "gemma-4-31b-it@or": {
+    "points": 96,
+    "critical": 0,
+    "score": 0.97
+   },
+   "gpt-5.6-sol@low": {
+    "points": 97,
+    "critical": 0,
+    "score": 0.98
+   },
+   "gpt-oss-120b@low@or": {
+    "points": 92,
+    "critical": 2,
+    "score": 0.929
+   },
+   "madlad-10b-bf16": {
+    "points": 81,
+    "critical": 4,
+    "score": 0.818
+   },
+   "madlad-7b-bf16": {
+    "points": 89,
+    "critical": 2,
+    "score": 0.899
+   },
+   "nllb-200-3.3b": {
+    "points": 85,
+    "critical": 1,
+    "score": 0.859
+   },
+   "qwen3.5-122b-a10b@or": {
+    "points": 87,
+    "critical": 5,
+    "score": 0.879
+   },
+   "translategemma-27b": {
+    "points": 79,
+    "critical": 6,
+    "score": 0.798
+   }
+  }
+ },
+ "directions": {
+  "en-ht": {
+   "sets": [
+    "sept:en-ht",
+    "fleurs:en-ht",
+    "news:en-ht"
+   ],
+   "n": 97,
+   "gemma-4-31b-it@or": {
+    "score": 0.9,
+    "critical": 2
+   },
+   "gpt-5.6-sol@low": {
+    "score": 0.99,
+    "critical": 0
+   },
+   "gpt-oss-120b@low@or": {
+    "score": 0.869,
+    "critical": 4
+   },
+   "madlad-10b-bf16": {
+    "score": 0.718,
+    "critical": 16
+   },
+   "madlad-7b-bf16": {
+    "score": 0.78,
+    "critical": 15
+   },
+   "nllb-200-3.3b": {
+    "score": 0.78,
+    "critical": 5
+   },
+   "qwen3.5-122b-a10b@or": {
+    "score": 0.773,
+    "critical": 14
+   },
+   "translategemma-27b": {
+    "score": 0.852,
+    "critical": 10
+   }
+  },
+  "ht-en": {
+   "sets": [
+    "sept:ht-en",
+    "cmu:ht-en",
+    "news:ht-en"
+   ],
+   "n": 87,
+   "gemma-4-31b-it@or": {
+    "score": 0.862,
+    "critical": 13
+   },
+   "gpt-5.6-sol@low": {
+    "score": 0.977,
+    "critical": 2
+   },
+   "gpt-oss-120b@low@or": {
+    "score": 0.812,
+    "critical": 16
+   },
+   "madlad-10b-bf16": {
+    "score": 0.69,
+    "critical": 26
+   },
+   "madlad-7b-bf16": {
+    "score": 0.774,
+    "critical": 19
+   },
+   "nllb-200-3.3b": {
+    "score": 0.808,
+    "critical": 15
+   },
+   "qwen3.5-122b-a10b@or": {
+    "score": 0.874,
+    "critical": 9
+   },
+   "translategemma-27b": {
+    "score": 0.785,
+    "critical": 22
+   }
+  },
+  "en-lo": {
+   "sets": [
+    "sept:en-lo",
+    "fleurs:en-lo"
+   ],
+   "n": 84,
+   "gemma-4-31b-it@or": {
+    "score": 0.94,
+    "critical": 2
+   },
+   "gpt-5.6-sol@low": {
+    "score": 0.988,
+    "critical": 0
+   },
+   "gpt-oss-120b@low@or": {
+    "score": 0.159,
+    "critical": 46
+   },
+   "madlad-10b-bf16": {
+    "score": 0.726,
+    "critical": 18
+   },
+   "madlad-7b-bf16": {
+    "score": 0.798,
+    "critical": 10
+   },
+   "milmmt-46-12b": {
+    "score": 0.937,
+    "critical": 2
+   },
+   "nllb-200-3.3b": {
+    "score": 0.746,
+    "critical": 17
+   },
+   "qwen3.5-122b-a10b@or": {
+    "score": 0.615,
+    "critical": 24
+   },
+   "translategemma-27b": {
+    "score": 0.865,
+    "critical": 7
+   }
+  },
+  "lo-en": {
+   "sets": [
+    "sept:lo-en",
+    "fleurs:lo-en"
+   ],
+   "n": 84,
+   "gemma-4-31b-it@or": {
+    "score": 0.948,
+    "critical": 1
+   },
+   "gpt-5.6-sol@low": {
+    "score": 0.98,
+    "critical": 0
+   },
+   "gpt-oss-120b@low@or": {
+    "score": 0.345,
+    "critical": 46
+   },
+   "madlad-10b-bf16": {
+    "score": 0.857,
+    "critical": 10
+   },
+   "madlad-7b-bf16": {
+    "score": 0.885,
+    "critical": 7
+   },
+   "milmmt-46-12b": {
+    "score": 0.976,
+    "critical": 0
+   },
+   "nllb-200-3.3b": {
+    "score": 0.798,
+    "critical": 15
+   },
+   "qwen3.5-122b-a10b@or": {
+    "score": 0.881,
+    "critical": 7
+   },
+   "translategemma-27b": {
+    "score": 0.917,
+    "critical": 4
+   }
+  }
+ },
+ "systems": {
+  "nllb-200-3.3b": {
+   "label": "NLLB-200 3.3B",
+   "short": "NLLB 3.3B",
+   "licence": "CC-BY-NC-4.0 (non-profit only)",
+   "where": "pod: transformers bf16, beam 4",
+   "pod_p50_s": 0.39,
+   "pod_p90_s": 0.7,
+   "pod_tok_per_s": 60.0,
+   "api_round_trip_p50_s": null,
+   "vram": "7 GiB peak"
+  },
+  "translategemma-27b": {
+   "label": "TranslateGemma 27B",
+   "short": "TGemma 27B",
+   "licence": "Gemma terms (commercial OK under its use policy)",
+   "where": "pod: vLLM bf16, the card's template",
+   "pod_p50_s": 0.95,
+   "pod_p90_s": 2.44,
+   "pod_tok_per_s": 26.9,
+   "api_round_trip_p50_s": null,
+   "vram": "51 GiB weights"
+  },
+  "milmmt-46-12b": {
+   "label": "MiLMMT-46 12B (Lao only)",
+   "short": "MiLMMT 12B",
+   "licence": "Gemma terms (commercial OK under its use policy)",
+   "where": "pod: vLLM bf16, the card's prompt",
+   "pod_p50_s": 0.44,
+   "pod_p90_s": 1.08,
+   "pod_tok_per_s": 54.5,
+   "api_round_trip_p50_s": null,
+   "vram": "23 GiB weights"
+  },
+  "qwen3.5-122b-a10b@or": {
+   "label": "Qwen3.5-122B-A10B",
+   "short": "Qwen3.5-122B",
+   "licence": "Apache-2.0 (commercial OK)",
+   "where": "OpenRouter, bf16, thinking off",
+   "pod_timing": "qwen3.5-122b-a10b-int4-80gb",
+   "pod_p50_s": 0.43,
+   "pod_p90_s": 1.02,
+   "pod_tok_per_s": 59.4,
+   "api_round_trip_p50_s": 1.3,
+   "vram": "68 GiB weights"
+  },
+  "gemma-4-31b-it@or": {
+   "label": "Gemma 4 31B",
+   "short": "Gemma 4 31B",
+   "licence": "Apache-2.0 (commercial OK)",
+   "where": "OpenRouter, bf16",
+   "pod_timing": "gemma-4-31b-it",
+   "pod_p50_s": 1.03,
+   "pod_p90_s": 2.48,
+   "pod_tok_per_s": 22.9,
+   "api_round_trip_p50_s": 2.42,
+   "vram": "58 GiB weights"
+  },
+  "gpt-oss-120b@low@or": {
+   "label": "gpt-oss-120b @low",
+   "short": "oss-120b",
+   "licence": "Apache-2.0 (commercial OK)",
+   "where": "OpenRouter, fp4 (its release format)",
+   "pod_p50_s": null,
+   "pod_p90_s": null,
+   "pod_tok_per_s": null,
+   "api_round_trip_p50_s": 4.41
+  },
+  "gpt-5.6-sol@low": {
+   "label": "GPT-5.6-sol @low (cloud reference, closed)",
+   "short": "sol",
+   "licence": "closed (Azure AI Foundry, Data Zone)",
+   "where": "Azure AI Foundry",
+   "pod_p50_s": null,
+   "pod_p90_s": null,
+   "pod_tok_per_s": null,
+   "api_round_trip_p50_s": 2.26
+  },
+  "madlad-10b-bf16": {
+   "label": "MADLAD-400 10B, bf16",
+   "short": "MADLAD 10B",
+   "licence": "Apache-2.0 (commercial OK)",
+   "where": "pod: transformers bf16, beam 4 (its CTranslate2 int8 conversion did not finish)",
+   "pod_p50_s": 0.91,
+   "pod_p90_s": 1.88,
+   "pod_tok_per_s": 25.4,
+   "api_round_trip_p50_s": null,
+   "vram": "21 GiB peak"
+  },
+  "madlad-7b-bf16": {
+   "label": "MADLAD-400 7B (the stack's translator; bf16 here, int8 in the stack)",
+   "short": "MADLAD 7B",
+   "licence": "Apache-2.0 (commercial OK)",
+   "where": "pod: transformers bf16, beam 4",
+   "pod_p50_s": 1.43,
+   "pod_p90_s": 3.11,
+   "pod_tok_per_s": 16.8,
+   "api_round_trip_p50_s": null,
+   "vram": "18 GiB peak"
+  }
+ }
+}
