@@ -65,7 +65,14 @@ live stack still lost was in how it cut and split the speech.
   is an artifact of joining the clip together, and this round doesn't change QuietBoost.
 - **Translator on correct text:** one sentence ("loose pet cats" → "sin dueño").
 
-## 3. The fixes (this PR)
+## 3. The fixes tried
+
+> **Merged: fix 1 only.** On held-out clips ([`../2026-10-held-out`](../2026-10-held-out/)) the
+> English turn rules (fix 2) gained nothing (main and this branch within 1.7 points in every
+> direction, regular and irregular pauses) and still added 0.3–0.6 s at the median, so they were
+> left out. The 86.7 for en→es below was specific to this clip. The numbers in section 4 are this
+> clip's, with both fixes on.
+
 
 1. **Abbreviations don't end sentences:** `server/engines/common.py`, `split_sentences` and
    `voice_sentences`. This covers initials ("U.S.", "J. R. R.") and common titles ("Dr.", "Mr.",

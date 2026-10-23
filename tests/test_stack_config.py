@@ -32,9 +32,7 @@ BEFORE = {
     # Added 2026-10-22: longer turns for Japanese, Haitian Creole, Khmer and Lao (eval/2026-10-pauses;
     # Lao and Khmer had 700 ms / 15 s from eval/2026-10-lao-khmer-7b before).
     "ENDPOINTING": {l: {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500, "max_utterance_s": 15,
-                        "min_speech_ms": 2500} for l in ("ja", "ht", "km", "lo")}
-                   # Added 2026-10-22: English sources wait longer for the shorter gap (eval/2026-10-english-80).
-                   | {"en": {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 400, "max_utterance_s": 15}},
+                        "min_speech_ms": 2500} for l in ("ja", "ht", "km", "lo")},
 }
 
 

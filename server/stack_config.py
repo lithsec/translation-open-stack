@@ -108,10 +108,8 @@ HYMT_LANGS = {
 # The longer turns Japanese, Haitian Creole, Khmer and Lao take when spoken (languages.toml, eval/2026-10-pauses).
 LONG_TURNS = {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500, "max_utterance_s": 15,
               "min_speech_ms": 2500}
-# English sources: the shorter gap from 8 s, at 400 ms (eval/2026-10-english-80).
-EN_TURNS = {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 400, "max_utterance_s": 15}
 DEFAULTS = {
-    "en": {"kokoro": "a:am_michael", "piper": "en_US-lessac-medium", "asr": "whisper", **EN_TURNS, "translator": "hymt",
+    "en": {"kokoro": "a:am_michael", "piper": "en_US-lessac-medium", "asr": "whisper", "translator": "hymt",
            "commercial": {"kokoro": "a:am_michael", "piper": "en_US-norman-medium"}},
     "es": {"kokoro": "e:ef_dora", "piper": "es_ES-davefx-medium", "asr": "whisper", "translator": "hymt",
            "madlad": "es", "commercial": {"kokoro": "e:ef_dora", "piper": "es_ES-carlfm-x_low"}},

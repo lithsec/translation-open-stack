@@ -536,7 +536,7 @@ def test_audio_faster_than_real_time_refused(stack):
 def test_solo_utterance_is_cut_at_the_maximum(stack):
     """Speech that never pauses is cut at MAX_UTTERANCE_S on a solo connection
     too (it used to grow one buffer for as long as the client kept talking)."""
-    speech = speech_only() * 8                        # ~17 s without a pause (English cuts at 15 s)
+    speech = speech_only() * 4                        # ~12 s without a pause
     frames = [speech[i:i + FRAME] for i in range(0, len(speech), FRAME)]
     with open(stack["log"]) as f:
         before = f.read().count("solo: forced cut")
