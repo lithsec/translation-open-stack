@@ -127,9 +127,11 @@ QUIET_FLOOR = 0.0005      # below this (-66 dBFS) nothing is speech: no extra ga
 # half-life holds.
 QUIET_FAST_BELOW = 0.1        # a block peaking 20 dB or more under the level...
 QUIET_FAST_HALF_LIFE_S = 0.25  # ...forgets it at this half-life (0 turns this off)
-# Boost the audio the recogniser hears as well as the VAD's copy (off: the
-# recogniser gets the stream as sent).
-QUIET_ASR = False
+# Boost the audio the recogniser hears too, not only the VAD's copy (False: the
+# recogniser gets the stream as sent). Live on unseen clips with both changes, English
+# characters wrong fell 18.6% -> 8.6% and Japanese 8.4% -> 5.0%; offline the recogniser
+# boost added 0.3-2.2 points over the faster release alone.
+QUIET_ASR = True
 
 
 class QuietBoost:

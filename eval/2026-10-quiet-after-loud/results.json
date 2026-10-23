@@ -1,0 +1,567 @@
+{
+ "systems": {
+  "M": "main at 36693cc",
+  "QAB": "this branch: faster release + recogniser boost",
+  "P38": "main with the turn rules before #38 for ja/ht/km/lo"
+ },
+ "replay": {
+  "en_reg": {
+   "base": {
+    "cer": 16.5,
+    "starts_lost": 5,
+    "pieces": 22,
+    "forced": 0,
+    "empty": 0
+   },
+   "f25": {
+    "cer": 6.4,
+    "starts_lost": 1,
+    "pieces": 22,
+    "forced": 0,
+    "empty": 0
+   },
+   "f25asr": {
+    "cer": 6.0,
+    "starts_lost": 1,
+    "pieces": 22,
+    "forced": 0,
+    "empty": 0
+   }
+  },
+  "en_irr": {
+   "base": {
+    "cer": 20.9,
+    "starts_lost": 6,
+    "pieces": 19,
+    "forced": 0,
+    "empty": 0
+   },
+   "f25": {
+    "cer": 9.9,
+    "starts_lost": 3,
+    "pieces": 21,
+    "forced": 0,
+    "empty": 0
+   },
+   "f25asr": {
+    "cer": 7.7,
+    "starts_lost": 3,
+    "pieces": 21,
+    "forced": 0,
+    "empty": 0
+   }
+  },
+  "en_noise40": {
+   "base": {
+    "cer": 70.8,
+    "starts_lost": 15,
+    "pieces": 12,
+    "forced": 0,
+    "empty": 2
+   },
+   "f25": {
+    "cer": 70.8,
+    "starts_lost": 15,
+    "pieces": 12,
+    "forced": 0,
+    "empty": 2
+   },
+   "f25asr": {
+    "cer": 70.8,
+    "starts_lost": 15,
+    "pieces": 12,
+    "forced": 0,
+    "empty": 2
+   }
+  },
+  "ja_reg": {
+   "base": {
+    "cer": 9.0,
+    "starts_lost": 11,
+    "pieces": 21,
+    "forced": 0,
+    "empty": 0
+   },
+   "f25": {
+    "cer": 4.9,
+    "starts_lost": 8,
+    "pieces": 21,
+    "forced": 0,
+    "empty": 0
+   },
+   "f25asr": {
+    "cer": 4.6,
+    "starts_lost": 8,
+    "pieces": 21,
+    "forced": 0,
+    "empty": 0
+   }
+  }
+ },
+ "live": {
+  "reg": {
+   "en-es": {
+    "M": {
+     "cer": 18.6,
+     "missing_audio": 0,
+     "utterances": 22,
+     "stop_to_tail_audio_ms": {
+      "p50": 3354,
+      "p90": 4619
+     },
+     "gpu_mem_mb_max": 53427,
+     "quality_written": {
+      "q": 55.0,
+      "crit": 4,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 61.7,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "QAB": {
+     "cer": 8.6,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_tail_audio_ms": {
+      "p50": 3230,
+      "p90": 5124
+     },
+     "gpu_mem_mb_max": 53381,
+     "quality_written": {
+      "q": 65.0,
+      "crit": 4,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 73.3,
+      "crit": 5,
+      "n": 20
+     }
+    }
+   },
+   "es-en": {
+    "M": {
+     "cer": 1.0,
+     "missing_audio": 0,
+     "utterances": 26,
+     "stop_to_tail_audio_ms": {
+      "p50": 2854,
+      "p90": 3920
+     },
+     "gpu_mem_mb_max": 53837,
+     "quality_written": {
+      "q": 83.3,
+      "crit": 1,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 86.0,
+      "crit": 0,
+      "n": 19
+     }
+    },
+    "QAB": {
+     "cer": 1.0,
+     "missing_audio": 0,
+     "utterances": 26,
+     "stop_to_tail_audio_ms": {
+      "p50": 3004,
+      "p90": 4938
+     },
+     "gpu_mem_mb_max": 53543,
+     "quality_written": {
+      "q": 83.3,
+      "crit": 1,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 86.0,
+      "crit": 0,
+      "n": 19
+     }
+    }
+   },
+   "ja-en": {
+    "M": {
+     "cer": 8.4,
+     "missing_audio": 0,
+     "utterances": 21,
+     "stop_to_tail_audio_ms": {
+      "p50": 3178,
+      "p90": 3806
+     },
+     "gpu_mem_mb_max": 53773,
+     "quality_written": {
+      "q": 63.3,
+      "crit": 4,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 64.8,
+      "crit": 4,
+      "n": 18
+     }
+    },
+    "QAB": {
+     "cer": 5.0,
+     "missing_audio": 0,
+     "utterances": 21,
+     "stop_to_tail_audio_ms": {
+      "p50": 3510,
+      "p90": 5034
+     },
+     "gpu_mem_mb_max": 53455,
+     "quality_written": {
+      "q": 73.3,
+      "crit": 2,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 74.1,
+      "crit": 2,
+      "n": 18
+     }
+    },
+    "P38": {
+     "cer": 8.0,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_tail_audio_ms": {
+      "p50": 8555,
+      "p90": 12215
+     },
+     "gpu_mem_mb_max": 53836,
+     "quality_written": {
+      "q": 61.7,
+      "crit": 4,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 63.0,
+      "crit": 4,
+      "n": 18
+     }
+    }
+   },
+   "fr-en": {
+    "M": {
+     "cer": 5.6,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_tail_audio_ms": {
+      "p50": 2804,
+      "p90": 3720
+     },
+     "gpu_mem_mb_max": 53837,
+     "quality_written": {
+      "q": 78.3,
+      "crit": 2,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 78.3,
+      "crit": 2,
+      "n": 20
+     }
+    },
+    "QAB": {
+     "cer": 2.5,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_tail_audio_ms": {
+      "p50": 3442,
+      "p90": 5436
+     },
+     "gpu_mem_mb_max": 53135,
+     "quality_written": {
+      "q": 85.0,
+      "crit": 2,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 85.0,
+      "crit": 2,
+      "n": 20
+     }
+    }
+   },
+   "km-en": {
+    "M": {
+     "cer": 14.0,
+     "missing_audio": 0,
+     "utterances": 24,
+     "stop_to_tail_audio_ms": {
+      "p50": 6665,
+      "p90": 10078
+     },
+     "gpu_mem_mb_max": 53879,
+     "quality_written": {
+      "q": 51.7,
+      "crit": 10,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 57.4,
+      "crit": 8,
+      "n": 18
+     }
+    },
+    "QAB": {
+     "cer": 11.1,
+     "missing_audio": 0,
+     "utterances": 24,
+     "stop_to_tail_audio_ms": {
+      "p50": 4360,
+      "p90": 6808
+     },
+     "gpu_mem_mb_max": 53543,
+     "quality_written": {
+      "q": 58.3,
+      "crit": 8,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 64.8,
+      "crit": 6,
+      "n": 18
+     }
+    },
+    "P38": {
+     "cer": 17.1,
+     "missing_audio": 1,
+     "utterances": 23,
+     "stop_to_tail_audio_ms": {
+      "p50": 25023,
+      "p90": 33315
+     },
+     "gpu_mem_mb_max": 53836,
+     "quality_written": {
+      "q": 50.0,
+      "crit": 10,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 55.6,
+      "crit": 8,
+      "n": 18
+     }
+    }
+   },
+   "ht-en": {
+    "M": {
+     "cer": 5.2,
+     "missing_audio": 0,
+     "utterances": 21,
+     "stop_to_tail_audio_ms": {
+      "p50": 7460,
+      "p90": 9422
+     },
+     "gpu_mem_mb_max": 53375,
+     "quality_written": {
+      "q": 48.3,
+      "crit": 12,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 47.1,
+      "crit": 10,
+      "n": 17
+     }
+    },
+    "P38": {
+     "cer": 44.2,
+     "missing_audio": 7,
+     "utterances": 16,
+     "stop_to_tail_audio_ms": {
+      "p50": 29314,
+      "p90": 38531
+     },
+     "gpu_mem_mb_max": 53836,
+     "quality_written": {
+      "q": 21.7,
+      "crit": 17,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 23.5,
+      "crit": 14,
+      "n": 17
+     }
+    }
+   },
+   "lo-en": {
+    "M": {
+     "cer": 18.7,
+     "missing_audio": 1,
+     "utterances": 27,
+     "stop_to_tail_audio_ms": {
+      "p50": 4972,
+      "p90": 6224
+     },
+     "gpu_mem_mb_max": 53773,
+     "quality_written": {
+      "q": 35.0,
+      "crit": 11,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 35.1,
+      "crit": 10,
+      "n": 19
+     }
+    },
+    "P38": {
+     "cer": 51.8,
+     "missing_audio": 6,
+     "utterances": 20,
+     "stop_to_tail_audio_ms": {
+      "p50": 27251,
+      "p90": 41998
+     },
+     "gpu_mem_mb_max": 53836,
+     "quality_written": {
+      "q": 18.3,
+      "crit": 14,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 17.5,
+      "crit": 13,
+      "n": 19
+     }
+    }
+   },
+   "pt-en": {
+    "M": {
+     "cer": 1.3,
+     "missing_audio": 0,
+     "utterances": 28,
+     "stop_to_tail_audio_ms": {
+      "p50": 4092,
+      "p90": 5887
+     },
+     "gpu_mem_mb_max": 53471,
+     "quality_written": {
+      "q": 78.3,
+      "crit": 3,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 78.3,
+      "crit": 3,
+      "n": 20
+     }
+    },
+    "QAB": {
+     "cer": 1.2,
+     "missing_audio": 0,
+     "utterances": 28,
+     "stop_to_tail_audio_ms": {
+      "p50": 2756,
+      "p90": 4472
+     },
+     "gpu_mem_mb_max": 53543,
+     "quality_written": {
+      "q": 76.7,
+      "crit": 3,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 76.7,
+      "crit": 3,
+      "n": 20
+     }
+    }
+   }
+  },
+  "irr": {
+   "en-es": {
+    "M": {
+     "cer": 26.0,
+     "missing_audio": 2,
+     "utterances": 18,
+     "stop_to_tail_audio_ms": {
+      "p50": 2966,
+      "p90": 9083
+     },
+     "gpu_mem_mb_max": 54086,
+     "quality_written": {
+      "q": 58.3,
+      "crit": 9,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 61.7,
+      "crit": 7,
+      "n": 20
+     }
+    },
+    "QAB": {
+     "cer": 10.9,
+     "missing_audio": 0,
+     "utterances": 21,
+     "stop_to_tail_audio_ms": {
+      "p50": 3714,
+      "p90": 6563
+     },
+     "gpu_mem_mb_max": 53419,
+     "quality_written": {
+      "q": 68.3,
+      "crit": 8,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 70.0,
+      "crit": 6,
+      "n": 20
+     }
+    }
+   },
+   "ja-en": {
+    "M": {
+     "cer": 11.2,
+     "missing_audio": 1,
+     "utterances": 20,
+     "stop_to_tail_audio_ms": {
+      "p50": 3195,
+      "p90": 5354
+     },
+     "gpu_mem_mb_max": 54086,
+     "quality_written": {
+      "q": 63.3,
+      "crit": 10,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 64.8,
+      "crit": 9,
+      "n": 18
+     }
+    },
+    "QAB": {
+     "cer": 5.7,
+     "missing_audio": 0,
+     "utterances": 20,
+     "stop_to_tail_audio_ms": {
+      "p50": 3290,
+      "p90": 4653
+     },
+     "gpu_mem_mb_max": 53543,
+     "quality_written": {
+      "q": 71.7,
+      "crit": 8,
+      "n": 20
+     },
+     "quality_said": {
+      "q": 72.2,
+      "crit": 7,
+      "n": 18
+     }
+    }
+   }
+  }
+ }
+}
