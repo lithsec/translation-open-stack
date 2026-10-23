@@ -163,6 +163,9 @@ OMNI_CODES = {
     "ko": "kor_Hang", "vi": "vie_Latn", "ar": "arb_Arab", "fa": "fas_Arab", "id": "ind_Latn",
     "tr": "tur_Latn", "bn": "ben_Beng", "ur": "urd_Arab", "hi": "hin_Deva", "sw": "swh_Latn",
     "ro": "ron_Latn", "ht": "hat_Latn", "km": "khm_Khmr", "lo": "lao_Laoo", "tl": "tgl_Latn",
+    # Cape Verdean Creole (Kabuverdianu): in omnilingual-asr 0.1.0's lang_ids; not in VoxLingua107,
+    # so it is served alone (?langs=kea), like Tagalog (eval/2026-10-language-short-check).
+    "kea": "kea_Latn",
 }
 
 # Language ID: the stack's model, at the stack's pinned revision (languages.toml [models.lid]).

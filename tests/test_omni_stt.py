@@ -39,6 +39,9 @@ def test_parse_langs():
     # A language the LID doesn't know: fine alone, refused in a mix it would have to pick from.
     assert stt.parse_langs("tl", LID) == ["tl"]
     assert "language ID cannot" in _raises(stt.parse_langs, "tl,en", LID)
+    # Cape Verdean Creole: served alone; the language ID has no label for it.
+    assert stt.parse_langs("kea", LID) == ["kea"] and stt.OMNI_CODES["kea"] == "kea_Latn"
+    assert "language ID cannot" in _raises(stt.parse_langs, "kea,en", LID)
     # A hostile value comes back bounded.
     assert len(_raises(stt.parse_langs, "x" * 500, LID)) < 300
 
