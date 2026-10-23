@@ -130,6 +130,32 @@ def test_a_loud_word_lowers_the_gain_at_once():
     assert g > 8
 
 
+def test_a_quiet_talker_right_after_a_loud_one_is_heard_from_the_first_word():
+    """eval/2026-10-quiet-after-loud: a reader at -60 dBFS 1 s after one at -18
+    lost the first words of every such sentence: the slow half-life still held
+    the loud level when the quiet voice began."""
+    b = QuietBoost()
+    loud = np.full(BLOCK, 0.12, dtype=np.float32)        # about -18 dBFS
+    gap = np.full(BLOCK, 1e-4, dtype=np.float32)          # a 1 s pause, room hiss
+    quiet = np.full(BLOCK, 0.001, dtype=np.float32)       # -60 dBFS
+    for _ in range(int(3 * OUT_RATE / BLOCK)):
+        b(loud)
+    for _ in range(int(1.0 * OUT_RATE / BLOCK)):
+        b(gap)
+    assert b.gain(quiet) >= 8                             # its first block is already brought up
+
+
+def test_word_gaps_inside_loud_speech_keep_the_slow_half_life():
+    b = QuietBoost()
+    loud = np.full(BLOCK, 0.12, dtype=np.float32)
+    gap = np.full(BLOCK, 1e-4, dtype=np.float32)
+    for _ in range(int(3 * OUT_RATE / BLOCK)):
+        b(loud)
+    for _ in range(2):                                    # a ~0.2 s gap between words
+        b(gap)
+    assert b.gain(np.full(BLOCK, 0.05, dtype=np.float32)) < 2   # the next, softer word is not pumped
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):
