@@ -1,0 +1,1062 @@
+{
+ "clips": "../2026-10-unseen (PR #44): 20 FLEURS read sentences per language, never used for tuning; 'reg' = 1.0-1.95 s pauses, 'irr' = 0.3-1.2 s irregular pauses",
+ "reference": "said = what the reader actually said (witness.py, verbatim Gemini transcription per recording); text = the written FLEURS text",
+ "systems": {
+  "1 whisper_sentence": "Whisper large-v3 (stack revision, float16, beam 1, VAD filter, non-speech gates) one read sentence at a time on the gold boundaries, on an A40",
+  "2 stack_live": "the open stack on main streamed at real time (scripts as eval/tools); en reg/irr and es reg reused from the unseen round's main runs, the rest run here",
+  "3 azure_stream": "Azure real-time continuous recognition, streamed at real time, locale given; en/es/pt reg reused from ../2026-10-es-pt-live-compare",
+  "4 azure_fast_sentence": "Azure fast transcription (transcriptions:transcribe, api 2024-11-15), one sentence per request, locale given",
+  "5 mai_sentence": "MAI-Transcribe-2 (preview) via fast transcription enhanced mode (api 2025-10-15), one sentence per request, language given",
+  "5 mai_clip": "MAI-Transcribe-2, the whole clip in one request, language given",
+  "6 mai_stream": "MAI-Transcribe-2-Streaming: NOT RUN. Both existing East US resources (Speech and AI Services) answer 'speech.context.model routing is not enabled for this request'"
+ },
+ "per_sentence_systems_note": "systems 1, 4 and 5 (sentence) read the same recordings in both pause patterns, so their reg and irr rows are one run",
+ "latency": {
+  "1 whisper_sentence per request": {
+   "n": 100,
+   "p50_s": 0.47,
+   "p90_s": 1.7
+  },
+  "4 azure_fast_sentence per request": {
+   "n": 100,
+   "p50_s": 0.75,
+   "p90_s": 0.98
+  },
+  "3 azure_stream end-of-speech->final": {
+   "n": 204,
+   "p50_s": 0.71,
+   "p90_s": 1.17
+  },
+  "5 mai_sentence per request": {
+   "n": 100,
+   "p50_s": 0.92,
+   "p90_s": 2.31
+  },
+  "5 mai_clip whole clip request": {
+   "n": 10,
+   "p50_s": 1.74,
+   "p90_s": 2.44
+  }
+ },
+ "latency_note": "1: GPU decode time per sentence on the pod; 4 and 5: round trip from the client to East US, 4 requests at once; 3: final result arrival minus the end of the recognised speech, real-time feed",
+ "scores": [
+  {
+   "lang": "en",
+   "pattern": "reg",
+   "system": "1 whisper_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 4.3,
+    "wer": 8.6
+   },
+   "text": {
+    "cer": 6.8,
+    "wer": 11.5
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "en",
+   "pattern": "reg",
+   "system": "4 azure_fast_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 3.7,
+    "wer": 7.0
+   },
+   "text": {
+    "cer": 7.9,
+    "wer": 11.8
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "en",
+   "pattern": "reg",
+   "system": "3 azure_stream",
+   "note": "reused from eval/2026-10-es-pt-live-compare",
+   "said": {
+    "cer": 4.1,
+    "wer": 8.0
+   },
+   "text": {
+    "cer": 7.5,
+    "wer": 12.0
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "en",
+   "pattern": "reg",
+   "system": "5 mai_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 3.7,
+    "wer": 6.7
+   },
+   "text": {
+    "cer": 6.9,
+    "wer": 9.2
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "en",
+   "pattern": "reg",
+   "system": "5 mai_clip",
+   "note": "whole clip, one request",
+   "said": {
+    "cer": 6.5,
+    "wer": 11.5
+   },
+   "text": {
+    "cer": 9.8,
+    "wer": 14.9
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "en",
+   "pattern": "reg",
+   "system": "2 stack_live",
+   "note": "main, reused from the unseen round",
+   "said": {
+    "cer": 14.1,
+    "wer": 18.4
+   },
+   "text": {
+    "cer": 16.3,
+    "wer": 21.2
+   },
+   "dropped": [
+    11
+   ],
+   "missing_starts": [
+    15,
+    17,
+    19
+   ]
+  },
+  {
+   "lang": "en",
+   "pattern": "irr",
+   "system": "1 whisper_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 4.3,
+    "wer": 8.6
+   },
+   "text": {
+    "cer": 6.8,
+    "wer": 11.5
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "en",
+   "pattern": "irr",
+   "system": "4 azure_fast_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 3.7,
+    "wer": 7.0
+   },
+   "text": {
+    "cer": 7.9,
+    "wer": 11.8
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "en",
+   "pattern": "irr",
+   "system": "3 azure_stream",
+   "note": "",
+   "said": {
+    "cer": 3.7,
+    "wer": 8.3
+   },
+   "text": {
+    "cer": 7.4,
+    "wer": 12.6
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "en",
+   "pattern": "irr",
+   "system": "5 mai_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 3.7,
+    "wer": 6.7
+   },
+   "text": {
+    "cer": 6.9,
+    "wer": 9.2
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "en",
+   "pattern": "irr",
+   "system": "5 mai_clip",
+   "note": "whole clip, one request",
+   "said": {
+    "cer": 8.6,
+    "wer": 13.4
+   },
+   "text": {
+    "cer": 11.2,
+    "wer": 14.9
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "en",
+   "pattern": "irr",
+   "system": "2 stack_live",
+   "note": "main, reused from the unseen round",
+   "said": {
+    "cer": 21.3,
+    "wer": 24.3
+   },
+   "text": {
+    "cer": 23.9,
+    "wer": 27.7
+   },
+   "dropped": [
+    11,
+    19
+   ],
+   "missing_starts": [
+    3,
+    15,
+    17
+   ]
+  },
+  {
+   "lang": "es",
+   "pattern": "reg",
+   "system": "1 whisper_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.7,
+    "wer": 4.3
+   },
+   "text": {
+    "cer": 0.5,
+    "wer": 3.0
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "es",
+   "pattern": "reg",
+   "system": "4 azure_fast_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.7,
+    "wer": 4.1
+   },
+   "text": {
+    "cer": 2.8,
+    "wer": 5.6
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "es",
+   "pattern": "reg",
+   "system": "3 azure_stream",
+   "note": "reused from eval/2026-10-es-pt-live-compare",
+   "said": {
+    "cer": 2.4,
+    "wer": 5.6
+   },
+   "text": {
+    "cer": 2.7,
+    "wer": 6.5
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "es",
+   "pattern": "reg",
+   "system": "5 mai_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.7,
+    "wer": 4.1
+   },
+   "text": {
+    "cer": 0.5,
+    "wer": 2.8
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "es",
+   "pattern": "reg",
+   "system": "5 mai_clip",
+   "note": "whole clip, one request",
+   "said": {
+    "cer": 0.5,
+    "wer": 2.4
+   },
+   "text": {
+    "cer": 1.8,
+    "wer": 4.3
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "es",
+   "pattern": "reg",
+   "system": "2 stack_live",
+   "note": "main, reused from the unseen round",
+   "said": {
+    "cer": 1.7,
+    "wer": 3.9
+   },
+   "text": {
+    "cer": 0.5,
+    "wer": 2.6
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "es",
+   "pattern": "irr",
+   "system": "1 whisper_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.7,
+    "wer": 4.3
+   },
+   "text": {
+    "cer": 0.5,
+    "wer": 3.0
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "es",
+   "pattern": "irr",
+   "system": "4 azure_fast_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.7,
+    "wer": 4.1
+   },
+   "text": {
+    "cer": 2.8,
+    "wer": 5.6
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "es",
+   "pattern": "irr",
+   "system": "3 azure_stream",
+   "note": "",
+   "said": {
+    "cer": 2.4,
+    "wer": 5.6
+   },
+   "text": {
+    "cer": 2.7,
+    "wer": 6.5
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "es",
+   "pattern": "irr",
+   "system": "5 mai_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.7,
+    "wer": 4.1
+   },
+   "text": {
+    "cer": 0.5,
+    "wer": 2.8
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "es",
+   "pattern": "irr",
+   "system": "5 mai_clip",
+   "note": "whole clip, one request",
+   "said": {
+    "cer": 0.5,
+    "wer": 2.6
+   },
+   "text": {
+    "cer": 1.8,
+    "wer": 4.5
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "es",
+   "pattern": "irr",
+   "system": "2 stack_live",
+   "note": "main, run here",
+   "said": {
+    "cer": 1.7,
+    "wer": 3.6
+   },
+   "text": {
+    "cer": 0.5,
+    "wer": 2.4
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "pt",
+   "pattern": "reg",
+   "system": "1 whisper_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 2.3,
+    "wer": 4.5
+   },
+   "text": {
+    "cer": 0.9,
+    "wer": 3.0
+   },
+   "dropped": [],
+   "missing_starts": [
+    14
+   ]
+  },
+  {
+   "lang": "pt",
+   "pattern": "reg",
+   "system": "4 azure_fast_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 3.1,
+    "wer": 5.8
+   },
+   "text": {
+    "cer": 2.0,
+    "wer": 4.6
+   },
+   "dropped": [],
+   "missing_starts": [
+    14
+   ]
+  },
+  {
+   "lang": "pt",
+   "pattern": "reg",
+   "system": "3 azure_stream",
+   "note": "reused from eval/2026-10-es-pt-live-compare",
+   "said": {
+    "cer": 0.9,
+    "wer": 2.8
+   },
+   "text": {
+    "cer": 3.0,
+    "wer": 5.6
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "pt",
+   "pattern": "reg",
+   "system": "5 mai_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.6,
+    "wer": 2.8
+   },
+   "text": {
+    "cer": 0.9,
+    "wer": 2.3
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "pt",
+   "pattern": "reg",
+   "system": "5 mai_clip",
+   "note": "whole clip, one request",
+   "said": {
+    "cer": 1.4,
+    "wer": 2.8
+   },
+   "text": {
+    "cer": 3.1,
+    "wer": 5.1
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "pt",
+   "pattern": "reg",
+   "system": "2 stack_live",
+   "note": "main, run here",
+   "said": {
+    "cer": 2.4,
+    "wer": 4.5
+   },
+   "text": {
+    "cer": 1.0,
+    "wer": 3.0
+   },
+   "dropped": [],
+   "missing_starts": [
+    14
+   ]
+  },
+  {
+   "lang": "pt",
+   "pattern": "irr",
+   "system": "1 whisper_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 2.3,
+    "wer": 4.5
+   },
+   "text": {
+    "cer": 0.9,
+    "wer": 3.0
+   },
+   "dropped": [],
+   "missing_starts": [
+    14
+   ]
+  },
+  {
+   "lang": "pt",
+   "pattern": "irr",
+   "system": "4 azure_fast_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 3.1,
+    "wer": 5.8
+   },
+   "text": {
+    "cer": 2.0,
+    "wer": 4.6
+   },
+   "dropped": [],
+   "missing_starts": [
+    14
+   ]
+  },
+  {
+   "lang": "pt",
+   "pattern": "irr",
+   "system": "3 azure_stream",
+   "note": "",
+   "said": {
+    "cer": 1.0,
+    "wer": 3.0
+   },
+   "text": {
+    "cer": 3.1,
+    "wer": 5.8
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "pt",
+   "pattern": "irr",
+   "system": "5 mai_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.6,
+    "wer": 2.8
+   },
+   "text": {
+    "cer": 0.9,
+    "wer": 2.3
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "pt",
+   "pattern": "irr",
+   "system": "5 mai_clip",
+   "note": "whole clip, one request",
+   "said": {
+    "cer": 1.4,
+    "wer": 2.5
+   },
+   "text": {
+    "cer": 3.2,
+    "wer": 5.1
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "pt",
+   "pattern": "irr",
+   "system": "2 stack_live",
+   "note": "main, run here",
+   "said": {
+    "cer": 2.4,
+    "wer": 4.5
+   },
+   "text": {
+    "cer": 1.0,
+    "wer": 3.0
+   },
+   "dropped": [],
+   "missing_starts": [
+    14
+   ]
+  },
+  {
+   "lang": "fr",
+   "pattern": "reg",
+   "system": "1 whisper_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.6,
+    "wer": 4.1
+   },
+   "text": {
+    "cer": 1.9,
+    "wer": 5.0
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "fr",
+   "pattern": "reg",
+   "system": "4 azure_fast_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.2,
+    "wer": 3.8
+   },
+   "text": {
+    "cer": 1.5,
+    "wer": 4.8
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "fr",
+   "pattern": "reg",
+   "system": "3 azure_stream",
+   "note": "",
+   "said": {
+    "cer": 3.3,
+    "wer": 8.6
+   },
+   "text": {
+    "cer": 3.6,
+    "wer": 9.3
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "fr",
+   "pattern": "reg",
+   "system": "5 mai_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 0.6,
+    "wer": 1.6
+   },
+   "text": {
+    "cer": 0.9,
+    "wer": 2.5
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "fr",
+   "pattern": "reg",
+   "system": "5 mai_clip",
+   "note": "whole clip, one request",
+   "said": {
+    "cer": 0.8,
+    "wer": 2.3
+   },
+   "text": {
+    "cer": 1.2,
+    "wer": 3.2
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "fr",
+   "pattern": "reg",
+   "system": "2 stack_live",
+   "note": "main, run here",
+   "said": {
+    "cer": 4.8,
+    "wer": 8.4
+   },
+   "text": {
+    "cer": 5.2,
+    "wer": 9.3
+   },
+   "dropped": [],
+   "missing_starts": [
+    9,
+    13
+   ]
+  },
+  {
+   "lang": "fr",
+   "pattern": "irr",
+   "system": "1 whisper_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.6,
+    "wer": 4.1
+   },
+   "text": {
+    "cer": 1.9,
+    "wer": 5.0
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "fr",
+   "pattern": "irr",
+   "system": "4 azure_fast_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 1.2,
+    "wer": 3.8
+   },
+   "text": {
+    "cer": 1.5,
+    "wer": 4.8
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "fr",
+   "pattern": "irr",
+   "system": "3 azure_stream",
+   "note": "",
+   "said": {
+    "cer": 2.9,
+    "wer": 7.7
+   },
+   "text": {
+    "cer": 3.3,
+    "wer": 8.6
+   },
+   "dropped": [],
+   "missing_starts": [
+    13
+   ]
+  },
+  {
+   "lang": "fr",
+   "pattern": "irr",
+   "system": "5 mai_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 0.6,
+    "wer": 1.6
+   },
+   "text": {
+    "cer": 0.9,
+    "wer": 2.5
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "fr",
+   "pattern": "irr",
+   "system": "5 mai_clip",
+   "note": "whole clip, one request",
+   "said": {
+    "cer": 0.7,
+    "wer": 2.0
+   },
+   "text": {
+    "cer": 1.1,
+    "wer": 2.9
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "fr",
+   "pattern": "irr",
+   "system": "2 stack_live",
+   "note": "main, run here",
+   "said": {
+    "cer": 5.9,
+    "wer": 9.5
+   },
+   "text": {
+    "cer": 6.2,
+    "wer": 10.4
+   },
+   "dropped": [],
+   "missing_starts": [
+    9,
+    13
+   ]
+  },
+  {
+   "lang": "ja",
+   "pattern": "reg",
+   "system": "1 whisper_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 4.7
+   },
+   "text": {
+    "cer": 5.0
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "ja",
+   "pattern": "reg",
+   "system": "4 azure_fast_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 4.7
+   },
+   "text": {
+    "cer": 5.4
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "ja",
+   "pattern": "reg",
+   "system": "3 azure_stream",
+   "note": "",
+   "said": {
+    "cer": 6.9
+   },
+   "text": {
+    "cer": 7.8
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "ja",
+   "pattern": "reg",
+   "system": "5 mai_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 2.5
+   },
+   "text": {
+    "cer": 1.4
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "ja",
+   "pattern": "reg",
+   "system": "5 mai_clip",
+   "note": "whole clip, one request",
+   "said": {
+    "cer": 2.9
+   },
+   "text": {
+    "cer": 2.1
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "ja",
+   "pattern": "reg",
+   "system": "2 stack_live",
+   "note": "main, run here",
+   "said": {
+    "cer": 8.6
+   },
+   "text": {
+    "cer": 8.3
+   },
+   "dropped": [],
+   "missing_starts": [
+    3,
+    13,
+    19
+   ]
+  },
+  {
+   "lang": "ja",
+   "pattern": "irr",
+   "system": "1 whisper_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 4.7
+   },
+   "text": {
+    "cer": 5.0
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "ja",
+   "pattern": "irr",
+   "system": "4 azure_fast_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 4.7
+   },
+   "text": {
+    "cer": 5.4
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "ja",
+   "pattern": "irr",
+   "system": "3 azure_stream",
+   "note": "",
+   "said": {
+    "cer": 8.0
+   },
+   "text": {
+    "cer": 8.6
+   },
+   "dropped": [],
+   "missing_starts": [
+    19
+   ]
+  },
+  {
+   "lang": "ja",
+   "pattern": "irr",
+   "system": "5 mai_sentence",
+   "note": "same recordings in both patterns",
+   "said": {
+    "cer": 2.5
+   },
+   "text": {
+    "cer": 1.4
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "ja",
+   "pattern": "irr",
+   "system": "5 mai_clip",
+   "note": "whole clip, one request",
+   "said": {
+    "cer": 2.6
+   },
+   "text": {
+    "cer": 1.5
+   },
+   "dropped": [],
+   "missing_starts": []
+  },
+  {
+   "lang": "ja",
+   "pattern": "irr",
+   "system": "2 stack_live",
+   "note": "main, run here",
+   "said": {
+    "cer": 11.3
+   },
+   "text": {
+    "cer": 11.2
+   },
+   "dropped": [
+    14
+   ],
+   "missing_starts": [
+    3,
+    5,
+    13,
+    19
+   ]
+  }
+ ],
+ "breakdown_en_stack_live": {
+  "reg": {
+   "words": 374,
+   "errors_whisper_sentence": 29,
+   "errors_stack_live": 66,
+   "dropped": [
+    1,
+    18
+   ],
+   "missing_start": [
+    5,
+    23
+   ],
+   "rest": [
+    23,
+    25
+   ]
+  },
+  "irr": {
+   "words": 374,
+   "errors_whisper_sentence": 29,
+   "errors_stack_live": 88,
+   "dropped": [
+    3,
+    35
+   ],
+   "missing_start": [
+    8,
+    35
+   ],
+   "rest": [
+    18,
+    18
+   ]
+  }
+ }
+}

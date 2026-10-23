@@ -11,6 +11,7 @@
 | `2026-10-ht-lo-translators/` | Haitian Creole and Lao translators on correct text: MADLAD 7B/10B, NLLB-200, TranslateGemma 27B, MiLMMT-46 12B, Gemma 4 31B, Qwen3.5-122B, gpt-oss-120b and sol, graded blind in one round, with speed and memory on an A100. See [its README](2026-10-ht-lo-translators/README.md). |
 | `2026-10-translator-shootout-gemma4/` | Addendum to the translator shootout on Azure's transcripts: Gemma 4 31B and 26B-A4B (OpenRouter) beside six of its systems, all graded again in one blind round. See [its README](2026-10-translator-shootout-gemma4/README.md). |
 | `2026-10-english-80/` | Out of English: seven of the English clip's 20 recordings don't say what the reference says (grading against what was said instead), and two fixes for pieces cut mid-sentence and abbreviations. Live before/after with blind grading. See [its README](2026-10-english-80/README.md). |
+| `2026-10-whisper-vs-azure/` | Recognition on the same unseen clips with one scorer: Whisper large-v3 per sentence and live in the stack, Azure real-time and fast transcription, MAI-Transcribe-2 (en, es, pt, fr, ja). See [its README](2026-10-whisper-vs-azure/README.md). |
 | `tools/` | The continuous-speech harness: stream a clip at real time to the stack, omni-stt or your own service, and measure first audio, per-piece lag, final lag, pauses, cuts and quality from its event log. See [its README](tools/README.md). |
 
 ## Where the data comes from
