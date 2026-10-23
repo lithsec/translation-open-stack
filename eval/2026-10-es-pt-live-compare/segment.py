@@ -19,7 +19,7 @@ MODEL = os.environ.get("SEGMENTER", "gemini-pro-latest")
 
 
 def speech_ends():
-    """End of each sentence's speech, ms (../2026-10-held-out/analyze_e2e.py speech_bounds)."""
+    """End of each sentence's speech, ms (../2026-10-unseen/analyze_e2e.py speech_bounds)."""
     meta = json.load(open(os.path.join(CLIPS, "en.json")))
     with wave.open(os.path.join(CLIPS, "en.wav")) as w:
         x = np.frombuffer(w.readframes(w.getnframes()), dtype="<i2").astype(np.float64)

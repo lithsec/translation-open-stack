@@ -1,4 +1,4 @@
-# Held-out check, October 2026
+# Unseen check, October 2026
 
 The pause and sentence work of October (#36–#39) was tuned on one 20-sentence clip per language. This
 round runs the stack on sentences none of that work saw, to see what holds.
@@ -77,14 +77,14 @@ C (MADLAD for Khmer): 2.6 / 3.3 s and no silent sentences.
 
 ## Findings
 
-1. **#39's quality gain does not hold on held-out speech.** Out of English, A and B differ by at most
+1. **#39's quality gain does not hold on unseen speech.** Out of English, A and B differ by at most
    1.7 points in every direction and both pause patterns, inside one round's noise; es→en is identical.
    en→km (A 28.3, B 43.3) is the exception and isn't #39's doing: Hy-MT2 falls behind on Khmer and drops
    whole sentences (A 8 silent, B 5), which swings the score run to run. The longer English turns still cost
    0.3–0.6 s at the median (both patterns). On the tuning clip the gain came
    from four sentences a 280 ms breath split in two; these readers didn't pause that way. No regression
    either: B never scores below A by more than the noise.
-2. **The held-out English clip is lost before translation.** Recognition is 16.6% of characters wrong
+2. **The unseen English clip is lost before translation.** Recognition is 16.6% of characters wrong
    against what was said (18.6% against the text; the tuning clip was under 4%). The grader's notes put most
    lost points on missing sentence starts: the first clause or whole first sentence of sentences 3, 11, 15, 17
    and 19. Each of those is a reader at about −60 dBFS straight after one at −18 to −30 dBFS

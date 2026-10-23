@@ -1,6 +1,6 @@
 # Azure recognition + three translators, and Gemini Live Translate, October 2026
 
-Two questions on held-out speech:
+Two questions on unseen speech:
 
 1. Behind Azure speech-to-text, how do an open translator (Hy-MT2 7B), an open
    LLM (Gemma 4 31B) and GPT-5.6-sol compare for Spanish and Portuguese (both
@@ -10,13 +10,13 @@ Two questions on held-out speech:
 
 ## Setup
 
-- **Audio:** the held-out clips of `../2026-10-held-out` (its `build_clips.py`,
+- **Audio:** the unseen clips of `../2026-10-unseen` (its `build_clips.py`,
   regular 1.0–1.95 s pauses): 20 FLEURS sentences per language (CC BY 4.0)
   that no earlier round used, read by FLEURS speakers, 2.5–3 minutes each.
   English, Spanish and Portuguese are used here. In 8 of the 20 English
   recordings the reader stops early or misreads, so English directions are
   graded twice: against the written text, and against what was said (the
-  held-out round's `said_en.json`). For Spanish and Portuguese "said" drops the
+  unseen round's `said_en.json`). For Spanish and Portuguese "said" drops the
   sentences whose recording doesn't match (one Spanish sentence).
 - **Recognition:** Azure speech-to-text (`stt_azure.py`; en-US, es-ES, pt-BR;
   eastus), fed at real time in 100 ms chunks, finals regrouped into the read
@@ -41,7 +41,7 @@ Two questions on held-out speech:
   from the stream) and the cut is made at those anchors, so it can only
   divide the stream, never change it. All anchors were found verbatim; two
   Spanish sentences had no translation of their own.
-- **Grading** (`grade.py`, the held-out round's grader): `gemini-pro-latest`,
+- **Grading** (`grade.py`, the unseen round's grader): `gemini-pro-latest`,
   blind, every system for a direction side by side in one call, 0–3 per
   sentence against the English meaning plus a critical-error flag. Shown as
   the share of the possible score, critical errors in brackets. One round for
@@ -67,7 +67,7 @@ Against what was said (against the written text in the second column group):
 Azure recognition, characters wrong against what was said: English 5.4%,
 Spanish 3.5%, Portuguese 3.0% (against the written text 8.7%, 3.8%, 3.8%).
 
-For reference only, from a **different grading round** (`../2026-10-held-out`,
+For reference only, from a **different grading round** (`../2026-10-unseen`,
 not comparable point for point): the open stack live on the same clips, against
 what was said, en→es 65.0, en→pt 56.7, en→fr 61.7, en→ja 56.7, en→km 55.0,
 en→lo 53.3, en→ht 38.3, es→en 84.2, pt→en 80.0.
@@ -133,6 +133,6 @@ Recognition (Azure speech-to-text) and voices are not included.
 ## Files
 
 `stt_azure.py`, `mt.py`, `live_translate.mjs`, `segment.py`, `round.py`
-(jobs and table), `grade.py` (copy of the held-out round's grader), and
+(jobs and table), `grade.py` (copy of the unseen round's grader), and
 `results.json` (scores, recognition, latency, cost, providers). Transcripts,
 translations and grades stay outside the repository.
