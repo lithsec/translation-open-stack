@@ -1,0 +1,1481 @@
+{
+ "grader": "gemini-pro-latest",
+ "rows": {
+  "conv:en-es": {
+   "V0-P8": {
+    "mode": "P8",
+    "prompt": "cur",
+    "rate": 0,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 94.2,
+    "distortion": 3.8,
+    "distorted_units": 2,
+    "units": 52,
+    "qa": 95.8,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 72.1,
+     "crit": 3
+    },
+    "chars_per_sentence": 69.7,
+    "audio_s_per_sentence": 6.04,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 1.0,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 36503,
+     "p90": 66765
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 39128,
+     "p90": 70990
+    },
+    "all_audio_done_after_speaker_stops_ms": 80189,
+    "ttfa_p50_ms": 142
+   },
+   "V2-P8": {
+    "mode": "P8",
+    "prompt": "cur",
+    "rate": 20,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 94.2,
+    "distortion": 3.8,
+    "distorted_units": 2,
+    "units": 52,
+    "qa": 95.8,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 72.1,
+     "crit": 3
+    },
+    "chars_per_sentence": 69.7,
+    "audio_s_per_sentence": 5.09,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 0.843,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 17994,
+     "p90": 35671
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 20181,
+     "p90": 39191
+    },
+    "all_audio_done_after_speaker_stops_ms": 44937,
+    "ttfa_p50_ms": 142
+   },
+   "V3-P8": {
+    "mode": "P8",
+    "prompt": "con",
+    "rate": 15,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 92.3,
+    "distortion": 5.8,
+    "distorted_units": 3,
+    "units": 52,
+    "qa": 87.5,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 70.3,
+     "crit": 4
+    },
+    "chars_per_sentence": 64.8,
+    "audio_s_per_sentence": 5.13,
+    "chars_vs_V0": 0.929,
+    "audio_vs_V0": 0.848,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 17692,
+     "p90": 35573
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 19975,
+     "p90": 39138
+    },
+    "all_audio_done_after_speaker_stops_ms": 45654,
+    "ttfa_p50_ms": 141
+   },
+   "V4-P8": {
+    "mode": "P8",
+    "prompt": "con",
+    "rate": 0,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 92.3,
+    "distortion": 5.8,
+    "distorted_units": 3,
+    "units": 52,
+    "qa": 87.5,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 70.3,
+     "crit": 4
+    },
+    "chars_per_sentence": 64.8,
+    "audio_s_per_sentence": 5.83,
+    "chars_vs_V0": 0.929,
+    "audio_vs_V0": 0.965,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 30649,
+     "p90": 59067
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 33274,
+     "p90": 63167
+    },
+    "all_audio_done_after_speaker_stops_ms": 71849,
+    "ttfa_p50_ms": 138
+   },
+   "V0-S": {
+    "mode": "S",
+    "prompt": "cur",
+    "rate": 0,
+    "unit_recall_essential": 95.8,
+    "unit_recall_all": 96.2,
+    "distortion": 1.9,
+    "distorted_units": 1,
+    "units": 52,
+    "qa": 95.8,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 91.0,
+     "crit": 2
+    },
+    "chars_per_sentence": 68.4,
+    "audio_s_per_sentence": 4.2,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 1.0,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 13358,
+     "p90": 26951
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 30571,
+     "p90": 50056
+    },
+    "all_audio_done_after_speaker_stops_ms": 35091,
+    "ttfa_p50_ms": 183
+   },
+   "V2-S": {
+    "mode": "S",
+    "prompt": "cur",
+    "rate": 20,
+    "unit_recall_essential": 95.8,
+    "unit_recall_all": 96.2,
+    "distortion": 1.9,
+    "distorted_units": 1,
+    "units": 52,
+    "qa": 95.8,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 91.0,
+     "crit": 2
+    },
+    "chars_per_sentence": 68.4,
+    "audio_s_per_sentence": 3.5,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 0.833,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 11910,
+     "p90": 22345
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 25365,
+     "p90": 45518
+    },
+    "all_audio_done_after_speaker_stops_ms": 30068,
+    "ttfa_p50_ms": 173
+   },
+   "V3-S": {
+    "mode": "S",
+    "prompt": "con",
+    "rate": 15,
+    "unit_recall_essential": 85.4,
+    "unit_recall_all": 86.5,
+    "distortion": 1.9,
+    "distorted_units": 1,
+    "units": 52,
+    "qa": 83.3,
+    "qa_wrong": 1,
+    "questions": 36,
+    "said": {
+     "q": 66.7,
+     "crit": 9
+    },
+    "chars_per_sentence": 52.4,
+    "audio_s_per_sentence": 2.87,
+    "chars_vs_V0": 0.766,
+    "audio_vs_V0": 0.682,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 11954,
+     "p90": 23074
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 21168,
+     "p90": 42149
+    },
+    "all_audio_done_after_speaker_stops_ms": 28895,
+    "ttfa_p50_ms": 161
+   },
+   "V4-S": {
+    "mode": "S",
+    "prompt": "con",
+    "rate": 0,
+    "unit_recall_essential": 85.4,
+    "unit_recall_all": 86.5,
+    "distortion": 1.9,
+    "distorted_units": 1,
+    "units": 52,
+    "qa": 83.3,
+    "qa_wrong": 1,
+    "questions": 36,
+    "said": {
+     "q": 66.7,
+     "crit": 9
+    },
+    "chars_per_sentence": 52.4,
+    "audio_s_per_sentence": 3.3,
+    "chars_vs_V0": 0.766,
+    "audio_vs_V0": 0.785,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 11906,
+     "p90": 23026
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 23897,
+     "p90": 44659
+    },
+    "all_audio_done_after_speaker_stops_ms": 32038,
+    "ttfa_p50_ms": 175
+   }
+  },
+  "conv:en-pt": {
+   "V0-P8": {
+    "mode": "P8",
+    "prompt": "cur",
+    "rate": 0,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 92.3,
+    "distortion": 5.8,
+    "distorted_units": 3,
+    "units": 52,
+    "qa": 93.1,
+    "qa_wrong": 1,
+    "questions": 36,
+    "said": {
+     "q": 76.6,
+     "crit": 0
+    },
+    "chars_per_sentence": 69.6,
+    "audio_s_per_sentence": 6.13,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 1.0,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 39990,
+     "p90": 70890
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 42880,
+     "p90": 74914
+    },
+    "all_audio_done_after_speaker_stops_ms": 84376,
+    "ttfa_p50_ms": 161
+   },
+   "V2-P8": {
+    "mode": "P8",
+    "prompt": "cur",
+    "rate": 20,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 92.3,
+    "distortion": 5.8,
+    "distorted_units": 3,
+    "units": 52,
+    "qa": 93.1,
+    "qa_wrong": 1,
+    "questions": 36,
+    "said": {
+     "q": 76.6,
+     "crit": 0
+    },
+    "chars_per_sentence": 69.6,
+    "audio_s_per_sentence": 5.15,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 0.841,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 20972,
+     "p90": 38286
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 23306,
+     "p90": 41640
+    },
+    "all_audio_done_after_speaker_stops_ms": 48106,
+    "ttfa_p50_ms": 170
+   },
+   "V3-P8": {
+    "mode": "P8",
+    "prompt": "con",
+    "rate": 15,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 92.3,
+    "distortion": 5.8,
+    "distorted_units": 3,
+    "units": 52,
+    "qa": 94.4,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 72.1,
+     "crit": 0
+    },
+    "chars_per_sentence": 63.3,
+    "audio_s_per_sentence": 5.14,
+    "chars_vs_V0": 0.909,
+    "audio_vs_V0": 0.839,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 26384,
+     "p90": 44674
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 28819,
+     "p90": 47950
+    },
+    "all_audio_done_after_speaker_stops_ms": 53743,
+    "ttfa_p50_ms": 160
+   },
+   "V4-P8": {
+    "mode": "P8",
+    "prompt": "con",
+    "rate": 0,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 92.3,
+    "distortion": 5.8,
+    "distorted_units": 3,
+    "units": 52,
+    "qa": 94.4,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 72.1,
+     "crit": 0
+    },
+    "chars_per_sentence": 63.3,
+    "audio_s_per_sentence": 5.83,
+    "chars_vs_V0": 0.909,
+    "audio_vs_V0": 0.951,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 38430,
+     "p90": 65717
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 41230,
+     "p90": 69505
+    },
+    "all_audio_done_after_speaker_stops_ms": 78367,
+    "ttfa_p50_ms": 160
+   },
+   "V0-S": {
+    "mode": "S",
+    "prompt": "cur",
+    "rate": 0,
+    "unit_recall_essential": 95.8,
+    "unit_recall_all": 96.2,
+    "distortion": 1.9,
+    "distorted_units": 1,
+    "units": 52,
+    "qa": 93.1,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 83.8,
+     "crit": 1
+    },
+    "chars_per_sentence": 68.0,
+    "audio_s_per_sentence": 4.32,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 1.0,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 14881,
+     "p90": 27092
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 30492,
+     "p90": 52051
+    },
+    "all_audio_done_after_speaker_stops_ms": 38781,
+    "ttfa_p50_ms": 166
+   },
+   "V2-S": {
+    "mode": "S",
+    "prompt": "cur",
+    "rate": 20,
+    "unit_recall_essential": 95.8,
+    "unit_recall_all": 96.2,
+    "distortion": 1.9,
+    "distorted_units": 1,
+    "units": 52,
+    "qa": 93.1,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 83.8,
+     "crit": 1
+    },
+    "chars_per_sentence": 68.0,
+    "audio_s_per_sentence": 3.6,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 0.833,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 13066,
+     "p90": 24822
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 25370,
+     "p90": 47154
+    },
+    "all_audio_done_after_speaker_stops_ms": 33884,
+    "ttfa_p50_ms": 186
+   },
+   "V3-S": {
+    "mode": "S",
+    "prompt": "con",
+    "rate": 15,
+    "unit_recall_essential": 87.5,
+    "unit_recall_all": 88.5,
+    "distortion": 3.8,
+    "distorted_units": 2,
+    "units": 52,
+    "qa": 88.9,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 55.9,
+     "crit": 1
+    },
+    "chars_per_sentence": 50.0,
+    "audio_s_per_sentence": 2.88,
+    "chars_vs_V0": 0.736,
+    "audio_vs_V0": 0.668,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 12729,
+     "p90": 20680
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 21356,
+     "p90": 41559
+    },
+    "all_audio_done_after_speaker_stops_ms": 27011,
+    "ttfa_p50_ms": 195
+   },
+   "V4-S": {
+    "mode": "S",
+    "prompt": "con",
+    "rate": 0,
+    "unit_recall_essential": 87.5,
+    "unit_recall_all": 88.5,
+    "distortion": 3.8,
+    "distorted_units": 2,
+    "units": 52,
+    "qa": 88.9,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 55.9,
+     "crit": 1
+    },
+    "chars_per_sentence": 50.0,
+    "audio_s_per_sentence": 3.31,
+    "chars_vs_V0": 0.736,
+    "audio_vs_V0": 0.768,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 12737,
+     "p90": 20716
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 23588,
+     "p90": 43983
+    },
+    "all_audio_done_after_speaker_stops_ms": 30316,
+    "ttfa_p50_ms": 169
+   }
+  },
+  "conv:en-fr": {
+   "V0-P8": {
+    "mode": "P8",
+    "prompt": "cur",
+    "rate": 0,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 92.3,
+    "distortion": 5.8,
+    "distorted_units": 3,
+    "units": 52,
+    "qa": 94.4,
+    "qa_wrong": 1,
+    "questions": 36,
+    "said": {
+     "q": 76.6,
+     "crit": 1
+    },
+    "chars_per_sentence": 78.2,
+    "audio_s_per_sentence": 6.27,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 1.0,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 42983,
+     "p90": 75430
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 46173,
+     "p90": 79992
+    },
+    "all_audio_done_after_speaker_stops_ms": 90294,
+    "ttfa_p50_ms": 141
+   },
+   "V2-P8": {
+    "mode": "P8",
+    "prompt": "cur",
+    "rate": 20,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 92.3,
+    "distortion": 5.8,
+    "distorted_units": 3,
+    "units": 52,
+    "qa": 94.4,
+    "qa_wrong": 1,
+    "questions": 36,
+    "said": {
+     "q": 76.6,
+     "crit": 1
+    },
+    "chars_per_sentence": 78.2,
+    "audio_s_per_sentence": 5.25,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 0.837,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 23917,
+     "p90": 42018
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 26354,
+     "p90": 45819
+    },
+    "all_audio_done_after_speaker_stops_ms": 52312,
+    "ttfa_p50_ms": 140
+   },
+   "V3-P8": {
+    "mode": "P8",
+    "prompt": "con",
+    "rate": 15,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 92.3,
+    "distortion": 3.8,
+    "distorted_units": 2,
+    "units": 52,
+    "qa": 88.9,
+    "qa_wrong": 1,
+    "questions": 36,
+    "said": {
+     "q": 71.2,
+     "crit": 1
+    },
+    "chars_per_sentence": 72.9,
+    "audio_s_per_sentence": 5.22,
+    "chars_vs_V0": 0.932,
+    "audio_vs_V0": 0.833,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 27148,
+     "p90": 46284
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 29692,
+     "p90": 49652
+    },
+    "all_audio_done_after_speaker_stops_ms": 56732,
+    "ttfa_p50_ms": 140
+   },
+   "V4-P8": {
+    "mode": "P8",
+    "prompt": "con",
+    "rate": 0,
+    "unit_recall_essential": 93.8,
+    "unit_recall_all": 92.3,
+    "distortion": 3.8,
+    "distorted_units": 2,
+    "units": 52,
+    "qa": 88.9,
+    "qa_wrong": 1,
+    "questions": 36,
+    "said": {
+     "q": 71.2,
+     "crit": 1
+    },
+    "chars_per_sentence": 72.9,
+    "audio_s_per_sentence": 5.95,
+    "chars_vs_V0": 0.932,
+    "audio_vs_V0": 0.948,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 39842,
+     "p90": 68814
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 42806,
+     "p90": 72690
+    },
+    "all_audio_done_after_speaker_stops_ms": 82552,
+    "ttfa_p50_ms": 138
+   },
+   "V0-S": {
+    "mode": "S",
+    "prompt": "cur",
+    "rate": 0,
+    "unit_recall_essential": 95.8,
+    "unit_recall_all": 96.2,
+    "distortion": 1.9,
+    "distorted_units": 1,
+    "units": 52,
+    "qa": 93.1,
+    "qa_wrong": 1,
+    "questions": 36,
+    "said": {
+     "q": 92.8,
+     "crit": 0
+    },
+    "chars_per_sentence": 73.7,
+    "audio_s_per_sentence": 4.44,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 1.0,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 14642,
+     "p90": 27133
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 30426,
+     "p90": 54815
+    },
+    "all_audio_done_after_speaker_stops_ms": 41545,
+    "ttfa_p50_ms": 150
+   },
+   "V2-S": {
+    "mode": "S",
+    "prompt": "cur",
+    "rate": 20,
+    "unit_recall_essential": 95.8,
+    "unit_recall_all": 96.2,
+    "distortion": 1.9,
+    "distorted_units": 1,
+    "units": 52,
+    "qa": 93.1,
+    "qa_wrong": 1,
+    "questions": 36,
+    "said": {
+     "q": 92.8,
+     "crit": 0
+    },
+    "chars_per_sentence": 73.7,
+    "audio_s_per_sentence": 3.7,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 0.833,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 13876,
+     "p90": 25426
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 25809,
+     "p90": 49604
+    },
+    "all_audio_done_after_speaker_stops_ms": 36334,
+    "ttfa_p50_ms": 154
+   },
+   "V3-S": {
+    "mode": "S",
+    "prompt": "con",
+    "rate": 15,
+    "unit_recall_essential": 72.9,
+    "unit_recall_all": 75.0,
+    "distortion": 5.8,
+    "distorted_units": 3,
+    "units": 52,
+    "qa": 72.2,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 59.5,
+     "crit": 0
+    },
+    "chars_per_sentence": 52.6,
+    "audio_s_per_sentence": 2.73,
+    "chars_vs_V0": 0.714,
+    "audio_vs_V0": 0.615,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 13395,
+     "p90": 24452
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 23122,
+     "p90": 42036
+    },
+    "all_audio_done_after_speaker_stops_ms": 24276,
+    "ttfa_p50_ms": 146
+   },
+   "V4-S": {
+    "mode": "S",
+    "prompt": "con",
+    "rate": 0,
+    "unit_recall_essential": 72.9,
+    "unit_recall_all": 75.0,
+    "distortion": 5.8,
+    "distorted_units": 3,
+    "units": 52,
+    "qa": 72.2,
+    "qa_wrong": 0,
+    "questions": 36,
+    "said": {
+     "q": 59.5,
+     "crit": 0
+    },
+    "chars_per_sentence": 52.6,
+    "audio_s_per_sentence": 3.14,
+    "chars_vs_V0": 0.714,
+    "audio_vs_V0": 0.708,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 13647,
+     "p90": 24451
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 25033,
+     "p90": 44667
+    },
+    "all_audio_done_after_speaker_stops_ms": 27228,
+    "ttfa_p50_ms": 149
+   }
+  },
+  "conv:es-en": {
+   "V0-P8": {
+    "mode": "P8",
+    "prompt": "cur",
+    "rate": 0,
+    "unit_recall_essential": 88.1,
+    "unit_recall_all": 88.0,
+    "distortion": 4.0,
+    "distorted_units": 2,
+    "units": 50,
+    "qa": 89.5,
+    "qa_wrong": 0,
+    "questions": 19,
+    "said": {
+     "q": 60.0,
+     "crit": 1
+    },
+    "chars_per_sentence": 233.0,
+    "audio_s_per_sentence": 18.58,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 1.0,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 28602,
+     "p90": 47719
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 31452,
+     "p90": 49831
+    },
+    "all_audio_done_after_speaker_stops_ms": 49831,
+    "ttfa_p50_ms": 137
+   },
+   "V2-P8": {
+    "mode": "P8",
+    "prompt": "cur",
+    "rate": 20,
+    "unit_recall_essential": 88.1,
+    "unit_recall_all": 88.0,
+    "distortion": 4.0,
+    "distorted_units": 2,
+    "units": 50,
+    "qa": 89.5,
+    "qa_wrong": 0,
+    "questions": 19,
+    "said": {
+     "q": 60.0,
+     "crit": 1
+    },
+    "chars_per_sentence": 233.0,
+    "audio_s_per_sentence": 15.51,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 0.835,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 10230,
+     "p90": 17264
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 13070,
+     "p90": 19084
+    },
+    "all_audio_done_after_speaker_stops_ms": 19084,
+    "ttfa_p50_ms": 135
+   },
+   "V3-P8": {
+    "mode": "P8",
+    "prompt": "con",
+    "rate": 15,
+    "unit_recall_essential": 78.6,
+    "unit_recall_all": 80.0,
+    "distortion": 10.0,
+    "distorted_units": 5,
+    "units": 50,
+    "qa": 92.1,
+    "qa_wrong": 0,
+    "questions": 19,
+    "said": {
+     "q": 60.0,
+     "crit": 1
+    },
+    "chars_per_sentence": 235.4,
+    "audio_s_per_sentence": 16.14,
+    "chars_vs_V0": 1.01,
+    "audio_vs_V0": 0.869,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 12955,
+     "p90": 23381
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 15509,
+     "p90": 25424
+    },
+    "all_audio_done_after_speaker_stops_ms": 25424,
+    "ttfa_p50_ms": 133
+   },
+   "V4-P8": {
+    "mode": "P8",
+    "prompt": "con",
+    "rate": 0,
+    "unit_recall_essential": 78.6,
+    "unit_recall_all": 80.0,
+    "distortion": 10.0,
+    "distorted_units": 5,
+    "units": 50,
+    "qa": 92.1,
+    "qa_wrong": 0,
+    "questions": 19,
+    "said": {
+     "q": 60.0,
+     "crit": 1
+    },
+    "chars_per_sentence": 235.4,
+    "audio_s_per_sentence": 18.53,
+    "chars_vs_V0": 1.01,
+    "audio_vs_V0": 0.998,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 27026,
+     "p90": 46956
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 29876,
+     "p90": 49306
+    },
+    "all_audio_done_after_speaker_stops_ms": 49306,
+    "ttfa_p50_ms": 134
+   },
+   "V0-S": {
+    "mode": "S",
+    "prompt": "cur",
+    "rate": 0,
+    "unit_recall_essential": 81.0,
+    "unit_recall_all": 80.0,
+    "distortion": 16.0,
+    "distorted_units": 8,
+    "units": 50,
+    "qa": 78.9,
+    "qa_wrong": 3,
+    "questions": 19,
+    "said": {
+     "q": 73.3,
+     "crit": 2
+    },
+    "chars_per_sentence": 228.7,
+    "audio_s_per_sentence": 13.67,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 1.0,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 14612,
+     "p90": 27272
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 35116,
+     "p90": 59984
+    },
+    "all_audio_done_after_speaker_stops_ms": 35116,
+    "ttfa_p50_ms": 182
+   },
+   "V2-S": {
+    "mode": "S",
+    "prompt": "cur",
+    "rate": 20,
+    "unit_recall_essential": 81.0,
+    "unit_recall_all": 80.0,
+    "distortion": 16.0,
+    "distorted_units": 8,
+    "units": 50,
+    "qa": 78.9,
+    "qa_wrong": 3,
+    "questions": 19,
+    "said": {
+     "q": 73.3,
+     "crit": 2
+    },
+    "chars_per_sentence": 228.7,
+    "audio_s_per_sentence": 11.39,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 0.833,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 12474,
+     "p90": 27278
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 26948,
+     "p90": 54528
+    },
+    "all_audio_done_after_speaker_stops_ms": 26948,
+    "ttfa_p50_ms": 167
+   },
+   "V3-S": {
+    "mode": "S",
+    "prompt": "con",
+    "rate": 15,
+    "unit_recall_essential": 76.2,
+    "unit_recall_all": 78.0,
+    "distortion": 16.0,
+    "distorted_units": 8,
+    "units": 50,
+    "qa": 73.7,
+    "qa_wrong": 2,
+    "questions": 19,
+    "said": {
+     "q": 53.3,
+     "crit": 2
+    },
+    "chars_per_sentence": 201.1,
+    "audio_s_per_sentence": 10.79,
+    "chars_vs_V0": 0.879,
+    "audio_vs_V0": 0.789,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 9338,
+     "p90": 26522
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 23424,
+     "p90": 50456
+    },
+    "all_audio_done_after_speaker_stops_ms": 23424,
+    "ttfa_p50_ms": 141
+   },
+   "V4-S": {
+    "mode": "S",
+    "prompt": "con",
+    "rate": 0,
+    "unit_recall_essential": 76.2,
+    "unit_recall_all": 78.0,
+    "distortion": 16.0,
+    "distorted_units": 8,
+    "units": 50,
+    "qa": 73.7,
+    "qa_wrong": 2,
+    "questions": 19,
+    "said": {
+     "q": 53.3,
+     "crit": 2
+    },
+    "chars_per_sentence": 201.1,
+    "audio_s_per_sentence": 12.41,
+    "chars_vs_V0": 0.879,
+    "audio_vs_V0": 0.908,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 12900,
+     "p90": 26493
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 29100,
+     "p90": 54018
+    },
+    "all_audio_done_after_speaker_stops_ms": 29100,
+    "ttfa_p50_ms": 164
+   }
+  },
+  "conv:fr-en": {
+   "V0-P8": {
+    "mode": "P8",
+    "prompt": "cur",
+    "rate": 0,
+    "unit_recall_essential": 91.8,
+    "unit_recall_all": 91.4,
+    "distortion": 0.0,
+    "distorted_units": 0,
+    "units": 58,
+    "qa": 95.5,
+    "qa_wrong": 0,
+    "questions": 22,
+    "said": {
+     "q": 66.7,
+     "crit": 1
+    },
+    "chars_per_sentence": 162.5,
+    "audio_s_per_sentence": 13.26,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 1.0,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 15482,
+     "p90": 27732
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 18632,
+     "p90": 30507
+    },
+    "all_audio_done_after_speaker_stops_ms": 33315,
+    "ttfa_p50_ms": 135
+   },
+   "V2-P8": {
+    "mode": "P8",
+    "prompt": "cur",
+    "rate": 20,
+    "unit_recall_essential": 91.8,
+    "unit_recall_all": 91.4,
+    "distortion": 0.0,
+    "distorted_units": 0,
+    "units": 58,
+    "qa": 95.5,
+    "qa_wrong": 0,
+    "questions": 22,
+    "said": {
+     "q": 66.7,
+     "crit": 1
+    },
+    "chars_per_sentence": 162.5,
+    "audio_s_per_sentence": 11.07,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 0.835,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 4092,
+     "p90": 5022
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 5912,
+     "p90": 7670
+    },
+    "all_audio_done_after_speaker_stops_ms": 6412,
+    "ttfa_p50_ms": 137
+   },
+   "V3-P8": {
+    "mode": "P8",
+    "prompt": "con",
+    "rate": 15,
+    "unit_recall_essential": 93.9,
+    "unit_recall_all": 94.8,
+    "distortion": 0.0,
+    "distorted_units": 0,
+    "units": 58,
+    "qa": 97.7,
+    "qa_wrong": 0,
+    "questions": 22,
+    "said": {
+     "q": 71.4,
+     "crit": 1
+    },
+    "chars_per_sentence": 158.6,
+    "audio_s_per_sentence": 11.45,
+    "chars_vs_V0": 0.976,
+    "audio_vs_V0": 0.863,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 5115,
+     "p90": 6969
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 7373,
+     "p90": 9761
+    },
+    "all_audio_done_after_speaker_stops_ms": 10316,
+    "ttfa_p50_ms": 134
+   },
+   "V4-P8": {
+    "mode": "P8",
+    "prompt": "con",
+    "rate": 0,
+    "unit_recall_essential": 93.9,
+    "unit_recall_all": 94.8,
+    "distortion": 0.0,
+    "distorted_units": 0,
+    "units": 58,
+    "qa": 97.7,
+    "qa_wrong": 0,
+    "questions": 22,
+    "said": {
+     "q": 71.4,
+     "crit": 1
+    },
+    "chars_per_sentence": 158.6,
+    "audio_s_per_sentence": 13.14,
+    "chars_vs_V0": 0.976,
+    "audio_vs_V0": 0.991,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 14577,
+     "p90": 26463
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 17727,
+     "p90": 29238
+    },
+    "all_audio_done_after_speaker_stops_ms": 32046,
+    "ttfa_p50_ms": 131
+   },
+   "V0-S": {
+    "mode": "S",
+    "prompt": "cur",
+    "rate": 0,
+    "unit_recall_essential": 100.0,
+    "unit_recall_all": 100.0,
+    "distortion": 0.0,
+    "distorted_units": 0,
+    "units": 58,
+    "qa": 100.0,
+    "qa_wrong": 0,
+    "questions": 22,
+    "said": {
+     "q": 95.2,
+     "crit": 0
+    },
+    "chars_per_sentence": 163.0,
+    "audio_s_per_sentence": 9.61,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 1.0,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 14239,
+     "p90": 19568
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 24093,
+     "p90": 30168
+    },
+    "all_audio_done_after_speaker_stops_ms": 25671,
+    "ttfa_p50_ms": 162
+   },
+   "V2-S": {
+    "mode": "S",
+    "prompt": "cur",
+    "rate": 20,
+    "unit_recall_essential": 100.0,
+    "unit_recall_all": 100.0,
+    "distortion": 0.0,
+    "distorted_units": 0,
+    "units": 58,
+    "qa": 100.0,
+    "qa_wrong": 0,
+    "questions": 22,
+    "said": {
+     "q": 95.2,
+     "crit": 0
+    },
+    "chars_per_sentence": 163.0,
+    "audio_s_per_sentence": 8.0,
+    "chars_vs_V0": 1.0,
+    "audio_vs_V0": 0.833,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 11204,
+     "p90": 17252
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 20586,
+     "p90": 25266
+    },
+    "all_audio_done_after_speaker_stops_ms": 20355,
+    "ttfa_p50_ms": 160
+   },
+   "V3-S": {
+    "mode": "S",
+    "prompt": "con",
+    "rate": 15,
+    "unit_recall_essential": 87.8,
+    "unit_recall_all": 89.7,
+    "distortion": 0.0,
+    "distorted_units": 0,
+    "units": 58,
+    "qa": 100.0,
+    "qa_wrong": 0,
+    "questions": 22,
+    "said": {
+     "q": 71.4,
+     "crit": 0
+    },
+    "chars_per_sentence": 144.0,
+    "audio_s_per_sentence": 7.6,
+    "chars_vs_V0": 0.883,
+    "audio_vs_V0": 0.791,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 11172,
+     "p90": 16921
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 19132,
+     "p90": 25855
+    },
+    "all_audio_done_after_speaker_stops_ms": 18041,
+    "ttfa_p50_ms": 150
+   },
+   "V4-S": {
+    "mode": "S",
+    "prompt": "con",
+    "rate": 0,
+    "unit_recall_essential": 87.8,
+    "unit_recall_all": 89.7,
+    "distortion": 0.0,
+    "distorted_units": 0,
+    "units": 58,
+    "qa": 100.0,
+    "qa_wrong": 0,
+    "questions": 22,
+    "said": {
+     "q": 71.4,
+     "crit": 0
+    },
+    "chars_per_sentence": 144.0,
+    "audio_s_per_sentence": 8.74,
+    "chars_vs_V0": 0.883,
+    "audio_vs_V0": 0.91,
+    "last_audio_start_after_sentence_end_ms": {
+     "p50": 13620,
+     "p90": 17809
+    },
+    "sentence_heard_in_full_after_its_end_ms": {
+     "p50": 22525,
+     "p90": 27988
+    },
+    "all_audio_done_after_speaker_stops_ms": 21734,
+    "ttfa_p50_ms": 151
+   }
+  }
+ },
+ "averages": {
+  "out of English|V0-P8": {
+   "unit_recall_essential": 93.8,
+   "unit_recall_all": 92.9,
+   "distortion": 5.1,
+   "qa": 94.4,
+   "chars_vs_V0": 1.0,
+   "audio_vs_V0": 1.0,
+   "all_audio_done_after_speaker_stops_ms": 84953,
+   "said_q": 75.1,
+   "crit_said": 4,
+   "distorted_units": 8,
+   "last_p50_ms": 39825,
+   "last_p90_ms": 71028
+  },
+  "out of English|V2-P8": {
+   "unit_recall_essential": 93.8,
+   "unit_recall_all": 92.9,
+   "distortion": 5.1,
+   "qa": 94.4,
+   "chars_vs_V0": 1.0,
+   "audio_vs_V0": 0.84,
+   "all_audio_done_after_speaker_stops_ms": 48451.7,
+   "said_q": 75.1,
+   "crit_said": 4,
+   "distorted_units": 8,
+   "last_p50_ms": 20961,
+   "last_p90_ms": 38658
+  },
+  "out of English|V3-P8": {
+   "unit_recall_essential": 93.8,
+   "unit_recall_all": 92.3,
+   "distortion": 5.1,
+   "qa": 90.3,
+   "chars_vs_V0": 0.923,
+   "audio_vs_V0": 0.84,
+   "all_audio_done_after_speaker_stops_ms": 52043,
+   "said_q": 71.2,
+   "crit_said": 5,
+   "distorted_units": 8,
+   "last_p50_ms": 23741,
+   "last_p90_ms": 42177
+  },
+  "out of English|V4-P8": {
+   "unit_recall_essential": 93.8,
+   "unit_recall_all": 92.3,
+   "distortion": 5.1,
+   "qa": 90.3,
+   "chars_vs_V0": 0.923,
+   "audio_vs_V0": 0.955,
+   "all_audio_done_after_speaker_stops_ms": 77589.3,
+   "said_q": 71.2,
+   "crit_said": 5,
+   "distorted_units": 8,
+   "last_p50_ms": 36307,
+   "last_p90_ms": 64533
+  },
+  "out of English|V0-S": {
+   "unit_recall_essential": 95.8,
+   "unit_recall_all": 96.2,
+   "distortion": 1.9,
+   "qa": 94.0,
+   "chars_vs_V0": 1.0,
+   "audio_vs_V0": 1.0,
+   "all_audio_done_after_speaker_stops_ms": 38472.3,
+   "said_q": 89.2,
+   "crit_said": 3,
+   "distorted_units": 3,
+   "last_p50_ms": 14294,
+   "last_p90_ms": 27059
+  },
+  "out of English|V2-S": {
+   "unit_recall_essential": 95.8,
+   "unit_recall_all": 96.2,
+   "distortion": 1.9,
+   "qa": 94.0,
+   "chars_vs_V0": 1.0,
+   "audio_vs_V0": 0.833,
+   "all_audio_done_after_speaker_stops_ms": 33428.7,
+   "said_q": 89.2,
+   "crit_said": 3,
+   "distorted_units": 3,
+   "last_p50_ms": 12951,
+   "last_p90_ms": 24198
+  },
+  "out of English|V3-S": {
+   "unit_recall_essential": 81.9,
+   "unit_recall_all": 83.3,
+   "distortion": 3.8,
+   "qa": 81.5,
+   "chars_vs_V0": 0.739,
+   "audio_vs_V0": 0.655,
+   "all_audio_done_after_speaker_stops_ms": 26727.3,
+   "said_q": 60.7,
+   "crit_said": 10,
+   "distorted_units": 6,
+   "last_p50_ms": 12693,
+   "last_p90_ms": 22735
+  },
+  "out of English|V4-S": {
+   "unit_recall_essential": 81.9,
+   "unit_recall_all": 83.3,
+   "distortion": 3.8,
+   "qa": 81.5,
+   "chars_vs_V0": 0.739,
+   "audio_vs_V0": 0.754,
+   "all_audio_done_after_speaker_stops_ms": 29860.7,
+   "said_q": 60.7,
+   "crit_said": 10,
+   "distorted_units": 6,
+   "last_p50_ms": 12763,
+   "last_p90_ms": 22731
+  },
+  "into English|V0-P8": {
+   "unit_recall_essential": 89.9,
+   "unit_recall_all": 89.7,
+   "distortion": 2.0,
+   "qa": 92.5,
+   "chars_vs_V0": 1.0,
+   "audio_vs_V0": 1.0,
+   "all_audio_done_after_speaker_stops_ms": 41573,
+   "said_q": 63.4,
+   "crit_said": 2,
+   "distorted_units": 2,
+   "last_p50_ms": 22042,
+   "last_p90_ms": 37726
+  },
+  "into English|V2-P8": {
+   "unit_recall_essential": 89.9,
+   "unit_recall_all": 89.7,
+   "distortion": 2.0,
+   "qa": 92.5,
+   "chars_vs_V0": 1.0,
+   "audio_vs_V0": 0.835,
+   "all_audio_done_after_speaker_stops_ms": 12748,
+   "said_q": 63.4,
+   "crit_said": 2,
+   "distorted_units": 2,
+   "last_p50_ms": 7161,
+   "last_p90_ms": 11143
+  },
+  "into English|V3-P8": {
+   "unit_recall_essential": 86.2,
+   "unit_recall_all": 87.4,
+   "distortion": 5.0,
+   "qa": 94.9,
+   "chars_vs_V0": 0.993,
+   "audio_vs_V0": 0.866,
+   "all_audio_done_after_speaker_stops_ms": 17870,
+   "said_q": 65.7,
+   "crit_said": 2,
+   "distorted_units": 5,
+   "last_p50_ms": 9035,
+   "last_p90_ms": 15175
+  },
+  "into English|V4-P8": {
+   "unit_recall_essential": 86.2,
+   "unit_recall_all": 87.4,
+   "distortion": 5.0,
+   "qa": 94.9,
+   "chars_vs_V0": 0.993,
+   "audio_vs_V0": 0.994,
+   "all_audio_done_after_speaker_stops_ms": 40676,
+   "said_q": 65.7,
+   "crit_said": 2,
+   "distorted_units": 5,
+   "last_p50_ms": 20802,
+   "last_p90_ms": 36710
+  },
+  "into English|V0-S": {
+   "unit_recall_essential": 90.5,
+   "unit_recall_all": 90.0,
+   "distortion": 8.0,
+   "qa": 89.5,
+   "chars_vs_V0": 1.0,
+   "audio_vs_V0": 1.0,
+   "all_audio_done_after_speaker_stops_ms": 30393.5,
+   "said_q": 84.2,
+   "crit_said": 2,
+   "distorted_units": 8,
+   "last_p50_ms": 14426,
+   "last_p90_ms": 23420
+  },
+  "into English|V2-S": {
+   "unit_recall_essential": 90.5,
+   "unit_recall_all": 90.0,
+   "distortion": 8.0,
+   "qa": 89.5,
+   "chars_vs_V0": 1.0,
+   "audio_vs_V0": 0.833,
+   "all_audio_done_after_speaker_stops_ms": 23651.5,
+   "said_q": 84.2,
+   "crit_said": 2,
+   "distorted_units": 8,
+   "last_p50_ms": 11839,
+   "last_p90_ms": 22265
+  },
+  "into English|V3-S": {
+   "unit_recall_essential": 82.0,
+   "unit_recall_all": 83.8,
+   "distortion": 8.0,
+   "qa": 86.8,
+   "chars_vs_V0": 0.881,
+   "audio_vs_V0": 0.79,
+   "all_audio_done_after_speaker_stops_ms": 20732.5,
+   "said_q": 62.4,
+   "crit_said": 2,
+   "distorted_units": 8,
+   "last_p50_ms": 10255,
+   "last_p90_ms": 21722
+  },
+  "into English|V4-S": {
+   "unit_recall_essential": 82.0,
+   "unit_recall_all": 83.8,
+   "distortion": 8.0,
+   "qa": 86.8,
+   "chars_vs_V0": 0.881,
+   "audio_vs_V0": 0.909,
+   "all_audio_done_after_speaker_stops_ms": 25417,
+   "said_q": 62.4,
+   "crit_said": 2,
+   "distorted_units": 8,
+   "last_p50_ms": 13260,
+   "last_p90_ms": 22151
+  }
+ }
+}
