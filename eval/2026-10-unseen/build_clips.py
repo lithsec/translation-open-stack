@@ -1,4 +1,4 @@
-# Held-out clips: 20 FLEURS test sentences (CC BY 4.0) shared by en, es, fr, ja, km, lo, pt that no
+# Unseen clips: 20 FLEURS test sentences (CC BY 4.0) shared by en, es, fr, ja, km, lo, pt that no
 # earlier October clip used, plus 20 unused CMU Haitian Creole utterances. Two pause patterns:
 #   reg: 1.0-1.95 s between sentences (as the e2e clips)
 #   irr: 0.3-1.2 s, irregular (closer to natural speech)

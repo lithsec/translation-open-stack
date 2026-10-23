@@ -1,5 +1,5 @@
 // Gemini Live Translate (the model Talk's worker uses, on Vertex AI) on the
-// held-out English clip, streamed at real time, into each target language.
+// unseen English clip, streamed at real time, into each target language.
 // The live() mode of ../2026-10-real-voices/gemini_live.mjs, keeping every
 // output-transcription fragment and audio chunk with its arrival time so the
 // continuous answer can be cut per sentence afterwards (segment.py).

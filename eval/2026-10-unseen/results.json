@@ -1,5 +1,5 @@
 {
- "note": "Held-out check of the open stack, October 2026. Systems: A main (36693cc), B feat/english-80 (PR #39, 636b964), C B with MADLAD-400 7B as the Khmer translator, D B with a per-piece MetricX-24 QE pick between Hy-MT2 7B and MADLAD-400 7B (offline, on B's live English pieces), E B's live English pieces re-translated by Hy-MT2-30B-A3B on OpenRouter. Quality = share of the possible 3 per sentence (blind, gemini-pro-latest, all systems of a direction in one call); critical = count.",
+ "note": "Unseen check of the open stack, October 2026. Systems: A main (36693cc), B feat/english-80 (PR #39, 636b964), C B with MADLAD-400 7B as the Khmer translator, D B with a per-piece MetricX-24 QE pick between Hy-MT2 7B and MADLAD-400 7B (offline, on B's live English pieces), E B's live English pieces re-translated by Hy-MT2-30B-A3B on OpenRouter. Quality = share of the possible 3 per sentence (blind, gemini-pro-latest, all systems of a direction in one call); critical = count.",
  "fleurs_ids": [
   "1737",
   "1871",
