@@ -601,7 +601,7 @@ async def handle_streaming(ws, pipe, src, lang, edition=None, memory=None):
     meter = AudioMeter()
     loop = asyncio.get_running_loop()
     memory = memory or TranslationMemory(False)   # the previous clauses, for ?context=1
-    from audio_in import AudioIn, QuietBoost, vad_block  # numpy: loaded with the rest, not at import
+    from audio_in import AudioIn, QuietBoost, QUIET_ASR, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn("streaming client")
     endpoint_ms, _, _, max_utterance_s = endpointing(src)
     boost = QuietBoost()   # the VAD's copy of a quiet talker, brought up (audio_in.py)
@@ -635,9 +635,10 @@ async def handle_streaming(ws, pipe, src, lang, edition=None, memory=None):
             continue
         # Fixed 96 ms blocks, whatever size of message the client sends (audio_in.py, issue #13).
         for pcm16 in conn_in.feed(msg):
-            buf = np.concatenate([buf, pcm16])
+            loud = boost(pcm16)
+            buf = np.concatenate([buf, loud if QUIET_ASR else pcm16])
             chunk_ms = len(pcm16) / VAD_RATE * 1000
-            prob = vad_block(vad, boost(pcm16))
+            prob = vad_block(vad, loud)
             quiet_ms = 0.0 if prob > 0.5 else quiet_ms + chunk_ms
             since_asr_ms += chunk_ms
 
@@ -1324,7 +1325,7 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, co
     if priority:
         room.priority_ws.add(ws)
     meter = AudioMeter()
-    from audio_in import AudioIn, QuietBoost, vad_block  # numpy: loaded with the rest, not at import
+    from audio_in import AudioIn, QuietBoost, QUIET_ASR, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn(f"room {room_id}")
     endpoint_ms, long_utterance_s, long_endpoint_ms, max_utterance_s = endpointing(src)
     min_ms = min_speech_ms(src)
@@ -1356,12 +1357,13 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, co
                 continue  # same audio as the primary — drain and discard
             # Fixed 96 ms blocks, whatever size of message the client sends (audio_in.py, issue #13).
             for pcm16 in conn_in.feed(msg):
-                room.buf = np.concatenate([room.buf, pcm16])
-                chunk_ms = len(pcm16) / VAD_RATE * 1000
                 if room.vad is None:
                     room.vad = pipe.new_vad()
                     room.boost = QuietBoost()   # a quiet talker, brought up for the VAD (audio_in.py)
-                prob = vad_block(room.vad, room.boost(pcm16))
+                loud = room.boost(pcm16)
+                room.buf = np.concatenate([room.buf, loud if QUIET_ASR else pcm16])
+                chunk_ms = len(pcm16) / VAD_RATE * 1000
+                prob = vad_block(room.vad, loud)
                 if prob > 0.5:
                     room.speech_seen = True
                     room.quiet_ms = 0.0
@@ -1604,7 +1606,7 @@ async def handle(ws, pipe, sub="open", edition=None):
     speech_seen = False
     vad = pipe.new_vad()
     meter = AudioMeter()
-    from audio_in import AudioIn, QuietBoost, vad_block  # numpy: loaded with the rest, not at import
+    from audio_in import AudioIn, QuietBoost, QUIET_ASR, vad_block  # numpy: loaded with the rest, not at import
     conn_in = AudioIn(clean(sub, 24))
     endpoint_ms, _, _, max_utterance_s = endpointing(src)
     min_ms = min_speech_ms(src)
@@ -1618,10 +1620,11 @@ async def handle(ws, pipe, sub="open", edition=None):
             continue
         # Fixed 96 ms blocks, whatever size of message the client sends (audio_in.py, issue #13).
         for pcm16 in conn_in.feed(msg):
-            buf = np.concatenate([buf, pcm16])
+            loud = boost(pcm16)
+            buf = np.concatenate([buf, loud if QUIET_ASR else pcm16])
             # Endpoint on Silero: an utterance ends after endpoint_ms without speech.
             chunk_ms = len(pcm16) / VAD_RATE * 1000
-            prob = vad_block(vad, boost(pcm16))
+            prob = vad_block(vad, loud)
             if prob > 0.5:
                 speech_seen = True
                 quiet_ms = 0.0

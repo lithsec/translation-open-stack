@@ -69,7 +69,20 @@ INPUTS = {
     "fcost_readme": "eval/2026-10-translation-cost/README.md",
     "prices": "site/data/list-prices.json",
     "cost_tool": "eval/tools/cost.py",  # the page's formulas, as a script; imported below
+    # 21-23 October updates (Findings, Latency, Cost, Models, Methodology)
+    "o_lk7b": "eval/2026-10-lao-khmer-7b/results.json",
+    "o_pauses": "eval/2026-10-pauses/results.json",
+    "o_en80": "eval/2026-10-english-80/results.json",
+    "o_unseen": "eval/2026-10-unseen/results.json",
+    "o_htlo": "eval/2026-10-ht-lo-translators/results.json",
+    "o_g4": "eval/2026-10-translator-shootout-gemma4/results.json",
+    "o_espt": "eval/2026-10-es-pt-live-compare/results.json",
+    "o_wva": "eval/2026-10-whisper-vs-azure/results.json",
+    "o_qal": "eval/2026-10-quiet-after-loud/results.json",
+    "o_llmlive": "eval/2026-10-llm-translator-live/results.json",
+    "o_simul": "eval/2026-10-simultaneous-phrases/results.json",
 }
+OCT_INPUTS = [k for k in INPUTS if k.startswith("o_")]
 OPTIONAL_INPUTS = {"latency", "lat_readme"}
 
 
@@ -163,6 +176,12 @@ SYSTEMS = {
     # grader
     "grader": ("Gemini 3.1 Pro (preview)", "google", "large LLM"),
     "grader-old": ("Gemini 2.5 Pro", "google", "large LLM, older"),
+    # 21-23 October
+    "oct:whisper-sent": ("Whisper large-v3, one sentence at a time", None, ""),
+    "oct:azure-fast": ("Azure fast transcription, one sentence at a time", "microsoft", "recogniser, one sentence at a time"),
+    "oct:mai": ("MAI-Transcribe-2 (preview)", "microsoft", "new recogniser (preview)"),
+    "oct:mai-stream": ("MAI-Transcribe-2-Streaming (preview)", "microsoft", "new live recogniser (preview)"),
+    "oct:gemini-live-translate": ("Gemini Live Translate", "google", "live speech-to-speech translator"),
 }
 
 ANON = False
@@ -471,6 +490,7 @@ def load():
                 rows.setdefault(m.group(2), {})[m.group(1)] = {
                     "full": int(m.group(3)) / 100, "mean": int(m.group(4)) / 100, "critical": int(m.group(5))}
     D["htmt"] = rows
+    load_oct(D)
     return D
 
 
@@ -521,7 +541,331 @@ def kind_cls(key):
 KIND_LEGEND = [("Cloud service", "c1"), ("Open weights", "c3")]
 
 
+
+# ---------------------------------------------------------------- 21-23 October updates
+# Each block below reads one merged eval folder (INPUTS "o_*") and returns HTML
+# that the page builders splice into the existing pages.
+
+OCT_LANG = {"en": "English", "es": "Spanish", "pt": "Portuguese", "fr": "French", "ja": "Japanese",
+            "km": "Khmer", "lo": "Lao", "ht": "Haitian Creole", "zh": "Mandarin"}
+
+
+def dname(d):
+    """'en-es' -> 'English → Spanish'."""
+    a, b = d.split("-")
+    return f"{OCT_LANG.get(a, a)} → {OCT_LANG.get(b, b)}"
+
+
+def q(x):
+    """A 0-100 grade as the site's 0-1 fraction."""
+    return None if x is None else x / 100
+
+
+def load_oct(D):
+    for k in OCT_INPUTS:
+        D[k] = J(INPUTS[k])
+
+
+def oct_hearing(D):
+    """Findings 1: Whisper, Azure and MAI-Transcribe-2 on the same unseen clips (#45), MAI streaming (#49)."""
+    W = D["o_wva"]
+    sc = {(r["lang"], r["pattern"], r["system"]): r for r in W["scores"]}
+    langs = ["en", "es", "pt", "fr", "ja"]
+    ser = [("1 whisper_sentence", L("oct:whisper-sent"), "c3"), ("4 azure_fast_sentence", L("oct:azure-fast"), "c1"),
+           ("3 azure_stream", L("azure-speech"), "c2"), ("5 mai_sentence", L("oct:mai"), "c4")]
+    groups = [(OCT_LANG[l], [sc[(l, "reg", s)]["said"]["cer"] / 100 for s, _, _ in ser], False) for l in langs]
+    ch = grouped("Same recordings, four recognisers: character error",
+                 "20 unseen FLEURS sentences per language, regular pauses, scored against what each reader actually said. "
+                 "Lower is better.", groups, [(n, c) for _, n, c in ser], maxv=0.08, vendor_named=True,
+                 note="Per-sentence systems were given each recording on its own; the streaming system heard the clip at real time.")
+    live = [[OCT_LANG[l], pct(sc[(l, p, "1 whisper_sentence")]["said"]["cer"] / 100),
+             pct(sc[(l, p, "2 stack_live")]["said"]["cer"] / 100), "regular" if p == "reg" else "irregular"]
+            for l in langs for p in ("reg", "irr")]
+    b = W["breakdown_en_stack_live"]["reg"]
+    ms = {(r["lang"], r["pattern"], r["system"]): r["said"]["cer"] for r in D["o_simul"]["recognition"]}
+    mai_s = [[OCT_LANG[l], pct(ms[(l, "reg", "mai-stream")] / 100), pct(ms[(l, "reg", "std-stream")] / 100)] for l in langs]
+    w1, a4 = sc[("en", "reg", "1 whisper_sentence")]["said"]["cer"], sc[("en", "reg", "4 azure_fast_sentence")]["said"]["cer"]
+    gap = max(abs(sc[(l, "reg", "1 whisper_sentence")]["said"]["cer"] - sc[(l, "reg", "4 azure_fast_sentence")]["said"]["cer"]) for l in langs)
+    return f"""
+<h3 id="hearing-oct">Update, 22 October: the same recordings through Whisper, {esc(L('azure-speech'))} and {esc(L('oct:mai'))}</h3>
+<div class="prose">
+<ul>
+<li><strong>Given the same sentences, Whisper and the cloud recogniser are about equal.</strong> One sentence at a time they are within {gap:.1f} points of character error in every language (English: Whisper {w1:.1f}%, cloud {a4:.1f}%).</li>
+<li><strong>The open stack's English errors come from how it cuts speech, not from Whisper.</strong> Live, the stack lost {b['errors_stack_live'] - b['errors_whisper_sentence']} more of {b['words']} English words than Whisper alone; dropped sentences went from {b['dropped'][0]} to {b['dropped'][1]} errors, lost sentence starts from {b['missing_start'][0]} to {b['missing_start'][1]}, every other sentence from {b['rest'][0]} to {b['rest'][1]}. The fix is in <a href="#quiet-oct">section 4</a>.</li>
+<li><strong>{esc(L('oct:mai'))} is the most accurate here</strong> on French and Japanese. Caveat: {esc(VN('microsoft', 'Microsoft', ''))} reports this model's accuracy on FLEURS, the same public dataset these clips come from, so these numbers may flatter it. It has no Haitian Creole, Lao or Khmer.</li>
+<li><strong>Its streaming version ({esc(L('oct:mai-stream'))}) was weaker than the standard live recogniser</strong> on English and Japanese (table below).</li>
+</ul>
+</div>
+{ch}
+<div class="prose"><p>Whisper alone against the open stack live (character error, against what was said):</p></div>
+{_table(["Language", "Whisper, one sentence at a time", "Open stack, live", "Pauses"], live)}
+<div class="prose"><p>Streaming recognisers on the same clips, 22 October (regular pauses; {src_link('eval/2026-10-simultaneous-phrases/README.md', 'phrase test')}):</p></div>
+{_table(["Language", L("oct:mai-stream"), L("azure-speech")], mai_s)}
+<div class="prose"><p class="note">Sources: {src_link('eval/2026-10-whisper-vs-azure/README.md')}, {src_link('eval/2026-10-simultaneous-phrases/README.md')}. One clip per language, one run per system.</p></div>
+"""
+
+
+def oct_translation(D):
+    """Findings 2: Haitian Creole and Lao translators (#41), Gemma 4 on cloud transcripts (#42),
+    es/pt and Gemini Live out of English (#43), 4-bit vs bf16 (#47)."""
+    H = D["o_htlo"]
+    dirs = ["en-ht", "ht-en", "en-lo", "lo-en"]
+    hs = [("madlad-7b-bf16", "MADLAD-400 7B (the stack's until now)", "c3"), ("gemma-4-31b-it@or", "Gemma 4 31B", "c2"),
+          ("milmmt-46-12b", "MiLMMT-46 12B (Lao only)", "c4"), ("gpt-5.6-sol@low", L("mt:foundry-gpt-5.6-sol@low") + " (cloud bar)", "c1")]
+    g1 = grouped("Haitian Creole and Lao translators on correct text",
+                 "60–100 sentences per direction, typed text (no recognition errors), graded blind in one round. Higher is better.",
+                 [(dname(d), [H["directions"][d].get(k, {}).get("score") for k, _, _ in hs], False) for d in dirs],
+                 [(n, c) for _, n, c in hs], maxv=1, vendor_named=True, nav="no Haitian Creole")
+    hd = H["directions"]
+    lic = H["systems"]
+    nl = hd["en-ht"]["nllb-200-3.3b"]["score"], hd["en-ht"]["madlad-7b-bf16"]["score"]
+    G = D["o_g4"]["groups"]
+    grp = ["Into English: ja, zh, km, fr (6)", "Out of English: ja, zh, km, es, fr, ru, de, uk (11)",
+           "Lao, both ways (4)", "Haitian Creole, both ways (4)"]
+    gs = [("hymt2-7b-nf4", L("hymt2-7b-nf4"), "c3"), ("gemma-4-31b-it@or", "Gemma 4 31B", "c2"),
+          ("gemma-4-26b-a4b-it@or", "Gemma 4 26B", "c4"), ("foundry-gpt-5.6-sol@low", L("foundry-gpt-5.6-sol@low"), "c1")]
+    g2 = grouped("Gemma 4 on the cloud recogniser's transcripts",
+                 "The 25-direction translator comparison re-graded with Gemma 4 added, all systems in one new blind round. Higher is better.",
+                 [(g.split(":")[0].split(" (")[0], [G[k].get(g, {}).get("score") for k, _, _ in gs], False) for g in grp],
+                 [(n, c) for _, n, c in gs], maxv=1, vendor_named=True, nav="not supported")
+    E = D["o_espt"]
+    ed = ["en-es", "en-pt", "en-fr", "en-ja", "en-km", "en-lo", "en-ht"]
+    es_ = [("hymt2-7b@or", L("hymt2-7b-nf4").split(",")[0], "c3"), ("gemma-4-31b-it@or", "Gemma 4 31B", "c2"),
+           ("sol@low", L("foundry-gpt-5.6-sol@low"), "c1"), ("gemini-live-translate", L("oct:gemini-live-translate"), "c4")]
+    g3 = grouped("Out of English: cloud recogniser + translator, against a live speech-to-speech model",
+                 "Unseen read-news clips. The first three translate the cloud recogniser's transcript; the last hears the audio itself. "
+                 "Graded blind in one round, against what was said. Higher is better.",
+                 [(dname(d), [q(E["directions"][d].get(k, {}).get("said", {}).get("q")) for k, _, _ in es_], False) for d in ed],
+                 [(n, c) for _, n, c in es_], maxv=1, vendor_named=True, nav="not supported",
+                 note=f"<strong>Read this with care:</strong> the clips are 20 unrelated news sentences full of names, read by different people, "
+                      f"with no conversation for {esc(L('oct:gemini-live-translate'))} to draw context from — unlike real conversation. "
+                      f"It also speaks while the person is still talking, so it cannot use the end of a sentence to fix a word it misheard. "
+                      f"Most of its lost points are mishearings carried into the translation.")
+    gl = E["latency"]["en-es"]["gemini-live-translate"]
+    R = D["o_llmlive"]["bf16_replay"]
+    pr = [[dname(d), f'{R["said_into_english"][d]["4bit"][0] if d == "ht-en" else R["grades"]["BF16SAID:reg:en-ht"]["4bit"]["q"]:.1f}',
+           f'{R["said_into_english"][d]["bf16"][0] if d == "ht-en" else R["grades"]["BF16SAID:reg:en-ht"]["bf16"]["q"]:.1f}',
+           f'{R["same_output"][d]["similarity_ge_0.9"]} of {R["same_output"][d]["utterances"]}'] for d in ("en-ht", "ht-en")]
+    return f"""
+<h3 id="translation-oct">Update, 22–23 October: better open translators for Haitian Creole and Lao</h3>
+<div class="prose">
+<ul>
+<li><strong>Gemma 4 31B (Apache 2.0) is the best open translator for Haitian Creole</strong>, and <strong>MiLMMT-46 12B</strong>, a smaller model, matches it for Lao. Both clearly beat MADLAD-400, which the stack used for these languages.</li>
+<li><strong>Haitian Creole into English is still the gap:</strong> {pct(hd['ht-en']['gemma-4-31b-it@or']['score'], 0)} with {hd['ht-en']['gemma-4-31b-it@or']['critical']} critical errors for Gemma 4, against {pct(hd['ht-en']['gpt-5.6-sol@low']['score'], 0)} with {hd['ht-en']['gpt-5.6-sol@low']['critical']} for the cloud LLM.</li>
+<li><strong>NLLB-200 isn't worth its non-commercial licence</strong> here: {pct(nl[0], 0)} into Haitian Creole, the same as MADLAD's {pct(nl[1], 0)}.</li>
+</ul>
+</div>
+{g1}
+{_table(["Model", "Licence"], [[lic[k]["label"], lic[k]["licence"]] for k in ["madlad-7b-bf16", "gemma-4-31b-it@or", "milmmt-46-12b", "nllb-200-3.3b", "translategemma-27b", "qwen3.5-122b-a10b@or"]])}
+<div class="prose">
+<p><strong>On real transcripts, Gemma 4 is close to the cloud LLM out of English but not into English.</strong> It recovers less meaning from a garbled transcript, which matters most for Haitian Creole and Lao speakers.</p>
+</div>
+{g2}
+<div class="prose">
+<p><strong>Out of English, the cloud recogniser feeding Gemma 4 scored level with the cloud LLM</strong>, at about a cent per hour of speech (see <a href="cost.html#open-hosted">Cost</a>). {esc(L('oct:gemini-live-translate'))} starts speaking about {-gl['first_p50'] / 1000:.1f} s <em>before</em> each sentence ends, but trailed on accuracy in this test.</p>
+</div>
+{g3}
+<div class="prose">
+<p><strong>Gemma 4 at 4-bit is as good as full precision.</strong> The open stack's 4-bit Gemma 4 and the full-precision model, given identical live input, scored within a grading round's noise and mostly gave the same output (graded against what was said):</p>
+</div>
+{_table(["Direction", "4-bit (in the stack)", "Full precision (hosted)", "Nearly identical output"], pr)}
+<div class="prose"><p class="note">Sources: {src_link('eval/2026-10-ht-lo-translators/README.md')}, {src_link('eval/2026-10-translator-shootout-gemma4/README.md')}, {src_link('eval/2026-10-es-pt-live-compare/README.md')}, {src_link('eval/2026-10-llm-translator-live/README.md')}.</p></div>
+"""
+
+
+def oct_sizes(D):
+    """Findings 3: the 7B live for Lao and Khmer (#36)."""
+    K = D["o_lk7b"]
+    rows = []
+    for d in ("lo-en", "km-en"):
+        b, s = K[d]["before"], K[d]["7b"]
+        rows.append([dname(d), f'{b["quality_pct"]:.1f}', f'{s["quality_pct"]:.1f}', pct(b["cer"]), pct(s["cer"]),
+                     f'{(s["start_to_first_audio_ms"]["p50"] - b["start_to_first_audio_ms"]["p50"]) / 1000:+.1f} s'])
+    lo = K["lo-en"]
+    return f"""
+<h3 id="sizes-oct">Update, 21 October: the 7B card live for Lao and Khmer</h3>
+<div class="prose"><p><strong>Live, the 7B card turns Lao into English from unusable into usable</strong> ({lo['before']['quality_pct']:.0f} → {lo['7b']['quality_pct']:.0f}), with a few seconds more wait. It needs an 80 GB GPU beside the rest of the stack. Haitian Creole stays on the 300M card.</p></div>
+{_table(["Direction", "Quality, 300M", "Quality, 7B", "Character error, 300M", "Character error, 7B", "First audio, change"], rows)}
+<div class="prose"><p class="note">Live through the stack, one clip per direction, one grading round. Source: {src_link('eval/2026-10-lao-khmer-7b/README.md')}.</p></div>
+"""
+
+
+def oct_endpointing(D):
+    """Findings 4: per-language turn rules (#38), quiet talker after a loud one (#46), English turns (#39)."""
+    P = D["o_pauses"]["live"]
+    prow = [[dname(d), f'{P[d]["main"]["quality"]:.1f}', f'{P[d]["branch"]["quality"]:.1f}',
+             pct(P[d]["main"]["cer"]), pct(P[d]["branch"]["cer"])] for d in ("ja-en", "ht-en", "km-en", "lo-en")]
+    Q = D["o_qal"]
+    rp = Q["replay"]
+    rlab = {"en_reg": "English, regular pauses", "en_irr": "English, irregular pauses", "ja_reg": "Japanese",
+            "en_noise40": "English with background noise"}
+    rrows = [[rlab[k], f'{rp[k]["base"]["cer"]:.1f}%', f'{rp[k]["f25asr"]["cer"]:.1f}%',
+              rp[k]["base"]["starts_lost"], rp[k]["f25asr"]["starts_lost"]] for k in ("en_reg", "en_irr", "ja_reg", "en_noise40")]
+    lv = Q["live"]
+    sel = [("reg", "en-es"), ("irr", "en-es"), ("reg", "ja-en"), ("reg", "fr-en"), ("reg", "km-en"), ("reg", "es-en"), ("reg", "pt-en")]
+    groups = [(dname(d) + (" (irregular pauses)" if p == "irr" else ""),
+               [q(lv[p][d]["M"]["quality_said"]["q"]), q(lv[p][d]["QAB"]["quality_said"]["q"])], False) for p, d in sel]
+    ch = grouped("Quiet talker right after a loud one: live quality",
+                 "Unseen clips through the open stack, before and after the fix, graded blind in one round against what was said. Higher is better.",
+                 groups, [("Before", "c3"), ("With the fix", "c2")], maxv=1,
+                 note="Spanish and Portuguese into English move within one grading round's noise.")
+    e = rp["en_reg"]
+    return f"""
+<h3 id="turns-oct">Update, 22 October: pause rules per spoken language</h3>
+<div class="prose"><p>Japanese, Haitian Creole, Khmer and Lao now wait longer before ending a turn (900 ms, a shorter 500 ms pause only after 8 s, and at least 2.5 s of speech). Fewer sentences reach the translator in pieces. English, Spanish and French keep the defaults. Live quality into English:</p></div>
+{_table(["Direction", "Quality, before", "Quality, after", "Character error, before", "Character error, after"], prow)}
+<div class="prose"><p class="note">Source: {src_link('eval/2026-10-pauses/README.md')}. A re-check against the old rules on unseen clips overloaded the GPU for Haitian Creole and Lao and was inconclusive.</p>
+
+<h3 id="quiet-oct">Update, 23 October: hearing a quiet talker right after a loud one</h3>
+<p><strong>The biggest single gain for English.</strong> When a quiet speaker started right after a loud one, the volume boost took about 1.5 s to adapt, and the first words were lost. It now adapts within about a second after a big drop, and boosts the audio the recogniser hears, not only the voice detector's copy. English character error fell from {e['base']['cer']:.1f}% to {e['f25asr']['cer']:.1f}% in replay, with no change on noisy audio.</p>
+</div>
+{_table(["Clip (replay)", "Character error, before", "With the fix", "Sentence starts lost, before", "With the fix"], rrows)}
+{ch}
+<div class="prose">
+<h3 id="english-turns">Longer English turns: tried, not adopted</h3>
+<p>Waiting longer before ending an English turn looked like a large gain on the clip it was tuned on, but gave nothing on unseen clips and added delay, so it was dropped. Only the abbreviation fix from that work was kept ("U.S." no longer ends a sentence). See {src_link('eval/2026-10-english-80/README.md')} and {src_link('eval/2026-10-unseen/README.md')}.</p>
+<p class="note">Source: {src_link('eval/2026-10-quiet-after-loud/README.md')}. One clip per direction, one grading round.</p>
+</div>
+"""
+
+
+def oct_selected(D):
+    """Findings 6: the open stack's options as of 23 October (#46, #47)."""
+    m = D["o_llmlive"]["gpu_memory_gb"]
+    return f"""
+<div class="prose">
+<h3 id="selected-oct">Open stack, 23 October</h3>
+<ul>
+<li>The quiet-talker fix is on by default.</li>
+<li>An optional LLM translator (<code>llmmt</code>) runs Gemma 4 31B (4-bit) for Haitian Creole and MiLMMT-46 12B for Lao beside the stack. Off by default.</li>
+<li>GPU memory: the stack with the 7B card {m['full_stack_8_languages_with_7b']:.1f} GB; Gemma 4 4-bit {m['gemma4_31b_w4a16_vllm_util_0.34']:.1f} GB; MiLMMT {m['milmmt_12b_bf16_vllm_util_0.36']:.1f} GB. All three do not fit one 80 GB card; the stack plus Gemma 4 does, or the translators go on a second card.</li>
+</ul>
+<p class="note">Source: {src_link('eval/2026-10-llm-translator-live/README.md')}.</p>
+</div>
+"""
+
+
+def phrase_summary(D):
+    """Mean over English -> es/pt/fr, both pause patterns: how much sooner phrases start than whole
+    sentences (s) and how many accuracy points they give up (same recogniser and translator)."""
+    R = D["o_simul"]["rows"]
+    keys = [f"{p}:{d}" for p in ("reg", "irr") for d in ("en-es", "en-pt", "en-fr")]
+    sooner = st.mean((R[k]["S-gemma31-std"]["lat"]["sentence_start_to_first_audio_p50"]
+                      - R[k]["P8-gemma31-std"]["lat"]["sentence_start_to_first_audio_p50"]) / 1000 for k in keys)
+    lost = st.mean(R[k]["S-gemma31-std"]["said"]["q"] - R[k]["P8-gemma31-std"]["said"]["q"] for k in keys)
+    return sooner, lost
+
+
+def oct_phrases(D):
+    """Latency: phrase-by-phrase translation against whole sentences and Gemini Live (#49)."""
+    R = D["o_simul"]["rows"]
+    out_dirs = ["en-es", "en-pt", "en-fr"]
+    cfg = [("P8-gemma31-std", "Phrases (up to 8 words), Gemma 4, standard recogniser"),
+           ("P8-gemma31", f"Phrases (up to 8 words), Gemma 4, {L('oct:mai-stream')}"),
+           ("P8-sol", f"Phrases (up to 8 words), {L('foundry-gpt-5.6-sol@low').split(',')[0]}, {L('oct:mai-stream')}"),
+           ("S-gemma31-std", "Whole sentences, Gemma 4, standard recogniser"),
+           ("gemini-live-translate", L("oct:gemini-live-translate"))]
+
+    def avg(k, f):
+        vals = [f(R[f"{p}:{d}"][k]) for p in ("reg", "irr") for d in out_dirs if k in R[f"{p}:{d}"]]
+        vals = [v for v in vals if v is not None]
+        return st.mean(vals) if vals else None
+
+    rows = []
+    for k, lab in cfg:
+        qv = avg(k, lambda r: r["said"]["q"])
+        first = avg(k, lambda r: r["lat"].get("sentence_start_to_first_audio_p50", r["lat"].get("phrase_start_to_audio_p50")))
+        last = avg(k, lambda r: r["lat"].get("sentence_end_to_last_audio_p50"))
+        con = avg(k, lambda r: r.get("contradictions", {}).get("rate"))
+        rows.append([lab, f"{qv:.0f}", f"{first / 1000:.1f} s", f"{last / 1000:.1f} s", "–" if con is None else pct(con, 0)])
+    ja = [[dname(d), f'{R["reg:" + d]["P8-gemma31-std"]["said"]["q"]:.0f}', f'{R["reg:" + d]["S-gemma31-std"]["said"]["q"]:.0f}',
+           f'{R["reg:" + d]["gemini-live-translate"]["said"]["q"]:.0f}' if "gemini-live-translate" in R["reg:" + d] else "–"]
+          for d in ("en-ja", "ja-en")]
+    ps = phrase_summary(D)
+    qmin = min(R[f"{p}:{d}"]["P8-gemma31-std"]["lat"]["queued_sentence_end_to_last_audio_p50"] for p in ("reg", "irr") for d in out_dirs) / 1000
+    qmax = max(R[f"{p}:{d}"]["P8-gemma31-std"]["lat"]["queued_sentence_end_to_last_audio_p50"] for p in ("reg", "irr") for d in out_dirs) / 1000
+    return f"""
+<h2 id="phrases">Speaking sooner: phrase by phrase (22–23 October)</h2>
+<div class="prose">
+<p>Translating whole sentences means the listener hears nothing until the speaker finishes one. Phrase mode locks in words once they stop changing in the recogniser's live output, cuts at a comma, a linking word, a short pause or 8 words, and translates each phrase as a continuation of what has already been said.</p>
+<ul>
+<li><strong>Phrases start speaking about {ps[0]:.1f} s sooner than whole sentences</strong> and finish each sentence sooner, for a loss of about {ps[1]:.0f} points of accuracy (same recogniser and translator, mean of six runs).</li>
+<li><strong>Against {esc(L('oct:gemini-live-translate'))}</strong>, phrases start later but were more accurate in this test. The same caveat applies as in <a href="findings.html#translation-oct">Findings</a>: read news with many names and no conversation, unlike real conversation.</li>
+<li><strong>Word order decides where it works.</strong> English with Spanish, Portuguese and French suits phrases; Japanese needs whole sentences (table below).</li>
+<li><strong>The voice is the next bottleneck.</strong> At the default speaking rate the voice is slower than these readers, so on a 2.7-minute monologue the spoken translation falls {qmin:.0f}–{qmax:.0f} s behind (the table leaves that queue out). Conversation, with turns, builds far less backlog.</li>
+</ul>
+</div>
+{_table(["English → Spanish, Portuguese, French (mean of 6 runs)", "Accuracy", "First audio after the sentence starts", "Last audio after the speaker stops", "Phrases wrong once the sentence is known"], rows)}
+<div class="prose"><p>Japanese, regular pauses (accuracy):</p></div>
+{_table(["Direction", "Phrases", "Whole sentences", L("oct:gemini-live-translate")], ja)}
+<div class="prose"><p class="note">Voice timing simulated from the cloud voice's measured time to first audio. One clip per language and pause pattern, one grading round. Source: {src_link('eval/2026-10-simultaneous-phrases/README.md')}.</p></div>
+"""
+
+
+def oct_cost(D):
+    """Cost: hosted open translators against the cloud LLM, list prices from token counts (#43, #42)."""
+    C = D["o_espt"]["cost_per_hour"]
+    ks = [("hymt2-7b@or", "Hy-MT2 7B (hosted)"), ("gemma-4-31b-it@or", "Gemma 4 31B (hosted)"), ("sol@low", L("foundry-gpt-5.6-sol@low"))]
+    rows = [[dname(d)] + (["–" if k not in C[d] else f"${C[d][k]:.3f}" if C[d][k] < 0.1 else f"${C[d][k]:.2f}" for k, _ in ks]) for d in C]
+    o = D["o_g4"]["openrouter"]
+    return f"""
+<div class="prose">
+<h2 id="open-hosted">Translation on hosted open models (22 October)</h2>
+<p><strong>Open translators served by a hosting provider cost about a cent per hour of speech</strong>, against one to three dollars for the cloud LLM's reasoning setting. Out of English, Gemma 4 scored level with the cloud LLM in the same test (see <a href="findings.html#translation-oct">Findings</a>). Every request asked the router to use only providers that keep no data.</p>
+</div>
+{_table(["Direction", "Hy-MT2 7B (hosted)", "Gemma 4 31B (hosted)", L("foundry-gpt-5.6-sol@low")], rows)}
+<div class="prose"><p class="note">List prices per hour of one listener language (392 sentences), from the tokens each request actually used; recognition and voice not included. Gemma 4 31B averaged {o['gemma-4-31b-it@or']['round_trip_p50_s']:.1f} s per sentence round trip (median). Sources: {src_link('eval/2026-10-es-pt-live-compare/README.md')}, {src_link('eval/2026-10-translator-shootout-gemma4/README.md')}.</p></div>
+"""
+
+
+def oct_models(D):
+    """Models: October additions (#41, #47)."""
+    S = D["o_htlo"]["systems"]
+    m = D["o_llmlive"]["gpu_memory_gb"]
+    rows = [["Gemma 4 31B, official 4-bit build", S["gemma-4-31b-it@or"]["licence"], "Optional translator for Haitian Creole (llmmt)", f"{m['gemma4_31b_w4a16_vllm_util_0.34']:.1f} GB"],
+            ["MiLMMT-46 12B", S["milmmt-46-12b"]["licence"], "Optional translator for Lao (llmmt)", f"{m['milmmt_12b_bf16_vllm_util_0.36']:.1f} GB"],
+            ["NLLB-200 3.3B", S["nllb-200-3.3b"]["licence"], "Evaluated, not deployed: no better than MADLAD", S["nllb-200-3.3b"].get("vram", "–")]]
+    return f"""
+<div class="prose">
+<h2 id="october">October additions</h2>
+<p>Two translators that run beside the stack for the languages its default translators handle worst (see <a href="findings.html#translation-oct">Findings</a>). Gemma 4 is Apache 2.0, unlike earlier Gemma models; MiLMMT is built on Gemma and keeps the Gemma terms.</p>
+</div>
+{_table(["Model", "Licence", "Use", "GPU memory under vLLM"], rows)}
+"""
+
+
+def oct_method_caveat(D):
+    w = D["o_en80"]["witness"]
+    n, diff, cut = len(w), sum(1 for x in w if x["differs"]), sum(1 for x in w if x["cut_off"])
+    return (f"<li><strong>Check the recordings against their text.</strong> On one English test clip, {diff} of {n} recordings did not say what "
+            f"the reference text says ({cut} stop early, the rest misread a word), which capped every system's score. Since 22 October each clip "
+            f"is checked against a verbatim transcription and graded against both the written text and what was actually said, and a change "
+            f"is kept only if it also helps on <em>unseen</em> clips it was not tuned on ({src_link('eval/2026-10-english-80/README.md')}, "
+            f"{src_link('eval/2026-10-unseen/README.md')}).</li>\n"
+            f"<li><strong>One clip, one round.</strong> The 21–23 October tests use one 20-sentence clip per language and one grading round each; "
+            f"grades move about 5 points between rounds, so compare within a table.</li>")
+
+
 # ---------------------------------------------------------------- pages
+
+def home_oct(D):
+    """Home page bullets for the 21-23 October updates; numbers from the same files as the sections they link to."""
+    Q = D["o_qal"]
+    e = Q["replay"]["en_reg"]
+    W = D["o_wva"]
+    sc = {(r["lang"], r["pattern"], r["system"]): r["said"]["cer"] for r in W["scores"]}
+    gap = max(abs(sc[(l, "reg", "1 whisper_sentence")] - sc[(l, "reg", "4 azure_fast_sentence")]) for l in ("en", "es", "pt", "fr", "ja"))
+    H = D["o_htlo"]["directions"]
+    ps = phrase_summary(D)
+    C = D["o_espt"]["cost_per_hour"]["en-es"]
+    return "\n".join([
+        f'<li><strong>Quiet speakers were the biggest English loss.</strong> When a quiet talker followed a loud one, the start of their sentence was lost; a faster-adapting volume boost cut English recognition error from {e["base"]["cer"]:.1f}% to {e["f25asr"]["cer"]:.1f}%. <a href="findings.html#quiet-oct">Endpointing</a></li>',
+        f'<li><strong>Whisper and the cloud recogniser are about equal</strong> when each gets whole sentences (within {gap:.1f} points of character error); the open stack\'s weakness was how it cut speech. <a href="findings.html#hearing-oct">Speech recognition</a></li>',
+        f'<li><strong>Gemma 4 31B is the open translator to use for Haitian Creole</strong> ({pct(H["en-ht"]["gemma-4-31b-it@or"]["score"], 0)} into Haitian Creole against MADLAD\'s {pct(H["en-ht"]["madlad-7b-bf16"]["score"], 0)}), and MiLMMT-46 12B for Lao; on hosted providers it costs about ${C["gemma-4-31b-it@or"]:.2f} per hour of speech. <a href="findings.html#translation-oct">Translation</a></li>',
+        f'<li><strong>Phrase-by-phrase translation starts speaking about {ps[0]:.0f} s sooner</strong> than whole sentences for English with Spanish, Portuguese and French, for about {ps[1]:.0f} points of accuracy; Japanese still needs whole sentences. <a href="latency.html#phrases">Latency</a></li>',
+        '<li><strong>We now check fixes on clips they weren\'t tuned on.</strong> One English test clip had recordings that didn\'t match their text, and a fix that looked good on it gained nothing on unseen clips. <a href="methodology.html">Methodology</a></li>',
+    ])
+
 
 def build_home(D, S1):
     E = sept_e2e_summary(D)
@@ -562,6 +906,11 @@ def build_home(D, S1):
 {chart}
 <div class="prose">
 <h2>What we found</h2>
+<p><strong>New, 21–23 October:</strong></p>
+<ul>
+{home_oct(D)}
+</ul>
+<p><strong>Earlier in October:</strong></p>
 <ul>
 <li><strong>Hearing decides most of it.</strong> A translator can only be as good as the transcript it gets. Lao and Khmer are the weak spots for every live recogniser we tried. <a href="findings.html#hearing">Speech recognition by language</a></li>
 <li><strong>The open translator (Hy-MT2) beats a commercial translation API into English, but trails the cloud LLMs by about 15 points.</strong> LLMs repair recognition errors from context; dedicated translators translate them literally. <a href="findings.html#translation">Translation</a></li>
@@ -582,7 +931,7 @@ cp .env.example .env            # set STACK_TOKEN (openssl rand -hex 32)
 docker compose up -d --build    # first start downloads and builds the models
 curl http://localhost:8790/health</code></pre>
 <p>Then point a client at <code>ws://&lt;host&gt;:8790</code> with the token as its key. Full steps: the <a href="{BLOB}docs/user-guide.md">user guide</a>; the wire format: <a href="{BLOB}docs/dev/protocol.md">protocol</a>. The code is Apache 2.0; the models keep their own licences, and some are non-commercial — see <a href="models.html">Models &amp; licences</a>.</p>
-<p class="caveat">Cloud models change often. The October results were measured on 17–21 October 2026 (the September ones on 26–29 September) with the versions named on the <a href="methodology.html">methodology</a> page; treat vendor numbers as a snapshot, not a ranking that will hold.</p>
+<p class="caveat">Cloud models change often. The October results were measured on 17–23 October 2026 (the September ones on 26–29 September) with the versions named on the <a href="methodology.html">methodology</a> page; treat vendor numbers as a snapshot, not a ranking that will hold.</p>
 </div>
 """
     page("index.html", "Translation Open Stack Research",
@@ -866,10 +1215,12 @@ def build_findings(D, S1):
 </div>
 """)
 
+    for i, extra in enumerate((oct_hearing(D), oct_translation(D), oct_sizes(D), oct_endpointing(D), "", oct_selected(D))):
+        sections[i] += extra
     toc = """<ul class="toc"><li><a href="#hearing">Speech recognition</a></li><li><a href="#translation">Translation</a></li><li><a href="#sizes">Model sizes</a></li><li><a href="#endpointing">Endpointing</a></li><li><a href="#audio">Audio quality</a></li><li><a href="#selected">Selected setup</a></li></ul>"""
     body = f"""<div class="prose"><h1>Findings, October 2026</h1>
 <p class="lede">Speech recognition by language and provider, translation quality, model size, sentence cutting and audio quality. Every chart has its data table; numbers come from the result files in <a href="{TREE}eval">eval/</a>.</p>
-<p class="caveat">Grades come from one blind LLM grader per round and move 5–10 points between rounds: compare numbers inside one chart only. Cloud models change; these are 17–21 October 2026 results.</p>
+<p class="caveat">Grades come from one blind LLM grader per round and move 5–10 points between rounds: compare numbers inside one chart only. Cloud models change; these are 17–23 October 2026 results. Sections marked <em>Update</em> were added on 21–23 October.</p>
 {toc}</div>""" + "".join(sections)
     page("findings.html", "Findings", body, "Speech recognition, translation, model size, endpointing and audio-quality results, October 2026.")
 
@@ -991,6 +1342,8 @@ def build_methodology(D):
 <tr><th scope="row">Continuous speech, Spanish / French / Japanese</th><td>2026-10-21</td><td>Five minutes of broadcast news per language (copyrighted; metrics only), real time, Live Translation <code>66ae717</code>; references and judge gemini-3.1-pro-preview. See <a href="latency.html#continuous-more">Latency</a>.</td></tr>
 <tr><th scope="row">Translation step cost</th><td>{esc(D['fcost']['date'])}</td><td>{esc(VN('openai', 'GPT-5.6-sol on Azure AI Foundry (Data Zone)', 'LLM'))}, reasoning low and none; 24 + 33 sentences per direction; two grading rounds. See <a href="cost.html#translation-step">Cost</a>.</td></tr>
 <tr><th scope="row">Haitian Creole voices</th><td>2026-10-19</td><td>Seven voices as labelled; open voices on CPU.</td></tr>
+<tr><th scope="row">Open stack live, unseen clips</th><td>2026-10-21 to 10-23</td><td>20 unused FLEURS sentences per language (CMU for Haitian Creole), regular and irregular pauses, streamed at real time through the stack on rented A40 and A100 80 GB GPUs; graded by gemini-pro-latest or {esc(L('grader'))} against the written text and a verbatim "what was said" reference. Folders: {src_link('eval/2026-10-unseen')}, {src_link('eval/2026-10-quiet-after-loud')}, {src_link('eval/2026-10-llm-translator-live')}, {src_link('eval/2026-10-lao-khmer-7b')}, {src_link('eval/2026-10-pauses')}.</td></tr>
+<tr><th scope="row">Recognisers and translators, same clips</th><td>2026-10-22 to 10-23</td><td>Recognisers and hosted models as labelled (hosted open models asked for zero-retention providers only). Folders: {src_link('eval/2026-10-whisper-vs-azure')}, {src_link('eval/2026-10-ht-lo-translators')}, {src_link('eval/2026-10-translator-shootout-gemma4')}, {src_link('eval/2026-10-es-pt-live-compare')}, {src_link('eval/2026-10-simultaneous-phrases')}.</td></tr>
 </tbody></table></div>
 
 <h2>Caveats</h2>
@@ -1001,6 +1354,7 @@ def build_methodology(D):
 <li><strong>Read speech.</strong> Real speakers, but reading. Conversation, crosstalk and halls will be worse (see audio conditions).</li>
 <li><strong>Bounded by hearing.</strong> Translation scores for Lao and Khmer speakers are capped by what the recogniser heard, not by the translators alone.</li>
 <li><strong>Model-made references</strong> for Haitian Creole → English.</li>
+{oct_method_caveat(D)}
 </ul>
 
 <h2>Reproduce</h2>
@@ -1081,11 +1435,12 @@ def build_models(D):
 <p>From {src_link('languages.toml')}, as built into this site.</p>
 </div>
 {lt}
+{oct_models(D)}
 <div class="prose">
 <h2>Evaluated but not deployed</h2>
 <ul>
 <li><strong>TranslateGemma 12B / 27B</strong> — Gemma Terms of Use (restricted). Close to Hy-MT2 where both run; much weaker in Khmer.</li>
-<li><strong>NLLB-200 3.3B</strong> — CC-BY-NC 4.0 (non-commercial). Loops on noisy input and turns names into others.</li>
+<li><strong>NLLB-200 3.3B</strong> — CC-BY-NC 4.0 (non-commercial). Loops on noisy input and turns names into others; on 22 October it scored no better than MADLAD for Haitian Creole and Lao (see <a href="#october">October additions</a>).</li>
 <li><strong>Omnilingual v2 and larger cards</strong> — Apache 2.0. Not better for Haitian Creole (see <a href="findings.html#sizes">model sizes</a>).</li>
 <li><strong>gpt-oss-120b / 20b, Qwen3.8-27B</strong> — open reasoning LLMs; scored below the stack's own translators (<a href="findings.html#open-llms">round 2</a>). Check each model card's licence before use.</li>
 <li><strong>Kreyòl-MT</strong> — MIT. Gets the gist of Haitian Creole but drifts in register, drops names, and sometimes loops.</li>
@@ -1375,7 +1730,8 @@ def build_languages(D):
     vox = D["voxspeed"]["T10/km"]
     cite(D, "sept_doc", "Khmer's voice starts ~0.1 s after its text instead of 1.5 s")
     body_html = f"""<div class="prose">
-<h1>Languages, September 2026</h1>
+<h1>Languages: the September 2026 evaluation</h1>
+<p class="caveat">This page is the September evaluation and is not current. An October table of every direction's best live score is coming; until then, see the 21–23 October updates on <a href="findings.html">Findings</a>.</p>
 <p class="lede">How well the open stack hears, translates and speaks each of its {len(rows)} languages, from the model evaluation of 26–29 September 2026: the first eleven languages, twelve more in round 8, then Romanian. Per language: what serves it, what we measured, and whether the commercial edition can still give it a voice.</p>
 <p class="caveat">September numbers are not comparable with the October pages. September used a synthetic test set of 24 short sentences built to catch critical errors, mostly synthetic speech, and {L('grader-old')} as the blind grader; October used real speakers, longer news sentences and {L('grader')}. Compare numbers inside one chart only. Source: {doc}.</p>
 </div>
@@ -2086,7 +2442,8 @@ def build_cost(D):
 <li>The pipeline's cost grows by about {money(fh["es"] + voice_h)} for each extra well-resourced language; {esc(glt)}'s by {money(lt_h)}.</li>
 </ul>
 <p class="caveat">These are list-price estimates for continuous speech, not bills. Real rooms pause, which lowers the voice and translation lines (they scale with speech) but not recognition, which is billed for the audio streamed. The {esc(gem)} voice price for Haitian Creole is an estimate. {esc(glt)}'s rate is its published rate after the preview.</p>
-</div>"""
+</div>
+{oct_cost(D)}"""
     page("cost.html", "Cost", body, "Per-hour cost of each live translation route, from list prices, with formulas, assumptions and a worked example.")
 
 
@@ -2270,6 +2627,7 @@ def build_latency(D, S1):
 {latency_results_section(D)}
 {degraded_section(D)}
 {continuous_section(D)}
+{oct_phrases(D)}
 <div class="prose">
 <h2>Sources</h2>
 <ul>
