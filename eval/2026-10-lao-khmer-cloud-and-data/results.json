@@ -1,0 +1,220 @@
+{
+ "lo-en": {
+  "milmmt (stack)": {
+   "a": {
+    "written": {
+     "q": 43.3,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 42.1,
+     "crit": 8,
+     "n": 19
+    }
+   },
+   "b": {
+    "written": {
+     "q": 55.0,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 56.1,
+     "crit": 10,
+     "n": 19
+    }
+   },
+   "mean": {
+    "written": 49.1,
+    "said": 49.1
+   },
+   "crit": 18
+  },
+  "sol@low": {
+   "a": {
+    "written": {
+     "q": 60.0,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 61.4,
+     "crit": 6,
+     "n": 19
+    }
+   },
+   "b": {
+    "written": {
+     "q": 68.3,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 70.2,
+     "crit": 5,
+     "n": 19
+    }
+   },
+   "mean": {
+    "written": 64.2,
+    "said": 65.8
+   },
+   "crit": 11,
+   "latency": {
+    "p50_ms": 1716,
+    "p90_ms": 4056,
+    "providers": [
+     "foundry"
+    ]
+   }
+  },
+  "gemma-4-31b@or": {
+   "a": {
+    "written": {
+     "q": 38.3,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 38.6,
+     "crit": 7,
+     "n": 19
+    }
+   },
+   "b": {
+    "written": {
+     "q": 60.0,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 57.9,
+     "crit": 9,
+     "n": 19
+    }
+   },
+   "mean": {
+    "written": 49.1,
+    "said": 48.2
+   },
+   "crit": 16,
+   "latency": {
+    "p50_ms": 1239,
+    "p90_ms": 2353,
+    "providers": [
+     "CoreWeave"
+    ]
+   }
+  }
+ },
+ "km-en": {
+  "sol@low": {
+   "a": {
+    "written": {
+     "q": 73.3,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 77.8,
+     "crit": 1,
+     "n": 18
+    }
+   },
+   "b": {
+    "written": {
+     "q": 78.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 77.2,
+     "crit": 2,
+     "n": 19
+    }
+   },
+   "mean": {
+    "written": 75.8,
+    "said": 77.5
+   },
+   "crit": 3,
+   "latency": {
+    "p50_ms": 1838,
+    "p90_ms": 3090,
+    "providers": [
+     "foundry"
+    ]
+   }
+  },
+  "gemma-4-31b@or": {
+   "a": {
+    "written": {
+     "q": 65.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 68.5,
+     "crit": 2,
+     "n": 18
+    }
+   },
+   "b": {
+    "written": {
+     "q": 68.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 70.2,
+     "crit": 2,
+     "n": 19
+    }
+   },
+   "mean": {
+    "written": 66.7,
+    "said": 69.3
+   },
+   "crit": 4,
+   "latency": {
+    "p50_ms": 1520,
+    "p90_ms": 3949,
+    "providers": [
+     "CoreWeave"
+    ]
+   }
+  },
+  "hymt (stack)": {
+   "a": {
+    "written": {
+     "q": 61.7,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 66.7,
+     "crit": 4,
+     "n": 18
+    }
+   },
+   "b": {
+    "written": {
+     "q": 53.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 54.4,
+     "crit": 5,
+     "n": 19
+    }
+   },
+   "mean": {
+    "written": 57.5,
+    "said": 60.5
+   },
+   "crit": 9
+  }
+ }
+}
