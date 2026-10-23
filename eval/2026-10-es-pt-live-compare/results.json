@@ -1,0 +1,740 @@
+{
+ "grader": "gemini-pro-latest",
+ "directions": {
+  "en-es": {
+   "gemma-4-31b-it@or": {
+    "written": {
+     "q": 65.0,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 5,
+     "n": 20
+    }
+   },
+   "hymt2-7b@or": {
+    "written": {
+     "q": 70.0,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 71.7,
+     "crit": 6,
+     "n": 20
+    }
+   },
+   "sol@low": {
+    "written": {
+     "q": 70.0,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 75.0,
+     "crit": 6,
+     "n": 20
+    }
+   },
+   "gemini-live-translate": {
+    "written": {
+     "q": 35.0,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 50.0,
+     "crit": 11,
+     "n": 20
+    }
+   }
+  },
+  "en-pt": {
+   "gemini-live-translate": {
+    "written": {
+     "q": 46.7,
+     "crit": 13,
+     "n": 20
+    },
+    "said": {
+     "q": 56.7,
+     "crit": 8,
+     "n": 20
+    }
+   },
+   "hymt2-7b@or": {
+    "written": {
+     "q": 66.7,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 73.3,
+     "crit": 3,
+     "n": 20
+    }
+   },
+   "sol@low": {
+    "written": {
+     "q": 71.7,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 80.0,
+     "crit": 3,
+     "n": 20
+    }
+   },
+   "gemma-4-31b-it@or": {
+    "written": {
+     "q": 65.0,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 80.0,
+     "crit": 3,
+     "n": 20
+    }
+   }
+  },
+  "en-fr": {
+   "gemini-live-translate": {
+    "written": {
+     "q": 43.3,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 48.3,
+     "crit": 10,
+     "n": 20
+    }
+   },
+   "sol@low": {
+    "written": {
+     "q": 65.0,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 83.3,
+     "crit": 4,
+     "n": 20
+    }
+   },
+   "hymt2-7b@or": {
+    "written": {
+     "q": 60.0,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 76.7,
+     "crit": 3,
+     "n": 20
+    }
+   },
+   "gemma-4-31b-it@or": {
+    "written": {
+     "q": 63.3,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 80.0,
+     "crit": 3,
+     "n": 20
+    }
+   }
+  },
+  "en-ja": {
+   "hymt2-7b@or": {
+    "written": {
+     "q": 58.3,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 71.7,
+     "crit": 5,
+     "n": 20
+    }
+   },
+   "sol@low": {
+    "written": {
+     "q": 71.7,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 4,
+     "n": 20
+    }
+   },
+   "gemma-4-31b-it@or": {
+    "written": {
+     "q": 63.3,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 3,
+     "n": 20
+    }
+   },
+   "gemini-live-translate": {
+    "written": {
+     "q": 33.3,
+     "crit": 12,
+     "n": 20
+    },
+    "said": {
+     "q": 40.0,
+     "crit": 7,
+     "n": 20
+    }
+   }
+  },
+  "en-km": {
+   "gemma-4-31b-it@or": {
+    "written": {
+     "q": 66.7,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 76.7,
+     "crit": 1,
+     "n": 20
+    }
+   },
+   "hymt2-7b@or": {
+    "written": {
+     "q": 66.7,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 73.3,
+     "crit": 1,
+     "n": 20
+    }
+   },
+   "sol@low": {
+    "written": {
+     "q": 73.3,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 85.0,
+     "crit": 1,
+     "n": 20
+    }
+   },
+   "gemini-live-translate": {
+    "written": {
+     "q": 36.7,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 40.0,
+     "crit": 1,
+     "n": 20
+    }
+   }
+  },
+  "en-lo": {
+   "gemini-live-translate": {
+    "written": {
+     "q": 51.7,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 53.3,
+     "crit": 7,
+     "n": 20
+    }
+   },
+   "sol@low": {
+    "written": {
+     "q": 71.7,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 86.7,
+     "crit": 3,
+     "n": 20
+    }
+   },
+   "gemma-4-31b-it@or": {
+    "written": {
+     "q": 73.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 90.0,
+     "crit": 2,
+     "n": 20
+    }
+   }
+  },
+  "en-ht": {
+   "sol@low": {
+    "written": {
+     "q": 68.3,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 83.3,
+     "crit": 3,
+     "n": 20
+    }
+   },
+   "gemma-4-31b-it@or": {
+    "written": {
+     "q": 63.3,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 3,
+     "n": 20
+    }
+   },
+   "gemini-live-translate": {
+    "written": {
+     "q": 41.7,
+     "crit": 14,
+     "n": 20
+    },
+    "said": {
+     "q": 46.7,
+     "crit": 10,
+     "n": 20
+    }
+   }
+  },
+  "es-en": {
+   "gemma-4-31b-it@or": {
+    "written": {
+     "q": 88.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 89.5,
+     "crit": 2,
+     "n": 19
+    }
+   },
+   "hymt2-7b@or": {
+    "written": {
+     "q": 88.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 91.2,
+     "crit": 1,
+     "n": 19
+    }
+   },
+   "sol@low": {
+    "written": {
+     "q": 90.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 93.0,
+     "crit": 1,
+     "n": 19
+    }
+   }
+  },
+  "pt-en": {
+   "hymt2-7b@or": {
+    "written": {
+     "q": 78.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 2,
+     "n": 20
+    }
+   },
+   "gemma-4-31b-it@or": {
+    "written": {
+     "q": 80.0,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 80.0,
+     "crit": 1,
+     "n": 20
+    }
+   },
+   "sol@low": {
+    "written": {
+     "q": 86.7,
+     "crit": 0,
+     "n": 20
+    },
+    "said": {
+     "q": 86.7,
+     "crit": 0,
+     "n": 20
+    }
+   }
+  }
+ },
+ "recognition": {
+  "en": {
+   "azure_cer_vs_said": 0.054,
+   "azure_cer_vs_written": 0.087
+  },
+  "es": {
+   "azure_cer_vs_said": 0.035,
+   "azure_cer_vs_written": 0.038
+  },
+  "pt": {
+   "azure_cer_vs_said": 0.03,
+   "azure_cer_vs_written": 0.038
+  }
+ },
+ "latency": {
+  "azure_final_en": {
+   "p50": 838,
+   "p90": 1533
+  },
+  "en-es": {
+   "hymt2-7b@or": {
+    "p50": 2206,
+    "p90": 3133,
+    "mt_wall_p50_s": 1.35
+   },
+   "gemma-4-31b-it@or": {
+    "p50": 2416,
+    "p90": 3715,
+    "mt_wall_p50_s": 1.689
+   },
+   "sol@low": {
+    "p50": 2905,
+    "p90": 6253,
+    "mt_wall_p50_s": 2.124
+   },
+   "gemini-live-translate": {
+    "first_p50": -4090,
+    "first_p90": -2322,
+    "last_p50": 3458,
+    "last_p90": 9693,
+    "sentences_without_output": 2
+   }
+  },
+  "en-pt": {
+   "hymt2-7b@or": {
+    "p50": 1886,
+    "p90": 2760,
+    "mt_wall_p50_s": 1.058
+   },
+   "gemma-4-31b-it@or": {
+    "p50": 2423,
+    "p90": 3417,
+    "mt_wall_p50_s": 1.565
+   },
+   "sol@low": {
+    "p50": 3005,
+    "p90": 8652,
+    "mt_wall_p50_s": 2.043
+   },
+   "gemini-live-translate": {
+    "first_p50": -3297,
+    "first_p90": -2116,
+    "last_p50": 3606,
+    "last_p90": 4925,
+    "sentences_without_output": 0
+   }
+  },
+  "en-fr": {
+   "hymt2-7b@or": {
+    "p50": 1849,
+    "p90": 2681,
+    "mt_wall_p50_s": 1.053
+   },
+   "gemma-4-31b-it@or": {
+    "p50": 2507,
+    "p90": 4713,
+    "mt_wall_p50_s": 1.959
+   },
+   "sol@low": {
+    "p50": 3180,
+    "p90": 4765,
+    "mt_wall_p50_s": 2.505
+   },
+   "gemini-live-translate": {
+    "first_p50": -4301,
+    "first_p90": -2403,
+    "last_p50": 2998,
+    "last_p90": 4932,
+    "sentences_without_output": 0
+   }
+  },
+  "en-ja": {
+   "hymt2-7b@or": {
+    "p50": 1910,
+    "p90": 2888,
+    "mt_wall_p50_s": 1.078
+   },
+   "gemma-4-31b-it@or": {
+    "p50": 2711,
+    "p90": 4147,
+    "mt_wall_p50_s": 2.046
+   },
+   "sol@low": {
+    "p50": 3367,
+    "p90": 5324,
+    "mt_wall_p50_s": 2.268
+   },
+   "gemini-live-translate": {
+    "first_p50": -4386,
+    "first_p90": -1296,
+    "last_p50": 1768,
+    "last_p90": 2601,
+    "sentences_without_output": 0
+   }
+  },
+  "en-km": {
+   "hymt2-7b@or": {
+    "p50": 2896,
+    "p90": 3937,
+    "mt_wall_p50_s": 2.045
+   },
+   "gemma-4-31b-it@or": {
+    "p50": 4266,
+    "p90": 5973,
+    "mt_wall_p50_s": 3.439
+   },
+   "sol@low": {
+    "p50": 4020,
+    "p90": 6856,
+    "mt_wall_p50_s": 3.319
+   },
+   "gemini-live-translate": {
+    "first_p50": -3286,
+    "first_p90": -2323,
+    "last_p50": 1824,
+    "last_p90": 2260,
+    "sentences_without_output": 0
+   }
+  },
+  "en-lo": {
+   "gemma-4-31b-it@or": {
+    "p50": 3378,
+    "p90": 5707,
+    "mt_wall_p50_s": 2.674
+   },
+   "sol@low": {
+    "p50": 5975,
+    "p90": 7676,
+    "mt_wall_p50_s": 4.631
+   },
+   "gemini-live-translate": {
+    "first_p50": -4122,
+    "first_p90": -1375,
+    "last_p50": 1778,
+    "last_p90": 2814,
+    "sentences_without_output": 0
+   }
+  },
+  "en-ht": {
+   "gemma-4-31b-it@or": {
+    "p50": 2550,
+    "p90": 6632,
+    "mt_wall_p50_s": 2.156
+   },
+   "sol@low": {
+    "p50": 3785,
+    "p90": 5836,
+    "mt_wall_p50_s": 2.786
+   },
+   "gemini-live-translate": {
+    "first_p50": -4506,
+    "first_p90": -2398,
+    "last_p50": 3024,
+    "last_p90": 4973,
+    "sentences_without_output": 0
+   }
+  },
+  "azure_final_es": {
+   "p50": 617,
+   "p90": 875
+  },
+  "es-en": {
+   "hymt2-7b@or": {
+    "p50": 1585,
+    "p90": 1876,
+    "mt_wall_p50_s": 0.962
+   },
+   "gemma-4-31b-it@or": {
+    "p50": 2329,
+    "p90": 7473,
+    "mt_wall_p50_s": 1.664
+   },
+   "sol@low": {
+    "p50": 2454,
+    "p90": 3045,
+    "mt_wall_p50_s": 1.695
+   }
+  },
+  "azure_final_pt": {
+   "p50": 519,
+   "p90": 794
+  },
+  "pt-en": {
+   "hymt2-7b@or": {
+    "p50": 1472,
+    "p90": 1774,
+    "mt_wall_p50_s": 0.945
+   },
+   "gemma-4-31b-it@or": {
+    "p50": 2958,
+    "p90": 4927,
+    "mt_wall_p50_s": 2.564
+   },
+   "sol@low": {
+    "p50": 1751,
+    "p90": 3348,
+    "mt_wall_p50_s": 1.287
+   }
+  }
+ },
+ "cost_per_hour": {
+  "en-es": {
+   "hymt2-7b@or": 0.0054,
+   "gemma-4-31b-it@or": 0.0101,
+   "sol@low": 1.1264
+  },
+  "en-pt": {
+   "hymt2-7b@or": 0.0054,
+   "gemma-4-31b-it@or": 0.0102,
+   "sol@low": 1.0414
+  },
+  "en-fr": {
+   "hymt2-7b@or": 0.0055,
+   "gemma-4-31b-it@or": 0.0104,
+   "sol@low": 1.1604
+  },
+  "en-ja": {
+   "hymt2-7b@or": 0.0064,
+   "gemma-4-31b-it@or": 0.0101,
+   "sol@low": 1.2432
+  },
+  "en-km": {
+   "hymt2-7b@or": 0.0225,
+   "gemma-4-31b-it@or": 0.0135,
+   "sol@low": 1.6861
+  },
+  "en-lo": {
+   "gemma-4-31b-it@or": 0.0147,
+   "sol@low": 2.9046
+  },
+  "en-ht": {
+   "gemma-4-31b-it@or": 0.0113,
+   "sol@low": 1.0639
+  },
+  "es-en": {
+   "hymt2-7b@or": 0.0049,
+   "gemma-4-31b-it@or": 0.0105,
+   "sol@low": 0.8
+  },
+  "pt-en": {
+   "hymt2-7b@or": 0.0045,
+   "gemma-4-31b-it@or": 0.0099,
+   "sol@low": 0.6954
+  }
+ },
+ "providers": {
+  "en-es": {
+   "hymt2-7b@or": [
+    "Tencent"
+   ],
+   "gemma-4-31b-it@or": [
+    "DeepInfra"
+   ]
+  },
+  "en-pt": {
+   "hymt2-7b@or": [
+    "Tencent"
+   ],
+   "gemma-4-31b-it@or": [
+    "DeepInfra"
+   ]
+  },
+  "en-fr": {
+   "hymt2-7b@or": [
+    "Tencent"
+   ],
+   "gemma-4-31b-it@or": [
+    "DeepInfra"
+   ]
+  },
+  "en-ja": {
+   "hymt2-7b@or": [
+    "Tencent"
+   ],
+   "gemma-4-31b-it@or": [
+    "DeepInfra"
+   ]
+  },
+  "en-km": {
+   "hymt2-7b@or": [
+    "Tencent"
+   ],
+   "gemma-4-31b-it@or": [
+    "DeepInfra"
+   ]
+  },
+  "en-lo": {
+   "gemma-4-31b-it@or": [
+    "DeepInfra"
+   ]
+  },
+  "en-ht": {
+   "gemma-4-31b-it@or": [
+    "DeepInfra"
+   ]
+  },
+  "es-en": {
+   "hymt2-7b@or": [
+    "Tencent"
+   ],
+   "gemma-4-31b-it@or": [
+    "DeepInfra"
+   ]
+  },
+  "pt-en": {
+   "hymt2-7b@or": [
+    "Tencent"
+   ],
+   "gemma-4-31b-it@or": [
+    "DeepInfra"
+   ]
+  }
+ }
+}
