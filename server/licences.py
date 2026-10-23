@@ -84,6 +84,11 @@ ENGINES = {
     "madlad": Lic(PERMISSIVE, "Apache-2.0", "model card: apache-2.0",
                   "https://huggingface.co/google/madlad400-7b-mt"),
     "echo": Lic(PERMISSIVE, "none (no model)", "a test engine with no weights", ""),
+    # The served model's licence, not the engine's: Gemma 4 is Apache-2.0, MiLMMT-46 the Gemma
+    # terms. Unclear until the operator reviews the servers named under [models.llmmt].
+    "llmmt": Lic(UNCLEAR, "the served model's", "an HTTP client for a model served beside the stack; "
+                 "classify the model it is pointed at ([licence_review])",
+                 "https://github.com/lithsec/translation-open-stack/blob/main/server/engines/llmmt.py"),
     # Voices
     "kokoro": Lic(PERMISSIVE, "Apache-2.0", "\"trained exclusively on permissive/non-copyrighted audio data\"; "
                   "the card lists the CC-BY audio it used (e.g. SIWIS, Koniwa), which is good practice to credit",
