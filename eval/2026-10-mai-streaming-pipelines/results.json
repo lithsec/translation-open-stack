@@ -1,0 +1,2599 @@
+{
+ "grader": "gemini-pro-latest",
+ "quality": {
+  "reg": {
+   "en-es": {
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 58.3,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 6,
+      "n": 20
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 70.0,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 80.0,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 63.3,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 70.0,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 55.0,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 61.7,
+      "crit": 8,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 55.0,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 58.3,
+      "crit": 8,
+      "n": 20
+     }
+    }
+   },
+   "en-pt": {
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 61.7,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 70.0,
+      "crit": 3,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 65.0,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 70.0,
+      "crit": 3,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 55.0,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 3,
+      "n": 20
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 68.3,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 76.7,
+      "crit": 3,
+      "n": 20
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 70.0,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 85.0,
+      "crit": 4,
+      "n": 20
+     }
+    }
+   },
+   "en-fr": {
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 53.3,
+      "crit": 5,
+      "n": 20
+     },
+     "said": {
+      "q": 55.0,
+      "crit": 9,
+      "n": 20
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 68.3,
+      "crit": 5,
+      "n": 20
+     },
+     "said": {
+      "q": 70.0,
+      "crit": 6,
+      "n": 20
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 73.3,
+      "crit": 5,
+      "n": 20
+     },
+     "said": {
+      "q": 76.7,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 60.0,
+      "crit": 5,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 7,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 58.3,
+      "crit": 6,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 6,
+      "n": 20
+     }
+    }
+   },
+   "en-ja": {
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 60.0,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 4,
+      "n": 20
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 70.0,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 81.7,
+      "crit": 2,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 65.0,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 71.7,
+      "crit": 4,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 51.7,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 63.3,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 75.0,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 86.7,
+      "crit": 2,
+      "n": 20
+     }
+    }
+   },
+   "es-en": {
+    "C azure-stream → sol": {
+     "written": {
+      "q": 91.7,
+      "crit": 1,
+      "n": 20
+     },
+     "said": {
+      "q": 94.7,
+      "crit": 0,
+      "n": 19
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 86.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 89.5,
+      "crit": 1,
+      "n": 19
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 75.0,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 77.2,
+      "crit": 1,
+      "n": 19
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 85.0,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 87.7,
+      "crit": 1,
+      "n": 19
+     }
+    },
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 81.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 84.2,
+      "crit": 1,
+      "n": 19
+     }
+    }
+   },
+   "pt-en": {
+    "C azure-stream → sol": {
+     "written": {
+      "q": 86.7,
+      "crit": 3,
+      "n": 20
+     },
+     "said": {
+      "q": 86.7,
+      "crit": 3,
+      "n": 20
+     }
+    },
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 85.0,
+      "crit": 3,
+      "n": 20
+     },
+     "said": {
+      "q": 85.0,
+      "crit": 3,
+      "n": 20
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 88.3,
+      "crit": 3,
+      "n": 20
+     },
+     "said": {
+      "q": 88.3,
+      "crit": 3,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 91.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 91.7,
+      "crit": 2,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 91.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 91.7,
+      "crit": 2,
+      "n": 20
+     }
+    }
+   },
+   "fr-en": {
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 83.3,
+      "crit": 0,
+      "n": 20
+     },
+     "said": {
+      "q": 83.3,
+      "crit": 0,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 80.0,
+      "crit": 0,
+      "n": 20
+     },
+     "said": {
+      "q": 80.0,
+      "crit": 0,
+      "n": 20
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 85.0,
+      "crit": 0,
+      "n": 20
+     },
+     "said": {
+      "q": 85.0,
+      "crit": 0,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 83.3,
+      "crit": 0,
+      "n": 20
+     },
+     "said": {
+      "q": 83.3,
+      "crit": 0,
+      "n": 20
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 86.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 86.7,
+      "crit": 2,
+      "n": 20
+     }
+    }
+   },
+   "ja-en": {
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 60.0,
+      "crit": 4,
+      "n": 20
+     },
+     "said": {
+      "q": 63.0,
+      "crit": 4,
+      "n": 18
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 66.7,
+      "crit": 3,
+      "n": 20
+     },
+     "said": {
+      "q": 68.5,
+      "crit": 3,
+      "n": 18
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 61.7,
+      "crit": 4,
+      "n": 20
+     },
+     "said": {
+      "q": 63.0,
+      "crit": 4,
+      "n": 18
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 91.7,
+      "crit": 1,
+      "n": 20
+     },
+     "said": {
+      "q": 92.6,
+      "crit": 1,
+      "n": 18
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 71.7,
+      "crit": 3,
+      "n": 20
+     },
+     "said": {
+      "q": 74.1,
+      "crit": 2,
+      "n": 18
+     }
+    }
+   }
+  },
+  "irr": {
+   "en-es": {
+    "A mai-stream → sol": {
+     "written": {
+      "q": 71.7,
+      "crit": 6,
+      "n": 20
+     },
+     "said": {
+      "q": 73.3,
+      "crit": 2,
+      "n": 20
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 71.7,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 73.3,
+      "crit": 3,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 61.7,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 3,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 66.7,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 73.3,
+      "crit": 2,
+      "n": 20
+     }
+    },
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 68.3,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 73.3,
+      "crit": 2,
+      "n": 20
+     }
+    }
+   },
+   "en-pt": {
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 56.7,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 7,
+      "n": 20
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 68.3,
+      "crit": 6,
+      "n": 20
+     },
+     "said": {
+      "q": 68.3,
+      "crit": 7,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 61.7,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 7,
+      "n": 20
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 63.3,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 81.7,
+      "crit": 3,
+      "n": 20
+     }
+    },
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 63.3,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 70.0,
+      "crit": 7,
+      "n": 20
+     }
+    }
+   },
+   "en-fr": {
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 61.7,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 68.3,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 71.7,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 66.7,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 71.7,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 70.0,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 73.3,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 68.3,
+      "crit": 6,
+      "n": 20
+     },
+     "said": {
+      "q": 70.0,
+      "crit": 5,
+      "n": 20
+     }
+    }
+   },
+   "en-ja": {
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 63.3,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 6,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 65.0,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 68.3,
+      "crit": 6,
+      "n": 20
+     }
+    },
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 65.0,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 71.7,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 70.0,
+      "crit": 6,
+      "n": 20
+     },
+     "said": {
+      "q": 71.7,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 66.7,
+      "crit": 5,
+      "n": 20
+     },
+     "said": {
+      "q": 71.7,
+      "crit": 7,
+      "n": 20
+     }
+    }
+   },
+   "es-en": {
+    "A mai-stream → sol": {
+     "written": {
+      "q": 90.0,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 93.0,
+      "crit": 1,
+      "n": 19
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 85.0,
+      "crit": 3,
+      "n": 20
+     },
+     "said": {
+      "q": 87.7,
+      "crit": 2,
+      "n": 19
+     }
+    },
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 90.0,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 93.0,
+      "crit": 1,
+      "n": 19
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 90.0,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 93.0,
+      "crit": 1,
+      "n": 19
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 90.0,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 93.0,
+      "crit": 1,
+      "n": 19
+     }
+    }
+   },
+   "pt-en": {
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 91.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 91.7,
+      "crit": 2,
+      "n": 20
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 90.0,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 90.0,
+      "crit": 2,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 93.3,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 93.3,
+      "crit": 2,
+      "n": 20
+     }
+    },
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 93.3,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 93.3,
+      "crit": 2,
+      "n": 20
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 86.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 86.7,
+      "crit": 2,
+      "n": 20
+     }
+    }
+   },
+   "fr-en": {
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 88.3,
+      "crit": 1,
+      "n": 20
+     },
+     "said": {
+      "q": 88.3,
+      "crit": 1,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 71.7,
+      "crit": 1,
+      "n": 20
+     },
+     "said": {
+      "q": 71.7,
+      "crit": 1,
+      "n": 20
+     }
+    },
+    "C azure-stream → sol": {
+     "written": {
+      "q": 91.7,
+      "crit": 1,
+      "n": 20
+     },
+     "said": {
+      "q": 91.7,
+      "crit": 1,
+      "n": 20
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 88.3,
+      "crit": 1,
+      "n": 20
+     },
+     "said": {
+      "q": 88.3,
+      "crit": 1,
+      "n": 20
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 86.7,
+      "crit": 1,
+      "n": 20
+     },
+     "said": {
+      "q": 86.7,
+      "crit": 1,
+      "n": 20
+     }
+    }
+   },
+   "ja-en": {
+    "C azure-stream → sol": {
+     "written": {
+      "q": 88.3,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 88.9,
+      "crit": 2,
+      "n": 18
+     }
+    },
+    "D mai-stream → gemma-4-31b": {
+     "written": {
+      "q": 61.7,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 63.0,
+      "crit": 9,
+      "n": 18
+     }
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "written": {
+      "q": 61.7,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 63.0,
+      "crit": 9,
+      "n": 18
+     }
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "written": {
+      "q": 53.3,
+      "crit": 12,
+      "n": 20
+     },
+     "said": {
+      "q": 57.4,
+      "crit": 10,
+      "n": 18
+     }
+    },
+    "A mai-stream → sol": {
+     "written": {
+      "q": 71.7,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 74.1,
+      "crit": 6,
+      "n": 18
+     }
+    }
+   }
+  }
+ },
+ "recognition": {
+  "reg": {
+   "en": {
+    "mai": {
+     "said": {
+      "cer": 6.1,
+      "wer": 11.5
+     },
+     "written": {
+      "cer": 8.4,
+      "wer": 13.9
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    },
+    "azure": {
+     "said": {
+      "cer": 3.6,
+      "wer": 7.8
+     },
+     "written": {
+      "cer": 7.0,
+      "wer": 11.8
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    }
+   },
+   "es": {
+    "mai": {
+     "said": {
+      "cer": 2.0,
+      "wer": 4.7
+     },
+     "written": {
+      "cer": 1.0,
+      "wer": 3.9
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    },
+    "azure": {
+     "said": {
+      "cer": 2.4,
+      "wer": 5.6
+     },
+     "written": {
+      "cer": 2.7,
+      "wer": 6.5
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    }
+   },
+   "pt": {
+    "mai": {
+     "said": {
+      "cer": 2.8,
+      "wer": 4.5
+     },
+     "written": {
+      "cer": 2.1,
+      "wer": 3.8
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    },
+    "azure": {
+     "said": {
+      "cer": 0.9,
+      "wer": 2.8
+     },
+     "written": {
+      "cer": 3.0,
+      "wer": 5.6
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    }
+   },
+   "fr": {
+    "mai": {
+     "said": {
+      "cer": 2.4,
+      "wer": 5.7
+     },
+     "written": {
+      "cer": 2.8,
+      "wer": 6.6
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    },
+    "azure": {
+     "said": {
+      "cer": 3.6,
+      "wer": 9.5
+     },
+     "written": {
+      "cer": 3.8,
+      "wer": 10.2
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    }
+   },
+   "ja": {
+    "mai": {
+     "said": {
+      "cer": 11.8
+     },
+     "written": {
+      "cer": 11.8
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    },
+    "azure": {
+     "said": {
+      "cer": 6.9
+     },
+     "written": {
+      "cer": 7.8
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    }
+   }
+  },
+  "irr": {
+   "en": {
+    "mai": {
+     "said": {
+      "cer": 7.2,
+      "wer": 12.8
+     },
+     "written": {
+      "cer": 10.0,
+      "wer": 14.1
+     },
+     "dropped": 0,
+     "missing_starts": 1
+    },
+    "azure": {
+     "said": {
+      "cer": 3.7,
+      "wer": 8.3
+     },
+     "written": {
+      "cer": 7.4,
+      "wer": 12.6
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    }
+   },
+   "es": {
+    "mai": {
+     "said": {
+      "cer": 1.8,
+      "wer": 4.3
+     },
+     "written": {
+      "cer": 0.6,
+      "wer": 3.0
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    },
+    "azure": {
+     "said": {
+      "cer": 2.6,
+      "wer": 6.0
+     },
+     "written": {
+      "cer": 2.9,
+      "wer": 6.9
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    }
+   },
+   "pt": {
+    "mai": {
+     "said": {
+      "cer": 2.2,
+      "wer": 3.5
+     },
+     "written": {
+      "cer": 1.3,
+      "wer": 2.8
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    },
+    "azure": {
+     "said": {
+      "cer": 1.0,
+      "wer": 3.0
+     },
+     "written": {
+      "cer": 3.1,
+      "wer": 5.8
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    }
+   },
+   "fr": {
+    "mai": {
+     "said": {
+      "cer": 2.8,
+      "wer": 5.9
+     },
+     "written": {
+      "cer": 3.2,
+      "wer": 6.8
+     },
+     "dropped": 0,
+     "missing_starts": 1
+    },
+    "azure": {
+     "said": {
+      "cer": 2.9,
+      "wer": 7.7
+     },
+     "written": {
+      "cer": 3.3,
+      "wer": 8.6
+     },
+     "dropped": 0,
+     "missing_starts": 1
+    }
+   },
+   "ja": {
+    "mai": {
+     "said": {
+      "cer": 16.4
+     },
+     "written": {
+      "cer": 16.6
+     },
+     "dropped": 0,
+     "missing_starts": 0
+    },
+    "azure": {
+     "said": {
+      "cer": 8.0
+     },
+     "written": {
+      "cer": 8.6
+     },
+     "dropped": 0,
+     "missing_starts": 1
+    }
+   }
+  }
+ },
+ "latency": {
+  "reg": {
+   "en": {
+    "mai": {
+     "eos_to_final": {
+      "p50": 1265,
+      "p90": 4264
+     },
+     "speech_start_to_first_partial": {
+      "p50": 317,
+      "p90": 1312
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 1,
+     "finals": 34
+    },
+    "azure": {
+     "eos_to_final": {
+      "p50": 887,
+      "p90": 1597
+     },
+     "speech_start_to_first_partial": {
+      "p50": 1090,
+      "p90": 1778
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 0,
+     "finals": 22
+    }
+   },
+   "en-es": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 3382,
+     "eos_to_translation_p90": 5049,
+     "translation_call_p50": 1671,
+     "translation_call_p90": 2731,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 2767,
+     "eos_to_translation_p90": 5353,
+     "translation_call_p50": 1258,
+     "translation_call_p90": 1740,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 17787,
+     "eos_to_translation_p90": 32550,
+     "translation_call_p50": 17181,
+     "translation_call_p90": 27675,
+     "calls": 34,
+     "failed_live": 21,
+     "blank_after_fill": 1,
+     "retried": 9
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 2136,
+     "eos_to_translation_p90": 12282,
+     "translation_call_p50": 671,
+     "translation_call_p90": 3880,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 2912,
+     "eos_to_translation_p90": 5930,
+     "translation_call_p50": 1922,
+     "translation_call_p90": 3300,
+     "calls": 22,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "en-fr": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 4314,
+     "eos_to_translation_p90": 6045,
+     "translation_call_p50": 1882,
+     "translation_call_p90": 3791,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 2805,
+     "eos_to_translation_p90": 5694,
+     "translation_call_p50": 1483,
+     "translation_call_p90": 2119,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 20839,
+     "eos_to_translation_p90": 31204,
+     "translation_call_p50": 17435,
+     "translation_call_p90": 26791,
+     "calls": 34,
+     "failed_live": 23,
+     "blank_after_fill": 3,
+     "retried": 8
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 2528,
+     "eos_to_translation_p90": 12192,
+     "translation_call_p50": 895,
+     "translation_call_p90": 3357,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 2906,
+     "eos_to_translation_p90": 6310,
+     "translation_call_p50": 2076,
+     "translation_call_p90": 4589,
+     "calls": 22,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "en-ja": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 3969,
+     "eos_to_translation_p90": 5805,
+     "translation_call_p50": 2028,
+     "translation_call_p90": 3775,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 2914,
+     "eos_to_translation_p90": 5545,
+     "translation_call_p50": 1504,
+     "translation_call_p90": 2347,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 27516,
+     "eos_to_translation_p90": 37727,
+     "translation_call_p50": 17685,
+     "translation_call_p90": 32079,
+     "calls": 34,
+     "failed_live": 22,
+     "blank_after_fill": 0,
+     "retried": 7
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 2408,
+     "eos_to_translation_p90": 5131,
+     "translation_call_p50": 1001,
+     "translation_call_p90": 2445,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 3146,
+     "eos_to_translation_p90": 4508,
+     "translation_call_p50": 2219,
+     "translation_call_p90": 3480,
+     "calls": 22,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "en-pt": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 3414,
+     "eos_to_translation_p90": 4991,
+     "translation_call_p50": 1633,
+     "translation_call_p90": 2855,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 2903,
+     "eos_to_translation_p90": 6050,
+     "translation_call_p50": 1457,
+     "translation_call_p90": 2017,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 15391,
+     "eos_to_translation_p90": 29693,
+     "translation_call_p50": 20709,
+     "translation_call_p90": 27575,
+     "calls": 34,
+     "failed_live": 19,
+     "blank_after_fill": 0,
+     "retried": 10
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 1938,
+     "eos_to_translation_p90": 7006,
+     "translation_call_p50": 710,
+     "translation_call_p90": 2525,
+     "calls": 34,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 2703,
+     "eos_to_translation_p90": 6636,
+     "translation_call_p50": 1691,
+     "translation_call_p90": 3288,
+     "calls": 22,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "es": {
+    "mai": {
+     "eos_to_final": {
+      "p50": 1277,
+      "p90": 1447
+     },
+     "speech_start_to_first_partial": {
+      "p50": 249,
+      "p90": 327
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 0,
+     "finals": 21
+    },
+    "azure": {
+     "eos_to_final": {
+      "p50": 809,
+      "p90": 1078
+     },
+     "speech_start_to_first_partial": {
+      "p50": 1041,
+      "p90": 1104
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 0,
+     "finals": 20
+    }
+   },
+   "es-en": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 2747,
+     "eos_to_translation_p90": 4152,
+     "translation_call_p50": 1259,
+     "translation_call_p90": 2220,
+     "calls": 21,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 2719,
+     "eos_to_translation_p90": 4018,
+     "translation_call_p50": 1377,
+     "translation_call_p90": 2035,
+     "calls": 21,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 10525,
+     "eos_to_translation_p90": 31800,
+     "translation_call_p50": 9272,
+     "translation_call_p90": 30510,
+     "calls": 21,
+     "failed_live": 9,
+     "blank_after_fill": 0,
+     "retried": 7
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 2043,
+     "eos_to_translation_p90": 4244,
+     "translation_call_p50": 690,
+     "translation_call_p90": 2076,
+     "calls": 21,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 2293,
+     "eos_to_translation_p90": 3106,
+     "translation_call_p50": 1631,
+     "translation_call_p90": 2619,
+     "calls": 20,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "pt": {
+    "mai": {
+     "eos_to_final": {
+      "p50": 1245,
+      "p90": 1464
+     },
+     "speech_start_to_first_partial": {
+      "p50": 288,
+      "p90": 508
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 0,
+     "finals": 20
+    },
+    "azure": {
+     "eos_to_final": {
+      "p50": 782,
+      "p90": 977
+     },
+     "speech_start_to_first_partial": {
+      "p50": 1067,
+      "p90": 1403
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 0,
+     "finals": 22
+    }
+   },
+   "pt-en": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 2422,
+     "eos_to_translation_p90": 3085,
+     "translation_call_p50": 1070,
+     "translation_call_p90": 1775,
+     "calls": 20,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 2627,
+     "eos_to_translation_p90": 3449,
+     "translation_call_p50": 1339,
+     "translation_call_p90": 1671,
+     "calls": 20,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 6699,
+     "eos_to_translation_p90": 26419,
+     "translation_call_p50": 4700,
+     "translation_call_p90": 25189,
+     "calls": 20,
+     "failed_live": 3,
+     "blank_after_fill": 0,
+     "retried": 6
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 2553,
+     "eos_to_translation_p90": 4074,
+     "translation_call_p50": 1213,
+     "translation_call_p90": 2640,
+     "calls": 20,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 1957,
+     "eos_to_translation_p90": 3840,
+     "translation_call_p50": 1237,
+     "translation_call_p90": 2568,
+     "calls": 22,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "fr": {
+    "mai": {
+     "eos_to_final": {
+      "p50": 1197,
+      "p90": 2765
+     },
+     "speech_start_to_first_partial": {
+      "p50": 314,
+      "p90": 1030
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 0,
+     "finals": 35
+    },
+    "azure": {
+     "eos_to_final": {
+      "p50": 840,
+      "p90": 1002
+     },
+     "speech_start_to_first_partial": {
+      "p50": 984,
+      "p90": 1238
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 0,
+     "finals": 21
+    }
+   },
+   "fr-en": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 2578,
+     "eos_to_translation_p90": 3920,
+     "translation_call_p50": 1519,
+     "translation_call_p90": 2617,
+     "calls": 35,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 2613,
+     "eos_to_translation_p90": 3958,
+     "translation_call_p50": 1193,
+     "translation_call_p90": 1624,
+     "calls": 35,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 6825,
+     "eos_to_translation_p90": 20914,
+     "translation_call_p50": 5636,
+     "translation_call_p90": 26416,
+     "calls": 35,
+     "failed_live": 8,
+     "blank_after_fill": 0,
+     "retried": 15
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 3013,
+     "eos_to_translation_p90": 6212,
+     "translation_call_p50": 1152,
+     "translation_call_p90": 3573,
+     "calls": 35,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 2195,
+     "eos_to_translation_p90": 3413,
+     "translation_call_p50": 1080,
+     "translation_call_p90": 2234,
+     "calls": 21,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "ja": {
+    "mai": {
+     "eos_to_final": {
+      "p50": 1191,
+      "p90": 1357
+     },
+     "speech_start_to_first_partial": {
+      "p50": 346,
+      "p90": 2501
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 0,
+     "finals": 48
+    },
+    "azure": {
+     "eos_to_final": {
+      "p50": 875,
+      "p90": 1058
+     },
+     "speech_start_to_first_partial": {
+      "p50": 1719,
+      "p90": 3351
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 0,
+     "finals": 25
+    }
+   },
+   "ja-en": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 2916,
+     "eos_to_translation_p90": 4353,
+     "translation_call_p50": 1827,
+     "translation_call_p90": 4808,
+     "calls": 48,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 2326,
+     "eos_to_translation_p90": 3022,
+     "translation_call_p50": 1213,
+     "translation_call_p90": 1692,
+     "calls": 48,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 10642,
+     "eos_to_translation_p90": 22544,
+     "translation_call_p50": 8188,
+     "translation_call_p90": 21332,
+     "calls": 48,
+     "failed_live": 10,
+     "blank_after_fill": 1,
+     "retried": 9
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 1746,
+     "eos_to_translation_p90": 2358,
+     "translation_call_p50": 519,
+     "translation_call_p90": 1050,
+     "calls": 48,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 2720,
+     "eos_to_translation_p90": 3571,
+     "translation_call_p50": 2098,
+     "translation_call_p90": 3466,
+     "calls": 25,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   }
+  },
+  "irr": {
+   "en": {
+    "mai": {
+     "eos_to_final": {
+      "p50": 1811,
+      "p90": 16886
+     },
+     "speech_start_to_first_partial": {
+      "p50": 615,
+      "p90": 921
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 7,
+     "finals": 24
+    },
+    "azure": {
+     "eos_to_final": {
+      "p50": 1132,
+      "p90": 18041
+     },
+     "speech_start_to_first_partial": {
+      "p50": 997,
+      "p90": 1695
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 2,
+     "finals": 16
+    }
+   },
+   "en-es": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 4739,
+     "eos_to_translation_p90": 19839,
+     "translation_call_p50": 2186,
+     "translation_call_p90": 2929,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 4065,
+     "eos_to_translation_p90": 19260,
+     "translation_call_p50": 1656,
+     "translation_call_p90": 2374,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 20857,
+     "eos_to_translation_p90": 33877,
+     "translation_call_p50": 5921,
+     "translation_call_p90": 19584,
+     "calls": 24,
+     "failed_live": 20,
+     "blank_after_fill": 0,
+     "retried": 4
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 8791,
+     "eos_to_translation_p90": 20170,
+     "translation_call_p50": 694,
+     "translation_call_p90": 4326,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 4316,
+     "eos_to_translation_p90": 24906,
+     "translation_call_p50": 2142,
+     "translation_call_p90": 3414,
+     "calls": 16,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "en-fr": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 5410,
+     "eos_to_translation_p90": 20800,
+     "translation_call_p50": 2104,
+     "translation_call_p90": 3900,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 3711,
+     "eos_to_translation_p90": 18881,
+     "translation_call_p50": 1677,
+     "translation_call_p90": 2359,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 21213,
+     "eos_to_translation_p90": 31725,
+     "translation_call_p50": 17432,
+     "translation_call_p90": 26192,
+     "calls": 24,
+     "failed_live": 18,
+     "blank_after_fill": 0,
+     "retried": 2
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 9990,
+     "eos_to_translation_p90": 19992,
+     "translation_call_p50": 999,
+     "translation_call_p90": 8759,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 4108,
+     "eos_to_translation_p90": 21902,
+     "translation_call_p50": 2684,
+     "translation_call_p90": 3547,
+     "calls": 16,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "en-ja": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 6126,
+     "eos_to_translation_p90": 21516,
+     "translation_call_p50": 2600,
+     "translation_call_p90": 4630,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 4089,
+     "eos_to_translation_p90": 18731,
+     "translation_call_p50": 1689,
+     "translation_call_p90": 2313,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 64589,
+     "eos_to_translation_p90": 69219,
+     "translation_call_p50": 19340,
+     "translation_call_p90": 54926,
+     "calls": 24,
+     "failed_live": 20,
+     "blank_after_fill": 0,
+     "retried": 3
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 4194,
+     "eos_to_translation_p90": 17969,
+     "translation_call_p50": 768,
+     "translation_call_p90": 2165,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 4741,
+     "eos_to_translation_p90": 24420,
+     "translation_call_p50": 2110,
+     "translation_call_p90": 6379,
+     "calls": 16,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "en-pt": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 4958,
+     "eos_to_translation_p90": 20201,
+     "translation_call_p50": 1881,
+     "translation_call_p90": 3148,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 4035,
+     "eos_to_translation_p90": 18622,
+     "translation_call_p50": 1736,
+     "translation_call_p90": 2224,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 15696,
+     "eos_to_translation_p90": 15696,
+     "translation_call_p50": 14510,
+     "translation_call_p90": 28252,
+     "calls": 24,
+     "failed_live": 20,
+     "blank_after_fill": 0,
+     "retried": 4
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 4394,
+     "eos_to_translation_p90": 18883,
+     "translation_call_p50": 629,
+     "translation_call_p90": 2437,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 3785,
+     "eos_to_translation_p90": 23970,
+     "translation_call_p50": 2089,
+     "translation_call_p90": 3719,
+     "calls": 16,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "es": {
+    "mai": {
+     "eos_to_final": {
+      "p50": 3743,
+      "p90": 14875
+     },
+     "speech_start_to_first_partial": {
+      "p50": 591,
+      "p90": 933
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 8,
+     "finals": 12
+    },
+    "azure": {
+     "eos_to_final": {
+      "p50": 900,
+      "p90": 11237
+     },
+     "speech_start_to_first_partial": {
+      "p50": 1050,
+      "p90": 1228
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 2,
+     "finals": 18
+    }
+   },
+   "es-en": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 5881,
+     "eos_to_translation_p90": 16197,
+     "translation_call_p50": 1358,
+     "translation_call_p90": 2540,
+     "calls": 12,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 5535,
+     "eos_to_translation_p90": 16588,
+     "translation_call_p50": 1633,
+     "translation_call_p90": 1992,
+     "calls": 12,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 10254,
+     "eos_to_translation_p90": 35283,
+     "translation_call_p50": 21914,
+     "translation_call_p90": 22530,
+     "calls": 12,
+     "failed_live": 7,
+     "blank_after_fill": 0,
+     "retried": 5
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 4486,
+     "eos_to_translation_p90": 15545,
+     "translation_call_p50": 913,
+     "translation_call_p90": 2034,
+     "calls": 12,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 2531,
+     "eos_to_translation_p90": 13563,
+     "translation_call_p50": 1740,
+     "translation_call_p90": 2631,
+     "calls": 18,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "pt": {
+    "mai": {
+     "eos_to_final": {
+      "p50": 4649,
+      "p90": 13909
+     },
+     "speech_start_to_first_partial": {
+      "p50": 504,
+      "p90": 1516
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 8,
+     "finals": 12
+    },
+    "azure": {
+     "eos_to_final": {
+      "p50": 787,
+      "p90": 987
+     },
+     "speech_start_to_first_partial": {
+      "p50": 1085,
+      "p90": 1381
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 1,
+     "finals": 21
+    }
+   },
+   "pt-en": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 8427,
+     "eos_to_translation_p90": 16799,
+     "translation_call_p50": 1323,
+     "translation_call_p90": 3873,
+     "calls": 12,
+     "failed_live": 1,
+     "blank_after_fill": 0,
+     "retried": 2
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 6375,
+     "eos_to_translation_p90": 15635,
+     "translation_call_p50": 1487,
+     "translation_call_p90": 1726,
+     "calls": 12,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 18017,
+     "eos_to_translation_p90": 31244,
+     "translation_call_p50": 5270,
+     "translation_call_p90": 28779,
+     "calls": 12,
+     "failed_live": 3,
+     "blank_after_fill": 0,
+     "retried": 5
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 7125,
+     "eos_to_translation_p90": 14876,
+     "translation_call_p50": 816,
+     "translation_call_p90": 1664,
+     "calls": 12,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 1920,
+     "eos_to_translation_p90": 3143,
+     "translation_call_p50": 1083,
+     "translation_call_p90": 2315,
+     "calls": 21,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 1
+    }
+   },
+   "fr": {
+    "mai": {
+     "eos_to_final": {
+      "p50": 2171,
+      "p90": 13564
+     },
+     "speech_start_to_first_partial": {
+      "p50": 355,
+      "p90": 1443
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 8,
+     "finals": 24
+    },
+    "azure": {
+     "eos_to_final": {
+      "p50": 1088,
+      "p90": 12858
+     },
+     "speech_start_to_first_partial": {
+      "p50": 798,
+      "p90": 1145
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 3,
+     "finals": 17
+    }
+   },
+   "fr-en": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 5094,
+     "eos_to_translation_p90": 16036,
+     "translation_call_p50": 1666,
+     "translation_call_p90": 3292,
+     "calls": 24,
+     "failed_live": 1,
+     "blank_after_fill": 0,
+     "retried": 1
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 3796,
+     "eos_to_translation_p90": 15234,
+     "translation_call_p50": 1169,
+     "translation_call_p90": 1769,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 17548,
+     "eos_to_translation_p90": 28867,
+     "translation_call_p50": 5159,
+     "translation_call_p90": 12912,
+     "calls": 24,
+     "failed_live": 3,
+     "blank_after_fill": 0,
+     "retried": 6
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 3762,
+     "eos_to_translation_p90": 15518,
+     "translation_call_p50": 516,
+     "translation_call_p90": 1319,
+     "calls": 24,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 2741,
+     "eos_to_translation_p90": 14073,
+     "translation_call_p50": 1191,
+     "translation_call_p90": 3776,
+     "calls": 17,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    }
+   },
+   "ja": {
+    "mai": {
+     "eos_to_final": {
+      "p50": 1184,
+      "p90": 9029
+     },
+     "speech_start_to_first_partial": {
+      "p50": 325,
+      "p90": 2567
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 2,
+     "finals": 54
+    },
+    "azure": {
+     "eos_to_final": {
+      "p50": 899,
+      "p90": 2035
+     },
+     "speech_start_to_first_partial": {
+      "p50": 1734,
+      "p90": 3572
+     },
+     "sentences_without_final": 0,
+     "finals_spanning_sentences": 1,
+     "finals": 22
+    }
+   },
+   "ja-en": {
+    "A mai-stream → sol": {
+     "eos_to_translation_p50": 4870,
+     "eos_to_translation_p90": 24657,
+     "translation_call_p50": 3716,
+     "translation_call_p90": 19970,
+     "calls": 54,
+     "failed_live": 4,
+     "blank_after_fill": 0,
+     "retried": 29
+    },
+    "B mai-stream → qwen3.5-122b": {
+     "eos_to_translation_p50": 2226,
+     "eos_to_translation_p90": 10817,
+     "translation_call_p50": 1151,
+     "translation_call_p90": 1565,
+     "calls": 54,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "B mai-stream → qwen3.8-2.4t": {
+     "eos_to_translation_p50": 4717,
+     "eos_to_translation_p90": 15046,
+     "translation_call_p50": 6476,
+     "translation_call_p90": 17025,
+     "calls": 54,
+     "failed_live": 14,
+     "blank_after_fill": 1,
+     "retried": 17
+    },
+    "D mai-stream → gemma-4-31b": {
+     "eos_to_translation_p50": 1585,
+     "eos_to_translation_p90": 11985,
+     "translation_call_p50": 422,
+     "translation_call_p90": 1112,
+     "calls": 54,
+     "failed_live": 0,
+     "blank_after_fill": 0,
+     "retried": 0
+    },
+    "C azure-stream → sol": {
+     "eos_to_translation_p50": 5304,
+     "eos_to_translation_p90": 18373,
+     "translation_call_p50": 4295,
+     "translation_call_p90": 12666,
+     "calls": 22,
+     "failed_live": 1,
+     "blank_after_fill": 0,
+     "retried": 19
+    }
+   }
+  }
+ },
+ "languages": {
+  "reg": {
+   "en": {
+    "detected_field_values": [
+     ""
+    ],
+    "finals": 34,
+    "wrong_language_finals": 2
+   },
+   "es": {
+    "detected_field_values": [
+     ""
+    ],
+    "finals": 21,
+    "wrong_language_finals": 1
+   },
+   "pt": {
+    "detected_field_values": [
+     ""
+    ],
+    "finals": 20,
+    "wrong_language_finals": 1
+   },
+   "fr": {
+    "detected_field_values": [
+     ""
+    ],
+    "finals": 35,
+    "wrong_language_finals": 7
+   },
+   "ja": {
+    "detected_field_values": [
+     ""
+    ],
+    "finals": 48,
+    "wrong_language_finals": 2
+   }
+  },
+  "irr": {
+   "en": {
+    "detected_field_values": [
+     ""
+    ],
+    "finals": 24,
+    "wrong_language_finals": 1
+   },
+   "es": {
+    "detected_field_values": [
+     ""
+    ],
+    "finals": 12,
+    "wrong_language_finals": 0
+   },
+   "pt": {
+    "detected_field_values": [
+     ""
+    ],
+    "finals": 12,
+    "wrong_language_finals": 0
+   },
+   "fr": {
+    "detected_field_values": [
+     ""
+    ],
+    "finals": 24,
+    "wrong_language_finals": 4
+   },
+   "ja": {
+    "detected_field_values": [
+     ""
+    ],
+    "finals": 54,
+    "wrong_language_finals": 1
+   }
+  }
+ },
+ "cost_per_hour": {
+  "reg": {
+   "en-es": {
+    "A mai-stream → sol": 1.5603,
+    "B mai-stream → qwen3.5-122b": 0.0559,
+    "B mai-stream → qwen3.8-2.4t": 1.8124,
+    "D mai-stream → gemma-4-31b": 0.0165,
+    "C azure-stream → sol": 1.503
+   },
+   "en-fr": {
+    "A mai-stream → sol": 1.9497,
+    "B mai-stream → qwen3.5-122b": 0.0593,
+    "B mai-stream → qwen3.8-2.4t": 2.0895,
+    "D mai-stream → gemma-4-31b": 0.0132,
+    "C azure-stream → sol": 1.7265
+   },
+   "en-ja": {
+    "A mai-stream → sol": 2.0001,
+    "B mai-stream → qwen3.5-122b": 0.0557,
+    "B mai-stream → qwen3.8-2.4t": 1.9931,
+    "D mai-stream → gemma-4-31b": 0.0126,
+    "C azure-stream → sol": 1.6296
+   },
+   "en-pt": {
+    "A mai-stream → sol": 1.6559,
+    "B mai-stream → qwen3.5-122b": 0.0518,
+    "B mai-stream → qwen3.8-2.4t": 2.0034,
+    "D mai-stream → gemma-4-31b": 0.0141,
+    "C azure-stream → sol": 1.3023
+   },
+   "es-en": {
+    "A mai-stream → sol": 0.654,
+    "B mai-stream → qwen3.5-122b": 0.0395,
+    "B mai-stream → qwen3.8-2.4t": 1.0684,
+    "D mai-stream → gemma-4-31b": 0.0092,
+    "C azure-stream → sol": 0.7539
+   },
+   "pt-en": {
+    "A mai-stream → sol": 0.5198,
+    "B mai-stream → qwen3.5-122b": 0.033,
+    "B mai-stream → qwen3.8-2.4t": 0.9183,
+    "D mai-stream → gemma-4-31b": 0.0084,
+    "C azure-stream → sol": 0.6556
+   },
+   "fr-en": {
+    "A mai-stream → sol": 1.22,
+    "B mai-stream → qwen3.5-122b": 0.0489,
+    "B mai-stream → qwen3.8-2.4t": 1.8757,
+    "D mai-stream → gemma-4-31b": 0.0135,
+    "C azure-stream → sol": 0.9756
+   },
+   "ja-en": {
+    "A mai-stream → sol": 2.1882,
+    "B mai-stream → qwen3.5-122b": 0.0425,
+    "B mai-stream → qwen3.8-2.4t": 1.7987,
+    "D mai-stream → gemma-4-31b": 0.013,
+    "C azure-stream → sol": 1.1078
+   }
+  },
+  "irr": {
+   "en-es": {
+    "A mai-stream → sol": 1.608,
+    "B mai-stream → qwen3.5-122b": 0.0594,
+    "B mai-stream → qwen3.8-2.4t": 1.5355,
+    "D mai-stream → gemma-4-31b": 0.0156,
+    "C azure-stream → sol": 1.2219
+   },
+   "en-fr": {
+    "A mai-stream → sol": 1.7176,
+    "B mai-stream → qwen3.5-122b": 0.0604,
+    "B mai-stream → qwen3.8-2.4t": 2.0306,
+    "D mai-stream → gemma-4-31b": 0.0143,
+    "C azure-stream → sol": 1.2176
+   },
+   "en-ja": {
+    "A mai-stream → sol": 2.1326,
+    "B mai-stream → qwen3.5-122b": 0.055,
+    "B mai-stream → qwen3.8-2.4t": 1.9642,
+    "D mai-stream → gemma-4-31b": 0.0168,
+    "C azure-stream → sol": 1.6009
+   },
+   "en-pt": {
+    "A mai-stream → sol": 1.5978,
+    "B mai-stream → qwen3.5-122b": 0.0515,
+    "B mai-stream → qwen3.8-2.4t": 1.7969,
+    "D mai-stream → gemma-4-31b": 0.0143,
+    "C azure-stream → sol": 1.1047
+   },
+   "es-en": {
+    "A mai-stream → sol": 0.5899,
+    "B mai-stream → qwen3.5-122b": 0.0368,
+    "B mai-stream → qwen3.8-2.4t": 0.9186,
+    "D mai-stream → gemma-4-31b": 0.0131,
+    "C azure-stream → sol": 0.772
+   },
+   "pt-en": {
+    "A mai-stream → sol": 0.5293,
+    "B mai-stream → qwen3.5-122b": 0.034,
+    "B mai-stream → qwen3.8-2.4t": 0.8513,
+    "D mai-stream → gemma-4-31b": 0.0114,
+    "C azure-stream → sol": 0.6866
+   },
+   "fr-en": {
+    "A mai-stream → sol": 1.2967,
+    "B mai-stream → qwen3.5-122b": 0.0454,
+    "B mai-stream → qwen3.8-2.4t": 1.5788,
+    "D mai-stream → gemma-4-31b": 0.013,
+    "C azure-stream → sol": 0.9195
+   },
+   "ja-en": {
+    "A mai-stream → sol": 2.5966,
+    "B mai-stream → qwen3.5-122b": 0.046,
+    "B mai-stream → qwen3.8-2.4t": 2.7471,
+    "D mai-stream → gemma-4-31b": 0.0166,
+    "C azure-stream → sol": 1.3457
+   }
+  }
+ },
+ "providers": {
+  "A mai-stream → sol": [
+   "foundry"
+  ],
+  "B mai-stream → qwen3.5-122b": [
+   "Novita",
+   "SiliconFlow"
+  ],
+  "B mai-stream → qwen3.8-2.4t": [
+   "Novita",
+   "SiliconFlow",
+   "Together",
+   "Venice"
+  ],
+  "D mai-stream → gemma-4-31b": [
+   "CoreWeave",
+   "DeepInfra",
+   "ModelRun"
+  ],
+  "C azure-stream → sol": [
+   "foundry"
+  ]
+ },
+ "recognition_price_per_hour": {
+  "mai-transcribe-2-streaming": 0.54,
+  "azure standard real-time": 1.0,
+  "source": "Azure Retail Prices API, list pay-as-you-go, 2026-10-23"
+ }
+}
