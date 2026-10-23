@@ -28,10 +28,10 @@ class Fake(BaseHTTPRequestHandler):
             self.end_headers()
             return
         if self.path.endswith("/completions") and "prompt" in body:
-            src = body["prompt"].split("\n")[1].split(": ", 1)[1]
+            src = body["prompt"].split("\n")[-2].split(": ", 1)[1]   # the last source line
             reply = {"choices": [{"text": f" <{src}>\nignored"}]}
         else:
-            src = body["messages"][0]["content"].split("\n\n", 1)[1]
+            src = body["messages"][0]["content"].rsplit("\n\n", 1)[1]   # the sentence comes last
             reply = {"choices": [{"message": {"content": f"[{src}]"}}]}
         data = json.dumps(reply).encode()
         self.send_response(200)
@@ -56,7 +56,11 @@ class FakeHyMT:
     def supports_source(self, lang):
         return lang != "ht"
 
-    def translate(self, sentences, src, targets, text=None):
+    takes_context = True
+    got_context = None
+
+    def translate(self, sentences, src, targets, text=None, context=None):
+        FakeHyMT.got_context = context
         return {t: f"hymt:{' '.join(sentences)}" for t in targets}
 
 
@@ -107,6 +111,61 @@ def test_a_failed_sentence_leaves_the_target_to_madlad():
 def test_a_bad_server_line_is_refused_by_the_config_check():
     assert llmmt.LlmMT.check_lang("ht", "chat not-a-url m")
     assert llmmt.LlmMT.check_lang("ht", "chat http://127.0.0.1:8101/v1 some/model") is None
+
+
+
+CTX = {"pieces": ["Bonjou.", "Kijan ou ye?"], "translations": {"en": "Hello. How are you?", "lo": "ສະບາຍດີ"}}
+
+
+def test_no_context_sends_exactly_the_old_prompts():
+    for style in ("chat", "milmmt"):
+        assert llmmt.request(style, "m", "Hi.", "en", "ht") == llmmt.request(style, "m", "Hi.", "en", "ht", None)
+        assert llmmt.request(style, "m", "Hi.", "en", "ht", {}) == llmmt.request(style, "m", "Hi.", "en", "ht")
+
+
+def test_chat_context_goes_above_the_instruction_and_the_sentence_stays_last():
+    e, a, _ = engine()
+    SEEN.clear()
+    assert e.translate(["Mwen byen."], "ht", ["en"], context=CTX) == {"en": "[Mwen byen.]"}
+    content = SEEN[0][2]["messages"][0]["content"]
+    assert content.startswith("The Haitian Creole text before this one, for context only.")
+    assert "Bonjou.\nKijan ou ye?" in content and "Hello. How are you?" in content
+    assert content.index("Translate this Haitian Creole sentence") > content.index("Hello. How are you?")
+    assert content.rsplit("\n\n", 1)[1] == "Mwen byen."
+
+
+def test_context_keeps_at_most_two_pieces():
+    _, body = llmmt.request("chat", "m", "x", "ht", "en", {"pieces": ["alpha", "beta", "gamma"]})
+    content = body["messages"][0]["content"]
+    assert "alpha" not in content and "beta\ngamma" in content
+
+
+def test_milmmt_takes_the_previous_pair_as_one_earlier_exchange():
+    _, body = llmmt.request("milmmt", "mi", "Thank you.", "en", "lo",
+                            {"pieces": ["Hello."], "translations": {"lo": "ສະບາຍດີ"}})
+    assert body["prompt"] == ("Translate this from English to Lao:\nEnglish: Hello.\nLao: ສະບາຍດີ\n"
+                              "English: Thank you.\nLao:")
+    _, body = llmmt.request("milmmt", "mi", "Thank you.", "en", "lo", {"pieces": ["Hello."]})   # nothing to pair
+    assert body["prompt"] == "Translate this from English to Lao:\nEnglish: Thank you.\nLao:"
+
+
+def test_a_repeated_previous_translation_is_dropped():
+    class Rep(llmmt.LlmMT):
+        def call(self, server, sentence, src, tgt, context=None):
+            return "Hello. How are you? I am fine."
+    e, _, _ = engine()
+    r = Rep(e.ctx)
+    r.load()
+    assert r.translate(["Mwen byen."], "ht", ["en"], context=CTX) == {"en": "I am fine."}
+
+
+def test_pairs_left_to_hymt_get_the_context_too():
+    e, _, _ = engine()
+    FakeHyMT.got_context = None
+    fake = FakeHyMT()
+    e.ctx.engine = lambda kind, name: fake if name == "hymt" else None
+    assert e.translate(["Hola."], "es", ["en"], context=CTX) == {"en": "hymt:Hola."}
+    assert FakeHyMT.got_context == CTX
 
 
 if __name__ == "__main__":
