@@ -1,0 +1,183 @@
+{
+ "systems": {
+  "M": "main at 36693cc: MADLAD-400 7B (bf16 under transformers on this pod) for ht and lo",
+  "L": "this branch: llmmt, Gemma 4 31B (google/gemma-4-31B-it-qat-w4a16-ct) for ht, MiLMMT-46 12B (bf16) for lo, served by vLLM 0.31.0 beside the stack"
+ },
+ "gpu_memory_gb": {
+  "stack_en_ht_without_7b": 34.8,
+  "gemma4_31b_w4a16_vllm_util_0.34": 27.7,
+  "stack_en_lo_with_7b": 50.1,
+  "milmmt_12b_bf16_vllm_util_0.36": 27.7,
+  "full_stack_8_languages_with_7b": 52.5
+ },
+ "live": {
+  "en-ht": {
+   "M": {
+    "cer": 18.6,
+    "missing_audio": 0,
+    "utterances": 22,
+    "stop_to_tail_audio_ms": {
+     "p50": 4171,
+     "p90": 6092
+    },
+    "gpu_mem_mb_max": 53563,
+    "quality_written": {
+     "q": 35.0,
+     "crit": 11,
+     "n": 20
+    },
+    "quality_said": {
+     "q": 46.7,
+     "crit": 8,
+     "n": 20
+    }
+   },
+   "L": {
+    "cer": 18.6,
+    "missing_audio": 0,
+    "utterances": 22,
+    "stop_to_tail_audio_ms": {
+     "p50": 1586,
+     "p90": 2099
+    },
+    "gpu_mem_mb_max": 63432,
+    "quality_written": {
+     "q": 63.3,
+     "crit": 6,
+     "n": 20
+    },
+    "quality_said": {
+     "q": 68.3,
+     "crit": 6,
+     "n": 20
+    }
+   }
+  },
+  "ht-en": {
+   "M": {
+    "cer": 5.2,
+    "missing_audio": 0,
+    "utterances": 21,
+    "stop_to_tail_audio_ms": {
+     "p50": 7460,
+     "p90": 9422
+    },
+    "gpu_mem_mb_max": 53375,
+    "quality_written": {
+     "q": 48.3,
+     "crit": 12,
+     "n": 20
+    },
+    "quality_said": {
+     "q": 47.1,
+     "crit": 10,
+     "n": 17
+    }
+   },
+   "L": {
+    "cer": 5.2,
+    "missing_audio": 0,
+    "utterances": 21,
+    "stop_to_tail_audio_ms": {
+     "p50": 3048,
+     "p90": 4040
+    },
+    "gpu_mem_mb_max": 63432,
+    "quality_written": {
+     "q": 66.7,
+     "crit": 9,
+     "n": 20
+    },
+    "quality_said": {
+     "q": 64.7,
+     "crit": 8,
+     "n": 17
+    }
+   }
+  },
+  "en-lo": {
+   "M": {
+    "cer": 22.3,
+    "missing_audio": 1,
+    "utterances": 21,
+    "stop_to_tail_audio_ms": {
+     "p50": 13658,
+     "p90": 20661
+    },
+    "gpu_mem_mb_max": 53665,
+    "quality_written": {
+     "q": 38.3,
+     "crit": 13,
+     "n": 20
+    },
+    "quality_said": {
+     "q": 46.7,
+     "crit": 10,
+     "n": 20
+    }
+   },
+   "L": {
+    "cer": 18.6,
+    "missing_audio": 1,
+    "utterances": 22,
+    "stop_to_tail_audio_ms": {
+     "p50": 2121,
+     "p90": 2774
+    },
+    "gpu_mem_mb_max": 78892,
+    "quality_written": {
+     "q": 48.3,
+     "crit": 12,
+     "n": 20
+    },
+    "quality_said": {
+     "q": 63.3,
+     "crit": 8,
+     "n": 20
+    }
+   }
+  },
+  "lo-en": {
+   "M": {
+    "cer": 18.7,
+    "missing_audio": 1,
+    "utterances": 27,
+    "stop_to_tail_audio_ms": {
+     "p50": 4972,
+     "p90": 6224
+    },
+    "gpu_mem_mb_max": 53773,
+    "quality_written": {
+     "q": 35.0,
+     "crit": 11,
+     "n": 20
+    },
+    "quality_said": {
+     "q": 35.1,
+     "crit": 10,
+     "n": 19
+    }
+   },
+   "L": {
+    "cer": 18.7,
+    "missing_audio": 1,
+    "utterances": 27,
+    "stop_to_tail_audio_ms": {
+     "p50": 2881,
+     "p90": 4980
+    },
+    "gpu_mem_mb_max": 78892,
+    "quality_written": {
+     "q": 41.7,
+     "crit": 11,
+     "n": 20
+    },
+    "quality_said": {
+     "q": 42.1,
+     "crit": 10,
+     "n": 19
+    }
+   }
+  }
+ }
+}
