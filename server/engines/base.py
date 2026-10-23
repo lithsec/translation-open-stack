@@ -147,7 +147,8 @@ def _names(entry, cls):
     if not isinstance(entry, dict):
         return False
     if cls.kind == "translator":
-        return entry.get("translator") == cls.name
+        return any(cls.name in ([v] if isinstance(v, str) else (v or []))
+                   for v in (entry.get("translator"), entry.get("translator_to_en")))
     if cls.kind == "recognizer":
         return entry.get("asr", "").split(":", 1)[0] == cls.name
     return cls.name in entry or cls.name in (entry.get("voice") or [])
@@ -206,6 +207,13 @@ class Translator(Engine):
         """Translate FROM this language? If not, the sentences are first
         pivoted into English by MADLAD and handed over with src="en"."""
         return True
+
+    def supports_pair(self, src, tgt):
+        """Serve src -> tgt right now? Asked per request when a language names
+        a list of translators (the first that says yes serves). Default: any
+        source into the targets supports() takes; an engine whose backend can
+        be down (llmmt) answers per pair."""
+        return self.supports(tgt)
 
     def translate(self, sentences, src, targets, text=None):
         """{lang: translation} for every target. `sentences` is the utterance

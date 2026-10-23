@@ -168,6 +168,32 @@ def test_pairs_left_to_hymt_get_the_context_too():
     assert FakeHyMT.got_context == CTX
 
 
+def test_a_server_that_does_not_answer_is_not_offered():
+    """Health: a refused connection marks the server down, so the stack's
+    translator list moves on; any HTTP answer (even 501 to GET) counts as up."""
+    import socket
+    sock = socket.socket()
+    sock.bind(("127.0.0.1", 0))
+    dead = sock.getsockname()[1]
+    sock.close()                                   # nothing listens there now
+    up = serve()
+    ctx = Context(table={"ht": {"translator": ["llmmt", "madlad"], "llmmt": f"chat http://127.0.0.1:{dead}/v1 g4"},
+                         "lo": {"translator": ["llmmt", "madlad"], "llmmt": f"milmmt http://127.0.0.1:{up}/v1 mi"}})
+    ctx.engine = lambda kind, name: None
+    e = llmmt.LlmMT(ctx)
+    e.load()
+    assert not e.supports_pair("en", "ht") and not e.supports_pair("ht", "en")
+    assert e.supports_pair("en", "lo") and e.supports_pair("lo", "en")
+    assert not e.supports_pair("en", "es")         # no server named for the pair
+    os.environ["LLMMT_HEALTH"] = "0"               # checks off: every named server counts as up
+    try:
+        e2 = llmmt.LlmMT(ctx)
+        e2.load()
+        assert e2.supports_pair("en", "ht")
+    finally:
+        del os.environ["LLMMT_HEALTH"]
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

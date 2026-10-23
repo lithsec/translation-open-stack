@@ -19,10 +19,18 @@ A language names its server in languages.toml as "<style> <base url> <model id>"
     translator = "llmmt"
     llmmt = "milmmt http://127.0.0.1:8102/v1 xiaomi-research/MiLMMT-46-12B-v0.1"
 
-The stack picks a translator by the TARGET language. For ht -> en the target is
-English, so [en] can say translator = "llmmt" too: a pair is sent to the server
-its non-English side names (the source's, else the target's), and any pair
-neither side names goes to Hy-MT2 as before (MADLAD if Hy-MT2 can't).
+The stack picks a translator per direction: into a language, that language's
+translator; into English, the source's translator_to_en when it names one (else
+[en]'s). A list is tried in order, so translator = ["llmmt", "hymt"] means this
+engine while its server answers and Hy-MT2 otherwise. A pair is sent to the
+server its non-English side names (the source's, else the target's), and any
+pair neither side names goes to Hy-MT2 as before (MADLAD if Hy-MT2 can't).
+
+Health: at load, and every HEALTH_EVERY_S after, each named server is asked for
+/models (HEALTH_TIMEOUT_S). Any HTTP answer counts as up; a refused or timed-out
+connection as down, and while a server is down supports_pair() says no for its
+pairs, so the stack uses the next translator in the list. Each change is logged.
+LLMMT_HEALTH=0 skips the checks and treats every named server as up.
 
 Styles: "chat" (the shootout's prompt as one user message, temperature 0) and
 "milmmt" (MiLMMT's model-card completion prompt). One request per sentence,
@@ -40,6 +48,10 @@ is under the Gemma terms. The commercial edition refuses an engine it can't
 classify, so it needs the operator's review ([licence_review]).
 """
 import json
+import os
+import threading
+import time
+import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 
@@ -55,6 +67,19 @@ NAMES = {
     "ro": "Romanian",
 }
 TIMEOUT_S = 30
+HEALTH_EVERY_S = 30
+HEALTH_TIMEOUT_S = 2
+
+
+def server_answers(url, timeout=HEALTH_TIMEOUT_S):
+    """Does an HTTP server answer at this base url? Any status counts."""
+    try:
+        with urllib.request.urlopen(url + "/models", timeout=timeout):
+            return True
+    except urllib.error.HTTPError:
+        return True
+    except Exception:
+        return False
 
 
 def parse_server(value):
@@ -127,7 +152,54 @@ class LlmMT(Translator):
 
     def load(self):
         self.pool = ThreadPoolExecutor(max_workers=16)
+        self._up = {}
+        self._servers = self._configured()
+        self._checks = os.environ.get("LLMMT_HEALTH", "1") != "0"
+        self.check_servers()
+        if self._checks and self._servers:
+            threading.Thread(target=self._watch, daemon=True, name="llmmt-health").start()
         self.available = True
+
+    def _configured(self):
+        """{server: [languages naming it]}, for the served languages (all when none are given)."""
+        served = set(self.ctx.langs) | set(self.ctx.srcs)
+        out = {}
+        for lang, entry in self.ctx.table.items():
+            value = entry.get(self.name) if isinstance(entry, dict) else None
+            if value and (not served or lang in served):
+                try:
+                    out.setdefault(parse_server(value), []).append(lang)
+                except ValueError:
+                    pass
+        return out
+
+    def _set(self, server, up):
+        before = self._up.get(server)
+        self._up[server] = up
+        if before is up:
+            return
+        style, url, model = server
+        langs = ",".join(sorted(self._servers.get(server, [])))
+        if up:
+            print(f"[stack] llmmt: {url} ({model}) answering — {langs} use it", flush=True)
+        else:
+            print(f"[stack] llmmt: {url} ({model}) not answering — {langs} use their next translator "
+                  f"(checking every {HEALTH_EVERY_S} s)", flush=True)
+
+    def check_servers(self):
+        for server in self._servers:
+            self._set(server, server_answers(server[1]) if self._checks else True)
+
+    def _watch(self):
+        while True:
+            time.sleep(HEALTH_EVERY_S)
+            self.check_servers()
+
+    def supports_pair(self, src, tgt):
+        """Only while the server this pair goes to answers (and one is named)."""
+        server = self.server_for(src, tgt)
+        checks = getattr(self, "_checks", False)
+        return server is not None and getattr(self, "_up", {}).get(server, not checks)
 
     def supports_source(self, lang):
         return True   # reads Haitian Creole and Lao itself: no English pivot
@@ -159,6 +231,8 @@ class LlmMT(Translator):
                 got = list(self.pool.map(lambda s: self.call(server, s, src, tgt, context), sentences))
             except Exception as e:   # this target only: MADLAD translates it whole
                 print(f"[stack] llmmt {src}->{tgt} failed ({e}) — MADLAD instead", flush=True)
+                if isinstance(e, urllib.error.URLError) and not isinstance(e, urllib.error.HTTPError):
+                    self._set(server, False)   # unreachable: the next translator until it answers again
                 continue
             if all(got):
                 prev = _context(context, tgt)[1]

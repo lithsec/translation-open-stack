@@ -37,7 +37,12 @@ Per-language keys (all optional):
     min_speech_ms    <int>              a pause ends a turn only once it holds this much
                                         speech, or the quiet lasts SHORT_TURN_HOLD_MS
     translator  "hymt" | "madlad"       Hy-MT2 only covers the languages in
-                                        engines/hymt.py's HYMT_NAMES; others use MADLAD
+                | ["llmmt", "hymt"]     engines/hymt.py's HYMT_NAMES; others use MADLAD.
+                                        A list is tried in order: the first engine
+                                        that is running and can do the pair wins
+                                        (llmmt only while its server answers)
+    translator_to_en  (as translator)   the translator FROM this language INTO
+                                        English; without it [en]'s translator does
     madlad      "<code>"                MADLAD's target tag, when it differs
     voice       ["<name>", ...]         the voice chain in this order, instead of
                                         the default order above
@@ -108,15 +113,23 @@ HYMT_LANGS = {
 # The longer turns Japanese, Haitian Creole, Khmer and Lao take when spoken (languages.toml, eval/2026-10-pauses).
 LONG_TURNS = {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500, "max_utterance_s": 15,
               "min_speech_ms": 2500}
+# Translators per direction, from the full stack live (eval/2026-10-full-stack): Gemma 4 (llmmt) out of
+# English into es pt fr ja km, ja -> en, and both ways for ht; MiLMMT both ways for Lao; Hy-MT2 into
+# English from es pt fr km. llmmt is tried first and only while its server answers (engines/llmmt.py):
+# without the vLLM servers beside the stack, every pair falls back to the translator it had before.
+GEMMA = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+MILMMT = "milmmt http://127.0.0.1:8102/v1 xiaomi-research/MiLMMT-46-12B-v0.1"
 DEFAULTS = {
     "en": {"kokoro": "a:am_michael", "piper": "en_US-lessac-medium", "asr": "whisper", "translator": "hymt",
            "commercial": {"kokoro": "a:am_michael", "piper": "en_US-norman-medium"}},
-    "es": {"kokoro": "e:ef_dora", "piper": "es_ES-davefx-medium", "asr": "whisper", "translator": "hymt",
-           "madlad": "es", "commercial": {"kokoro": "e:ef_dora", "piper": "es_ES-carlfm-x_low"}},
-    "fr": {"kokoro": "f:ff_siwis", "piper": "fr_FR-siwis-medium", "asr": "whisper", "translator": "hymt",
-           "madlad": "fr", "commercial": {"kokoro": "f:ff_siwis", "piper": "fr_FR-mls-medium"}},
-    "pt": {"kokoro": "p:pf_dora", "piper": "pt_BR-faber-medium", "asr": "whisper", "translator": "hymt",
-           "madlad": "pt"},
+    "es": {"kokoro": "e:ef_dora", "piper": "es_ES-davefx-medium", "asr": "whisper",
+           "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": "hymt", "madlad": "es",
+           "commercial": {"kokoro": "e:ef_dora", "piper": "es_ES-carlfm-x_low"}},
+    "fr": {"kokoro": "f:ff_siwis", "piper": "fr_FR-siwis-medium", "asr": "whisper",
+           "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": "hymt", "madlad": "fr",
+           "commercial": {"kokoro": "f:ff_siwis", "piper": "fr_FR-mls-medium"}},
+    "pt": {"kokoro": "p:pf_dora", "piper": "pt_BR-faber-medium", "asr": "whisper",
+           "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": "hymt", "madlad": "pt"},
     "it": {"kokoro": "i:if_sara", "piper": "it_IT-serena-high", "asr": "whisper", "translator": "hymt",
            "madlad": "it"},
     "de": {"piper": "de_DE-thorsten-high", "asr": "whisper", "translator": "hymt", "madlad": "de",
@@ -127,7 +140,8 @@ DEFAULTS = {
     "zh": {"kokoro": "z:zf_xiaobei", "piper": "zh_CN-huayan-medium", "asr": "whisper", "translator": "hymt",
            "madlad": "zh"},
     "ja": {"kokoro": "j:jf_alpha", "piper": "ja_JP-hi_fi_captain-medium", "asr": "whisper",
-           **LONG_TURNS, "translator": "hymt", "madlad": "ja"},
+           **LONG_TURNS, "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
+           "translator_to_en": ["llmmt", "hymt"], "madlad": "ja"},
     "ko": {"piper": "ko_KR-kss-medium", "asr": "whisper", "translator": "hymt", "madlad": "ko",
            "commercial": {"voxcpm": True}},
     "vi": {"piper": "vi_VN-vais1000-medium", "asr": "whisper", "translator": "hymt", "madlad": "vi",
@@ -147,11 +161,14 @@ DEFAULTS = {
            "commercial": {"voxcpm": True}},
     "ro": {"piper": "ro_RO-mihai-medium", "asr": "whisper", "translator": "madlad", "madlad": "ro"},
     "ht": {"coqui": "multilingual-tts/VITS-OpenBible-Haitian-Creole", "mms": "facebook/mms-tts-hat",
-           "asr": "omni:hat_Latn", "translator": "madlad", "madlad": "ht", **LONG_TURNS},
+           "asr": "omni:hat_Latn", "translator": ["llmmt", "madlad"], "llmmt": GEMMA,
+           "translator_to_en": ["llmmt", "hymt"], "madlad": "ht", **LONG_TURNS},
     "km": {"voxcpm": True, "mms": "facebook/mms-tts-khm", "asr": "omni:khm_Khmr", "omni": "large",
-           **LONG_TURNS, "translator": "hymt", "madlad": "km"},
+           **LONG_TURNS, "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": "hymt",
+           "madlad": "km"},
     "lo": {"voxcpm": True, "mms": "facebook/mms-tts-lao", "asr": "omni:lao_Laoo", "omni": "large",
-           **LONG_TURNS, "translator": "madlad", "madlad": "lo"},
+           **LONG_TURNS, "translator": ["llmmt", "madlad"], "llmmt": MILMMT,
+           "translator_to_en": ["llmmt", "hymt"], "madlad": "lo"},
     # MADLAD's code for Tagalog is fil (<2tl> is not in its vocabulary).
     "tl": {"voxcpm": True, "mms": "facebook/mms-tts-tgl", "asr": "whisper", "translator": "hymt",
            "madlad": "fil"},
@@ -203,12 +220,35 @@ TURN_KEYS = {"endpoint_ms": (100, 3000), "max_utterance_s": (3, 30), "long_utter
              "long_endpoint_ms": (100, 3000), "min_speech_ms": (0, 5000)}
 ENDPOINT_MS_RANGE = TURN_KEYS["endpoint_ms"]
 MAX_UTTERANCE_S_RANGE = TURN_KEYS["max_utterance_s"]
-BASE_KEYS = {"asr": str, "translator": str, "voice": list, "commercial": dict, **{k: int for k in TURN_KEYS}}
+# A translator is one engine name or a list tried in order (translator_choices()).
+TRANSLATOR_KEYS = ("translator", "translator_to_en")
+BASE_KEYS = {"asr": str, "translator": (str, list), "translator_to_en": (str, list), "voice": list, "commercial": dict, **{k: int for k in TURN_KEYS}}
 
 
 def _engines():
     import engines
     return engines
+
+
+def translator_choices(entry, key="translator"):
+    """The engines a language table names for `key` ("translator" or
+    "translator_to_en"), in the order they are tried: [] when it names none
+    (for "translator" the caller's default, Hy-MT2, applies)."""
+    v = (entry or {}).get(key)
+    if v is None:
+        return []
+    return [v] if isinstance(v, str) else list(v)
+
+
+def first_translator(entry, default="hymt"):
+    """The first engine a language's `translator` names (Hy-MT2 when none)."""
+    return (translator_choices(entry) or [default])[0]
+
+
+def base_translator(entry):
+    """The in-process translator a language falls back to: its first hymt or
+    madlad choice (Hy-MT2 when it names neither). What it ran before llmmt."""
+    return next((c for c in translator_choices(entry) if c in ("hymt", "madlad")), "hymt")
 
 
 def keys():
@@ -252,7 +292,8 @@ def validate(table):
             if k not in known:
                 raise ValueError(f"[{lang}] unknown key {k!r} (known: {', '.join(known)})")
             if not isinstance(v, known[k]) or (known[k] is int and isinstance(v, bool)):
-                raise ValueError(f"[{lang}] {k} must be a {known[k].__name__}")
+                want = ("string or a list of strings" if isinstance(known[k], tuple) else known[k].__name__)
+                raise ValueError(f"[{lang}] {k} must be a {want}")
             if k in TURN_KEYS and not TURN_KEYS[k][0] <= v <= TURN_KEYS[k][1]:
                 lo, hi = TURN_KEYS[k]
                 raise ValueError(f"[{lang}] {k} = {v} is outside {lo}..{hi}")
@@ -271,13 +312,21 @@ def validate(table):
             raise ValueError(f"[{lang}] asr must be \"{name}:<code>\" (got {asr!r})")
         if rec.arg == "none" and ":" in asr:
             raise ValueError(f"[{lang}] asr must be \"{name}\", without \":...\" (got {asr!r})")
-        tr = entry.get("translator", "hymt")
-        try:
-            cls = eng.get("translator", tr)
-        except ValueError as e:
-            raise ValueError(f"[{lang}] translator: {e}") from None
-        if "translator" in entry and cls.languages is not None and lang not in cls.languages:
-            raise ValueError(f"[{lang}] {cls.title or tr} does not support {lang}; use translator = \"madlad\"")
+        for key in TRANSLATOR_KEYS:
+            names = translator_choices(entry, key)
+            if key in entry and (not names or not all(isinstance(n, str) and n for n in names)):
+                raise ValueError(f"[{lang}] {key} must be an engine name or a list of engine names")
+            if key == "translator_to_en" and key in entry and lang == "en":
+                raise ValueError("[en] translator_to_en: English into English; set [en] translator instead")
+            target = "en" if key == "translator_to_en" else lang
+            for tr in names:
+                try:
+                    cls = eng.get("translator", tr)
+                except ValueError as e:
+                    raise ValueError(f"[{lang}] {key}: {e}") from None
+                if cls.languages is not None and target not in cls.languages:
+                    raise ValueError(f"[{lang}] {cls.title or tr} does not support {target}; "
+                                     f"use {key} = \"madlad\"")
         for v in entry.get("voice", []):
             if not isinstance(v, str):
                 raise ValueError(f"[{lang}] voice must be a list of voice names")
@@ -416,12 +465,28 @@ def apply_edition(table, ed, reviews=None, unclear_ok=None):
                 for k in [k for k in e if k in voice_names or k == "voice"]:
                     del e[k]
                 e.update(copy.deepcopy(comm))
-            for kind, name in (("recognizer", e.get("asr", "whisper").split(":", 1)[0]),
-                               ("translator", e.get("translator", "hymt"))):
-                li = lic.lookup(name, cls=reg[kind].get(name))
-                if not lic.allowed(li, ed, name in reviews, unclear_ok):
-                    raise ValueError(f"[{lang}] {kind} {name} is {lic.SYMBOL[li.cls]} {li.cls} ({li.reason}): "
-                                     "not allowed with EDITION=commercial")
+            name = e.get("asr", "whisper").split(":", 1)[0]
+            li = lic.lookup(name, cls=reg["recognizer"].get(name))
+            if not lic.allowed(li, ed, name in reviews, unclear_ok):
+                raise ValueError(f"[{lang}] recognizer {name} is {lic.SYMBOL[li.cls]} {li.cls} ({li.reason}): "
+                                 "not allowed with EDITION=commercial")
+            # A translator list keeps the choices commercial may load (llmmt is ❓ until reviewed, so
+            # it drops out and the next choice serves); a list with none left, or one name, refuses.
+            for key in TRANSLATOR_KEYS:
+                names = translator_choices(e, key) or (["hymt"] if key == "translator" else [])
+                keep = []
+                for name in names:
+                    li = lic.lookup(name, cls=reg["translator"].get(name))
+                    if lic.allowed(li, ed, name in reviews, unclear_ok):
+                        keep.append(name)
+                    elif len(names) == 1:
+                        raise ValueError(f"[{lang}] translator {name} is {lic.SYMBOL[li.cls]} {li.cls} "
+                                         f"({li.reason}): not allowed with EDITION=commercial")
+                if names and not keep:
+                    raise ValueError(f"[{lang}] {key}: none of {', '.join(names)} is allowed with "
+                                     "EDITION=commercial")
+                if key in e and keep != names:
+                    e[key] = keep[0] if len(keep) == 1 else keep
             for name, value in voice_order(e, lang):
                 li = lic.lookup(name, value if isinstance(value, str) else None, cls=reg["voice"].get(name))
                 if lic.allowed(li, ed, lic.item_id(name, value) in reviews, unclear_ok):
@@ -867,7 +932,7 @@ def tables(table):
                         if any(k in e for k in TURN_KEYS)},
         "LANG_TO_MADLAD": {l: e["madlad"] for l, e in table.items() if "madlad" in e},
         # Languages kept off Hy-MT2 even though it supports them.
-        "MADLAD_ONLY": {l for l, e in table.items() if e.get("translator") == "madlad"},
+        "MADLAD_ONLY": {l for l, e in table.items() if base_translator(e) == "madlad"},
     }
 
 
@@ -918,8 +983,10 @@ def check_lines(table, ed, reviews, models, unclear_ok=None):
         e, r = eff[lang], report[lang]
         asr = e.get("asr", "whisper")
         a = lic.lookup(asr.split(":", 1)[0], cls=reg["recognizer"].get(asr.split(":", 1)[0]))
-        tr = e.get("translator", "hymt")
-        t = lic.lookup(tr, cls=reg["translator"].get(tr))
+        names = translator_choices(e) or ["hymt"]
+        t = lic.lookup(names[0], cls=reg["translator"].get(names[0]))
+        tr = ">".join(names) + (f" (to en: {'>'.join(translator_choices(e, 'translator_to_en'))})"
+                                if "translator_to_en" in e else "")
         chain = " > ".join(f"{_item(n, v)} {lic.SYMBOL[li.cls]}" + (" (last resort)" if _last(n) and len(r["voices"]) > 1
                                                                      else "") for n, v, li in r["voices"]) or "TEXT ONLY"
         lines.append(f"  {lang:3} asr={asr:14} {lic.SYMBOL[a.cls]}  mt={tr:6} {lic.SYMBOL[t.cls]}  voice: {chain}")
@@ -977,6 +1044,14 @@ def check_lines(table, ed, reviews, models, unclear_ok=None):
     return lines
 
 
+def _translator_title(name, entry):
+    """Hy-MT2, MADLAD, or for llmmt the model its server line names."""
+    if name == "llmmt" and entry.get("llmmt"):
+        model = str(entry["llmmt"]).split()[-1].lower()
+        return ("Gemma 4" if "gemma-4" in model else "MiLMMT" if "milmmt" in model else model) + " (llmmt)"
+    return TITLES.get(name, name)
+
+
 def _last(name):
     """Is this voice a last resort (eSpeak NG)?"""
     cls = _engines().registry("voice").get(name)
@@ -998,7 +1073,7 @@ def docs_blocks(table=None):
     for lang in table:
         e = non[lang]
         asr = TITLES.get(e.get("asr", "whisper").split(":")[0], e.get("asr"))
-        tr = TITLES.get(e.get("translator", "hymt"), e.get("translator"))
+        tr = " › ".join(_translator_title(n, e) for n in (translator_choices(e) or ["hymt"]))
         notes = []
         for n, v, li in rc[lang]["voices"]:
             if li.cls in (lic.ATTRIBUTION, lic.SHARE_ALIKE) and n not in lic.GLOBAL_OBLIGATION:

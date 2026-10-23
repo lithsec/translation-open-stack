@@ -69,7 +69,9 @@ def test_every_configured_item_is_classified():
                 assert _is_classified(name, value), f"[{lang}] {name} {value!r} has no licence entry"
             asr = entry.get("asr", "whisper").split(":")[0]
             assert "has no entry" not in L.lookup(asr).reason, asr
-            assert "has no entry" not in L.lookup(entry.get("translator", "hymt")).reason
+            for key in c.TRANSLATOR_KEYS:
+                for name in c.translator_choices(entry, key):
+                    assert "has no entry" not in L.lookup(name).reason, name
     for models in (c.MODEL_DEFAULTS, c.load_models(c.DEFAULT_FILE)[0]):
         for name, entry in models.items():
             li = L.model_lookup(name, entry)
