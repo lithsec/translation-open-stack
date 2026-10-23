@@ -1,0 +1,1147 @@
+{
+ "note": "English source clip of eval/2026-10-open-stack-e2e (FLEURS read speech, CC BY 4.0). 'said' = the written text with the 7 sentences the reader did not read as written replaced by the recording's words. Quality = 100 * mean(0-3 score) / 3 from one blind Gemini round per direction; critical counts in brackets.",
+ "said_sentences": {
+  "0": "Angel (2006), explains the Continuum approach as a method being used to help organizations reach a higher level of",
+  "4": "Duvall, who was married to two adult children, did not leave a big impression on Miller, to whom the story was related.",
+  "9": "ASUS Eee PC, earlier launched world-wide for cost-saving functionality factors, became a hot topic in 2007 Taipei IT",
+  "14": "Beyond Wednesday's event, Carpanedo competed in two individual races at the",
+  "15": "The city is also the base to climb the Nyiragongo volcano along with some of the cheapest Mountain Gorilla trafficking in Africa.",
+  "17": "Vatican City's population is around 800. It is the smallest independent country in the world and the population",
+  "19": "Resting on the top of one of the mountains north of Mecca, the cave is closely isolated from the rest of the world."
+ },
+ "witness": [
+  {
+   "i": 0,
+   "said": "Angel two thousand six explains the Continuum approach as a method being used to help organizations reach a higher level of p-",
+   "cut_off": true,
+   "differs": [
+    "(2006), -> two thousand six",
+    "performance. -> p-"
+   ]
+  },
+  {
+   "i": 1,
+   "said": "The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011, it didn't open to traffic until March 2017.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 2,
+   "said": "The correlation between brain pathology and behaviour supports scientists in their research.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 3,
+   "said": "Rip currents are the returning flow from waves breaking off the beach, often at a reach, reef, or similar.",
+   "cut_off": false,
+   "differs": [
+    "said 'reach, reef' instead of 'reef'"
+   ]
+  },
+  {
+   "i": 4,
+   "said": "Duvall, who was married to two adult children, did not leave a big impression on Miller, to whom the story was related.",
+   "cut_off": false,
+   "differs": [
+    "is -> was",
+    "with -> to"
+   ]
+  },
+  {
+   "i": 5,
+   "said": "Late on Sunday, the United States President Donald Trump, in a statement delivered via the press secretary, announced US troops would be leaving Syria.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 6,
+   "said": "Finally, there are many small cats (including loose pet cats) that eat the far more numerous small prey like insects, rodents, lizards, and birds.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 7,
+   "said": "During the 1920s, the prevailing attitudes of most citizens and nations was that of pacifism and isolation.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 8,
+   "said": "California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 9,
+   "said": "ASUS Eee PC, earlier launched world-wide for cost-saving functionality factors, became a hot topic in 2007 Taipei IT",
+   "cut_off": true,
+   "differs": [
+    "omitted the word 'and' between 'cost-saving' and 'functionality'",
+    "the recording cuts off before the word 'Month.'"
+   ]
+  },
+  {
+   "i": 10,
+   "said": "In some areas boiling water for a minute is enough, in others several minutes are needed.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 11,
+   "said": "In its early days, the show was featured solely at the long-running internet radio site TogiNet Radio, a site focused on talk radio.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 12,
+   "said": "First, most riders wear riding boots with a heel and a smooth, quite narrow, sole.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 13,
+   "said": "In particular, it is claimed that one can detect whether a person is lying by interpreting micro-expressions correctly.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 14,
+   "said": "Beyond Wednesday's event, Carpanedo competed in two individual races at the",
+   "cut_off": true,
+   "differs": [
+    "missing 'Championships.'"
+   ]
+  },
+  {
+   "i": 15,
+   "said": "The city is also the base to climb the Nyiragongo volcano along with some of the cheapest Mountain Gorilla trafficking in Africa.",
+   "cut_off": false,
+   "differs": [
+    "tracking -> trafficking"
+   ]
+  },
+  {
+   "i": 16,
+   "said": "The Plitvice Lakes National Park is heavily forested, mainly with beech, spruce, and fir trees, and features a mixture of Alpine and Mediterranean vegetation.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 17,
+   "said": "Vatican City population is around 800. It is the smallest independent country in the world and the population",
+   "cut_off": true,
+   "differs": [
+    "Said 'City' instead of 'City's'",
+    "Said 'population' instead of 'country with the lowest population.'"
+   ]
+  },
+  {
+   "i": 18,
+   "said": "The Northern Marianas emergency management office said that there were no damages reported in the nation.",
+   "cut_off": false,
+   "differs": []
+  },
+  {
+   "i": 19,
+   "said": "Resting on the top of one of the mountains north of Mecca, the caf- the cave is closely isolated from the rest of the world.",
+   "cut_off": false,
+   "differs": [
+    "the caf- the cave instead of the cave",
+    "closely instead of completely"
+   ]
+  }
+ ],
+ "round1_regrade_said": {
+  "en-es": {
+   "C_whisper_ps": {
+    "all": [
+     85.0,
+     2
+    ],
+    "clean13": [
+     89.7,
+     1
+    ],
+    "said7": [
+     76.2,
+     1
+    ]
+   },
+   "october": {
+    "all": [
+     66.7,
+     4
+    ],
+    "clean13": [
+     69.2,
+     3
+    ],
+    "said7": [
+     61.9,
+     1
+    ]
+   },
+   "sol:transcript": {
+    "all": [
+     76.7,
+     4
+    ],
+    "clean13": [
+     79.5,
+     2
+    ],
+    "said7": [
+     71.4,
+     2
+    ]
+   },
+   "stack-mt:gold": {
+    "all": [
+     88.3,
+     2
+    ],
+    "clean13": [
+     100.0,
+     0
+    ],
+    "said7": [
+     66.7,
+     2
+    ]
+   },
+   "main": {
+    "all": [
+     73.3,
+     2
+    ],
+    "clean13": [
+     71.8,
+     2
+    ],
+    "said7": [
+     76.2,
+     0
+    ]
+   },
+   "C_canary_ps": {
+    "all": [
+     83.3,
+     2
+    ],
+    "clean13": [
+     87.2,
+     1
+    ],
+    "said7": [
+     76.2,
+     1
+    ]
+   },
+   "branch": {
+    "all": [
+     73.3,
+     2
+    ],
+    "clean13": [
+     71.8,
+     2
+    ],
+    "said7": [
+     76.2,
+     0
+    ]
+   }
+  },
+  "en-fr": {
+   "october": {
+    "all": [
+     55.0,
+     4
+    ],
+    "clean13": [
+     61.5,
+     3
+    ],
+    "said7": [
+     42.9,
+     1
+    ]
+   },
+   "C_canary_ps": {
+    "all": [
+     83.3,
+     1
+    ],
+    "clean13": [
+     87.2,
+     1
+    ],
+    "said7": [
+     76.2,
+     0
+    ]
+   },
+   "stack-mt:gold": {
+    "all": [
+     85.0,
+     0
+    ],
+    "clean13": [
+     92.3,
+     0
+    ],
+    "said7": [
+     71.4,
+     0
+    ]
+   },
+   "branch": {
+    "all": [
+     61.7,
+     3
+    ],
+    "clean13": [
+     61.5,
+     3
+    ],
+    "said7": [
+     61.9,
+     0
+    ]
+   },
+   "C_whisper_ps": {
+    "all": [
+     75.0,
+     2
+    ],
+    "clean13": [
+     79.5,
+     1
+    ],
+    "said7": [
+     66.7,
+     1
+    ]
+   },
+   "sol:transcript": {
+    "all": [
+     76.7,
+     3
+    ],
+    "clean13": [
+     82.1,
+     2
+    ],
+    "said7": [
+     66.7,
+     1
+    ]
+   },
+   "main": {
+    "all": [
+     61.7,
+     3
+    ],
+    "clean13": [
+     61.5,
+     3
+    ],
+    "said7": [
+     61.9,
+     0
+    ]
+   }
+  },
+  "en-ja": {
+   "october": {
+    "all": [
+     66.7,
+     3
+    ],
+    "clean13": [
+     71.8,
+     2
+    ],
+    "said7": [
+     57.1,
+     1
+    ]
+   },
+   "main": {
+    "all": [
+     70.0,
+     2
+    ],
+    "clean13": [
+     74.4,
+     2
+    ],
+    "said7": [
+     61.9,
+     0
+    ]
+   },
+   "branch": {
+    "all": [
+     70.0,
+     2
+    ],
+    "clean13": [
+     74.4,
+     2
+    ],
+    "said7": [
+     61.9,
+     0
+    ]
+   },
+   "sol:transcript": {
+    "all": [
+     83.3,
+     3
+    ],
+    "clean13": [
+     87.2,
+     2
+    ],
+    "said7": [
+     76.2,
+     1
+    ]
+   },
+   "stack-mt:gold": {
+    "all": [
+     91.7,
+     0
+    ],
+    "clean13": [
+     97.4,
+     0
+    ],
+    "said7": [
+     81.0,
+     0
+    ]
+   },
+   "C_canary_ps": {
+    "all": [
+     85.0,
+     1
+    ],
+    "clean13": [
+     89.7,
+     1
+    ],
+    "said7": [
+     76.2,
+     0
+    ]
+   },
+   "C_whisper_ps": {
+    "all": [
+     80.0,
+     2
+    ],
+    "clean13": [
+     87.2,
+     1
+    ],
+    "said7": [
+     66.7,
+     1
+    ]
+   }
+  },
+  "en-km": {
+   "branch": {
+    "all": [
+     48.3,
+     11
+    ],
+    "clean13": [
+     43.6,
+     8
+    ],
+    "said7": [
+     57.1,
+     3
+    ]
+   },
+   "sol:transcript": {
+    "all": [
+     81.7,
+     3
+    ],
+    "clean13": [
+     87.2,
+     2
+    ],
+    "said7": [
+     71.4,
+     1
+    ]
+   },
+   "main": {
+    "all": [
+     45.0,
+     11
+    ],
+    "clean13": [
+     41.0,
+     8
+    ],
+    "said7": [
+     52.4,
+     3
+    ]
+   },
+   "october": {
+    "all": [
+     41.7,
+     12
+    ],
+    "clean13": [
+     35.9,
+     9
+    ],
+    "said7": [
+     52.4,
+     3
+    ]
+   },
+   "stack-mt:gold": {
+    "all": [
+     85.0,
+     2
+    ],
+    "clean13": [
+     87.2,
+     2
+    ],
+    "said7": [
+     81.0,
+     0
+    ]
+   }
+  },
+  "en-lo": {
+   "stack-mt:gold": {
+    "all": [
+     73.3,
+     5
+    ],
+    "clean13": [
+     74.4,
+     4
+    ],
+    "said7": [
+     71.4,
+     1
+    ]
+   },
+   "sol:transcript": {
+    "all": [
+     80.0,
+     3
+    ],
+    "clean13": [
+     82.1,
+     2
+    ],
+    "said7": [
+     76.2,
+     1
+    ]
+   },
+   "october": {
+    "all": [
+     58.3,
+     8
+    ],
+    "clean13": [
+     56.4,
+     6
+    ],
+    "said7": [
+     61.9,
+     2
+    ]
+   },
+   "branch": {
+    "all": [
+     66.7,
+     6
+    ],
+    "clean13": [
+     61.5,
+     5
+    ],
+    "said7": [
+     76.2,
+     1
+    ]
+   },
+   "main": {
+    "all": [
+     66.7,
+     6
+    ],
+    "clean13": [
+     61.5,
+     5
+    ],
+    "said7": [
+     76.2,
+     1
+    ]
+   }
+  },
+  "en-ht": {
+   "october": {
+    "all": [
+     40.0,
+     11
+    ],
+    "clean13": [
+     35.9,
+     8
+    ],
+    "said7": [
+     47.6,
+     3
+    ]
+   },
+   "sol:transcript": {
+    "all": [
+     85.0,
+     3
+    ],
+    "clean13": [
+     87.2,
+     2
+    ],
+    "said7": [
+     81.0,
+     1
+    ]
+   },
+   "main": {
+    "all": [
+     43.3,
+     10
+    ],
+    "clean13": [
+     38.5,
+     8
+    ],
+    "said7": [
+     52.4,
+     2
+    ]
+   },
+   "stack-mt:gold": {
+    "all": [
+     46.7,
+     9
+    ],
+    "clean13": [
+     48.7,
+     6
+    ],
+    "said7": [
+     42.9,
+     3
+    ]
+   },
+   "branch": {
+    "all": [
+     43.3,
+     10
+    ],
+    "clean13": [
+     38.5,
+     8
+    ],
+    "said7": [
+     52.4,
+     2
+    ]
+   }
+  }
+ },
+ "round2_main_vs_branch": {
+  "WRITTEN:en-es": {
+   "main": {
+    "all": [
+     51.7,
+     2
+    ],
+    "clean13": [
+     64.1,
+     2
+    ]
+   },
+   "branch": {
+    "all": [
+     65.0,
+     2
+    ],
+    "clean13": [
+     76.9,
+     2
+    ]
+   }
+  },
+  "WRITTEN:en-fr": {
+   "branch": {
+    "all": [
+     63.3,
+     3
+    ],
+    "clean13": [
+     71.8,
+     2
+    ]
+   },
+   "main": {
+    "all": [
+     55.0,
+     4
+    ],
+    "clean13": [
+     64.1,
+     2
+    ]
+   }
+  },
+  "WRITTEN:en-ja": {
+   "main": {
+    "all": [
+     61.7,
+     3
+    ],
+    "clean13": [
+     69.2,
+     2
+    ]
+   },
+   "branch": {
+    "all": [
+     71.7,
+     3
+    ],
+    "clean13": [
+     79.5,
+     2
+    ]
+   }
+  },
+  "WRITTEN:en-km": {
+   "main": {
+    "all": [
+     38.3,
+     9
+    ],
+    "clean13": [
+     41.0,
+     5
+    ]
+   },
+   "branch": {
+    "all": [
+     60.0,
+     4
+    ],
+    "clean13": [
+     71.8,
+     2
+    ]
+   }
+  },
+  "WRITTEN:en-lo": {
+   "branch": {
+    "all": [
+     51.7,
+     10
+    ],
+    "clean13": [
+     59.0,
+     4
+    ]
+   },
+   "main": {
+    "all": [
+     50.0,
+     10
+    ],
+    "clean13": [
+     59.0,
+     4
+    ]
+   }
+  },
+  "WRITTEN:en-ht": {
+   "branch": {
+    "all": [
+     31.7,
+     10
+    ],
+    "clean13": [
+     33.3,
+     7
+    ]
+   },
+   "main": {
+    "all": [
+     31.7,
+     10
+    ],
+    "clean13": [
+     33.3,
+     7
+    ]
+   }
+  },
+  "SAID:en-es": {
+   "main": {
+    "all": [
+     76.7,
+     2
+    ],
+    "clean13": [
+     76.9,
+     2
+    ]
+   },
+   "branch": {
+    "all": [
+     86.7,
+     2
+    ],
+    "clean13": [
+     84.6,
+     2
+    ]
+   }
+  },
+  "SAID:en-fr": {
+   "branch": {
+    "all": [
+     76.7,
+     3
+    ],
+    "clean13": [
+     76.9,
+     2
+    ]
+   },
+   "main": {
+    "all": [
+     65.0,
+     3
+    ],
+    "clean13": [
+     66.7,
+     2
+    ]
+   }
+  },
+  "SAID:en-ja": {
+   "main": {
+    "all": [
+     65.0,
+     3
+    ],
+    "clean13": [
+     66.7,
+     2
+    ]
+   },
+   "branch": {
+    "all": [
+     80.0,
+     3
+    ],
+    "clean13": [
+     79.5,
+     2
+    ]
+   }
+  },
+  "SAID:en-km": {
+   "main": {
+    "all": [
+     46.7,
+     10
+    ],
+    "clean13": [
+     43.6,
+     8
+    ]
+   },
+   "branch": {
+    "all": [
+     65.0,
+     7
+    ],
+    "clean13": [
+     71.8,
+     4
+    ]
+   }
+  },
+  "SAID:en-lo": {
+   "branch": {
+    "all": [
+     65.0,
+     3
+    ],
+    "clean13": [
+     56.4,
+     3
+    ]
+   },
+   "main": {
+    "all": [
+     63.3,
+     3
+    ],
+    "clean13": [
+     59.0,
+     3
+    ]
+   }
+  },
+  "SAID:en-ht": {
+   "main": {
+    "all": [
+     40.0,
+     10
+    ],
+    "clean13": [
+     33.3,
+     6
+    ]
+   },
+   "branch": {
+    "all": [
+     40.0,
+     9
+    ],
+    "clean13": [
+     33.3,
+     6
+    ]
+   }
+  }
+ },
+ "latency_ms": {
+  "en-es": {
+   "main": {
+    "utterances": 24,
+    "missing_audio": 0,
+    "stop_to_tail_audio_ms": {
+     "p50": 2629,
+     "p90": 3675,
+     "n": 20
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 2629,
+     "p90": 3633,
+     "n": 20
+    }
+   },
+   "branch": {
+    "utterances": 20,
+    "missing_audio": 0,
+    "stop_to_tail_audio_ms": {
+     "p50": 3162,
+     "p90": 3782,
+     "n": 20
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 3162,
+     "p90": 3782,
+     "n": 20
+    }
+   }
+  },
+  "en-fr": {
+   "main": {
+    "utterances": 24,
+    "missing_audio": 0,
+    "stop_to_tail_audio_ms": {
+     "p50": 3070,
+     "p90": 4092,
+     "n": 20
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 3070,
+     "p90": 3797,
+     "n": 20
+    }
+   },
+   "branch": {
+    "utterances": 20,
+    "missing_audio": 0,
+    "stop_to_tail_audio_ms": {
+     "p50": 3450,
+     "p90": 4122,
+     "n": 20
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 3450,
+     "p90": 4122,
+     "n": 20
+    }
+   }
+  },
+  "en-ja": {
+   "main": {
+    "utterances": 24,
+    "missing_audio": 0,
+    "stop_to_tail_audio_ms": {
+     "p50": 3208,
+     "p90": 4445,
+     "n": 20
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 3208,
+     "p90": 4323,
+     "n": 20
+    }
+   },
+   "branch": {
+    "utterances": 20,
+    "missing_audio": 0,
+    "stop_to_tail_audio_ms": {
+     "p50": 3514,
+     "p90": 4472,
+     "n": 20
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 3514,
+     "p90": 4472,
+     "n": 20
+    }
+   }
+  },
+  "en-km": {
+   "main": {
+    "utterances": 16,
+    "missing_audio": 6,
+    "stop_to_tail_audio_ms": {
+     "p50": 27278,
+     "p90": 34197,
+     "n": 14
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 26379,
+     "p90": 34197,
+     "n": 14
+    }
+   },
+   "branch": {
+    "utterances": 15,
+    "missing_audio": 5,
+    "stop_to_tail_audio_ms": {
+     "p50": 31715,
+     "p90": 42547,
+     "n": 15
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 31715,
+     "p90": 42547,
+     "n": 15
+    }
+   }
+  },
+  "en-lo": {
+   "main": {
+    "utterances": 24,
+    "missing_audio": 0,
+    "stop_to_tail_audio_ms": {
+     "p50": 13217,
+     "p90": 19146,
+     "n": 20
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 10492,
+     "p90": 16273,
+     "n": 20
+    }
+   },
+   "branch": {
+    "utterances": 20,
+    "missing_audio": 0,
+    "stop_to_tail_audio_ms": {
+     "p50": 6188,
+     "p90": 9380,
+     "n": 20
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 6188,
+     "p90": 9380,
+     "n": 20
+    }
+   }
+  },
+  "en-ht": {
+   "main": {
+    "utterances": 24,
+    "missing_audio": 0,
+    "stop_to_tail_audio_ms": {
+     "p50": 1820,
+     "p90": 2068,
+     "n": 20
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 1714,
+     "p90": 2050,
+     "n": 20
+    }
+   },
+   "branch": {
+    "utterances": 20,
+    "missing_audio": 0,
+    "stop_to_tail_audio_ms": {
+     "p50": 1938,
+     "p90": 2306,
+     "n": 20
+    },
+    "stop_to_first_audio_ms": {
+     "p50": 1938,
+     "p90": 2306,
+     "n": 20
+    }
+   }
+  }
+ },
+ "asr_variants_cer": {
+  "stack": {
+   "written": 0.069,
+   "said": 0.036
+  },
+  "beam5": {
+   "written": 0.066,
+   "said": 0.034
+  },
+  "novad": {
+   "written": 0.067,
+   "said": 0.035
+  },
+  "prompt": {
+   "written": 0.065,
+   "said": 0.037
+  },
+  "beam5_prompt": {
+   "written": 0.07,
+   "said": 0.045
+  },
+  "beam5_novad": {
+   "written": 0.068,
+   "said": 0.036
+  }
+ }
+}

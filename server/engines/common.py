@@ -202,11 +202,30 @@ NO_SPACE_JOIN = {"zh", "ja"}
 _SENTENCE_END = re.compile(r"(?<=[.!?。！？])\s+")
 
 
+# A full stop that ends an abbreviation, not a sentence: initials ("U.S.", "J.")
+# and common titles. Splitting there sent "...announced U.S." and "troops would
+# be leaving Syria." to the translator apart, and it came back as two sentences
+# with an ellipsis between them (eval/2026-10-english-80).
+_ABBREVIATION = re.compile(r"(?:\b(?:[A-Za-z]\.){1,3}|\b(?:Mr|Mrs|Ms|Dr|Prof|St|Mt|Jr|Sr|Gen|Gov|Sen|Rep|"
+                           r"Lt|Col|Capt|Sgt|No|vs|approx|e\.g|i\.e)\.)$")
+
+
+def _rejoin_abbreviations(parts):
+    out = []
+    for p in parts:
+        if out and _ABBREVIATION.search(out[-1]):
+            out[-1] = f"{out[-1]} {p}"
+        else:
+            out.append(p)
+    return out
+
+
 def split_sentences(text):
     """Sentences of one utterance, for per-sentence translation. A fragment under
     three words joins the next sentence ("Dr." + "Smith is here.", "Yes." + ...),
-    or the previous one when it comes last."""
-    parts = [p.strip() for p in _SENTENCE_END.split(text.strip()) if p.strip()]
+    or the previous one when it comes last. A full stop after an abbreviation
+    ("U.S.", "Dr.") does not end a sentence."""
+    parts = _rejoin_abbreviations([p.strip() for p in _SENTENCE_END.split(text.strip()) if p.strip()])
     out, carry = [], ""
     for p in parts:
         p = f"{carry} {p}".strip() if carry else p
@@ -231,7 +250,7 @@ def join_sentences(parts, lang):
 
 def voice_sentences(text):
     """An utterance split for synthesis, one piece per pool task."""
-    sentences = [t.strip() for t in re.split(r"(?<=[.!?;:])\s+", text) if t.strip()]
+    sentences = _rejoin_abbreviations([t.strip() for t in re.split(r"(?<=[.!?;:])\s+", text) if t.strip()])
     return sentences or [text]
 
 

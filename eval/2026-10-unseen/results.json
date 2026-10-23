@@ -1,0 +1,1156 @@
+{
+ "note": "Unseen check of the open stack, October 2026. Systems: A main (36693cc), B feat/english-80 (PR #39, 636b964), C B with MADLAD-400 7B as the Khmer translator, D B with a per-piece MetricX-24 QE pick between Hy-MT2 7B and MADLAD-400 7B (offline, on B's live English pieces), E B's live English pieces re-translated by Hy-MT2-30B-A3B on OpenRouter. Quality = share of the possible 3 per sentence (blind, gemini-pro-latest, all systems of a direction in one call); critical = count.",
+ "fleurs_ids": [
+  "1737",
+  "1871",
+  "1965",
+  "1977",
+  "1727",
+  "1805",
+  "2003",
+  "1926",
+  "1996",
+  "1958",
+  "1939",
+  "1815",
+  "1661",
+  "1718",
+  "1731",
+  "1846",
+  "1724",
+  "1946",
+  "1664",
+  "1865"
+ ],
+ "gaps_s": {
+  "reg": [
+   1.43,
+   1.53,
+   1.88,
+   1.44,
+   1.48,
+   1.56,
+   1.18,
+   1.49,
+   1.6,
+   1.75,
+   1.09,
+   1.29,
+   1.09,
+   1.77,
+   1.66,
+   1.04,
+   1.93,
+   1.92,
+   1.62,
+   1.58
+  ],
+  "irr": [
+   0.73,
+   0.89,
+   0.9,
+   0.43,
+   0.31,
+   0.64,
+   0.55,
+   1.03,
+   0.92,
+   0.84,
+   0.8,
+   0.9,
+   0.43,
+   0.7,
+   0.45,
+   1.12,
+   0.35,
+   1.04,
+   0.37,
+   0.92
+  ]
+ },
+ "witness": {
+  "en": {
+   "cut_off": [
+    3,
+    9,
+    13,
+    19
+   ],
+   "meaning_differs": [
+    2,
+    3,
+    7,
+    8,
+    9,
+    10,
+    13,
+    19
+   ],
+   "no_answer": []
+  },
+  "es": {
+   "cut_off": [],
+   "meaning_differs": [
+    15
+   ],
+   "no_answer": []
+  },
+  "fr": {
+   "cut_off": [],
+   "meaning_differs": [],
+   "no_answer": []
+  },
+  "ja": {
+   "cut_off": [
+    13
+   ],
+   "meaning_differs": [
+    4
+   ],
+   "no_answer": [
+    18
+   ]
+  },
+  "km": {
+   "cut_off": [],
+   "meaning_differs": [
+    8,
+    15
+   ],
+   "no_answer": []
+  },
+  "lo": {
+   "cut_off": [],
+   "meaning_differs": [
+    11
+   ],
+   "no_answer": []
+  },
+  "pt": {
+   "cut_off": [],
+   "meaning_differs": [],
+   "no_answer": []
+  },
+  "ht": {
+   "cut_off": [],
+   "meaning_differs": [
+    7,
+    15,
+    17
+   ],
+   "no_answer": []
+  }
+ },
+ "english_said": {
+  "2": "They are almost all sandy beaches with safe swimming, and most have shade provided by pohikina trees.",
+  "3": "Prides are made up of one of two three related adult males along with as m-",
+  "7": "Accepted were Aristotle's views on all matters of science including physiology.",
+  "8": "Australia's Mitchell Gallery finished eleventh in the men's standing Super-G. Chet's competitor Ulrich Jucklin finished sixteenth in the men's sitting Super-G.",
+  "9": "The city is in stark contrast to the rest of the country's cities, because it has more of an Arabic flair than of an",
+  "10": "Also after revolution occupants were open to all male applicants allowing the most ambitious and successful to succeed.",
+  "13": "There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years",
+  "19": "Saint Petersburg cruises include time in town. Cruise passengers are exempted from visa require-"
+ },
+ "english_sentence_dbfs": [
+  -45.5,
+  -58.3,
+  -29.9,
+  -63.3,
+  -59.7,
+  -60.2,
+  -59.2,
+  -60.5,
+  -30.5,
+  -60.9,
+  -22.2,
+  -61.3,
+  -60.0,
+  -62.8,
+  -21.9,
+  -60.4,
+  -20.4,
+  -62.5,
+  -18.2,
+  -64.3
+ ],
+ "quality": {
+  "reg": {
+   "en-es": {
+    "D": {
+     "written": {
+      "q": 56.7,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 8,
+      "n": 20
+     }
+    },
+    "B": {
+     "written": {
+      "q": 56.7,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 8,
+      "n": 20
+     }
+    },
+    "E": {
+     "written": {
+      "q": 58.3,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 68.3,
+      "crit": 6,
+      "n": 20
+     }
+    },
+    "A": {
+     "written": {
+      "q": 56.7,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 7,
+      "n": 20
+     }
+    }
+   },
+   "en-fr": {
+    "A": {
+     "written": {
+      "q": 56.7,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 63.3,
+      "crit": 8,
+      "n": 20
+     }
+    },
+    "E": {
+     "written": {
+      "q": 60.0,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 61.7,
+      "crit": 7,
+      "n": 20
+     }
+    },
+    "D": {
+     "written": {
+      "q": 56.7,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 63.3,
+      "crit": 7,
+      "n": 20
+     }
+    },
+    "B": {
+     "written": {
+      "q": 56.7,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 61.7,
+      "crit": 8,
+      "n": 20
+     }
+    }
+   },
+   "en-ht": {
+    "B": {
+     "written": {
+      "q": 28.3,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 38.3,
+      "crit": 9,
+      "n": 20
+     }
+    }
+   },
+   "en-ja": {
+    "B": {
+     "written": {
+      "q": 48.3,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 56.7,
+      "crit": 9,
+      "n": 20
+     }
+    },
+    "A": {
+     "written": {
+      "q": 48.3,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 55.0,
+      "crit": 9,
+      "n": 20
+     }
+    },
+    "D": {
+     "written": {
+      "q": 48.3,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 55.0,
+      "crit": 9,
+      "n": 20
+     }
+    },
+    "E": {
+     "written": {
+      "q": 46.7,
+      "crit": 12,
+      "n": 20
+     },
+     "said": {
+      "q": 53.3,
+      "crit": 8,
+      "n": 20
+     }
+    }
+   },
+   "en-km": {
+    "B": {
+     "written": {
+      "q": 43.3,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 55.0,
+      "crit": 10,
+      "n": 20
+     }
+    },
+    "C": {
+     "written": {
+      "q": 28.3,
+      "crit": 15,
+      "n": 20
+     },
+     "said": {
+      "q": 38.3,
+      "crit": 12,
+      "n": 20
+     }
+    },
+    "E": {
+     "written": {
+      "q": 36.7,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 51.7,
+      "crit": 10,
+      "n": 20
+     }
+    },
+    "A": {
+     "written": {
+      "q": 28.3,
+      "crit": 16,
+      "n": 20
+     },
+     "said": {
+      "q": 40.0,
+      "crit": 13,
+      "n": 20
+     }
+    }
+   },
+   "en-lo": {
+    "B": {
+     "written": {
+      "q": 50.0,
+      "crit": 12,
+      "n": 20
+     },
+     "said": {
+      "q": 53.3,
+      "crit": 10,
+      "n": 20
+     }
+    }
+   },
+   "en-pt": {
+    "B": {
+     "written": {
+      "q": 48.3,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 56.7,
+      "crit": 8,
+      "n": 20
+     }
+    },
+    "D": {
+     "written": {
+      "q": 48.3,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 55.0,
+      "crit": 9,
+      "n": 20
+     }
+    },
+    "E": {
+     "written": {
+      "q": 48.3,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 60.0,
+      "crit": 8,
+      "n": 20
+     }
+    },
+    "A": {
+     "written": {
+      "q": 48.3,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 56.7,
+      "crit": 8,
+      "n": 20
+     }
+    }
+   },
+   "es-en": {
+    "B": {
+     "written": {
+      "q": 81.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 84.2,
+      "crit": 1,
+      "n": 19
+     }
+    },
+    "A": {
+     "written": {
+      "q": 81.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 84.2,
+      "crit": 1,
+      "n": 19
+     }
+    }
+   },
+   "fr-en": {
+    "B": {
+     "written": {
+      "q": 68.3,
+      "crit": 3,
+      "n": 20
+     },
+     "said": {
+      "q": 68.3,
+      "crit": 3,
+      "n": 20
+     }
+    }
+   },
+   "ht-en": {
+    "B": {
+     "written": {
+      "q": 46.7,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 45.1,
+      "crit": 8,
+      "n": 17
+     }
+    }
+   },
+   "ja-en": {
+    "B": {
+     "written": {
+      "q": 60.0,
+      "crit": 6,
+      "n": 20
+     },
+     "said": {
+      "q": 61.1,
+      "crit": 6,
+      "n": 18
+     }
+    }
+   },
+   "km-en": {
+    "B": {
+     "written": {
+      "q": 43.3,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 46.3,
+      "crit": 8,
+      "n": 18
+     }
+    }
+   },
+   "lo-en": {
+    "B": {
+     "written": {
+      "q": 25.0,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 24.6,
+      "crit": 7,
+      "n": 19
+     }
+    }
+   },
+   "pt-en": {
+    "B": {
+     "written": {
+      "q": 80.0,
+      "crit": 3,
+      "n": 20
+     },
+     "said": {
+      "q": 80.0,
+      "crit": 3,
+      "n": 20
+     }
+    }
+   }
+  },
+  "irr": {
+   "en-es": {
+    "D": {
+     "written": {
+      "q": 53.3,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 6,
+      "n": 20
+     }
+    },
+    "A": {
+     "written": {
+      "q": 53.3,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 6,
+      "n": 20
+     }
+    },
+    "B": {
+     "written": {
+      "q": 53.3,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 6,
+      "n": 20
+     }
+    }
+   },
+   "en-fr": {
+    "A": {
+     "written": {
+      "q": 60.0,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 68.3,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "B": {
+     "written": {
+      "q": 58.3,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 5,
+      "n": 20
+     }
+    },
+    "D": {
+     "written": {
+      "q": 56.7,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 63.3,
+      "crit": 5,
+      "n": 20
+     }
+    }
+   },
+   "en-ja": {
+    "B": {
+     "written": {
+      "q": 46.7,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 61.7,
+      "crit": 7,
+      "n": 20
+     }
+    },
+    "A": {
+     "written": {
+      "q": 45.0,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 60.0,
+      "crit": 7,
+      "n": 20
+     }
+    },
+    "D": {
+     "written": {
+      "q": 46.7,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 61.7,
+      "crit": 7,
+      "n": 20
+     }
+    }
+   }
+  }
+ },
+ "live": {
+  "reg": {
+   "en-es": {
+    "A": {
+     "cer_written": 0.186,
+     "utterances": 22,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 2716,
+      "p90": 3471,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2716,
+      "p90": 3471,
+      "n": 20
+     }
+    },
+    "B": {
+     "cer_written": 0.186,
+     "utterances": 21,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 3183,
+      "p90": 3932,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3183,
+      "p90": 3932,
+      "n": 20
+     }
+    }
+   },
+   "es-en": {
+    "A": {
+     "cer_written": 0.01,
+     "utterances": 26,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 2709,
+      "p90": 3325,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2663,
+      "p90": 3325,
+      "n": 20
+     }
+    },
+    "B": {
+     "cer_written": 0.01,
+     "utterances": 26,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 2668,
+      "p90": 3247,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2658,
+      "p90": 3247,
+      "n": 20
+     }
+    }
+   },
+   "en-ja": {
+    "A": {
+     "cer_written": 0.186,
+     "utterances": 22,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 3093,
+      "p90": 3611,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3093,
+      "p90": 3611,
+      "n": 20
+     }
+    },
+    "B": {
+     "cer_written": 0.186,
+     "utterances": 21,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 3362,
+      "p90": 4175,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3362,
+      "p90": 4175,
+      "n": 20
+     }
+    }
+   },
+   "en-fr": {
+    "A": {
+     "cer_written": 0.186,
+     "utterances": 22,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 2886,
+      "p90": 3405,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2886,
+      "p90": 3405,
+      "n": 20
+     }
+    },
+    "B": {
+     "cer_written": 0.186,
+     "utterances": 21,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 3325,
+      "p90": 3790,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3325,
+      "p90": 3790,
+      "n": 20
+     }
+    }
+   },
+   "en-km": {
+    "A": {
+     "cer_written": 0.465,
+     "utterances": 13,
+     "missing_audio": 8,
+     "stop_to_tail_audio_ms": {
+      "p50": 24704,
+      "p90": 33150,
+      "n": 12
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 24704,
+      "p90": 33150,
+      "n": 12
+     }
+    },
+    "B": {
+     "cer_written": 0.393,
+     "utterances": 15,
+     "missing_audio": 5,
+     "stop_to_tail_audio_ms": {
+      "p50": 29406,
+      "p90": 46228,
+      "n": 15
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 29406,
+      "p90": 46228,
+      "n": 15
+     }
+    },
+    "C": {
+     "cer_written": 0.186,
+     "utterances": 21,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 2630,
+      "p90": 3276,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2630,
+      "p90": 3276,
+      "n": 20
+     }
+    }
+   },
+   "en-pt": {
+    "A": {
+     "cer_written": 0.186,
+     "utterances": 22,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 2597,
+      "p90": 3051,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2597,
+      "p90": 3051,
+      "n": 20
+     }
+    },
+    "B": {
+     "cer_written": 0.186,
+     "utterances": 21,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 3053,
+      "p90": 3597,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3053,
+      "p90": 3597,
+      "n": 20
+     }
+    }
+   },
+   "ja-en": {
+    "B": {
+     "cer_written": 0.084,
+     "utterances": 21,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 2892,
+      "p90": 3593,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2892,
+      "p90": 3593,
+      "n": 20
+     }
+    }
+   },
+   "fr-en": {
+    "B": {
+     "cer_written": 0.056,
+     "utterances": 23,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 2574,
+      "p90": 2878,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2547,
+      "p90": 2878,
+      "n": 20
+     }
+    }
+   },
+   "km-en": {
+    "B": {
+     "cer_written": 0.156,
+     "utterances": 24,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 3343,
+      "p90": 4470,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3343,
+      "p90": 4470,
+      "n": 20
+     }
+    }
+   },
+   "ht-en": {
+    "B": {
+     "cer_written": 0.052,
+     "utterances": 21,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 3890,
+      "p90": 5035,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3683,
+      "p90": 4833,
+      "n": 20
+     }
+    }
+   },
+   "en-ht": {
+    "B": {
+     "cer_written": 0.186,
+     "utterances": 21,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 2086,
+      "p90": 2294,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2072,
+      "p90": 2294,
+      "n": 20
+     }
+    }
+   },
+   "lo-en": {
+    "B": {
+     "cer_written": 0.209,
+     "utterances": 27,
+     "missing_audio": 1,
+     "stop_to_tail_audio_ms": {
+      "p50": 3537,
+      "p90": 4503,
+      "n": 19
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3339,
+      "p90": 4503,
+      "n": 19
+     }
+    }
+   },
+   "en-lo": {
+    "B": {
+     "cer_written": 0.186,
+     "utterances": 21,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 5628,
+      "p90": 9033,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 5260,
+      "p90": 9033,
+      "n": 20
+     }
+    }
+   },
+   "pt-en": {
+    "B": {
+     "cer_written": 0.013,
+     "utterances": 28,
+     "missing_audio": 0,
+     "stop_to_tail_audio_ms": {
+      "p50": 2500,
+      "p90": 2868,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2303,
+      "p90": 2778,
+      "n": 20
+     }
+    }
+   }
+  },
+  "irr": {
+   "en-es": {
+    "A": {
+     "cer_written": 0.26,
+     "utterances": 18,
+     "missing_audio": 2,
+     "stop_to_tail_audio_ms": {
+      "p50": 2885,
+      "p90": 9072,
+      "n": 18
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2788,
+      "p90": 7952,
+      "n": 18
+     }
+    },
+    "B": {
+     "cer_written": 0.259,
+     "utterances": 14,
+     "missing_audio": 2,
+     "stop_to_tail_audio_ms": {
+      "p50": 3402,
+      "p90": 9141,
+      "n": 18
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3402,
+      "p90": 9141,
+      "n": 18
+     }
+    }
+   },
+   "en-ja": {
+    "A": {
+     "cer_written": 0.26,
+     "utterances": 18,
+     "missing_audio": 2,
+     "stop_to_tail_audio_ms": {
+      "p50": 3310,
+      "p90": 9464,
+      "n": 18
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3257,
+      "p90": 8453,
+      "n": 18
+     }
+    },
+    "B": {
+     "cer_written": 0.259,
+     "utterances": 14,
+     "missing_audio": 2,
+     "stop_to_tail_audio_ms": {
+      "p50": 3746,
+      "p90": 9809,
+      "n": 18
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3746,
+      "p90": 9809,
+      "n": 18
+     }
+    }
+   },
+   "en-fr": {
+    "A": {
+     "cer_written": 0.26,
+     "utterances": 18,
+     "missing_audio": 2,
+     "stop_to_tail_audio_ms": {
+      "p50": 3138,
+      "p90": 9342,
+      "n": 18
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3128,
+      "p90": 8224,
+      "n": 18
+     }
+    },
+    "B": {
+     "cer_written": 0.259,
+     "utterances": 14,
+     "missing_audio": 2,
+     "stop_to_tail_audio_ms": {
+      "p50": 3710,
+      "p90": 9277,
+      "n": 18
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 3710,
+      "p90": 9277,
+      "n": 18
+     }
+    }
+   }
+  }
+ },
+ "qe_pick_madlad_share": {
+  "reg": {
+   "en-es": 0.24,
+   "en-fr": 0.29,
+   "en-ja": 0.33,
+   "en-pt": 0.24
+  },
+  "irr": {
+   "en-es": 0.14,
+   "en-fr": 0.29,
+   "en-ja": 0.29
+  }
+ },
+ "hy_mt2_30b_openrouter": {
+  "model": "tencent/hy-mt2-30b-a3b",
+  "provider": "Tencent",
+  "quantization": "fp8",
+  "zdr_requested": true,
+  "zdr_endpoint_listed": true,
+  "requests": 103,
+  "empty_answers": 9,
+  "pieces": 99,
+  "hosted_latency_per_sentence_s": {
+   "p50": 1.023,
+   "p90": 1.656
+  }
+ }
+}
