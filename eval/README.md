@@ -9,6 +9,7 @@
 | `2026-10-pauses/` | Turn rules per spoken language: an offline sweep of the stack's cutting and a live before/after with blind quality grading. See [its README](2026-10-pauses/README.md). |
 | `2026-10-held-out/` | The October pause and sentence work (#36–#39) on held-out FLEURS sentences and irregular pauses: main vs #39, MADLAD for Khmer, a QE pick, Hy-MT2-30B, Portuguese. See [its README](2026-10-held-out/README.md). |
 | `2026-10-ht-lo-translators/` | Haitian Creole and Lao translators on correct text: MADLAD 7B/10B, NLLB-200, TranslateGemma 27B, MiLMMT-46 12B, Gemma 4 31B, Qwen3.5-122B, gpt-oss-120b and sol, graded blind in one round, with speed and memory on an A100. See [its README](2026-10-ht-lo-translators/README.md). |
+| `2026-10-translator-shootout-gemma4/` | Addendum to the translator shootout on Azure's transcripts: Gemma 4 31B and 26B-A4B (OpenRouter) beside six of its systems, all graded again in one blind round. See [its README](2026-10-translator-shootout-gemma4/README.md). |
 | `tools/` | The continuous-speech harness: stream a clip at real time to the stack, omni-stt or your own service, and measure first audio, per-piece lag, final lag, pauses, cuts and quality from its event log. See [its README](tools/README.md). |
 
 ## Where the data comes from
