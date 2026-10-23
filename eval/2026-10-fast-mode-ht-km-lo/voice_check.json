@@ -1,0 +1,36 @@
+{
+ "km-KH-PisethNeural": {
+  "plain_s": 5.28,
+  "t8s_s": 4.14,
+  "t8s_trimmed_s": 4.01,
+  "ttfa_ms": 491
+ },
+ "km-KH-SreymomNeural": {
+  "plain_s": 5.39,
+  "t8s_s": 4.17,
+  "t8s_trimmed_s": 4.09,
+  "ttfa_ms": 573
+ },
+ "lo-LA-ChanthavongNeural": {
+  "plain_s": 5.24,
+  "t8s_s": 4.11,
+  "t8s_trimmed_s": 3.92,
+  "ttfa_ms": 427
+ },
+ "lo-LA-KeomanyNeural": {
+  "plain_s": 5.72,
+  "t8s_s": 4.48,
+  "t8s_trimmed_s": 4.4,
+  "ttfa_ms": 514
+ },
+ "gemini-plain": {
+  "s": 4.84,
+  "trimmed_s": 4.3,
+  "ttfa_ms": 1224
+ },
+ "gemini-brisk-instruction": {
+  "s": 7.12,
+  "trimmed_s": 6.49,
+  "ttfa_ms": 1019
+ }
+}
