@@ -4,9 +4,9 @@
 #   python3 full_round.py <full dir> table  (after grade.py out/jobs.json out/grades.json) -> out/results.json
 import json, os, sys
 F, MODE = sys.argv[1], sys.argv[2]
-sys.path.insert(0, os.path.join(os.path.expanduser("~"), "dev/translation-open-stack-full/eval/2026-10-real-voices"))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "2026-10-real-voices"))
 from judge import cer  # noqa: E402
-SETS = {"a": os.path.join(os.path.dirname(F), "heldout"), "b": os.path.join(F, "setb")}
+SETS = {"a": os.path.join(F, "seta"), "b": os.path.join(F, "setb")}   # each: clips_reg/, out/witness/, out/said_en.json, out/meaning_ht.json
 # system label per run dir and the directions it ran with that translator
 RUNS = {"A": None, "B": "gemma", "L": "milmmt", "PA": "pre38", "PL": "pre38"}
 GEMMA_IN_A = {"en-ht", "ht-en"}
