@@ -82,6 +82,8 @@ INPUTS = {
     "o_llmlive": "eval/2026-10-llm-translator-live/results.json",
     "o_simul": "eval/2026-10-simultaneous-phrases/results.json",
     "o_full": "eval/2026-10-full-stack/results.json",
+    "o_short": "eval/2026-10-language-short-check/results.json",
+    "sc_readme": "eval/2026-10-language-short-check/README.md",
 }
 OCT_INPUTS = [k for k in INPUTS if k.startswith("o_")]
 OPTIONAL_INPUTS = {"latency", "lat_readme"}
@@ -182,6 +184,8 @@ SYSTEMS = {
     "oct:azure-fast": ("Azure fast transcription, one sentence at a time", "microsoft", "recogniser, one sentence at a time"),
     "oct:mai": ("MAI-Transcribe-2 (preview)", "microsoft", "new recogniser (preview)"),
     "oct:mai-stream": ("MAI-Transcribe-2-Streaming (preview)", "microsoft", "new live recogniser (preview)"),
+    "sc:omni": ("Omnilingual ASR 300M (omni-stt), one sentence at a time", None, ""),
+    "sc:hymt": ("Hy-MT2 7B (hosted)", None, ""),
     "oct:gemini-live-translate": ("Gemini Live Translate", "google", "live speech-to-speech translator"),
 }
 
@@ -614,6 +618,74 @@ def full_rows(D):
     rows.sort(key=lambda r: -r["said"])
     return rows
 
+
+
+# The language short check (eval/2026-10-language-short-check, PR #64): verdict and route per
+# language, as its README's "Verdicts" table states them (cite() fails the build if that changes).
+SC_LANGS = [("vi", "Vietnamese"), ("fa", "Persian"), ("zh", "Mandarin"), ("yue", "Cantonese"),
+            ("ar", "Arabic (Modern Standard)"), ("sw", "Swahili"), ("fil", "Filipino"), ("uk", "Ukrainian"),
+            ("kea", "Cape Verdean Creole"), ("tw", "Twi"), ("hmn", "Hmong")]
+SC_VERDICT = {"vi": "tested-good", "fa": "tested-good", "zh": "tested-good", "yue": "tested-good",
+              "ar": "tested-good", "sw": "tested-good", "fil": "tested-good", "uk": "tested-good",
+              "kea": "experimental", "tw": "experimental", "hmn": "not supported"}
+SC_ROUTE = {"vi": "Cloud recognition → {sol}; Gemma 4 close out of English",
+            "fa": "Cloud recognition → {sol}",
+            "zh": "Cloud recognition → Gemma 4 or Hy-MT2 (as good as {sol} or better)",
+            "yue": "{azure} recognition → {sol}",
+            "ar": "Cloud recognition → {sol}; dialects untested",
+            "sw": "{mai} recognition (the live cloud recogniser is weak here) → {sol}",
+            "fil": "Cloud recognition → Gemma 4 ≈ {sol}",
+            "uk": "Cloud recognition → {sol}",
+            "kea": "Typed text only (no tested recogniser, no voice)",
+            "tw": "Typed text only, {sol}; Gemma 4 unusable",
+            "hmn": "No open test data"}
+SC_REC = [("azure", "oct:azure-fast"), ("mai", "oct:mai"), ("omni", "sc:omni")]
+SC_MT = [("sol@low", "foundry-gpt-5.6-sol@low"), ("gemma-4-31b@or", "mt:gemma-4-31b"), ("hymt2-7b@or", "sc:hymt")]
+
+
+def short_check(D):
+    """Languages page: the 11-language short check (Oct 2026)."""
+    R = D["o_short"]
+    for code, name in SC_LANGS:
+        cite(D, "sc_readme", f"| {name.split(' (')[0]} | **{SC_VERDICT[code]}**")
+    def rec_cell(code):
+        r = R["recognition"].get(code)
+        if not r:
+            return "not tested"
+        best = min(r, key=lambda k: r[k]["cer"])
+        lab = dict(SC_REC)[best]
+        rest = ", ".join(f"{L(dict(SC_REC)[k])} {r[k]['cer']:.1f}%" for k in r if k != best)
+        return f"{L(lab)} {r[best]['cer']:.1f}%" + (f" (others: {rest})" if rest else "")
+    def mt_cell(key):
+        t = R["translation"].get(key)
+        if not t:
+            return "–"
+        return " · ".join(f"{L(lab).split(',')[0]} {t[k]['score']:.0f}" for k, lab in SC_MT if k in t)
+    def voice_cell(code):
+        v = R["voices"].get(code, {})
+        n = len(v.get("voices", []))
+        if n:
+            return f"{VN('microsoft', 'Azure', 'neural voices')}: {n}"
+        gem = {"tw": "ak"}.get(code, code) in R.get("gemini_tts_listed", [])
+        return "none on " + VN("microsoft", "Azure", "the cloud voice service") + (" (Gemini TTS lists it)" if gem else "")
+    rows = []
+    for code, name in SC_LANGS:
+        rows.append([f"{name} ({code})", SC_VERDICT[code], rec_cell(code), mt_cell(f"{code}-en"), mt_cell(f"en-{code}"),
+                     mt_cell(f"{code}-en-asr"), voice_cell(code),
+                     SC_ROUTE[code].format(sol=L("foundry-gpt-5.6-sol@low").split(",")[0], azure=VN("microsoft", "Azure", "cloud"), mai=L("oct:mai"))])
+    good = sum(1 for c, _ in SC_LANGS if SC_VERDICT[c] == "tested-good")
+    table = _table(["Language", "Verdict", "Best recogniser (% characters wrong)", "Into English (typed text)",
+                    "Out of English", "Into English (from speech)", "Voice", "Route"], rows, numeric_from=99)
+    src = src_link("eval/2026-10-language-short-check/README.md")
+    return f"""<div class="prose">
+<h2 id="short-check">More languages, short check (October 2026)</h2>
+<p class="lede">Eleven more languages, about 20 sentences each: which recogniser hears them best, which translator does best both ways with English, and whether there is a voice. {good} are tested-good; Cape Verdean Creole and Twi are experimental (text only); Hmong could not be tested.</p>
+<p>Translation scores are the share of the possible 3 points per sentence, graded blind, one round per language and direction. {esc(L('foundry-gpt-5.6-sol@low'))} was the best translator for nearly every language; Gemma 4 matched it for Mandarin and Filipino and came close for Vietnamese out of English.</p>
+</div>
+{table}
+<div class="prose">
+<p class="caveat">Caveats: 20 sentences and one grading round per language, so gaps of a few points are noise. {esc(VN('microsoft', 'Microsoft', 'The vendor'))} reports {esc(L('oct:mai'))}'s accuracy on FLEURS, the same public dataset these clips come from, so its numbers may flatter it. Grading of translation into Twi and Cape Verdean Creole is rough. Arabic was tested on Modern Standard text with Egyptian speakers; dialects are untested. Method and data: {src}.</p>
+</div>"""
 
 def oct_languages(D):
     """Languages page: the current open stack, every direction (#55, configured by #56)."""
@@ -1555,7 +1627,7 @@ def cite(D, key, needle):
 
 def load_more(D):
     D["text"] = {}
-    for k in ("sept_doc", "oct_doc", "htv_readme", "azg_readme", "omni_readme", "degr_readme", "cont_readme", "caz_readme", "fcost_readme"):
+    for k in ("sept_doc", "oct_doc", "htv_readme", "azg_readme", "omni_readme", "degr_readme", "cont_readme", "caz_readme", "fcost_readme", "sc_readme"):
         with open(os.path.join(ROOT, INPUTS[k]), encoding="utf-8") as f:
             D["text"][k] = f.read()
     for k in ("derived", "r6lao", "asr300", "nat", "voxspeed", "r8asr", "r8mt", "r8nat", "degr", "cont", "caz", "fcost", "prices"):
@@ -1811,6 +1883,7 @@ def build_languages(D):
 <h1>Languages</h1>
 </div>
 {oct_languages(D)}
+{short_check(D)}
 <div class="prose">
 <h2 id="september">The September 2026 evaluation</h2>
 <p class="caveat">Everything below is the September evaluation and is not current; the table above is.</p>
