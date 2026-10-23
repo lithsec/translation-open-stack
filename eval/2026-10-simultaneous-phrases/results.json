@@ -1,0 +1,5476 @@
+{
+ "grader": "gemini-pro-latest",
+ "tts": {
+  "en": {
+   "ttfa_ms": [
+    241,
+    147,
+    165,
+    162,
+    152,
+    160,
+    161,
+    118,
+    3130,
+    170,
+    166,
+    157,
+    170,
+    155,
+    145,
+    152,
+    151,
+    160,
+    128,
+    120,
+    178,
+    161,
+    132,
+    138
+   ],
+   "ttfa_p50": 158.5,
+   "cps": 12.27,
+   "n": 24
+  },
+  "es": {
+   "ttfa_ms": [
+    131,
+    172,
+    141,
+    174,
+    148,
+    168,
+    142,
+    211,
+    189,
+    167,
+    141,
+    159,
+    141,
+    178,
+    138,
+    151,
+    180,
+    174,
+    199,
+    143,
+    216,
+    131,
+    144,
+    161
+   ],
+   "ttfa_p50": 160.0,
+   "cps": 13.7,
+   "n": 24
+  },
+  "pt": {
+   "ttfa_ms": [
+    157,
+    163,
+    172,
+    209,
+    152,
+    166,
+    167,
+    200,
+    157,
+    157,
+    129,
+    196,
+    148,
+    147,
+    188,
+    154,
+    169,
+    172,
+    175,
+    205,
+    203,
+    208,
+    154,
+    185
+   ],
+   "ttfa_p50": 168.0,
+   "cps": 11.52,
+   "n": 24
+  },
+  "fr": {
+   "ttfa_ms": [
+    174,
+    152,
+    139,
+    165,
+    154,
+    156,
+    164,
+    139,
+    124,
+    138,
+    149,
+    129,
+    126,
+    149,
+    142,
+    162,
+    135,
+    168,
+    135,
+    200,
+    138,
+    163,
+    135,
+    139
+   ],
+   "ttfa_p50": 145.5,
+   "cps": 12.43,
+   "n": 24
+  },
+  "ja": {
+   "ttfa_ms": [
+    242,
+    162,
+    159,
+    293,
+    177,
+    171,
+    253,
+    194,
+    266,
+    214,
+    200,
+    325,
+    216,
+    292,
+    156,
+    428,
+    154,
+    164,
+    284,
+    156,
+    176,
+    238,
+    160,
+    214
+   ],
+   "ttfa_p50": 207.0,
+   "cps": 4.64,
+   "n": 24
+  }
+ },
+ "rows": {
+  "reg:en-es": {
+   "S-sol": {
+    "written": {
+     "q": 70.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 80.0,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 5504,
+     "phrase_start_to_audio_p90": 10566,
+     "sentence_start_to_first_audio_p50": 6701,
+     "sentence_start_to_first_audio_p90": 13730,
+     "sentence_end_to_last_audio_p50": 2768,
+     "sentence_end_to_last_audio_p90": 5481,
+     "queued_sentence_end_to_last_audio_p50": 11826,
+     "queued_sentence_end_to_last_audio_p90": 20288,
+     "queued_phrase_start_to_audio_p50": 19835
+    },
+    "chunks": 34,
+    "chunks_per_sentence": 1.7,
+    "mt_wall_p50_ms": 1037,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.7532,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 60.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 68.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 5427,
+     "phrase_start_to_audio_p90": 13272,
+     "sentence_start_to_first_audio_p50": 8056,
+     "sentence_start_to_first_audio_p90": 17717,
+     "sentence_end_to_last_audio_p50": 2962,
+     "sentence_end_to_last_audio_p90": 13523,
+     "queued_sentence_end_to_last_audio_p50": 18354,
+     "queued_sentence_end_to_last_audio_p90": 27611,
+     "queued_phrase_start_to_audio_p50": 27231
+    },
+    "chunks": 34,
+    "chunks_per_sentence": 1.7,
+    "mt_wall_p50_ms": 906,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0259,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "gemini-live-translate": {
+    "written": {
+     "q": 35.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 48.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 1698,
+     "phrase_start_to_audio_p90": 3052,
+     "sentence_end_to_last_audio_p50": 3547,
+     "sentence_end_to_last_audio_p90": 9614,
+     "note": "first text of each sentence's translation after the sentence's speech starts; last text after it ends"
+    },
+    "sentences_without_output": 2
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 53.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 68.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2709,
+     "phrase_start_to_audio_p90": 5492,
+     "sentence_start_to_first_audio_p50": 3863,
+     "sentence_start_to_first_audio_p90": 7492,
+     "sentence_end_to_last_audio_p50": 1872,
+     "sentence_end_to_last_audio_p90": 4948,
+     "queued_sentence_end_to_last_audio_p50": 15422,
+     "queued_sentence_end_to_last_audio_p90": 20563,
+     "queued_phrase_start_to_audio_p50": 15111
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 584,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0323,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 4,
+     "chunks": 69,
+     "rate": 0.058
+    }
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 70.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 83.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 7982,
+     "phrase_start_to_audio_p90": 11528,
+     "sentence_start_to_first_audio_p50": 7962,
+     "sentence_start_to_first_audio_p90": 11527,
+     "sentence_end_to_last_audio_p50": 2582,
+     "sentence_end_to_last_audio_p90": 4615,
+     "queued_sentence_end_to_last_audio_p50": 8235,
+     "queued_sentence_end_to_last_audio_p90": 14003,
+     "queued_phrase_start_to_audio_p50": 14322
+    },
+    "chunks": 22,
+    "chunks_per_sentence": 1.1,
+    "mt_wall_p50_ms": 1654,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0216,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 55.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 71.7,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3664,
+     "phrase_start_to_audio_p90": 5144,
+     "sentence_start_to_first_audio_p50": 4410,
+     "sentence_start_to_first_audio_p90": 5617,
+     "sentence_end_to_last_audio_p50": 1935,
+     "sentence_end_to_last_audio_p90": 2514,
+     "queued_sentence_end_to_last_audio_p50": 10065,
+     "queued_sentence_end_to_last_audio_p90": 14768,
+     "queued_phrase_start_to_audio_p50": 10352
+    },
+    "chunks": 62,
+    "chunks_per_sentence": 3.1,
+    "mt_wall_p50_ms": 681,
+    "revised_tokens": 7,
+    "translation_per_hour": 0.0803,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 3,
+     "chunks": 62,
+     "rate": 0.048
+    }
+   },
+   "P8-sol": {
+    "written": {
+     "q": 53.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 65.0,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2746,
+     "phrase_start_to_audio_p90": 5099,
+     "sentence_start_to_first_audio_p50": 3612,
+     "sentence_start_to_first_audio_p90": 5435,
+     "sentence_end_to_last_audio_p50": 2204,
+     "sentence_end_to_last_audio_p90": 4351,
+     "queued_sentence_end_to_last_audio_p50": 9997,
+     "queued_sentence_end_to_last_audio_p90": 15794,
+     "queued_phrase_start_to_audio_p50": 10022
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 948,
+    "revised_tokens": 21,
+    "translation_per_hour": 1.9507,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 2,
+     "chunks": 69,
+     "rate": 0.029
+    }
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 51.7,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 73.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2867,
+     "phrase_start_to_audio_p90": 5791,
+     "sentence_start_to_first_audio_p50": 3797,
+     "sentence_start_to_first_audio_p90": 5892,
+     "sentence_end_to_last_audio_p50": 2062,
+     "sentence_end_to_last_audio_p90": 3581,
+     "queued_sentence_end_to_last_audio_p50": 8137,
+     "queued_sentence_end_to_last_audio_p90": 13148,
+     "queued_phrase_start_to_audio_p50": 8529
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 846,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0808,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra",
+     "Novita"
+    ],
+    "contradictions": {
+     "wrong": 5,
+     "chunks": 69,
+     "rate": 0.072
+    }
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 50.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 63.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2881,
+     "phrase_start_to_audio_p90": 9264,
+     "sentence_start_to_first_audio_p50": 3001,
+     "sentence_start_to_first_audio_p90": 9487,
+     "sentence_end_to_last_audio_p50": 2534,
+     "sentence_end_to_last_audio_p90": 10865,
+     "queued_sentence_end_to_last_audio_p50": 15517,
+     "queued_sentence_end_to_last_audio_p90": 22219,
+     "queued_phrase_start_to_audio_p50": 15491
+    },
+    "chunks": 84,
+    "chunks_per_sentence": 4.2,
+    "mt_wall_p50_ms": 669,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0386,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 8,
+     "chunks": 86,
+     "rate": 0.093
+    }
+   }
+  },
+  "reg:en-pt": {
+   "P8-gemma31-std": {
+    "written": {
+     "q": 53.3,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 61.7,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3554,
+     "phrase_start_to_audio_p90": 5141,
+     "sentence_start_to_first_audio_p50": 4395,
+     "sentence_start_to_first_audio_p90": 6181,
+     "sentence_end_to_last_audio_p50": 1674,
+     "sentence_end_to_last_audio_p90": 2529,
+     "queued_sentence_end_to_last_audio_p50": 18350,
+     "queued_sentence_end_to_last_audio_p90": 35472,
+     "queued_phrase_start_to_audio_p50": 17404
+    },
+    "chunks": 62,
+    "chunks_per_sentence": 3.1,
+    "mt_wall_p50_ms": 731,
+    "revised_tokens": 7,
+    "translation_per_hour": 0.0811,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 8,
+     "chunks": 62,
+     "rate": 0.129
+    }
+   },
+   "P8-sol": {
+    "written": {
+     "q": 56.7,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 60.0,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2921,
+     "phrase_start_to_audio_p90": 5147,
+     "sentence_start_to_first_audio_p50": 3960,
+     "sentence_start_to_first_audio_p90": 5618,
+     "sentence_end_to_last_audio_p50": 2207,
+     "sentence_end_to_last_audio_p90": 3202,
+     "queued_sentence_end_to_last_audio_p50": 21556,
+     "queued_sentence_end_to_last_audio_p90": 35205,
+     "queued_phrase_start_to_audio_p50": 22545
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 1036,
+    "revised_tokens": 21,
+    "translation_per_hour": 1.9275,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 12,
+     "chunks": 69,
+     "rate": 0.174
+    }
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 53.3,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 60.0,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3036,
+     "phrase_start_to_audio_p90": 5660,
+     "sentence_start_to_first_audio_p50": 3675,
+     "sentence_start_to_first_audio_p90": 6955,
+     "sentence_end_to_last_audio_p50": 2305,
+     "sentence_end_to_last_audio_p90": 4952,
+     "queued_sentence_end_to_last_audio_p50": 15927,
+     "queued_sentence_end_to_last_audio_p90": 28795,
+     "queued_phrase_start_to_audio_p50": 16916
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 830,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0812,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 12,
+     "chunks": 69,
+     "rate": 0.174
+    }
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 60.0,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 65.0,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 6488,
+     "phrase_start_to_audio_p90": 17515,
+     "sentence_start_to_first_audio_p50": 9682,
+     "sentence_start_to_first_audio_p90": 17904,
+     "sentence_end_to_last_audio_p50": 3556,
+     "sentence_end_to_last_audio_p90": 13524,
+     "queued_sentence_end_to_last_audio_p50": 29174,
+     "queued_sentence_end_to_last_audio_p90": 45442,
+     "queued_phrase_start_to_audio_p50": 43186
+    },
+    "chunks": 34,
+    "chunks_per_sentence": 1.7,
+    "mt_wall_p50_ms": 918,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0262,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 61.7,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 75.0,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 7732,
+     "phrase_start_to_audio_p90": 13740,
+     "sentence_start_to_first_audio_p50": 7996,
+     "sentence_start_to_first_audio_p90": 14260,
+     "sentence_end_to_last_audio_p50": 2672,
+     "sentence_end_to_last_audio_p90": 8841,
+     "queued_sentence_end_to_last_audio_p50": 12795,
+     "queued_sentence_end_to_last_audio_p90": 31776,
+     "queued_phrase_start_to_audio_p50": 19556
+    },
+    "chunks": 22,
+    "chunks_per_sentence": 1.1,
+    "mt_wall_p50_ms": 1415,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0219,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "S-sol": {
+    "written": {
+     "q": 68.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 75.0,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 5517,
+     "phrase_start_to_audio_p90": 10594,
+     "sentence_start_to_first_audio_p50": 6783,
+     "sentence_start_to_first_audio_p90": 13414,
+     "sentence_end_to_last_audio_p50": 2604,
+     "sentence_end_to_last_audio_p90": 5400,
+     "queued_sentence_end_to_last_audio_p50": 16769,
+     "queued_sentence_end_to_last_audio_p90": 36432,
+     "queued_phrase_start_to_audio_p50": 30807
+    },
+    "chunks": 34,
+    "chunks_per_sentence": 1.7,
+    "mt_wall_p50_ms": 1055,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.7397,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 41.7,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 53.3,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2456,
+     "phrase_start_to_audio_p90": 4248,
+     "sentence_start_to_first_audio_p50": 2612,
+     "sentence_start_to_first_audio_p90": 5150,
+     "sentence_end_to_last_audio_p50": 1805,
+     "sentence_end_to_last_audio_p90": 3728,
+     "queued_sentence_end_to_last_audio_p50": 17726,
+     "queued_sentence_end_to_last_audio_p90": 31982,
+     "queued_phrase_start_to_audio_p50": 18708
+    },
+    "chunks": 84,
+    "chunks_per_sentence": 4.2,
+    "mt_wall_p50_ms": 572,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0387,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 15,
+     "chunks": 85,
+     "rate": 0.176
+    }
+   },
+   "gemini-live-translate": {
+    "written": {
+     "q": 43.3,
+     "crit": 12,
+     "n": 20
+    },
+    "said": {
+     "q": 48.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 1825,
+     "phrase_start_to_audio_p90": 3199,
+     "sentence_end_to_last_audio_p50": 3684,
+     "sentence_end_to_last_audio_p90": 5091,
+     "note": "first text of each sentence's translation after the sentence's speech starts; last text after it ends"
+    },
+    "sentences_without_output": 0
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 51.7,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 58.3,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2863,
+     "phrase_start_to_audio_p90": 7802,
+     "sentence_start_to_first_audio_p50": 3828,
+     "sentence_start_to_first_audio_p90": 8172,
+     "sentence_end_to_last_audio_p50": 1746,
+     "sentence_end_to_last_audio_p90": 5112,
+     "queued_sentence_end_to_last_audio_p50": 16503,
+     "queued_sentence_end_to_last_audio_p90": 30325,
+     "queued_phrase_start_to_audio_p50": 17839
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 642,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0323,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 10,
+     "chunks": 69,
+     "rate": 0.145
+    }
+   }
+  },
+  "reg:en-fr": {
+   "gemini-live-translate": {
+    "written": {
+     "q": 48.3,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 53.3,
+     "crit": 0,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 1532,
+     "phrase_start_to_audio_p90": 3142,
+     "sentence_end_to_last_audio_p50": 3229,
+     "sentence_end_to_last_audio_p90": 5054,
+     "note": "first text of each sentence's translation after the sentence's speech starts; last text after it ends"
+    },
+    "sentences_without_output": 0
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 53.3,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 66.7,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 4133,
+     "phrase_start_to_audio_p90": 21725,
+     "sentence_start_to_first_audio_p50": 4742,
+     "sentence_start_to_first_audio_p90": 23345,
+     "sentence_end_to_last_audio_p50": 2289,
+     "sentence_end_to_last_audio_p90": 17839,
+     "queued_sentence_end_to_last_audio_p50": 28709,
+     "queued_sentence_end_to_last_audio_p90": 40775,
+     "queued_phrase_start_to_audio_p50": 28132
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 866,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0827,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra",
+     "SiliconFlow"
+    ],
+    "contradictions": {
+     "wrong": 8,
+     "chunks": 69,
+     "rate": 0.116
+    }
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 46.7,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 56.7,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2769,
+     "phrase_start_to_audio_p90": 5194,
+     "sentence_start_to_first_audio_p50": 2843,
+     "sentence_start_to_first_audio_p90": 6728,
+     "sentence_end_to_last_audio_p50": 2141,
+     "sentence_end_to_last_audio_p90": 5330,
+     "queued_sentence_end_to_last_audio_p50": 18046,
+     "queued_sentence_end_to_last_audio_p90": 32384,
+     "queued_phrase_start_to_audio_p50": 18235
+    },
+    "chunks": 84,
+    "chunks_per_sentence": 4.2,
+    "mt_wall_p50_ms": 609,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0393,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 86,
+     "rate": 0.151
+    }
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 66.7,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 7918,
+     "phrase_start_to_audio_p90": 12384,
+     "sentence_start_to_first_audio_p50": 7898,
+     "sentence_start_to_first_audio_p90": 12414,
+     "sentence_end_to_last_audio_p50": 2997,
+     "sentence_end_to_last_audio_p90": 4606,
+     "queued_sentence_end_to_last_audio_p50": 16189,
+     "queued_sentence_end_to_last_audio_p90": 32395,
+     "queued_phrase_start_to_audio_p50": 22914
+    },
+    "chunks": 22,
+    "chunks_per_sentence": 1.1,
+    "mt_wall_p50_ms": 1685,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0223,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "S-sol": {
+    "written": {
+     "q": 70.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 76.7,
+     "crit": 0,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 5534,
+     "phrase_start_to_audio_p90": 10758,
+     "sentence_start_to_first_audio_p50": 6833,
+     "sentence_start_to_first_audio_p90": 13888,
+     "sentence_end_to_last_audio_p50": 2619,
+     "sentence_end_to_last_audio_p90": 5282,
+     "queued_sentence_end_to_last_audio_p50": 17873,
+     "queued_sentence_end_to_last_audio_p90": 39631,
+     "queued_phrase_start_to_audio_p50": 30217
+    },
+    "chunks": 34,
+    "chunks_per_sentence": 1.7,
+    "mt_wall_p50_ms": 1069,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.7727,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 55.0,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 65.0,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2811,
+     "phrase_start_to_audio_p90": 9836,
+     "sentence_start_to_first_audio_p50": 3384,
+     "sentence_start_to_first_audio_p90": 9261,
+     "sentence_end_to_last_audio_p50": 1937,
+     "sentence_end_to_last_audio_p90": 5882,
+     "queued_sentence_end_to_last_audio_p50": 19251,
+     "queued_sentence_end_to_last_audio_p90": 33713,
+     "queued_phrase_start_to_audio_p50": 19242
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 662,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.033,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 11,
+     "chunks": 70,
+     "rate": 0.157
+    }
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 53.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 68.3,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3716,
+     "phrase_start_to_audio_p90": 5603,
+     "sentence_start_to_first_audio_p50": 4728,
+     "sentence_start_to_first_audio_p90": 6990,
+     "sentence_end_to_last_audio_p50": 2300,
+     "sentence_end_to_last_audio_p90": 3612,
+     "queued_sentence_end_to_last_audio_p50": 19398,
+     "queued_sentence_end_to_last_audio_p90": 36998,
+     "queued_phrase_start_to_audio_p50": 19822
+    },
+    "chunks": 62,
+    "chunks_per_sentence": 3.1,
+    "mt_wall_p50_ms": 751,
+    "revised_tokens": 7,
+    "translation_per_hour": 0.0819,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 6,
+     "chunks": 62,
+     "rate": 0.097
+    }
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 63.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 68.3,
+     "crit": 0,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 6371,
+     "phrase_start_to_audio_p90": 15742,
+     "sentence_start_to_first_audio_p50": 8462,
+     "sentence_start_to_first_audio_p90": 17438,
+     "sentence_end_to_last_audio_p50": 3229,
+     "sentence_end_to_last_audio_p90": 13323,
+     "queued_sentence_end_to_last_audio_p50": 26980,
+     "queued_sentence_end_to_last_audio_p90": 43556,
+     "queued_phrase_start_to_audio_p50": 37682
+    },
+    "chunks": 34,
+    "chunks_per_sentence": 1.7,
+    "mt_wall_p50_ms": 911,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0267,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-sol": {
+    "written": {
+     "q": 56.7,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 66.7,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2746,
+     "phrase_start_to_audio_p90": 5217,
+     "sentence_start_to_first_audio_p50": 3981,
+     "sentence_start_to_first_audio_p90": 5446,
+     "sentence_end_to_last_audio_p50": 2296,
+     "sentence_end_to_last_audio_p90": 3113,
+     "queued_sentence_end_to_last_audio_p50": 22237,
+     "queued_sentence_end_to_last_audio_p90": 37906,
+     "queued_phrase_start_to_audio_p50": 22872
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 1033,
+    "revised_tokens": 21,
+    "translation_per_hour": 1.9823,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 7,
+     "chunks": 69,
+     "rate": 0.101
+    }
+   }
+  },
+  "reg:en-ja": {
+   "gemini-live-translate": {
+    "written": {
+     "q": 45.0,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 61.7,
+     "crit": 7,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 1906,
+     "phrase_start_to_audio_p90": 3183,
+     "sentence_end_to_last_audio_p50": 1984,
+     "sentence_end_to_last_audio_p90": 3179,
+     "note": "first text of each sentence's translation after the sentence's speech starts; last text after it ends"
+    },
+    "sentences_without_output": 0
+   },
+   "P8-sol": {
+    "written": {
+     "q": 53.3,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 63.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2804,
+     "phrase_start_to_audio_p90": 5190,
+     "sentence_start_to_first_audio_p50": 3847,
+     "sentence_start_to_first_audio_p90": 5543,
+     "sentence_end_to_last_audio_p50": 2429,
+     "sentence_end_to_last_audio_p90": 2841,
+     "queued_sentence_end_to_last_audio_p50": 51142,
+     "queued_sentence_end_to_last_audio_p90": 77014,
+     "queued_phrase_start_to_audio_p50": 52415
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 979,
+    "revised_tokens": 21,
+    "translation_per_hour": 2.2187,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 7,
+     "chunks": 69,
+     "rate": 0.101
+    }
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 50.0,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 56.7,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2749,
+     "phrase_start_to_audio_p90": 5244,
+     "sentence_start_to_first_audio_p50": 3501,
+     "sentence_start_to_first_audio_p90": 5209,
+     "sentence_end_to_last_audio_p50": 1903,
+     "sentence_end_to_last_audio_p90": 3210,
+     "queued_sentence_end_to_last_audio_p50": 46683,
+     "queued_sentence_end_to_last_audio_p90": 72541,
+     "queued_phrase_start_to_audio_p50": 47942
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 821,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0827,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 9,
+     "chunks": 69,
+     "rate": 0.13
+    }
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 45.0,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 55.0,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2631,
+     "phrase_start_to_audio_p90": 5630,
+     "sentence_start_to_first_audio_p50": 3321,
+     "sentence_start_to_first_audio_p90": 5837,
+     "sentence_end_to_last_audio_p50": 2046,
+     "sentence_end_to_last_audio_p90": 5427,
+     "queued_sentence_end_to_last_audio_p50": 48409,
+     "queued_sentence_end_to_last_audio_p90": 77515,
+     "queued_phrase_start_to_audio_p50": 51407
+    },
+    "chunks": 84,
+    "chunks_per_sentence": 4.2,
+    "mt_wall_p50_ms": 545,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0398,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 7,
+     "chunks": 85,
+     "rate": 0.082
+    }
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 66.7,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 73.3,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 6333,
+     "phrase_start_to_audio_p90": 12930,
+     "sentence_start_to_first_audio_p50": 8527,
+     "sentence_start_to_first_audio_p90": 17230,
+     "sentence_end_to_last_audio_p50": 3194,
+     "sentence_end_to_last_audio_p90": 12586,
+     "queued_sentence_end_to_last_audio_p50": 37439,
+     "queued_sentence_end_to_last_audio_p90": 62651,
+     "queued_phrase_start_to_audio_p50": 53137
+    },
+    "chunks": 34,
+    "chunks_per_sentence": 1.7,
+    "mt_wall_p50_ms": 1096,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0261,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "S-sol": {
+    "written": {
+     "q": 75.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 85.0,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 5679,
+     "phrase_start_to_audio_p90": 10863,
+     "sentence_start_to_first_audio_p50": 7252,
+     "sentence_start_to_first_audio_p90": 13648,
+     "sentence_end_to_last_audio_p50": 2924,
+     "sentence_end_to_last_audio_p90": 5437,
+     "queued_sentence_end_to_last_audio_p50": 24025,
+     "queued_sentence_end_to_last_audio_p90": 49467,
+     "queued_phrase_start_to_audio_p50": 42108
+    },
+    "chunks": 34,
+    "chunks_per_sentence": 1.7,
+    "mt_wall_p50_ms": 1087,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.8845,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 71.7,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 85.0,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 8344,
+     "phrase_start_to_audio_p90": 11797,
+     "sentence_start_to_first_audio_p50": 8332,
+     "sentence_start_to_first_audio_p90": 11827,
+     "sentence_end_to_last_audio_p50": 2800,
+     "sentence_end_to_last_audio_p90": 4494,
+     "queued_sentence_end_to_last_audio_p50": 34469,
+     "queued_sentence_end_to_last_audio_p90": 51707,
+     "queued_phrase_start_to_audio_p50": 39449
+    },
+    "chunks": 22,
+    "chunks_per_sentence": 1.1,
+    "mt_wall_p50_ms": 1717,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0219,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 46.7,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 56.7,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2542,
+     "phrase_start_to_audio_p90": 6808,
+     "sentence_start_to_first_audio_p50": 3880,
+     "sentence_start_to_first_audio_p90": 7022,
+     "sentence_end_to_last_audio_p50": 1809,
+     "sentence_end_to_last_audio_p90": 7431,
+     "queued_sentence_end_to_last_audio_p50": 40513,
+     "queued_sentence_end_to_last_audio_p90": 67600,
+     "queued_phrase_start_to_audio_p50": 43927
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 588,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0331,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 7,
+     "chunks": 69,
+     "rate": 0.101
+    }
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 53.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 61.7,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3538,
+     "phrase_start_to_audio_p90": 5020,
+     "sentence_start_to_first_audio_p50": 4339,
+     "sentence_start_to_first_audio_p90": 6050,
+     "sentence_end_to_last_audio_p50": 1772,
+     "sentence_end_to_last_audio_p90": 2523,
+     "queued_sentence_end_to_last_audio_p50": 48998,
+     "queued_sentence_end_to_last_audio_p90": 81473,
+     "queued_phrase_start_to_audio_p50": 50274
+    },
+    "chunks": 62,
+    "chunks_per_sentence": 3.1,
+    "mt_wall_p50_ms": 781,
+    "revised_tokens": 7,
+    "translation_per_hour": 0.0841,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 7,
+     "chunks": 62,
+     "rate": 0.113
+    }
+   }
+  },
+  "reg:es-en": {
+   "S-gemma31": {
+    "written": {
+     "q": 90.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 93.0,
+     "crit": 1,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 11027,
+     "phrase_start_to_audio_p90": 17348,
+     "sentence_start_to_first_audio_p50": 11966,
+     "sentence_start_to_first_audio_p90": 17254,
+     "sentence_end_to_last_audio_p50": 3024,
+     "sentence_end_to_last_audio_p90": 7805,
+     "queued_sentence_end_to_last_audio_p50": 11076,
+     "queued_sentence_end_to_last_audio_p90": 19241,
+     "queued_phrase_start_to_audio_p50": 20463
+    },
+    "chunks": 22,
+    "chunks_per_sentence": 1.1,
+    "mt_wall_p50_ms": 1409,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0189,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 75.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 77.2,
+     "crit": 1,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3676,
+     "phrase_start_to_audio_p90": 4783,
+     "sentence_start_to_first_audio_p50": 4343,
+     "sentence_start_to_first_audio_p90": 5547,
+     "sentence_end_to_last_audio_p50": 1515,
+     "sentence_end_to_last_audio_p90": 1893,
+     "queued_sentence_end_to_last_audio_p50": 5569,
+     "queued_sentence_end_to_last_audio_p90": 10496,
+     "queued_phrase_start_to_audio_p50": 6199
+    },
+    "chunks": 76,
+    "chunks_per_sentence": 3.8,
+    "mt_wall_p50_ms": 557,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0847,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 4,
+     "chunks": 76,
+     "rate": 0.053
+    }
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 73.3,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 75.4,
+     "crit": 0,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2674,
+     "phrase_start_to_audio_p90": 4090,
+     "sentence_start_to_first_audio_p50": 2833,
+     "sentence_start_to_first_audio_p90": 3976,
+     "sentence_end_to_last_audio_p50": 1795,
+     "sentence_end_to_last_audio_p90": 3449,
+     "queued_sentence_end_to_last_audio_p50": 6199,
+     "queued_sentence_end_to_last_audio_p90": 11804,
+     "queued_phrase_start_to_audio_p50": 6762
+    },
+    "chunks": 101,
+    "chunks_per_sentence": 5.05,
+    "mt_wall_p50_ms": 558,
+    "revised_tokens": 11,
+    "translation_per_hour": 0.0435,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 8,
+     "chunks": 101,
+     "rate": 0.079
+    }
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 78.3,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 80.7,
+     "crit": 0,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3105,
+     "phrase_start_to_audio_p90": 5468,
+     "sentence_start_to_first_audio_p50": 3747,
+     "sentence_start_to_first_audio_p90": 5210,
+     "sentence_end_to_last_audio_p50": 1905,
+     "sentence_end_to_last_audio_p90": 5328,
+     "queued_sentence_end_to_last_audio_p50": 5335,
+     "queued_sentence_end_to_last_audio_p90": 13757,
+     "queued_phrase_start_to_audio_p50": 5466
+    },
+    "chunks": 76,
+    "chunks_per_sentence": 3.8,
+    "mt_wall_p50_ms": 583,
+    "revised_tokens": 11,
+    "translation_per_hour": 0.0332,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 3,
+     "chunks": 76,
+     "rate": 0.039
+    }
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 88.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 91.2,
+     "crit": 1,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 10540,
+     "phrase_start_to_audio_p90": 18644,
+     "sentence_start_to_first_audio_p50": 10440,
+     "sentence_start_to_first_audio_p90": 18594,
+     "sentence_end_to_last_audio_p50": 2871,
+     "sentence_end_to_last_audio_p90": 8922,
+     "queued_sentence_end_to_last_audio_p50": 15147,
+     "queued_sentence_end_to_last_audio_p90": 18438,
+     "queued_phrase_start_to_audio_p50": 23505
+    },
+    "chunks": 20,
+    "chunks_per_sentence": 1.0,
+    "mt_wall_p50_ms": 1588,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.018,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "S-sol": {
+    "written": {
+     "q": 91.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 94.7,
+     "crit": 1,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 10398,
+     "phrase_start_to_audio_p90": 13843,
+     "sentence_start_to_first_audio_p50": 10314,
+     "sentence_start_to_first_audio_p90": 16273,
+     "sentence_end_to_last_audio_p50": 2564,
+     "sentence_end_to_last_audio_p90": 2970,
+     "queued_sentence_end_to_last_audio_p50": 5312,
+     "queued_sentence_end_to_last_audio_p90": 15311,
+     "queued_phrase_start_to_audio_p50": 15837
+    },
+    "chunks": 22,
+    "chunks_per_sentence": 1.1,
+    "mt_wall_p50_ms": 1075,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.5289,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 80.0,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 82.5,
+     "crit": 0,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3985,
+     "phrase_start_to_audio_p90": 6023,
+     "sentence_start_to_first_audio_p50": 3945,
+     "sentence_start_to_first_audio_p90": 6518,
+     "sentence_end_to_last_audio_p50": 2112,
+     "sentence_end_to_last_audio_p90": 5802,
+     "queued_sentence_end_to_last_audio_p50": 13747,
+     "queued_sentence_end_to_last_audio_p90": 16569,
+     "queued_phrase_start_to_audio_p50": 13523
+    },
+    "chunks": 76,
+    "chunks_per_sentence": 3.8,
+    "mt_wall_p50_ms": 996,
+    "revised_tokens": 11,
+    "translation_per_hour": 0.0848,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra",
+     "Novita"
+    ],
+    "contradictions": {
+     "wrong": 3,
+     "chunks": 76,
+     "rate": 0.039
+    }
+   },
+   "P8-sol": {
+    "written": {
+     "q": 71.7,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 73.7,
+     "crit": 0,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3542,
+     "phrase_start_to_audio_p90": 4867,
+     "sentence_start_to_first_audio_p50": 3929,
+     "sentence_start_to_first_audio_p90": 4674,
+     "sentence_end_to_last_audio_p50": 2336,
+     "sentence_end_to_last_audio_p90": 2654,
+     "queued_sentence_end_to_last_audio_p50": 7239,
+     "queued_sentence_end_to_last_audio_p90": 9909,
+     "queued_phrase_start_to_audio_p50": 7365
+    },
+    "chunks": 76,
+    "chunks_per_sentence": 3.8,
+    "mt_wall_p50_ms": 961,
+    "revised_tokens": 11,
+    "translation_per_hour": 1.9923,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 3,
+     "chunks": 76,
+     "rate": 0.039
+    }
+   }
+  },
+  "reg:pt-en": {
+   "P8-gemma31": {
+    "written": {
+     "q": 81.7,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 81.7,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 4086,
+     "phrase_start_to_audio_p90": 5346,
+     "sentence_start_to_first_audio_p50": 4020,
+     "sentence_start_to_first_audio_p90": 5125,
+     "sentence_end_to_last_audio_p50": 1932,
+     "sentence_end_to_last_audio_p90": 2871,
+     "queued_sentence_end_to_last_audio_p50": 4048,
+     "queued_sentence_end_to_last_audio_p90": 7214,
+     "queued_phrase_start_to_audio_p50": 5052
+    },
+    "chunks": 67,
+    "chunks_per_sentence": 3.35,
+    "mt_wall_p50_ms": 841,
+    "revised_tokens": 16,
+    "translation_per_hour": 0.0728,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra",
+     "Novita"
+    ],
+    "contradictions": {
+     "wrong": 4,
+     "chunks": 67,
+     "rate": 0.06
+    }
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 90.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 90.0,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 10623,
+     "phrase_start_to_audio_p90": 15464,
+     "sentence_start_to_first_audio_p50": 10817,
+     "sentence_start_to_first_audio_p90": 15949,
+     "sentence_end_to_last_audio_p50": 2666,
+     "sentence_end_to_last_audio_p90": 9705,
+     "queued_sentence_end_to_last_audio_p50": 6914,
+     "queued_sentence_end_to_last_audio_p90": 11739,
+     "queued_phrase_start_to_audio_p50": 13909
+    },
+    "chunks": 22,
+    "chunks_per_sentence": 1.1,
+    "mt_wall_p50_ms": 1735,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.017,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra",
+     "Novita"
+    ]
+   },
+   "P8-sol": {
+    "written": {
+     "q": 83.3,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 83.3,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 4294,
+     "phrase_start_to_audio_p90": 12071,
+     "sentence_start_to_first_audio_p50": 4430,
+     "sentence_start_to_first_audio_p90": 11855,
+     "sentence_end_to_last_audio_p50": 1882,
+     "sentence_end_to_last_audio_p90": 12410,
+     "queued_sentence_end_to_last_audio_p50": 4584,
+     "queued_sentence_end_to_last_audio_p90": 19663,
+     "queued_phrase_start_to_audio_p50": 5106
+    },
+    "chunks": 67,
+    "chunks_per_sentence": 3.35,
+    "mt_wall_p50_ms": 1000,
+    "revised_tokens": 16,
+    "translation_per_hour": 1.685,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 2,
+     "chunks": 67,
+     "rate": 0.03
+    }
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 68.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 68.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3055,
+     "phrase_start_to_audio_p90": 4591,
+     "sentence_start_to_first_audio_p50": 3078,
+     "sentence_start_to_first_audio_p90": 4182,
+     "sentence_end_to_last_audio_p50": 1707,
+     "sentence_end_to_last_audio_p90": 5546,
+     "queued_sentence_end_to_last_audio_p50": 3241,
+     "queued_sentence_end_to_last_audio_p90": 11737,
+     "queued_phrase_start_to_audio_p50": 3984
+    },
+    "chunks": 87,
+    "chunks_per_sentence": 4.35,
+    "mt_wall_p50_ms": 523,
+    "revised_tokens": 16,
+    "translation_per_hour": 0.0364,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 10,
+     "chunks": 87,
+     "rate": 0.115
+    }
+   },
+   "S-sol": {
+    "written": {
+     "q": 91.7,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 91.7,
+     "crit": 1,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 10883,
+     "phrase_start_to_audio_p90": 16211,
+     "sentence_start_to_first_audio_p50": 10500,
+     "sentence_start_to_first_audio_p90": 16133,
+     "sentence_end_to_last_audio_p50": 2538,
+     "sentence_end_to_last_audio_p90": 2757,
+     "queued_sentence_end_to_last_audio_p50": 2676,
+     "queued_sentence_end_to_last_audio_p90": 7536,
+     "queued_phrase_start_to_audio_p50": 11474
+    },
+    "chunks": 20,
+    "chunks_per_sentence": 1.0,
+    "mt_wall_p50_ms": 1067,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.4565,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 93.3,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 93.3,
+     "crit": 1,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 11331,
+     "phrase_start_to_audio_p90": 16290,
+     "sentence_start_to_first_audio_p50": 11169,
+     "sentence_start_to_first_audio_p90": 16212,
+     "sentence_end_to_last_audio_p50": 2668,
+     "sentence_end_to_last_audio_p90": 4273,
+     "queued_sentence_end_to_last_audio_p50": 3111,
+     "queued_sentence_end_to_last_audio_p90": 7525,
+     "queued_phrase_start_to_audio_p50": 12391
+    },
+    "chunks": 20,
+    "chunks_per_sentence": 1.0,
+    "mt_wall_p50_ms": 1146,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0165,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 68.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 68.3,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3742,
+     "phrase_start_to_audio_p90": 5309,
+     "sentence_start_to_first_audio_p50": 4491,
+     "sentence_start_to_first_audio_p90": 6032,
+     "sentence_end_to_last_audio_p50": 1537,
+     "sentence_end_to_last_audio_p90": 2350,
+     "queued_sentence_end_to_last_audio_p50": 4987,
+     "queued_sentence_end_to_last_audio_p90": 6895,
+     "queued_phrase_start_to_audio_p50": 5161
+    },
+    "chunks": 72,
+    "chunks_per_sentence": 3.6,
+    "mt_wall_p50_ms": 534,
+    "revised_tokens": 15,
+    "translation_per_hour": 0.0738,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 9,
+     "chunks": 72,
+     "rate": 0.125
+    }
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 80.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 80.0,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3958,
+     "phrase_start_to_audio_p90": 6853,
+     "sentence_start_to_first_audio_p50": 3873,
+     "sentence_start_to_first_audio_p90": 6771,
+     "sentence_end_to_last_audio_p50": 1731,
+     "sentence_end_to_last_audio_p90": 8430,
+     "queued_sentence_end_to_last_audio_p50": 4688,
+     "queued_sentence_end_to_last_audio_p90": 13466,
+     "queued_phrase_start_to_audio_p50": 5187
+    },
+    "chunks": 67,
+    "chunks_per_sentence": 3.35,
+    "mt_wall_p50_ms": 583,
+    "revised_tokens": 16,
+    "translation_per_hour": 0.0288,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 5,
+     "chunks": 67,
+     "rate": 0.075
+    }
+   }
+  },
+  "reg:fr-en": {
+   "P8-sol": {
+    "written": {
+     "q": 58.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 58.3,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3662,
+     "phrase_start_to_audio_p90": 5296,
+     "sentence_start_to_first_audio_p50": 3712,
+     "sentence_start_to_first_audio_p90": 4477,
+     "sentence_end_to_last_audio_p50": 2226,
+     "sentence_end_to_last_audio_p90": 2539,
+     "queued_sentence_end_to_last_audio_p50": 6702,
+     "queued_sentence_end_to_last_audio_p90": 9824,
+     "queued_phrase_start_to_audio_p50": 6439
+    },
+    "chunks": 76,
+    "chunks_per_sentence": 3.8,
+    "mt_wall_p50_ms": 975,
+    "revised_tokens": 17,
+    "translation_per_hour": 2.0221,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 17,
+     "chunks": 76,
+     "rate": 0.224
+    }
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 85.0,
+     "crit": 0,
+     "n": 20
+    },
+    "said": {
+     "q": 85.0,
+     "crit": 0,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 6382,
+     "phrase_start_to_audio_p90": 11082,
+     "sentence_start_to_first_audio_p50": 8515,
+     "sentence_start_to_first_audio_p90": 13614,
+     "sentence_end_to_last_audio_p50": 2414,
+     "sentence_end_to_last_audio_p90": 2985,
+     "queued_sentence_end_to_last_audio_p50": 5764,
+     "queued_sentence_end_to_last_audio_p90": 13135,
+     "queued_phrase_start_to_audio_p50": 14404
+    },
+    "chunks": 35,
+    "chunks_per_sentence": 1.75,
+    "mt_wall_p50_ms": 680,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0245,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 61.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 61.7,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3246,
+     "phrase_start_to_audio_p90": 5156,
+     "sentence_start_to_first_audio_p50": 3714,
+     "sentence_start_to_first_audio_p90": 5050,
+     "sentence_end_to_last_audio_p50": 1838,
+     "sentence_end_to_last_audio_p90": 2884,
+     "queued_sentence_end_to_last_audio_p50": 8377,
+     "queued_sentence_end_to_last_audio_p90": 16633,
+     "queued_phrase_start_to_audio_p50": 9879
+    },
+    "chunks": 76,
+    "chunks_per_sentence": 3.8,
+    "mt_wall_p50_ms": 635,
+    "revised_tokens": 17,
+    "translation_per_hour": 0.0862,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 11,
+     "chunks": 76,
+     "rate": 0.145
+    }
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 48.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 48.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3399,
+     "phrase_start_to_audio_p90": 4977,
+     "sentence_start_to_first_audio_p50": 3755,
+     "sentence_start_to_first_audio_p90": 5103,
+     "sentence_end_to_last_audio_p50": 1518,
+     "sentence_end_to_last_audio_p90": 1897,
+     "queued_sentence_end_to_last_audio_p50": 6414,
+     "queued_sentence_end_to_last_audio_p90": 11532,
+     "queued_phrase_start_to_audio_p50": 6606
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 622,
+    "revised_tokens": 20,
+    "translation_per_hour": 0.0856,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 2,
+     "chunks": 69,
+     "rate": 0.029
+    }
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 61.7,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 61.7,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2830,
+     "phrase_start_to_audio_p90": 9100,
+     "sentence_start_to_first_audio_p50": 2814,
+     "sentence_start_to_first_audio_p90": 8830,
+     "sentence_end_to_last_audio_p50": 1702,
+     "sentence_end_to_last_audio_p90": 9989,
+     "queued_sentence_end_to_last_audio_p50": 4343,
+     "queued_sentence_end_to_last_audio_p90": 19704,
+     "queued_phrase_start_to_audio_p50": 5471
+    },
+    "chunks": 98,
+    "chunks_per_sentence": 4.9,
+    "mt_wall_p50_ms": 472,
+    "revised_tokens": 17,
+    "translation_per_hour": 0.0433,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 12,
+     "chunks": 98,
+     "rate": 0.122
+    }
+   },
+   "S-sol": {
+    "written": {
+     "q": 85.0,
+     "crit": 0,
+     "n": 20
+    },
+    "said": {
+     "q": 85.0,
+     "crit": 0,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 6295,
+     "phrase_start_to_audio_p90": 10897,
+     "sentence_start_to_first_audio_p50": 8689,
+     "sentence_start_to_first_audio_p90": 13710,
+     "sentence_end_to_last_audio_p50": 2449,
+     "sentence_end_to_last_audio_p90": 2984,
+     "queued_sentence_end_to_last_audio_p50": 7135,
+     "queued_sentence_end_to_last_audio_p90": 14099,
+     "queued_phrase_start_to_audio_p50": 15495
+    },
+    "chunks": 35,
+    "chunks_per_sentence": 1.75,
+    "mt_wall_p50_ms": 984,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.6686,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 58.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 58.3,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3342,
+     "phrase_start_to_audio_p90": 7392,
+     "sentence_start_to_first_audio_p50": 3540,
+     "sentence_start_to_first_audio_p90": 8163,
+     "sentence_end_to_last_audio_p50": 1550,
+     "sentence_end_to_last_audio_p90": 8650,
+     "queued_sentence_end_to_last_audio_p50": 6267,
+     "queued_sentence_end_to_last_audio_p90": 18980,
+     "queued_phrase_start_to_audio_p50": 5993
+    },
+    "chunks": 76,
+    "chunks_per_sentence": 3.8,
+    "mt_wall_p50_ms": 564,
+    "revised_tokens": 17,
+    "translation_per_hour": 0.034,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 16,
+     "chunks": 76,
+     "rate": 0.211
+    }
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 78.3,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 9138,
+     "phrase_start_to_audio_p90": 13268,
+     "sentence_start_to_first_audio_p50": 9168,
+     "sentence_start_to_first_audio_p90": 14708,
+     "sentence_end_to_last_audio_p50": 2250,
+     "sentence_end_to_last_audio_p90": 7808,
+     "queued_sentence_end_to_last_audio_p50": 11633,
+     "queued_sentence_end_to_last_audio_p90": 15038,
+     "queued_phrase_start_to_audio_p50": 17556
+    },
+    "chunks": 21,
+    "chunks_per_sentence": 1.05,
+    "mt_wall_p50_ms": 1272,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0204,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   }
+  },
+  "reg:ja-en": {
+   "P8-gemma31-std": {
+    "written": {
+     "q": 53.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 51.9,
+     "crit": 4,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 4443,
+     "phrase_start_to_audio_p90": 6097,
+     "sentence_start_to_first_audio_p50": 6017,
+     "sentence_start_to_first_audio_p90": 7813,
+     "sentence_end_to_last_audio_p50": 1498,
+     "sentence_end_to_last_audio_p90": 2929,
+     "queued_sentence_end_to_last_audio_p50": 7107,
+     "queued_sentence_end_to_last_audio_p90": 10190,
+     "queued_phrase_start_to_audio_p50": 6656
+    },
+    "chunks": 74,
+    "chunks_per_sentence": 3.7,
+    "mt_wall_p50_ms": 674,
+    "revised_tokens": 27,
+    "translation_per_hour": 0.0647,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 8,
+     "chunks": 74,
+     "rate": 0.108
+    }
+   },
+   "P8-sol": {
+    "written": {
+     "q": 50.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 53.7,
+     "crit": 3,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3583,
+     "phrase_start_to_audio_p90": 5730,
+     "sentence_start_to_first_audio_p50": 5099,
+     "sentence_start_to_first_audio_p90": 6450,
+     "sentence_end_to_last_audio_p50": 1477,
+     "sentence_end_to_last_audio_p90": 2748,
+     "queued_sentence_end_to_last_audio_p50": 2521,
+     "queued_sentence_end_to_last_audio_p90": 9962,
+     "queued_phrase_start_to_audio_p50": 4800
+    },
+    "chunks": 83,
+    "chunks_per_sentence": 4.15,
+    "mt_wall_p50_ms": 1019,
+    "revised_tokens": 105,
+    "translation_per_hour": 1.6004,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 19,
+     "chunks": 82,
+     "rate": 0.232
+    }
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 63.3,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 64.8,
+     "crit": 1,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 4758,
+     "phrase_start_to_audio_p90": 12774,
+     "sentence_start_to_first_audio_p50": 10821,
+     "sentence_start_to_first_audio_p90": 18355,
+     "sentence_end_to_last_audio_p50": 2442,
+     "sentence_end_to_last_audio_p90": 8155,
+     "queued_sentence_end_to_last_audio_p50": 3594,
+     "queued_sentence_end_to_last_audio_p90": 19849,
+     "queued_phrase_start_to_audio_p50": 13366
+    },
+    "chunks": 48,
+    "chunks_per_sentence": 2.4,
+    "mt_wall_p50_ms": 871,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0205,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 41.7,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 44.4,
+     "crit": 2,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3318,
+     "phrase_start_to_audio_p90": 4898,
+     "sentence_start_to_first_audio_p50": 3714,
+     "sentence_start_to_first_audio_p90": 6251,
+     "sentence_end_to_last_audio_p50": 1024,
+     "sentence_end_to_last_audio_p90": 3531,
+     "queued_sentence_end_to_last_audio_p50": 3694,
+     "queued_sentence_end_to_last_audio_p90": 9813,
+     "queued_phrase_start_to_audio_p50": 4856
+    },
+    "chunks": 83,
+    "chunks_per_sentence": 4.15,
+    "mt_wall_p50_ms": 585,
+    "revised_tokens": 105,
+    "translation_per_hour": 0.0252,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 22,
+     "chunks": 85,
+     "rate": 0.259
+    }
+   },
+   "S-sol": {
+    "written": {
+     "q": 66.7,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 68.5,
+     "crit": 1,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2424,
+     "phrase_start_to_audio_p90": 11584,
+     "sentence_start_to_first_audio_p50": 10014,
+     "sentence_start_to_first_audio_p90": 12994,
+     "sentence_end_to_last_audio_p50": 2378,
+     "sentence_end_to_last_audio_p90": 2798,
+     "queued_sentence_end_to_last_audio_p50": 2739,
+     "queued_sentence_end_to_last_audio_p90": 8430,
+     "queued_phrase_start_to_audio_p50": 10390
+    },
+    "chunks": 48,
+    "chunks_per_sentence": 2.4,
+    "mt_wall_p50_ms": 1021,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.5994,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 41.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 44.4,
+     "crit": 2,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3163,
+     "phrase_start_to_audio_p90": 5472,
+     "sentence_start_to_first_audio_p50": 4540,
+     "sentence_start_to_first_audio_p90": 10155,
+     "sentence_end_to_last_audio_p50": 1049,
+     "sentence_end_to_last_audio_p90": 4929,
+     "queued_sentence_end_to_last_audio_p50": 3135,
+     "queued_sentence_end_to_last_audio_p90": 11556,
+     "queued_phrase_start_to_audio_p50": 4804
+    },
+    "chunks": 83,
+    "chunks_per_sentence": 4.15,
+    "mt_wall_p50_ms": 539,
+    "revised_tokens": 105,
+    "translation_per_hour": 0.0252,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 18,
+     "chunks": 83,
+     "rate": 0.217
+    }
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 75.0,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 74.1,
+     "crit": 1,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 8472,
+     "phrase_start_to_audio_p90": 11850,
+     "sentence_start_to_first_audio_p50": 10080,
+     "sentence_start_to_first_audio_p90": 12945,
+     "sentence_end_to_last_audio_p50": 2058,
+     "sentence_end_to_last_audio_p90": 3060,
+     "queued_sentence_end_to_last_audio_p50": 2372,
+     "queued_sentence_end_to_last_audio_p90": 4985,
+     "queued_phrase_start_to_audio_p50": 9937
+    },
+    "chunks": 25,
+    "chunks_per_sentence": 1.25,
+    "mt_wall_p50_ms": 1227,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0153,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 45.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 48.1,
+     "crit": 2,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3417,
+     "phrase_start_to_audio_p90": 5992,
+     "sentence_start_to_first_audio_p50": 5066,
+     "sentence_start_to_first_audio_p90": 7439,
+     "sentence_end_to_last_audio_p50": 1311,
+     "sentence_end_to_last_audio_p90": 3832,
+     "queued_sentence_end_to_last_audio_p50": 3017,
+     "queued_sentence_end_to_last_audio_p90": 7191,
+     "queued_phrase_start_to_audio_p50": 5060
+    },
+    "chunks": 83,
+    "chunks_per_sentence": 4.15,
+    "mt_wall_p50_ms": 794,
+    "revised_tokens": 105,
+    "translation_per_hour": 0.0634,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 19,
+     "chunks": 84,
+     "rate": 0.226
+    }
+   }
+  },
+  "irr:en-es": {
+   "P8-sol": {
+    "written": {
+     "q": 48.3,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 58.3,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2732,
+     "phrase_start_to_audio_p90": 4461,
+     "sentence_start_to_first_audio_p50": 3531,
+     "sentence_start_to_first_audio_p90": 5407,
+     "sentence_end_to_last_audio_p50": 1761,
+     "sentence_end_to_last_audio_p90": 4514,
+     "queued_sentence_end_to_last_audio_p50": 15871,
+     "queued_sentence_end_to_last_audio_p90": 26438,
+     "queued_phrase_start_to_audio_p50": 17870
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 979,
+    "revised_tokens": 8,
+    "translation_per_hour": 2.214,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 5,
+     "chunks": 68,
+     "rate": 0.074
+    }
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 48.3,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 58.3,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2489,
+     "phrase_start_to_audio_p90": 5165,
+     "sentence_start_to_first_audio_p50": 3513,
+     "sentence_start_to_first_audio_p90": 9576,
+     "sentence_end_to_last_audio_p50": 1271,
+     "sentence_end_to_last_audio_p90": 4708,
+     "queued_sentence_end_to_last_audio_p50": 23450,
+     "queued_sentence_end_to_last_audio_p90": 32557,
+     "queued_phrase_start_to_audio_p50": 25449
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 603,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0366,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 6,
+     "chunks": 65,
+     "rate": 0.092
+    }
+   },
+   "gemini-live-translate": {
+    "written": {
+     "q": 45.0,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 51.7,
+     "crit": 1,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 1998,
+     "phrase_start_to_audio_p90": 2942,
+     "sentence_end_to_last_audio_p50": 2885,
+     "sentence_end_to_last_audio_p90": 3586,
+     "note": "first text of each sentence's translation after the sentence's speech starts; last text after it ends"
+    },
+    "sentences_without_output": 0
+   },
+   "S-sol": {
+    "written": {
+     "q": 63.3,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 71.7,
+     "crit": 1,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3006,
+     "phrase_start_to_audio_p90": 21906,
+     "sentence_start_to_first_audio_p50": 10512,
+     "sentence_start_to_first_audio_p90": 19719,
+     "sentence_end_to_last_audio_p50": 3907,
+     "sentence_end_to_last_audio_p90": 18914,
+     "queued_sentence_end_to_last_audio_p50": 22424,
+     "queued_sentence_end_to_last_audio_p90": 35741,
+     "queued_phrase_start_to_audio_p50": 33066
+    },
+    "chunks": 24,
+    "chunks_per_sentence": 1.2,
+    "mt_wall_p50_ms": 1170,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.736,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 58.3,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 68.3,
+     "crit": 1,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3995,
+     "phrase_start_to_audio_p90": 23001,
+     "sentence_start_to_first_audio_p50": 12880,
+     "sentence_start_to_first_audio_p90": 20856,
+     "sentence_end_to_last_audio_p50": 6151,
+     "sentence_end_to_last_audio_p90": 21321,
+     "queued_sentence_end_to_last_audio_p50": 26923,
+     "queued_sentence_end_to_last_audio_p90": 38048,
+     "queued_phrase_start_to_audio_p50": 38065
+    },
+    "chunks": 24,
+    "chunks_per_sentence": 1.2,
+    "mt_wall_p50_ms": 1379,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0249,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 58.3,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 1,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 9815,
+     "phrase_start_to_audio_p90": 25574,
+     "sentence_start_to_first_audio_p50": 11385,
+     "sentence_start_to_first_audio_p90": 26217,
+     "sentence_end_to_last_audio_p50": 4865,
+     "sentence_end_to_last_audio_p90": 21917,
+     "queued_sentence_end_to_last_audio_p50": 26504,
+     "queued_sentence_end_to_last_audio_p90": 44550,
+     "queued_phrase_start_to_audio_p50": 36009
+    },
+    "chunks": 16,
+    "chunks_per_sentence": 0.8,
+    "mt_wall_p50_ms": 1381,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.022,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 41.7,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 53.3,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2519,
+     "phrase_start_to_audio_p90": 8755,
+     "sentence_start_to_first_audio_p50": 3002,
+     "sentence_start_to_first_audio_p90": 12303,
+     "sentence_end_to_last_audio_p50": 1818,
+     "sentence_end_to_last_audio_p90": 12389,
+     "queued_sentence_end_to_last_audio_p50": 14643,
+     "queued_sentence_end_to_last_audio_p90": 25152,
+     "queued_phrase_start_to_audio_p50": 15622
+    },
+    "chunks": 77,
+    "chunks_per_sentence": 3.85,
+    "mt_wall_p50_ms": 504,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0458,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 9,
+     "chunks": 81,
+     "rate": 0.111
+    }
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 48.3,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 56.7,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2969,
+     "phrase_start_to_audio_p90": 4520,
+     "sentence_start_to_first_audio_p50": 3171,
+     "sentence_start_to_first_audio_p90": 5709,
+     "sentence_end_to_last_audio_p50": 1930,
+     "sentence_end_to_last_audio_p90": 4380,
+     "queued_sentence_end_to_last_audio_p50": 13878,
+     "queued_sentence_end_to_last_audio_p90": 20796,
+     "queued_phrase_start_to_audio_p50": 16097
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 842,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0915,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 7,
+     "chunks": 65,
+     "rate": 0.108
+    }
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 46.7,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 58.3,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3756,
+     "phrase_start_to_audio_p90": 6755,
+     "sentence_start_to_first_audio_p50": 4315,
+     "sentence_start_to_first_audio_p90": 6449,
+     "sentence_end_to_last_audio_p50": 2151,
+     "sentence_end_to_last_audio_p90": 4756,
+     "queued_sentence_end_to_last_audio_p50": 18271,
+     "queued_sentence_end_to_last_audio_p90": 27791,
+     "queued_phrase_start_to_audio_p50": 18570
+    },
+    "chunks": 59,
+    "chunks_per_sentence": 2.95,
+    "mt_wall_p50_ms": 809,
+    "revised_tokens": 5,
+    "translation_per_hour": 0.0967,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra",
+     "SiliconFlow"
+    ],
+    "contradictions": {
+     "wrong": 11,
+     "chunks": 64,
+     "rate": 0.172
+    }
+   }
+  },
+  "irr:en-pt": {
+   "S-gemma31-std": {
+    "written": {
+     "q": 63.3,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 76.7,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 10445,
+     "phrase_start_to_audio_p90": 25820,
+     "sentence_start_to_first_audio_p50": 11371,
+     "sentence_start_to_first_audio_p90": 25830,
+     "sentence_end_to_last_audio_p50": 3777,
+     "sentence_end_to_last_audio_p90": 21990,
+     "queued_sentence_end_to_last_audio_p50": 32659,
+     "queued_sentence_end_to_last_audio_p90": 59216,
+     "queued_phrase_start_to_audio_p50": 40370
+    },
+    "chunks": 16,
+    "chunks_per_sentence": 0.8,
+    "mt_wall_p50_ms": 1416,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0221,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "gemini-live-translate": {
+    "written": {
+     "q": 51.7,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 55.0,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 1890,
+     "phrase_start_to_audio_p90": 3176,
+     "sentence_end_to_last_audio_p50": 3005,
+     "sentence_end_to_last_audio_p90": 3909,
+     "note": "first text of each sentence's translation after the sentence's speech starts; last text after it ends"
+    },
+    "sentences_without_output": 0
+   },
+   "P8-sol": {
+    "written": {
+     "q": 60.0,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 60.0,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2492,
+     "phrase_start_to_audio_p90": 4686,
+     "sentence_start_to_first_audio_p50": 3533,
+     "sentence_start_to_first_audio_p90": 5273,
+     "sentence_end_to_last_audio_p50": 1848,
+     "sentence_end_to_last_audio_p90": 4445,
+     "queued_sentence_end_to_last_audio_p50": 27990,
+     "queued_sentence_end_to_last_audio_p90": 47019,
+     "queued_phrase_start_to_audio_p50": 31907
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 971,
+    "revised_tokens": 8,
+    "translation_per_hour": 2.1731,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 65,
+     "rate": 0.2
+    }
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 50.0,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 63.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3521,
+     "phrase_start_to_audio_p90": 5052,
+     "sentence_start_to_first_audio_p50": 4196,
+     "sentence_start_to_first_audio_p90": 5906,
+     "sentence_end_to_last_audio_p50": 1939,
+     "sentence_end_to_last_audio_p90": 4460,
+     "queued_sentence_end_to_last_audio_p50": 27391,
+     "queued_sentence_end_to_last_audio_p90": 47375,
+     "queued_phrase_start_to_audio_p50": 26553
+    },
+    "chunks": 59,
+    "chunks_per_sentence": 2.95,
+    "mt_wall_p50_ms": 776,
+    "revised_tokens": 5,
+    "translation_per_hour": 0.0978,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 63,
+     "rate": 0.206
+    }
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 65.0,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 70.0,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3840,
+     "phrase_start_to_audio_p90": 23161,
+     "sentence_start_to_first_audio_p50": 12857,
+     "sentence_start_to_first_audio_p90": 21979,
+     "sentence_end_to_last_audio_p50": 8879,
+     "sentence_end_to_last_audio_p90": 21899,
+     "queued_sentence_end_to_last_audio_p50": 38270,
+     "queued_sentence_end_to_last_audio_p90": 57985,
+     "queued_phrase_start_to_audio_p50": 53627
+    },
+    "chunks": 24,
+    "chunks_per_sentence": 1.2,
+    "mt_wall_p50_ms": 976,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0249,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 53.3,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 63.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2624,
+     "phrase_start_to_audio_p90": 4863,
+     "sentence_start_to_first_audio_p50": 3329,
+     "sentence_start_to_first_audio_p90": 5397,
+     "sentence_end_to_last_audio_p50": 1758,
+     "sentence_end_to_last_audio_p90": 4153,
+     "queued_sentence_end_to_last_audio_p50": 26822,
+     "queued_sentence_end_to_last_audio_p90": 43074,
+     "queued_phrase_start_to_audio_p50": 29958
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 755,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.092,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 65,
+     "rate": 0.2
+    }
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 45.0,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 50.0,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2169,
+     "phrase_start_to_audio_p90": 3765,
+     "sentence_start_to_first_audio_p50": 3024,
+     "sentence_start_to_first_audio_p90": 5013,
+     "sentence_end_to_last_audio_p50": 1788,
+     "sentence_end_to_last_audio_p90": 4594,
+     "queued_sentence_end_to_last_audio_p50": 27398,
+     "queued_sentence_end_to_last_audio_p90": 45499,
+     "queued_phrase_start_to_audio_p50": 29387
+    },
+    "chunks": 77,
+    "chunks_per_sentence": 3.85,
+    "mt_wall_p50_ms": 563,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0457,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 80,
+     "rate": 0.163
+    }
+   },
+   "S-sol": {
+    "written": {
+     "q": 65.0,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 70.0,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2692,
+     "phrase_start_to_audio_p90": 21782,
+     "sentence_start_to_first_audio_p50": 10470,
+     "sentence_start_to_first_audio_p90": 19736,
+     "sentence_end_to_last_audio_p50": 3646,
+     "sentence_end_to_last_audio_p90": 18592,
+     "queued_sentence_end_to_last_audio_p50": 32990,
+     "queued_sentence_end_to_last_audio_p90": 55483,
+     "queued_phrase_start_to_audio_p50": 48956
+    },
+    "chunks": 24,
+    "chunks_per_sentence": 1.2,
+    "mt_wall_p50_ms": 1139,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.7184,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 51.7,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 60.0,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2130,
+     "phrase_start_to_audio_p90": 3808,
+     "sentence_start_to_first_audio_p50": 3182,
+     "sentence_start_to_first_audio_p90": 5008,
+     "sentence_end_to_last_audio_p50": 1483,
+     "sentence_end_to_last_audio_p90": 4565,
+     "queued_sentence_end_to_last_audio_p50": 24204,
+     "queued_sentence_end_to_last_audio_p90": 41151,
+     "queued_phrase_start_to_audio_p50": 28035
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 590,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0364,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 12,
+     "chunks": 66,
+     "rate": 0.182
+    }
+   }
+  },
+  "irr:en-fr": {
+   "S-gemma31": {
+    "written": {
+     "q": 65.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 70.0,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 4700,
+     "phrase_start_to_audio_p90": 23805,
+     "sentence_start_to_first_audio_p50": 12814,
+     "sentence_start_to_first_audio_p90": 22180,
+     "sentence_end_to_last_audio_p50": 9083,
+     "sentence_end_to_last_audio_p90": 22103,
+     "queued_sentence_end_to_last_audio_p50": 39241,
+     "queued_sentence_end_to_last_audio_p90": 61274,
+     "queued_phrase_start_to_audio_p50": 53919
+    },
+    "chunks": 24,
+    "chunks_per_sentence": 1.2,
+    "mt_wall_p50_ms": 1107,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0256,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "gemini-live-translate": {
+    "written": {
+     "q": 51.7,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 60.0,
+     "crit": 6,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 1752,
+     "phrase_start_to_audio_p90": 2733,
+     "sentence_end_to_last_audio_p50": 2542,
+     "sentence_end_to_last_audio_p90": 3370,
+     "note": "first text of each sentence's translation after the sentence's speech starts; last text after it ends"
+    },
+    "sentences_without_output": 0
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 53.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 61.7,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2395,
+     "phrase_start_to_audio_p90": 4590,
+     "sentence_start_to_first_audio_p50": 3384,
+     "sentence_start_to_first_audio_p90": 7237,
+     "sentence_end_to_last_audio_p50": 1360,
+     "sentence_end_to_last_audio_p90": 4738,
+     "queued_sentence_end_to_last_audio_p50": 24662,
+     "queued_sentence_end_to_last_audio_p90": 41840,
+     "queued_phrase_start_to_audio_p50": 28757
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 566,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0374,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 65,
+     "rate": 0.2
+    }
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 48.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 53.3,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 1919,
+     "phrase_start_to_audio_p90": 3056,
+     "sentence_start_to_first_audio_p50": 2743,
+     "sentence_start_to_first_audio_p90": 4506,
+     "sentence_end_to_last_audio_p50": 1558,
+     "sentence_end_to_last_audio_p90": 3432,
+     "queued_sentence_end_to_last_audio_p50": 25050,
+     "queued_sentence_end_to_last_audio_p90": 44171,
+     "queued_phrase_start_to_audio_p50": 27594
+    },
+    "chunks": 77,
+    "chunks_per_sentence": 3.85,
+    "mt_wall_p50_ms": 498,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0469,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 15,
+     "chunks": 81,
+     "rate": 0.185
+    }
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 65.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 10106,
+     "phrase_start_to_audio_p90": 25372,
+     "sentence_start_to_first_audio_p50": 12075,
+     "sentence_start_to_first_audio_p90": 25382,
+     "sentence_end_to_last_audio_p50": 4862,
+     "sentence_end_to_last_audio_p90": 21542,
+     "queued_sentence_end_to_last_audio_p50": 31896,
+     "queued_sentence_end_to_last_audio_p90": 59143,
+     "queued_phrase_start_to_audio_p50": 41465
+    },
+    "chunks": 16,
+    "chunks_per_sentence": 0.8,
+    "mt_wall_p50_ms": 1882,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0225,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "S-sol": {
+    "written": {
+     "q": 65.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 66.7,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2827,
+     "phrase_start_to_audio_p90": 21611,
+     "sentence_start_to_first_audio_p50": 10410,
+     "sentence_start_to_first_audio_p90": 19712,
+     "sentence_end_to_last_audio_p50": 3780,
+     "sentence_end_to_last_audio_p90": 18421,
+     "queued_sentence_end_to_last_audio_p50": 29551,
+     "queued_sentence_end_to_last_audio_p90": 56814,
+     "queued_phrase_start_to_audio_p50": 45436
+    },
+    "chunks": 24,
+    "chunks_per_sentence": 1.2,
+    "mt_wall_p50_ms": 1111,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.7449,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 51.7,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 60.0,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3452,
+     "phrase_start_to_audio_p90": 14500,
+     "sentence_start_to_first_audio_p50": 4325,
+     "sentence_start_to_first_audio_p90": 13106,
+     "sentence_end_to_last_audio_p50": 2437,
+     "sentence_end_to_last_audio_p90": 11703,
+     "queued_sentence_end_to_last_audio_p50": 22388,
+     "queued_sentence_end_to_last_audio_p90": 42073,
+     "queued_phrase_start_to_audio_p50": 25759
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 899,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0933,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 11,
+     "chunks": 65,
+     "rate": 0.169
+    }
+   },
+   "P8-sol": {
+    "written": {
+     "q": 58.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 61.7,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2521,
+     "phrase_start_to_audio_p90": 4370,
+     "sentence_start_to_first_audio_p50": 3515,
+     "sentence_start_to_first_audio_p90": 5612,
+     "sentence_end_to_last_audio_p50": 1602,
+     "sentence_end_to_last_audio_p90": 4501,
+     "queued_sentence_end_to_last_audio_p50": 25319,
+     "queued_sentence_end_to_last_audio_p90": 48933,
+     "queued_phrase_start_to_audio_p50": 30459
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 944,
+    "revised_tokens": 8,
+    "translation_per_hour": 2.2356,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 65,
+     "rate": 0.2
+    }
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 51.7,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 65.0,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3797,
+     "phrase_start_to_audio_p90": 5367,
+     "sentence_start_to_first_audio_p50": 4067,
+     "sentence_start_to_first_audio_p90": 5985,
+     "sentence_end_to_last_audio_p50": 2213,
+     "sentence_end_to_last_audio_p90": 4595,
+     "queued_sentence_end_to_last_audio_p50": 25551,
+     "queued_sentence_end_to_last_audio_p90": 47476,
+     "queued_phrase_start_to_audio_p50": 26112
+    },
+    "chunks": 59,
+    "chunks_per_sentence": 2.95,
+    "mt_wall_p50_ms": 770,
+    "revised_tokens": 5,
+    "translation_per_hour": 0.0984,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 11,
+     "chunks": 63,
+     "rate": 0.175
+    }
+   }
+  },
+  "irr:en-ja": {
+   "P5-gemma26": {
+    "written": {
+     "q": 38.3,
+     "crit": 12,
+     "n": 20
+    },
+    "said": {
+     "q": 43.3,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2204,
+     "phrase_start_to_audio_p90": 4064,
+     "sentence_start_to_first_audio_p50": 2776,
+     "sentence_start_to_first_audio_p90": 5120,
+     "sentence_end_to_last_audio_p50": 1977,
+     "sentence_end_to_last_audio_p90": 4908,
+     "queued_sentence_end_to_last_audio_p50": 47547,
+     "queued_sentence_end_to_last_audio_p90": 136963,
+     "queued_phrase_start_to_audio_p50": 53428
+    },
+    "chunks": 77,
+    "chunks_per_sentence": 3.85,
+    "mt_wall_p50_ms": 623,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0488,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 15,
+     "chunks": 82,
+     "rate": 0.183
+    }
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 66.7,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 76.7,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 8620,
+     "phrase_start_to_audio_p90": 26313,
+     "sentence_start_to_first_audio_p50": 11183,
+     "sentence_start_to_first_audio_p90": 26323,
+     "sentence_end_to_last_audio_p50": 3670,
+     "sentence_end_to_last_audio_p90": 22483,
+     "queued_sentence_end_to_last_audio_p50": 40433,
+     "queued_sentence_end_to_last_audio_p90": 74241,
+     "queued_phrase_start_to_audio_p50": 50302
+    },
+    "chunks": 16,
+    "chunks_per_sentence": 0.8,
+    "mt_wall_p50_ms": 1143,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.022,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "gemini-live-translate": {
+    "written": {
+     "q": 43.3,
+     "crit": 13,
+     "n": 20
+    },
+    "said": {
+     "q": 50.0,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 1895,
+     "phrase_start_to_audio_p90": 3306,
+     "sentence_end_to_last_audio_p50": 1577,
+     "sentence_end_to_last_audio_p90": 2863,
+     "note": "first text of each sentence's translation after the sentence's speech starts; last text after it ends"
+    },
+    "sentences_without_output": 0
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 61.7,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 76.7,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 7328,
+     "phrase_start_to_audio_p90": 23300,
+     "sentence_start_to_first_audio_p50": 14976,
+     "sentence_start_to_first_audio_p90": 32260,
+     "sentence_end_to_last_audio_p50": 12158,
+     "sentence_end_to_last_audio_p90": 32730,
+     "queued_sentence_end_to_last_audio_p50": 55178,
+     "queued_sentence_end_to_last_audio_p90": 86438,
+     "queued_phrase_start_to_audio_p50": 75801
+    },
+    "chunks": 24,
+    "chunks_per_sentence": 1.2,
+    "mt_wall_p50_ms": 1748,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0254,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "S-sol": {
+    "written": {
+     "q": 63.3,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 76.7,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3698,
+     "phrase_start_to_audio_p90": 22109,
+     "sentence_start_to_first_audio_p50": 10739,
+     "sentence_start_to_first_audio_p90": 20170,
+     "sentence_end_to_last_audio_p50": 4206,
+     "sentence_end_to_last_audio_p90": 18919,
+     "queued_sentence_end_to_last_audio_p50": 47080,
+     "queued_sentence_end_to_last_audio_p90": 73168,
+     "queued_phrase_start_to_audio_p50": 67487
+    },
+    "chunks": 24,
+    "chunks_per_sentence": 1.2,
+    "mt_wall_p50_ms": 1127,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.8769,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 40.0,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 51.7,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3945,
+     "phrase_start_to_audio_p90": 17126,
+     "sentence_start_to_first_audio_p50": 5093,
+     "sentence_start_to_first_audio_p90": 17787,
+     "sentence_end_to_last_audio_p50": 3185,
+     "sentence_end_to_last_audio_p90": 18377,
+     "queued_sentence_end_to_last_audio_p50": 56956,
+     "queued_sentence_end_to_last_audio_p90": 87535,
+     "queued_phrase_start_to_audio_p50": 65261
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 961,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.095,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 10,
+     "chunks": 66,
+     "rate": 0.152
+    }
+   },
+   "P8-sol": {
+    "written": {
+     "q": 41.7,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 55.0,
+     "crit": 6,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 4315,
+     "phrase_start_to_audio_p90": 23018,
+     "sentence_start_to_first_audio_p50": 4509,
+     "sentence_start_to_first_audio_p90": 30165,
+     "sentence_end_to_last_audio_p50": 4415,
+     "sentence_end_to_last_audio_p90": 23594,
+     "queued_sentence_end_to_last_audio_p50": 47071,
+     "queued_sentence_end_to_last_audio_p90": 81746,
+     "queued_phrase_start_to_audio_p50": 54946
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 992,
+    "revised_tokens": 8,
+    "translation_per_hour": 2.5648,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 11,
+     "chunks": 65,
+     "rate": 0.169
+    }
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 41.7,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 55.0,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3540,
+     "phrase_start_to_audio_p90": 5333,
+     "sentence_start_to_first_audio_p50": 4207,
+     "sentence_start_to_first_audio_p90": 6661,
+     "sentence_end_to_last_audio_p50": 1871,
+     "sentence_end_to_last_audio_p90": 4728,
+     "queued_sentence_end_to_last_audio_p50": 55557,
+     "queued_sentence_end_to_last_audio_p90": 96482,
+     "queued_phrase_start_to_audio_p50": 56525
+    },
+    "chunks": 59,
+    "chunks_per_sentence": 2.95,
+    "mt_wall_p50_ms": 839,
+    "revised_tokens": 5,
+    "translation_per_hour": 0.1031,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 8,
+     "chunks": 63,
+     "rate": 0.127
+    }
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 40.0,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 46.7,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2304,
+     "phrase_start_to_audio_p90": 4530,
+     "sentence_start_to_first_audio_p50": 3568,
+     "sentence_start_to_first_audio_p90": 4904,
+     "sentence_end_to_last_audio_p50": 1720,
+     "sentence_end_to_last_audio_p90": 4882,
+     "queued_sentence_end_to_last_audio_p50": 48952,
+     "queued_sentence_end_to_last_audio_p90": 82764,
+     "queued_phrase_start_to_audio_p50": 58335
+    },
+    "chunks": 61,
+    "chunks_per_sentence": 3.05,
+    "mt_wall_p50_ms": 605,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0382,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 12,
+     "chunks": 66,
+     "rate": 0.182
+    }
+   }
+  },
+  "irr:es-en": {
+   "P8-gemma31-std": {
+    "written": {
+     "q": 63.3,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 66.7,
+     "crit": 2,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3791,
+     "phrase_start_to_audio_p90": 5028,
+     "sentence_start_to_first_audio_p50": 4295,
+     "sentence_start_to_first_audio_p90": 5870,
+     "sentence_end_to_last_audio_p50": 1717,
+     "sentence_end_to_last_audio_p90": 3891,
+     "queued_sentence_end_to_last_audio_p50": 7269,
+     "queued_sentence_end_to_last_audio_p90": 15721,
+     "queued_phrase_start_to_audio_p50": 7604
+    },
+    "chunks": 74,
+    "chunks_per_sentence": 3.7,
+    "mt_wall_p50_ms": 658,
+    "revised_tokens": 18,
+    "translation_per_hour": 0.0947,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 18,
+     "chunks": 76,
+     "rate": 0.237
+    }
+   },
+   "P8-sol": {
+    "written": {
+     "q": 70.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 71.9,
+     "crit": 2,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3676,
+     "phrase_start_to_audio_p90": 4639,
+     "sentence_start_to_first_audio_p50": 3709,
+     "sentence_start_to_first_audio_p90": 4364,
+     "sentence_end_to_last_audio_p50": 1673,
+     "sentence_end_to_last_audio_p90": 4612,
+     "queued_sentence_end_to_last_audio_p50": 9547,
+     "queued_sentence_end_to_last_audio_p90": 16206,
+     "queued_phrase_start_to_audio_p50": 9741
+    },
+    "chunks": 72,
+    "chunks_per_sentence": 3.6,
+    "mt_wall_p50_ms": 947,
+    "revised_tokens": 9,
+    "translation_per_hour": 2.6378,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 11,
+     "chunks": 77,
+     "rate": 0.143
+    }
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 86.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 89.5,
+     "crit": 1,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 23005,
+     "phrase_start_to_audio_p90": 29670,
+     "sentence_start_to_first_audio_p50": 19803,
+     "sentence_start_to_first_audio_p90": 29456,
+     "sentence_end_to_last_audio_p50": 12266,
+     "sentence_end_to_last_audio_p90": 26026,
+     "queued_sentence_end_to_last_audio_p50": 33104,
+     "queued_sentence_end_to_last_audio_p90": 45704,
+     "queued_phrase_start_to_audio_p50": 43634
+    },
+    "chunks": 12,
+    "chunks_per_sentence": 0.6,
+    "mt_wall_p50_ms": 3293,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0171,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "S-sol": {
+    "written": {
+     "q": 93.3,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 93.0,
+     "crit": 1,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 20364,
+     "phrase_start_to_audio_p90": 21639,
+     "sentence_start_to_first_audio_p50": 15455,
+     "sentence_start_to_first_audio_p90": 21590,
+     "sentence_end_to_last_audio_p50": 5174,
+     "sentence_end_to_last_audio_p90": 16655,
+     "queued_sentence_end_to_last_audio_p50": 14184,
+     "queued_sentence_end_to_last_audio_p90": 24748,
+     "queued_phrase_start_to_audio_p50": 25224
+    },
+    "chunks": 12,
+    "chunks_per_sentence": 0.6,
+    "mt_wall_p50_ms": 1359,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.4951,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 86.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 89.5,
+     "crit": 1,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 10349,
+     "phrase_start_to_audio_p90": 18070,
+     "sentence_start_to_first_audio_p50": 10381,
+     "sentence_start_to_first_audio_p90": 18010,
+     "sentence_end_to_last_audio_p50": 2796,
+     "sentence_end_to_last_audio_p90": 14370,
+     "queued_sentence_end_to_last_audio_p50": 8008,
+     "queued_sentence_end_to_last_audio_p90": 22980,
+     "queued_phrase_start_to_audio_p50": 16477
+    },
+    "chunks": 18,
+    "chunks_per_sentence": 0.9,
+    "mt_wall_p50_ms": 1615,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.019,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 70.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 71.9,
+     "crit": 2,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2646,
+     "phrase_start_to_audio_p90": 3772,
+     "sentence_start_to_first_audio_p50": 2637,
+     "sentence_start_to_first_audio_p90": 3773,
+     "sentence_end_to_last_audio_p50": 1441,
+     "sentence_end_to_last_audio_p90": 3394,
+     "queued_sentence_end_to_last_audio_p50": 7483,
+     "queued_sentence_end_to_last_audio_p90": 23352,
+     "queued_phrase_start_to_audio_p50": 8758
+    },
+    "chunks": 99,
+    "chunks_per_sentence": 4.95,
+    "mt_wall_p50_ms": 500,
+    "revised_tokens": 9,
+    "translation_per_hour": 0.0596,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 14,
+     "chunks": 103,
+     "rate": 0.136
+    }
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 73.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 75.4,
+     "crit": 4,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3719,
+     "phrase_start_to_audio_p90": 5371,
+     "sentence_start_to_first_audio_p50": 3700,
+     "sentence_start_to_first_audio_p90": 4434,
+     "sentence_end_to_last_audio_p50": 2186,
+     "sentence_end_to_last_audio_p90": 4801,
+     "queued_sentence_end_to_last_audio_p50": 9423,
+     "queued_sentence_end_to_last_audio_p90": 17876,
+     "queued_phrase_start_to_audio_p50": 9555
+    },
+    "chunks": 72,
+    "chunks_per_sentence": 3.6,
+    "mt_wall_p50_ms": 795,
+    "revised_tokens": 9,
+    "translation_per_hour": 0.1129,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 77,
+     "rate": 0.169
+    }
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 73.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 75.4,
+     "crit": 3,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3350,
+     "phrase_start_to_audio_p90": 4640,
+     "sentence_start_to_first_audio_p50": 3330,
+     "sentence_start_to_first_audio_p90": 3960,
+     "sentence_end_to_last_audio_p50": 1246,
+     "sentence_end_to_last_audio_p90": 3956,
+     "queued_sentence_end_to_last_audio_p50": 10040,
+     "queued_sentence_end_to_last_audio_p90": 18410,
+     "queued_phrase_start_to_audio_p50": 9709
+    },
+    "chunks": 72,
+    "chunks_per_sentence": 3.6,
+    "mt_wall_p50_ms": 551,
+    "revised_tokens": 9,
+    "translation_per_hour": 0.0443,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 15,
+     "chunks": 77,
+     "rate": 0.195
+    }
+   }
+  },
+  "irr:pt-en": {
+   "P8-gemma31-std": {
+    "written": {
+     "q": 63.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 63.3,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3868,
+     "phrase_start_to_audio_p90": 5625,
+     "sentence_start_to_first_audio_p50": 4215,
+     "sentence_start_to_first_audio_p90": 5747,
+     "sentence_end_to_last_audio_p50": 1601,
+     "sentence_end_to_last_audio_p90": 2076,
+     "queued_sentence_end_to_last_audio_p50": 4657,
+     "queued_sentence_end_to_last_audio_p90": 7053,
+     "queued_phrase_start_to_audio_p50": 5463
+    },
+    "chunks": 71,
+    "chunks_per_sentence": 3.55,
+    "mt_wall_p50_ms": 572,
+    "revised_tokens": 16,
+    "translation_per_hour": 0.0795,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 72,
+     "rate": 0.181
+    }
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 76.7,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 76.7,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3900,
+     "phrase_start_to_audio_p90": 6245,
+     "sentence_start_to_first_audio_p50": 3659,
+     "sentence_start_to_first_audio_p90": 4800,
+     "sentence_end_to_last_audio_p50": 1096,
+     "sentence_end_to_last_audio_p90": 4765,
+     "queued_sentence_end_to_last_audio_p50": 8230,
+     "queued_sentence_end_to_last_audio_p90": 13486,
+     "queued_phrase_start_to_audio_p50": 10848
+    },
+    "chunks": 66,
+    "chunks_per_sentence": 3.3,
+    "mt_wall_p50_ms": 427,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0365,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 7,
+     "chunks": 68,
+     "rate": 0.103
+    }
+   },
+   "S-sol": {
+    "written": {
+     "q": 90.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 90.0,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 18094,
+     "phrase_start_to_audio_p90": 21693,
+     "sentence_start_to_first_audio_p50": 13882,
+     "sentence_start_to_first_audio_p90": 21117,
+     "sentence_end_to_last_audio_p50": 3858,
+     "sentence_end_to_last_audio_p90": 15212,
+     "queued_sentence_end_to_last_audio_p50": 11340,
+     "queued_sentence_end_to_last_audio_p90": 18340,
+     "queued_phrase_start_to_audio_p50": 20513
+    },
+    "chunks": 13,
+    "chunks_per_sentence": 0.65,
+    "mt_wall_p50_ms": 1168,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.4524,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 65.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 65.0,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3115,
+     "phrase_start_to_audio_p90": 4591,
+     "sentence_start_to_first_audio_p50": 2853,
+     "sentence_start_to_first_audio_p90": 3909,
+     "sentence_end_to_last_audio_p50": 1559,
+     "sentence_end_to_last_audio_p90": 3318,
+     "queued_sentence_end_to_last_audio_p50": 3322,
+     "queued_sentence_end_to_last_audio_p90": 6742,
+     "queued_phrase_start_to_audio_p50": 4509
+    },
+    "chunks": 84,
+    "chunks_per_sentence": 4.2,
+    "mt_wall_p50_ms": 508,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0454,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 16,
+     "chunks": 89,
+     "rate": 0.18
+    }
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 88.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 88.3,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 9804,
+     "phrase_start_to_audio_p90": 12330,
+     "sentence_start_to_first_audio_p50": 9744,
+     "sentence_start_to_first_audio_p90": 13330,
+     "sentence_end_to_last_audio_p50": 2216,
+     "sentence_end_to_last_audio_p90": 3697,
+     "queued_sentence_end_to_last_audio_p50": 3267,
+     "queued_sentence_end_to_last_audio_p90": 7941,
+     "queued_phrase_start_to_audio_p50": 10691
+    },
+    "chunks": 21,
+    "chunks_per_sentence": 1.05,
+    "mt_wall_p50_ms": 1171,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0182,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-sol": {
+    "written": {
+     "q": 80.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 80.0,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 4260,
+     "phrase_start_to_audio_p90": 5584,
+     "sentence_start_to_first_audio_p50": 3853,
+     "sentence_start_to_first_audio_p90": 4982,
+     "sentence_end_to_last_audio_p50": 1554,
+     "sentence_end_to_last_audio_p90": 3844,
+     "queued_sentence_end_to_last_audio_p50": 3990,
+     "queued_sentence_end_to_last_audio_p90": 6592,
+     "queued_phrase_start_to_audio_p50": 5565
+    },
+    "chunks": 66,
+    "chunks_per_sentence": 3.3,
+    "mt_wall_p50_ms": 949,
+    "revised_tokens": 8,
+    "translation_per_hour": 2.113,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 7,
+     "chunks": 68,
+     "rate": 0.103
+    }
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 90.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 90.0,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 21406,
+     "phrase_start_to_audio_p90": 26753,
+     "sentence_start_to_first_audio_p50": 18287,
+     "sentence_start_to_first_audio_p90": 31585,
+     "sentence_end_to_last_audio_p50": 8670,
+     "sentence_end_to_last_audio_p90": 28105,
+     "queued_sentence_end_to_last_audio_p50": 21038,
+     "queued_sentence_end_to_last_audio_p90": 33049,
+     "queued_phrase_start_to_audio_p50": 30247
+    },
+    "chunks": 13,
+    "chunks_per_sentence": 0.65,
+    "mt_wall_p50_ms": 4356,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0161,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 81.7,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 81.7,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 4880,
+     "phrase_start_to_audio_p90": 11639,
+     "sentence_start_to_first_audio_p50": 4203,
+     "sentence_start_to_first_audio_p90": 12512,
+     "sentence_end_to_last_audio_p50": 2093,
+     "sentence_end_to_last_audio_p90": 8166,
+     "queued_sentence_end_to_last_audio_p50": 6055,
+     "queued_sentence_end_to_last_audio_p90": 13028,
+     "queued_phrase_start_to_audio_p50": 5828
+    },
+    "chunks": 66,
+    "chunks_per_sentence": 3.3,
+    "mt_wall_p50_ms": 814,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0921,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra",
+     "Novita"
+    ],
+    "contradictions": {
+     "wrong": 6,
+     "chunks": 68,
+     "rate": 0.088
+    }
+   }
+  },
+  "irr:fr-en": {
+   "S-sol": {
+    "written": {
+     "q": 88.3,
+     "crit": 0,
+     "n": 20
+    },
+    "said": {
+     "q": 88.3,
+     "crit": 0,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3238,
+     "phrase_start_to_audio_p90": 20218,
+     "sentence_start_to_first_audio_p50": 10888,
+     "sentence_start_to_first_audio_p90": 20372,
+     "sentence_end_to_last_audio_p50": 3612,
+     "sentence_end_to_last_audio_p90": 15000,
+     "queued_sentence_end_to_last_audio_p50": 15181,
+     "queued_sentence_end_to_last_audio_p90": 24869,
+     "queued_phrase_start_to_audio_p50": 23783
+    },
+    "chunks": 24,
+    "chunks_per_sentence": 1.2,
+    "mt_wall_p50_ms": 1096,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.6297,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "P8-sol": {
+    "written": {
+     "q": 58.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 58.3,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2978,
+     "phrase_start_to_audio_p90": 4545,
+     "sentence_start_to_first_audio_p50": 3471,
+     "sentence_start_to_first_audio_p90": 5141,
+     "sentence_end_to_last_audio_p50": 1697,
+     "sentence_end_to_last_audio_p90": 8658,
+     "queued_sentence_end_to_last_audio_p50": 12098,
+     "queued_sentence_end_to_last_audio_p90": 22144,
+     "queued_phrase_start_to_audio_p50": 13127
+    },
+    "chunks": 72,
+    "chunks_per_sentence": 3.6,
+    "mt_wall_p50_ms": 935,
+    "revised_tokens": 20,
+    "translation_per_hour": 2.5086,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 14,
+     "chunks": 74,
+     "rate": 0.189
+    }
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 51.7,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 51.7,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3357,
+     "phrase_start_to_audio_p90": 5864,
+     "sentence_start_to_first_audio_p50": 3793,
+     "sentence_start_to_first_audio_p90": 5480,
+     "sentence_end_to_last_audio_p50": 1919,
+     "sentence_end_to_last_audio_p90": 4287,
+     "queued_sentence_end_to_last_audio_p50": 8633,
+     "queued_sentence_end_to_last_audio_p90": 20916,
+     "queued_phrase_start_to_audio_p50": 8959
+    },
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 645,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.1028,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra",
+     "Novita"
+    ],
+    "contradictions": {
+     "wrong": 8,
+     "chunks": 72,
+     "rate": 0.111
+    }
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 86.7,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 86.7,
+     "crit": 1,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3106,
+     "phrase_start_to_audio_p90": 24778,
+     "sentence_start_to_first_audio_p50": 18130,
+     "sentence_start_to_first_audio_p90": 25118,
+     "sentence_end_to_last_audio_p50": 11608,
+     "sentence_end_to_last_audio_p90": 19958,
+     "queued_sentence_end_to_last_audio_p50": 23023,
+     "queued_sentence_end_to_last_audio_p90": 37832,
+     "queued_phrase_start_to_audio_p50": 33650
+    },
+    "chunks": 24,
+    "chunks_per_sentence": 1.2,
+    "mt_wall_p50_ms": 1015,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0225,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P5-gemma26": {
+    "written": {
+     "q": 48.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 48.3,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2277,
+     "phrase_start_to_audio_p90": 3342,
+     "sentence_start_to_first_audio_p50": 2404,
+     "sentence_start_to_first_audio_p90": 3641,
+     "sentence_end_to_last_audio_p50": 1984,
+     "sentence_end_to_last_audio_p90": 3114,
+     "queued_sentence_end_to_last_audio_p50": 8210,
+     "queued_sentence_end_to_last_audio_p90": 21145,
+     "queued_phrase_start_to_audio_p50": 9227
+    },
+    "chunks": 92,
+    "chunks_per_sentence": 4.6,
+    "mt_wall_p50_ms": 569,
+    "revised_tokens": 20,
+    "translation_per_hour": 0.0539,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 19,
+     "chunks": 98,
+     "rate": 0.194
+    }
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 60.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 60.0,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2896,
+     "phrase_start_to_audio_p90": 4436,
+     "sentence_start_to_first_audio_p50": 3514,
+     "sentence_start_to_first_audio_p90": 4366,
+     "sentence_end_to_last_audio_p50": 1485,
+     "sentence_end_to_last_audio_p90": 3935,
+     "queued_sentence_end_to_last_audio_p50": 11063,
+     "queued_sentence_end_to_last_audio_p90": 21679,
+     "queued_phrase_start_to_audio_p50": 12714
+    },
+    "chunks": 72,
+    "chunks_per_sentence": 3.6,
+    "mt_wall_p50_ms": 594,
+    "revised_tokens": 20,
+    "translation_per_hour": 0.1086,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 74,
+     "rate": 0.176
+    }
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 76.7,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 76.7,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 9444,
+     "phrase_start_to_audio_p90": 20718,
+     "sentence_start_to_first_audio_p50": 9828,
+     "sentence_start_to_first_audio_p90": 20588,
+     "sentence_end_to_last_audio_p50": 3014,
+     "sentence_end_to_last_audio_p90": 15008,
+     "queued_sentence_end_to_last_audio_p50": 18081,
+     "queued_sentence_end_to_last_audio_p90": 28082,
+     "queued_phrase_start_to_audio_p50": 25617
+    },
+    "chunks": 17,
+    "chunks_per_sentence": 0.85,
+    "mt_wall_p50_ms": 1483,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0202,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 56.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 56.7,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3225,
+     "phrase_start_to_audio_p90": 6539,
+     "sentence_start_to_first_audio_p50": 3322,
+     "sentence_start_to_first_audio_p90": 6349,
+     "sentence_end_to_last_audio_p50": 2168,
+     "sentence_end_to_last_audio_p90": 6413,
+     "queued_sentence_end_to_last_audio_p50": 13693,
+     "queued_sentence_end_to_last_audio_p90": 26754,
+     "queued_phrase_start_to_audio_p50": 15344
+    },
+    "chunks": 72,
+    "chunks_per_sentence": 3.6,
+    "mt_wall_p50_ms": 600,
+    "revised_tokens": 20,
+    "translation_per_hour": 0.0426,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "SiliconFlow"
+    ],
+    "contradictions": {
+     "wrong": 18,
+     "chunks": 74,
+     "rate": 0.243
+    }
+   }
+  },
+  "irr:ja-en": {
+   "P5-gemma26": {
+    "written": {
+     "q": 45.0,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 48.1,
+     "crit": 1,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2617,
+     "phrase_start_to_audio_p90": 5138,
+     "sentence_start_to_first_audio_p50": 4488,
+     "sentence_start_to_first_audio_p90": 5774,
+     "sentence_end_to_last_audio_p50": 1148,
+     "sentence_end_to_last_audio_p90": 3019,
+     "queued_sentence_end_to_last_audio_p50": 3811,
+     "queued_sentence_end_to_last_audio_p90": 8305,
+     "queued_phrase_start_to_audio_p50": 5633
+    },
+    "chunks": 90,
+    "chunks_per_sentence": 4.5,
+    "mt_wall_p50_ms": 549,
+    "revised_tokens": 77,
+    "translation_per_hour": 0.0285,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Novita",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 39,
+     "chunks": 89,
+     "rate": 0.438
+    }
+   },
+   "S-gemma31-std": {
+    "written": {
+     "q": 71.7,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 70.4,
+     "crit": 1,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 8570,
+     "phrase_start_to_audio_p90": 13198,
+     "sentence_start_to_first_audio_p50": 9944,
+     "sentence_start_to_first_audio_p90": 13457,
+     "sentence_end_to_last_audio_p50": 2089,
+     "sentence_end_to_last_audio_p90": 3654,
+     "queued_sentence_end_to_last_audio_p50": 2157,
+     "queued_sentence_end_to_last_audio_p90": 6512,
+     "queued_phrase_start_to_audio_p50": 10835
+    },
+    "chunks": 22,
+    "chunks_per_sentence": 1.1,
+    "mt_wall_p50_ms": 1229,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0154,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-gemma31-std": {
+    "written": {
+     "q": 50.0,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 48.1,
+     "crit": 1,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 4400,
+     "phrase_start_to_audio_p90": 5972,
+     "sentence_start_to_first_audio_p50": 5567,
+     "sentence_start_to_first_audio_p90": 8410,
+     "sentence_end_to_last_audio_p50": 1606,
+     "sentence_end_to_last_audio_p90": 2905,
+     "queued_sentence_end_to_last_audio_p50": 6886,
+     "queued_sentence_end_to_last_audio_p90": 10019,
+     "queued_phrase_start_to_audio_p50": 6571
+    },
+    "chunks": 68,
+    "chunks_per_sentence": 3.4,
+    "mt_wall_p50_ms": 612,
+    "revised_tokens": 26,
+    "translation_per_hour": 0.0652,
+    "recognition_per_hour": 1.0,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 12,
+     "chunks": 69,
+     "rate": 0.174
+    }
+   },
+   "S-gemma31": {
+    "written": {
+     "q": 60.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 61.1,
+     "crit": 2,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 4647,
+     "phrase_start_to_audio_p90": 13090,
+     "sentence_start_to_first_audio_p50": 10707,
+     "sentence_start_to_first_audio_p90": 16495,
+     "sentence_end_to_last_audio_p50": 3047,
+     "sentence_end_to_last_audio_p90": 12976,
+     "queued_sentence_end_to_last_audio_p50": 6579,
+     "queued_sentence_end_to_last_audio_p90": 25872,
+     "queued_phrase_start_to_audio_p50": 19930
+    },
+    "chunks": 54,
+    "chunks_per_sentence": 2.7,
+    "mt_wall_p50_ms": 984,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0239,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ]
+   },
+   "P8-sol": {
+    "written": {
+     "q": 51.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 55.6,
+     "crit": 2,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3214,
+     "phrase_start_to_audio_p90": 4869,
+     "sentence_start_to_first_audio_p50": 4680,
+     "sentence_start_to_first_audio_p90": 6903,
+     "sentence_end_to_last_audio_p50": 1317,
+     "sentence_end_to_last_audio_p90": 1650,
+     "queued_sentence_end_to_last_audio_p50": 3148,
+     "queued_sentence_end_to_last_audio_p90": 6319,
+     "queued_phrase_start_to_audio_p50": 5159
+    },
+    "chunks": 90,
+    "chunks_per_sentence": 4.5,
+    "mt_wall_p50_ms": 925,
+    "revised_tokens": 77,
+    "translation_per_hour": 1.812,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ],
+    "contradictions": {
+     "wrong": 39,
+     "chunks": 86,
+     "rate": 0.453
+    }
+   },
+   "S-sol": {
+    "written": {
+     "q": 68.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 70.4,
+     "crit": 2,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2853,
+     "phrase_start_to_audio_p90": 11004,
+     "sentence_start_to_first_audio_p50": 10155,
+     "sentence_start_to_first_audio_p90": 12912,
+     "sentence_end_to_last_audio_p50": 2524,
+     "sentence_end_to_last_audio_p90": 10411,
+     "queued_sentence_end_to_last_audio_p50": 2654,
+     "queued_sentence_end_to_last_audio_p90": 14467,
+     "queued_phrase_start_to_audio_p50": 13024
+    },
+    "chunks": 54,
+    "chunks_per_sentence": 2.7,
+    "mt_wall_p50_ms": 1009,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.692,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "P8-gemma31": {
+    "written": {
+     "q": 45.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 48.1,
+     "crit": 3,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3087,
+     "phrase_start_to_audio_p90": 5100,
+     "sentence_start_to_first_audio_p50": 4445,
+     "sentence_start_to_first_audio_p90": 7040,
+     "sentence_end_to_last_audio_p50": 1048,
+     "sentence_end_to_last_audio_p90": 2224,
+     "queued_sentence_end_to_last_audio_p50": 3823,
+     "queued_sentence_end_to_last_audio_p90": 11237,
+     "queued_phrase_start_to_audio_p50": 5713
+    },
+    "chunks": 90,
+    "chunks_per_sentence": 4.5,
+    "mt_wall_p50_ms": 616,
+    "revised_tokens": 77,
+    "translation_per_hour": 0.0723,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "DeepInfra"
+    ],
+    "contradictions": {
+     "wrong": 40,
+     "chunks": 90,
+     "rate": 0.444
+    }
+   },
+   "P8-gemma26": {
+    "written": {
+     "q": 46.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 50.0,
+     "crit": 2,
+     "n": 18
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2415,
+     "phrase_start_to_audio_p90": 4536,
+     "sentence_start_to_first_audio_p50": 3898,
+     "sentence_start_to_first_audio_p90": 5624,
+     "sentence_end_to_last_audio_p50": 884,
+     "sentence_end_to_last_audio_p90": 1925,
+     "queued_sentence_end_to_last_audio_p50": 2886,
+     "queued_sentence_end_to_last_audio_p90": 10251,
+     "queued_phrase_start_to_audio_p50": 4859
+    },
+    "chunks": 90,
+    "chunks_per_sentence": 4.5,
+    "mt_wall_p50_ms": 470,
+    "revised_tokens": 77,
+    "translation_per_hour": 0.0284,
+    "recognition_per_hour": 0.54,
+    "sentences_without_output": 0,
+    "providers": [
+     "CoreWeave",
+     "DeepInfra",
+     "DekaLLM",
+     "Io Net",
+     "NextBit",
+     "Parasail",
+     "SiliconFlow",
+     "Venice"
+    ],
+    "contradictions": {
+     "wrong": 36,
+     "chunks": 89,
+     "rate": 0.404
+    }
+   }
+  }
+ },
+ "recognition": [
+  {
+   "lang": "en",
+   "pattern": "reg",
+   "system": "mai-stream",
+   "said": {
+    "cer": 6.1,
+    "wer": 11.5
+   },
+   "text": {
+    "cer": 8.4,
+    "wer": 13.9
+   }
+  },
+  {
+   "lang": "es",
+   "pattern": "reg",
+   "system": "mai-stream",
+   "said": {
+    "cer": 2.1,
+    "wer": 4.9
+   },
+   "text": {
+    "cer": 0.9,
+    "wer": 3.7
+   }
+  },
+  {
+   "lang": "pt",
+   "pattern": "reg",
+   "system": "mai-stream",
+   "said": {
+    "cer": 1.9,
+    "wer": 3.5
+   },
+   "text": {
+    "cer": 1.1,
+    "wer": 2.8
+   }
+  },
+  {
+   "lang": "fr",
+   "pattern": "reg",
+   "system": "mai-stream",
+   "said": {
+    "cer": 2.4,
+    "wer": 5.7
+   },
+   "text": {
+    "cer": 2.8,
+    "wer": 6.6
+   }
+  },
+  {
+   "lang": "ja",
+   "pattern": "reg",
+   "system": "mai-stream",
+   "said": {
+    "cer": 11.8
+   },
+   "text": {
+    "cer": 11.8
+   }
+  },
+  {
+   "lang": "en",
+   "pattern": "irr",
+   "system": "mai-stream",
+   "said": {
+    "cer": 6.9,
+    "wer": 12.6
+   },
+   "text": {
+    "cer": 10.2,
+    "wer": 14.1
+   }
+  },
+  {
+   "lang": "es",
+   "pattern": "irr",
+   "system": "mai-stream",
+   "said": {
+    "cer": 2.2,
+    "wer": 4.7
+   },
+   "text": {
+    "cer": 1.1,
+    "wer": 3.5
+   }
+  },
+  {
+   "lang": "pt",
+   "pattern": "irr",
+   "system": "mai-stream",
+   "said": {
+    "cer": 2.3,
+    "wer": 3.8
+   },
+   "text": {
+    "cer": 1.5,
+    "wer": 3.0
+   }
+  },
+  {
+   "lang": "fr",
+   "pattern": "irr",
+   "system": "mai-stream",
+   "said": {
+    "cer": 2.8,
+    "wer": 5.9
+   },
+   "text": {
+    "cer": 3.2,
+    "wer": 6.8
+   }
+  },
+  {
+   "lang": "ja",
+   "pattern": "irr",
+   "system": "mai-stream",
+   "said": {
+    "cer": 16.1
+   },
+   "text": {
+    "cer": 16.3
+   }
+  },
+  {
+   "lang": "en",
+   "pattern": "reg",
+   "system": "std-stream",
+   "said": {
+    "cer": 3.6,
+    "wer": 7.8
+   },
+   "text": {
+    "cer": 7.0,
+    "wer": 11.8
+   }
+  },
+  {
+   "lang": "es",
+   "pattern": "reg",
+   "system": "std-stream",
+   "said": {
+    "cer": 2.4,
+    "wer": 5.6
+   },
+   "text": {
+    "cer": 2.7,
+    "wer": 6.5
+   }
+  },
+  {
+   "lang": "pt",
+   "pattern": "reg",
+   "system": "std-stream",
+   "said": {
+    "cer": 0.9,
+    "wer": 2.8
+   },
+   "text": {
+    "cer": 3.0,
+    "wer": 5.6
+   }
+  },
+  {
+   "lang": "fr",
+   "pattern": "reg",
+   "system": "std-stream",
+   "said": {
+    "cer": 3.6,
+    "wer": 9.5
+   },
+   "text": {
+    "cer": 3.8,
+    "wer": 10.2
+   }
+  },
+  {
+   "lang": "ja",
+   "pattern": "reg",
+   "system": "std-stream",
+   "said": {
+    "cer": 6.9
+   },
+   "text": {
+    "cer": 7.8
+   }
+  },
+  {
+   "lang": "en",
+   "pattern": "irr",
+   "system": "std-stream",
+   "said": {
+    "cer": 3.7,
+    "wer": 8.3
+   },
+   "text": {
+    "cer": 7.4,
+    "wer": 12.6
+   }
+  },
+  {
+   "lang": "es",
+   "pattern": "irr",
+   "system": "std-stream",
+   "said": {
+    "cer": 2.4,
+    "wer": 5.6
+   },
+   "text": {
+    "cer": 2.7,
+    "wer": 6.5
+   }
+  },
+  {
+   "lang": "pt",
+   "pattern": "irr",
+   "system": "std-stream",
+   "said": {
+    "cer": 1.0,
+    "wer": 3.0
+   },
+   "text": {
+    "cer": 3.1,
+    "wer": 5.8
+   }
+  },
+  {
+   "lang": "fr",
+   "pattern": "irr",
+   "system": "std-stream",
+   "said": {
+    "cer": 2.9,
+    "wer": 7.7
+   },
+   "text": {
+    "cer": 3.3,
+    "wer": 8.6
+   }
+  },
+  {
+   "lang": "ja",
+   "pattern": "irr",
+   "system": "std-stream",
+   "said": {
+    "cer": 8.0
+   },
+   "text": {
+    "cer": 8.6
+   }
+  }
+ ]
+}
