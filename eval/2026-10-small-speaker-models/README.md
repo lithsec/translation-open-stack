@@ -6,10 +6,9 @@ check is best done in each phone's browser, so the model has to be small. This r
 speaker-embedding model of a few MB that keeps the owner/other separation of the 22 M-parameter
 ECAPA used before.
 
-**Status: partial.** Model selection, int8 conversion, int8-vs-fp32 checks, CPU timing and the
-per-language separation test ran. **The bleed re-run did not finish**: the compute pod was stopped
-mid-run and a new one could not be created, so no model has bleed numbers yet. The scripts
-here re-run it unchanged (see [Re-running](#re-running)).
+**Status: complete for the recommended model.** The first pod stopped mid-run (account credit),
+so the bleed test, a larger English trial set and browser timing ran in a second pass on new
+clips, with the ECAPA baseline re-run on the same clips as a control.
 
 ## Candidates
 
@@ -70,8 +69,7 @@ measurements, so treat them as upper bounds and compare only within this table.
   aren't optimised for it. Use it only to cut the download size.
 - **Static QDQ ResNet34 is 3–4× faster than fp32.** At one 1.5 s window every 0.5 s, that's about
   3% of one core.
-- **Browser (onnxruntime-web WASM) timing** was set up (`bench_web.mjs`) but not run before the pod
-  stopped.
+- **Browser timing** is in [its own section](#browser-onnxruntime-web-wasm) below.
 
 ## Owner versus other, per language (EER, 3 s against 3 s)
 
@@ -106,6 +104,75 @@ How to read it:
 - **Enrolling in one language and speaking another can't be tested here:** FLEURS has no bilingual
   speakers.
 
+## Bleed test (phone hearing a neighbour or the PA)
+
+The protocol of [`../2026-10-switch-detection`](../2026-10-switch-detection/) (phone bleed):
+- **Clips:** 7 owners (4 LibriSpeech, 3 CMU Haitian) × 5 conditions × normal/quiet owner, giving
+  70 clips.
+- **Windows:** 1.5 s windows every 0.25 s, with a 0.75 s hold-back.
+- **Thresholds:** chosen leave-one-owner-out, on wider grids than #58 (cosine 0.05–0.5, level
+  3–12 dB) because #58's choices sat at the grid edges.
+- **Interferers:** these clips use different FLEURS interferers and PA renderings than #58, so
+  **ECAPA was re-run on the same clips** as the control. #58's numbers aren't directly comparable.
+
+| Method | Owner words lost, normal / quiet owner | Bleed accepted, normal / quiet owner |
+|---|---|---|
+| (a) level gate only | 6.0% / 8.3% | 28.5% / 45.1% |
+| **ECAPA fp32** (b) voice, 10 s enrolment | 11.2% / 18.1% | 11.1% / 7.3% |
+| ECAPA fp32 (b) voice, 5 s | 10.3% / 16.7% | 12.0% / 8.7% |
+| ECAPA fp32 (b) voice, 3 s | 11.7% / 18.8% | 11.6% / 8.3% |
+| **ECAPA fp32** (c) level + voice, 10 s | 8.9% / 14.5% | 7.8% / 5.9% |
+| ECAPA fp32 (c) level + voice, 5 s | 8.7% / 13.4% | 8.1% / 6.7% |
+| ECAPA fp32 (c) level + voice, 3 s | 10.0% / 15.7% | 7.8% / 6.2% |
+| **ResNet34 QDQ int8** (b) voice, 10 s | 7.7% / 15.9% | 15.4% / 9.4% |
+| ResNet34 QDQ int8 (b) voice, 5 s | 8.5% / 17.3% | 14.7% / 8.7% |
+| ResNet34 QDQ int8 (b) voice, 3 s | 10.0% / 19.4% | 15.4% / 9.1% |
+| **ResNet34 QDQ int8** (c) level + voice, 10 s | 8.5% / 14.1% | 8.9% / 7.0% |
+| ResNet34 QDQ int8 (c) level + voice, 5 s | 8.9% / 15.0% | 8.7% / 6.7% |
+| ResNet34 QDQ int8 (c) level + voice, 3 s | 8.2% / 14.7% | 9.6% / 7.6% |
+
+- **With the level gate (c), which is the setup to ship,** the 6.8 MB ResNet34 is within about 1
+  point of ECAPA on both measures: owner loss 8.5% against 8.9%, bleed 8.9% against 7.8%.
+- **Voice alone (b)** trades the other way: the left-out owners' thresholds came out higher for
+  ResNet34 (cosine 0.4 against ECAPA's 0.3). It drops less of the owner and lets in more bleed.
+- **Enrolment length barely matters** (3, 5 or 10 s within about 1.5 points), as in #58.
+- **CAM++ (dynamic int8)** was stopped at 46 of 70 clips to stay within the time budget. It can't
+  run in the browser anyway (below), so it has no bleed numbers.
+
+## Larger English trial set (EER)
+
+40 LibriSpeech test-clean speakers × 10 utterances, 3 s against 3 s: 1,800 target and 38,000
+same-gender non-target trials.
+
+| Model | EER |
+|---|---|
+| ResNet34 fp32 | 0.89% |
+| CAM++ dynamic int8 | 1.17% |
+| ECAPA (speechbrain) fp32 | 1.39% |
+| **ResNet34 QDQ int8** | **1.78%** |
+
+The earlier 0.5% → 3.3% drop came from 240 target trials. With 1,800 it's 0.89% → 1.78%: QDQ
+roughly doubles ResNet34's English EER, which still leaves it close to ECAPA's.
+
+## Browser (onnxruntime-web WASM)
+
+onnxruntime-web 1.20.1 under Node 20 (WASM, SIMD) on an x86 server core, network only, median of 15
+runs. A phone will be slower; this is for comparing the models with each other.
+
+| Model | Size | 1 thread: 1 s / 1.5 s | 4 threads: 1 s / 1.5 s |
+|---|---|---|---|
+| **ResNet34 QDQ int8** | 6.8 MB | **67.8 / 100.8 ms** | **27.3 / 37.8 ms** |
+| ResNet34 fp32 | 26.5 MB | 126.1 / 222.6 ms | 63.5 / 87.5 ms |
+| ECAPA (speechbrain) fp32 | 83.4 MB | 120.5 / 168.0 ms | 54.3 / 78.2 ms |
+| CAM++ dynamic int8 | 8.4 MB | **doesn't load** | doesn't load |
+
+- **WASM is about 7× slower than native onnxruntime.** At one 1.5 s window every 0.5 s, one
+  thread spends about 100 ms per 500 ms, roughly 20% of a core.
+- **Multi-threaded WASM** needs cross-origin isolation (COOP/COEP headers) on the phone page.
+  Without it, the page is single-threaded.
+- **Dynamic int8 models don't run in the browser at all:** onnxruntime-web's WASM build has no
+  `ConvInteger` kernel. For the browser, only fp32 or static QDQ models work.
+
 ## VoxLingua107 coverage
 
 `speechbrain/lang-id-voxlingua107-ecapa` (Apache-2.0) has **107 languages**. All eight of ours are
@@ -113,21 +180,21 @@ in it: en (English), es (Spanish), fr (French), pt (Portuguese), ja (Japanese), 
 lo (Lao), km (Central Khmer). VoxLingua is only for strict mode and shared-mic switching, so it
 stays on the central machine, not in the phone's browser.
 
-## What this means for the browser model
+## Recommendation for the browser model
 
-- **Best candidate: WeSpeaker ResNet34 (VoxCeleb), static QDQ int8.**
-  - 6.8 MB download, Apache-2.0.
-  - Cosine 0.985 or more against its own fp32 version.
-  - About 8–14 ms per window on one server core.
-  - Best fp32 separation of the five on both speaker-labelled sets.
-- **Runner-up: the CN-Celeb ResNet34 QDQ.** Same size and speed; slightly better on several FLEURS
-  rows, slightly worse on LibriSpeech.
-- **Before adopting either:**
-  1. **The bleed re-run.** Words lost and bleed accepted against ECAPA, enrolment 3/5/10 s.
-  2. **onnxruntime-web timing** on a real phone.
-  3. **The English EER drop under QDQ** (0.5 → 3.3%) needs a larger trial set before it counts.
-- **CAM++ and ECAPA-512** stay fp32 only (25–29 MB) unless partial quantisation keeps their
-  accuracy.
+**WeSpeaker ResNet34 (VoxCeleb), static QDQ int8.**
+- **Licence and size:** Apache-2.0, 6.8 MB.
+- **Speed:** about 100 ms per 1.5 s window in single-thread WASM.
+- **Bleed:** level + voice is within about 1 point of ECAPA on these clips.
+- **English EER:** 1.8%, against ECAPA's 1.4%.
+
+Still to do:
+- Time it on real phones (Safari on iOS, Chrome on Android).
+- Check whether enrolling in one language and speaking another holds up. This data can't test it.
+- **The CN-Celeb ResNet34 QDQ** is the same size and speed. It's the alternative if Mandarin or
+  other non-European speakers dominate, but it wasn't bleed-tested.
+- **CAM++ and ECAPA-512** are out for the browser: their dynamic int8 doesn't load in WASM, and
+  their static QDQ breaks the embeddings.
 
 ## Re-running
 
@@ -169,5 +236,7 @@ No audio is in the repository.
 | `export_static.py` | Static QDQ int8, with the same checks |
 | `vl_feats.py`, `feats_models.py` | Bleed features per model, in `bleed_analyze.py`'s layout |
 | `eer.py` | Per-language owner/other EER |
-| `bench_web.mjs` | onnxruntime-web WASM timing (not run) |
-| `results.json` | Model checks, timings, EERs, VoxLingua coverage |
+| `bench_web.mjs` | onnxruntime-web WASM timing (`THREADS=1` or `4`) |
+| `bleed_analyze.py` | `../2026-10-switch-detection`'s analyser with widened grids and `METHODS`/`WINS` switches |
+| `run_all.sh` | The second pass, end to end, on one pod |
+| `results.json` | Model checks, timings, EERs, bleed tables, browser timing, VoxLingua coverage |

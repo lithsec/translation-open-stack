@@ -3,7 +3,7 @@
 //   node bench_web.mjs MODEL_DIR name [name ...]
 import * as ort from "onnxruntime-web";
 import fs from "node:fs";
-ort.env.wasm.numThreads = 1;
+ort.env.wasm.numThreads = Number(process.env.THREADS || 1);
 const dir = process.argv[2];
 const out = {};
 for (const name of process.argv.slice(3)) {
@@ -24,4 +24,4 @@ for (const name of process.argv.slice(3)) {
   } catch (e) { out[name] = { error: String(e).slice(0, 200) }; }
   console.log(name, JSON.stringify(out[name]));
 }
-fs.writeFileSync(`${dir}/../web_bench.json`, JSON.stringify(out, null, 1));
+fs.writeFileSync(`${dir}/../web_bench_t${process.env.THREADS || 1}.json`, JSON.stringify(out, null, 1));

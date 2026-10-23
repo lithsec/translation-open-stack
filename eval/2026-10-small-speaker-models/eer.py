@@ -33,7 +33,7 @@ def eer(tg, nt):
 
 sets = {}
 # FLEURS
-for lang in ["en", "es", "fr", "pt", "ja", "lo", "km"]:
+for lang in ([] if os.environ.get("ONLY") and "fleurs" not in os.environ["ONLY"] else ["en", "es", "fr", "pt", "ja", "lo", "km"]):
     meta = json.load(open(f"{D}/fleurs/{lang}/meta.json"))[:40]
     items = []
     for m in meta:
@@ -48,7 +48,7 @@ for ln in open(glob.glob(f"{D}/libri/**/SPEAKERS.TXT", recursive=True)[0]):
     if not ln.startswith(";") and len(p) >= 3 and p[2] == "test-clean":
         spk_g[p[0]] = p[1]
 lib = []
-for s in sorted(spk_g)[:16]:
+for s in sorted(spk_g)[:int(os.environ.get("LIBRI_N", "16"))]:
     fs = sorted(glob.glob(f"{D}/libri/LibriSpeech/test-clean/{s}/*/*.flac"))
     import soundfile as sf
     n = 0
@@ -56,7 +56,7 @@ for s in sorted(spk_g)[:16]:
         x, _ = sf.read(f, dtype="float32")
         if len(x) >= L + R // 2:
             lib.append((s, spk_g[s], x[R // 4:R // 4 + L])); n += 1
-        if n >= 6:
+        if n >= int(os.environ.get("LIBRI_UTTS", "6")):
             break
 sets["libri_en"] = ("ids", lib)
 # CMU Haitian
@@ -70,6 +70,9 @@ for it in cmu:
     by.setdefault(it[0], []).append(it)
 sets["cmu_ht"] = ("ids", [it for s in by for it in by[s][:8]])
 
+ONLY = os.environ.get("ONLY")
+if ONLY:
+    sets = {k: v for k, v in sets.items() if k in ONLY.split(",")}
 res = {k: {"n": None} for k in sets}
 for name in sys.argv[3:]:
     m = MD.load(name)

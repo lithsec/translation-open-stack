@@ -9,7 +9,7 @@ OUT = sys.argv[1]
 R = 16000
 HF = "https://huggingface.co/datasets/google/fleurs/resolve/main/data"
 CMU = "http://speech.cs.cmu.edu/haitian/speech/data/cmu_haitian_speech"
-FL = {"en": "en_us", "es": "es_419", "fr": "fr_fr", "pt": "pt_br", "ja": "ja_jp", "lo": "lo_la", "km": "km_kh"}
+FL = {k: v for k, v in {"en": "en_us", "es": "es_419", "fr": "fr_fr", "pt": "pt_br", "ja": "ja_jp", "lo": "lo_la", "km": "km_kh"}.items() if k in os.environ.get("FL_LANGS", "en,es,fr,pt,ja,lo,km").split(",")}
 KEEP = 60
 csv.field_size_limit(10**9)
 

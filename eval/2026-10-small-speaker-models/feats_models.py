@@ -11,6 +11,7 @@ import models as MD
 
 CLIPS, VL, OB = sys.argv[1:4]
 R, HOP = 16000, 0.25
+WINS = [float(v) for v in os.environ.get("WINS", "1.0,1.5").split(",")]
 
 
 def wins(x, w, hop=HOP):
@@ -30,7 +31,7 @@ for name in sys.argv[4:]:
         enrol[oid] = {}
         for secs in (3, 5, 10):
             y = x[:secs * R]
-            for w in (1.0, 1.5):
+            for w in WINS:
                 _, W = wins(y, w, 0.5)
                 e = m.embed(W).mean(axis=0)
                 enrol[oid][f"{secs}s_{w}"] = (e / np.linalg.norm(e)).round(5).tolist()
@@ -41,7 +42,7 @@ for name in sys.argv[4:]:
         nm = os.path.basename(f)[:-4]
         x, _ = sf.read(f, dtype="float32")
         res = {}
-        for w in (1.0, 1.5):
+        for w in WINS:
             t, W = wins(x, w)
             res[f"t{w}"] = t
             res[f"emb{w}"] = m.embed(W).astype(np.float16)
