@@ -1,4 +1,4 @@
-# Azure live speech-to-text on the held-out clips (../2026-10-held-out, regular
+# Azure live speech-to-text on the unseen clips (../2026-10-unseen, regular
 # pauses), fed in real time in 100 ms chunks, then regrouped into the read
 # sentences by audio offset (../2026-10-translator-shootout/shootout.py group).
 #

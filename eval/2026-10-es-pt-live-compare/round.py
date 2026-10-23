@@ -1,11 +1,11 @@
 # One blind round: per direction, every system side by side (grade.py, the
-# held-out round's grader), against the written text and, for English sources,
+# unseen round's grader), against the written text and, for English sources,
 # against what was said. For Spanish and Portuguese sources "said" scores only
-# the sentences whose recording matches its text (the held-out witness).
+# the sentences whose recording matches its text (the unseen witness).
 #
-#   python3 -I round.py jobs  CLIPS HELDOUT_OUT OUT     -> OUT/jobs.json
+#   python3 -I round.py jobs  CLIPS UNSEEN_OUT OUT     -> OUT/jobs.json
 #   GEMINI_API_KEY=... python3 -I grade.py OUT/jobs.json OUT/grades.json
-#   python3 -I round.py table CLIPS HELDOUT_OUT OUT     -> results.json (here)
+#   python3 -I round.py table CLIPS UNSEEN_OUT OUT     -> results.json (here)
 import json, os, statistics, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
