@@ -58,8 +58,38 @@ two that would: stack + Gemma alone, with Gemma also translating Lao (it scored 
 correct text), about 80 GB with MADLAD bf16 and about 75 GB with the int8 build; or stack + MiLMMT for
 Lao only. Each server's share can be trimmed with a shorter `--max-model-len`.
 
+## 4-bit or full precision? The same inputs, again in bf16
+
+`or_bf16.py` sent the live run's exact translator inputs to `google/gemma-4-31b-it` on OpenRouter,
+pinned to bf16 hosts (Novita, Crusoe), zero data retention, temperature 0, one request per sentence. The
+stack didn't log llmmt's requests, so they are rebuilt with llmmt's own code from the logged utterances:
+`split_sentences` of what the stack heard, then `llmmt.request("chat", ...)` per sentence (no context:
+llmmt takes none). The Lao utterances MiLMMT translated went to Gemma bf16 the same way, which gives a
+first live-text data point for Gemma on Lao. Each pair was graded blind, side by side, in one new round
+(same grader and rubric); compare within this table only. The 4-bit scores differ from the table above
+because it is another grading round.
+
+Quality against the written text / against what was said (critical errors):
+
+| Direction | Gemma 4-bit (stack) | Gemma bf16 (OpenRouter) | Same output |
+|---|---|---|---|
+| en→ht | 51.7 (10) / 61.7 (6) | 55.0 (10) / 66.7 (6) | 3 of 22 identical, 17 near (≥ 0.9 similar) |
+| ht→en | **66.7 (8) / 64.7 (8)** | 60.0 (10) / 58.8 (9) | 7 of 21 identical, 16 near |
+
+| Direction | MiLMMT 12B (stack) | Gemma 4 bf16 (OpenRouter) |
+|---|---|---|
+| en→lo | 48.3 (12) / 56.7 (11) | 48.3 (12) / 61.7 (9) |
+| lo→en | **46.7 (9) / 47.4 (9)** | 40.0 (9) / 40.4 (9) |
+
+- **Full precision doesn't beat 4-bit.** Most outputs are the same or nearly so. bf16 is ahead by
+  3–5 points into Haitian Creole and behind by 6–7 out of it, with critical errors level or worse:
+  differences inside one grading call's noise. Google's 4-bit build is not what's holding Haitian
+  Creole back, so a bigger card for bf16 (~62 GB of weights) or 8-bit (~31 GB) buys nothing measurable.
+- **For Lao, Gemma bf16 is no better than MiLMMT on live text**: level out of English, 7 points behind
+  into English. MiLMMT stays the Lao choice; Gemma for Lao would only be for fitting one model on the card.
+
 ## What isn't measured
 
 - One clip per direction, one grading call each.
-- Gemma 4 for Lao in the live stack (only on correct text).
+- Gemma 4 for Lao inside the live stack (only replayed on OpenRouter from MiLMMT's run, above).
 - The stack's int8 MADLAD as the baseline (bf16 here).
