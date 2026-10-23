@@ -1,0 +1,567 @@
+{
+ "date": "2026-10-23",
+ "clips": "../2026-10-unseen, regular pauses",
+ "reference": "what was said (witness)",
+ "model": "mai-transcribe-2-streaming (public preview), Speech SDK 1.52.0, eastus2",
+ "cer_wer": [
+  {
+   "lang": "en",
+   "system": "A azure_stream_clip",
+   "said": {
+    "cer": 3.6,
+    "wer": 7.8
+   },
+   "text": {
+    "cer": 7.0,
+    "wer": 11.8
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 22
+  },
+  {
+   "lang": "en",
+   "system": "B mai_stream_clip_auto",
+   "said": {
+    "cer": 6.1,
+    "wer": 11.5
+   },
+   "text": {
+    "cer": 8.4,
+    "wer": 13.9
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 34
+  },
+  {
+   "lang": "en",
+   "system": "C mai_stream_clip_pinned",
+   "said": {
+    "cer": 6.0,
+    "wer": 11.2
+   },
+   "text": {
+    "cer": 8.3,
+    "wer": 13.6
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 34
+  },
+  {
+   "lang": "en",
+   "system": "D mai_stream_per_sentence",
+   "said": {
+    "cer": 5.9,
+    "wer": 9.9
+   },
+   "text": {
+    "cer": 6.8,
+    "wer": 10.2
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "en",
+   "system": "E mai_batch_per_sentence",
+   "said": {
+    "cer": 3.7,
+    "wer": 6.7
+   },
+   "text": {
+    "cer": 6.9,
+    "wer": 9.2
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "en",
+   "system": "F azure_fast_per_sentence",
+   "said": {
+    "cer": 3.7,
+    "wer": 7.0
+   },
+   "text": {
+    "cer": 7.9,
+    "wer": 11.8
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "es",
+   "system": "A azure_stream_clip",
+   "said": {
+    "cer": 2.4,
+    "wer": 5.6
+   },
+   "text": {
+    "cer": 2.7,
+    "wer": 6.5
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 20
+  },
+  {
+   "lang": "es",
+   "system": "B mai_stream_clip_auto",
+   "said": {
+    "cer": 2.0,
+    "wer": 4.7
+   },
+   "text": {
+    "cer": 1.0,
+    "wer": 3.9
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 21
+  },
+  {
+   "lang": "es",
+   "system": "C mai_stream_clip_pinned",
+   "said": {
+    "cer": 1.9,
+    "wer": 4.5
+   },
+   "text": {
+    "cer": 0.7,
+    "wer": 3.2
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 20
+  },
+  {
+   "lang": "es",
+   "system": "D mai_stream_per_sentence",
+   "said": {
+    "cer": 1.7,
+    "wer": 4.1
+   },
+   "text": {
+    "cer": 0.7,
+    "wer": 3.2
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "es",
+   "system": "E mai_batch_per_sentence",
+   "said": {
+    "cer": 1.7,
+    "wer": 4.1
+   },
+   "text": {
+    "cer": 0.5,
+    "wer": 2.8
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "es",
+   "system": "F azure_fast_per_sentence",
+   "said": {
+    "cer": 1.7,
+    "wer": 4.1
+   },
+   "text": {
+    "cer": 2.8,
+    "wer": 5.6
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "pt",
+   "system": "A azure_stream_clip",
+   "said": {
+    "cer": 0.9,
+    "wer": 2.8
+   },
+   "text": {
+    "cer": 3.0,
+    "wer": 5.6
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 22
+  },
+  {
+   "lang": "pt",
+   "system": "B mai_stream_clip_auto",
+   "said": {
+    "cer": 2.8,
+    "wer": 4.5
+   },
+   "text": {
+    "cer": 2.1,
+    "wer": 3.8
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 20
+  },
+  {
+   "lang": "pt",
+   "system": "C mai_stream_clip_pinned",
+   "said": {
+    "cer": 1.7,
+    "wer": 3.2
+   },
+   "text": {
+    "cer": 0.9,
+    "wer": 2.5
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 20
+  },
+  {
+   "lang": "pt",
+   "system": "D mai_stream_per_sentence",
+   "said": {
+    "cer": 2.1,
+    "wer": 3.8
+   },
+   "text": {
+    "cer": 1.2,
+    "wer": 3.0
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "pt",
+   "system": "E mai_batch_per_sentence",
+   "said": {
+    "cer": 1.6,
+    "wer": 2.8
+   },
+   "text": {
+    "cer": 0.9,
+    "wer": 2.3
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "pt",
+   "system": "F azure_fast_per_sentence",
+   "said": {
+    "cer": 3.1,
+    "wer": 5.8
+   },
+   "text": {
+    "cer": 2.0,
+    "wer": 4.6
+   },
+   "dropped": 0,
+   "missing_starts": 1,
+   "pieces": null
+  },
+  {
+   "lang": "fr",
+   "system": "A azure_stream_clip",
+   "said": {
+    "cer": 3.6,
+    "wer": 9.5
+   },
+   "text": {
+    "cer": 3.8,
+    "wer": 10.2
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 21
+  },
+  {
+   "lang": "fr",
+   "system": "B mai_stream_clip_auto",
+   "said": {
+    "cer": 2.4,
+    "wer": 5.7
+   },
+   "text": {
+    "cer": 2.8,
+    "wer": 6.6
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 35
+  },
+  {
+   "lang": "fr",
+   "system": "C mai_stream_clip_pinned",
+   "said": {
+    "cer": 1.2,
+    "wer": 3.6
+   },
+   "text": {
+    "cer": 1.6,
+    "wer": 4.5
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 35
+  },
+  {
+   "lang": "fr",
+   "system": "D mai_stream_per_sentence",
+   "said": {
+    "cer": 0.8,
+    "wer": 1.6
+   },
+   "text": {
+    "cer": 1.1,
+    "wer": 2.5
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "fr",
+   "system": "E mai_batch_per_sentence",
+   "said": {
+    "cer": 0.6,
+    "wer": 1.6
+   },
+   "text": {
+    "cer": 0.9,
+    "wer": 2.5
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "fr",
+   "system": "F azure_fast_per_sentence",
+   "said": {
+    "cer": 1.2,
+    "wer": 3.8
+   },
+   "text": {
+    "cer": 1.5,
+    "wer": 4.8
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "ja",
+   "system": "A azure_stream_clip",
+   "said": {
+    "cer": 6.9
+   },
+   "text": {
+    "cer": 7.8
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 25
+  },
+  {
+   "lang": "ja",
+   "system": "B mai_stream_clip_auto",
+   "said": {
+    "cer": 11.8
+   },
+   "text": {
+    "cer": 11.8
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 48
+  },
+  {
+   "lang": "ja",
+   "system": "C mai_stream_clip_pinned",
+   "said": {
+    "cer": 4.5
+   },
+   "text": {
+    "cer": 4.7
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 48
+  },
+  {
+   "lang": "ja",
+   "system": "D mai_stream_per_sentence",
+   "said": {
+    "cer": 12.3
+   },
+   "text": {
+    "cer": 11.8
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "ja",
+   "system": "E mai_batch_per_sentence",
+   "said": {
+    "cer": 2.5
+   },
+   "text": {
+    "cer": 1.4
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "ja",
+   "system": "F azure_fast_per_sentence",
+   "said": {
+    "cer": 4.7
+   },
+   "text": {
+    "cer": 5.4
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": null
+  },
+  {
+   "lang": "en",
+   "system": "C2 mai_stream_clip_pinned_to_fr (control)",
+   "said": {
+    "cer": 6.8,
+    "wer": 14.4
+   },
+   "text": {
+    "cer": 9.9,
+    "wer": 17.5
+   },
+   "dropped": 0,
+   "missing_starts": 0,
+   "pieces": 33
+  }
+ ],
+ "ja_kana": [
+  {
+   "system": "A azure_stream_clip",
+   "cer": 6.9,
+   "cer_kana": 3.3
+  },
+  {
+   "system": "B mai_stream_clip_auto",
+   "cer": 11.8,
+   "cer_kana": 8.4
+  },
+  {
+   "system": "C mai_stream_clip_pinned",
+   "cer": 4.5,
+   "cer_kana": 2.7
+  },
+  {
+   "system": "D mai_stream_per_sentence",
+   "cer": 12.3,
+   "cer_kana": 9.3
+  },
+  {
+   "system": "E mai_batch_per_sentence",
+   "cer": 2.5,
+   "cer_kana": 1.6
+  },
+  {
+   "system": "F azure_fast_per_sentence",
+   "cer": 4.7,
+   "cer_kana": 3.1
+  }
+ ],
+ "ja_span_judge": {
+  "judge": "gemini-pro-latest",
+  "per_system_sample": 25,
+  "results": {
+   "C mai_stream_clip_pinned": {
+    "spans_total": 23,
+    "sampled": 23,
+    "form": 2,
+    "error": 21
+   },
+   "B mai_stream_clip_auto": {
+    "spans_total": 23,
+    "sampled": 23,
+    "form": 4,
+    "error": 19
+   },
+   "A azure_stream_clip": {
+    "spans_total": 27,
+    "sampled": 25,
+    "form": 7,
+    "error": 18
+   },
+   "E mai_batch_per_sentence": {
+    "spans_total": 13,
+    "sampled": 13,
+    "form": 1,
+    "error": 12
+   }
+  }
+ },
+ "en_breakdown": {
+  "A azure_stream_clip": {
+   "boundary": 15,
+   "dropped_run": 2,
+   "repeat": 0,
+   "inside": 12,
+   "ref_words": 374,
+   "finals": 22,
+   "edge_word_share": 0.23
+  },
+  "B mai_stream_clip_auto": {
+   "boundary": 24,
+   "dropped_run": 3,
+   "repeat": 0,
+   "inside": 16,
+   "ref_words": 374,
+   "finals": 34,
+   "edge_word_share": 0.3
+  },
+  "C mai_stream_clip_pinned": {
+   "boundary": 23,
+   "dropped_run": 3,
+   "repeat": 0,
+   "inside": 16,
+   "ref_words": 374,
+   "finals": 34,
+   "edge_word_share": 0.3
+  },
+  "C2 mai_stream_clip_pinned_to_fr (control)": {
+   "boundary": 36,
+   "dropped_run": 3,
+   "repeat": 0,
+   "inside": 15,
+   "ref_words": 374,
+   "finals": 33,
+   "edge_word_share": 0.3
+  }
+ },
+ "sources": {
+  "A": "../2026-10-mai-streaming-pipelines (azure, regular)",
+  "B": "../2026-10-mai-streaming-pipelines (mai, regular)",
+  "C/C2/D": "this folder, stream.py",
+  "E/F": "../2026-10-whisper-vs-azure (systems 5 per sentence and 4)"
+ }
+}
