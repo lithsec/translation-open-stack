@@ -28,6 +28,13 @@ Styles: "chat" (the shootout's prompt as one user message, temperature 0) and
 "milmmt" (MiLMMT's model-card completion prompt). One request per sentence,
 all of an utterance's sentences at once; vLLM batches them.
 
+Context (?context=1, server/translation_context.py): as for Hy-MT2, the pieces
+before this one (at most two) and the newest translation into the target go
+ABOVE the instruction, marked as context only; the sentence to translate stays
+last. MiLMMT's completion prompt takes the previous pair as one earlier
+"{source}: ... / {target}: ..." exchange instead, and only when there is a
+previous translation to pair with. No context: exactly the prompts above.
+
 Licence: the served model's, not this file's. Gemma 4 is Apache-2.0; MiLMMT-46
 is under the Gemma terms. The commercial edition refuses an engine it can't
 classify, so it needs the operator's review ([licence_review]).
@@ -58,13 +65,37 @@ def parse_server(value):
     return parts[0], parts[1].rstrip("/"), parts[2]
 
 
-def request(style, model, sentence, src, tgt):
-    """(path, body) for one sentence."""
+CONTEXT_PIECES = ("The {a} text before this one, for context only. Do not translate it and do not "
+                  "repeat it:\n\n{pieces}\n\n")
+CONTEXT_TRANSLATION = ("How the text before this one was translated into {b}, for context only. "
+                       "Do not repeat it:\n\n{translation}\n\n")
+
+
+def _context(context, tgt):
+    """(pieces, previous translation into tgt) from the stack's context dict."""
+    if not context:
+        return [], None
+    pieces = [p.strip() for p in (context.get("pieces") or []) if p and p.strip()][-2:]
+    previous = ((context.get("translations") or {}).get(tgt) or "").strip() or None
+    return pieces, previous
+
+
+def request(style, model, sentence, src, tgt, context=None):
+    """(path, body) for one sentence. `context` as in engines/base.py; None
+    gives exactly the prompt the engine has always sent."""
     a, b = NAMES.get(src, src), NAMES.get(tgt, tgt)
-    if style == "milmmt":   # the model card's prompt
-        return "/completions", {"model": model, "prompt": f"Translate this from {a} to {b}:\n{a}: {sentence.strip()}\n{b}:",
+    pieces, previous = _context(context, tgt)
+    if style == "milmmt":   # the model card's prompt, the previous pair as one earlier exchange
+        head = f"{a}: {' '.join(pieces)}\n{b}: {previous}\n" if pieces and previous else ""
+        return "/completions", {"model": model,
+                                "prompt": f"Translate this from {a} to {b}:\n{head}{a}: {sentence.strip()}\n{b}:",
                                 "temperature": 0, "max_tokens": 600, "stop": ["\n"]}
-    text = (f"Translate this {a} sentence into natural {b}. Keep numbers, names and negation exact. "
+    head = ""
+    if pieces:
+        head += CONTEXT_PIECES.format(a=a, pieces="\n".join(pieces))
+    if previous:
+        head += CONTEXT_TRANSLATION.format(b=b, translation=previous)
+    text = (head + f"Translate this {a} sentence into natural {b}. Keep numbers, names and negation exact. "
             f"Output only the {b}.\n\n{sentence.strip()}")
     return "/chat/completions", {"model": model, "messages": [{"role": "user", "content": text}],
                                  "temperature": 0, "max_tokens": 600,
@@ -84,6 +115,7 @@ class LlmMT(Translator):
     title = "LLM translator (OpenAI-compatible server)"
     lang_key = str
     licence = "the served model's (see each language's llmmt = ...)"
+    takes_context = True      # prompted LMs: see request() and the module docstring
 
     @classmethod
     def check_lang(cls, lang, value):
@@ -108,15 +140,15 @@ class LlmMT(Translator):
                 return parse_server(value)
         return None
 
-    def call(self, server, sentence, src, tgt):
+    def call(self, server, sentence, src, tgt, context=None):
         style, url, model = server
-        path, body = request(style, model, sentence, src, tgt)
+        path, body = request(style, model, sentence, src, tgt, context)
         req = urllib.request.Request(url + path, data=json.dumps(body).encode(),
                                      headers={"content-type": "application/json"})
         with urllib.request.urlopen(req, timeout=TIMEOUT_S) as r:
             return answer(style, json.loads(r.read()))
 
-    def translate(self, sentences, src, targets, text=None):
+    def translate(self, sentences, src, targets, text=None, context=None):
         out, others = {}, []
         for tgt in targets:
             server = self.server_for(src, tgt)
@@ -124,15 +156,19 @@ class LlmMT(Translator):
                 others.append(tgt)
                 continue
             try:
-                got = list(self.pool.map(lambda s: self.call(server, s, src, tgt), sentences))
+                got = list(self.pool.map(lambda s: self.call(server, s, src, tgt, context), sentences))
             except Exception as e:   # this target only: MADLAD translates it whole
                 print(f"[stack] llmmt {src}->{tgt} failed ({e}) — MADLAD instead", flush=True)
                 continue
             if all(got):
+                prev = _context(context, tgt)[1]
+                if prev:   # a repeat of the previous translation is dropped, as for Hy-MT2 (exact prefix only)
+                    got = [g[len(prev):].strip() or g if g.startswith(prev) else g for g in got]
                 out[tgt] = join_sentences(got, tgt)
         if others:   # pairs no server is named for: Hy-MT2, as without this engine
             hymt = self.ctx.engine("translator", "hymt")
             if hymt is not None and hymt.available and hymt.supports_source(src):
-                out.update({k: v for k, v in (hymt.translate(sentences, src, others, text=text) or {}).items()
+                kw = {"context": context} if context and getattr(hymt, "takes_context", False) else {}
+                out.update({k: v for k, v in (hymt.translate(sentences, src, others, text=text, **kw) or {}).items()
                             if k in others})
         return out
