@@ -57,9 +57,10 @@ def test_builtin_keys_are_the_old_keys():
     `commercial`, the [<lang>.commercial] voices, and `espeak`, which only
     ever takes the last-resort voice out with `espeak = false`; and since
     2026-10-22 `omni`, the Omnilingual card, the per-language turn rules, and
-    `llmmt`, the LLM translator server a language uses)."""
+    `llmmt`, the LLM translator server a language uses; and since 2026-10-23
+    a translator may be a list, and `translator_to_en` names the into-English one)."""
     assert c.keys() == {"kokoro": str, "voxcpm": bool, "coqui": str, "piper": str, "mms": str, "asr": str,
-                        "translator": str, "madlad": str, "voice": list, "commercial": dict, "espeak": bool,
+                        "translator": (str, list), "translator_to_en": (str, list), "madlad": str, "voice": list, "commercial": dict, "espeak": bool,
                         "omni": str, "endpoint_ms": int, "max_utterance_s": int, "long_utterance_s": int,
                         "long_endpoint_ms": int, "min_speech_ms": int, "llmmt": str}
 
@@ -164,7 +165,10 @@ def test_shipped_config_uses_only_builtin_engines():
     table, _ = c.load(c.DEFAULT_FILE)
     reg = engines.registry()
     for lang, e in table.items():
-        assert e.get("translator", "hymt") in ("hymt", "madlad")
+        for key in c.TRANSLATOR_KEYS:
+            assert set(c.translator_choices(e, key)) <= {"hymt", "madlad", "llmmt"}, (lang, key)
+        # Every list ends in an in-process translator: the stack runs without the LLM servers.
+        assert c.translator_choices(e)[-1:] in ([], ["hymt"], ["madlad"]), lang
         assert e.get("asr", "whisper").split(":")[0] in reg["recognizer"]
 
 
@@ -389,6 +393,87 @@ def test_an_engine_that_raises_falls_back_to_madlad():
     table["de"] = {"translator": "broken"}
     es = make_set(table, translators={"madlad": FakeMadlad, "broken": Broken}, langs=("de",))
     assert es.translate_batch("Hello there, friend.", ["de"]) == ["M(<2de> Hello there, friend.)"]
+
+
+class FakeLlm(Translator):
+    """An llmmt stand-in whose server is up for the languages in `up`."""
+    name = "llmmt"
+    up = set()
+    calls = None
+
+    def load(self):
+        self.calls = []
+        self.available = True
+
+    def supports_pair(self, src, tgt):
+        return (src if src != "en" else tgt) in FakeLlm.up
+
+    def translate(self, sentences, src, targets, text=None):
+        self.calls.append((src, list(targets)))
+        return {t: f"L({' '.join(sentences)})" for t in targets}
+
+
+def direction_set(up):
+    FakeLlm.up = set(up)
+    return make_set(c.DEFAULTS, translators={"madlad": FakeMadlad, "hymt": FakeHyMT, "llmmt": FakeLlm},
+                    langs=("en", "es", "ja", "ht", "lo", "km", "de"), srcs=("en", "es", "ja", "ht", "lo", "km"))
+
+
+def test_translators_are_chosen_per_direction():
+    """The shipped choices (eval/2026-10-full-stack), with the LLM servers up:
+    Gemma/MiLMMT out of English and for ja/ht/lo into English; Hy-MT2 into
+    English from es and km; [de], which names nothing new, stays on Hy-MT2."""
+    es = direction_set(up={"es", "ja", "ht", "lo", "km"})
+    for tgt in ("es", "ja", "ht", "lo", "km"):
+        assert es.translator_for(tgt, "en").name == "llmmt", tgt
+    assert es.translator_for("de", "en").name == "hymt"
+    for src in ("ja", "ht", "lo"):
+        assert es.translator_for("en", src).name == "llmmt", src
+    for src in ("es", "km"):
+        assert es.translator_for("en", src).name == "hymt", src
+    assert es.translate_batch("Hola.", ["en"], "es") == ["Hen(Hola.)"]          # es -> en: Hy-MT2
+    assert es.translate_batch("こんにちは。", ["en"], "ja") == ["L(こんにちは。)"]   # ja -> en: the LLM
+
+
+def test_a_server_that_is_down_falls_back_to_the_next_choice():
+    """No LLM server answering: every pair runs what it ran before llmmt."""
+    es = direction_set(up=set())
+    assert es.translator_for("es", "en").name == "hymt"
+    assert es.translator_for("ht", "en").name == "madlad"
+    assert es.translator_for("lo", "en").name == "madlad"
+    assert es.translator_for("en", "ht").name == "hymt"      # Hy-MT2 after MADLAD's pivot, as before
+    es2 = direction_set(up={"ht"})                           # one server back: only its pairs move
+    assert es2.translator_for("ht", "en").name == "llmmt" and es2.translator_for("es", "en").name == "hymt"
+
+
+def test_translator_lists_validate():
+    bad = {'[es]\ntranslator = ["hymt", "nope"]\n': "unknown translator 'nope'",
+           '[es]\ntranslator = []\n': "must be an engine name or a list",
+           '[en]\ntranslator_to_en = "hymt"\n': "English into English",
+           '[sw]\ntranslator = ["llmmt", "hymt"]\n': "Hy-MT2 does not support sw",
+           '[es]\ntranslator = 3\n': "string or a list of strings"}
+    for text, want in bad.items():
+        try:
+            c.load(_write(text))
+            assert False, text
+        except ValueError as e:
+            assert want in str(e), (text, str(e))
+    c.load(_write('[es]\ntranslator = ["llmmt", "hymt"]\ntranslator_to_en = "hymt"\n'
+                  'llmmt = "chat http://127.0.0.1:8101/v1 m"\n'))
+
+
+def test_commercial_drops_an_unreviewed_llm_from_a_list():
+    """llmmt is ❓ until reviewed: a list keeps the rest, a lone llmmt refuses."""
+    eff, _ = c.apply_edition(c.DEFAULTS, "commercial", {}, False)
+    assert eff["es"]["translator"] == "hymt" and eff["lo"]["translator"] == "madlad"
+    assert eff["ja"]["translator_to_en"] == "hymt"
+    eff, _ = c.apply_edition(c.DEFAULTS, "commercial", {"llmmt": "reviewed"}, False)
+    assert eff["es"]["translator"] == ["llmmt", "hymt"]
+    try:
+        c.apply_edition({"de": {"translator": "llmmt", "llmmt": "chat http://x/v1 m"}}, "commercial", {}, False)
+        assert False
+    except ValueError as e:
+        assert "not allowed with EDITION=commercial" in str(e)
 
 
 def test_unavailable_translator_falls_back_to_madlad():

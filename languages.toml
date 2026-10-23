@@ -17,6 +17,18 @@
 #   asr         "whisper" | "omni:<code>"  recogniser when this language is SPOKEN
 #   translator  "hymt" | "madlad"          translator INTO this language. Hy-MT2 covers 36
 #               languages (stack_config.HYMT_LANGS); anything else must be "madlad".
+#               A list is tried in order: the first engine that is running and can do the
+#               pair serves it. ["llmmt", "hymt"]: the LLM server named by `llmmt` while it
+#               answers, Hy-MT2 otherwise (engines/llmmt.py).
+#   translator_to_en  (as translator)      translator FROM this language INTO English;
+#               without it, [en]'s translator.
+#   llmmt       "<style> <url> <model>"    the LLM server for this language's pairs
+#
+# Translators per direction (eval/2026-10-full-stack, live on two clip sets): Gemma 4 31B
+# out of English into es pt fr ja km, for ja -> en, and both ways for ht; MiLMMT-46 12B
+# both ways for lo; Hy-MT2 into English from es pt fr km. Gemma 4 and MiLMMT run in vLLM
+# beside the stack (ports 8101 and 8102, docs/reference.md); without them every pair
+# falls back to the translator it had before, and the log says so.
 #   madlad      "<code>"                   MADLAD's language tag, when it differs from the code
 #
 # Voices are a fallback chain, tried in this order: kokoro, voxcpm, coqui, piper,
@@ -137,7 +149,9 @@ piper = "en_US-norman-medium"
 kokoro = "e:ef_dora"
 piper = "es_ES-davefx-medium"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = "hymt"
 madlad = "es"
 
 # davefx is fine-tuned from lessac (❓). carlfm: public domain, from scratch; x_low
@@ -150,7 +164,9 @@ piper = "es_ES-carlfm-x_low"
 kokoro = "f:ff_siwis"
 piper = "fr_FR-siwis-medium"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = "hymt"
 madlad = "fr"
 
 # siwis is fine-tuned from lessac (❓). mls: Multilingual LibriSpeech (CC-BY 4.0,
@@ -163,7 +179,9 @@ piper = "fr_FR-mls-medium"
 kokoro = "p:pf_dora"
 piper = "pt_BR-faber-medium"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = "hymt"
 madlad = "pt"
 
 [it]
@@ -228,7 +246,9 @@ long_utterance_s = 8
 long_endpoint_ms = 500
 max_utterance_s = 15
 min_speech_ms = 2500
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "ja"
 
 [ko]
@@ -351,7 +371,9 @@ long_utterance_s = 8
 long_endpoint_ms = 500
 max_utterance_s = 15
 min_speech_ms = 2500
-translator = "madlad"
+translator = ["llmmt", "madlad"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "ht"
 
 # Khmer, Lao, Tagalog: VoxCPM2, the clearest tested (Khmer 8.5% / Lao 10%
@@ -372,7 +394,9 @@ long_utterance_s = 8
 long_endpoint_ms = 500
 max_utterance_s = 15
 min_speech_ms = 2500
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = "hymt"
 madlad = "km"
 
 [lo]
@@ -385,7 +409,9 @@ long_utterance_s = 8
 long_endpoint_ms = 500
 max_utterance_s = 15
 min_speech_ms = 2500
-translator = "madlad"
+translator = ["llmmt", "madlad"]
+llmmt = "milmmt http://127.0.0.1:8102/v1 xiaomi-research/MiLMMT-46-12B-v0.1"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "lo"
 
 # MADLAD's code for Tagalog is fil (<2tl> is not in its vocabulary).

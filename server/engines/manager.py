@@ -194,9 +194,14 @@ class EngineSet:
         missing = {}
         for lang in sorted(served):
             entry = self.ctx.table.get(lang, {})
-            want = entry.get("translator", DEFAULT_TRANSLATOR)
-            if lang in self.ctx.langs and self.translator_for(lang).name != want:
-                missing.setdefault(("translator", want, FALLBACK_TRANSLATOR), []).append(lang)
+            want = self.translator_choices(lang)[0]
+            got = self.translator_for(lang).name
+            if lang in self.ctx.langs and got != want:
+                missing.setdefault(("translator", want, got), []).append(lang)
+            if lang in self.ctx.srcs and lang != "en" and "translator_to_en" in entry and "en" in self.ctx.langs:
+                want, got = self.translator_choices("en", lang)[0], self.translator_for("en", lang).name
+                if got != want:
+                    missing.setdefault(("translator", want, got), []).append(f"{lang}->en")
             asr = entry.get("asr", FALLBACK_RECOGNIZER).split(":", 1)[0]
             if lang in self.ctx.srcs and self.recognizer_for(lang).name != asr:
                 missing.setdefault(("recogniser", asr, FALLBACK_RECOGNIZER), []).append(lang)
@@ -268,11 +273,24 @@ class EngineSet:
 
     # ------------------------------------------------------------ translation
 
-    def translator_for(self, lang):
-        name = self.ctx.table.get(lang, {}).get("translator", DEFAULT_TRANSLATOR)
-        eng = self.get("translator", name)
-        if eng is not None and eng.supports(lang):
-            return eng
+    def translator_choices(self, lang, src=None):
+        """The translators named for src -> lang, in the order they are tried:
+        the source's translator_to_en into English when it names one, else the
+        target's translator (Hy-MT2 when it names none). languages.toml."""
+        table = self.ctx.table
+        if lang == "en" and src and src != "en" and "translator_to_en" in table.get(src, {}):
+            v = table[src]["translator_to_en"]
+        else:
+            v = table.get(lang, {}).get("translator", DEFAULT_TRANSLATOR)
+        return [v] if isinstance(v, str) else list(v)
+
+    def translator_for(self, lang, src=None):
+        """The first named translator that is running and serves src -> lang
+        now (llmmt only while its server answers); MADLAD when none does."""
+        for name in self.translator_choices(lang, src):
+            eng = self.get("translator", name)
+            if eng is not None and eng.supports(lang) and eng.supports_pair(src or "en", lang):
+                return eng
         return self.engines["translator"][FALLBACK_TRANSLATOR]
 
     def translate_batch(self, text, langs, src=None, context=None):
@@ -292,7 +310,7 @@ class EngineSet:
         base = self.engines["translator"][FALLBACK_TRANSLATOR]
         groups = {}
         for lg in langs:
-            groups.setdefault(self.translator_for(lg).name, []).append(lg)
+            groups.setdefault(self.translator_for(lg, src).name, []).append(lg)
         out = {}
         # MADLAD's own languages first, as before the split.
         if base.name in groups:

@@ -158,7 +158,9 @@ entirely. All keys are optional.
 | `long_utterance_s` | integer, 2–30 | ... past this much audio a shorter pause will do (a clause gap), instead of `--long-utterance-s`. Japanese, Haitian Creole, Khmer, Lao: 8. |
 | `long_endpoint_ms` | integer, 100–3000 | ... this one, instead of the built-in 280 ms. Japanese, Haitian Creole, Khmer, Lao: 500. |
 | `min_speech_ms` | integer, 0–5000 | ... and a pause doesn't end an utterance holding less speech than this unless the quiet lasts 1.5 s: a short piece waits for the rest of its sentence. Japanese, Haitian Creole, Khmer, Lao: 2500 ([eval/2026-10-pauses](../eval/2026-10-pauses/)). Utterance mode only; simultaneous mode keeps its own rules. |
-| `translator` | `"hymt"` \| `"madlad"` | Translator **into** this language. Hy-MT2 covers the 36 languages in `stack_config.HYMT_LANGS`; anything else must be `"madlad"`. |
+| `translator` | `"hymt"` \| `"madlad"` \| `"llmmt"`, or a list | Translator **into** this language. Hy-MT2 covers the 36 languages in `stack_config.HYMT_LANGS`; anything else must be `"madlad"`. A list is tried in order per request: the first engine that is running and can do the pair serves it, so `["llmmt", "hymt"]` is the LLM server while it answers and Hy-MT2 otherwise. |
+| `translator_to_en` | as `translator` | Translator **from** this language **into English**. Without it, `[en]`'s `translator` serves every language into English. |
+| `llmmt` | `"<style> <url> <model>"` | The LLM server (`engines/llmmt.py`, OpenAI-compatible, e.g. vLLM) for this language's pairs; style `chat` or `milmmt`. |
 | `madlad` | `"<code>"` | MADLAD's language tag, when it differs from the code (Tagalog: `fil`). |
 | `voice` | `["<name>", ...]` | The voice chain in this order, instead of the default. |
 | `<engine>` | per engine | A plug-in engine's own per-language value, under its name. |
@@ -169,6 +171,34 @@ part only when the server runs it: Kokoro with `--kokoro`, VoxCPM2 when its
 service is up, Coqui with `--coqui` (commercial), MMS with `--mms`
 (nonprofit), eSpeak NG with `--espeak`. A language with none is text only. An
 unknown engine name is an error.
+
+### Translators per direction
+
+The shipped choices, from the full stack live on two clip sets
+([eval/2026-10-full-stack](../eval/2026-10-full-stack/)):
+
+| Direction | Translator | Without its LLM server |
+|---|---|---|
+| en → es, pt, fr, ja, km | Gemma 4 31B (`llmmt`, port 8101) | Hy-MT2 |
+| ja → en | Gemma 4 31B | Hy-MT2 |
+| en ↔ ht | Gemma 4 31B | MADLAD into ht, Hy-MT2 (after MADLAD's pivot) into en |
+| en ↔ lo | MiLMMT-46 12B (`llmmt`, port 8102) | MADLAD into lo, Hy-MT2 into en |
+| es, pt, fr, km → en | Hy-MT2 | — |
+| every other pair | as before (Hy-MT2, or MADLAD) | — |
+
+The two LLMs run in vLLM beside the stack:
+
+```
+vllm serve google/gemma-4-31B-it-qat-w4a16-ct --port 8101 ...
+vllm serve xiaomi-research/MiLMMT-46-12B-v0.1 --port 8102 ...
+```
+
+The stack asks each named server for `/models` at start and every 30 s. While
+one doesn't answer, its pairs use the next translator in the list, and the log
+says so (`[stack] llmmt: <url> (<model>) not answering — ...`).
+`LLMMT_HEALTH=0` skips the checks. `EDITION=commercial` leaves `llmmt` out
+(its class is ❓ until `[licence_review]` names it), so commercial runs the
+next choice.
 
 ### `[<lang>.commercial]`
 
