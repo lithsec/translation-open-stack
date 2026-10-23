@@ -1,0 +1,1441 @@
+{
+ "note": "Full current open stack (main 78e086f + llmmt context, PR #48), live at real time, one direction at a time. Sets: a = eval/2026-10-unseen (regular pauses), b = 20 more unused FLEURS sentences / CMU utterances (build_clips_b.py). Quality = share of the possible 3 per sentence (gemini-pro-latest, blind, every system for a direction in one call), against the written text and against what was said; crit = critical errors. cer_said = recognition CER against what was said. Latency in ms from the speaker stopping.",
+ "systems": {
+  "hymt": "Hy-MT2 7B (stack, 4-bit)",
+  "gemma": "Gemma 4 31B, Google's 4-bit QAT build, under vLLM beside the stack (llmmt)",
+  "milmmt": "MiLMMT-46 12B under vLLM (llmmt)",
+  "pre38": "the same translator as the post-#38 run, with the pre-#38 turn values (Lao/Khmer 700 ms : 15 s; Japanese/Haitian Creole flags)"
+ },
+ "load_test": {
+  "directions": [
+   "en-es",
+   "en-pt",
+   "en-fr"
+  ],
+  "set": "a",
+  "translator": "gemma",
+  "stop_to_tail_audio_ms_p50": {
+   "en-es": 2664,
+   "en-pt": 2548,
+   "en-fr": 2470
+  },
+  "alone_p50": {
+   "en-es": 1682,
+   "en-pt": 1746,
+   "en-fr": 1871
+  },
+  "missing_audio": 0
+ },
+ "gpu_memory_mib": {
+  "stack server (Whisper large-v3, Omnilingual 300M + 7B, Hy-MT2 4-bit, MADLAD 3B fallback, Piper/Kokoro/MMS/Coqui)": 32972,
+  "VoxCPM2 voice service": 7128,
+  "vLLM (Gemma 4 or MiLMMT, gpu-memory-utilization 0.36)": 27756,
+  "total of an 80 GB card": 67876
+ },
+ "results": {
+  "a": {
+   "en-ht": {
+    "gemma": {
+     "written": {
+      "q": 63.3,
+      "crit": 4,
+      "n": 20
+     },
+     "said": {
+      "q": 76.7,
+      "crit": 4,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.086,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1590,
+      "p90": 1958,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1735,
+      "p90": 1958,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    }
+   },
+   "es-en": {
+    "hymt": {
+     "written": {
+      "q": 81.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 84.2,
+      "crit": 1,
+      "n": 19
+     },
+     "cer_said": 0.009,
+     "cer_written": 0.01,
+     "missing_audio": 0,
+     "utterances": 26,
+     "stop_to_first_audio_ms": {
+      "p50": 2490,
+      "p90": 2867,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2530,
+      "p90": 2867,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    }
+   },
+   "fr-en": {
+    "hymt": {
+     "written": {
+      "q": 85.0,
+      "crit": 3,
+      "n": 20
+     },
+     "said": {
+      "q": 85.0,
+      "crit": 3,
+      "n": 20
+     },
+     "cer_said": 0.025,
+     "cer_written": 0.025,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 2536,
+      "p90": 2807,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2546,
+      "p90": 2807,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    }
+   },
+   "ht-en": {
+    "gemma": {
+     "written": {
+      "q": 55.0,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 54.9,
+      "crit": 9,
+      "n": 17
+     },
+     "cer_said": 0.022,
+     "cer_written": 0.045,
+     "missing_audio": 0,
+     "utterances": 21,
+     "stop_to_first_audio_ms": {
+      "p50": 2916,
+      "p90": 3446,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 3058,
+      "p90": 3557,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "A"
+    },
+    "pre38": {
+     "written": {
+      "q": 55.0,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 54.9,
+      "crit": 8,
+      "n": 17
+     },
+     "cer_said": 0.029,
+     "cer_written": 0.043,
+     "missing_audio": 0,
+     "utterances": 31,
+     "stop_to_first_audio_ms": {
+      "p50": 996,
+      "p90": 2654,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2288,
+      "p90": 2767,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "PA"
+    }
+   },
+   "km-en": {
+    "pre38": {
+     "written": {
+      "q": 58.3,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 64.8,
+      "crit": 6,
+      "n": 18
+     },
+     "cer_said": 0.086,
+     "cer_written": 0.114,
+     "missing_audio": 0,
+     "utterances": 25,
+     "stop_to_first_audio_ms": {
+      "p50": 3848,
+      "p90": 4611,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 3942,
+      "p90": 4687,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "PA"
+    },
+    "hymt": {
+     "written": {
+      "q": 58.3,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 64.8,
+      "crit": 6,
+      "n": 18
+     },
+     "cer_said": 0.083,
+     "cer_written": 0.111,
+     "missing_audio": 0,
+     "utterances": 24,
+     "stop_to_first_audio_ms": {
+      "p50": 3762,
+      "p90": 4455,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 3885,
+      "p90": 4510,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "A"
+    }
+   },
+   "pt-en": {
+    "hymt": {
+     "written": {
+      "q": 78.3,
+      "crit": 3,
+      "n": 20
+     },
+     "said": {
+      "q": 78.3,
+      "crit": 3,
+      "n": 20
+     },
+     "cer_said": 0.012,
+     "cer_written": 0.012,
+     "missing_audio": 0,
+     "utterances": 28,
+     "stop_to_first_audio_ms": {
+      "p50": 2274,
+      "p90": 2760,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2409,
+      "p90": 2766,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    }
+   },
+   "en-es": {
+    "gemma": {
+     "written": {
+      "q": 61.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 75.0,
+      "crit": 3,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.086,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1615,
+      "p90": 1908,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1682,
+      "p90": 1964,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    },
+    "hymt": {
+     "written": {
+      "q": 61.7,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 73.3,
+      "crit": 4,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.086,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 2496,
+      "p90": 3353,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2496,
+      "p90": 3353,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "A"
+    }
+   },
+   "en-fr": {
+    "gemma": {
+     "written": {
+      "q": 61.7,
+      "crit": 3,
+      "n": 20
+     },
+     "said": {
+      "q": 75.0,
+      "crit": 4,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.086,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1799,
+      "p90": 2061,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1871,
+      "p90": 2095,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    },
+    "hymt": {
+     "written": {
+      "q": 63.3,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 71.7,
+      "crit": 5,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.086,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 2721,
+      "p90": 3182,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2721,
+      "p90": 3182,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "A"
+    }
+   },
+   "en-ja": {
+    "hymt": {
+     "written": {
+      "q": 63.3,
+      "crit": 6,
+      "n": 20
+     },
+     "said": {
+      "q": 75.0,
+      "crit": 4,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.086,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 3018,
+      "p90": 3469,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 3018,
+      "p90": 3469,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "A"
+    },
+    "gemma": {
+     "written": {
+      "q": 63.3,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 73.3,
+      "crit": 6,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.086,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1686,
+      "p90": 1930,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1742,
+      "p90": 1968,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    }
+   },
+   "en-km": {
+    "hymt": {
+     "written": {
+      "q": 50.0,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 63.3,
+      "crit": 7,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.261,
+     "missing_audio": 5,
+     "utterances": 19,
+     "stop_to_first_audio_ms": {
+      "p50": 22220,
+      "p90": 31320,
+      "n": 15
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 25003,
+      "p90": 31320,
+      "n": 15
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    },
+    "gemma": {
+     "written": {
+      "q": 56.7,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 70.0,
+      "crit": 4,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.086,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1792,
+      "p90": 2230,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1848,
+      "p90": 2230,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    }
+   },
+   "en-pt": {
+    "gemma": {
+     "written": {
+      "q": 66.7,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 3,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.086,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1626,
+      "p90": 1898,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1746,
+      "p90": 1898,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    },
+    "hymt": {
+     "written": {
+      "q": 66.7,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 3,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.086,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 2601,
+      "p90": 3183,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2601,
+      "p90": 3183,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "A"
+    }
+   },
+   "ja-en": {
+    "gemma": {
+     "written": {
+      "q": 75.0,
+      "crit": 6,
+      "n": 20
+     },
+     "said": {
+      "q": 74.1,
+      "crit": 6,
+      "n": 18
+     },
+     "cer_said": 0.051,
+     "cer_written": 0.05,
+     "missing_audio": 0,
+     "utterances": 21,
+     "stop_to_first_audio_ms": {
+      "p50": 2394,
+      "p90": 2650,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2394,
+      "p90": 2650,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    },
+    "hymt": {
+     "written": {
+      "q": 70.0,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 70.4,
+      "crit": 7,
+      "n": 18
+     },
+     "cer_said": 0.051,
+     "cer_written": 0.05,
+     "missing_audio": 0,
+     "utterances": 21,
+     "stop_to_first_audio_ms": {
+      "p50": 2788,
+      "p90": 3213,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2788,
+      "p90": 3213,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    },
+    "pre38": {
+     "written": {
+      "q": 65.0,
+      "crit": 8,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 7,
+      "n": 18
+     },
+     "cer_said": 0.051,
+     "cer_written": 0.05,
+     "missing_audio": 0,
+     "utterances": 25,
+     "stop_to_first_audio_ms": {
+      "p50": 1602,
+      "p90": 2750,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2258,
+      "p90": 2750,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "PA"
+    }
+   },
+   "en-lo": {
+    "milmmt": {
+     "written": {
+      "q": 56.7,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 75.0,
+      "crit": 4,
+      "n": 20
+     },
+     "cer_said": 0.063,
+     "cer_written": 0.086,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 2044,
+      "p90": 2954,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2124,
+      "p90": 2954,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "L"
+    }
+   },
+   "lo-en": {
+    "milmmt": {
+     "written": {
+      "q": 43.3,
+      "crit": 14,
+      "n": 20
+     },
+     "said": {
+      "q": 43.9,
+      "crit": 13,
+      "n": 19
+     },
+     "cer_said": 0.191,
+     "cer_written": 0.182,
+     "missing_audio": 1,
+     "utterances": 27,
+     "stop_to_first_audio_ms": {
+      "p50": 2676,
+      "p90": 3645,
+      "n": 19
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2696,
+      "p90": 3645,
+      "n": 19
+     },
+     "dropped_utterances": 0,
+     "run": "L"
+    },
+    "pre38": {
+     "written": {
+      "q": 41.7,
+      "crit": 13,
+      "n": 20
+     },
+     "said": {
+      "q": 43.9,
+      "crit": 12,
+      "n": 19
+     },
+     "cer_said": 0.198,
+     "cer_written": 0.203,
+     "missing_audio": 1,
+     "utterances": 33,
+     "stop_to_first_audio_ms": {
+      "p50": 2526,
+      "p90": 3919,
+      "n": 19
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2941,
+      "p90": 6353,
+      "n": 19
+     },
+     "dropped_utterances": 0,
+     "run": "PL"
+    }
+   }
+  },
+  "b": {
+   "en-ht": {
+    "gemma": {
+     "written": {
+      "q": 51.7,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 61.7,
+      "crit": 5,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1405,
+      "p90": 1707,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1458,
+      "p90": 1930,
+      "n": 20
+     },
+     "dropped_utterances": 4,
+     "run": "A"
+    }
+   },
+   "es-en": {
+    "hymt": {
+     "written": {
+      "q": 85.0,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 85.0,
+      "crit": 2,
+      "n": 20
+     },
+     "cer_said": 0.007,
+     "cer_written": 0.007,
+     "missing_audio": 0,
+     "utterances": 24,
+     "stop_to_first_audio_ms": {
+      "p50": 2446,
+      "p90": 2692,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2542,
+      "p90": 2692,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    }
+   },
+   "fr-en": {
+    "hymt": {
+     "written": {
+      "q": 68.3,
+      "crit": 5,
+      "n": 20
+     },
+     "said": {
+      "q": 68.5,
+      "crit": 5,
+      "n": 18
+     },
+     "cer_said": 0.019,
+     "cer_written": 0.02,
+     "missing_audio": 0,
+     "utterances": 25,
+     "stop_to_first_audio_ms": {
+      "p50": 2625,
+      "p90": 2955,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2636,
+      "p90": 2955,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    }
+   },
+   "ht-en": {
+    "pre38": {
+     "written": {
+      "q": 35.0,
+      "crit": 15,
+      "n": 20
+     },
+     "said": {
+      "q": 38.9,
+      "crit": 13,
+      "n": 18
+     },
+     "cer_said": 0.059,
+     "cer_written": 0.122,
+     "missing_audio": 0,
+     "utterances": 31,
+     "stop_to_first_audio_ms": {
+      "p50": 270,
+      "p90": 2963,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2103,
+      "p90": 2963,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "PA"
+    },
+    "gemma": {
+     "written": {
+      "q": 40.0,
+      "crit": 13,
+      "n": 20
+     },
+     "said": {
+      "q": 44.4,
+      "crit": 11,
+      "n": 18
+     },
+     "cer_said": 0.039,
+     "cer_written": 0.104,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 2308,
+      "p90": 3292,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2630,
+      "p90": 3292,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "A"
+    }
+   },
+   "km-en": {
+    "hymt": {
+     "written": {
+      "q": 56.7,
+      "crit": 5,
+      "n": 20
+     },
+     "said": {
+      "q": 57.9,
+      "crit": 5,
+      "n": 19
+     },
+     "cer_said": 0.095,
+     "cer_written": 0.102,
+     "missing_audio": 0,
+     "utterances": 24,
+     "stop_to_first_audio_ms": {
+      "p50": 3597,
+      "p90": 4854,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 3664,
+      "p90": 4854,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "A"
+    },
+    "pre38": {
+     "written": {
+      "q": 53.3,
+      "crit": 6,
+      "n": 20
+     },
+     "said": {
+      "q": 54.4,
+      "crit": 6,
+      "n": 19
+     },
+     "cer_said": 0.123,
+     "cer_written": 0.129,
+     "missing_audio": 0,
+     "utterances": 25,
+     "stop_to_first_audio_ms": {
+      "p50": 3572,
+      "p90": 5470,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 3706,
+      "p90": 5660,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "PA"
+    }
+   },
+   "pt-en": {
+    "hymt": {
+     "written": {
+      "q": 68.3,
+      "crit": 7,
+      "n": 20
+     },
+     "said": {
+      "q": 68.3,
+      "crit": 7,
+      "n": 20
+     },
+     "cer_said": 0.013,
+     "cer_written": 0.013,
+     "missing_audio": 0,
+     "utterances": 27,
+     "stop_to_first_audio_ms": {
+      "p50": 2341,
+      "p90": 2673,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2469,
+      "p90": 2673,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    }
+   },
+   "en-es": {
+    "gemma": {
+     "written": {
+      "q": 63.3,
+      "crit": 5,
+      "n": 20
+     },
+     "said": {
+      "q": 70.0,
+      "crit": 6,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1518,
+      "p90": 1747,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1558,
+      "p90": 2007,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    },
+    "hymt": {
+     "written": {
+      "q": 66.7,
+      "crit": 5,
+      "n": 20
+     },
+     "said": {
+      "q": 71.7,
+      "crit": 5,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 2167,
+      "p90": 2893,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2226,
+      "p90": 2893,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    }
+   },
+   "en-fr": {
+    "hymt": {
+     "written": {
+      "q": 60.0,
+      "crit": 4,
+      "n": 20
+     },
+     "said": {
+      "q": 61.7,
+      "crit": 5,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 2614,
+      "p90": 3230,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2630,
+      "p90": 3230,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    },
+    "gemma": {
+     "written": {
+      "q": 61.7,
+      "crit": 4,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 4,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1668,
+      "p90": 2183,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1764,
+      "p90": 2223,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    }
+   },
+   "en-ja": {
+    "gemma": {
+     "written": {
+      "q": 60.0,
+      "crit": 4,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 5,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1568,
+      "p90": 1831,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1658,
+      "p90": 2050,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    },
+    "hymt": {
+     "written": {
+      "q": 61.7,
+      "crit": 4,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 4,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 2625,
+      "p90": 3486,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2832,
+      "p90": 3486,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    }
+   },
+   "en-km": {
+    "hymt": {
+     "written": {
+      "q": 50.0,
+      "crit": 13,
+      "n": 20
+     },
+     "said": {
+      "q": 63.3,
+      "crit": 4,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.158,
+     "missing_audio": 2,
+     "utterances": 21,
+     "stop_to_first_audio_ms": {
+      "p50": 24412,
+      "p90": 29481,
+      "n": 18
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 25679,
+      "p90": 29481,
+      "n": 18
+     },
+     "dropped_utterances": 4,
+     "run": "A"
+    },
+    "gemma": {
+     "written": {
+      "q": 40.0,
+      "crit": 12,
+      "n": 20
+     },
+     "said": {
+      "q": 56.7,
+      "crit": 2,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1686,
+      "p90": 2044,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1745,
+      "p90": 2231,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    }
+   },
+   "en-pt": {
+    "hymt": {
+     "written": {
+      "q": 63.3,
+      "crit": 4,
+      "n": 20
+     },
+     "said": {
+      "q": 66.7,
+      "crit": 4,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 2192,
+      "p90": 2952,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2298,
+      "p90": 2952,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    },
+    "gemma": {
+     "written": {
+      "q": 65.0,
+      "crit": 4,
+      "n": 20
+     },
+     "said": {
+      "q": 65.0,
+      "crit": 4,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1472,
+      "p90": 2528,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1545,
+      "p90": 2528,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    }
+   },
+   "ja-en": {
+    "pre38": {
+     "written": {
+      "q": 75.0,
+      "crit": 4,
+      "n": 20
+     },
+     "said": {
+      "q": 75.4,
+      "crit": 4,
+      "n": 19
+     },
+     "cer_said": 0.022,
+     "cer_written": 0.029,
+     "missing_audio": 0,
+     "utterances": 26,
+     "stop_to_first_audio_ms": {
+      "p50": 2310,
+      "p90": 3052,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2544,
+      "p90": 3070,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "PA"
+    },
+    "hymt": {
+     "written": {
+      "q": 80.0,
+      "crit": 4,
+      "n": 20
+     },
+     "said": {
+      "q": 80.7,
+      "crit": 4,
+      "n": 19
+     },
+     "cer_said": 0.025,
+     "cer_written": 0.031,
+     "missing_audio": 0,
+     "utterances": 20,
+     "stop_to_first_audio_ms": {
+      "p50": 3124,
+      "p90": 3561,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 3124,
+      "p90": 3561,
+      "n": 20
+     },
+     "dropped_utterances": 2,
+     "run": "A"
+    },
+    "gemma": {
+     "written": {
+      "q": 85.0,
+      "crit": 2,
+      "n": 20
+     },
+     "said": {
+      "q": 87.7,
+      "crit": 2,
+      "n": 19
+     },
+     "cer_said": 0.025,
+     "cer_written": 0.031,
+     "missing_audio": 0,
+     "utterances": 20,
+     "stop_to_first_audio_ms": {
+      "p50": 2522,
+      "p90": 2802,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2522,
+      "p90": 2802,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "B"
+    }
+   },
+   "en-lo": {
+    "milmmt": {
+     "written": {
+      "q": 60.0,
+      "crit": 11,
+      "n": 20
+     },
+     "said": {
+      "q": 68.3,
+      "crit": 5,
+      "n": 20
+     },
+     "cer_said": 0.036,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1806,
+      "p90": 2337,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1845,
+      "p90": 2505,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "L"
+    }
+   },
+   "lo-en": {
+    "pre38": {
+     "written": {
+      "q": 53.3,
+      "crit": 10,
+      "n": 20
+     },
+     "said": {
+      "q": 54.4,
+      "crit": 9,
+      "n": 19
+     },
+     "cer_said": 0.13,
+     "cer_written": 0.128,
+     "missing_audio": 0,
+     "utterances": 27,
+     "stop_to_first_audio_ms": {
+      "p50": 2729,
+      "p90": 3757,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2905,
+      "p90": 4131,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "PL"
+    },
+    "milmmt": {
+     "written": {
+      "q": 56.7,
+      "crit": 9,
+      "n": 20
+     },
+     "said": {
+      "q": 57.9,
+      "crit": 8,
+      "n": 19
+     },
+     "cer_said": 0.124,
+     "cer_written": 0.122,
+     "missing_audio": 0,
+     "utterances": 26,
+     "stop_to_first_audio_ms": {
+      "p50": 2780,
+      "p90": 3483,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2877,
+      "p90": 3483,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "run": "L"
+    }
+   }
+  }
+ }
+}
