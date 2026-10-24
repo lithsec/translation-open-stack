@@ -1,0 +1,475 @@
+{
+ "by_direction": {
+  "lo-en": {
+   "or-gpt-6-sol@low": {
+    "written": {
+     "q": 79.6,
+     "crit": 3,
+     "n": 18
+    },
+    "said": {
+     "q": 79.6,
+     "crit": 3,
+     "n": 18
+    },
+    "n_req": 53,
+    "empty_or_error": 13,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "foundry-gpt-5.6-sol@low": {
+    "written": {
+     "q": 72.2,
+     "crit": 5,
+     "n": 18
+    },
+    "said": {
+     "q": 72.2,
+     "crit": 5,
+     "n": 18
+    },
+    "n_req": 53,
+    "empty_or_error": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "or-gpt-5.6-sol@low": {
+    "written": {
+     "q": 74.1,
+     "crit": 3,
+     "n": 18
+    },
+    "said": {
+     "q": 74.1,
+     "crit": 3,
+     "n": 18
+    },
+    "n_req": 53,
+    "empty_or_error": 17,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "or-gpt-6.1-sol@low": {
+    "written": {
+     "q": 74.1,
+     "crit": 4,
+     "n": 18
+    },
+    "said": {
+     "q": 74.1,
+     "crit": 4,
+     "n": 18
+    },
+    "n_req": 53,
+    "empty_or_error": 4,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   }
+  },
+  "km-en": {
+   "or-gpt-6.1-sol@low": {
+    "written": {
+     "q": 87.5,
+     "crit": 2,
+     "n": 16
+    },
+    "said": {
+     "q": 86.7,
+     "crit": 2,
+     "n": 15
+    },
+    "n_req": 48,
+    "empty_or_error": 5,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "or-gpt-5.6-sol@low": {
+    "written": {
+     "q": 85.4,
+     "crit": 2,
+     "n": 16
+    },
+    "said": {
+     "q": 84.4,
+     "crit": 2,
+     "n": 15
+    },
+    "n_req": 48,
+    "empty_or_error": 22,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "or-gpt-6-sol@low": {
+    "written": {
+     "q": 91.7,
+     "crit": 1,
+     "n": 16
+    },
+    "said": {
+     "q": 91.1,
+     "crit": 1,
+     "n": 15
+    },
+    "n_req": 48,
+    "empty_or_error": 6,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "foundry-gpt-5.6-sol@low": {
+    "written": {
+     "q": 87.5,
+     "crit": 2,
+     "n": 16
+    },
+    "said": {
+     "q": 86.7,
+     "crit": 2,
+     "n": 15
+    },
+    "n_req": 48,
+    "empty_or_error": 0,
+    "providers": [
+     "foundry"
+    ]
+   }
+  },
+  "ht-en": {
+   "or-gpt-5.6-sol@low": {
+    "written": {
+     "q": 76.2,
+     "crit": 3,
+     "n": 14
+    },
+    "said": {
+     "q": 75.0,
+     "crit": 2,
+     "n": 12
+    },
+    "n_req": 44,
+    "empty_or_error": 13,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "foundry-gpt-5.6-sol@low": {
+    "written": {
+     "q": 69.0,
+     "crit": 4,
+     "n": 14
+    },
+    "said": {
+     "q": 66.7,
+     "crit": 3,
+     "n": 12
+    },
+    "n_req": 44,
+    "empty_or_error": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "or-gpt-6-sol@low": {
+    "written": {
+     "q": 71.4,
+     "crit": 3,
+     "n": 14
+    },
+    "said": {
+     "q": 69.4,
+     "crit": 2,
+     "n": 12
+    },
+    "n_req": 44,
+    "empty_or_error": 3,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "or-gpt-6.1-sol@low": {
+    "written": {
+     "q": 81.0,
+     "crit": 2,
+     "n": 14
+    },
+    "said": {
+     "q": 80.6,
+     "crit": 1,
+     "n": 12
+    },
+    "n_req": 44,
+    "empty_or_error": 15,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   }
+  },
+  "en-ht": {
+   "or-gpt-6-sol@low": {
+    "written": {
+     "q": 61.9,
+     "crit": 2,
+     "n": 7
+    },
+    "said": {
+     "q": 80.0,
+     "crit": 1,
+     "n": 5
+    },
+    "n_req": 20,
+    "empty_or_error": 0,
+    "providers": [
+     "Azure"
+    ]
+   },
+   "foundry-gpt-5.6-sol@low": {
+    "written": {
+     "q": 61.9,
+     "crit": 2,
+     "n": 7
+    },
+    "said": {
+     "q": 80.0,
+     "crit": 1,
+     "n": 5
+    },
+    "n_req": 20,
+    "empty_or_error": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "or-gpt-5.6-sol@low": {
+    "written": {
+     "q": 66.7,
+     "crit": 2,
+     "n": 7
+    },
+    "said": {
+     "q": 86.7,
+     "crit": 1,
+     "n": 5
+    },
+    "n_req": 20,
+    "empty_or_error": 12,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "or-gpt-6.1-sol@low": {
+    "written": {
+     "q": 66.7,
+     "crit": 2,
+     "n": 7
+    },
+    "said": {
+     "q": 86.7,
+     "crit": 1,
+     "n": 5
+    },
+    "n_req": 20,
+    "empty_or_error": 9,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   }
+  },
+  "en-es": {
+   "foundry-gpt-5.6-sol@low": {
+    "written": {
+     "q": 86.7,
+     "crit": 0,
+     "n": 5
+    },
+    "said": {
+     "q": 100.0,
+     "crit": 0,
+     "n": 2
+    },
+    "n_req": 20,
+    "empty_or_error": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "or-gpt-6.1-sol@low": {
+    "written": {
+     "q": 73.3,
+     "crit": 0,
+     "n": 5
+    },
+    "said": {
+     "q": 100.0,
+     "crit": 0,
+     "n": 2
+    },
+    "n_req": 20,
+    "empty_or_error": 6,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "or-gpt-6-sol@low": {
+    "written": {
+     "q": 60.0,
+     "crit": 0,
+     "n": 5
+    },
+    "said": {
+     "q": 100.0,
+     "crit": 0,
+     "n": 2
+    },
+    "n_req": 20,
+    "empty_or_error": 3,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "or-gpt-5.6-sol@low": {
+    "written": {
+     "q": 73.3,
+     "crit": 0,
+     "n": 5
+    },
+    "said": {
+     "q": 100.0,
+     "crit": 0,
+     "n": 2
+    },
+    "n_req": 20,
+    "empty_or_error": 13,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   }
+  },
+  "es-en": {
+   "foundry-gpt-5.6-sol@low": {
+    "written": {
+     "q": 77.8,
+     "crit": 1,
+     "n": 6
+    },
+    "said": {
+     "q": 77.8,
+     "crit": 1,
+     "n": 6
+    },
+    "n_req": 20,
+    "empty_or_error": 0,
+    "providers": [
+     "foundry"
+    ]
+   },
+   "or-gpt-6.1-sol@low": {
+    "written": {
+     "q": 77.8,
+     "crit": 1,
+     "n": 6
+    },
+    "said": {
+     "q": 77.8,
+     "crit": 1,
+     "n": 6
+    },
+    "n_req": 20,
+    "empty_or_error": 4,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "or-gpt-5.6-sol@low": {
+    "written": {
+     "q": 77.8,
+     "crit": 1,
+     "n": 6
+    },
+    "said": {
+     "q": 77.8,
+     "crit": 1,
+     "n": 6
+    },
+    "n_req": 20,
+    "empty_or_error": 14,
+    "providers": [
+     "Azure",
+     "None"
+    ]
+   },
+   "or-gpt-6-sol@low": {
+    "written": {
+     "q": 77.8,
+     "crit": 1,
+     "n": 6
+    },
+    "said": {
+     "q": 77.8,
+     "crit": 1,
+     "n": 6
+    },
+    "n_req": 20,
+    "empty_or_error": 0,
+    "providers": [
+     "Azure"
+    ]
+   }
+  }
+ },
+ "successful_requests": {
+  "foundry-gpt-5.6-sol@low": {
+   "ok": 245,
+   "p50_ms": 2027,
+   "p90_ms": 4304,
+   "tok_in": 223,
+   "tok_out": 144,
+   "usd_per_hour_list": 1.63
+  },
+  "or-gpt-5.6-sol@low": {
+   "ok": 130,
+   "p50_ms": 3014,
+   "p90_ms": 15015,
+   "tok_in": 239,
+   "tok_out": 140,
+   "usd_per_hour_list": 1.47
+  },
+  "or-gpt-6.1-sol@low": {
+   "ok": 177,
+   "p50_ms": 3646,
+   "p90_ms": 16708,
+   "tok_in": 247,
+   "tok_out": 92,
+   "usd_per_hour_list": 0.56
+  },
+  "or-gpt-6-sol@low": {
+   "ok": 203,
+   "p50_ms": 2232,
+   "p90_ms": 6025,
+   "tok_in": 213,
+   "tok_out": 102,
+   "usd_per_hour_list": 0.57
+  }
+ },
+ "note": "Graded only sentences every system finished (OpenRouter account credit ran out mid-run, HTTP 402); en-km and en-lo had too few to grade."
+}
