@@ -24,7 +24,9 @@ round. Use it to sort languages, not to rank close systems.
     resource; the East US 2 resource refused it ("Enhanced mode with model is
     currently not supported yet").
   - Omnilingual 300M through the omni-stt service, for the languages that
-    service maps (`OMNI_CODES`): not Cantonese or Cape Verdean Creole.
+    service maps (`OMNI_CODES`): not Cantonese. Cape Verdean Creole was added
+    to the service afterwards (#66, `kea` → `kea_Latn`) and measured on a
+    test revision of the live service (see the table).
   - Scored with `score.py`: character error (and word error where words are
     spaced) against the FLEURS text, NFKC, lowercase, letters and digits only.
     Numbers are not spelled out, which costs every system alike.
@@ -50,7 +52,7 @@ Recognition, characters wrong (%), best in bold:
 |---|---|---|---|
 | Vietnamese | 4.6 | **1.5** | 22.8 |
 | Persian | 5.6 | **1.4** | 6.5 |
-| Cape Verdean Creole | no locale | not supported | not mapped in omni-stt |
+| Cape Verdean Creole | no locale | not supported | **15.9** (words 47.1) |
 | Mandarin | 4.9 | **4.6** | 15.4 |
 | Cantonese | **4.8** | 5.9 | not mapped |
 | Arabic | 1.8 | **0.9** | 2.3 |
@@ -112,7 +114,7 @@ Voices:
 | Swahili | **tested-good** with MAI | MAI hears (Azure 16%) → sol; Gemma 7–15 behind. |
 | Filipino | **tested-good** | MAI hears → Gemma ≈ sol. |
 | Ukrainian | **tested-good** | MAI hears → sol; Gemma 8–12 behind out of English. |
-| Cape Verdean Creole | **experimental** | No tested recogniser, no voice. Translation works (sol or Gemma), so captions from typed text only. Omnilingual likely covers it but omni-stt doesn't map it. |
+| Cape Verdean Creole | **experimental** | No tested recogniser, no voice. Translation works (sol or Gemma), so captions from typed text only. Omnilingual hears it at 15.9% of characters wrong (47.1% of words), usable for rough captions but not yet for confident live translation. |
 | Twi | **experimental** | Text only: sol 82 into English; Gemma unusable (28–37). Recognition untested; Gemini TTS lists Akan. |
 | Hmong | **not supported** (untested) | No open test data; no Azure or Gemini voice. |
 

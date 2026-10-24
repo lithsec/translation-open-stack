@@ -915,6 +915,15 @@
     "empty": 0,
     "p50_s": 1.384
    }
+  },
+  "kea": {
+   "omni": {
+    "cer": 15.9,
+    "wer": 47.1,
+    "empty": 0,
+    "p50_s": 4.346,
+    "note": "omni-stt revision with the kea mapping (#66), deployed with no traffic"
+   }
   }
  },
  "translation": {
