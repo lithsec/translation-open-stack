@@ -181,6 +181,8 @@ The shipped choices, from the full stack live on two clip sets
 |---|---|---|
 | en → es, pt, fr, ja, km | Gemma 4 31B (`llmmt`, port 8101) | Hy-MT2 |
 | en → de, ru, zh, vi, tl ¹ | Gemma 4 31B | Hy-MT2 |
+| en → uk, ar, fa ² | Gemma 4 31B | Hy-MT2 |
+| en → sw ² | Gemma 4 31B | MADLAD |
 | ja → en | Gemma 4 31B | Hy-MT2 |
 | zh, vi, tl, ar, fa → en ¹ | Gemma 4 31B | Hy-MT2 |
 | en ↔ ht | Gemma 4 31B | MADLAD into ht, Hy-MT2 (after MADLAD's pivot) into en |
@@ -191,6 +193,9 @@ The shipped choices, from the full stack live on two clip sets
 ¹ From Lithos Talk's route table (2026-10-27): Gemma 4 within 5 points of gpt-5.6-sol and
 scoring at least 80, measured hosted in bf16 on Azure or MAI transcripts. Not yet measured on
 this stack's 4-bit build and recognisers.
+² The router prefers gpt-5.6-sol here, but Gemma 4 beats the stack's own translator in the
+short check (`eval/2026-10-language-short-check`): uk 88 vs Hy-MT2 75, ar 90 vs 85, fa 90 vs 88;
+sw 87 vs MADLAD's 69 (September, round 8).
 
 The two LLMs run in vLLM beside the stack:
 

@@ -117,7 +117,8 @@ LONG_TURNS = {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500
 # English into es pt fr ja km, ja -> en, and both ways for ht; MiLMMT both ways for Lao; Hy-MT2 into
 # English from es pt fr km. From Lithos Talk's route table (2026-10-27; Gemma within 5 points of
 # gpt-5.6-sol and at least 80; not yet measured on this stack): Gemma 4 into de ru zh vi tl, and into
-# English from zh vi tl ar fa. llmmt is tried first and only while its server answers (engines/llmmt.py):
+# English from zh vi tl ar fa; also into uk ar fa sw, where Gemma beats the stack's own translator in the
+# short check (eval/2026-10-language-short-check). llmmt is tried first and only while its server answers (engines/llmmt.py):
 # without the vLLM servers beside the stack, every pair falls back to the translator it had before.
 GEMMA = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
 MILMMT = "milmmt http://127.0.0.1:8102/v1 xiaomi-research/MiLMMT-46-12B-v0.1"
@@ -140,7 +141,8 @@ DEFAULTS = {
     "ru": {"piper": "ru_RU-irina-medium", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
            "translator_to_en": "hymt", "madlad": "ru",
            "commercial": {"voxcpm": True}},
-    "uk": {"piper": "uk_UA-ukrainian_tts-medium", "asr": "whisper", "translator": "hymt", "madlad": "uk"},
+    "uk": {"piper": "uk_UA-ukrainian_tts-medium", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
+           "translator_to_en": "hymt", "madlad": "uk"},
     "zh": {"kokoro": "z:zf_xiaobei", "piper": "zh_CN-huayan-medium", "asr": "whisper",
            "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": ["llmmt", "hymt"], "madlad": "zh"},
     "ja": {"kokoro": "j:jf_alpha", "piper": "ja_JP-hi_fi_captain-medium", "asr": "whisper",
@@ -151,10 +153,10 @@ DEFAULTS = {
     "vi": {"piper": "vi_VN-vais1000-medium", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
            "translator_to_en": ["llmmt", "hymt"], "madlad": "vi",
            "commercial": {"voxcpm": True}},
-    "ar": {"piper": "ar_JO-kareem-medium", "asr": "whisper", "translator": "hymt", "llmmt": GEMMA,
+    "ar": {"piper": "ar_JO-kareem-medium", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
            "translator_to_en": ["llmmt", "hymt"], "madlad": "ar",
            "commercial": {"voxcpm": True}},
-    "fa": {"piper": "fa_IR-gyro-medium", "asr": "omni:pes_Arab", "translator": "hymt", "llmmt": GEMMA,
+    "fa": {"piper": "fa_IR-gyro-medium", "asr": "omni:pes_Arab", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
            "translator_to_en": ["llmmt", "hymt"], "madlad": "fa"},
     "id": {"piper": "id_ID-news_tts-medium", "asr": "whisper", "translator": "hymt", "madlad": "id",
            "commercial": {"voxcpm": True}},
@@ -164,7 +166,8 @@ DEFAULTS = {
     "ur": {"piper": "ur_PK-aegis_female-medium", "asr": "omni:urd_Arab", "translator": "hymt", "madlad": "ur"},
     "hi": {"kokoro": "h:hf_alpha", "piper": "hi_IN-rohan-medium", "asr": "omni:hin_Deva", "translator": "hymt",
            "madlad": "hi"},
-    "sw": {"piper": "sw_CD-lanfrica-medium", "asr": "omni:swh_Latn", "translator": "madlad", "madlad": "sw",
+    "sw": {"piper": "sw_CD-lanfrica-medium", "asr": "omni:swh_Latn", "translator": ["llmmt", "madlad"], "llmmt": GEMMA,
+           "madlad": "sw",
            "commercial": {"voxcpm": True}},
     "ro": {"piper": "ro_RO-mihai-medium", "asr": "whisper", "translator": "madlad", "madlad": "ro"},
     "ht": {"coqui": "multilingual-tts/VITS-OpenBible-Haitian-Creole", "mms": "facebook/mms-tts-hat",
