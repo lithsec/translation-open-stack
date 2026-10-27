@@ -11,6 +11,8 @@
 #   ./deploy.sh build-voices             # the Haitian Creole voices layered on BASE_TAG (Dockerfile.voices)
 #   ./deploy.sh 7b-build                 # Meta's stock omniASR_LLM_7B (bf16): images and bucket copy (7b/)
 #   ./deploy.sh 7b-deploy                # the separate omni-stt-7b service (lo, km), /listen only
+#   ./deploy.sh duo-build                # the 7B and the CTC 3B streaming service in one image,
+#                                        # for one 48 GB GPU (README "One GPU for both"; BASE_TAG: 7b-build's tag)
 #
 # 7b-build: converts Meta's omniASR_LLM_7B checkpoint to bf16 inside Cloud Build
 # (7b/to_bf16.py), copies it to MODEL_BUCKET (gs://, private; for the volume
@@ -384,6 +386,47 @@ YAML
       --set-env-vars "$envs" \
       --set-secrets "$SECRETS" \
       --no-invoker-iam-check ${extra[@]+"${extra[@]}"} ${DEPLOY_FLAGS:-}
+    ;;
+  duo-build)
+    # The 7B finals service and the CTC 3B streaming service in one image, for
+    # one 48 GB-class GPU (README "One GPU for both"): layered on BASE_TAG's 7B image
+    # (<BASE_TAG>-7b, from 7b-build). Meta's 3B checkpoint is converted to bf16
+    # here, as 7b-build does for the 7B. Stock weights only. -> <TAG>-duo.
+    : "${BASE_TAG:?set BASE_TAG to the tag 7b-build used (its <BASE_TAG>-7b image is the base)}"
+    ctx="$(stage)"
+    cp "$HERE/7b/to_bf16.py" "$HERE/duo/"{Dockerfile.duo,cards.yaml,duo-start.sh,router.py} "$ctx/"
+    base="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$BASE_TAG-7b"
+    duo="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-duo"
+    cat > "$ctx/cloudbuild.yaml" <<YAML
+steps:
+- id: ckpt
+  name: python:3.12-slim-bookworm
+  entrypoint: bash
+  args:
+  - -c
+  - |
+    set -e
+    apt-get update -qq && apt-get install -y -qq curl >/dev/null
+    pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.8.0 numpy
+    mkdir -p ckpt
+    curl -sSfL --retry 5 -o ckpt/fp32.pt https://dl.fbaipublicfiles.com/mms/omniASR-CTC-3B.pt
+    python to_bf16.py ckpt/fp32.pt ckpt/omniASR_CTC_3B_bf16.pt
+    rm ckpt/fp32.pt
+    cd ckpt && sha256sum omniASR_CTC_3B_bf16.pt > SHA256SUMS && cat SHA256SUMS
+- id: duo
+  waitFor: [ckpt]
+  name: gcr.io/cloud-builders/docker
+  args: ["build", "-f", "Dockerfile.duo", "--build-arg", "BASE_IMAGE=$base", "-t", "$duo", "."]
+images: ["$duo"]
+options:
+  machineType: E2_HIGHCPU_32
+  diskSizeGb: 200
+timeout: 5400s
+YAML
+    [ "${DRY_RUN:-0}" != 1 ] || cat "$ctx/cloudbuild.yaml"
+    run gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
+    rm -rf "$ctx"
+    echo "built $duo (RunPod: README "One GPU for both")"
     ;;
   stage)
     stage

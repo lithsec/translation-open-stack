@@ -1,0 +1,34 @@
+# omni-stt "duo": the 7B finals service and the CTC 3B streaming service in one
+# image, for one GPU with room for both (48 GB class; ../README.md, "One GPU for both"). Layered
+# on the 7B image with its checkpoint baked in (<TAG>-7b, ../7b/Dockerfile.baked):
+# this adds the 3B's bf16 checkpoint and card, the current server code, and the
+# router that puts both services behind one port.
+#
+#   ./deploy.sh duo-build        # Cloud Build: convert the 3B, build, push
+#
+# Stock weights only (Meta's omniASR_LLM_7B and omniASR_CTC_3B, cast to bf16):
+# nothing private. Build context: the staged omni-stt files plus ckpt/ (the
+# 3B's bf16 checkpoint and its SHA256SUMS).
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+
+USER root
+# The checkpoint first, in its own layer: a code change reuses it.
+COPY ckpt/omniASR_CTC_3B_bf16.pt ckpt/SHA256SUMS /opt/models/ctc3b/
+RUN cd /opt/models/ctc3b && sha256sum -c SHA256SUMS
+COPY cards.yaml /opt/models/cards/ctc3b.yaml
+# The server as of this build (the base may predate the streaming track).
+COPY server.py omni_batch.py partials.py ctc_stream.py dips.py denoise.py voices.py ht_numbers.py mic.html audio_in.py stack_auth.py licences.py /opt/stt/
+COPY engines/ /opt/stt/engines/
+COPY duo-start.sh /opt/stt/duo-start.sh
+COPY router.py /opt/stt/duo/router.py
+RUN chmod 755 /opt/stt/duo-start.sh
+USER stt
+# The 3B card's tokenizer, by fairseq2's own loader, so the offline start finds it.
+RUN python -c "from fairseq2.data.tokenizers.hub import load_tokenizer; load_tokenizer('omniASR_CTC_3B_bf16'); print('fetched')"
+
+ENV PORT=8080 \
+    DUO_LISTEN_CARD=omniASR_LLM_7B_bf16 \
+    DUO_STREAM_CARD=omniASR_CTC_3B_bf16
+EXPOSE 8080
+CMD ["bash", "/opt/stt/duo-start.sh"]
