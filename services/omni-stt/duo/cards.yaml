@@ -1,0 +1,7 @@
+# Meta's stock omniASR_CTC_3B, converted to bf16 (../7b/to_bf16.py: 12.3 GB fp32
+# -> 6.2 GB) and nothing else. The streaming service's recogniser and track
+# (duo-start.sh: OMNI_CARD and STT_CTC_CARD). Tokenizer and architecture come
+# from the stock card (base:).
+name: omniASR_CTC_3B_bf16
+base: omniASR_CTC_3B
+checkpoint: file:///opt/models/ctc3b/omniASR_CTC_3B_bf16.pt

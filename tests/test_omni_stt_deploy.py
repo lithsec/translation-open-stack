@@ -148,6 +148,17 @@ def _private_values():
     return out
 
 
+def test_duo_build_dry_run():
+    code, out, called = _run("duo-build", {"BASE_TAG": "abc123", "TAG": "def456"})
+    assert code == 0, out
+    assert "+ gcloud builds submit" in out and not called
+    assert "BASE_IMAGE=us-east4-docker.pkg.dev/proj/omni-stt/omni-stt:abc123-7b" in out
+    assert "us-east4-docker.pkg.dev/proj/omni-stt/omni-stt:def456-duo" in out
+    assert "omniASR-CTC-3B.pt" in out and "Dockerfile.duo" in out
+    code, out, _ = _run("duo-build", {"BASE_TAG": None})
+    assert code != 0 and "BASE_TAG" in out
+
+
 def test_no_private_default_is_committed():
     names = ("deploy.sh", "Dockerfile", "Dockerfile.ft", "Dockerfile.voices", "README.md", "private.env.example")
     texts = {n: open(os.path.join(SVC, n), encoding="utf-8").read() for n in names}

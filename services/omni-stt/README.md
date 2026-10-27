@@ -555,6 +555,55 @@ and lo test clips streamed at real time, `lookahead=2`):
 - **Scale to zero:** with no sockets, the instances retired 6-15 minutes
   after the last connection closed.
 
+### One GPU for both: the 7B and the streaming service (duo)
+
+On a 48 GB card both fit, so the two services run as **two processes on one
+GPU behind one port** (`duo/`): the 7B finals service on :8081, the 3B
+streaming service on :8082, and `duo/router.py` on :8080. A WebSocket whose
+query names `stream=` goes to the streaming service, every other one to the
+7B. A client therefore keeps one address and opens its second socket by
+adding `&stream=ctc&lookahead=2` to the same `/listen` URL.
+
+- Two processes rather than one serving both: each is exactly the service
+  measured on its own (the 7B with no track, the 3B as recogniser and
+  track), so the 7B never spends a decode on a streaming socket's pieces, and
+  a fault in one cannot take the other's state with it. `duo-start.sh` starts
+  all three and stops the container if any of them exits.
+- The router passes path, query, the `Authorization` header and the offered
+  subprotocols through unchanged, so each service checks the token itself,
+  and its close codes (4400, 4401, 4429, ...) reach the client as sent. Its
+  `/health` is 200 only while both services answer theirs; its port opens
+  only once both are up. A service that is gone closes the client with 1011.
+- Optional idle stop for a pod: `DUO_IDLE_MIN` (minutes without a
+  connection) and `DUO_MAX_UPTIME_H` make the router stop its own pod through
+  RunPod's API with the pod's own key (`RUNPOD_POD_ID`, `RUNPOD_API_KEY`).
+  Exiting the container is not a stop: RunPod restarts it and keeps billing.
+- The single-model services are unchanged: `7b-deploy` (Cloud Run, L4) and
+  the image `<TAG>-7b` work as before.
+
+```
+./deploy.sh 7b-build                               # once: <TAG>-7b (the base)
+BASE_TAG=<that tag> ./deploy.sh duo-build          # -> <TAG>-duo (3B bf16 + card + router baked in)
+```
+
+On RunPod (or any GPU host): the image `<TAG>-duo`, one 48 GB-class GPU (an
+A40, RTX A6000, RTX 6000 Ada or L40S; any GPU with 40 GB free will do),
+HTTP port 8080, container disk 60 GB (the image is about 28 GB unpacked), and
+the usual credentials (`STT_SIGNING_KEY`, `STT_TOKEN_NONPROFIT`, `STT_TOKEN`)
+plus `DUO_IDLE_MIN=15` `DUO_MAX_UPTIME_H=8`. The image is in your Artifact
+Registry repository, so the host needs a registry credential for it.
+Settings for one service only: `DUO_LISTEN_STREAMS` (6), `DUO_STREAM_STREAMS`
+(12), `DUO_LISTEN_CARD`, `DUO_STREAM_CARD`; the rest (endpointing, batching)
+reach both.
+
+Measured on an A40 (48 GB), 2026-10-27
+([eval/2026-10-omni-duo](../../eval/2026-10-omni-duo/README.md)): ready 16 s
+after start with both checkpoints dropped from the page cache; 24.0 GB of GPU
+memory at idle, 29.8 GB at the peak of six 7B streams beside six streaming
+ones (16 GB to spare), 35.3 GB with ten streaming ones. With six of each the
+streaming commit lag stays at the look-ahead plus 0.1-0.4 s, and the 7B's
+finals take about 1.2-1.6 s longer than with the 7B alone.
+
 ## Measured locally
 
 2026-10-17, MacBook Pro M2 Pro (16 GB, busy, swapping), CPU only, float32,
