@@ -10,6 +10,12 @@ says what a GPU run should measure before the flag is turned on anywhere.
 A second, unrelated helper lives beside it: energy dips as a secondary cue
 for where a piece should be cut (`dips.py`, last section).
 
+For Khmer and Lao there is now a cheaper route than decoding the growing
+buffer again: the CTC 3B streaming track (`services/omni-stt/ctc_stream.py`,
+`?stream=ctc`). It sends `partial` (the revisable tail) and `committed` (text
+that is never revised) from chunked CTC passes, and runs as a separate
+service. Measurements: [eval/2026-10-ctc-stream](../../eval/2026-10-ctc-stream/README.md).
+
 ## Why
 
 omni-stt sends text only when a piece ends (`inputTranscript`, after the

@@ -1,0 +1,903 @@
+{
+ "date": "2026-10-27",
+ "gpu": "NVIDIA L4 (24 GB), one stream = one real-time WebSocket client on the same machine",
+ "service": "omni-stt, OMNI_CARD=omniASR_CTC_3B (bf16) with STT_CTC_STREAM=1 (the separate streaming service), chunk 500 ms, left 8 s",
+ "cer_method": "score_stream.py: NFKC, lowercase, str.isalnum() characters only, pooled Levenshtein (as the 2026-10-26 research and judge.cer)",
+ "runs": {
+  "fleurs_km_la2": {
+   "file": "fleurs_km_la2.json",
+   "lang": "km",
+   "lookahead": "2",
+   "streams": 1,
+   "clips": 30,
+   "plays": 30,
+   "errors": 0,
+   "cer_committed": 16.1,
+   "cer_final": 14.2,
+   "cer_committed_marks": 14.4,
+   "cer_final_marks": 13.1,
+   "first_partial": {
+    "p50": 0.83,
+    "p90": 2.64,
+    "n": 30
+   },
+   "first_commit": {
+    "p50": 2.5,
+    "p90": 4.22,
+    "n": 30
+   },
+   "commit_lag": {
+    "p50": 2.1,
+    "p90": 2.21,
+    "n": 332
+   },
+   "partial_lag": {
+    "p50": 0.06,
+    "p90": 0.18,
+    "n": 503
+   },
+   "end_commit": {
+    "p50": 0.55,
+    "p90": 0.72,
+    "n": 30
+   },
+   "final": {
+    "p50": 0.67,
+    "p90": 0.93,
+    "n": 30
+   }
+  },
+  "fleurs_km_la1": {
+   "file": "fleurs_km_la1.json",
+   "lang": "km",
+   "lookahead": "1",
+   "streams": 1,
+   "clips": 30,
+   "plays": 30,
+   "errors": 0,
+   "cer_committed": 17.1,
+   "cer_final": 14.2,
+   "cer_committed_marks": 14.9,
+   "cer_final_marks": 13.1,
+   "first_partial": {
+    "p50": 0.82,
+    "p90": 2.57,
+    "n": 30
+   },
+   "first_commit": {
+    "p50": 1.46,
+    "p90": 3.17,
+    "n": 30
+   },
+   "commit_lag": {
+    "p50": 1.04,
+    "p90": 1.19,
+    "n": 428
+   },
+   "partial_lag": {
+    "p50": 0.02,
+    "p90": 0.15,
+    "n": 503
+   },
+   "end_commit": {
+    "p50": 0.42,
+    "p90": 0.65,
+    "n": 30
+   },
+   "final": {
+    "p50": 0.59,
+    "p90": 0.77,
+    "n": 30
+   }
+  },
+  "fleurs_lo_la2": {
+   "file": "fleurs_lo_la2.json",
+   "lang": "lo",
+   "lookahead": "2",
+   "streams": 1,
+   "clips": 30,
+   "plays": 30,
+   "errors": 0,
+   "cer_committed": 18.3,
+   "cer_final": 18.7,
+   "cer_committed_marks": 17.8,
+   "cer_final_marks": 19.1,
+   "first_partial": {
+    "p50": 1.16,
+    "p90": 1.88,
+    "n": 30
+   },
+   "first_commit": {
+    "p50": 2.79,
+    "p90": 3.59,
+    "n": 30
+   },
+   "commit_lag": {
+    "p50": 2.07,
+    "p90": 2.21,
+    "n": 199
+   },
+   "partial_lag": {
+    "p50": 0.04,
+    "p90": 0.19,
+    "n": 476
+   },
+   "end_commit": {
+    "p50": 0.11,
+    "p90": 0.7,
+    "n": 30
+   },
+   "final": {
+    "p50": 0.11,
+    "p90": 0.68,
+    "n": 30
+   }
+  },
+  "fleurs_lo_la1": {
+   "file": "fleurs_lo_la1.json",
+   "lang": "lo",
+   "lookahead": "1",
+   "streams": 1,
+   "clips": 30,
+   "plays": 30,
+   "errors": 0,
+   "cer_committed": 21.7,
+   "cer_final": 18.7,
+   "cer_committed_marks": 20.6,
+   "cer_final_marks": 19.1,
+   "first_partial": {
+    "p50": 1.14,
+    "p90": 1.85,
+    "n": 30
+   },
+   "first_commit": {
+    "p50": 1.75,
+    "p90": 2.44,
+    "n": 30
+   },
+   "commit_lag": {
+    "p50": 1.03,
+    "p90": 1.11,
+    "n": 354
+   },
+   "partial_lag": {
+    "p50": 0.02,
+    "p90": 0.08,
+    "n": 481
+   },
+   "end_commit": {
+    "p50": 0.02,
+    "p90": 0.67,
+    "n": 30
+   },
+   "final": {
+    "p50": 0.09,
+    "p90": 0.68,
+    "n": 30
+   }
+  },
+  "unseen_km_la2": {
+   "file": "unseen_km_la2.json",
+   "lang": "km",
+   "lookahead": "2",
+   "streams": 1,
+   "clips": 40,
+   "plays": 40,
+   "errors": 0,
+   "cer_committed": 25.2,
+   "cer_final": 27.2,
+   "cer_committed_marks": 26.9,
+   "cer_final_marks": 28.8,
+   "first_partial": {
+    "p50": 0.64,
+    "p90": 1.64,
+    "n": 40
+   },
+   "first_commit": {
+    "p50": 2.37,
+    "p90": 3.15,
+    "n": 40
+   },
+   "commit_lag": {
+    "p50": 2.03,
+    "p90": 2.11,
+    "n": 251
+   },
+   "partial_lag": {
+    "p50": 0.01,
+    "p90": 0.06,
+    "n": 427
+   },
+   "end_commit": {
+    "p50": 0.43,
+    "p90": 0.86,
+    "n": 40
+   },
+   "final": {
+    "p50": 0.49,
+    "p90": 0.68,
+    "n": 40
+   }
+  },
+  "unseen_km_la1": {
+   "file": "unseen_km_la1.json",
+   "lang": "km",
+   "lookahead": "1",
+   "streams": 1,
+   "clips": 40,
+   "plays": 40,
+   "errors": 0,
+   "cer_committed": 28.2,
+   "cer_final": 27.2,
+   "cer_committed_marks": 29.3,
+   "cer_final_marks": 28.8,
+   "first_partial": {
+    "p50": 0.66,
+    "p90": 1.67,
+    "n": 40
+   },
+   "first_commit": {
+    "p50": 1.31,
+    "p90": 2.36,
+    "n": 40
+   },
+   "commit_lag": {
+    "p50": 1.06,
+    "p90": 1.17,
+    "n": 344
+   },
+   "partial_lag": {
+    "p50": 0.04,
+    "p90": 0.12,
+    "n": 419
+   },
+   "end_commit": {
+    "p50": 0.5,
+    "p90": 0.89,
+    "n": 40
+   },
+   "final": {
+    "p50": 0.58,
+    "p90": 0.82,
+    "n": 40
+   }
+  },
+  "unseen_lo_la2": {
+   "file": "unseen_lo_la2.json",
+   "lang": "lo",
+   "lookahead": "2",
+   "streams": 1,
+   "clips": 36,
+   "plays": 36,
+   "errors": 0,
+   "cer_committed": 7.7,
+   "cer_final": 8.0,
+   "cer_committed_marks": 8.8,
+   "cer_final_marks": 9.3,
+   "first_partial": {
+    "p50": 0.72,
+    "p90": 1.53,
+    "n": 36
+   },
+   "first_commit": {
+    "p50": 2.43,
+    "p90": 3.25,
+    "n": 36
+   },
+   "commit_lag": {
+    "p50": 2.03,
+    "p90": 2.09,
+    "n": 300
+   },
+   "partial_lag": {
+    "p50": 0.02,
+    "p90": 0.07,
+    "n": 510
+   },
+   "end_commit": {
+    "p50": 0.42,
+    "p90": 0.59,
+    "n": 36
+   },
+   "final": {
+    "p50": 0.5,
+    "p90": 0.67,
+    "n": 36
+   }
+  },
+  "unseen_lo_la1": {
+   "file": "unseen_lo_la1.json",
+   "lang": "lo",
+   "lookahead": "1",
+   "streams": 1,
+   "clips": 36,
+   "plays": 36,
+   "errors": 0,
+   "cer_committed": 10.8,
+   "cer_final": 8.0,
+   "cer_committed_marks": 11.8,
+   "cer_final_marks": 9.3,
+   "first_partial": {
+    "p50": 0.79,
+    "p90": 1.53,
+    "n": 36
+   },
+   "first_commit": {
+    "p50": 1.47,
+    "p90": 2.04,
+    "n": 36
+   },
+   "commit_lag": {
+    "p50": 1.05,
+    "p90": 1.14,
+    "n": 423
+   },
+   "partial_lag": {
+    "p50": 0.03,
+    "p90": 0.12,
+    "n": 510
+   },
+   "end_commit": {
+    "p50": 0.48,
+    "p90": 0.63,
+    "n": 36
+   },
+   "final": {
+    "p50": 0.56,
+    "p90": 0.74,
+    "n": 36
+   }
+  },
+  "f7b_fleurs_km": {
+   "file": "f7b_fleurs_km.json",
+   "lang": "km",
+   "lookahead": "2",
+   "streams": 1,
+   "clips": 30,
+   "plays": 30,
+   "errors": 0,
+   "cer_final": 12.3,
+   "cer_final_marks": 11.0,
+   "final": {
+    "p50": 1.56,
+    "p90": 2.52,
+    "n": 30
+   },
+   "service": "omni-stt, OMNI_CARD=omniASR_LLM_7B (bf16), no streaming track"
+  },
+  "f7b_fleurs_lo": {
+   "file": "f7b_fleurs_lo.json",
+   "lang": "lo",
+   "lookahead": "2",
+   "streams": 1,
+   "clips": 30,
+   "plays": 30,
+   "errors": 0,
+   "cer_final": 16.3,
+   "cer_final_marks": 16.0,
+   "final": {
+    "p50": 0.83,
+    "p90": 1.82,
+    "n": 30
+   },
+   "service": "omni-stt, OMNI_CARD=omniASR_LLM_7B (bf16), no streaming track"
+  },
+  "f7b_unseen_km": {
+   "file": "f7b_unseen_km.json",
+   "lang": "km",
+   "lookahead": "2",
+   "streams": 1,
+   "clips": 40,
+   "plays": 40,
+   "errors": 0,
+   "cer_final": 24.2,
+   "cer_final_marks": 25.8,
+   "final": {
+    "p50": 1.63,
+    "p90": 2.34,
+    "n": 40
+   },
+   "service": "omni-stt, OMNI_CARD=omniASR_LLM_7B (bf16), no streaming track"
+  },
+  "f7b_unseen_lo": {
+   "file": "f7b_unseen_lo.json",
+   "lang": "lo",
+   "lookahead": "2",
+   "streams": 1,
+   "clips": 36,
+   "plays": 36,
+   "errors": 0,
+   "cer_final": 4.9,
+   "cer_final_marks": 5.6,
+   "final": {
+    "p50": 1.38,
+    "p90": 2.59,
+    "n": 36
+   },
+   "service": "omni-stt, OMNI_CARD=omniASR_LLM_7B (bf16), no streaming track"
+  }
+ },
+ "unseen_by_source": {
+  "km": {
+   "Digital-Divide-Data/khm-asr-cultural": {
+    "clips": 16,
+    "kind": "read",
+    "3B streaming committed, lookahead 2 s": 4.2,
+    "3B streaming committed, lookahead 1 s": 4.4,
+    "3B per-piece final": 4.1,
+    "7B per-piece final": 3.6
+   },
+   "byumatrixlab/cohp-asr": {
+    "clips": 24,
+    "kind": "spontaneous",
+    "3B streaming committed, lookahead 2 s": 46.3,
+    "3B streaming committed, lookahead 1 s": 52.1,
+    "3B per-piece final": 50.4,
+    "7B per-piece final": 44.9
+   }
+  },
+  "lo": {
+   "SiangLao/lao-asr-thesis-dataset": {
+    "clips": 27,
+    "kind": "read",
+    "3B streaming committed, lookahead 2 s": 5.4,
+    "3B streaming committed, lookahead 1 s": 7.4,
+    "3B per-piece final": 5.0,
+    "7B per-piece final": 4.8
+   },
+   "common-voice-26.0-lo": {
+    "clips": 9,
+    "kind": "read",
+    "3B streaming committed, lookahead 2 s": 20.1,
+    "3B streaming committed, lookahead 1 s": 28.1,
+    "3B per-piece final": 23.4,
+    "7B per-piece final": 5.7
+   }
+  }
+ },
+ "load": [
+  {
+   "streams": 2,
+   "gpu_util_mean_pct": null,
+   "km": {
+    "cer_committed": 22.9,
+    "first_partial": {
+     "p50": 0.68,
+     "p90": 2.63,
+     "n": 10
+    },
+    "commit_lag": {
+     "p50": 2.04,
+     "p90": 2.13,
+     "n": 118
+    },
+    "end_commit": {
+     "p50": 0.51,
+     "p90": 0.68,
+     "n": 10
+    },
+    "final": {
+     "p50": 0.51,
+     "p90": 0.65,
+     "n": 10
+    }
+   },
+   "lo": {
+    "cer_committed": 21.0,
+    "first_partial": {
+     "p50": 1.14,
+     "p90": 1.85,
+     "n": 10
+    },
+    "commit_lag": {
+     "p50": 2.03,
+     "p90": 2.08,
+     "n": 75
+    },
+    "end_commit": {
+     "p50": -0.23,
+     "p90": 0.34,
+     "n": 10
+    },
+    "final": {
+     "p50": -0.14,
+     "p90": 0.4,
+     "n": 10
+    }
+   },
+   "note": "GPU sampler ran on idle after the clients ended: utilisation not measured"
+  },
+  {
+   "streams": 4,
+   "gpu_util_mean_pct": 42,
+   "km": {
+    "cer_committed": 22.9,
+    "first_partial": {
+     "p50": 0.74,
+     "p90": 2.62,
+     "n": 20
+    },
+    "commit_lag": {
+     "p50": 2.03,
+     "p90": 2.12,
+     "n": 234
+    },
+    "end_commit": {
+     "p50": 0.51,
+     "p90": 0.72,
+     "n": 20
+    },
+    "final": {
+     "p50": 0.58,
+     "p90": 0.7,
+     "n": 20
+    }
+   },
+   "lo": {
+    "cer_committed": 20.8,
+    "first_partial": {
+     "p50": 1.14,
+     "p90": 1.85,
+     "n": 20
+    },
+    "commit_lag": {
+     "p50": 2.05,
+     "p90": 2.14,
+     "n": 150
+    },
+    "end_commit": {
+     "p50": -0.15,
+     "p90": 0.4,
+     "n": 20
+    },
+    "final": {
+     "p50": -0.13,
+     "p90": 0.46,
+     "n": 20
+    }
+   }
+  },
+  {
+   "streams": 6,
+   "gpu_util_mean_pct": 63,
+   "km": {
+    "cer_committed": 23.0,
+    "first_partial": {
+     "p50": 0.76,
+     "p90": 2.62,
+     "n": 30
+    },
+    "commit_lag": {
+     "p50": 2.09,
+     "p90": 2.28,
+     "n": 354
+    },
+    "end_commit": {
+     "p50": 0.62,
+     "p90": 0.83,
+     "n": 30
+    },
+    "final": {
+     "p50": 0.65,
+     "p90": 0.85,
+     "n": 30
+    }
+   },
+   "lo": {
+    "cer_committed": 21.2,
+    "first_partial": {
+     "p50": 1.05,
+     "p90": 1.85,
+     "n": 30
+    },
+    "commit_lag": {
+     "p50": 2.08,
+     "p90": 2.32,
+     "n": 227
+    },
+    "end_commit": {
+     "p50": -0.01,
+     "p90": 0.44,
+     "n": 30
+    },
+    "final": {
+     "p50": -0.03,
+     "p90": 0.5,
+     "n": 30
+    }
+   }
+  },
+  {
+   "streams": 8,
+   "gpu_util_mean_pct": 89,
+   "km": {
+    "cer_committed": 22.6,
+    "first_partial": {
+     "p50": 0.92,
+     "p90": 2.69,
+     "n": 40
+    },
+    "commit_lag": {
+     "p50": 2.35,
+     "p90": 2.69,
+     "n": 439
+    },
+    "end_commit": {
+     "p50": 1.12,
+     "p90": 1.48,
+     "n": 40
+    },
+    "final": {
+     "p50": 0.8,
+     "p90": 1.32,
+     "n": 40
+    }
+   },
+   "lo": {
+    "cer_committed": 21.7,
+    "first_partial": {
+     "p50": 1.31,
+     "p90": 1.92,
+     "n": 40
+    },
+    "commit_lag": {
+     "p50": 2.36,
+     "p90": 2.73,
+     "n": 275
+    },
+    "end_commit": {
+     "p50": 0.51,
+     "p90": 1.31,
+     "n": 40
+    },
+    "final": {
+     "p50": 0.24,
+     "p90": 0.8,
+     "n": 40
+    }
+   }
+  },
+  {
+   "streams": 10,
+   "gpu_util_mean_pct": 96,
+   "km": {
+    "cer_committed": 23.3,
+    "first_partial": {
+     "p50": 1.41,
+     "p90": 2.88,
+     "n": 50
+    },
+    "commit_lag": {
+     "p50": 2.73,
+     "p90": 2.95,
+     "n": 428
+    },
+    "end_commit": {
+     "p50": 1.34,
+     "p90": 2.81,
+     "n": 50
+    },
+    "final": {
+     "p50": 1.15,
+     "p90": 2.31,
+     "n": 50
+    }
+   },
+   "lo": {
+    "cer_committed": 20.5,
+    "first_partial": {
+     "p50": 1.66,
+     "p90": 2.26,
+     "n": 50
+    },
+    "commit_lag": {
+     "p50": 2.77,
+     "p90": 2.98,
+     "n": 262
+    },
+    "end_commit": {
+     "p50": 0.97,
+     "p90": 1.38,
+     "n": 50
+    },
+    "final": {
+     "p50": 0.85,
+     "p90": 1.61,
+     "n": 50
+    }
+   }
+  },
+  {
+   "streams": 12,
+   "gpu_util_mean_pct": 96,
+   "km": {
+    "cer_committed": 23.6,
+    "first_partial": {
+     "p50": 1.71,
+     "p90": 3.46,
+     "n": 60
+    },
+    "commit_lag": {
+     "p50": 2.96,
+     "p90": 3.14,
+     "n": 404
+    },
+    "end_commit": {
+     "p50": 1.68,
+     "p90": 3.17,
+     "n": 60
+    },
+    "final": {
+     "p50": 1.22,
+     "p90": 2.78,
+     "n": 60
+    }
+   },
+   "lo": {
+    "cer_committed": 20.7,
+    "first_partial": {
+     "p50": 2.02,
+     "p90": 2.78,
+     "n": 60
+    },
+    "commit_lag": {
+     "p50": 3.0,
+     "p90": 3.16,
+     "n": 246
+    },
+    "end_commit": {
+     "p50": 1.12,
+     "p90": 2.97,
+     "n": 60
+    },
+    "final": {
+     "p50": 1.18,
+     "p90": 2.14,
+     "n": 60
+    }
+   }
+  },
+  {
+   "streams": 16,
+   "gpu_util_mean_pct": 98,
+   "km": {
+    "cer_committed": 23.0,
+    "first_partial": {
+     "p50": 2.47,
+     "p90": 4.09,
+     "n": 80
+    },
+    "commit_lag": {
+     "p50": 3.42,
+     "p90": 3.62,
+     "n": 366
+    },
+    "end_commit": {
+     "p50": 3.52,
+     "p90": 4.44,
+     "n": 80
+    },
+    "final": {
+     "p50": 2.14,
+     "p90": 3.36,
+     "n": 80
+    }
+   },
+   "lo": {
+    "cer_committed": 20.8,
+    "first_partial": {
+     "p50": 2.86,
+     "p90": 3.61,
+     "n": 80
+    },
+    "commit_lag": {
+     "p50": 3.41,
+     "p90": 3.62,
+     "n": 230
+    },
+    "end_commit": {
+     "p50": 3.23,
+     "p90": 3.95,
+     "n": 80
+    },
+    "final": {
+     "p50": 1.91,
+     "p90": 3.46,
+     "n": 80
+    }
+   }
+  }
+ ],
+ "bench": {
+  "card": "omniASR_CTC_3B_bf16",
+  "gpu": "NVIDIA L4",
+  "ctc_load_s": 3.7,
+  "ctc_gb": 6.16,
+  "ctc_warm_s": 0.7,
+  "rows": [
+   {
+    "K": 1,
+    "batch_s_p50": 0.096,
+    "batch_s_max": 0.099,
+    "peak_gb": 6.48,
+    "reserved_gb": 7.42
+   },
+   {
+    "K": 2,
+    "batch_s_p50": 0.178,
+    "batch_s_max": 0.179,
+    "peak_gb": 6.73,
+    "reserved_gb": 7.83
+   },
+   {
+    "K": 4,
+    "batch_s_p50": 0.345,
+    "batch_s_max": 0.349,
+    "peak_gb": 7.21,
+    "reserved_gb": 8.66
+   },
+   {
+    "K": 6,
+    "batch_s_p50": 0.47,
+    "batch_s_max": 0.475,
+    "peak_gb": 7.7,
+    "reserved_gb": 9.9
+   },
+   {
+    "K": 8,
+    "batch_s_p50": 0.616,
+    "batch_s_max": 0.617,
+    "peak_gb": 8.18,
+    "reserved_gb": 11.56
+   },
+   {
+    "K": 12,
+    "batch_s_p50": 0.958,
+    "batch_s_max": 0.96,
+    "peak_gb": 9.15,
+    "reserved_gb": 14.03
+   },
+   {
+    "K": 16,
+    "batch_s_p50": 1.293,
+    "batch_s_max": 1.296,
+    "peak_gb": 10.12,
+    "reserved_gb": 17.34
+   },
+   {
+    "K": 24,
+    "batch_s_p50": 1.853,
+    "batch_s_max": 1.855,
+    "peak_gb": 12.06,
+    "reserved_gb": 22.29
+   },
+   {
+    "K": 32,
+    "batch_s_p50": 2.468,
+    "batch_s_max": 2.471,
+    "peak_gb": 14.01,
+    "reserved_gb": 16.74
+   }
+  ],
+  "free_gb_after": 6.64,
+  "total_gb": 23.66
+ },
+ "unseen_sources": {
+  "byumatrixlab/cohp-asr": {
+   "licence": "CC-BY-NC-SA-4.0 (non-commercial)",
+   "url": "https://huggingface.co/datasets/byumatrixlab/cohp-asr"
+  },
+  "Digital-Divide-Data/khm-asr-cultural": {
+   "licence": "CC-BY-SA-4.0",
+   "url": "https://huggingface.co/datasets/Digital-Divide-Data/khm-asr-cultural"
+  },
+  "SiangLao/lao-asr-thesis-dataset": {
+   "licence": "CC-BY-NC-4.0 (non-commercial)",
+   "url": "https://huggingface.co/datasets/SiangLao/lao-asr-thesis-dataset"
+  },
+  "common-voice-26.0-lo": {
+   "licence": "CC0-1.0",
+   "url": "https://huggingface.co/datasets/Peacockery/common-voice-scripted-speech-26 (mirror of Mozilla Data Collective dataset cmqiaq1nn007znr07qss7tcb5)"
+  }
+ }
+}
