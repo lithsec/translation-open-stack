@@ -38,6 +38,12 @@ server    {"type":"error","detail":"..."}
 server    {"type":"partial","text":"...","lang":"ht","confidence":0.93,"start_ms":1200,"end_ms":2700}
 server    {"type":"stable","text":"...","delta":"...","lang":"ht","confidence":0.93,"start_ms":1200,"end_ms":2700}
 
+          with STT_CTC_STREAM=1 and ?stream=ctc[&lookahead=1|2] on a km or lo connection (below,
+          Streaming track): the hello adds "stream", and while anyone speaks, connection-wide:
+server    {"type":"hello","langs":["km"],"rate":16000,"stream":{"track":"ctc","lookahead_ms":2000,"chunk_ms":500,"left_ms":8000}}
+server    {"type":"partial","track":"ctc","text":"<revisable tail>","lang":"km","start_ms":6200,"end_ms":8700}
+server    {"type":"committed","track":"ctc","text":"<newly committed text>","lang":"km","start_ms":5700,"end_ms":6200,"end":false}
+
 GET /health   200 "ok" (the port opens only once the models are loaded and warm)
 GET /mic      a one-file microphone test page: type the languages and the token, press Start, talk
 ```

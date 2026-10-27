@@ -175,7 +175,7 @@ stage() {
   # neither the eval audio nor .git is uploaded to Cloud Build.
   local dir
   dir="$(mktemp -d)"
-  cp "$HERE/server.py" "$HERE/omni_batch.py" "$HERE/denoise.py" "$HERE/partials.py" "$HERE/dips.py" "$HERE/voices.py" "$HERE/ht_numbers.py" "$HERE/mic.html" "$HERE/Dockerfile" "$dir/"
+  cp "$HERE/server.py" "$HERE/omni_batch.py" "$HERE/denoise.py" "$HERE/partials.py" "$HERE/ctc_stream.py" "$HERE/dips.py" "$HERE/voices.py" "$HERE/ht_numbers.py" "$HERE/mic.html" "$HERE/Dockerfile" "$dir/"
   cp "$ROOT/server/audio_in.py" "$ROOT/server/stack_auth.py" "$ROOT/server/licences.py" "$ROOT/constraints.txt" "$dir/"
   mkdir "$dir/engines"
   cp "$ROOT/server/engines/"{__init__,base,common,omnilingual,mms,coqui}.py "$dir/engines/"
