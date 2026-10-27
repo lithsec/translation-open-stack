@@ -505,8 +505,31 @@ each. Measured on an L4 ([eval/2026-10-ctc-stream](../../eval/2026-10-ctc-stream
   FLEURS lo 18.3 / 21.7, unseen km 25.2 / 28.2, unseen lo 7.7 / 10.8. The 7B
   finals of the same clips score 12.3, 16.3, 24.2 and 4.9.
 
-`deploy.sh` has no target for this service yet: the image needs the 3B
-checkpoint baked in (as `7b-build` does for the 7B) and a card for it.
+#### omni-stt-3b-stream: the streaming service on Cloud Run
+
+`deploy.sh 3b-build` downloads Meta's stock `omniASR_CTC_3B` inside Cloud
+Build, converts it to bf16 (`7b/to_bf16.py`) and bakes it into the image with
+its card (`3b/cards.yaml`, `3b/Dockerfile.baked`, on `7b/Dockerfile.base`).
+`3b-deploy` deploys it as its own service, `omni-stt-3b-stream`:
+
+```
+./deploy.sh 3b-build                       # -> <TAG>-3b-base and <TAG>-3b
+TAG=<tag> ./deploy.sh 3b-deploy            # SIGNING_SECRET, NONPROFIT_SECRET as for deploy
+```
+
+- L4, 4 vCPU, 16 GiB, `--min-instances 0` (it bills only while a socket is
+  open, plus Cloud Run's idle window), `--max-instances 2`
+  (`MAX_INSTANCES_3B`).
+- `--concurrency 6` and `STT_MAX_CONNECTIONS=6` (`MAX_STREAMS_3B`): about
+  six streams that never stop talking per L4. A seventh socket starts the
+  second instance.
+- `--timeout 3600`: as for every service here, a WebSocket ends after an
+  hour and the client reconnects.
+- Credentials, startup probe and `--no-invoker-iam-check` as `7b-deploy`.
+  `STT_SERVE=listen`, `STT_CTC_STREAM=1`, and `OMNI_CARD` and `STT_CTC_CARD`
+  both `omniASR_CTC_3B_bf16`, so the recogniser and the track share one copy.
+- A client opens `wss://<host>/listen?langs=km&stream=ctc&lookahead=2` (or
+  `lo`). Cloud Run starts an instance on the first connection.
 
 ## Measured locally
 
