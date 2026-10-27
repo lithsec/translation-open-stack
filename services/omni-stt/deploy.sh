@@ -11,6 +11,8 @@
 #   ./deploy.sh build-voices             # the Haitian Creole voices layered on BASE_TAG (Dockerfile.voices)
 #   ./deploy.sh 7b-build                 # Meta's stock omniASR_LLM_7B (bf16): images and bucket copy (7b/)
 #   ./deploy.sh 7b-deploy                # the separate omni-stt-7b service (lo, km), /listen only
+#   ./deploy.sh 3b-build                 # Meta's stock omniASR_CTC_3B (bf16) baked in (3b/)
+#   ./deploy.sh 3b-deploy                # the separate omni-stt-3b-stream service (km, lo live text)
 #
 # 7b-build: converts Meta's omniASR_LLM_7B checkpoint to bf16 inside Cloud Build
 # (7b/to_bf16.py), copies it to MODEL_BUCKET (gs://, private; for the volume
@@ -20,6 +22,14 @@
 # weights only. 7b-deploy: SERVICE_7B (omni-stt-7b), STORAGE (baked|gcs|fetch: where
 # the checkpoint comes from), MAX_STREAMS_7B (6), MEMORY (16Gi; fetch needs 32Gi), CPU (4),
 # SIGNING_SECRET, NONPROFIT_SECRET (optional, as "deploy": STT_SIGNING_KEY, STT_TOKEN_NONPROFIT).
+#
+# 3b-build: downloads Meta's omniASR_CTC_3B checkpoint and converts it to bf16
+# inside Cloud Build (7b/to_bf16.py), and builds <TAG>-3b-base (7b/Dockerfile.base,
+# no checkpoint) and <TAG>-3b (checkpoint and card baked in: 3b/Dockerfile.baked).
+# No bucket copy. Stock weights only. 3b-deploy: SERVICE_3B (omni-stt-3b-stream),
+# the 3B as recogniser and streaming track (STT_CTC_STREAM=1; README "Streaming
+# track"), MAX_STREAMS_3B (6: sockets per instance), MAX_INSTANCES_3B (2),
+# MEMORY, CPU, SIGNING_SECRET, NONPROFIT_SECRET and EXTRA_ENV as 7b-deploy.
 #
 # Optional: REGION (us-east4: has Cloud Run L4 and, on a new project, the only
 # GPU quota we found; us-central1 had none, 2026-10-17), REPO (Artifact Registry
@@ -384,6 +394,78 @@ YAML
       --set-env-vars "$envs" \
       --set-secrets "$SECRETS" \
       --no-invoker-iam-check ${extra[@]+"${extra[@]}"} ${DEPLOY_FLAGS:-}
+    ;;
+  3b-build)
+    ctx="$(stage)"
+    cp "$HERE/7b/Dockerfile.base" "$HERE/7b/cards.yaml" "$HERE/7b/to_bf16.py" "$ctx/"
+    mkdir "$ctx/3b"
+    cp "$HERE/3b/"* "$ctx/3b/"
+    printf '*.pt\nckpt/\n' > "$ctx/.dockerignore"
+    base="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-3b-base"
+    baked="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-3b"
+    cat > "$ctx/cloudbuild.yaml" <<YAML
+steps:
+- id: ckpt
+  name: python:3.12-slim-bookworm
+  entrypoint: bash
+  args:
+  - -c
+  - |
+    set -e
+    apt-get update -qq && apt-get install -y -qq curl >/dev/null
+    pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.8.0 numpy
+    mkdir -p ckpt && cd ckpt
+    t=\$\$(date +%s)
+    curl -sSfL --retry 5 -o fp32.pt https://dl.fbaipublicfiles.com/mms/omniASR-CTC-3B.pt
+    echo "downloaded \$\$(du -h fp32.pt | cut -f1) in \$\$((\$\$(date +%s) - t))s"
+    python ../to_bf16.py fp32.pt omniASR_CTC_3B_bf16.pt
+    rm fp32.pt
+    sha256sum omniASR_CTC_3B_bf16.pt && ls -l
+    cp ../3b/Dockerfile.baked Dockerfile
+    cp ../3b/cards.yaml cards.yaml
+- id: base
+  waitFor: ["-"]
+  name: gcr.io/cloud-builders/docker
+  args: ["build", "-f", "Dockerfile.base", "-t", "$base", "."]
+- id: baked
+  waitFor: [ckpt, base]
+  name: gcr.io/cloud-builders/docker
+  dir: ckpt
+  args: ["build", "--build-arg", "BASE_IMAGE=$base", "-t", "$baked", "."]
+images: ["$base", "$baked"]
+options:
+  machineType: E2_HIGHCPU_32
+  diskSizeGb: 200
+timeout: 7200s
+YAML
+    [ "${DRY_RUN:-0}" != 1 ] || cat "$ctx/cloudbuild.yaml"
+    run gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
+    rm -rf "$ctx"
+    echo "built $base and $baked (deploy with TAG=$TAG ./deploy.sh 3b-deploy)"
+    ;;
+  3b-deploy)
+    # The streaming service for Khmer and Lao (README "Streaming track"): the
+    # stock 3B CTC card is both the recogniser (its own masked per-piece
+    # finals) and the ?stream=ctc track, one copy on the GPU. Separate from
+    # omni-stt-7b because the 3B does not fit beside the 7B on one L4.
+    # Concurrency 6: an L4 carried about six streams that never stop talking
+    # with the commit lag at the look-ahead plus 0.1-0.3 s; Cloud Run starts a
+    # second instance (MAX_INSTANCES_3B) for the seventh socket. Probe, auth
+    # and flags as 7b-deploy.
+    MAX_STREAMS="${MAX_STREAMS_3B:-6}"
+    MAX_INSTANCES="${MAX_INSTANCES_3B:-2}"
+    [[ "$MAX_STREAMS$MAX_INSTANCES" =~ ^[0-9]+$ ]] || { echo "refusing: MAX_STREAMS_3B and MAX_INSTANCES_3B must be numbers" >&2; exit 3; }
+    IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-3b"
+    envs="STT_SERVE=listen,STT_CTC_STREAM=1,OMNI_CARD=omniASR_CTC_3B_bf16,STT_CTC_CARD=omniASR_CTC_3B_bf16,STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS,OMNI_MMAP=${OMNI_MMAP:-1}$CUT_ENV${EXTRA_ENV:+,$EXTRA_ENV}"
+    run gcloud run deploy "${SERVICE_3B:-omni-stt-3b-stream}" --project "$PROJECT" --region "$REGION" --image "$IMAGE" \
+      --gpu 1 --gpu-type nvidia-l4 --no-gpu-zonal-redundancy \
+      --cpu "${CPU:-4}" --memory "${MEMORY:-16Gi}" --no-cpu-throttling --cpu-boost \
+      --min-instances 0 --max-instances "$MAX_INSTANCES" \
+      --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
+      --startup-probe "tcpSocket.port=8080,initialDelaySeconds=0,periodSeconds=2,timeoutSeconds=2,failureThreshold=450" \
+      --set-env-vars "$envs" \
+      --set-secrets "$SECRETS" \
+      --no-invoker-iam-check ${DEPLOY_FLAGS:-}
     ;;
   stage)
     stage
