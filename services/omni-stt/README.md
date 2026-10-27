@@ -38,6 +38,12 @@ server    {"type":"error","detail":"..."}
 server    {"type":"partial","text":"...","lang":"ht","confidence":0.93,"start_ms":1200,"end_ms":2700}
 server    {"type":"stable","text":"...","delta":"...","lang":"ht","confidence":0.93,"start_ms":1200,"end_ms":2700}
 
+          with STT_CTC_STREAM=1 and ?stream=ctc[&lookahead=1|2] on a km or lo connection (below,
+          Streaming track): the hello adds "stream", and while anyone speaks, connection-wide:
+server    {"type":"hello","langs":["km"],"rate":16000,"stream":{"track":"ctc","lookahead_ms":2000,"chunk_ms":500,"left_ms":8000}}
+server    {"type":"partial","track":"ctc","text":"<revisable tail>","lang":"km","start_ms":6200,"end_ms":8700}
+server    {"type":"committed","track":"ctc","text":"<newly committed text>","lang":"km","start_ms":5700,"end_ms":6200,"end":false}
+
 GET /health   200 "ok" (the port opens only once the models are loaded and warm)
 GET /mic      a one-file microphone test page: type the languages and the token, press Start, talk
 ```
@@ -423,6 +429,84 @@ Capacity (load7b.mjs, lo and km rooms, 120 s): transcript delay after the speech
 ends, p50/p90: 1 stream 2.2/3.3-3.9 s, 4 streams 3.3/6.4 s, 6 streams 4.5/7.0-7.7 s,
 8 streams 5.9/7.9 s; nothing dropped at 8, but the GPU was ~80% busy at 6. So
 `STT_MAX_CONNECTIONS` and `--concurrency` are 6. GPU memory ~17-18 GB of 24.
+
+### Streaming track: Omnilingual CTC 3B for Khmer and Lao
+
+The LLM cards cannot stream: their decoder reads a whole piece and then
+writes its text, so a listener waits for the piece to end. A CTC card labels
+every 20 ms frame of audio as it goes, so `ctc_stream.py` decodes Meta's
+stock `omniASR_CTC_3B` in chunks while the speaker talks:
+
+- every `STT_CTC_CHUNK_MS` (500) of audio, one pass over the last
+  `STT_CTC_LEFT_MS` (8000) of context up to now;
+- frames older than now minus the **look-ahead** are committed and sent once,
+  as `committed`. The look-ahead is 1 or 2 s (`?lookahead=1|2`, default
+  `STT_CTC_LOOKAHEAD_MS` 2000). The newer frames are the revisable tail, sent
+  as `partial`;
+- when the segmenter ends a turn on a pause, one more pass commits everything
+  heard (`"end": true`);
+- a **script mask** before the argmax allows only the language's own script,
+  Basic Latin letters (names), digits and punctuation;
+- a commit never splits a grapheme cluster: it never ends before a combining
+  vowel sign or after a Khmer coeng;
+- the audio is never skipped. While the VAD hears nothing, a pass runs every
+  `STT_CTC_QUIET_MS` (2000) instead of every 500 ms, because Silero misses
+  quiet distant speech. A trace of noise (`STT_CTC_DITHER`, about -80 dBFS)
+  goes under every window, since exact digital silence beside quiet speech
+  threw the 3B's frames off.
+
+```
+connect   wss://<host>/listen?langs=km&stream=ctc&lookahead=2
+server    {"type":"hello","langs":["km"],"rate":16000,"stream":{"track":"ctc","lookahead_ms":2000,"chunk_ms":500,"left_ms":8000}}
+server    {"type":"partial","track":"ctc","text":"<the tail after the committed text>","lang":"km","start_ms":6200,"end_ms":8700}
+server    {"type":"committed","track":"ctc","text":"<only the newly committed text>","lang":"km","start_ms":5700,"end_ms":6200,"end":false}
+          ... and the usual "language" / "inputTranscript" per piece
+```
+
+- Opt-in per connection. A client that does not send `?stream=ctc` gets
+  exactly the messages it got before. The track needs a server started with
+  `STT_CTC_STREAM=1` and a one-language km or lo room (`STT_CTC_LANGS`). If
+  a client asks for the track where it cannot run, the hello says
+  `"stream":{"track":null,"reason":...}` and the connection carries on
+  without it. A malformed `stream=` or `lookahead=` is refused (4400).
+- `committed` is one append-only stream for the whole connection, not per
+  piece: concatenate the `text`s in order. Each commit's `start_ms` is the
+  previous one's `end_ms`. A `partial` replaces the previous partial (empty
+  text clears it), and its text follows the committed text. Committed text is
+  never revised, but the per-piece `inputTranscript` is still the text of
+  record.
+- On such a connection the LLM partial passes (`STT_PARTIALS`) are off.
+- `flushed` waits for the track's last commit.
+
+**Deployment: a separate service, not beside the 7B.** On an L4 the 7B takes
+15.6 GB (17.0 GB peak on six streams' batch), and loading the 3B's 6.2 GB
+beside it ran out of memory (2026-10-27). Run the track as its own omni-stt
+instance whose recogniser is the 3B itself:
+
+```
+OMNI_CARD=omniASR_CTC_3B STT_CTC_STREAM=1 STT_SERVE=listen ...   # the 7B base image's packages
+```
+
+The track then shares that instance's copy of the 3B, and the instance's own
+km and lo finals are the 3B's, masked the same way. A client that wants the
+7B's finals and live text opens both: `omni-stt-7b` for the finals, and this
+service with `?stream=ctc` for the live text, sending the same audio to
+each. Measured on an L4 ([eval/2026-10-ctc-stream](../../eval/2026-10-ctc-stream/README.md)):
+
+- **Capacity:** about 6 streams that never stop talking (63% GPU, with commit
+  lag at the look-ahead plus 0.1-0.3 s). The GPU saturates from about 10
+  streams. Past that, latency grows but the text does not change.
+- **Cold start:** 5-9 s from the page cache. The bf16 checkpoint is 6.2 GB
+  (`7b/to_bf16.py` converts the stock 12 GB fp32 file).
+- **Latency:** first partial 0.6-0.8 s after the speech starts. Committed
+  text trails the audio by the look-ahead plus about 0.05 s. A turn's last
+  commit and its 3B final arrive 0.1-0.6 s after the speech ends.
+- **CER (committed text, 2 s / 1 s look-ahead):** FLEURS km 16.1 / 17.1,
+  FLEURS lo 18.3 / 21.7, unseen km 25.2 / 28.2, unseen lo 7.7 / 10.8. The 7B
+  finals of the same clips score 12.3, 16.3, 24.2 and 4.9.
+
+`deploy.sh` has no target for this service yet: the image needs the 3B
+checkpoint baked in (as `7b-build` does for the 7B) and a card for it.
 
 ## Measured locally
 

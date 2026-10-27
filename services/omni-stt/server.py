@@ -30,6 +30,13 @@ Protocol:
                       "start_ms":1200,"end_ms":2700}   the whole current hypothesis
                      {"type":"stable","text":"...","delta":"...", ...same fields}
                                           the prefix two passes agreed on (never retracted)
+                     With STT_CTC_STREAM=1 and ?stream=ctc[&lookahead=1|2] on a km or lo
+                     connection (ctc_stream.py): the hello adds "stream": {...}, and
+                     about every 500 ms of speech, connection-wide:
+                     {"type":"partial","track":"ctc","text":<revisable tail>,"lang":"km",
+                      "start_ms":...,"end_ms":...}
+                     {"type":"committed","track":"ctc","text":<newly committed text>,
+                      "lang":"km","start_ms":...,"end_ms":...,"end":false}   never revised
 
     client connects  wss://host/speak[?voice=mms|coqui]   (same token)
     server sends     {"type":"hello","lang":"ht","voices":["mms","coqui"],"voice":"coqui","rate":24000,
@@ -102,6 +109,11 @@ says why the default is not that); STT_BATCH_GEN_RATIO tunes the length grouping
 that path needs (pick_group).
 STT_MAX_CHARS_PER_S (default 30) and STT_MAX_REPEATS (default 6): the repetition
 guard (repetition_guard).
+STT_CTC_STREAM=1 (default 0): load the streaming track's CTC card beside the
+recogniser (ctc_stream.py; STT_CTC_CARD, default omniASR_CTC_3B; STT_CTC_LANGS,
+default km,lo; STT_CTC_CHUNK_MS 500, STT_CTC_LEFT_MS 8000, STT_CTC_LOOKAHEAD_MS
+2000: a connection's ?lookahead=1|2 overrides it; STT_CTC_QUIET_MS 2000: the pass
+rhythm while the VAD hears nothing; STT_CTC_DITHER 1e-4; STT_CTC_BATCH_MAX 16).
 STT_DENOISE=1 (default 0): a spectral noise reducer in front of the VAD, per
 connection (denoise.py; STT_DENOISE_NR_DB, STT_DENOISE_TRACK_S,
 STT_DENOISE_OVERSUB tune it). For a distant or noisy microphone; off by default
@@ -144,6 +156,7 @@ for p in (HERE, os.path.join(HERE, "..", "..", "server")):
         sys.path.insert(0, os.path.abspath(p))
         break
 import partials  # noqa: E402  (beside this file, as omni_batch is)
+import ctc_stream  # noqa: E402
 
 VAD_RATE = 16000
 RATES = (16000, 24000)
@@ -790,6 +803,7 @@ class Models:
         print(f"[stt] device={self.device} torch={torch.__version__} serving {','.join(sorted(self.serve))}", flush=True)
         self.lid_index = {}
         self.omni = None
+        self.ctc = None
         # The voices load on a thread of their own: on a cold Cloud Run
         # instance Coqui's import alone took ~30 s (2026-10-19), which /listen,
         # the service's first job, should not wait for. /speak waits for
@@ -841,6 +855,14 @@ class Models:
             else:
                 self.lid, self.lid_index = load_lid(self.device)
                 self.omni = load_omni(self.device, self.card)
+            self.ctc = None
+            if ctc_stream.ENABLED:
+                # The streaming track's card (ctc_stream.py), after the
+                # recogniser: one fairseq2 load at a time. When the recogniser
+                # is that card (the separate streaming service: the 7B and the
+                # 3B do not fit one L4 together), its pipeline is shared.
+                same = self.card == ctc_stream.CARD
+                self.ctc = ctc_stream.CTCModel(self.device, pipeline=self.omni.omni if same else None)
             print(f"[stt] models loaded", flush=True)
             if not defer_voices:
                 self.start_voices()
@@ -937,7 +959,21 @@ class Models:
         """[(pcm16k, lang), ...] -> [text, ...]: one batched decode (omni_batch's
         aligned decode when the card allows it, else the library's), then the
         repetition guard on each text against its own audio length."""
-        texts = decode_batch(self.omni, items)
+        ctc = getattr(self, "ctc", None)
+        if ctc is not None and ctc.pipe is getattr(self.omni, "omni", None):
+            # The recogniser is the streaming track's CTC card: its own
+            # languages get the masked decode (CTCModel.transcribe_batch).
+            mine = [i for i, (_, lang) in enumerate(items) if lang in ctc.langs]
+            rest = [i for i in range(len(items)) if i not in set(mine)]
+            texts = [None] * len(items)
+            if mine:
+                for i, t in zip(mine, ctc.transcribe_batch([items[i] for i in mine])):
+                    texts[i] = self.omni._filtered(t)
+            if rest:
+                for i, t in zip(rest, decode_batch(self.omni, [items[i] for i in rest])):
+                    texts[i] = t
+        else:
+            texts = decode_batch(self.omni, items)
         out = []
         for (pcm, _), text in zip(items, texts):
             audio_s = len(pcm) / VAD_RATE
@@ -1458,12 +1494,19 @@ async def handle(ws, models, sub="open"):
         langs = parse_langs((q.get("langs") or [""])[0], set(models.lid_index))
         rate = parse_rate((q.get("rate") or [""])[0])
         transcribe = parse_transcribe((q.get("transcribe") or [""])[0], langs)
+        try:
+            stream_cfg = ctc_stream.parse_stream(q, langs, getattr(models, "ctc", None) is not None)
+        except ctc_stream.BadParam as e:
+            raise BadRequest(str(e))
     except BadRequest as e:
         print(f"[stt] {clean(sub, 24)}: refused: {clean(e, 200)}", flush=True)
         await ws.send(json.dumps({"type": "error", "detail": str(e)}))
         await ws.close(code=CLOSE_BAD_REQUEST, reason="bad request")
         return
-    await ws.send(json.dumps({"type": "hello", "langs": langs, "rate": rate}))
+    hello = {"type": "hello", "langs": langs, "rate": rate}
+    if stream_cfg is not None:
+        hello["stream"] = ctc_stream.hello_field(stream_cfg)
+    await ws.send(json.dumps(hello))
     who = clean(sub, 24)
     print(f"[stt] {who}: listening, langs={','.join(langs)} rate={rate} "
           f"transcribe={','.join(c for c in langs if c in transcribe)}", flush=True)
@@ -1481,6 +1524,8 @@ async def handle(ws, models, sub="open"):
         while True:
             item = await queue.get()
             if item == "flush":
+                if track:
+                    await track.drain()     # the streaming track's last commit goes first
                 await ws.send(json.dumps({"type": "flushed"}))
                 continue
             t0 = time.monotonic()
@@ -1505,8 +1550,16 @@ async def handle(ws, models, sub="open"):
     # Partial text while a piece is still being spoken (STT_PARTIALS=1 only;
     # partials.py): extra passes over a copy of the Segmenter's buffer, through
     # the same Batcher; the final goes out by the path above, unchanged.
+    # The streaming track (STT_CTC_STREAM=1 and ?stream=ctc; ctc_stream.py):
+    # the CTC card's chunked passes over the same blocks, on its own worker.
+    # It replaces the LLM partial passes on its connections.
+    track = None
+    if stream_cfg is not None and stream_cfg["track"] == "ctc":
+        track = ctc_stream.CTCStream(stream_cfg["lang"], stream_cfg["lookahead_ms"], models.ctc.submit,
+                                     lambda m: ws.send(json.dumps(m, ensure_ascii=False)), models.ctc.detok,
+                                     who=who, joins=getattr(models.ctc, "joins", None))
     partial = None
-    if partials.ENABLED:
+    if partials.ENABLED and track is None:
         partial = partials.PartialStream(langs, transcribe, batcher.submit,
                                          lambda m: ws.send(json.dumps(m, ensure_ascii=False)),
                                          busy=lambda: partials.queue_busy(batcher), who=who)
@@ -1523,21 +1576,30 @@ async def handle(ws, models, sub="open"):
                 if kind == "flush":
                     if partial:
                         partial.piece_ended()
+                    if track:
+                        track.turn_ended()
                     enqueue(seg.flush())
                     queue.put_nowait("flush")
                 else:
                     await ws.send(json.dumps({"type": "error", "detail": "text messages: only {\"type\":\"flush\"}"}))
                 continue
             for block in conn_in.feed(msg):
-                utts = seg.feed(block, vad_windows(vad, block))
+                windows = vad_windows(vad, block)
+                utts = seg.feed(block, windows)
                 enqueue(utts)
                 if partial:
                     partial.after_feed(seg, utts)
+                if track:
+                    track.feed(block, max(windows, default=0.0) if isinstance(windows, (list, tuple)) else float(windows))
+                    if utts and not seg.speech_seen:
+                        track.turn_ended()       # a pause ended the turn (not a cut mid-speech)
         # Disconnected: nothing more can be sent, so the unfinished turn is dropped.
     finally:
         batcher.closed()
         if partial:
             partial.close()
+        if track:
+            track.close()
         task.cancel()
         if heard["audio_s"]:
             print(f"[stt] {who}: closed; {heard['n']} transcripts, {heard['audio_s']:.0f}s of speech, "
@@ -1762,6 +1824,8 @@ def warmup(models):
         models.transcribe(noise, "en")
         if len(models.lid_index) > 1:
             models.identify(noise, ["en", "ht"])
+    if getattr(models, "ctc", None) is not None:
+        models.ctc.warm()
     # (The voices warm themselves on their loading thread: Models._load_voices.)
     print(f"[stt] warm in {time.time() - t0:.1f}s", flush=True)
 
