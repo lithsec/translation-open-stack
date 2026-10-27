@@ -531,6 +531,30 @@ TAG=<tag> ./deploy.sh 3b-deploy            # SIGNING_SECRET, NONPROFIT_SECRET as
 - A client opens `wss://<host>/listen?langs=km&stream=ctc&lookahead=2` (or
   `lo`). Cloud Run starts an instance on the first connection.
 
+Measured on Cloud Run (2026-10-27, us-east4, L4, 4 vCPU / 16 GiB, FLEURS km
+and lo test clips streamed at real time, `lookahead=2`):
+
+- **Cold start, zero to the hello:** 50 s on a host without the image
+  (instance start to ready 49 s: ~6 s to the container, ~14 s of imports,
+  ~24 s of model loads, of which the 3B was 10 s, then ~5 s of warm-up), and
+  18 s on a host that still had the image. The first partial came 0.8-1.8 s
+  after the hello. A later scale-out instance took 52 s.
+- **One socket per clip, 6 at a time, 4 minutes:** 104 connections, no
+  errors. Commit lag p50/p90 2.08/2.22 s (km) and 2.08/2.24 s (lo). First
+  partial after speech onset p50 0.7 s (km) and 1.0 s (lo). Closing commit
+  after speech end p90 about 1.0 s. Committed CER km 16.8, lo 18.6.
+- **6 long-lived sockets that never stop talking, 4 minutes, one instance:**
+  no errors. Commit lag p50/p90 2.53/2.81 s, partial lag 0.50/0.80 s, and the
+  GPU at ~99%. So six non-stop streams are about what one L4 carries. Rooms
+  with pauses leave headroom, because a quiet stream decodes every 2 s.
+- **Scale-out:** Cloud Run started the second instance during both 6-socket
+  runs, even when all six sockets stayed on the first one. Its autoscaler
+  aims below `--concurrency`. Six open sockets can therefore bill two L4s
+  until the idle one retires. `MAX_INSTANCES_3B=1` (or a lower
+  `MAX_STREAMS_3B`) is the knob to use.
+- **Scale to zero:** with no sockets, the instances retired 6-15 minutes
+  after the last connection closed.
+
 ## Measured locally
 
 2026-10-17, MacBook Pro M2 Pro (16 GB, busy, swapping), CPU only, float32,
