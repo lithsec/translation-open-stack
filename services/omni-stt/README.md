@@ -505,6 +505,56 @@ each. Measured on an L4 ([eval/2026-10-ctc-stream](../../eval/2026-10-ctc-stream
   FLEURS lo 18.3 / 21.7, unseen km 25.2 / 28.2, unseen lo 7.7 / 10.8. The 7B
   finals of the same clips score 12.3, 16.3, 24.2 and 4.9.
 
+#### omni-stt-3b-stream: the streaming service on Cloud Run
+
+`deploy.sh 3b-build` downloads Meta's stock `omniASR_CTC_3B` inside Cloud
+Build, converts it to bf16 (`7b/to_bf16.py`) and bakes it into the image with
+its card (`3b/cards.yaml`, `3b/Dockerfile.baked`, on `7b/Dockerfile.base`).
+`3b-deploy` deploys it as its own service, `omni-stt-3b-stream`:
+
+```
+./deploy.sh 3b-build                       # -> <TAG>-3b-base and <TAG>-3b
+TAG=<tag> ./deploy.sh 3b-deploy            # SIGNING_SECRET, NONPROFIT_SECRET as for deploy
+```
+
+- L4, 4 vCPU, 16 GiB, `--min-instances 0` (it bills only while a socket is
+  open, plus Cloud Run's idle window), `--max-instances 2`
+  (`MAX_INSTANCES_3B`).
+- `--concurrency 6` and `STT_MAX_CONNECTIONS=6` (`MAX_STREAMS_3B`): about
+  six streams that never stop talking per L4. A seventh socket starts the
+  second instance.
+- `--timeout 3600`: as for every service here, a WebSocket ends after an
+  hour and the client reconnects.
+- Credentials, startup probe and `--no-invoker-iam-check` as `7b-deploy`.
+  `STT_SERVE=listen`, `STT_CTC_STREAM=1`, and `OMNI_CARD` and `STT_CTC_CARD`
+  both `omniASR_CTC_3B_bf16`, so the recogniser and the track share one copy.
+- A client opens `wss://<host>/listen?langs=km&stream=ctc&lookahead=2` (or
+  `lo`). Cloud Run starts an instance on the first connection.
+
+Measured on Cloud Run (2026-10-27, us-east4, L4, 4 vCPU / 16 GiB, FLEURS km
+and lo test clips streamed at real time, `lookahead=2`):
+
+- **Cold start, zero to the hello:** 50 s on a host without the image
+  (instance start to ready 49 s: ~6 s to the container, ~14 s of imports,
+  ~24 s of model loads, of which the 3B was 10 s, then ~5 s of warm-up), and
+  18 s on a host that still had the image. The first partial came 0.8-1.8 s
+  after the hello. A later scale-out instance took 52 s.
+- **One socket per clip, 6 at a time, 4 minutes:** 104 connections, no
+  errors. Commit lag p50/p90 2.08/2.22 s (km) and 2.08/2.24 s (lo). First
+  partial after speech onset p50 0.7 s (km) and 1.0 s (lo). Closing commit
+  after speech end p90 about 1.0 s. Committed CER km 16.8, lo 18.6.
+- **6 long-lived sockets that never stop talking, 4 minutes, one instance:**
+  no errors. Commit lag p50/p90 2.53/2.81 s, partial lag 0.50/0.80 s, and the
+  GPU at ~99%. So six non-stop streams are about what one L4 carries. Rooms
+  with pauses leave headroom, because a quiet stream decodes every 2 s.
+- **Scale-out:** Cloud Run started the second instance during both 6-socket
+  runs, even when all six sockets stayed on the first one. Its autoscaler
+  aims below `--concurrency`. Six open sockets can therefore bill two L4s
+  until the idle one retires. `MAX_INSTANCES_3B=1` (or a lower
+  `MAX_STREAMS_3B`) is the knob to use.
+- **Scale to zero:** with no sockets, the instances retired 6-15 minutes
+  after the last connection closed.
+
 ### One GPU for both: the 7B and the streaming service (duo)
 
 On a 48 GB card both fit, so the two services run as **two processes on one

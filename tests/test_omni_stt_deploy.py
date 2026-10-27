@@ -112,6 +112,24 @@ def test_deploy_mounts_only_the_secrets_named():
         assert code == 3 and "refusing" in out and not called, (extra, out)
 
 
+def test_3b_targets_dry_run():
+    code, out, called = _run("3b-build", {"TAG": "abc"})
+    assert code == 0 and not called, out
+    assert "+ gcloud builds submit" in out
+    assert "https://dl.fbaipublicfiles.com/mms/omniASR-CTC-3B.pt" in out
+    assert '"-t", "us-east4-docker.pkg.dev/proj/omni-stt/omni-stt:abc-3b"' in out
+    code, out, called = _run("3b-deploy", {"TAG": "abc", "SIGNING_SECRET": "omni-stt-signing-key"})
+    assert code == 0 and not called, out
+    out = out.replace("\\,", ",")
+    assert "+ gcloud run deploy omni-stt-3b-stream " in out, out
+    assert "--image us-east4-docker.pkg.dev/proj/omni-stt/omni-stt:abc-3b " in out
+    assert "--min-instances 0 --max-instances 2 --concurrency 6 --timeout 3600 " in out
+    assert "STT_CTC_STREAM=1,OMNI_CARD=omniASR_CTC_3B_bf16,STT_CTC_CARD=omniASR_CTC_3B_bf16,STT_MAX_CONNECTIONS=6," in out
+    assert "--set-secrets STT_TOKEN=omni-stt-token:latest,STT_SIGNING_KEY=omni-stt-signing-key:latest " in out
+    code, out, called = _run("3b-deploy", {"MAX_STREAMS_3B": "6,X=1"})
+    assert code == 3 and not called, out
+
+
 def _private_values():
     """The private values (card, bucket, project) in this checkout's own
     services/omni-stt/private.env, if any: never in a committed file."""

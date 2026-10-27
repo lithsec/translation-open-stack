@@ -1,0 +1,6 @@
+# Meta's stock omniASR_CTC_3B, converted to bf16 (../7b/to_bf16.py) and nothing
+# else: no fine-tuned weights. The checkpoint is baked into the image
+# (Dockerfile.baked); tokenizer and architecture come from the stock card (base:).
+name: omniASR_CTC_3B_bf16
+base: omniASR_CTC_3B
+checkpoint: file:///opt/models/3b/omniASR_CTC_3B_bf16.pt
