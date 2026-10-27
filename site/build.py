@@ -96,6 +96,7 @@ INPUTS = {
     "rate_readme": "eval/2026-10-voice-rate-compact/README.md",
     "o_conv": "eval/2026-10-concise-conversational/results.json",
     "conv_readme": "eval/2026-10-concise-conversational/README.md",
+    "o_ctc": "eval/2026-10-ctc-stream/results.json",
 }
 OCT_INPUTS = [k for k in INPUTS if k.startswith("o_")]
 OPTIONAL_INPUTS = {"latency", "lat_readme"}
@@ -2769,6 +2770,65 @@ def azg(rel="eval/2026-10-azure-stt-gemini", text=None, link=True):
     return src_link(rel, text) if link else rel
 
 
+# A language gets the streaming track on this page only where it is quicker than the
+# 7B's finals on every set and gives up at most this many CER points (2 s look-ahead).
+CTC_MAX_GAP = 4.0
+
+
+def ctc_stream_data(D):
+    """Per language and set (eval/2026-10-ctc-stream): the streaming track against the 7B's finals."""
+    R = D["o_ctc"]["runs"]
+    out = {}
+    for lang in sorted({r["lang"] for r in R.values()}):
+        sets = []
+        for s, name in (("fleurs", "FLEURS"), ("unseen", "unseen")):
+            la2, la1, f7 = R.get(f"{s}_{lang}_la2"), R.get(f"{s}_{lang}_la1"), R.get(f"f7b_{s}_{lang}")
+            if not (la2 and f7):
+                continue
+            sets.append({"set": f"{name} {OCT_LANG[lang]}", "clips": la2["clips"], "la2": la2, "la1": la1, "f7": f7,
+                         "gap": la2["cer_committed"] - f7["cer_final"],
+                         "quicker": la2["end_commit"]["p50"] < f7["final"]["p50"]})
+        if sets:
+            out[lang] = {"sets": sets, "ok": all(x["quicker"] and x["gap"] <= CTC_MAX_GAP for x in sets)}
+    return out
+
+
+def ctc_stream_section(D):
+    """Latency: the open stack's streaming track, Omnilingual CTC 3B, against the 7B's per-piece finals (#71)."""
+    C = ctc_stream_data(D)
+    ok = [l for l, v in C.items() if v["ok"]]
+    if not ok:
+        return ""
+    names = " and ".join(OCT_LANG[l] for l in ok)
+    rows = [x for l in ok for x in C[l]["sets"]]
+    ch = grouped("Open stack, streaming against per-piece: text after the speaker stops",
+                 "Median seconds from the end of each turn's speech to its last text. Lower is better.",
+                 [(x["set"], [x["la2"]["end_commit"]["p50"], x["f7"]["final"]["p50"]], False) for x in rows],
+                 [("CTC 3B streaming, closing commit", "c3"), ("Omnilingual 7B, final", "c1")],
+                 fmt=lambda v: f"{v:.2f} s", vendor_named=False,
+                 note="Each through its own omni-stt service on an NVIDIA L4, one real-time client per clip.")
+    acc = _table(["Set", "Clips", "Streaming, 2 s look-ahead", "Streaming, 1 s look-ahead", "CTC 3B final", "7B final"],
+                 [[x["set"], x["clips"], f'{x["la2"]["cer_committed"]:.1f}', f'{x["la1"]["cer_committed"]:.1f}' if x["la1"] else "–",
+                   f'{x["la2"]["cer_final"]:.1f}', f'{x["f7"]["cer_final"]:.1f}'] for x in rows])
+    lat = _table(["Set (2 s look-ahead)", "First partial after onset", "First commit after onset", "Commit lag while speaking", "Closing commit after speech end", "7B final after speech end"],
+                 [[x["set"]] + [f'{x["la2"][k]["p50"]:.2f} / {x["la2"][k]["p90"]:.2f}' for k in ("first_partial", "first_commit", "commit_lag", "end_commit")]
+                  + [f'{x["f7"]["final"]["p50"]:.2f} / {x["f7"]["final"]["p90"]:.2f}'] for x in rows])
+    load = D["o_ctc"]["load"]
+    cap = max(r["streams"] for r in load if r["km"]["commit_lag"]["p50"] <= 2.3)
+    util = next(r["gpu_util_mean_pct"] for r in load if r["streams"] == cap)
+    fp = [x["la2"]["first_partial"]["p50"] for x in rows]
+    gaps = [x["gap"] for x in rows]
+    cv = D["o_ctc"]["unseen_by_source"].get("lo", {}).get("common-voice-26.0-lo")
+    cv_note = (f" One source is the exception: on Common Voice Lao the streaming text scored {cv['3B streaming committed, lookahead 2 s']:g} against the 7B's {cv['7B per-piece final']:g}; those clips are in Omnilingual's training data, new only by speaker."
+               if "lo" in ok and cv else "")
+    return f"""<div class="prose"><h2 id="streaming">Open stack streaming: live text in {esc(names)}</h2>
+<p>The open recogniser normally writes a sentence once the speaker pauses. For {esc(names)}, omni-stt also has a streaming track (off by default; a connection asks with <code>?stream=ctc</code>): Omnilingual CTC 3B re-reads the last 8 s every 0.5 s, sends a revisable <em>partial</em>, and <em>commits</em> text older than a 1 or 2 s look-ahead. First text appears {min(fp):.1f}–{max(fp):.1f} s after the speaker starts (median), and a turn's last text arrives sooner after the speaker stops than the 7B's final, for {min(gaps):.1f}–{max(gaps):.1f} CER points more (2 s look-ahead). Shown here for the languages where it is quicker on every set and within {CTC_MAX_GAP:g} points.</p></div>
+{ch}
+<details class="data"><summary>Character error rate (%), by set</summary>{acc}<p class="note">Committed text in order against the reference; "final" is each service's per-piece text. FLEURS: the 30 real-voice sentences; unseen: read and spontaneous speech from outside FLEURS.{esc(cv_note)}</p></details>
+<details class="data"><summary>Streaming timings, p50 / p90 seconds</summary>{lat}<p class="note">Onset is an energy estimate (−30 dB from the clip's peak). Commit lag is a commit's arrival minus the audio time it reaches: the look-ahead plus the pass's own delay.</p></details>
+<div class="prose"><p class="note">Capacity: about {cap} always-talking streams per L4 ({util}% GPU) before commits slip; load does not change the text. The 3B does not fit beside the 7B on an L4, so it runs as its own service. One run, {esc(D['o_ctc']['date'])}. Source: {src_link('eval/2026-10-ctc-stream/README.md')}.</p></div>"""
+
+
 def build_latency(D, S1):
     oct_doc = src_link("docs/dev/route-findings-2026-10.md", "route-findings-2026-10.md")
     sept_doc = src_link("docs/dev/model-evaluation.md", "model-evaluation.md")
@@ -2897,8 +2957,13 @@ def build_latency(D, S1):
     # ---- summary
     e = cell("ht", 700, 15.0)
     sol = S1["foundry-gpt-5.6-sol@low"]["latency"]
+    CS = ctc_stream_data(D)
+    ctc_ok = [l for l, v in CS.items() if v["ok"]]
+    lk = " and ".join(OCT_LANG[l] for l in ctc_ok)
+    fp = [x["la2"]["first_partial"]["p50"] for l in ctc_ok for x in CS[l]["sets"]]
     summary = [
         ["Open stack, end to end (Sept)", "~0.8 s", "speaker stops → first translated audio", "end to end", "synthetic", "model-evaluation.md §3.1"],
+    ] + ([[f"Open stack streaming, {lk} (Oct)", f"{min(fp):.1f}–{max(fp):.1f} s", "speaker starts → first live text (partial)", "recognition only", "real", "eval/2026-10-ctc-stream"]] if ctc_ok else []) + [
         [f"{gl}, end to end (Sept)", "~2.8 s", "speaker <em>starts</em> → first translated audio (it talks mid-sentence)", "end to end", "synthetic", "model-evaluation.md §3.1"],
         [f"{az} STT → {gem} (Oct)", "~1.3 s", "sentence ends → translated audio starts", "end to end", "synthetic", "route-findings §3; " + azg(link=False)],
         [L("azg:azure_only") + " (Oct)", f"{min(az_only):.1f}–{max(az_only):.1f} s", "sentence ends → translated text + voice starts", "end to end", "synthetic", azg(link=False)],
@@ -2931,6 +2996,7 @@ def build_latency(D, S1):
 <p>The open recogniser decides a sentence has ended after a pause. Waiting longer cuts fewer sentences in half — Haitian Creole's error fell from {pct(cell('ht', 300, 6.0)['cer'])} to {pct(e['cer'])} and Lao's from {pct(cell('lo', 300, 6.0)['cer'])} to {pct(cell('lo', 700, 15.0)['cer'])} — for about 0.4 s more at each turn end, and up to 15 s before any text when a speaker never pauses.</p></div>
 {ep_chart}
 <details class="data"><summary>Waits, decode time and error per setting</summary>{ep_tbl}<p class="note">GPU: {esc(sw['gpu'])}. Per-sentence p90 is long because a sentence that never pauses waits for the forced cut.</p></details>
+{ctc_stream_section(D)}
 <div class="prose"><h2 id="translation">Translation</h2></div>
 {tr_chart}
 <div class="prose"><h2 id="voices">Voices: time to first audio</h2>
@@ -2948,7 +3014,7 @@ def build_latency(D, S1):
 <h2>Sources</h2>
 <ul>
 <li>{sept_doc}, {oct_doc}, {src_link('eval/2026-10-ht-voices/README.md')}, {src_link('services/omni-stt/README.md')}, <a href="{PR18}">PR #18</a>.</li>
-<li>Result files: {src_link('eval/2026-10-real-voices')}, {src_link('eval/2026-10-translator-shootout')}, {src_link('eval/2026-10-omni-sizes/results.json')}, {azg('eval/2026-10-azure-stt-gemini/results.json')} (delays copied by <code>site/extract_derived.py</code>), {src_link('eval/2026-09-model-eval/results/voxcpm_speed.json')}, {src_link('eval/2026-10-latency/degraded')}, {src_link('eval/2026-10-continuous-ht')}, {src_link('eval/2026-10-continuous-azure')}, {src_link('eval/2026-10-simultaneous-phrases')}, {src_link('eval/2026-10-voice-rate-compact')}, {src_link('eval/2026-10-concise-conversational')}.</li>
+<li>Result files: {src_link('eval/2026-10-real-voices')}, {src_link('eval/2026-10-translator-shootout')}, {src_link('eval/2026-10-omni-sizes/results.json')}, {src_link('eval/2026-10-ctc-stream/results.json')}, {azg('eval/2026-10-azure-stt-gemini/results.json')} (delays copied by <code>site/extract_derived.py</code>), {src_link('eval/2026-09-model-eval/results/voxcpm_speed.json')}, {src_link('eval/2026-10-latency/degraded')}, {src_link('eval/2026-10-continuous-ht')}, {src_link('eval/2026-10-continuous-azure')}, {src_link('eval/2026-10-simultaneous-phrases')}, {src_link('eval/2026-10-voice-rate-compact')}, {src_link('eval/2026-10-concise-conversational')}.</li>
 </ul>
 </div>"""
     page("latency.html", "Latency", body, "Every latency measured for live speech translation, open and cloud, each labelled with what it measures.")
