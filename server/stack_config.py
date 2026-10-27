@@ -115,7 +115,9 @@ LONG_TURNS = {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500
               "min_speech_ms": 2500}
 # Translators per direction, from the full stack live (eval/2026-10-full-stack): Gemma 4 (llmmt) out of
 # English into es pt fr ja km, ja -> en, and both ways for ht; MiLMMT both ways for Lao; Hy-MT2 into
-# English from es pt fr km. llmmt is tried first and only while its server answers (engines/llmmt.py):
+# English from es pt fr km. From Lithos Talk's route table (2026-10-27; Gemma within 5 points of
+# gpt-5.6-sol and at least 80; not yet measured on this stack): Gemma 4 into de ru zh vi tl, and into
+# English from zh vi tl ar fa. llmmt is tried first and only while its server answers (engines/llmmt.py):
 # without the vLLM servers beside the stack, every pair falls back to the translator it had before.
 GEMMA = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
 MILMMT = "milmmt http://127.0.0.1:8102/v1 xiaomi-research/MiLMMT-46-12B-v0.1"
@@ -132,23 +134,28 @@ DEFAULTS = {
            "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": "hymt", "madlad": "pt"},
     "it": {"kokoro": "i:if_sara", "piper": "it_IT-serena-high", "asr": "whisper", "translator": "hymt",
            "madlad": "it"},
-    "de": {"piper": "de_DE-thorsten-high", "asr": "whisper", "translator": "hymt", "madlad": "de",
+    "de": {"piper": "de_DE-thorsten-high", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
+           "translator_to_en": "hymt", "madlad": "de",
            "commercial": {"piper": "de_DE-mls-medium"}},
-    "ru": {"piper": "ru_RU-irina-medium", "asr": "whisper", "translator": "hymt", "madlad": "ru",
+    "ru": {"piper": "ru_RU-irina-medium", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
+           "translator_to_en": "hymt", "madlad": "ru",
            "commercial": {"voxcpm": True}},
     "uk": {"piper": "uk_UA-ukrainian_tts-medium", "asr": "whisper", "translator": "hymt", "madlad": "uk"},
-    "zh": {"kokoro": "z:zf_xiaobei", "piper": "zh_CN-huayan-medium", "asr": "whisper", "translator": "hymt",
-           "madlad": "zh"},
+    "zh": {"kokoro": "z:zf_xiaobei", "piper": "zh_CN-huayan-medium", "asr": "whisper",
+           "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": ["llmmt", "hymt"], "madlad": "zh"},
     "ja": {"kokoro": "j:jf_alpha", "piper": "ja_JP-hi_fi_captain-medium", "asr": "whisper",
            **LONG_TURNS, "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
            "translator_to_en": ["llmmt", "hymt"], "madlad": "ja"},
     "ko": {"piper": "ko_KR-kss-medium", "asr": "whisper", "translator": "hymt", "madlad": "ko",
            "commercial": {"voxcpm": True}},
-    "vi": {"piper": "vi_VN-vais1000-medium", "asr": "whisper", "translator": "hymt", "madlad": "vi",
+    "vi": {"piper": "vi_VN-vais1000-medium", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
+           "translator_to_en": ["llmmt", "hymt"], "madlad": "vi",
            "commercial": {"voxcpm": True}},
-    "ar": {"piper": "ar_JO-kareem-medium", "asr": "whisper", "translator": "hymt", "madlad": "ar",
+    "ar": {"piper": "ar_JO-kareem-medium", "asr": "whisper", "translator": "hymt", "llmmt": GEMMA,
+           "translator_to_en": ["llmmt", "hymt"], "madlad": "ar",
            "commercial": {"voxcpm": True}},
-    "fa": {"piper": "fa_IR-gyro-medium", "asr": "omni:pes_Arab", "translator": "hymt", "madlad": "fa"},
+    "fa": {"piper": "fa_IR-gyro-medium", "asr": "omni:pes_Arab", "translator": "hymt", "llmmt": GEMMA,
+           "translator_to_en": ["llmmt", "hymt"], "madlad": "fa"},
     "id": {"piper": "id_ID-news_tts-medium", "asr": "whisper", "translator": "hymt", "madlad": "id",
            "commercial": {"voxcpm": True}},
     "tr": {"piper": "tr_TR-dfki-medium", "asr": "whisper", "translator": "hymt", "madlad": "tr",
@@ -170,8 +177,8 @@ DEFAULTS = {
            **LONG_TURNS, "translator": ["llmmt", "madlad"], "llmmt": MILMMT,
            "translator_to_en": ["llmmt", "hymt"], "madlad": "lo"},
     # MADLAD's code for Tagalog is fil (<2tl> is not in its vocabulary).
-    "tl": {"voxcpm": True, "mms": "facebook/mms-tts-tgl", "asr": "whisper", "translator": "hymt",
-           "madlad": "fil"},
+    "tl": {"voxcpm": True, "mms": "facebook/mms-tts-tgl", "asr": "whisper", "translator": ["llmmt", "hymt"],
+           "llmmt": GEMMA, "translator_to_en": ["llmmt", "hymt"], "madlad": "fil"},
 }
 
 # Every model the stack loads that is not chosen per language, with its exact

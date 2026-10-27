@@ -180,11 +180,17 @@ The shipped choices, from the full stack live on two clip sets
 | Direction | Translator | Without its LLM server |
 |---|---|---|
 | en → es, pt, fr, ja, km | Gemma 4 31B (`llmmt`, port 8101) | Hy-MT2 |
+| en → de, ru, zh, vi, tl ¹ | Gemma 4 31B | Hy-MT2 |
 | ja → en | Gemma 4 31B | Hy-MT2 |
+| zh, vi, tl, ar, fa → en ¹ | Gemma 4 31B | Hy-MT2 |
 | en ↔ ht | Gemma 4 31B | MADLAD into ht, Hy-MT2 (after MADLAD's pivot) into en |
 | en ↔ lo | MiLMMT-46 12B (`llmmt`, port 8102) | MADLAD into lo, Hy-MT2 into en |
 | es, pt, fr, km → en | Hy-MT2 | — |
 | every other pair | as before (Hy-MT2, or MADLAD) | — |
+
+¹ From Lithos Talk's route table (2026-10-27): Gemma 4 within 5 points of gpt-5.6-sol and
+scoring at least 80, measured hosted in bf16 on Azure or MAI transcripts. Not yet measured on
+this stack's 4-bit build and recognisers.
 
 The two LLMs run in vLLM beside the stack:
 
