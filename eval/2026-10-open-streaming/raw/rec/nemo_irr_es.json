@@ -1,0 +1,1969 @@
+{
+ "lang": "es",
+ "model": "nvidia/nemotron-3.5-asr-streaming-0.6b@ea30d66debe3740a08b573244286791d423d6b3e",
+ "att_context_size": [
+  56,
+  6
+ ],
+ "err": "",
+ "partials": [
+  {
+   "t": 1643.6,
+   "text": "Los",
+   "offsetMs": 1152.0,
+   "stable": 0
+  },
+  {
+   "t": 2203.6,
+   "text": "Los leones",
+   "offsetMs": 1152.0,
+   "stable": 1
+  },
+  {
+   "t": 2763.7,
+   "text": "Los leones son los",
+   "offsetMs": 1152.0,
+   "stable": 3
+  },
+  {
+   "t": 3324.1,
+   "text": "Los leones son los felinos que",
+   "offsetMs": 1152.0,
+   "stable": 5
+  },
+  {
+   "t": 3883.4,
+   "text": "Los leones son los felinos que más",
+   "offsetMs": 1152.0,
+   "stable": 6
+  },
+  {
+   "t": 4444.0,
+   "text": "Los leones son los felinos que más socializan",
+   "offsetMs": 1152.0,
+   "stable": 7
+  },
+  {
+   "t": 5003.8,
+   "text": "Los leones son los felinos que más socializan y su vi",
+   "offsetMs": 1152.0,
+   "stable": 10
+  },
+  {
+   "t": 5564.0,
+   "text": "Los leones son los felinos que más socializan y su vida transcur",
+   "offsetMs": 1152.0,
+   "stable": 11
+  },
+  {
+   "t": 6123.9,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro",
+   "offsetMs": 1152.0,
+   "stable": 12
+  },
+  {
+   "t": 6684.0,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos",
+   "offsetMs": 1152.0,
+   "stable": 14
+  },
+  {
+   "t": 7244.4,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos de gran tamaño",
+   "offsetMs": 1152.0,
+   "stable": 17
+  },
+  {
+   "t": 7804.0,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos de gran tamaño denomina",
+   "offsetMs": 1152.0,
+   "stable": 18
+  },
+  {
+   "t": 8363.1,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos de gran tamaño denominados",
+   "offsetMs": 1152.0,
+   "stable": 18
+  },
+  {
+   "t": 8923.5,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos de gran tamaño denominados manadas",
+   "offsetMs": 1152.0,
+   "stable": 19
+  },
+  {
+   "t": 10603.7,
+   "text": "En medio del",
+   "offsetMs": 9632.0,
+   "stable": 2
+  },
+  {
+   "t": 11163.6,
+   "text": "En medio del cálido",
+   "offsetMs": 9632.0,
+   "stable": 3
+  },
+  {
+   "t": 11723.9,
+   "text": "En medio del cálido clima del",
+   "offsetMs": 9632.0,
+   "stable": 5
+  },
+  {
+   "t": 12283.9,
+   "text": "En medio del cálido clima del Oriente Medio",
+   "offsetMs": 9632.0,
+   "stable": 7
+  },
+  {
+   "t": 12843.9,
+   "text": "En medio del cálido clima del Oriente Medio, la casa",
+   "offsetMs": 9632.0,
+   "stable": 9
+  },
+  {
+   "t": 13404.0,
+   "text": "En medio del cálido clima del Oriente Medio, la casa no era de",
+   "offsetMs": 9632.0,
+   "stable": 12
+  },
+  {
+   "t": 13964.7,
+   "text": "En medio del cálido clima del Oriente Medio, la casa no era de mayor importancia",
+   "offsetMs": 9632.0,
+   "stable": 14
+  },
+  {
+   "t": 16204.2,
+   "text": "Las playas",
+   "offsetMs": 15328.0,
+   "stable": 1
+  },
+  {
+   "t": 16763.6,
+   "text": "Las playas son ca",
+   "offsetMs": 15328.0,
+   "stable": 3
+  },
+  {
+   "t": 17323.8,
+   "text": "Las playas son casi todas de",
+   "offsetMs": 15328.0,
+   "stable": 5
+  },
+  {
+   "t": 17884.1,
+   "text": "Las playas son casi todas de arena con",
+   "offsetMs": 15328.0,
+   "stable": 7
+  },
+  {
+   "t": 18443.9,
+   "text": "Las playas son casi todas de arena con lugares",
+   "offsetMs": 15328.0,
+   "stable": 8
+  },
+  {
+   "t": 19004.5,
+   "text": "Las playas son casi todas de arena con lugares seguros",
+   "offsetMs": 15328.0,
+   "stable": 9
+  },
+  {
+   "t": 19563.8,
+   "text": "Las playas son casi todas de arena con lugares seguros para nadar",
+   "offsetMs": 15328.0,
+   "stable": 11
+  },
+  {
+   "t": 20125.0,
+   "text": "Las playas son casi todas de arena con lugares seguros para nadar y en su mayor",
+   "offsetMs": 15328.0,
+   "stable": 15
+  },
+  {
+   "t": 20683.9,
+   "text": "Las playas son casi todas de arena con lugares seguros para nadar y en su mayor tienen",
+   "offsetMs": 15328.0,
+   "stable": 16
+  },
+  {
+   "t": 21243.9,
+   "text": "Las playas son casi todas de arena con lugares seguros para nadar y en su mayor tienen árboles",
+   "offsetMs": 15328.0,
+   "stable": 17
+  },
+  {
+   "t": 22924.0,
+   "text": "Butukawa",
+   "offsetMs": 21856.0,
+   "stable": 0
+  },
+  {
+   "t": 24044.0,
+   "text": "Butukawa que ofrecen",
+   "offsetMs": 21856.0,
+   "stable": 2
+  },
+  {
+   "t": 24604.2,
+   "text": "Butukawa que ofrecen lugares de",
+   "offsetMs": 21856.0,
+   "stable": 4
+  },
+  {
+   "t": 25163.6,
+   "text": "Butukawa que ofrecen lugares de sombra",
+   "offsetMs": 21856.0,
+   "stable": 5
+  },
+  {
+   "t": 25723.6,
+   "text": "Butukawa que ofrecen lugares de sombra.",
+   "offsetMs": 21856.0,
+   "stable": 5
+  },
+  {
+   "t": 26844.0,
+   "text": "Las manadas",
+   "offsetMs": 25920.0,
+   "stable": 1
+  },
+  {
+   "t": 27403.9,
+   "text": "Las manadas están formadas",
+   "offsetMs": 25920.0,
+   "stable": 3
+  },
+  {
+   "t": 27963.5,
+   "text": "Las manadas están formadas por",
+   "offsetMs": 25920.0,
+   "stable": 4
+  },
+  {
+   "t": 28524.5,
+   "text": "Las manadas están formadas por uno a tres",
+   "offsetMs": 25920.0,
+   "stable": 7
+  },
+  {
+   "t": 29083.9,
+   "text": "Las manadas están formadas por uno a tres machos",
+   "offsetMs": 25920.0,
+   "stable": 8
+  },
+  {
+   "t": 29645.1,
+   "text": "Las manadas están formadas por uno a tres machos adultos del mismo",
+   "offsetMs": 25920.0,
+   "stable": 11
+  },
+  {
+   "t": 30204.4,
+   "text": "Las manadas están formadas por uno a tres machos adultos del mismo grupo",
+   "offsetMs": 25920.0,
+   "stable": 12
+  },
+  {
+   "t": 30764.0,
+   "text": "Las manadas están formadas por uno a tres machos adultos del mismo grupo familiar",
+   "offsetMs": 25920.0,
+   "stable": 13
+  },
+  {
+   "t": 31323.7,
+   "text": "Las manadas están formadas por uno a tres machos adultos del mismo grupo familiar, uni",
+   "offsetMs": 25920.0,
+   "stable": 14
+  },
+  {
+   "t": 31883.7,
+   "text": "Las manadas están formadas por uno a tres machos adultos del mismo grupo familiar, unidos con hasta",
+   "offsetMs": 25920.0,
+   "stable": 16
+  },
+  {
+   "t": 32443.7,
+   "text": "Las manadas están formadas por uno a tres machos adultos del mismo grupo familiar, unidos con hasta treinta hem",
+   "offsetMs": 25920.0,
+   "stable": 18
+  },
+  {
+   "t": 33003.8,
+   "text": "Las manadas están formadas por uno a tres machos adultos del mismo grupo familiar, unidos con hasta treinta hembras y",
+   "offsetMs": 25920.0,
+   "stable": 19
+  },
+  {
+   "t": 33564.0,
+   "text": "Las manadas están formadas por uno a tres machos adultos del mismo grupo familiar, unidos con hasta treinta hembras y sus crías",
+   "offsetMs": 25920.0,
+   "stable": 21
+  },
+  {
+   "t": 34123.8,
+   "text": "Las manadas están formadas por uno a tres machos adultos del mismo grupo familiar, unidos con hasta treinta hembras y sus crías.",
+   "offsetMs": 25920.0,
+   "stable": 21
+  },
+  {
+   "t": 34683.7,
+   "text": "Es posible",
+   "offsetMs": 33888.0,
+   "stable": 1
+  },
+  {
+   "t": 35244.4,
+   "text": "Es posible que en los niños",
+   "offsetMs": 33888.0,
+   "stable": 5
+  },
+  {
+   "t": 35803.8,
+   "text": "Es posible que en los niños salvaje",
+   "offsetMs": 33888.0,
+   "stable": 6
+  },
+  {
+   "t": 36363.5,
+   "text": "Es posible que en los niños salvajes hayan",
+   "offsetMs": 33888.0,
+   "stable": 7
+  },
+  {
+   "t": 36923.7,
+   "text": "Es posible que en los niños salvajes hayan sufrido",
+   "offsetMs": 33888.0,
+   "stable": 8
+  },
+  {
+   "t": 37483.8,
+   "text": "Es posible que en los niños salvajes hayan sufrido situaciones",
+   "offsetMs": 33888.0,
+   "stable": 9
+  },
+  {
+   "t": 38044.5,
+   "text": "Es posible que en los niños salvajes hayan sufrido situaciones traumáticas",
+   "offsetMs": 33888.0,
+   "stable": 10
+  },
+  {
+   "t": 38603.7,
+   "text": "Es posible que en los niños salvajes hayan sufrido situaciones traumáticas o",
+   "offsetMs": 33888.0,
+   "stable": 11
+  },
+  {
+   "t": 39164.4,
+   "text": "Es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso in",
+   "offsetMs": 33888.0,
+   "stable": 13
+  },
+  {
+   "t": 39724.1,
+   "text": "Es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave",
+   "offsetMs": 33888.0,
+   "stable": 14
+  },
+  {
+   "t": 40283.2,
+   "text": "Es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave ant",
+   "offsetMs": 33888.0,
+   "stable": 15
+  },
+  {
+   "t": 40844.2,
+   "text": "Es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave antes de ser",
+   "offsetMs": 33888.0,
+   "stable": 17
+  },
+  {
+   "t": 41404.2,
+   "text": "Es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave antes de ser abandonados",
+   "offsetMs": 33888.0,
+   "stable": 18
+  },
+  {
+   "t": 41963.8,
+   "text": "Es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave antes de ser abandonados o de",
+   "offsetMs": 33888.0,
+   "stable": 20
+  },
+  {
+   "t": 42524.2,
+   "text": "Es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave antes de ser abandonados o de que huyeran",
+   "offsetMs": 33888.0,
+   "stable": 22
+  },
+  {
+   "t": 43645.3,
+   "text": "En Sco",
+   "offsetMs": 42816.0,
+   "stable": 1
+  },
+  {
+   "t": 44204.9,
+   "text": "En Scoturb,",
+   "offsetMs": 42816.0,
+   "stable": 1
+  },
+  {
+   "t": 44764.6,
+   "text": "En Scoturb, el autobús",
+   "offsetMs": 42816.0,
+   "stable": 3
+  },
+  {
+   "t": 45324.2,
+   "text": "En Scoturb, el autobús cuatrocie",
+   "offsetMs": 42816.0,
+   "stable": 4
+  },
+  {
+   "t": 45884.2,
+   "text": "En Scoturb, el autobús cuatrocientos tres",
+   "offsetMs": 42816.0,
+   "stable": 5
+  },
+  {
+   "t": 46444.1,
+   "text": "En Scoturb, el autobús cuatrocientos tres se dirige",
+   "offsetMs": 42816.0,
+   "stable": 7
+  },
+  {
+   "t": 47004.1,
+   "text": "En Scoturb, el autobús cuatrocientos tres se dirige con regular",
+   "offsetMs": 42816.0,
+   "stable": 9
+  },
+  {
+   "t": 47563.9,
+   "text": "En Scoturb, el autobús cuatrocientos tres se dirige con regularidad",
+   "offsetMs": 42816.0,
+   "stable": 9
+  },
+  {
+   "t": 48123.8,
+   "text": "En Scoturb, el autobús cuatrocientos tres se dirige con regularidad a Sintra",
+   "offsetMs": 42816.0,
+   "stable": 11
+  },
+  {
+   "t": 48683.7,
+   "text": "En Scoturb, el autobús cuatrocientos tres se dirige con regularidad a Sintra y para",
+   "offsetMs": 42816.0,
+   "stable": 13
+  },
+  {
+   "t": 49244.3,
+   "text": "En Scoturb, el autobús cuatrocientos tres se dirige con regularidad a Sintra y para en Caboda",
+   "offsetMs": 42816.0,
+   "stable": 15
+  },
+  {
+   "t": 49804.0,
+   "text": "En Scoturb, el autobús cuatrocientos tres se dirige con regularidad a Sintra y para en Caboda Roca",
+   "offsetMs": 42816.0,
+   "stable": 16
+  },
+  {
+   "t": 50364.0,
+   "text": "En Scoturb, el autobús cuatrocientos tres se dirige con regularidad a Sintra y para en Caboda Roca.",
+   "offsetMs": 42816.0,
+   "stable": 16
+  },
+  {
+   "t": 50924.0,
+   "text": "La forma",
+   "offsetMs": 50240.0,
+   "stable": 1
+  },
+  {
+   "t": 51484.3,
+   "text": "La forma de disfru",
+   "offsetMs": 50240.0,
+   "stable": 3
+  },
+  {
+   "t": 52044.0,
+   "text": "La forma de disfrutar las mejores",
+   "offsetMs": 50240.0,
+   "stable": 5
+  },
+  {
+   "t": 52604.2,
+   "text": "La forma de disfrutar las mejores vistas de",
+   "offsetMs": 50240.0,
+   "stable": 7
+  },
+  {
+   "t": 53164.6,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong",
+   "offsetMs": 50240.0,
+   "stable": 9
+  },
+  {
+   "t": 53724.0,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir",
+   "offsetMs": 50240.0,
+   "stable": 11
+  },
+  {
+   "t": 54284.5,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y",
+   "offsetMs": 50240.0,
+   "stable": 15
+  },
+  {
+   "t": 54844.0,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse",
+   "offsetMs": 50240.0,
+   "stable": 16
+  },
+  {
+   "t": 55404.6,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera",
+   "offsetMs": 50240.0,
+   "stable": 19
+  },
+  {
+   "t": 55963.3,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera de",
+   "offsetMs": 50240.0,
+   "stable": 20
+  },
+  {
+   "t": 56523.6,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera de Kulun",
+   "offsetMs": 50240.0,
+   "stable": 21
+  },
+  {
+   "t": 57084.3,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera de Kulun, ubica",
+   "offsetMs": 50240.0,
+   "stable": 22
+  },
+  {
+   "t": 57643.6,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera de Kulun, ubicada en",
+   "offsetMs": 50240.0,
+   "stable": 23
+  },
+  {
+   "t": 58204.3,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera de Kulun, ubicada enfrente.",
+   "offsetMs": 50240.0,
+   "stable": 23
+  },
+  {
+   "t": 59324.8,
+   "text": "Los pensamiento",
+   "offsetMs": 58624.0,
+   "stable": 1
+  },
+  {
+   "t": 59883.6,
+   "text": "Los pensamientos de",
+   "offsetMs": 58624.0,
+   "stable": 2
+  },
+  {
+   "t": 60444.3,
+   "text": "Los pensamientos de Aristóteles",
+   "offsetMs": 58624.0,
+   "stable": 3
+  },
+  {
+   "t": 61004.0,
+   "text": "Los pensamientos de Aristóteles, en espe",
+   "offsetMs": 58624.0,
+   "stable": 5
+  },
+  {
+   "t": 61564.0,
+   "text": "Los pensamientos de Aristóteles, en especial las cues",
+   "offsetMs": 58624.0,
+   "stable": 7
+  },
+  {
+   "t": 62123.5,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones",
+   "offsetMs": 58624.0,
+   "stable": 7
+  },
+  {
+   "t": 62684.3,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia,",
+   "offsetMs": 58624.0,
+   "stable": 10
+  },
+  {
+   "t": 63244.3,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia, incluso",
+   "offsetMs": 58624.0,
+   "stable": 11
+  },
+  {
+   "t": 63804.7,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia, incluso la psicología",
+   "offsetMs": 58624.0,
+   "stable": 13
+  },
+  {
+   "t": 64363.7,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia, incluso la psicología, fueron",
+   "offsetMs": 58624.0,
+   "stable": 14
+  },
+  {
+   "t": 64924.0,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia, incluso la psicología, fueron acepta",
+   "offsetMs": 58624.0,
+   "stable": 15
+  },
+  {
+   "t": 65483.6,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia, incluso la psicología, fueron aceptadas",
+   "offsetMs": 58624.0,
+   "stable": 15
+  },
+  {
+   "t": 66043.9,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia, incluso la psicología, fueron aceptadas.",
+   "offsetMs": 58624.0,
+   "stable": 15
+  },
+  {
+   "t": 67163.8,
+   "text": "Mitche",
+   "offsetMs": 66400.0,
+   "stable": 0
+  },
+  {
+   "t": 67730.3,
+   "text": "Mitchell Gurley",
+   "offsetMs": 66400.0,
+   "stable": 1
+  },
+  {
+   "t": 68286.4,
+   "text": "Mitchell Gurley de Australia",
+   "offsetMs": 66400.0,
+   "stable": 3
+  },
+  {
+   "t": 68845.9,
+   "text": "Mitchell Gurley de Australia obtuvo",
+   "offsetMs": 66400.0,
+   "stable": 4
+  },
+  {
+   "t": 69420.0,
+   "text": "Mitchell Gurley de Australia obtuvo el undécimo",
+   "offsetMs": 66400.0,
+   "stable": 6
+  },
+  {
+   "t": 69969.3,
+   "text": "Mitchell Gurley de Australia obtuvo el undécimo puesto en",
+   "offsetMs": 66400.0,
+   "stable": 8
+  },
+  {
+   "t": 70525.5,
+   "text": "Mitchell Gurley de Australia obtuvo el undécimo puesto en la categoría",
+   "offsetMs": 66400.0,
+   "stable": 10
+  },
+  {
+   "t": 71084.4,
+   "text": "Mitchell Gurley de Australia obtuvo el undécimo puesto en la categoría mascul",
+   "offsetMs": 66400.0,
+   "stable": 11
+  },
+  {
+   "t": 71644.3,
+   "text": "Mitchell Gurley de Australia obtuvo el undécimo puesto en la categoría masculina de",
+   "offsetMs": 66400.0,
+   "stable": 12
+  },
+  {
+   "t": 72205.8,
+   "text": "Mitchell Gurley de Australia obtuvo el undécimo puesto en la categoría masculina de pie del sl",
+   "offsetMs": 66400.0,
+   "stable": 15
+  },
+  {
+   "t": 72764.7,
+   "text": "Mitchell Gurley de Australia obtuvo el undécimo puesto en la categoría masculina de pie del slalom",
+   "offsetMs": 66400.0,
+   "stable": 15
+  },
+  {
+   "t": 73325.1,
+   "text": "Mitchell Gurley de Australia obtuvo el undécimo puesto en la categoría masculina de pie del slalom súper gigante",
+   "offsetMs": 66400.0,
+   "stable": 17
+  },
+  {
+   "t": 74444.6,
+   "text": "el comp",
+   "offsetMs": 73760.0,
+   "stable": 1
+  },
+  {
+   "t": 75004.4,
+   "text": "el competidor che",
+   "offsetMs": 73760.0,
+   "stable": 2
+  },
+  {
+   "t": 75576.3,
+   "text": "el competidor checo",
+   "offsetMs": 73760.0,
+   "stable": 2
+  },
+  {
+   "t": 76125.2,
+   "text": "el competidor checo Oldrik",
+   "offsetMs": 73760.0,
+   "stable": 3
+  },
+  {
+   "t": 76684.4,
+   "text": "el competidor checo Oldrik Helinek",
+   "offsetMs": 73760.0,
+   "stable": 4
+  },
+  {
+   "t": 77244.7,
+   "text": "el competidor checo Oldrik Helinek ter",
+   "offsetMs": 73760.0,
+   "stable": 5
+  },
+  {
+   "t": 77804.5,
+   "text": "el competidor checo Oldrik Helinek terminó deci",
+   "offsetMs": 73760.0,
+   "stable": 6
+  },
+  {
+   "t": 78364.6,
+   "text": "el competidor checo Oldrik Helinek terminó decimo sexto en",
+   "offsetMs": 73760.0,
+   "stable": 8
+  },
+  {
+   "t": 78924.5,
+   "text": "el competidor checo Oldrik Helinek terminó decimo sexto en el grupo",
+   "offsetMs": 73760.0,
+   "stable": 10
+  },
+  {
+   "t": 79484.9,
+   "text": "el competidor checo Oldrik Helinek terminó decimo sexto en el grupo masculino",
+   "offsetMs": 73760.0,
+   "stable": 11
+  },
+  {
+   "t": 80044.8,
+   "text": "el competidor checo Oldrik Helinek terminó decimo sexto en el grupo masculino de senta",
+   "offsetMs": 73760.0,
+   "stable": 13
+  },
+  {
+   "t": 80604.9,
+   "text": "el competidor checo Oldrik Helinek terminó decimo sexto en el grupo masculino de sentados.",
+   "offsetMs": 73760.0,
+   "stable": 13
+  },
+  {
+   "t": 82284.3,
+   "text": "La ciudad con",
+   "offsetMs": 81248.0,
+   "stable": 2
+  },
+  {
+   "t": 82845.3,
+   "text": "La ciudad contrasta mucho",
+   "offsetMs": 81248.0,
+   "stable": 3
+  },
+  {
+   "t": 83404.1,
+   "text": "La ciudad contrasta mucho con los",
+   "offsetMs": 81248.0,
+   "stable": 5
+  },
+  {
+   "t": 83964.8,
+   "text": "La ciudad contrasta mucho con los restantes del pa",
+   "offsetMs": 81248.0,
+   "stable": 8
+  },
+  {
+   "t": 84524.6,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya",
+   "offsetMs": 81248.0,
+   "stable": 9
+  },
+  {
+   "t": 85084.2,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya que posee",
+   "offsetMs": 81248.0,
+   "stable": 11
+  },
+  {
+   "t": 85644.5,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya que posee un estilo más",
+   "offsetMs": 81248.0,
+   "stable": 14
+  },
+  {
+   "t": 86209.6,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya que posee un estilo más árabe que",
+   "offsetMs": 81248.0,
+   "stable": 16
+  },
+  {
+   "t": 86768.5,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya que posee un estilo más árabe que africano",
+   "offsetMs": 81248.0,
+   "stable": 17
+  },
+  {
+   "t": 88444.8,
+   "text": "Asimismo,",
+   "offsetMs": 87616.0,
+   "stable": 0
+  },
+  {
+   "t": 89005.1,
+   "text": "Asimismo, luego",
+   "offsetMs": 87616.0,
+   "stable": 1
+  },
+  {
+   "t": 89564.7,
+   "text": "Asimismo, luego la revolución",
+   "offsetMs": 87616.0,
+   "stable": 3
+  },
+  {
+   "t": 90124.0,
+   "text": "Asimismo, luego la revolución, los",
+   "offsetMs": 87616.0,
+   "stable": 4
+  },
+  {
+   "t": 90687.3,
+   "text": "Asimismo, luego la revolución, los puestos estu",
+   "offsetMs": 87616.0,
+   "stable": 6
+  },
+  {
+   "t": 91245.1,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos",
+   "offsetMs": 87616.0,
+   "stable": 7
+  },
+  {
+   "t": 91804.5,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los",
+   "offsetMs": 87616.0,
+   "stable": 10
+  },
+  {
+   "t": 92366.0,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos más",
+   "offsetMs": 87616.0,
+   "stable": 12
+  },
+  {
+   "t": 92925.2,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos másculinos",
+   "offsetMs": 87616.0,
+   "stable": 12
+  },
+  {
+   "t": 93484.3,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos másculinos, lo que",
+   "offsetMs": 87616.0,
+   "stable": 14
+  },
+  {
+   "t": 94044.3,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos másculinos, lo que permitió",
+   "offsetMs": 87616.0,
+   "stable": 15
+  },
+  {
+   "t": 94606.6,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos másculinos, lo que permitió el exo",
+   "offsetMs": 87616.0,
+   "stable": 17
+  },
+  {
+   "t": 95164.8,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos másculinos, lo que permitió el exo el éxito",
+   "offsetMs": 87616.0,
+   "stable": 19
+  },
+  {
+   "t": 96844.3,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos másculinos, lo que permitió el exo el éxito de los",
+   "offsetMs": 87616.0,
+   "stable": 21
+  },
+  {
+   "t": 97404.3,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos másculinos, lo que permitió el exo el éxito de los más ambicio",
+   "offsetMs": 87616.0,
+   "stable": 23
+  },
+  {
+   "t": 97964.3,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos másculinos, lo que permitió el exo el éxito de los más ambiciosos y pre",
+   "offsetMs": 87616.0,
+   "stable": 25
+  },
+  {
+   "t": 98524.3,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos másculinos, lo que permitió el exo el éxito de los más ambiciosos y prestigiosos",
+   "offsetMs": 87616.0,
+   "stable": 25
+  },
+  {
+   "t": 99644.2,
+   "text": "La",
+   "offsetMs": 99168.0,
+   "stable": 0
+  },
+  {
+   "t": 100204.8,
+   "text": "La bomba atómica",
+   "offsetMs": 99168.0,
+   "stable": 2
+  },
+  {
+   "t": 100766.1,
+   "text": "La bomba atómica opera",
+   "offsetMs": 99168.0,
+   "stable": 3
+  },
+  {
+   "t": 101325.8,
+   "text": "La bomba atómica opera en base al",
+   "offsetMs": 99168.0,
+   "stable": 6
+  },
+  {
+   "t": 101884.3,
+   "text": "La bomba atómica opera en base al principio",
+   "offsetMs": 99168.0,
+   "stable": 7
+  },
+  {
+   "t": 102443.9,
+   "text": "La bomba atómica opera en base al principio de que",
+   "offsetMs": 99168.0,
+   "stable": 9
+  },
+  {
+   "t": 103004.5,
+   "text": "La bomba atómica opera en base al principio de que se requieren",
+   "offsetMs": 99168.0,
+   "stable": 11
+  },
+  {
+   "t": 103565.1,
+   "text": "La bomba atómica opera en base al principio de que se requieren energía para",
+   "offsetMs": 99168.0,
+   "stable": 13
+  },
+  {
+   "t": 104124.1,
+   "text": "La bomba atómica opera en base al principio de que se requieren energía para conformar",
+   "offsetMs": 99168.0,
+   "stable": 14
+  },
+  {
+   "t": 105244.6,
+   "text": "La bomba atómica opera en base al principio de que se requieren energía para conformar un núcleo",
+   "offsetMs": 99168.0,
+   "stable": 16
+  },
+  {
+   "t": 105806.8,
+   "text": "La bomba atómica opera en base al principio de que se requieren energía para conformar un núcleo con gran cantidad",
+   "offsetMs": 99168.0,
+   "stable": 19
+  },
+  {
+   "t": 106364.4,
+   "text": "La bomba atómica opera en base al principio de que se requieren energía para conformar un núcleo con gran cantidad de protones",
+   "offsetMs": 99168.0,
+   "stable": 21
+  },
+  {
+   "t": 106924.9,
+   "text": "La bomba atómica opera en base al principio de que se requieren energía para conformar un núcleo con gran cantidad de protones y neutrone",
+   "offsetMs": 99168.0,
+   "stable": 23
+  },
+  {
+   "t": 107484.3,
+   "text": "La bomba atómica opera en base al principio de que se requieren energía para conformar un núcleo con gran cantidad de protones y neutrones.",
+   "offsetMs": 99168.0,
+   "stable": 23
+  },
+  {
+   "t": 108604.4,
+   "text": "No men",
+   "offsetMs": 108032.0,
+   "stable": 1
+  },
+  {
+   "t": 109164.2,
+   "text": "No mencionó",
+   "offsetMs": 108032.0,
+   "stable": 1
+  },
+  {
+   "t": 109724.5,
+   "text": "No mencionó una cifra para",
+   "offsetMs": 108032.0,
+   "stable": 4
+  },
+  {
+   "t": 110286.2,
+   "text": "No mencionó una cifra para los re",
+   "offsetMs": 108032.0,
+   "stable": 6
+  },
+  {
+   "t": 110844.6,
+   "text": "No mencionó una cifra para los recortes",
+   "offsetMs": 108032.0,
+   "stable": 6
+  },
+  {
+   "t": 111404.0,
+   "text": "No mencionó una cifra para los recortes y",
+   "offsetMs": 108032.0,
+   "stable": 7
+  },
+  {
+   "t": 111964.4,
+   "text": "No mencionó una cifra para los recortes y manifestó que",
+   "offsetMs": 108032.0,
+   "stable": 9
+  },
+  {
+   "t": 112525.1,
+   "text": "No mencionó una cifra para los recortes y manifestó que se harán en ba",
+   "offsetMs": 108032.0,
+   "stable": 13
+  },
+  {
+   "t": 113085.7,
+   "text": "No mencionó una cifra para los recortes y manifestó que se harán en base a la producción",
+   "offsetMs": 108032.0,
+   "stable": 16
+  },
+  {
+   "t": 113644.7,
+   "text": "No mencionó una cifra para los recortes y manifestó que se harán en base a la producción económi",
+   "offsetMs": 108032.0,
+   "stable": 17
+  },
+  {
+   "t": 114204.6,
+   "text": "No mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China",
+   "offsetMs": 108032.0,
+   "stable": 19
+  },
+  {
+   "t": 115324.4,
+   "text": "No hay",
+   "offsetMs": 114848.0,
+   "stable": 1
+  },
+  {
+   "t": 115884.2,
+   "text": "No hay un cri",
+   "offsetMs": 114848.0,
+   "stable": 3
+  },
+  {
+   "t": 116444.9,
+   "text": "No hay un criterio universal",
+   "offsetMs": 114848.0,
+   "stable": 4
+  },
+  {
+   "t": 117004.0,
+   "text": "No hay un criterio universal que det",
+   "offsetMs": 114848.0,
+   "stable": 6
+  },
+  {
+   "t": 117564.5,
+   "text": "No hay un criterio universal que determine cu",
+   "offsetMs": 114848.0,
+   "stable": 7
+  },
+  {
+   "t": 118126.5,
+   "text": "No hay un criterio universal que determine cuándo un bien man",
+   "offsetMs": 114848.0,
+   "stable": 10
+  },
+  {
+   "t": 118684.5,
+   "text": "No hay un criterio universal que determine cuándo un bien manufactura",
+   "offsetMs": 114848.0,
+   "stable": 10
+  },
+  {
+   "t": 119244.5,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser",
+   "offsetMs": 114848.0,
+   "stable": 12
+  },
+  {
+   "t": 119804.3,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado",
+   "offsetMs": 114848.0,
+   "stable": 13
+  },
+  {
+   "t": 120363.9,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un",
+   "offsetMs": 114848.0,
+   "stable": 14
+  },
+  {
+   "t": 120925.3,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad",
+   "offsetMs": 114848.0,
+   "stable": 15
+  },
+  {
+   "t": 121484.7,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algu",
+   "offsetMs": 114848.0,
+   "stable": 16
+  },
+  {
+   "t": 122044.5,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencia",
+   "offsetMs": 114848.0,
+   "stable": 17
+  },
+  {
+   "t": 122603.8,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencias",
+   "offsetMs": 114848.0,
+   "stable": 17
+  },
+  {
+   "t": 123164.6,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencias impositivas",
+   "offsetMs": 114848.0,
+   "stable": 18
+  },
+  {
+   "t": 123724.1,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencias impositivas tienen",
+   "offsetMs": 114848.0,
+   "stable": 19
+  },
+  {
+   "t": 124285.4,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencias impositivas tienen establecido",
+   "offsetMs": 114848.0,
+   "stable": 20
+  },
+  {
+   "t": 124844.0,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencias impositivas tienen establecido que los",
+   "offsetMs": 114848.0,
+   "stable": 22
+  },
+  {
+   "t": 125404.6,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencias impositivas tienen establecido que los objetos",
+   "offsetMs": 114848.0,
+   "stable": 23
+  },
+  {
+   "t": 125965.0,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de cien a",
+   "offsetMs": 114848.0,
+   "stable": 28
+  },
+  {
+   "t": 126523.9,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de cien años",
+   "offsetMs": 114848.0,
+   "stable": 28
+  },
+  {
+   "t": 127085.4,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de cien años son antig",
+   "offsetMs": 114848.0,
+   "stable": 30
+  },
+  {
+   "t": 127645.4,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de cien años son antigüedades.",
+   "offsetMs": 114848.0,
+   "stable": 30
+  },
+  {
+   "t": 129325.0,
+   "text": "No siempre se",
+   "offsetMs": 128352.0,
+   "stable": 2
+  },
+  {
+   "t": 129884.3,
+   "text": "No siempre se precisa un",
+   "offsetMs": 128352.0,
+   "stable": 4
+  },
+  {
+   "t": 130446.6,
+   "text": "No siempre se precisa un yate en",
+   "offsetMs": 128352.0,
+   "stable": 6
+  },
+  {
+   "t": 131004.3,
+   "text": "No siempre se precisa un yate en los",
+   "offsetMs": 128352.0,
+   "stable": 7
+  },
+  {
+   "t": 131564.7,
+   "text": "No siempre se precisa un yate en los archipiéla",
+   "offsetMs": 128352.0,
+   "stable": 8
+  },
+  {
+   "t": 132125.0,
+   "text": "No siempre se precisa un yate en los archipiélagos y lago",
+   "offsetMs": 128352.0,
+   "stable": 10
+  },
+  {
+   "t": 132683.8,
+   "text": "No siempre se precisa un yate en los archipiélagos y lagos",
+   "offsetMs": 128352.0,
+   "stable": 10
+  },
+  {
+   "t": 133244.4,
+   "text": "No siempre se precisa un yate en los archipiélagos y lagos. Por",
+   "offsetMs": 128352.0,
+   "stable": 11
+  },
+  {
+   "t": 133805.2,
+   "text": "ello se dice",
+   "offsetMs": 132864.0,
+   "stable": 2
+  },
+  {
+   "t": 134364.2,
+   "text": "ello se dice que la",
+   "offsetMs": 132864.0,
+   "stable": 4
+  },
+  {
+   "t": 134924.5,
+   "text": "ello se dice que la relación",
+   "offsetMs": 132864.0,
+   "stable": 5
+  },
+  {
+   "t": 135484.3,
+   "text": "ello se dice que la relación dimensional",
+   "offsetMs": 132864.0,
+   "stable": 6
+  },
+  {
+   "t": 136044.4,
+   "text": "ello se dice que la relación dimensional de este forma",
+   "offsetMs": 132864.0,
+   "stable": 9
+  },
+  {
+   "t": 136604.7,
+   "text": "ello se dice que la relación dimensional de este formato divi",
+   "offsetMs": 132864.0,
+   "stable": 10
+  },
+  {
+   "t": 137165.6,
+   "text": "ello se dice que la relación dimensional de este formato dividir por",
+   "offsetMs": 132864.0,
+   "stable": 11
+  },
+  {
+   "t": 137726.3,
+   "text": "ello se dice que la relación dimensional de este formato dividir por doce a fin",
+   "offsetMs": 132864.0,
+   "stable": 14
+  },
+  {
+   "t": 138284.8,
+   "text": "ello se dice que la relación dimensional de este formato dividir por doce a fin de calcular",
+   "offsetMs": 132864.0,
+   "stable": 16
+  },
+  {
+   "t": 138844.6,
+   "text": "ello se dice que la relación dimensional de este formato dividir por doce a fin de calcular la razón de",
+   "offsetMs": 132864.0,
+   "stable": 19
+  },
+  {
+   "t": 139404.4,
+   "text": "ello se dice que la relación dimensional de este formato dividir por doce a fin de calcular la razón de número",
+   "offsetMs": 132864.0,
+   "stable": 20
+  },
+  {
+   "t": 139966.7,
+   "text": "ello se dice que la relación dimensional de este formato dividir por doce a fin de calcular la razón de números enteros más",
+   "offsetMs": 132864.0,
+   "stable": 22
+  },
+  {
+   "t": 140525.3,
+   "text": "ello se dice que la relación dimensional de este formato dividir por doce a fin de calcular la razón de números enteros más sencilla",
+   "offsetMs": 132864.0,
+   "stable": 23
+  },
+  {
+   "t": 141644.9,
+   "text": "ello se dice que la relación dimensional de este formato dividir por doce a fin de calcular la razón de números enteros más sencilla equivale a",
+   "offsetMs": 132864.0,
+   "stable": 25
+  },
+  {
+   "t": 142204.6,
+   "text": "ello se dice que la relación dimensional de este formato dividir por doce a fin de calcular la razón de números enteros más sencilla equivale a tres punto",
+   "offsetMs": 132864.0,
+   "stable": 27
+  },
+  {
+   "t": 142764.1,
+   "text": "ello se dice que la relación dimensional de este formato dividir por doce a fin de calcular la razón de números enteros más sencilla equivale a tres punto dos",
+   "offsetMs": 132864.0,
+   "stable": 28
+  },
+  {
+   "t": 144444.6,
+   "text": "Su fama",
+   "offsetMs": 143712.0,
+   "stable": 1
+  },
+  {
+   "t": 145004.8,
+   "text": "Su fama de ser e",
+   "offsetMs": 143712.0,
+   "stable": 4
+  },
+  {
+   "t": 145564.6,
+   "text": "Su fama de ser epicentro del",
+   "offsetMs": 143712.0,
+   "stable": 5
+  },
+  {
+   "t": 146124.4,
+   "text": "Su fama de ser epicentro del lujo",
+   "offsetMs": 143712.0,
+   "stable": 6
+  },
+  {
+   "t": 146685.1,
+   "text": "Su fama de ser epicentro del lujo comenzó aprox",
+   "offsetMs": 143712.0,
+   "stable": 8
+  },
+  {
+   "t": 147245.4,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente",
+   "offsetMs": 143712.0,
+   "stable": 8
+  },
+  {
+   "t": 147805.2,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el cuatro",
+   "offsetMs": 143712.0,
+   "stable": 11
+  },
+  {
+   "t": 148364.7,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el cuatrocientos ant",
+   "offsetMs": 143712.0,
+   "stable": 12
+  },
+  {
+   "t": 148924.6,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el cuatrocientos antes de Cristo",
+   "offsetMs": 143712.0,
+   "stable": 14
+  },
+  {
+   "t": 150044.7,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el cuatrocientos antes de Cristo y se exten",
+   "offsetMs": 143712.0,
+   "stable": 17
+  },
+  {
+   "t": 150604.8,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el cuatrocientos antes de Cristo y se extendió hasta",
+   "offsetMs": 143712.0,
+   "stable": 18
+  },
+  {
+   "t": 151166.5,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el cuatrocientos antes de Cristo y se extendió hasta aproximadamente",
+   "offsetMs": 143712.0,
+   "stable": 19
+  },
+  {
+   "t": 152285.1,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el cuatrocientos antes de Cristo y se extendió hasta aproximadamente mil cien después",
+   "offsetMs": 143712.0,
+   "stable": 22
+  },
+  {
+   "t": 152844.4,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el cuatrocientos antes de Cristo y se extendió hasta aproximadamente mil cien después de Cristo",
+   "offsetMs": 143712.0,
+   "stable": 24
+  },
+  {
+   "t": 153404.2,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el cuatrocientos antes de Cristo y se extendió hasta aproximadamente mil cien después de Cristo.",
+   "offsetMs": 143712.0,
+   "stable": 24
+  },
+  {
+   "t": 153964.4,
+   "text": "Existen",
+   "offsetMs": 153312.0,
+   "stable": 0
+  },
+  {
+   "t": 154527.2,
+   "text": "Existen diferentes tipos",
+   "offsetMs": 153312.0,
+   "stable": 2
+  },
+  {
+   "t": 155085.1,
+   "text": "Existen diferentes tipos de pól",
+   "offsetMs": 153312.0,
+   "stable": 4
+  },
+  {
+   "t": 155644.3,
+   "text": "Existen diferentes tipos de pólizas de",
+   "offsetMs": 153312.0,
+   "stable": 5
+  },
+  {
+   "t": 156204.8,
+   "text": "Existen diferentes tipos de pólizas de cancelación de vi",
+   "offsetMs": 153312.0,
+   "stable": 8
+  },
+  {
+   "t": 156764.3,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes",
+   "offsetMs": 153312.0,
+   "stable": 8
+  },
+  {
+   "t": 157324.1,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero",
+   "offsetMs": 153312.0,
+   "stable": 9
+  },
+  {
+   "t": 157884.7,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales",
+   "offsetMs": 153312.0,
+   "stable": 11
+  },
+  {
+   "t": 158444.6,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo",
+   "offsetMs": 153312.0,
+   "stable": 13
+  },
+  {
+   "t": 159004.4,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la",
+   "offsetMs": 153312.0,
+   "stable": 14
+  },
+  {
+   "t": 159564.3,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura",
+   "offsetMs": 153312.0,
+   "stable": 15
+  },
+  {
+   "t": 160124.6,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte",
+   "offsetMs": 153312.0,
+   "stable": 18
+  },
+  {
+   "t": 160685.2,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas póliza",
+   "offsetMs": 153312.0,
+   "stable": 21
+  },
+  {
+   "t": 161244.7,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas",
+   "offsetMs": 153312.0,
+   "stable": 22
+  },
+  {
+   "t": 161804.7,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas en el",
+   "offsetMs": 153312.0,
+   "stable": 24
+  },
+  {
+   "t": 162365.4,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus",
+   "offsetMs": 153312.0,
+   "stable": 25
+  },
+  {
+   "t": 162924.1,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no",
+   "offsetMs": 153312.0,
+   "stable": 26
+  },
+  {
+   "t": 163484.9,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende",
+   "offsetMs": 153312.0,
+   "stable": 28
+  },
+  {
+   "t": 164045.3,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio",
+   "offsetMs": 153312.0,
+   "stable": 30
+  },
+  {
+   "t": 164605.0,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de dos mil veinte",
+   "offsetMs": 153312.0,
+   "stable": 34
+  },
+  {
+   "t": 165724.6,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de dos mil veinte, que es para",
+   "offsetMs": 153312.0,
+   "stable": 37
+  },
+  {
+   "t": 166286.7,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de dos mil veinte, que es para cuando están",
+   "offsetMs": 153312.0,
+   "stable": 39
+  },
+  {
+   "t": 166845.5,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de dos mil veinte, que es para cuando están programados",
+   "offsetMs": 153312.0,
+   "stable": 40
+  },
+  {
+   "t": 167406.2,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de dos mil veinte, que es para cuando están programados los Juegos Olímpicos",
+   "offsetMs": 153312.0,
+   "stable": 43
+  },
+  {
+   "t": 169644.8,
+   "text": "Agite am",
+   "offsetMs": 168640.0,
+   "stable": 1
+  },
+  {
+   "t": 170205.1,
+   "text": "Agite ambos polvos",
+   "offsetMs": 168640.0,
+   "stable": 2
+  },
+  {
+   "t": 170765.8,
+   "text": "Agite ambos polvos secos juntos",
+   "offsetMs": 168640.0,
+   "stable": 4
+  },
+  {
+   "t": 171324.2,
+   "text": "Agite ambos polvos secos juntos y",
+   "offsetMs": 168640.0,
+   "stable": 5
+  },
+  {
+   "t": 171884.6,
+   "text": "Agite ambos polvos secos juntos y después",
+   "offsetMs": 168640.0,
+   "stable": 6
+  },
+  {
+   "t": 172444.4,
+   "text": "Agite ambos polvos secos juntos y después hacerlo con",
+   "offsetMs": 168640.0,
+   "stable": 8
+  },
+  {
+   "t": 173005.7,
+   "text": "Agite ambos polvos secos juntos y después hacerlo con las manos",
+   "offsetMs": 168640.0,
+   "stable": 10
+  },
+  {
+   "t": 173566.1,
+   "text": "Agite ambos polvos secos juntos y después hacerlo con las manos higiniza",
+   "offsetMs": 168640.0,
+   "stable": 11
+  },
+  {
+   "t": 174125.4,
+   "text": "Agite ambos polvos secos juntos y después hacerlo con las manos higinizadas y húmedas",
+   "offsetMs": 168640.0,
+   "stable": 13
+  },
+  {
+   "t": 175245.1,
+   "text": "Agite ambos polvos secos juntos y después hacerlo con las manos higinizadas y húmedas, exprimal",
+   "offsetMs": 168640.0,
+   "stable": 14
+  },
+  {
+   "t": 175804.2,
+   "text": "Agite ambos polvos secos juntos y después hacerlo con las manos higinizadas y húmedas, exprimalos para",
+   "offsetMs": 168640.0,
+   "stable": 15
+  },
+  {
+   "t": 176365.0,
+   "text": "Agite ambos polvos secos juntos y después hacerlo con las manos higinizadas y húmedas, exprimalos para formar",
+   "offsetMs": 168640.0,
+   "stable": 16
+  },
+  {
+   "t": 176924.7,
+   "text": "Agite ambos polvos secos juntos y después hacerlo con las manos higinizadas y húmedas, exprimalos para formar una bola",
+   "offsetMs": 168640.0,
+   "stable": 18
+  },
+  {
+   "t": 177484.5,
+   "text": "Agite ambos polvos secos juntos y después hacerlo con las manos higinizadas y húmedas, exprimalos para formar una bola.",
+   "offsetMs": 168640.0,
+   "stable": 18
+  },
+  {
+   "t": 178044.7,
+   "text": "Durante los",
+   "offsetMs": 177248.0,
+   "stable": 1
+  },
+  {
+   "t": 178605.1,
+   "text": "Durante los cruceros por",
+   "offsetMs": 177248.0,
+   "stable": 3
+  },
+  {
+   "t": 179166.2,
+   "text": "Durante los cruceros por San Peters",
+   "offsetMs": 177248.0,
+   "stable": 5
+  },
+  {
+   "t": 179725.1,
+   "text": "Durante los cruceros por San Petersburgo",
+   "offsetMs": 177248.0,
+   "stable": 5
+  },
+  {
+   "t": 180284.4,
+   "text": "Durante los cruceros por San Petersburgo también se",
+   "offsetMs": 177248.0,
+   "stable": 7
+  },
+  {
+   "t": 180844.5,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiem",
+   "offsetMs": 177248.0,
+   "stable": 9
+  },
+  {
+   "t": 181404.9,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad",
+   "offsetMs": 177248.0,
+   "stable": 12
+  },
+  {
+   "t": 181964.1,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad,",
+   "offsetMs": 177248.0,
+   "stable": 12
+  },
+  {
+   "t": 182525.4,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad, exhime a quienes",
+   "offsetMs": 177248.0,
+   "stable": 15
+  },
+  {
+   "t": 183084.7,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad, exhime a quienes desembar",
+   "offsetMs": 177248.0,
+   "stable": 16
+  },
+  {
+   "t": 183653.0,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad, exhime a quienes desembarcan de los",
+   "offsetMs": 177248.0,
+   "stable": 18
+  },
+  {
+   "t": 184205.8,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad, exhime a quienes desembarcan de los requerimientos",
+   "offsetMs": 177248.0,
+   "stable": 19
+  },
+  {
+   "t": 184764.5,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad, exhime a quienes desembarcan de los requerimientos de visado",
+   "offsetMs": 177248.0,
+   "stable": 21
+  },
+  {
+   "t": 185885.4,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad, exhime a quienes desembarcan de los requerimientos de visado, consulte térmi",
+   "offsetMs": 177248.0,
+   "stable": 23
+  },
+  {
+   "t": 186444.3,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad, exhime a quienes desembarcan de los requerimientos de visado, consulte términos",
+   "offsetMs": 177248.0,
+   "stable": 23
+  },
+  {
+   "t": 186969.2,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad, exhime a quienes desembarcan de los requerimientos de visado, consulte términos.",
+   "offsetMs": 177248.0,
+   "stable": 23
+  }
+ ],
+ "finals": [
+  {
+   "t": 9483.6,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos de gran tamaño denominados manadas",
+   "offsetMs": 1083.6,
+   "durationMs": 7839.9,
+   "vadOffsetMs": 1152.0,
+   "vadDurationMs": 7648.0
+  },
+  {
+   "t": 15082.9,
+   "text": "En medio del cálido clima del Oriente Medio, la casa no era de mayor importancia",
+   "offsetMs": 10043.7,
+   "durationMs": 3921.0,
+   "vadOffsetMs": 9632.0,
+   "vadDurationMs": 4544.0
+  },
+  {
+   "t": 21803.2,
+   "text": "Las playas son casi todas de arena con lugares seguros para nadar y en su mayor tienen árboles",
+   "offsetMs": 15644.2,
+   "durationMs": 5599.7,
+   "vadOffsetMs": 15328.0,
+   "vadDurationMs": 5856.0
+  },
+  {
+   "t": 25723.6,
+   "text": "Butukawa que ofrecen lugares de sombra.",
+   "offsetMs": 22364.0,
+   "durationMs": 3359.6,
+   "vadOffsetMs": 21856.0,
+   "vadDurationMs": 2912.0
+  },
+  {
+   "t": 34123.8,
+   "text": "Las manadas están formadas por uno a tres machos adultos del mismo grupo familiar, unidos con hasta treinta hembras y sus crías.",
+   "offsetMs": 26284.0,
+   "durationMs": 7839.8,
+   "vadOffsetMs": 25920.0,
+   "vadDurationMs": 7392.0
+  },
+  {
+   "t": 43083.9,
+   "text": "Es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave antes de ser abandonados o de que huyeran",
+   "offsetMs": 34123.7,
+   "durationMs": 8400.5,
+   "vadOffsetMs": 33888.0,
+   "vadDurationMs": 8352.0
+  },
+  {
+   "t": 50364.0,
+   "text": "En Scoturb, el autobús cuatrocientos tres se dirige con regularidad a Sintra y para en Caboda Roca.",
+   "offsetMs": 43085.3,
+   "durationMs": 7278.7,
+   "vadOffsetMs": 42816.0,
+   "vadDurationMs": 6528.0
+  },
+  {
+   "t": 58763.0,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera de Kulun, ubicada enfrente.",
+   "offsetMs": 50364.0,
+   "durationMs": 7840.3,
+   "vadOffsetMs": 50240.0,
+   "vadDurationMs": 7616.0
+  },
+  {
+   "t": 66043.9,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia, incluso la psicología, fueron aceptadas.",
+   "offsetMs": 58764.8,
+   "durationMs": 7279.1,
+   "vadOffsetMs": 58624.0,
+   "vadDurationMs": 6528.0
+  },
+  {
+   "t": 73884.2,
+   "text": "Mitchell Gurley de Australia obtuvo el undécimo puesto en la categoría masculina de pie del slalom súper gigante",
+   "offsetMs": 66603.8,
+   "durationMs": 6721.3,
+   "vadOffsetMs": 66400.0,
+   "vadDurationMs": 6816.0
+  },
+  {
+   "t": 81167.6,
+   "text": "el competidor checo Oldrik Helinek terminó decimo sexto en el grupo masculino de sentados.",
+   "offsetMs": 73884.6,
+   "durationMs": 6720.3,
+   "vadOffsetMs": 73760.0,
+   "vadDurationMs": 6432.0
+  },
+  {
+   "t": 87323.5,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya que posee un estilo más árabe que africano",
+   "offsetMs": 81724.3,
+   "durationMs": 5044.2,
+   "vadOffsetMs": 81248.0,
+   "vadDurationMs": 5248.0
+  },
+  {
+   "t": 99083.8,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos másculinos, lo que permitió el exo el éxito de los más ambiciosos y prestigiosos",
+   "offsetMs": 87884.8,
+   "durationMs": 10639.5,
+   "vadOffsetMs": 87616.0,
+   "vadDurationMs": 10592.0
+  },
+  {
+   "t": 108045.1,
+   "text": "La bomba atómica opera en base al principio de que se requieren energía para conformar un núcleo con gran cantidad de protones y neutrones.",
+   "offsetMs": 99084.2,
+   "durationMs": 8400.1,
+   "vadOffsetMs": 99168.0,
+   "vadDurationMs": 7840.0
+  },
+  {
+   "t": 114763.6,
+   "text": "No mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China",
+   "offsetMs": 108044.4,
+   "durationMs": 6160.2,
+   "vadOffsetMs": 108032.0,
+   "vadDurationMs": 6144.0
+  },
+  {
+   "t": 128203.6,
+   "text": "No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado un antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de cien años son antigüedades.",
+   "offsetMs": 114764.4,
+   "durationMs": 12881.0,
+   "vadOffsetMs": 114848.0,
+   "vadDurationMs": 12672.0
+  },
+  {
+   "t": 133244.4,
+   "text": "No siempre se precisa un yate en los archipiélagos y lagos. Por",
+   "offsetMs": 128765.0,
+   "durationMs": 4479.4,
+   "vadOffsetMs": 128352.0,
+   "vadDurationMs": 3872.0
+  },
+  {
+   "t": 143324.3,
+   "text": "ello se dice que la relación dimensional de este formato dividir por doce a fin de calcular la razón de números enteros más sencilla equivale a tres punto dos",
+   "offsetMs": 133245.2,
+   "durationMs": 9518.9,
+   "vadOffsetMs": 132864.0,
+   "vadDurationMs": 9696.0
+  },
+  {
+   "t": 153404.2,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el cuatrocientos antes de Cristo y se extendió hasta aproximadamente mil cien después de Cristo.",
+   "offsetMs": 143884.6,
+   "durationMs": 9519.6,
+   "vadOffsetMs": 143712.0,
+   "vadDurationMs": 8992.0
+  },
+  {
+   "t": 167964.0,
+   "text": "Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales de marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de dos mil veinte, que es para cuando están programados los Juegos Olímpicos",
+   "offsetMs": 153404.4,
+   "durationMs": 14001.8,
+   "vadOffsetMs": 153312.0,
+   "vadDurationMs": 14080.0
+  },
+  {
+   "t": 177484.5,
+   "text": "Agite ambos polvos secos juntos y después hacerlo con las manos higinizadas y húmedas, exprimalos para formar una bola.",
+   "offsetMs": 169084.8,
+   "durationMs": 8399.7,
+   "vadOffsetMs": 168640.0,
+   "vadDurationMs": 7936.0
+  },
+  {
+   "t": 186969.2,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad, exhime a quienes desembarcan de los requerimientos de visado, consulte términos.",
+   "offsetMs": 177484.7,
+   "durationMs": 9484.5,
+   "vadOffsetMs": 177248.0,
+   "vadDurationMs": 8768.0
+  }
+ ],
+ "steps": 334,
+ "compute_ms": 11574,
+ "rtf": 0.0619,
+ "spans_from": "word arrival"
+}

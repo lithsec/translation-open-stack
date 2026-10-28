@@ -1,0 +1,1490 @@
+{
+ "model": "SimulStreaming AlignAtt, Whisper large-v3",
+ "err": "",
+ "partials": [
+  {
+   "t": 2359.5,
+   "text": "Les lions sont",
+   "offsetMs": 1052.0,
+   "stable": 3
+  },
+  {
+   "t": 2886.4,
+   "text": "Les lions sont les chats les",
+   "offsetMs": 1052.0,
+   "stable": 6
+  },
+  {
+   "t": 3411.2,
+   "text": "Les lions sont les chats les plus sociables",
+   "offsetMs": 1052.0,
+   "stable": 8
+  },
+  {
+   "t": 3914.5,
+   "text": "Les lions sont les chats les plus sociables, viv",
+   "offsetMs": 1052.0,
+   "stable": 9
+  },
+  {
+   "t": 4443.1,
+   "text": "Les lions sont les chats les plus sociables, vivant en grands",
+   "offsetMs": 1052.0,
+   "stable": 11
+  },
+  {
+   "t": 5004.0,
+   "text": "Les lions sont les chats les plus sociables, vivant en grands groupes, appel",
+   "offsetMs": 1052.0,
+   "stable": 13
+  },
+  {
+   "t": 5498.4,
+   "text": "Les lions sont les chats les plus sociables, vivant en grands groupes, appelés « mut",
+   "offsetMs": 1052.0,
+   "stable": 15
+  },
+  {
+   "t": 7953.3,
+   "text": "Malgré que les choses",
+   "offsetMs": 6588.0,
+   "stable": 4
+  },
+  {
+   "t": 8438.1,
+   "text": "Malgré que les choses ne sont pas",
+   "offsetMs": 6588.0,
+   "stable": 7
+  },
+  {
+   "t": 8967.3,
+   "text": "Malgré que les choses ne sont pas très bien,",
+   "offsetMs": 6588.0,
+   "stable": 9
+  },
+  {
+   "t": 9844.7,
+   "text": "Malgré que les choses ne sont pas très bien, dans le climat chaud du Moyen-Orient, la maison n",
+   "offsetMs": 6588.0,
+   "stable": 18
+  },
+  {
+   "t": 10175.2,
+   "text": "Malgré que les choses ne sont pas très bien, dans le climat chaud du Moyen-Orient, la maison n'était pas si",
+   "offsetMs": 6588.0,
+   "stable": 20
+  },
+  {
+   "t": 10623.8,
+   "text": "Malgré que les choses ne sont pas très bien, dans le climat chaud du Moyen-Orient, la maison n'était pas si importante",
+   "offsetMs": 6588.0,
+   "stable": 21
+  },
+  {
+   "t": 13059.6,
+   "text": "presque toutes",
+   "offsetMs": 11912.0,
+   "stable": 2
+  },
+  {
+   "t": 13650.2,
+   "text": "presque toutes les pierraches",
+   "offsetMs": 11912.0,
+   "stable": 4
+  },
+  {
+   "t": 14134.9,
+   "text": "presque toutes les pierraches sont sablon",
+   "offsetMs": 11912.0,
+   "stable": 6
+  },
+  {
+   "t": 14690.3,
+   "text": "presque toutes les pierraches sont sablonneuses et permett",
+   "offsetMs": 11912.0,
+   "stable": 8
+  },
+  {
+   "t": 15236.1,
+   "text": "presque toutes les pierraches sont sablonneuses et permettent de se baigner",
+   "offsetMs": 11912.0,
+   "stable": 11
+  },
+  {
+   "t": 15690.6,
+   "text": "presque toutes les pierraches sont sablonneuses et permettent de se baigner en toute sécurité",
+   "offsetMs": 11912.0,
+   "stable": 14
+  },
+  {
+   "t": 16174.9,
+   "text": "presque toutes les pierraches sont sablonneuses et permettent de se baigner en toute sécurité.",
+   "offsetMs": 11912.0,
+   "stable": 14
+  },
+  {
+   "t": 16724.9,
+   "text": "presque toutes les pierraches sont sablonneuses et permettent de se baigner en toute sécurité. La plupart",
+   "offsetMs": 11912.0,
+   "stable": 16
+  },
+  {
+   "t": 17209.3,
+   "text": "presque toutes les pierraches sont sablonneuses et permettent de se baigner en toute sécurité. La plupart sont",
+   "offsetMs": 11912.0,
+   "stable": 17
+  },
+  {
+   "t": 17812.7,
+   "text": "presque toutes les pierraches sont sablonneuses et permettent de se baigner en toute sécurité. La plupart sont ombragées",
+   "offsetMs": 11912.0,
+   "stable": 18
+  },
+  {
+   "t": 18283.6,
+   "text": "presque toutes les pierraches sont sablonneuses et permettent de se baigner en toute sécurité. La plupart sont ombragées par des",
+   "offsetMs": 11912.0,
+   "stable": 20
+  },
+  {
+   "t": 18795.0,
+   "text": "presque toutes les pierraches sont sablonneuses et permettent de se baigner en toute sécurité. La plupart sont ombragées par des pollues",
+   "offsetMs": 11912.0,
+   "stable": 21
+  },
+  {
+   "t": 19332.5,
+   "text": "presque toutes les pierraches sont sablonneuses et permettent de se baigner en toute sécurité. La plupart sont ombragées par des pollues du coq",
+   "offsetMs": 11912.0,
+   "stable": 23
+  },
+  {
+   "t": 22116.5,
+   "text": "Les modes sont",
+   "offsetMs": 20796.0,
+   "stable": 3
+  },
+  {
+   "t": 22589.8,
+   "text": "Les modes sont compos",
+   "offsetMs": 20796.0,
+   "stable": 4
+  },
+  {
+   "t": 23207.9,
+   "text": "Les modes sont composés d'un 3",
+   "offsetMs": 20796.0,
+   "stable": 6
+  },
+  {
+   "t": 23696.8,
+   "text": "Les modes sont composés d'un 3-mal adult",
+   "offsetMs": 20796.0,
+   "stable": 7
+  },
+  {
+   "t": 24200.2,
+   "text": "Les modes sont composés d'un 3-mal adulte apparent",
+   "offsetMs": 20796.0,
+   "stable": 8
+  },
+  {
+   "t": 24683.1,
+   "text": "Les modes sont composés d'un 3-mal adulte apparenté",
+   "offsetMs": 20796.0,
+   "stable": 8
+  },
+  {
+   "t": 25233.0,
+   "text": "Les modes sont composés d'un 3-mal adulte apparenté ainsi que",
+   "offsetMs": 20796.0,
+   "stable": 10
+  },
+  {
+   "t": 25820.4,
+   "text": "Les modes sont composés d'un 3-mal adulte apparenté ainsi que d'une trent",
+   "offsetMs": 20796.0,
+   "stable": 12
+  },
+  {
+   "t": 26276.3,
+   "text": "Les modes sont composés d'un 3-mal adulte apparenté ainsi que d'une trentaine de fem",
+   "offsetMs": 20796.0,
+   "stable": 14
+  },
+  {
+   "t": 26837.8,
+   "text": "Les modes sont composés d'un 3-mal adulte apparenté ainsi que d'une trentaine de femelles et de lion",
+   "offsetMs": 20796.0,
+   "stable": 17
+  },
+  {
+   "t": 27335.3,
+   "text": "Les modes sont composés d'un 3-mal adulte apparenté ainsi que d'une trentaine de femelles et de lionceaux.",
+   "offsetMs": 20796.0,
+   "stable": 17
+  },
+  {
+   "t": 28881.9,
+   "text": "Mes",
+   "offsetMs": 28124.0,
+   "stable": 1
+  },
+  {
+   "t": 29420.1,
+   "text": "Mes enfants sa",
+   "offsetMs": 28124.0,
+   "stable": 3
+  },
+  {
+   "t": 29985.3,
+   "text": "Mes enfants sauvages peuvent",
+   "offsetMs": 28124.0,
+   "stable": 4
+  },
+  {
+   "t": 30485.3,
+   "text": "Mes enfants sauvages peuvent avoir suiv",
+   "offsetMs": 28124.0,
+   "stable": 6
+  },
+  {
+   "t": 31028.8,
+   "text": "Mes enfants sauvages peuvent avoir suivi de",
+   "offsetMs": 28124.0,
+   "stable": 7
+  },
+  {
+   "t": 31506.5,
+   "text": "Mes enfants sauvages peuvent avoir suivi de graves",
+   "offsetMs": 28124.0,
+   "stable": 8
+  },
+  {
+   "t": 32024.5,
+   "text": "Mes enfants sauvages peuvent avoir suivi de graves abus",
+   "offsetMs": 28124.0,
+   "stable": 9
+  },
+  {
+   "t": 32541.8,
+   "text": "Mes enfants sauvages peuvent avoir suivi de graves abus ou",
+   "offsetMs": 28124.0,
+   "stable": 10
+  },
+  {
+   "t": 33090.1,
+   "text": "Mes enfants sauvages peuvent avoir suivi de graves abus ou traumatism",
+   "offsetMs": 28124.0,
+   "stable": 11
+  },
+  {
+   "t": 33625.4,
+   "text": "Mes enfants sauvages peuvent avoir suivi de graves abus ou traumatismes avant d",
+   "offsetMs": 28124.0,
+   "stable": 13
+  },
+  {
+   "t": 34159.7,
+   "text": "Mes enfants sauvages peuvent avoir suivi de graves abus ou traumatismes avant d'être abandon",
+   "offsetMs": 28124.0,
+   "stable": 14
+  },
+  {
+   "t": 34748.3,
+   "text": "Mes enfants sauvages peuvent avoir suivi de graves abus ou traumatismes avant d'être abandonnés ou de s",
+   "offsetMs": 28124.0,
+   "stable": 17
+  },
+  {
+   "t": 35256.1,
+   "text": "Mes enfants sauvages peuvent avoir suivi de graves abus ou traumatismes avant d'être abandonnés ou de s'enfuir.",
+   "offsetMs": 28124.0,
+   "stable": 17
+  },
+  {
+   "t": 37383.6,
+   "text": "Le bus 4",
+   "offsetMs": 36140.0,
+   "stable": 3
+  },
+  {
+   "t": 37856.4,
+   "text": "Le bus 430",
+   "offsetMs": 36140.0,
+   "stable": 3
+  },
+  {
+   "t": 38396.6,
+   "text": "Le bus 430 de Scott",
+   "offsetMs": 36140.0,
+   "stable": 5
+  },
+  {
+   "t": 38895.5,
+   "text": "Le bus 430 de Scottur se",
+   "offsetMs": 36140.0,
+   "stable": 6
+  },
+  {
+   "t": 39413.5,
+   "text": "Le bus 430 de Scottur se rend",
+   "offsetMs": 36140.0,
+   "stable": 7
+  },
+  {
+   "t": 39982.0,
+   "text": "Le bus 430 de Scottur se rend régulièrement",
+   "offsetMs": 36140.0,
+   "stable": 8
+  },
+  {
+   "t": 40510.8,
+   "text": "Le bus 430 de Scottur se rend régulièrement à Sint",
+   "offsetMs": 36140.0,
+   "stable": 10
+  },
+  {
+   "t": 41844.6,
+   "text": "avec un",
+   "offsetMs": 40550.9,
+   "stable": 2
+  },
+  {
+   "t": 42408.5,
+   "text": "avec un arrêt à",
+   "offsetMs": 40550.9,
+   "stable": 4
+  },
+  {
+   "t": 42985.3,
+   "text": "avec un arrêt à Cabo d'A",
+   "offsetMs": 40550.9,
+   "stable": 6
+  },
+  {
+   "t": 45548.6,
+   "text": "Pour admir",
+   "offsetMs": 44252.0,
+   "stable": 2
+  },
+  {
+   "t": 46140.3,
+   "text": "Pour admirer les plus be",
+   "offsetMs": 44252.0,
+   "stable": 5
+  },
+  {
+   "t": 46652.1,
+   "text": "Pour admirer les plus beaux panoramas",
+   "offsetMs": 44252.0,
+   "stable": 6
+  },
+  {
+   "t": 47116.1,
+   "text": "Pour admirer les plus beaux panoramas de Hong",
+   "offsetMs": 44252.0,
+   "stable": 8
+  },
+  {
+   "t": 47619.5,
+   "text": "Pour admirer les plus beaux panoramas de Hong Kong,",
+   "offsetMs": 44252.0,
+   "stable": 9
+  },
+  {
+   "t": 48128.1,
+   "text": "Pour admirer les plus beaux panoramas de Hong Kong, quitter",
+   "offsetMs": 44252.0,
+   "stable": 10
+  },
+  {
+   "t": 48714.9,
+   "text": "Pour admirer les plus beaux panoramas de Hong Kong, quitter l'île et",
+   "offsetMs": 44252.0,
+   "stable": 12
+  },
+  {
+   "t": 49170.7,
+   "text": "Pour admirer les plus beaux panoramas de Hong Kong, quitter l'île et rejoigner le",
+   "offsetMs": 44252.0,
+   "stable": 14
+  },
+  {
+   "t": 49681.6,
+   "text": "Pour admirer les plus beaux panoramas de Hong Kong, quitter l'île et rejoigner le front de",
+   "offsetMs": 44252.0,
+   "stable": 16
+  },
+  {
+   "t": 50217.7,
+   "text": "Pour admirer les plus beaux panoramas de Hong Kong, quitter l'île et rejoigner le front de mer de K",
+   "offsetMs": 44252.0,
+   "stable": 19
+  },
+  {
+   "t": 50755.8,
+   "text": "Pour admirer les plus beaux panoramas de Hong Kong, quitter l'île et rejoigner le front de mer de Kowloon",
+   "offsetMs": 44252.0,
+   "stable": 19
+  },
+  {
+   "t": 51241.9,
+   "text": "Pour admirer les plus beaux panoramas de Hong Kong, quitter l'île et rejoigner le front de mer de Kowloon situ",
+   "offsetMs": 44252.0,
+   "stable": 20
+  },
+  {
+   "t": 51793.7,
+   "text": "Pour admirer les plus beaux panoramas de Hong Kong, quitter l'île et rejoigner le front de mer de Kowloon situé en",
+   "offsetMs": 44252.0,
+   "stable": 21
+  },
+  {
+   "t": 54053.8,
+   "text": "Les opinions",
+   "offsetMs": 52844.0,
+   "stable": 2
+  },
+  {
+   "t": 54644.1,
+   "text": "Les opinions d'Arist",
+   "offsetMs": 52844.0,
+   "stable": 3
+  },
+  {
+   "t": 55102.7,
+   "text": "Les opinions d'Aristote sur",
+   "offsetMs": 52844.0,
+   "stable": 4
+  },
+  {
+   "t": 55671.2,
+   "text": "Les opinions d'Aristote sur toutes les questions",
+   "offsetMs": 52844.0,
+   "stable": 7
+  },
+  {
+   "t": 56149.3,
+   "text": "Les opinions d'Aristote sur toutes les questions scient",
+   "offsetMs": 52844.0,
+   "stable": 8
+  },
+  {
+   "t": 57251.0,
+   "text": "Les opinions d'Aristote sur toutes les questions scientifiques, y",
+   "offsetMs": 52844.0,
+   "stable": 9
+  },
+  {
+   "t": 57785.7,
+   "text": "Les opinions d'Aristote sur toutes les questions scientifiques, y compris la psych",
+   "offsetMs": 52844.0,
+   "stable": 12
+  },
+  {
+   "t": 58268.7,
+   "text": "Les opinions d'Aristote sur toutes les questions scientifiques, y compris la psychologie",
+   "offsetMs": 52844.0,
+   "stable": 12
+  },
+  {
+   "t": 58843.1,
+   "text": "Les opinions d'Aristote sur toutes les questions scientifiques, y compris la psychologie, ont été",
+   "offsetMs": 52844.0,
+   "stable": 14
+  },
+  {
+   "t": 59893.0,
+   "text": "Les opinions d'Aristote sur toutes les questions scientifiques, y compris la psychologie, ont été acceptées",
+   "offsetMs": 52844.0,
+   "stable": 15
+  },
+  {
+   "t": 62535.9,
+   "text": "L'Austral",
+   "offsetMs": 61180.0,
+   "stable": 1
+  },
+  {
+   "t": 62994.7,
+   "text": "L'Australien Mitchell",
+   "offsetMs": 61180.0,
+   "stable": 2
+  },
+  {
+   "t": 63533.7,
+   "text": "L'Australien Mitchell Gurley",
+   "offsetMs": 61180.0,
+   "stable": 3
+  },
+  {
+   "t": 64077.1,
+   "text": "L'Australien Mitchell Gurley est arrivé",
+   "offsetMs": 61180.0,
+   "stable": 5
+  },
+  {
+   "t": 64554.5,
+   "text": "L'Australien Mitchell Gurley est arrivé 11",
+   "offsetMs": 61180.0,
+   "stable": 6
+  },
+  {
+   "t": 65124.6,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super",
+   "offsetMs": 61180.0,
+   "stable": 8
+  },
+  {
+   "t": 65607.1,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G",
+   "offsetMs": 61180.0,
+   "stable": 9
+  },
+  {
+   "t": 66155.7,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, deb",
+   "offsetMs": 61180.0,
+   "stable": 10
+  },
+  {
+   "t": 66639.1,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout",
+   "offsetMs": 61180.0,
+   "stable": 10
+  },
+  {
+   "t": 67188.2,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme",
+   "offsetMs": 61180.0,
+   "stable": 11
+  },
+  {
+   "t": 67671.6,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme.",
+   "offsetMs": 61180.0,
+   "stable": 11
+  },
+  {
+   "t": 68247.1,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme. Le tch",
+   "offsetMs": 61180.0,
+   "stable": 13
+  },
+  {
+   "t": 68810.1,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme. Le tchèque Aldrich",
+   "offsetMs": 61180.0,
+   "stable": 14
+  },
+  {
+   "t": 69254.3,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme. Le tchèque Aldrich J",
+   "offsetMs": 61180.0,
+   "stable": 15
+  },
+  {
+   "t": 69780.1,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme. Le tchèque Aldrich Jeline",
+   "offsetMs": 61180.0,
+   "stable": 15
+  },
+  {
+   "t": 70384.1,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme. Le tchèque Aldrich Jelinek s'est",
+   "offsetMs": 61180.0,
+   "stable": 16
+  },
+  {
+   "t": 70881.1,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme. Le tchèque Aldrich Jelinek s'est classé 16",
+   "offsetMs": 61180.0,
+   "stable": 18
+  },
+  {
+   "t": 71396.9,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme. Le tchèque Aldrich Jelinek s'est classé 16ème au",
+   "offsetMs": 61180.0,
+   "stable": 19
+  },
+  {
+   "t": 71887.2,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme. Le tchèque Aldrich Jelinek s'est classé 16ème au Super",
+   "offsetMs": 61180.0,
+   "stable": 20
+  },
+  {
+   "t": 72469.0,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme. Le tchèque Aldrich Jelinek s'est classé 16ème au Super G, ass",
+   "offsetMs": 61180.0,
+   "stable": 22
+  },
+  {
+   "t": 72971.2,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme. Le tchèque Aldrich Jelinek s'est classé 16ème au Super G, assis, homme",
+   "offsetMs": 61180.0,
+   "stable": 23
+  },
+  {
+   "t": 84806.5,
+   "text": "Aussi,",
+   "offsetMs": 83484.0,
+   "stable": 1
+  },
+  {
+   "t": 85384.6,
+   "text": "Aussi, après la Révolution",
+   "offsetMs": 83484.0,
+   "stable": 4
+  },
+  {
+   "t": 85848.1,
+   "text": "Aussi, après la Révolution, les",
+   "offsetMs": 83484.0,
+   "stable": 5
+  },
+  {
+   "t": 86376.4,
+   "text": "Aussi, après la Révolution, les métiers f",
+   "offsetMs": 83484.0,
+   "stable": 7
+  },
+  {
+   "t": 86940.4,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts",
+   "offsetMs": 83484.0,
+   "stable": 8
+  },
+  {
+   "t": 87412.8,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts à tous",
+   "offsetMs": 83484.0,
+   "stable": 10
+  },
+  {
+   "t": 87950.8,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts à tous les candidats",
+   "offsetMs": 83484.0,
+   "stable": 12
+  },
+  {
+   "t": 88463.1,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins",
+   "offsetMs": 83484.0,
+   "stable": 13
+  },
+  {
+   "t": 88974.5,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permett",
+   "offsetMs": 83484.0,
+   "stable": 14
+  },
+  {
+   "t": 89460.0,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant",
+   "offsetMs": 83484.0,
+   "stable": 14
+  },
+  {
+   "t": 90037.4,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus amb",
+   "offsetMs": 83484.0,
+   "stable": 17
+  },
+  {
+   "t": 90602.9,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambitieux et aux",
+   "offsetMs": 83484.0,
+   "stable": 19
+  },
+  {
+   "t": 91075.5,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambitieux et aux plus talent",
+   "offsetMs": 83484.0,
+   "stable": 21
+  },
+  {
+   "t": 91612.9,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambitieux et aux plus talentueux de",
+   "offsetMs": 83484.0,
+   "stable": 22
+  },
+  {
+   "t": 92129.0,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambitieux et aux plus talentueux de réussir",
+   "offsetMs": 83484.0,
+   "stable": 23
+  },
+  {
+   "t": 93956.8,
+   "text": "La bombe",
+   "offsetMs": 92684.0,
+   "stable": 2
+  },
+  {
+   "t": 94510.7,
+   "text": "La bombe à fission fonctionne",
+   "offsetMs": 92684.0,
+   "stable": 5
+  },
+  {
+   "t": 94944.8,
+   "text": "La bombe à fission fonctionne selon",
+   "offsetMs": 92684.0,
+   "stable": 6
+  },
+  {
+   "t": 95488.5,
+   "text": "La bombe à fission fonctionne selon le principe",
+   "offsetMs": 92684.0,
+   "stable": 8
+  },
+  {
+   "t": 95966.3,
+   "text": "La bombe à fission fonctionne selon le principe suiv",
+   "offsetMs": 92684.0,
+   "stable": 9
+  },
+  {
+   "t": 96509.6,
+   "text": "La bombe à fission fonctionne selon le principe suivant :",
+   "offsetMs": 92684.0,
+   "stable": 10
+  },
+  {
+   "t": 96992.8,
+   "text": "La bombe à fission fonctionne selon le principe suivant : elle",
+   "offsetMs": 92684.0,
+   "stable": 11
+  },
+  {
+   "t": 97541.5,
+   "text": "La bombe à fission fonctionne selon le principe suivant : elle transforme",
+   "offsetMs": 92684.0,
+   "stable": 12
+  },
+  {
+   "t": 98076.9,
+   "text": "La bombe à fission fonctionne selon le principe suivant : elle transforme l'énergie",
+   "offsetMs": 92684.0,
+   "stable": 13
+  },
+  {
+   "t": 98637.7,
+   "text": "La bombe à fission fonctionne selon le principe suivant : elle transforme l'énergie en assemblant",
+   "offsetMs": 92684.0,
+   "stable": 15
+  },
+  {
+   "t": 99186.9,
+   "text": "La bombe à fission fonctionne selon le principe suivant : elle transforme l'énergie en assemblant un noyau d",
+   "offsetMs": 92684.0,
+   "stable": 18
+  },
+  {
+   "t": 99644.4,
+   "text": "La bombe à fission fonctionne selon le principe suivant : elle transforme l'énergie en assemblant un noyau d'une my",
+   "offsetMs": 92684.0,
+   "stable": 19
+  },
+  {
+   "t": 100208.3,
+   "text": "La bombe à fission fonctionne selon le principe suivant : elle transforme l'énergie en assemblant un noyau d'une myriade de protons",
+   "offsetMs": 92684.0,
+   "stable": 21
+  },
+  {
+   "t": 100706.5,
+   "text": "La bombe à fission fonctionne selon le principe suivant : elle transforme l'énergie en assemblant un noyau d'une myriade de protons et de neut",
+   "offsetMs": 92684.0,
+   "stable": 24
+  },
+  {
+   "t": 103034.7,
+   "text": "Il n'a pas chiff",
+   "offsetMs": 101708.0,
+   "stable": 4
+  },
+  {
+   "t": 103454.5,
+   "text": "Il n'a pas chiffré ses",
+   "offsetMs": 101708.0,
+   "stable": 5
+  },
+  {
+   "t": 103997.4,
+   "text": "Il n'a pas chiffré ses réductions",
+   "offsetMs": 101708.0,
+   "stable": 6
+  },
+  {
+   "t": 104525.9,
+   "text": "Il n'a pas chiffré ses réductions, disant",
+   "offsetMs": 101708.0,
+   "stable": 7
+  },
+  {
+   "t": 105088.5,
+   "text": "Il n'a pas chiffré ses réductions, disant qu'elles seront",
+   "offsetMs": 101708.0,
+   "stable": 9
+  },
+  {
+   "t": 105559.2,
+   "text": "Il n'a pas chiffré ses réductions, disant qu'elles seront basées",
+   "offsetMs": 101708.0,
+   "stable": 10
+  },
+  {
+   "t": 106095.3,
+   "text": "Il n'a pas chiffré ses réductions, disant qu'elles seront basées sur la production",
+   "offsetMs": 101708.0,
+   "stable": 13
+  },
+  {
+   "t": 106579.4,
+   "text": "Il n'a pas chiffré ses réductions, disant qu'elles seront basées sur la production économique",
+   "offsetMs": 101708.0,
+   "stable": 14
+  },
+  {
+   "t": 107104.1,
+   "text": "Il n'a pas chiffré ses réductions, disant qu'elles seront basées sur la production économique ch",
+   "offsetMs": 101708.0,
+   "stable": 15
+  },
+  {
+   "t": 118997.3,
+   "text": "C",
+   "offsetMs": 118204.0,
+   "stable": 1
+  },
+  {
+   "t": 119614.7,
+   "text": "C'est fini, cela",
+   "offsetMs": 118204.0,
+   "stable": 3
+  },
+  {
+   "t": 120127.0,
+   "text": "C'est fini, cela est bien de plus",
+   "offsetMs": 118204.0,
+   "stable": 7
+  },
+  {
+   "t": 120590.2,
+   "text": "C'est fini, cela est bien de plus de 100",
+   "offsetMs": 118204.0,
+   "stable": 9
+  },
+  {
+   "t": 121068.0,
+   "text": "C'est fini, cela est bien de plus de 100 ans",
+   "offsetMs": 118204.0,
+   "stable": 10
+  },
+  {
+   "t": 121643.0,
+   "text": "C'est fini, cela est bien de plus de 100 ans, comme des",
+   "offsetMs": 118204.0,
+   "stable": 12
+  },
+  {
+   "t": 122151.5,
+   "text": "C'est fini, cela est bien de plus de 100 ans, comme des antiquités",
+   "offsetMs": 118204.0,
+   "stable": 13
+  },
+  {
+   "t": 124835.3,
+   "text": "Vous n'en avez pas forcément",
+   "offsetMs": 123420.0,
+   "stable": 5
+  },
+  {
+   "t": 125188.8,
+   "text": "Vous n'en avez pas forcément besoin",
+   "offsetMs": 123420.0,
+   "stable": 6
+  },
+  {
+   "t": 125783.2,
+   "text": "Vous n'en avez pas forcément besoin d'un yacht",
+   "offsetMs": 123420.0,
+   "stable": 8
+  },
+  {
+   "t": 126272.8,
+   "text": "Vous n'en avez pas forcément besoin d'un yacht dans les arch",
+   "offsetMs": 123420.0,
+   "stable": 11
+  },
+  {
+   "t": 126781.2,
+   "text": "Vous n'en avez pas forcément besoin d'un yacht dans les archipels",
+   "offsetMs": 123420.0,
+   "stable": 11
+  },
+  {
+   "t": 127264.3,
+   "text": "Vous n'en avez pas forcément besoin d'un yacht dans les archipels et",
+   "offsetMs": 123420.0,
+   "stable": 12
+  },
+  {
+   "t": 127838.6,
+   "text": "Vous n'en avez pas forcément besoin d'un yacht dans les archipels et sur les lac",
+   "offsetMs": 123420.0,
+   "stable": 15
+  },
+  {
+   "t": 130104.4,
+   "text": "On",
+   "offsetMs": 129340.0,
+   "stable": 1
+  },
+  {
+   "t": 130618.0,
+   "text": "On dit",
+   "offsetMs": 129340.0,
+   "stable": 2
+  },
+  {
+   "t": 131183.4,
+   "text": "On dit donc que le",
+   "offsetMs": 129340.0,
+   "stable": 5
+  },
+  {
+   "t": 131761.4,
+   "text": "On dit donc que le rapport d'aspect",
+   "offsetMs": 129340.0,
+   "stable": 7
+  },
+  {
+   "t": 132250.5,
+   "text": "On dit donc que le rapport d'aspect de ce format",
+   "offsetMs": 129340.0,
+   "stable": 10
+  },
+  {
+   "t": 132784.9,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant",
+   "offsetMs": 129340.0,
+   "stable": 12
+  },
+  {
+   "t": 133319.7,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par 12 pour",
+   "offsetMs": 129340.0,
+   "stable": 15
+  },
+  {
+   "t": 133881.6,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par 12 pour obtenir le plus",
+   "offsetMs": 129340.0,
+   "stable": 18
+  },
+  {
+   "t": 134352.1,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par 12 pour obtenir le plus simple des",
+   "offsetMs": 129340.0,
+   "stable": 20
+  },
+  {
+   "t": 134887.6,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par 12 pour obtenir le plus simple des rapports de",
+   "offsetMs": 129340.0,
+   "stable": 22
+  },
+  {
+   "t": 135397.8,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par 12 pour obtenir le plus simple des rapports de nombre ent",
+   "offsetMs": 129340.0,
+   "stable": 24
+  },
+  {
+   "t": 135883.7,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par 12 pour obtenir le plus simple des rapports de nombre entier",
+   "offsetMs": 129340.0,
+   "stable": 24
+  },
+  {
+   "t": 136463.8,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par 12 pour obtenir le plus simple des rapports de nombre entier est de 3",
+   "offsetMs": 129340.0,
+   "stable": 27
+  },
+  {
+   "t": 136976.9,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par 12 pour obtenir le plus simple des rapports de nombre entier est de 3 sur 2",
+   "offsetMs": 129340.0,
+   "stable": 29
+  },
+  {
+   "t": 138599.6,
+   "text": "Sa réput",
+   "offsetMs": 137396.0,
+   "stable": 2
+  },
+  {
+   "t": 139125.5,
+   "text": "Sa réputation en tant",
+   "offsetMs": 137396.0,
+   "stable": 4
+  },
+  {
+   "t": 139702.9,
+   "text": "Sa réputation en tant qu'épicentre",
+   "offsetMs": 137396.0,
+   "stable": 5
+  },
+  {
+   "t": 140166.8,
+   "text": "Sa réputation en tant qu'épicentre du lux",
+   "offsetMs": 137396.0,
+   "stable": 7
+  },
+  {
+   "t": 140701.3,
+   "text": "Sa réputation en tant qu'épicentre du luxe a début",
+   "offsetMs": 137396.0,
+   "stable": 9
+  },
+  {
+   "t": 141236.4,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux env",
+   "offsetMs": 137396.0,
+   "stable": 11
+  },
+  {
+   "t": 141852.3,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'an",
+   "offsetMs": 137396.0,
+   "stable": 13
+  },
+  {
+   "t": 142256.9,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'an 400",
+   "offsetMs": 137396.0,
+   "stable": 14
+  },
+  {
+   "t": 142860.2,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'an 400 et a duré",
+   "offsetMs": 137396.0,
+   "stable": 17
+  },
+  {
+   "t": 143385.4,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'an 400 et a duré jusqu'à 11",
+   "offsetMs": 137396.0,
+   "stable": 19
+  },
+  {
+   "t": 143858.3,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'an 400 et a duré jusqu'à 1100 environ",
+   "offsetMs": 137396.0,
+   "stable": 20
+  },
+  {
+   "t": 146615.0,
+   "text": "Les politiques",
+   "offsetMs": 145388.0,
+   "stable": 2
+  },
+  {
+   "t": 147205.5,
+   "text": "Les politiques d'annulation",
+   "offsetMs": 145388.0,
+   "stable": 3
+  },
+  {
+   "t": 147691.0,
+   "text": "Les politiques d'annulation varient,",
+   "offsetMs": 145388.0,
+   "stable": 4
+  },
+  {
+   "t": 148220.3,
+   "text": "Les politiques d'annulation varient, mais à partir",
+   "offsetMs": 145388.0,
+   "stable": 7
+  },
+  {
+   "t": 148749.7,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars",
+   "offsetMs": 145388.0,
+   "stable": 10
+  },
+  {
+   "t": 149284.6,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart",
+   "offsetMs": 145388.0,
+   "stable": 12
+  },
+  {
+   "t": 149794.1,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques",
+   "offsetMs": 145388.0,
+   "stable": 14
+  },
+  {
+   "t": 150303.8,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'",
+   "offsetMs": 145388.0,
+   "stable": 15
+  },
+  {
+   "t": 150892.5,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur",
+   "offsetMs": 145388.0,
+   "stable": 17
+  },
+  {
+   "t": 151322.9,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus",
+   "offsetMs": 145388.0,
+   "stable": 19
+  },
+  {
+   "t": 151808.9,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne",
+   "offsetMs": 145388.0,
+   "stable": 20
+  },
+  {
+   "t": 152413.3,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étend",
+   "offsetMs": 145388.0,
+   "stable": 21
+  },
+  {
+   "t": 152911.8,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu",
+   "offsetMs": 145388.0,
+   "stable": 23
+  },
+  {
+   "t": 153533.2,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet 2020",
+   "offsetMs": 145388.0,
+   "stable": 25
+  },
+  {
+   "t": 153903.2,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet 2020,",
+   "offsetMs": 145388.0,
+   "stable": 25
+  },
+  {
+   "t": 154460.1,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet 2020, date à",
+   "offsetMs": 145388.0,
+   "stable": 27
+  },
+  {
+   "t": 155003.0,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet 2020, date à laquelle les Je",
+   "offsetMs": 145388.0,
+   "stable": 30
+  },
+  {
+   "t": 155532.8,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet 2020, date à laquelle les Jeux olympiques",
+   "offsetMs": 145388.0,
+   "stable": 31
+  },
+  {
+   "t": 155985.5,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet 2020, date à laquelle les Jeux olympiques avaient",
+   "offsetMs": 145388.0,
+   "stable": 32
+  },
+  {
+   "t": 156516.7,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet 2020, date à laquelle les Jeux olympiques avaient été",
+   "offsetMs": 145388.0,
+   "stable": 33
+  },
+  {
+   "t": 157099.7,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet 2020, date à laquelle les Jeux olympiques avaient été prévus",
+   "offsetMs": 145388.0,
+   "stable": 34
+  },
+  {
+   "t": 160012.4,
+   "text": "mélangez",
+   "offsetMs": 158724.0,
+   "stable": 1
+  },
+  {
+   "t": 160563.6,
+   "text": "mélangez les deux poud",
+   "offsetMs": 158724.0,
+   "stable": 4
+  },
+  {
+   "t": 161100.9,
+   "text": "mélangez les deux poudres sèches ensemble",
+   "offsetMs": 158724.0,
+   "stable": 6
+  },
+  {
+   "t": 162097.4,
+   "text": "mélangez les deux poudres sèches ensemble puis avec",
+   "offsetMs": 158724.0,
+   "stable": 8
+  },
+  {
+   "t": 162633.5,
+   "text": "mélangez les deux poudres sèches ensemble puis avec les mains prop",
+   "offsetMs": 158724.0,
+   "stable": 11
+  },
+  {
+   "t": 163143.8,
+   "text": "mélangez les deux poudres sèches ensemble puis avec les mains propres et",
+   "offsetMs": 158724.0,
+   "stable": 12
+  },
+  {
+   "t": 163653.2,
+   "text": "mélangez les deux poudres sèches ensemble puis avec les mains propres et humides",
+   "offsetMs": 158724.0,
+   "stable": 13
+  },
+  {
+   "t": 164189.4,
+   "text": "mélangez les deux poudres sèches ensemble puis avec les mains propres et humides pressez",
+   "offsetMs": 158724.0,
+   "stable": 14
+  },
+  {
+   "t": 164805.0,
+   "text": "mélangez les deux poudres sèches ensemble puis avec les mains propres et humides pressez-les en une boule",
+   "offsetMs": 158724.0,
+   "stable": 17
+  },
+  {
+   "t": 166610.0,
+   "text": "les",
+   "offsetMs": 165852.0,
+   "stable": 1
+  },
+  {
+   "t": 167174.8,
+   "text": "les croisières",
+   "offsetMs": 165852.0,
+   "stable": 2
+  },
+  {
+   "t": 167805.7,
+   "text": "les croisières à Saint-Pétersbourg",
+   "offsetMs": 165852.0,
+   "stable": 4
+  },
+  {
+   "t": 168163.3,
+   "text": "les croisières à Saint-Pétersbourg inclu",
+   "offsetMs": 165852.0,
+   "stable": 5
+  },
+  {
+   "t": 168707.7,
+   "text": "les croisières à Saint-Pétersbourg incluent du",
+   "offsetMs": 165852.0,
+   "stable": 6
+  },
+  {
+   "t": 169243.0,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans",
+   "offsetMs": 165852.0,
+   "stable": 9
+  },
+  {
+   "t": 169778.0,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans la ville.",
+   "offsetMs": 165852.0,
+   "stable": 11
+  },
+  {
+   "t": 170262.0,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans la ville. Les",
+   "offsetMs": 165852.0,
+   "stable": 12
+  },
+  {
+   "t": 170812.1,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans la ville. Les passagers",
+   "offsetMs": 165852.0,
+   "stable": 13
+  },
+  {
+   "t": 171348.3,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans la ville. Les passagers des croisi",
+   "offsetMs": 165852.0,
+   "stable": 15
+  },
+  {
+   "t": 171885.6,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans la ville. Les passagers des croisières sont exempt",
+   "offsetMs": 165852.0,
+   "stable": 17
+  },
+  {
+   "t": 172423.4,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans la ville. Les passagers des croisières sont exemptés de l",
+   "offsetMs": 165852.0,
+   "stable": 19
+  },
+  {
+   "t": 173014.1,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans la ville. Les passagers des croisières sont exemptés de l'obligation de",
+   "offsetMs": 165852.0,
+   "stable": 20
+  },
+  {
+   "t": 173449.7,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans la ville. Les passagers des croisières sont exemptés de l'obligation de visa.",
+   "offsetMs": 165852.0,
+   "stable": 21
+  },
+  {
+   "t": 174018.2,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans la ville. Les passagers des croisières sont exemptés de l'obligation de visa. Voir les conditions",
+   "offsetMs": 165852.0,
+   "stable": 24
+  },
+  {
+   "t": 174468.6,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans la ville. Les passagers des croisières sont exemptés de l'obligation de visa. Voir les conditions.",
+   "offsetMs": 165852.0,
+   "stable": 24
+  }
+ ],
+ "finals": [
+  {
+   "t": 5808.6,
+   "text": "Les lions sont les chats les plus sociables, vivant en grands groupes, appelés « muttes ».",
+   "offsetMs": 1052.0,
+   "durationMs": 3960.0
+  },
+  {
+   "t": 10872.0,
+   "text": "Malgré que les choses ne sont pas très bien, dans le climat chaud du Moyen-Orient, la maison n'était pas si importante.",
+   "offsetMs": 6588.0,
+   "durationMs": 3340.0
+  },
+  {
+   "t": 19700.9,
+   "text": "presque toutes les pierraches sont sablonneuses et permettent de se baigner en toute sécurité. La plupart sont ombragées par des pollues du coq à boire.",
+   "offsetMs": 11912.0,
+   "durationMs": 6920.0
+  },
+  {
+   "t": 27849.1,
+   "text": "Les modes sont composés d'un 3-mal adulte apparenté ainsi que d'une trentaine de femelles et de lionceaux. Sous-titrage Société Radio-Canada",
+   "offsetMs": 20796.0,
+   "durationMs": 5880.0
+  },
+  {
+   "t": 35611.6,
+   "text": "Mes enfants sauvages peuvent avoir suivi de graves abus ou traumatismes avant d'être abandonnés ou de s'enfuir. Merci d'avoir regard",
+   "offsetMs": 28124.0,
+   "durationMs": 6460.0
+  },
+  {
+   "t": 40859.1,
+   "text": "Le bus 430 de Scottur se rend régulièrement à Sintra.",
+   "offsetMs": 36140.0,
+   "durationMs": 3780.0
+  },
+  {
+   "t": 43402.0,
+   "text": "avec un arrêt à Cabo d'Aroca.",
+   "offsetMs": 40550.9,
+   "durationMs": 1920.0
+  },
+  {
+   "t": 52308.0,
+   "text": "Pour admirer les plus beaux panoramas de Hong Kong, quitter l'île et rejoigner le front de mer de Kowloon situé en face.",
+   "offsetMs": 44252.0,
+   "durationMs": 7120.0
+  },
+  {
+   "t": 60217.5,
+   "text": "Les opinions d'Aristote sur toutes les questions scientifiques, y compris la psychologie, ont été acceptées.",
+   "offsetMs": 52844.0,
+   "durationMs": 6260.0
+  },
+  {
+   "t": 73225.5,
+   "text": "L'Australien Mitchell Gurley est arrivé 11ème au Super G, debout, homme. Le tchèque Aldrich Jelinek s'est classé 16ème au Super G, assis, homme.",
+   "offsetMs": 61180.0,
+   "durationMs": 10980.0
+  },
+  {
+   "t": 92382.6,
+   "text": "Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambitieux et aux plus talentueux de réussir.",
+   "offsetMs": 83484.0,
+   "durationMs": 7880.0
+  },
+  {
+   "t": 101023.3,
+   "text": "La bombe à fission fonctionne selon le principe suivant : elle transforme l'énergie en assemblant un noyau d'une myriade de protons et de neutrons.",
+   "offsetMs": 92684.0,
+   "durationMs": 7480.0
+  },
+  {
+   "t": 107680.8,
+   "text": "Il n'a pas chiffré ses réductions, disant qu'elles seront basées sur la production économique chinoise.",
+   "offsetMs": 101708.0,
+   "durationMs": 5100.0
+  },
+  {
+   "t": 122398.3,
+   "text": "C'est fini, cela est bien de plus de 100 ans, comme des antiquités.",
+   "offsetMs": 118204.0,
+   "durationMs": 3360.0
+  },
+  {
+   "t": 128149.5,
+   "text": "Vous n'en avez pas forcément besoin d'un yacht dans les archipels et sur les lacs.",
+   "offsetMs": 123420.0,
+   "durationMs": 3980.0
+  },
+  {
+   "t": 137227.4,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par 12 pour obtenir le plus simple des rapports de nombre entier est de 3 sur 2.",
+   "offsetMs": 129340.0,
+   "durationMs": 6860.0
+  },
+  {
+   "t": 144107.4,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'an 400 et a duré jusqu'à 1100 environ.",
+   "offsetMs": 137396.0,
+   "durationMs": 5780.0
+  },
+  {
+   "t": 157354.4,
+   "text": "Les politiques d'annulation varient, mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet 2020, date à laquelle les Jeux olympiques avaient été prévus.",
+   "offsetMs": 145388.0,
+   "durationMs": 10940.0
+  },
+  {
+   "t": 165055.7,
+   "text": "mélangez les deux poudres sèches ensemble puis avec les mains propres et humides pressez-les en une boule.",
+   "offsetMs": 158724.0,
+   "durationMs": 5240.0
+  },
+  {
+   "t": 174747.6,
+   "text": "les croisières à Saint-Pétersbourg incluent du temps passé dans la ville. Les passagers des croisières sont exemptés de l'obligation de visa. Voir les conditions. Voir",
+   "offsetMs": 165852.0,
+   "durationMs": 8100.0
+  }
+ ]
+}

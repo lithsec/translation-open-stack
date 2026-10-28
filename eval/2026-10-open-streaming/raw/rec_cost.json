@@ -1,0 +1,5 @@
+{
+ "simul": {"rtf_one_stream": 0.3733, "gpu_gb": 7.47, "process_gb_nvidia_smi": 10.3, "gpu": "A100-SXM4-80GB", "note": "computationally unaware pass over reg/en (simul_run.py)"},
+ "nemo": {"rtf_one_stream": 0.0667, "gpu_gb": 2.8, "gpu": "A100-SXM4-80GB", "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"},
+ "ctc": {"rtf_one_stream": 0.072, "rtf_per_stream_batch16": 0.038, "gpu_gb": 6.48, "gpu_gb_16_streams": 10.12, "process_gb_nvidia_smi": 8.2, "gpu": "A100-SXM4-80GB", "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"}
+}
