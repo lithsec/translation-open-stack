@@ -1,0 +1,261 @@
+profile: cuda-80gb
+edition: nonprofit
+config: /workspace/drr/configs/C1.toml
+profile: cuda-80gb (One 80 GB+ NVIDIA GPU: the reference, plus Omnilingual 7B for Lao and Khmer); details: stack_config.py profile
+devices: default=auto
+edition: nonprofit
+  ar  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: piper ar_JO-kareem-medium ❓ > espeak ⚠️ (last resort)
+  bn  asr=omni:ben_Beng  ✅  mt=hymt   ✅  voice: piper bn_BD-google-medium ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ bn voice piper bn_BD-google-medium: CC-BY-SA 4.0: credit Google's OpenSLR 37 Bengali corpus and keep the CMU notice
+  de  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: piper de_DE-thorsten-high ❓ > espeak ⚠️ (last resort)
+  en  asr=whisper        ✅  mt=hymt   ✅  voice: kokoro a:am_michael ✅ > piper en_US-lessac-medium ⛔ > espeak ⚠️ (last resort)
+  es  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: kokoro e:ef_dora ✅ > piper es_ES-davefx-medium ❓ > espeak ⚠️ (last resort)
+  fa  asr=omni:pes_Arab  ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: piper fa_IR-gyro-medium ❓ > espeak ⚠️ (last resort)
+  fr  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: kokoro f:ff_siwis ✅ > piper fr_FR-siwis-medium ❓ > espeak ⚠️ (last resort)
+  hi  asr=omni:hin_Deva  ✅  mt=hymt   ✅  voice: kokoro h:hf_alpha ✅ > piper hi_IN-rohan-medium ❓ > espeak ⚠️ (last resort)
+  ht  asr=omni:hat_Latn  ✅  mt=llmmt>madlad (to en: llmmt>hymt) ❓  voice: mms facebook/mms-tts-hat ⛔ > espeak ⚠️ (last resort)
+  id  asr=whisper        ✅  mt=hymt   ✅  voice: piper id_ID-news_tts-medium ❓ > espeak ⚠️ (last resort)
+  it  asr=whisper        ✅  mt=hymt   ✅  voice: kokoro i:if_sara ✅ > piper it_IT-serena-high ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ it voice piper it_IT-serena-high: CC-BY 4.0: credit the serena-synthetic-it-27h dataset (committa)
+  ja  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: kokoro j:jf_alpha ✅ > piper ja_JP-hi_fi_captain-medium ⛔
+  km  asr=omni:khm_Khmr  ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: voxcpm ✅ > mms facebook/mms-tts-khm ⛔
+  ko  asr=whisper        ✅  mt=hymt   ✅  voice: piper ko_KR-kss-medium ⛔ > espeak ⚠️ (last resort)
+  lo  asr=omni:lao_Laoo  ✅  mt=llmmt>madlad (to en: llmmt>hymt) ❓  voice: voxcpm ✅ > mms facebook/mms-tts-lao ⛔
+  pt  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: kokoro p:pf_dora ✅ > piper pt_BR-faber-medium ❓ > espeak ⚠️ (last resort)
+  ro  asr=whisper        ✅  mt=madlad ✅  voice: piper ro_RO-mihai-medium ❓ > espeak ⚠️ (last resort)
+  ru  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: piper ru_RU-irina-medium ❓ > espeak ⚠️ (last resort)
+  sw  asr=omni:swh_Latn  ✅  mt=llmmt>madlad ❓  voice: piper sw_CD-lanfrica-medium ❓ > espeak ⚠️ (last resort)
+  tl  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: voxcpm ✅ > mms facebook/mms-tts-tgl ⛔
+  tr  asr=whisper        ✅  mt=hymt   ✅  voice: piper tr_TR-dfki-medium ⛔ > espeak ⚠️ (last resort)
+  uk  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: piper uk_UA-ukrainian_tts-medium ✅ > espeak ⚠️ (last resort)
+  ur  asr=omni:urd_Arab  ✅  mt=hymt   ✅  voice: piper ur_PK-aegis_female-medium ✅ > espeak ⚠️ (last resort)
+  vi  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: piper vi_VN-vais1000-medium ❓ > espeak ⚠️ (last resort)
+  zh  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: kokoro z:zf_xiaobei ✅ > piper zh_CN-huayan-medium ❓ > espeak ⚠️ (last resort)
+  nonprofit loads 21 ⛔/❓ voices: non-commercial use only (`check --edition commercial` for what a commercial deployment gets)
+models:
+  whisper     ✅ MIT            model=large-v3  multi_model=(same as model)  multi_revision=(none)  revision=edaa852ec7e145841d8ffdb056a99866b5f0a478
+  omnilingual ✅ Apache-2.0     card=omniASR_LLM_300M
+  omnilingual_large ✅ Apache-2.0     card=omniASR_LLM_7B
+  lid         ✅ Apache-2.0     repo=speechbrain/lang-id-voxlingua107-ecapa  revision=0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9
+  vad         ✅ MIT            repo=snakers4/silero-vad  ref=5cd7945676eb32225748052e2e6a0580e4686a08
+  hymt        ✅ Apache-2.0     repo=tencent/Hy-MT2-7B  revision=9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223
+  madlad      ✅ Apache-2.0     repo=google/madlad400-7b-mt  revision=1ff63ce7ddd571a69d45cad9672c553428419671
+  madlad3b    ✅ Apache-2.0     repo=google/madlad400-3b-mt  revision=fa184c675da0b5c9e1c8694fccd4e12e2d422094
+  kokoro      ✅ Apache-2.0     repo=hexgrad/Kokoro-82M  revision=f3ff3571791e39611d31c381e3a41a3af07b4987
+  voxcpm      ✅ Apache-2.0     repo=openbmb/VoxCPM2  revision=32279effe8c19989596f05d353d1447f51d9e915
+voices at capacity:
+  a chain is tried in order: when VoxCPM2 is at capacity (every instance at its limit) or down, the sentence waits briefly (VOXCPM_QUEUE_S, 2 s) for a free instance, then goes to the next voice (languages with no voice after VoxCPM2 wait up to VOXCPM_WAIT_S, 15 s); eSpeak NG (last resort) ends every chain it speaks, if espeak-ng is installed
+  VoxCPM2 speaks 3 languages (km, lo, tl); one instance makes ~2-3 real-time voices, and takes up to 1 sentences at once (VOXCPM_MAX_INFLIGHT)
+  VoxCPM2 instances: 1 (the nonprofit default) (VOXCPM_INSTANCES=auto|<n>, VOXCPM_GPUS)
+  on this machine now: VoxCPM2: 1 instance (one GPU); overflow → fallback voices
+engines: recognizer omni, whisper; translator echo, hymt, llmmt, madlad; voice coqui, cosyvoice, espeak, kokoro, mms, piper, voxcpm
+[stack] language config: /workspace/drr/configs/C1.toml
+[stack] edition: nonprofit
+[stack] device=cuda
+[stack] loading Silero VAD (snakers4/silero-vad:5cd7945676eb32225748052e2e6a0580e4686a08)…
+Using cache found in /workspace/torch-cache/hub/snakers4_silero-vad_5cd7945676eb32225748052e2e6a0580e4686a08
+[stack] loading faster-whisper large-v3 @ edaa852ec7e145841d8ffdb056a99866b5f0a478 on cuda…
+[stack] sharing large-v3 for English and --xeng sources
+[stack] whisper on cuda: +3.5 GB (41.7 GB in use there)
+/usr/local/lib/python3.12/dist-packages/speechbrain/utils/torch_audio_backend.py:64: UserWarning: torchaudio._backend.list_audio_backends has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
+  available_backends = torchaudio.list_audio_backends()
+[stack] loading speechbrain/lang-id-voxlingua107-ecapa @ 0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9 for src=auto…
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files:  89%|████████▉ | 8/9 [00:00<00:00, 25.62it/s]Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 14.64it/s]
+Could not parse CUDA device string 'cuda': not enough values to unpack (expected 2, got 1). Falling back to device 0.
+[stack] auto-routing among: ['en', 'de', 'ru', 'ro']
+[stack] loading Omnilingual ASR (omniASR_LLM_300M) on cuda…
+  0%|          | 0.00/6.06G [00:00<?, ?B/s]  0%|          | 30.6M/6.06G [00:00<00:20, 321MB/s]  1%|          | 71.1M/6.06G [00:00<00:16, 382MB/s]  2%|▏         | 108M/6.06G [00:00<00:16, 383MB/s]   2%|▏         | 144M/6.06G [00:00<00:17, 372MB/s]  3%|▎         | 180M/6.06G [00:00<00:20, 314MB/s]  3%|▎         | 211M/6.06G [00:00<00:22, 286MB/s]  4%|▍         | 239M/6.06G [00:00<00:22, 281MB/s]  4%|▍         | 266M/6.06G [00:00<00:23, 270MB/s]  5%|▍         | 293M/6.06G [00:01<00:23, 265MB/s]  5%|▌         | 318M/6.06G [00:01<00:23, 259MB/s]  6%|▌         | 343M/6.06G [00:01<00:24, 256MB/s]  6%|▌         | 367M/6.06G [00:01<00:23, 256MB/s]  6%|▋         | 392M/6.06G [00:01<00:24, 252MB/s]  7%|▋         | 416M/6.06G [00:01<00:24, 253MB/s]  7%|▋         | 440M/6.06G [00:01<00:24, 251MB/s]  7%|▋         | 464M/6.06G [00:01<00:24, 249MB/s]  8%|▊         | 488M/6.06G [00:01<00:32, 182MB/s]  9%|▊         | 532M/6.06G [00:02<00:24, 248MB/s]  9%|▉         | 566M/6.06G [00:02<00:21, 273MB/s] 10%|▉         | 595M/6.06G [00:02<00:22, 264MB/s] 10%|█         | 622M/6.06G [00:02<00:22, 258MB/s] 10%|█         | 648M/6.06G [00:02<00:22, 258MB/s] 11%|█         | 673M/6.06G [00:02<00:22, 256MB/s] 11%|█         | 698M/6.06G [00:02<00:22, 255MB/s] 12%|█▏        | 723M/6.06G [00:02<00:23, 247MB/s] 12%|█▏        | 748M/6.06G [00:02<00:22, 250MB/s] 12%|█▏        | 773M/6.06G [00:03<00:22, 253MB/s] 13%|█▎        | 797M/6.06G [00:03<00:22, 249MB/s] 13%|█▎        | 821M/6.06G [00:03<00:22, 248MB/s] 14%|█▎        | 846M/6.06G [00:03<00:22, 252MB/s] 14%|█▍        | 870M/6.06G [00:03<00:22, 248MB/s] 14%|█▍        | 895M/6.06G [00:03<00:22, 252MB/s] 15%|█▍        | 919M/6.06G [00:03<00:22, 249MB/s] 15%|█▌        | 943M/6.06G [00:03<00:22, 247MB/s] 16%|█▌        | 968M/6.06G [00:03<00:22, 248MB/s] 16%|█▌        | 993M/6.06G [00:03<00:22, 248MB/s] 16%|█▋        | 0.99G/6.06G [00:04<00:22, 243MB/s] 17%|█▋        | 1.02G/6.06G [00:04<00:21, 253MB/s] 17%|█▋        | 1.04G/6.06G [00:04<00:21, 252MB/s] 18%|█▊        | 1.07G/6.06G [00:04<00:21, 251MB/s] 18%|█▊        | 1.09G/6.06G [00:04<00:21, 251MB/s] 18%|█▊        | 1.11G/6.06G [00:04<00:21, 250MB/s] 19%|█▉        | 1.14G/6.06G [00:04<00:21, 252MB/s] 19%|█▉        | 1.16G/6.06G [00:04<00:20, 251MB/s] 20%|█▉        | 1.18G/6.06G [00:04<00:21, 249MB/s] 20%|█▉        | 1.21G/6.06G [00:05<00:21, 245MB/s] 20%|██        | 1.23G/6.06G [00:05<00:20, 249MB/s] 21%|██        | 1.25G/6.06G [00:05<00:20, 248MB/s] 21%|██        | 1.28G/6.06G [00:05<00:20, 251MB/s] 21%|██▏       | 1.30G/6.06G [00:05<00:20, 251MB/s] 22%|██▏       | 1.33G/6.06G [00:05<00:20, 250MB/s] 22%|██▏       | 1.35G/6.06G [00:05<00:20, 249MB/s] 23%|██▎       | 1.37G/6.06G [00:05<00:20, 249MB/s] 23%|██▎       | 1.40G/6.06G [00:05<00:20, 249MB/s] 23%|██▎       | 1.42G/6.06G [00:05<00:19, 252MB/s] 24%|██▍       | 1.44G/6.06G [00:06<00:19, 248MB/s] 24%|██▍       | 1.47G/6.06G [00:06<00:19, 249MB/s] 25%|██▍       | 1.49G/6.06G [00:06<00:19, 248MB/s] 25%|██▍       | 1.51G/6.06G [00:06<00:19, 250MB/s] 25%|██▌       | 1.54G/6.06G [00:06<00:19, 247MB/s] 26%|██▌       | 1.56G/6.06G [00:06<00:19, 250MB/s] 26%|██▌       | 1.58G/6.06G [00:06<00:19, 249MB/s] 27%|██▋       | 1.61G/6.06G [00:06<00:19, 245MB/s] 27%|██▋       | 1.63G/6.06G [00:06<00:19, 247MB/s] 27%|██▋       | 1.66G/6.06G [00:06<00:19, 247MB/s] 28%|██▊       | 1.68G/6.06G [00:07<00:19, 248MB/s] 28%|██▊       | 1.70G/6.06G [00:07<00:18, 252MB/s] 28%|██▊       | 1.73G/6.06G [00:07<00:18, 249MB/s] 29%|██▉       | 1.75G/6.06G [00:07<00:18, 247MB/s] 29%|██▉       | 1.77G/6.06G [00:07<00:18, 248MB/s] 30%|██▉       | 1.80G/6.06G [00:07<00:18, 248MB/s] 30%|███       | 1.82G/6.06G [00:07<00:18, 246MB/s] 30%|███       | 1.85G/6.06G [00:07<00:17, 253MB/s] 31%|███       | 1.87G/6.06G [00:07<00:18, 249MB/s] 31%|███       | 1.89G/6.06G [00:07<00:17, 249MB/s] 32%|███▏      | 1.92G/6.06G [00:08<00:18, 245MB/s] 32%|███▏      | 1.94G/6.06G [00:08<00:17, 253MB/s] 32%|███▏      | 1.97G/6.06G [00:08<00:17, 252MB/s] 33%|███▎      | 1.99G/6.06G [00:08<00:17, 253MB/s] 33%|███▎      | 2.02G/6.06G [00:08<00:17, 251MB/s] 34%|███▎      | 2.04G/6.06G [00:08<00:17, 248MB/s] 34%|███▍      | 2.06G/6.06G [00:08<00:17, 246MB/s] 34%|███▍      | 2.09G/6.06G [00:08<00:17, 251MB/s] 35%|███▍      | 2.11G/6.06G [00:08<00:17, 248MB/s] 35%|███▌      | 2.13G/6.06G [00:09<00:16, 251MB/s] 36%|███▌      | 2.16G/6.06G [00:09<00:16, 247MB/s] 36%|███▌      | 2.18G/6.06G [00:09<00:16, 250MB/s] 36%|███▋      | 2.20G/6.06G [00:09<00:16, 250MB/s] 37%|███▋      | 2.23G/6.06G [00:09<00:16, 250MB/s] 37%|███▋      | 2.25G/6.06G [00:09<00:16, 249MB/s] 38%|███▊      | 2.28G/6.06G [00:09<00:16, 249MB/s] 38%|███▊      | 2.30G/6.06G [00:09<00:16, 251MB/s] 38%|███▊      | 2.32G/6.06G [00:09<00:16, 251MB/s] 39%|███▊      | 2.35G/6.06G [00:09<00:16, 249MB/s] 39%|███▉      | 2.37G/6.06G [00:10<00:16, 248MB/s] 39%|███▉      | 2.39G/6.06G [00:10<00:15, 248MB/s] 40%|███▉      | 2.42G/6.06G [00:10<00:15, 251MB/s] 40%|████      | 2.44G/6.06G [00:10<00:15, 249MB/s] 41%|████      | 2.46G/6.06G [00:10<00:25, 151MB/s] 41%|████      | 2.50G/6.06G [00:10<00:21, 182MB/s] 42%|████▏     | 2.52G/6.06G [00:10<00:24, 158MB/s] 42%|████▏     | 2.54G/6.06G [00:11<00:27, 139MB/s] 42%|████▏     | 2.55G/6.06G [00:11<00:28, 132MB/s] 42%|████▏     | 2.57G/6.06G [00:11<00:26, 140MB/s] 43%|████▎     | 2.58G/6.06G [00:11<00:39, 95.8MB/s] 43%|████▎     | 2.59G/6.06G [00:11<00:43, 85.8MB/s] 43%|████▎     | 2.60G/6.06G [00:12<00:56, 65.8MB/s] 43%|████▎     | 2.63G/6.06G [00:12<00:39, 93.4MB/s] 44%|████▎     | 2.64G/6.06G [00:12<00:45, 81.3MB/s] 44%|████▎     | 2.65G/6.06G [00:12<00:44, 83.0MB/s] 44%|████▍     | 2.69G/6.06G [00:12<00:23, 153MB/s]  45%|████▍     | 2.71G/6.06G [00:13<00:26, 135MB/s] 45%|████▌     | 2.74G/6.06G [00:13<00:22, 160MB/s] 46%|████▌     | 2.76G/6.06G [00:13<00:22, 160MB/s] 46%|████▌     | 2.80G/6.06G [00:13<00:15, 222MB/s] 47%|████▋     | 2.84G/6.06G [00:13<00:12, 266MB/s] 47%|████▋     | 2.87G/6.06G [00:13<00:11, 290MB/s] 48%|████▊     | 2.90G/6.06G [00:13<00:12, 277MB/s] 48%|████▊     | 2.93G/6.06G [00:13<00:12, 272MB/s] 49%|████▉     | 2.96G/6.06G [00:13<00:12, 265MB/s] 49%|████▉     | 2.98G/6.06G [00:14<00:12, 260MB/s] 50%|████▉     | 3.01G/6.06G [00:14<00:12, 258MB/s] 50%|█████     | 3.03G/6.06G [00:14<00:12, 254MB/s] 50%|█████     | 3.06G/6.06G [00:14<00:12, 253MB/s] 51%|█████     | 3.08G/6.06G [00:14<00:12, 252MB/s] 51%|█████     | 3.11G/6.06G [00:14<00:12, 251MB/s] 52%|█████▏    | 3.13G/6.06G [00:14<00:12, 250MB/s] 52%|█████▏    | 3.15G/6.06G [00:14<00:12, 250MB/s] 52%|█████▏    | 3.18G/6.06G [00:14<00:12, 250MB/s] 53%|█████▎    | 3.20G/6.06G [00:14<00:12, 253MB/s] 53%|█████▎    | 3.22G/6.06G [00:15<00:12, 249MB/s] 54%|█████▎    | 3.25G/6.06G [00:15<00:12, 249MB/s] 54%|█████▍    | 3.27G/6.06G [00:15<00:13, 228MB/s] 54%|█████▍    | 3.30G/6.06G [00:15<00:12, 241MB/s] 55%|█████▍    | 3.33G/6.06G [00:15<00:11, 261MB/s] 55%|█████▌    | 3.35G/6.06G [00:15<00:11, 255MB/s] 56%|█████▌    | 3.37G/6.06G [00:15<00:11, 254MB/s] 56%|█████▌    | 3.40G/6.06G [00:15<00:11, 253MB/s] 56%|█████▋    | 3.42G/6.06G [00:15<00:11, 251MB/s] 57%|█████▋    | 3.45G/6.06G [00:16<00:11, 248MB/s] 57%|█████▋    | 3.47G/6.06G [00:16<00:11, 250MB/s] 58%|█████▊    | 3.49G/6.06G [00:16<00:12, 212MB/s] 58%|█████▊    | 3.53G/6.06G [00:16<00:10, 257MB/s] 59%|█████▊    | 3.55G/6.06G [00:16<00:10, 259MB/s] 59%|█████▉    | 3.58G/6.06G [00:16<00:10, 254MB/s] 59%|█████▉    | 3.60G/6.06G [00:16<00:10, 257MB/s] 60%|█████▉    | 3.63G/6.06G [00:16<00:10, 252MB/s] 60%|██████    | 3.65G/6.06G [00:16<00:11, 223MB/s] 61%|██████    | 3.68G/6.06G [00:17<00:10, 255MB/s] 61%|██████    | 3.71G/6.06G [00:17<00:09, 259MB/s] 62%|██████▏   | 3.73G/6.06G [00:17<00:09, 255MB/s] 62%|██████▏   | 3.76G/6.06G [00:17<00:09, 253MB/s] 62%|██████▏   | 3.78G/6.06G [00:17<00:09, 252MB/s] 63%|██████▎   | 3.81G/6.06G [00:17<00:09, 251MB/s] 63%|██████▎   | 3.83G/6.06G [00:17<00:09, 250MB/s] 64%|██████▎   | 3.85G/6.06G [00:17<00:09, 250MB/s] 64%|██████▍   | 3.88G/6.06G [00:17<00:09, 249MB/s] 64%|██████▍   | 3.90G/6.06G [00:18<00:09, 248MB/s] 65%|██████▍   | 3.92G/6.06G [00:18<00:09, 250MB/s] 65%|██████▌   | 3.95G/6.06G [00:18<00:09, 250MB/s] 65%|██████▌   | 3.97G/6.06G [00:18<00:09, 246MB/s] 66%|██████▌   | 3.99G/6.06G [00:18<00:08, 250MB/s] 66%|██████▋   | 4.02G/6.06G [00:18<00:08, 249MB/s] 67%|██████▋   | 4.04G/6.06G [00:18<00:09, 238MB/s] 67%|██████▋   | 4.07G/6.06G [00:18<00:08, 253MB/s] 68%|██████▊   | 4.09G/6.06G [00:18<00:08, 253MB/s] 68%|██████▊   | 4.12G/6.06G [00:18<00:08, 251MB/s] 68%|██████▊   | 4.14G/6.06G [00:19<00:08, 250MB/s] 69%|██████▊   | 4.16G/6.06G [00:19<00:08, 251MB/s] 69%|██████▉   | 4.19G/6.06G [00:19<00:08, 248MB/s] 69%|██████▉   | 4.21G/6.06G [00:19<00:09, 215MB/s] 70%|██████▉   | 4.24G/6.06G [00:19<00:11, 172MB/s] 71%|███████   | 4.28G/6.06G [00:19<00:08, 223MB/s] 71%|███████   | 4.30G/6.06G [00:19<00:07, 239MB/s] 72%|███████▏  | 4.34G/6.06G [00:19<00:06, 282MB/s] 72%|███████▏  | 4.37G/6.06G [00:20<00:06, 291MB/s] 73%|███████▎  | 4.40G/6.06G [00:20<00:06, 280MB/s] 73%|███████▎  | 4.43G/6.06G [00:20<00:07, 234MB/s] 74%|███████▎  | 4.46G/6.06G [00:20<00:06, 267MB/s] 74%|███████▍  | 4.49G/6.06G [00:20<00:06, 271MB/s] 74%|███████▍  | 4.52G/6.06G [00:20<00:09, 173MB/s] 75%|███████▌  | 4.55G/6.06G [00:21<00:08, 184MB/s] 76%|███████▌  | 4.59G/6.06G [00:21<00:07, 221MB/s] 76%|███████▋  | 4.62G/6.06G [00:21<00:05, 259MB/s] 77%|███████▋  | 4.66G/6.06G [00:21<00:05, 294MB/s] 77%|███████▋  | 4.69G/6.06G [00:21<00:04, 304MB/s] 78%|███████▊  | 4.72G/6.06G [00:21<00:05, 284MB/s] 78%|███████▊  | 4.75G/6.06G [00:21<00:05, 276MB/s] 79%|███████▉  | 4.78G/6.06G [00:21<00:05, 244MB/s] 79%|███████▉  | 4.81G/6.06G [00:21<00:05, 253MB/s] 80%|███████▉  | 4.84G/6.06G [00:22<00:04, 269MB/s] 80%|████████  | 4.86G/6.06G [00:22<00:04, 262MB/s] 81%|████████  | 4.89G/6.06G [00:22<00:04, 255MB/s] 81%|████████  | 4.91G/6.06G [00:22<00:04, 258MB/s] 81%|████████▏ | 4.94G/6.06G [00:22<00:04, 253MB/s] 82%|████████▏ | 4.96G/6.06G [00:22<00:04, 249MB/s] 82%|████████▏ | 4.99G/6.06G [00:22<00:04, 251MB/s] 83%|████████▎ | 5.01G/6.06G [00:22<00:04, 254MB/s] 83%|████████▎ | 5.03G/6.06G [00:22<00:04, 252MB/s] 83%|████████▎ | 5.06G/6.06G [00:23<00:04, 251MB/s] 84%|████████▍ | 5.08G/6.06G [00:23<00:04, 250MB/s] 84%|████████▍ | 5.10G/6.06G [00:23<00:04, 249MB/s] 85%|████████▍ | 5.13G/6.06G [00:23<00:04, 247MB/s] 85%|████████▍ | 5.15G/6.06G [00:23<00:03, 250MB/s] 85%|████████▌ | 5.17G/6.06G [00:23<00:05, 176MB/s] 86%|████████▌ | 5.21G/6.06G [00:23<00:03, 233MB/s] 87%|████████▋ | 5.25G/6.06G [00:23<00:03, 279MB/s] 87%|████████▋ | 5.28G/6.06G [00:24<00:03, 270MB/s] 88%|████████▊ | 5.31G/6.06G [00:24<00:03, 262MB/s] 88%|████████▊ | 5.34G/6.06G [00:24<00:02, 261MB/s] 88%|████████▊ | 5.36G/6.06G [00:24<00:02, 257MB/s] 89%|████████▉ | 5.39G/6.06G [00:24<00:02, 253MB/s] 89%|████████▉ | 5.41G/6.06G [00:24<00:02, 254MB/s] 90%|████████▉ | 5.44G/6.06G [00:24<00:02, 250MB/s] 90%|█████████ | 5.46G/6.06G [00:24<00:02, 250MB/s] 90%|█████████ | 5.48G/6.06G [00:24<00:02, 251MB/s] 91%|█████████ | 5.51G/6.06G [00:24<00:02, 248MB/s] 91%|█████████ | 5.53G/6.06G [00:25<00:02, 249MB/s] 92%|█████████▏| 5.55G/6.06G [00:25<00:02, 248MB/s] 92%|█████████▏| 5.58G/6.06G [00:25<00:02, 251MB/s] 92%|█████████▏| 5.60G/6.06G [00:25<00:01, 251MB/s] 93%|█████████▎| 5.63G/6.06G [00:25<00:01, 251MB/s] 93%|█████████▎| 5.65G/6.06G [00:25<00:01, 251MB/s] 94%|█████████▎| 5.67G/6.06G [00:25<00:01, 248MB/s] 94%|█████████▍| 5.70G/6.06G [00:25<00:01, 249MB/s] 94%|█████████▍| 5.72G/6.06G [00:25<00:01, 249MB/s] 95%|█████████▍| 5.74G/6.06G [00:25<00:01, 249MB/s] 95%|█████████▌| 5.77G/6.06G [00:26<00:01, 250MB/s] 95%|█████████▌| 5.79G/6.06G [00:26<00:01, 251MB/s] 96%|█████████▌| 5.81G/6.06G [00:26<00:01, 249MB/s] 96%|█████████▋| 5.84G/6.06G [00:26<00:00, 246MB/s] 97%|█████████▋| 5.86G/6.06G [00:26<00:00, 250MB/s] 97%|█████████▋| 5.88G/6.06G [00:26<00:00, 249MB/s] 97%|█████████▋| 5.91G/6.06G [00:26<00:00, 247MB/s] 98%|█████████▊| 5.93G/6.06G [00:26<00:00, 247MB/s] 98%|█████████▊| 5.96G/6.06G [00:26<00:00, 247MB/s] 99%|█████████▊| 5.98G/6.06G [00:27<00:00, 248MB/s] 99%|█████████▉| 6.00G/6.06G [00:27<00:00, 249MB/s] 99%|█████████▉| 6.03G/6.06G [00:27<00:00, 252MB/s]100%|█████████▉| 6.05G/6.06G [00:27<00:00, 251MB/s]100%|██████████| 6.06G/6.06G [00:27<00:00, 238MB/s]
+
+  0%|          | 0.00/85.5k [00:00<?, ?B/s]100%|██████████| 85.5k/85.5k [00:00<00:00, 27.8MB/s]
+[stack] omni on cuda: +3.3 GB (45.2 GB in use there)
+[stack] loading Hy-MT2 from /workspace/mt/hymt2-7b-nf4…
+The tokenizer you are loading from '/workspace/mt/hymt2-7b-nf4' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[stack] hymt on cuda: +7.0 GB (52.2 GB in use there)
+[stack] Kokoro TTS enabled (24kHz native, GPU)
+[stack] loading MADLAD tokenizer from /workspace/mt/madlad7b-ct2…
+[stack] MT via CTranslate2: /workspace/mt/madlad7b-ct2
+[stack] MT is CTranslate2 only — bf16 copy not loaded
+[stack] madlad on cuda: +9.2 GB (61.3 GB in use there)
+[stack] en: en_US-lessac-medium (intra_op=4)
+[stack] de: de_DE-thorsten-high (intra_op=4)
+[stack] ru: ru_RU-irina-medium (intra_op=4)
+[stack] ro: ro_RO-mihai-medium (intra_op=4)
+[stack] eSpeak NG last-resort voice for de,en,ro,ru
+[stack] loading translator llmmt (engines.llmmt)…
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) answering — de,ru use it
+[licence] edition nonprofit: every configured voice may load (non-commercial use only; EDITION=commercial filters by licence)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files:  80%|████████  | 8/10 [00:00<00:00, 19.83it/s]Fetching 10 files: 100%|██████████| 10/10 [00:01<00:00,  5.70it/s]
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/rnn.py:123: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+[stack] warm in 4.1s (4 languages, 2 voice engines in parallel) — first utterance pays nothing
+[stack] access: OPEN (LAN only); limits 30/client, 60 total, 360 min/session
+[stack] ready on :8790 for ['en', 'de', 'ru', 'ro']
+[stack] client: en -> de (context)
+[stack] room open/e2e_en_de_60kfs2: +de (primary, utterance)
+[stack] utterance 7.8s speech | lid 0.00s asr 0.43s mt 0.92s tts1[de] 1.52s done 1.53s
+[stack] utterance 6.4s speech | lid 0.00s asr 0.16s mt 0.69s tts1[de] 1.35s done 1.36s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.14s mt 0.58s tts1[de] 1.11s done 1.11s
+[stack] utterance 2.5s speech | lid 0.00s asr 0.08s mt 0.27s tts1[de] 0.43s done 0.43s
+[stack] utterance 10.1s speech | lid 0.00s asr 0.20s mt 0.88s tts1[de] 1.62s done 1.63s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.11s mt 0.50s tts1[de] 1.03s done 1.03s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.17s mt 0.56s tts1[de] 1.12s done 1.13s
+[stack] utterance 10.2s speech | lid 0.00s asr 0.19s mt 0.89s tts1[de] 1.89s done 1.90s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.11s mt 0.52s tts1[de] 1.07s done 1.08s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.18s mt 0.55s tts1[de] 1.14s done 1.15s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.15s mt 0.69s tts1[de] 1.29s done 1.30s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.12s mt 0.58s tts1[de] 1.13s done 1.14s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.11s mt 0.43s tts1[de] 0.96s done 0.97s
+[stack] utterance 2.2s speech | lid 0.00s asr 0.08s mt 0.32s tts1[de] 0.58s done 0.58s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.12s mt 0.48s tts1[de] 0.85s done 0.86s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.13s mt 0.57s tts1[de] 1.06s done 1.06s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.11s mt 0.56s tts1[de] 1.13s done 1.14s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.13s mt 0.53s tts1[de] 1.04s done 1.05s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.16s mt 0.51s tts1[de] 0.92s done 1.03s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.12s mt 0.49s tts1[de] 1.06s done 1.07s
+[stack] utterance 3.6s speech | lid 0.00s asr 0.08s mt 0.37s tts1[de] 0.67s done 0.67s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.13s mt 0.54s tts1[de] 1.10s done 1.11s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.11s mt 0.49s tts1[de] 0.98s done 0.99s
+[stack] utterance 1.5s speech | lid 0.00s asr 0.08s mt 0.25s tts1[de] 0.43s done 0.43s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.15s mt 0.58s tts1[de] 1.26s done 1.26s
+[stack] client: de -> en (context)
+[stack] room open/e2e_de_en_lr1gut: +en (primary, utterance)
+[stack] utterance 7.1s speech | lid 0.00s asr 0.18s mt 0.57s tts1[en] 0.63s done 0.64s
+[stack] utterance 5.3s speech | lid 0.00s asr 0.12s mt 0.33s tts1[en] 0.37s done 0.37s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.17s mt 0.46s tts1[en] 0.50s done 0.51s
+[stack] utterance 11.8s speech | lid 0.00s asr 0.24s mt 0.53s tts1[en] 0.57s done 0.58s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.21s mt 0.69s tts1[en] 0.75s done 0.77s
+[stack] utterance 5.4s speech | lid 0.00s asr 0.14s mt 0.40s tts1[en] 0.45s done 0.45s
+[stack] utterance 9.8s speech | lid 0.00s asr 0.21s mt 0.48s tts1[en] 0.52s done 0.56s
+[stack] utterance 10.1s speech | lid 0.00s asr 0.15s mt 0.58s tts1[en] 0.62s done 0.63s
+[stack] utterance 3.7s speech | lid 0.00s asr 0.11s mt 0.30s tts1[en] 0.34s done 0.34s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.10s mt 0.29s tts1[en] 0.33s done 0.34s
+[stack] utterance 3.2s speech | lid 0.00s asr 0.08s mt 0.20s tts1[en] 0.24s done 0.24s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.14s mt 0.40s tts1[en] 0.44s done 0.45s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.13s mt 0.35s tts1[en] 0.39s done 0.40s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.14s mt 0.39s tts1[en] 0.43s done 0.44s
+[stack] utterance 7.7s speech | lid 0.00s asr 0.15s mt 0.50s tts1[en] 0.54s done 0.55s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.19s mt 0.57s tts1[en] 0.61s done 0.63s
+[stack] utterance 9.7s speech | lid 0.00s asr 0.22s mt 0.56s tts1[en] 0.60s done 0.69s
+[stack] utterance 10.1s speech | lid 0.00s asr 0.23s mt 0.63s tts1[en] 0.68s done 0.70s
+[stack] utterance 2.0s speech | lid 0.00s asr 0.08s mt 0.19s tts1[en] 0.23s done 0.23s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.14s mt 0.41s tts1[en] 0.45s done 0.46s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.17s mt 0.47s tts1[en] 0.51s done 0.56s
+[stack] utterance 11.5s speech | lid 0.00s asr 0.29s mt 0.66s tts1[en] 0.71s done 0.72s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.15s mt 0.44s tts1[en] 0.49s done 0.49s
+[stack] dropped short noise (p=0.63): Erdogan
+[stack] utterance 9.0s speech | lid 0.00s asr 0.18s mt 0.57s tts1[en] 0.61s done 0.65s
+[stack] utterance 11.6s speech | lid 0.00s asr 0.24s mt 0.54s tts1[en] 0.58s done 0.59s
+[stack] dropped short noise (p=0.68): Bekannt.
+[stack] client: en -> ru (context)
+[stack] room open/e2e_en_ru_mllk1l: +ru (primary, utterance)
+[stack] utterance 7.8s speech | lid 0.00s asr 0.15s mt 0.71s tts1[ru] 0.92s done 0.93s
+[stack] utterance 6.4s speech | lid 0.00s asr 0.16s mt 0.79s tts1[ru] 0.99s done 1.00s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.14s mt 0.68s tts1[ru] 0.79s done 0.80s
+[stack] utterance 2.5s speech | lid 0.00s asr 0.07s mt 0.22s tts1[ru] 0.26s done 0.27s
+[stack] utterance 10.1s speech | lid 0.00s asr 0.20s mt 0.92s tts1[ru] 1.09s done 1.10s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.10s mt 0.43s tts1[ru] 0.53s done 0.54s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.18s mt 0.59s tts1[ru] 0.70s done 0.71s
+[stack] utterance 10.2s speech | lid 0.00s asr 0.19s mt 0.87s tts1[ru] 1.03s done 1.05s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.11s mt 0.55s tts1[ru] 0.66s done 0.67s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.18s mt 0.62s tts1[ru] 0.77s done 0.78s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.15s mt 0.63s tts1[ru] 0.77s done 0.78s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.13s mt 0.52s tts1[ru] 0.63s done 0.64s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.12s mt 0.51s tts1[ru] 0.65s done 0.66s
+[stack] utterance 2.2s speech | lid 0.00s asr 0.09s mt 0.25s tts1[ru] 0.30s done 0.30s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.14s mt 0.64s tts1[ru] 0.74s done 0.75s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.11s mt 0.66s tts1[ru] 0.78s done 0.78s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.13s mt 0.63s tts1[ru] 0.80s done 0.81s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.13s mt 0.47s tts1[ru] 0.58s done 0.58s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.14s mt 0.66s tts1[ru] 0.74s done 0.79s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.14s mt 0.50s tts1[ru] 0.60s done 0.60s
+[stack] utterance 3.6s speech | lid 0.00s asr 0.09s mt 0.35s tts1[ru] 0.42s done 0.43s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.14s mt 0.63s tts1[ru] 0.76s done 0.77s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.12s mt 0.48s tts1[ru] 0.58s done 0.59s
+[stack] utterance 1.5s speech | lid 0.00s asr 0.07s mt 0.23s tts1[ru] 0.29s done 0.30s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.13s mt 0.65s tts1[ru] 0.82s done 0.84s
+[stack] client: ru -> en (context)
+[stack] room open/e2e_ru_en_pqy3j3: +en (primary, utterance)
+[stack] utterance 9.6s speech | lid 0.00s asr 0.20s mt 0.61s tts1[en] 0.64s done 0.65s
+[stack] utterance 10.7s speech | lid 0.00s asr 0.27s mt 0.71s tts1[en] 0.76s done 0.77s
+[stack] utterance 9.7s speech | lid 0.00s asr 0.20s mt 0.46s tts1[en] 0.50s done 0.54s
+[stack] utterance 8.1s speech | lid 0.00s asr 0.20s mt 0.56s tts1[en] 0.60s done 0.64s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.09s mt 0.21s tts1[en] 0.25s done 0.25s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.15s mt 0.38s tts1[en] 0.43s done 0.44s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.22s mt 0.53s tts1[en] 0.57s done 0.61s
+[stack] utterance 8.2s speech | lid 0.00s asr 0.17s mt 0.56s tts1[en] 0.59s done 0.64s
+[stack] utterance 3.8s speech | lid 0.00s asr 0.11s mt 0.30s tts1[en] 0.33s done 0.33s
+[stack] utterance 5.3s speech | lid 0.00s asr 0.15s mt 0.40s tts1[en] 0.44s done 0.44s
+[stack] utterance 9.8s speech | lid 0.00s asr 0.24s mt 0.59s tts1[en] 0.63s done 0.66s
+[stack] utterance 5.9s speech | lid 0.00s asr 0.17s mt 0.48s tts1[en] 0.52s done 0.53s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.19s mt 0.55s tts1[en] 0.60s done 0.60s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.22s mt 0.65s tts1[en] 0.70s done 0.72s
+[stack] utterance 7.7s speech | lid 0.00s asr 0.19s mt 0.52s tts1[en] 0.56s done 0.57s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.18s mt 0.55s tts1[en] 0.59s done 0.60s
+[stack] room open/e2e_ru_en_pqy3j3: forced cut at 6.5s of 12.0s (clause)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.24s mt 0.71s tts1[en] 0.76s done 0.77s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.16s mt 0.43s tts1[en] 0.47s done 0.48s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.14s mt 0.40s tts1[en] 0.44s done 0.45s
+[stack] utterance 8.2s speech | lid 0.00s asr 0.20s mt 0.52s tts1[en] 0.56s done 0.61s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.16s mt 0.46s tts1[en] 0.50s done 0.51s
+[stack] utterance 3.6s speech | lid 0.00s asr 0.11s mt 0.26s tts1[en] 0.29s done 0.30s
+[stack] utterance 8.5s speech | lid 0.00s asr 0.21s mt 0.53s tts1[en] 0.57s done 0.58s
+[stack] utterance 8.2s speech | lid 0.00s asr 0.19s mt 0.58s tts1[en] 0.62s done 0.66s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.22s mt 0.58s tts1[en] 0.62s done 0.63s
+[stack] client: en -> ro (context)
+[stack] room open/e2e_en_ro_oke2st: +ro (primary, utterance)
+[stack] utterance 7.8s speech | lid 0.00s asr 0.16s mt 0.50s tts1[ro] 0.68s done 0.69s
+[stack] utterance 6.4s speech | lid 0.00s asr 0.17s mt 0.57s tts1[ro] 0.72s done 0.73s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.14s mt 0.47s tts1[ro] 0.60s done 0.60s
+[stack] utterance 2.5s speech | lid 0.00s asr 0.08s mt 0.18s tts1[ro] 0.21s done 0.21s
+[stack] utterance 10.1s speech | lid 0.00s asr 0.20s mt 0.62s tts1[ro] 0.79s done 0.81s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.10s mt 0.38s tts1[ro] 0.51s done 0.52s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.17s mt 0.47s tts1[ro] 0.59s done 0.60s
+[stack] utterance 10.2s speech | lid 0.00s asr 0.19s mt 0.66s tts1[ro] 0.86s done 0.88s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.12s mt 0.41s tts1[ro] 0.53s done 0.54s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.17s mt 0.44s tts1[ro] 0.58s done 0.59s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.15s mt 0.51s tts1[ro] 0.62s done 0.63s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.13s mt 0.39s tts1[ro] 0.51s done 0.52s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.12s mt 0.39s tts1[ro] 0.50s done 0.51s
+[stack] utterance 2.2s speech | lid 0.00s asr 0.09s mt 0.26s tts1[ro] 0.31s done 0.32s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.12s mt 0.38s tts1[ro] 0.51s done 0.52s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.11s mt 0.36s tts1[ro] 0.45s done 0.45s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.13s mt 0.47s tts1[ro] 0.59s done 0.60s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.13s mt 0.45s tts1[ro] 0.57s done 0.57s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.14s mt 0.42s tts1[ro] 0.50s done 0.53s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.14s mt 0.37s tts1[ro] 0.47s done 0.48s
+[stack] utterance 3.6s speech | lid 0.00s asr 0.09s mt 0.25s tts1[ro] 0.31s done 0.32s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.15s mt 0.44s tts1[ro] 0.57s done 0.58s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.12s mt 0.44s tts1[ro] 0.55s done 0.55s
+[stack] utterance 1.5s speech | lid 0.00s asr 0.08s mt 0.19s tts1[ro] 0.23s done 0.24s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.14s mt 0.50s tts1[ro] 0.64s done 0.65s
+[stack] client: ro -> en (context)
+[stack] room open/e2e_ro_en_p2vn0t: +en (primary, utterance)
+[stack] utterance 10.0s speech | lid 0.00s asr 0.24s mt 0.97s tts1[en] 1.02s done 1.03s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.23s mt 0.94s tts1[en] 0.98s done 0.99s
+[stack] utterance 9.2s speech | lid 0.00s asr 0.23s mt 0.83s tts1[en] 0.88s done 0.89s
+[stack] utterance 9.9s speech | lid 0.00s asr 0.25s mt 1.17s tts1[en] 1.22s done 1.23s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.16s mt 0.61s tts1[en] 0.65s done 0.66s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.23s mt 0.73s tts1[en] 0.77s done 0.81s
+[stack] utterance 11.0s speech | lid 0.00s asr 0.30s mt 1.24s tts1[en] 1.29s done 1.31s
+[stack] utterance 6.9s speech | lid 0.00s asr 0.19s mt 0.70s tts1[en] 0.74s done 0.75s
+[stack] utterance 5.9s speech | lid 0.00s asr 0.19s mt 0.62s tts1[en] 0.66s done 0.66s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.16s mt 0.57s tts1[en] 0.61s done 0.61s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.18s mt 0.60s tts1[en] 0.65s done 0.65s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.19s mt 0.81s tts1[en] 0.86s done 0.87s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.24s mt 0.80s tts1[en] 0.85s done 0.86s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.16s mt 0.73s tts1[en] 0.77s done 0.78s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.26s mt 1.04s tts1[en] 1.08s done 1.09s
+[stack] utterance 10.6s speech | lid 0.00s asr 0.29s mt 0.90s tts1[en] 0.96s done 0.97s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.09s mt 0.37s tts1[en] 0.41s done 0.41s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.18s mt 0.61s tts1[en] 0.65s done 0.66s
+[stack] dropped short noise (p=0.48): a Germanii.
+[stack] utterance 7.8s speech | lid 0.00s asr 0.22s mt 0.89s tts1[en] 0.93s done 0.97s
+[stack] utterance 9.1s speech | lid 0.00s asr 0.23s mt 0.96s tts1[en] 1.02s done 1.03s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.19s mt 0.61s tts1[en] 0.65s done 0.66s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.08s mt 0.27s tts1[en] 0.29s done 0.29s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.19s mt 0.69s tts1[en] 0.73s done 0.74s
+[stack] utterance 2.2s speech | lid 0.00s asr 0.09s mt 0.29s tts1[en] 0.33s done 0.33s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.21s mt 0.81s tts1[en] 0.85s done 0.87s

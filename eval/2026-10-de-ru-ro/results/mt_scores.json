@@ -1,0 +1,372 @@
+{
+ "per_set": {
+  "de-en:a": {
+   "gemma": {
+    "score": 98.3,
+    "crit": 0
+   },
+   "hymt": {
+    "score": 96.7,
+    "crit": 0
+   },
+   "madlad": {
+    "score": 91.7,
+    "crit": 1
+   }
+  },
+  "de-en:b": {
+   "gemma": {
+    "score": 100.0,
+    "crit": 0
+   },
+   "madlad": {
+    "score": 90.0,
+    "crit": 0
+   },
+   "hymt": {
+    "score": 91.7,
+    "crit": 1
+   }
+  },
+  "de-en-asr:a": {
+   "hymt": {
+    "score": 93.3,
+    "crit": 1
+   },
+   "madlad": {
+    "score": 88.3,
+    "crit": 2
+   },
+   "gemma": {
+    "score": 95.0,
+    "crit": 1
+   }
+  },
+  "de-en-asr:b": {
+   "madlad": {
+    "score": 78.3,
+    "crit": 3
+   },
+   "gemma": {
+    "score": 80.0,
+    "crit": 4
+   },
+   "hymt": {
+    "score": 76.7,
+    "crit": 5
+   }
+  },
+  "en-de:a": {
+   "madlad": {
+    "score": 93.3,
+    "crit": 0
+   },
+   "gemma": {
+    "score": 98.3,
+    "crit": 0
+   },
+   "hymt": {
+    "score": 100.0,
+    "crit": 0
+   }
+  },
+  "en-de:b": {
+   "hymt": {
+    "score": 81.7,
+    "crit": 2
+   },
+   "gemma": {
+    "score": 91.7,
+    "crit": 0
+   },
+   "madlad": {
+    "score": 85.0,
+    "crit": 1
+   }
+  },
+  "en-ro:a": {
+   "madlad": {
+    "score": 86.7,
+    "crit": 0
+   },
+   "gemma": {
+    "score": 85.0,
+    "crit": 0
+   }
+  },
+  "en-ro:b": {
+   "madlad": {
+    "score": 76.7,
+    "crit": 1
+   },
+   "gemma": {
+    "score": 83.3,
+    "crit": 0
+   }
+  },
+  "en-ru:a": {
+   "gemma": {
+    "score": 98.3,
+    "crit": 0
+   },
+   "madlad": {
+    "score": 86.7,
+    "crit": 0
+   },
+   "hymt": {
+    "score": 86.7,
+    "crit": 0
+   }
+  },
+  "en-ru:b": {
+   "hymt": {
+    "score": 88.3,
+    "crit": 3
+   },
+   "gemma": {
+    "score": 95.0,
+    "crit": 1
+   },
+   "madlad": {
+    "score": 76.7,
+    "crit": 2
+   }
+  },
+  "ro-en:a": {
+   "madlad": {
+    "score": 95.0,
+    "crit": 1
+   },
+   "gemma": {
+    "score": 95.0,
+    "crit": 1
+   }
+  },
+  "ro-en:b": {
+   "madlad": {
+    "score": 93.3,
+    "crit": 2
+   },
+   "gemma": {
+    "score": 96.7,
+    "crit": 0
+   }
+  },
+  "ro-en-asr:a": {
+   "gemma": {
+    "score": 76.7,
+    "crit": 8
+   },
+   "madlad": {
+    "score": 75.0,
+    "crit": 9
+   }
+  },
+  "ro-en-asr:b": {
+   "madlad": {
+    "score": 75.0,
+    "crit": 3
+   },
+   "gemma": {
+    "score": 76.7,
+    "crit": 3
+   }
+  },
+  "ru-en:a": {
+   "gemma": {
+    "score": 96.7,
+    "crit": 0
+   },
+   "madlad": {
+    "score": 90.0,
+    "crit": 2
+   },
+   "hymt": {
+    "score": 91.7,
+    "crit": 2
+   }
+  },
+  "ru-en:b": {
+   "gemma": {
+    "score": 100.0,
+    "crit": 0
+   },
+   "madlad": {
+    "score": 95.0,
+    "crit": 0
+   },
+   "hymt": {
+    "score": 95.0,
+    "crit": 1
+   }
+  },
+  "ru-en-asr:a": {
+   "gemma": {
+    "score": 90.0,
+    "crit": 2
+   },
+   "hymt": {
+    "score": 80.0,
+    "crit": 4
+   },
+   "madlad": {
+    "score": 83.3,
+    "crit": 2
+   }
+  },
+  "ru-en-asr:b": {
+   "hymt": {
+    "score": 88.3,
+    "crit": 2
+   },
+   "madlad": {
+    "score": 86.7,
+    "crit": 2
+   },
+   "gemma": {
+    "score": 98.3,
+    "crit": 1
+   }
+  }
+ },
+ "both_sets": {
+  "de-en": {
+   "gemma": {
+    "score": 99.2,
+    "crit": 0,
+    "n": 2
+   },
+   "hymt": {
+    "score": 94.2,
+    "crit": 1,
+    "n": 2
+   },
+   "madlad": {
+    "score": 90.8,
+    "crit": 1,
+    "n": 2
+   }
+  },
+  "de-en-asr": {
+   "hymt": {
+    "score": 85.0,
+    "crit": 6,
+    "n": 2
+   },
+   "madlad": {
+    "score": 83.3,
+    "crit": 5,
+    "n": 2
+   },
+   "gemma": {
+    "score": 87.5,
+    "crit": 5,
+    "n": 2
+   }
+  },
+  "en-de": {
+   "madlad": {
+    "score": 89.2,
+    "crit": 1,
+    "n": 2
+   },
+   "gemma": {
+    "score": 95.0,
+    "crit": 0,
+    "n": 2
+   },
+   "hymt": {
+    "score": 90.8,
+    "crit": 2,
+    "n": 2
+   }
+  },
+  "en-ro": {
+   "madlad": {
+    "score": 81.7,
+    "crit": 1,
+    "n": 2
+   },
+   "gemma": {
+    "score": 84.2,
+    "crit": 0,
+    "n": 2
+   }
+  },
+  "en-ru": {
+   "gemma": {
+    "score": 96.7,
+    "crit": 1,
+    "n": 2
+   },
+   "madlad": {
+    "score": 81.7,
+    "crit": 2,
+    "n": 2
+   },
+   "hymt": {
+    "score": 87.5,
+    "crit": 3,
+    "n": 2
+   }
+  },
+  "ro-en": {
+   "madlad": {
+    "score": 94.2,
+    "crit": 3,
+    "n": 2
+   },
+   "gemma": {
+    "score": 95.8,
+    "crit": 1,
+    "n": 2
+   }
+  },
+  "ro-en-asr": {
+   "gemma": {
+    "score": 76.7,
+    "crit": 11,
+    "n": 2
+   },
+   "madlad": {
+    "score": 75.0,
+    "crit": 12,
+    "n": 2
+   }
+  },
+  "ru-en": {
+   "gemma": {
+    "score": 98.3,
+    "crit": 0,
+    "n": 2
+   },
+   "madlad": {
+    "score": 92.5,
+    "crit": 2,
+    "n": 2
+   },
+   "hymt": {
+    "score": 93.3,
+    "crit": 3,
+    "n": 2
+   }
+  },
+  "ru-en-asr": {
+   "gemma": {
+    "score": 94.2,
+    "crit": 3,
+    "n": 2
+   },
+   "hymt": {
+    "score": 84.2,
+    "crit": 6,
+    "n": 2
+   },
+   "madlad": {
+    "score": 85.0,
+    "crit": 4,
+    "n": 2
+   }
+  }
+ }
+}

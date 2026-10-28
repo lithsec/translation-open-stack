@@ -1,0 +1,2971 @@
+{
+ "en-de:a": {
+  "grades": {
+   "C1": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Misspelled Cochamó and wrong translation for crags."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Translated psychology as physiology."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "'Gassen' is an awkward translation for lanes."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Missing quotes and parentheses makes it awkward."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names and missing information."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Missing large parts of the sentence."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Completely wrong translation for the last sentence."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "C2": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled Cochamó."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Translated psychology as physiology."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "'Pfade' is an awkward translation for lanes."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names and garbled text."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Missing large parts of the sentence."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Completely wrong translation for the last sentence."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2730,
+   "candidatesTokenCount": 1430,
+   "totalTokenCount": 8510,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2730
+    }
+   ],
+   "thoughtsTokenCount": 4350,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C1",
+   "B": "C2"
+  }
+ },
+ "en-de:b": {
+  "grades": {
+   "C2": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Falsche Bedeutung und fehlende Informationen."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Zahl 6:6 wurde komplett ausgelassen."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Grammatikfehler ('in der Urin')."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "'problem' falsch als 'eines' übersetzt."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Falsche Zeichensetzung mitten im Satz."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Falscher Ortsname und falscher Handlungsablauf."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Falscher Baumname ('Pohican')."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Unnötiger Punkt trennt die Aufzählung."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Zweiter Satz fehlt, falsches Subjekt ('See')."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Falsche Präposition ('in' statt 'auf')."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Falscher Name und unnötiger Punkt."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Grammatikfehler ('der Handel')."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Unidiomatisches Wort ('zusammenzubilden')."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "'yacht' ungenau als 'Boot' übersetzt."
+    }
+   ],
+   "C1": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": true,
+     "note": "Satz bricht ab, wichtige Informationen fehlen."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Zahl 6:6 wurde komplett ausgelassen."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Grammatikfehler ('mit denen') und abgetrenntes Akronym."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Satz bricht ab, Sinn fehlt."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Abgehackter Satz mit fehlerhafter Wiederholung."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Falscher Ortsname und falsches Verb ('überrollte')."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Falscher Baumname und etwas unidiomatisch."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Zweiter Satz fehlt, falsches Subjekt ('See')."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Falscher Name und unnötiger Punkt."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Singular statt Plural bei Archipel."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2596,
+   "candidatesTokenCount": 1602,
+   "totalTokenCount": 9610,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2596
+    }
+   ],
+   "thoughtsTokenCount": 5412,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C2",
+   "B": "C1"
+  }
+ },
+ "de-en:a": {
+  "grades": {
+   "C1": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Literal translation of the movie title."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"Coercion\" is not quite \"extortion\"."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Punctuation breaks the sentence into fragments."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Punctuation breaks the sentence into fragments."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled meaning regarding spreading the disease."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing the surname \"Erdoğan\"."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "C2": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Literal translation of the movie title."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Erroneous period breaks the sentence structure."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Erroneous periods after ordinal numbers."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing the object \"the disease\"."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "\"Came his way\" mistranslates \"entered the water\"."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing the surname \"Erdoğan\"."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2471,
+   "candidatesTokenCount": 1352,
+   "totalTokenCount": 7639,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2471
+    }
+   ],
+   "thoughtsTokenCount": 3816,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C1",
+   "B": "C2"
+  }
+ },
+ "de-en:b": {
+  "grades": {
+   "C1": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation in the middle of sentence."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward repetition of a phrase."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslates 'vergleicht' as 'irradiating'."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Adds 'crashed' and splits sentence awkwardly."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "'Whether' changes meaning slightly from 'how'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong pronoun 'their' instead of 'your'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": true,
+     "note": "Misspelled name 'Daelbeda'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": true,
+     "note": "Misspelled names."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation error."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "C2": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Typo 'and and'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslates 'vergleicht' as 'examined'."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Repetition and punctuation error."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted '(alkaline)'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong pronoun 'their' instead of 'your'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong name 'Anfa'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": true,
+     "note": "Misspelled name and punctuation error."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation error."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2394,
+   "candidatesTokenCount": 1424,
+   "totalTokenCount": 7914,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2394
+    }
+   ],
+   "thoughtsTokenCount": 4096,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C1",
+   "B": "C2"
+  }
+ },
+ "en-ru:a": {
+  "grades": {
+   "C1": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error and awkward phrasing."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Typo in name and transliterated 'big walls'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Translated 'psychology' as 'physiology'."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "'Narrow lanes' translated as 'narrow alleys'."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error in the middle of sentence."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names and missing 'standing'."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Sentence is cut off, missing key information."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Pronoun gender mismatch (она/ему)."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error splits the sentence awkwardly."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Completely mistranslated 'Swimming is safe'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "C2": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error in the middle of sentence."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Typo in the name Cochamó."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Translated 'psychology' as 'physiology'."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "'Narrow lanes' translated as 'narrow trails'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Citation awkwardly integrated, changing the meaning."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "'Многие немецкие выпечки' is unidiomatic."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "'Шоу звуков и светов' is unidiomatic."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error in the middle of sentence."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names, garbled text, missing 'standing'."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Sentence is cut off, missing key information."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error splits the sentence awkwardly."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Completely mistranslated 'Swimming is safe'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2874,
+   "candidatesTokenCount": 1529,
+   "totalTokenCount": 10091,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2874
+    }
+   ],
+   "thoughtsTokenCount": 5688,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C1",
+   "B": "C2"
+  }
+ },
+ "en-ru:b": {
+  "grades": {
+   "C2": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated wickets and omitted innings."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'after reaching 6-6' and mistranslated 'too'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward handling of FTIR acronym."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'there was a problem'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Unnecessary period in the middle of sentence."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mashhad mistranslated as Moshland."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Pohutukawa mistranslated, awkward sentence split."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Typo with period instead of comma."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Archipelago mistranslated, second sentence omitted."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Chemical translated as chemical environment."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing for 'feel funny'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Name mistranslated as two words."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Grammatical error with gender agreement."
+    }
+   ],
+   "C1": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Incomplete sentence, omitted ending."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'after reaching 6-6'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Acronym translated as a separate sentence."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Incomplete sentence, missing object."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Unnecessary period, slightly loose translation."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mashhad mistranslated as Moshland."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Pohutukawa transliterated incorrectly."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Roller hockey mistranslated as bandy."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Archipelago mistranslated, second sentence omitted."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Name mistranslated, punctuation error."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Singular instead of plural for archipelagos."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2742,
+   "candidatesTokenCount": 1548,
+   "totalTokenCount": 9381,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2742
+    }
+   ],
+   "thoughtsTokenCount": 5091,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C2",
+   "B": "C1"
+  }
+ },
+ "ru-en:a": {
+  "grades": {
+   "C1": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "\"Children\" mistranslated as \"Aunties\"."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names for Cochamó and Chile."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Fragmented sentences make it awkward."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": true,
+     "note": "\"Фундук\" is hazelnut, not walnut."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong name \"Helenek\" for \"Jelinek\"."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Added hallucinated text about Russia."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Fragmented sentence makes it awkward."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "C2": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "\"Children\" mistranslated as \"Aunts\"."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names for Cochamó and Chile."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Fragmented sentences make it awkward."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Added hallucinated text about Russia."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Fragmented sentence makes it awkward."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2589,
+   "candidatesTokenCount": 1352,
+   "totalTokenCount": 7488,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2589
+    }
+   ],
+   "thoughtsTokenCount": 3547,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C1",
+   "B": "C2"
+  }
+ },
+ "ru-en:b": {
+  "grades": {
+   "C1": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong terminology (gate, ninxes) and garbled."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Missing the score '6-6'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing at the end."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject crashed into the wall."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled 'pohutukawa' as 'Pahuatukapa'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled 'Villa' as 'Viña'."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'cabbage' as 'kale'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Contains an awkward repetition of the second clause."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": true,
+     "note": "Changed 'your hands' to 'our hands'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "C2": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong terminology and 'Captain India' is incorrect."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Missing the score '6-6'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject crashed into the wall."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled 'pohutukawa' as 'Pahutukapa'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Translated settlement name into French."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": true,
+     "note": "Changed 'your hands' to 'our hands'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2475,
+   "candidatesTokenCount": 1591,
+   "totalTokenCount": 9081,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2475
+    }
+   ],
+   "thoughtsTokenCount": 5015,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C1",
+   "B": "C2"
+  }
+ },
+ "en-ro:a": {
+  "grades": {
+   "C2": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split before 'și'."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled Cochamó as Chocamo."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Translated psychology as physiology."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward translation of narrow lanes."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Missing quotes and parentheses."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Uses non-Romanian word 'poco'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Untranslated English phrase."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names and garbled text."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Major omissions of subject and object."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "'Blocaj naval' is less idiomatic than 'blocadă'."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "'Nu i-ar fi rival' is slightly awkward."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'Swimming is safe'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Typo 'balmare' instead of 'balneare'."
+    }
+   ],
+   "C1": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split before 'Și'."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled Cochamó as Chocamo."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Translated psychology as physiology."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Literal, garbled translation of idiom."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Missing quotes and parentheses."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names and omitted standing/sitting."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Major omissions of subject and object."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "Literal translation 'nici un meci' is wrong."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'Swimming is safe'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3152,
+   "candidatesTokenCount": 1551,
+   "totalTokenCount": 11745,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3152
+    }
+   ],
+   "thoughtsTokenCount": 7042,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C2",
+   "B": "C1"
+  }
+ },
+ "en-ro:b": {
+  "grades": {
+   "C2": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'end the innings', added 'big blow'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'after reaching 6-6', ends abruptly."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward punctuation for FTIR."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Ends abruptly, missing 'problem'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong gender for atoms, repetition."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong location name (Moshland instead of Mashhad)."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled tree name."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Wrong word for roller hockey (rolete)."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong subject (lake), missing second sentence."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Adjectives do not agree in gender."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing for 'feel funny'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong city name (Daru i Bayt)."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": true,
+     "note": "Misspelled name (Long instead of Loong)."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Archipelago is singular."
+    }
+   ],
+   "C1": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'end the innings', added 'big loss'."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward translation of 'premise'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'after reaching 6-6', ends abruptly."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward punctuation for FTIR."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Ends abruptly, missing 'problem'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong location name (Moshland instead of Mashhad)."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing, misspelled tree name."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Unnecessary capitalization of 'Ciclism'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong subject (lake), missing second sentence."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'or' between acidic and basic."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning for 'funny' (amuzante)."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong city name, missing punctuation."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Singapore', misspelled name."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Archipelago is singular."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2875,
+   "candidatesTokenCount": 1622,
+   "totalTokenCount": 10953,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2875
+    }
+   ],
+   "thoughtsTokenCount": 6456,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C2",
+   "B": "C1"
+  }
+ },
+ "ro-en:a": {
+  "grades": {
+   "C2": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity names for Cochamó and Yosemite."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward translation 'narrow strips' for lanes."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": true,
+     "note": "Misspelled names and missing parentheses."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'German' (nemțești)."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled translation of names and categories."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'the disease' as 'cholera'."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'of Germany'."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong tense (present instead of past)."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Unnatural punctuation splits the sentence."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'înota' (swim) as 'noted'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "C1": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong movie title."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity names for Cochamó and Yosemite."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": true,
+     "note": "Misspelled names and missing parentheses."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'German' (nemțești)."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled translation of names and categories."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'boala' (disease) as 'veiled'."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'of Germany'."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong tense (present instead of past)."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing 'microexpressions of facial movements'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Misspelled name and unnatural punctuation."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'înota' (swim) as 'noted'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2643,
+   "candidatesTokenCount": 1508,
+   "totalTokenCount": 9647,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2643
+    }
+   ],
+   "thoughtsTokenCount": 5496,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C2",
+   "B": "C1"
+  }
+ },
+ "ro-en:b": {
+  "grades": {
+   "C2": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong amount/concept: 'balls' instead of 'runs'."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong tense: 'offered' instead of 'have'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong tense: 'combined' instead of 'combines'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Added 'IMS spectroscopy' incorrectly."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing 'without an impulse'."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error and misspelled tree name."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'swimming' and punctuation error."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong subject: 'archive' instead of 'archipelago'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled ending."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Left 'vamal' untranslated as 'VAMAL'."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error before 'which'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error before 'who'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted the Prime Minister's name."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "C1": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward literal translation 'captain's advantage'."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong tense: 'offered' instead of 'have'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Added 'IMS spectroscopy' incorrectly."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning for 'impuls' (momentum)."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error and misspelled tree name."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'water sports' and punctuation error."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong subject: 'architect' instead of 'archipelago'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning at the end."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Left 'vamal' untranslated as 'VAMAL'."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error before 'which'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error before 'who'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2525,
+   "candidatesTokenCount": 1561,
+   "totalTokenCount": 8618,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2525
+    }
+   ],
+   "thoughtsTokenCount": 4532,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "C2",
+   "B": "C1"
+  }
+ }
+}

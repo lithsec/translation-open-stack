@@ -1,0 +1,260 @@
+{
+ "en-de": {
+  "src": "en",
+  "tgt": "de",
+  "err": "",
+  "utterances": 25,
+  "missing_audio": 0,
+  "cer": 0.097,
+  "voiced_before_stop": 0.2,
+  "stop_to_first_audio_ms": {
+   "p50": 1557,
+   "p90": 2037,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 1708,
+   "p90": 2037,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 6406,
+   "p90": 9579,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 926,
+   "p90": 1414,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 7462,
+   "p90": 10654,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 2027,
+   "p90": 3266,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0
+  },
+  "gpu": {}
+ },
+ "de-en": {
+  "src": "de",
+  "tgt": "en",
+  "err": "",
+  "utterances": 27,
+  "missing_audio": 0,
+  "cer": 0.021,
+  "voiced_before_stop": 0.3,
+  "stop_to_first_audio_ms": {
+   "p50": 1438,
+   "p90": 1607,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 1561,
+   "p90": 1961,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 6978,
+   "p90": 10663,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 996,
+   "p90": 1147,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 8000,
+   "p90": 10222,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 1598,
+   "p90": 5153,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0
+  },
+  "gpu": {}
+ },
+ "en-ru": {
+  "src": "en",
+  "tgt": "ru",
+  "err": "",
+  "utterances": 25,
+  "missing_audio": 0,
+  "cer": 0.097,
+  "voiced_before_stop": 0.25,
+  "stop_to_first_audio_ms": {
+   "p50": 1118,
+   "p90": 1612,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 1322,
+   "p90": 1638,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 6112,
+   "p90": 8978,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 932,
+   "p90": 1473,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 8892,
+   "p90": 12421,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 6584,
+   "p90": 11077,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0
+  },
+  "gpu": {}
+ },
+ "ru-en": {
+  "src": "ru",
+  "tgt": "en",
+  "err": "",
+  "utterances": 25,
+  "missing_audio": 0,
+  "cer": 0.017,
+  "voiced_before_stop": 0.25,
+  "stop_to_first_audio_ms": {
+   "p50": 1324,
+   "p90": 1717,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 1518,
+   "p90": 1872,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 9304,
+   "p90": 12322,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 872,
+   "p90": 1254,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 8222,
+   "p90": 12538,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 1542,
+   "p90": 6694,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0
+  },
+  "gpu": {}
+ },
+ "en-ro": {
+  "src": "en",
+  "tgt": "ro",
+  "err": "",
+  "utterances": 25,
+  "missing_audio": 0,
+  "cer": 0.097,
+  "voiced_before_stop": 0.25,
+  "stop_to_first_audio_ms": {
+   "p50": 957,
+   "p90": 1400,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 1116,
+   "p90": 1438,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 5918,
+   "p90": 8760,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 816,
+   "p90": 1214,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 7506,
+   "p90": 9566,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 1116,
+   "p90": 5115,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0
+  },
+  "gpu": {}
+ },
+ "ro-en": {
+  "src": "ro",
+  "tgt": "en",
+  "err": "",
+  "utterances": 25,
+  "missing_audio": 0,
+  "cer": 0.038,
+  "voiced_before_stop": 0.35,
+  "stop_to_first_audio_ms": {
+   "p50": 1400,
+   "p90": 2041,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 1634,
+   "p90": 2041,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 7952,
+   "p90": 10630,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 959,
+   "p90": 1575,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 7838,
+   "p90": 10218,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 1904,
+   "p90": 3058,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0
+  },
+  "gpu": {}
+ }
+}
