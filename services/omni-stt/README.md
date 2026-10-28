@@ -359,12 +359,22 @@ region with Cloud Run L4 GPUs (us-east4, us-central1, europe-west1, europe-west4
 asia-southeast1, asia-south1 by invitation: Google's list of 2026-10-26), enables
 the APIs, makes a service account and a random token in Secret Manager (mounted as
 `STT_TOKEN_NONPROFIT`, readable by that account only), gets the images, and deploys
-`omni-stt` and, if asked, `omni-stt-7b`: one L4 each, 4 vCPU, 16 GiB, CPU always
-allocated, `--min-instances 0 --max-instances 1`, `--timeout 3600` (the WebSocket
-ceiling), `--concurrency` 4 and 6 (the rooms one instance takes, below). It ends
+one of three layouts (`LAYOUT`, asked when unset):
+
+- **`7b-only`** (recommended, the default): `omni-stt-7b` alone, with the
+  voices (below, "7B only"): Lao and Khmer, the Haitian Creole language ID and
+  the Haitian Creole voices on one L4; Live Translation hears Haitian Creole
+  with Amazon Transcribe once the 7B names a switch into it.
+  `--concurrency` 10 (6 hearing + 4 voice sockets).
+- **`omni-stt`**: omni-stt alone (`WITH_7B=no`, the older setting, means this).
+- **`both`**: omni-stt and the 7B for Lao and Khmer, two L4s (`WITH_7B=yes`).
+
+Each service: one L4, 4 vCPU, 16 GiB, CPU always allocated, `--min-instances 0
+--max-instances 1`, `--timeout 3600` (the WebSocket ceiling), `--concurrency` 4
+for omni-stt and 6 for the 7B beside it (the rooms one instance takes, below). It ends
 by printing what to paste into Live Translation (**Service settings > Advanced >
 Omnilingual hearing (advanced)**: **Service**, **Omnilingual 7B URL for Lao and
-Khmer**, **Token**), the token shown that once. A missing GPU quota, billing or
+Khmer**, **Token**; 7B only: the 7B's address in both), the token shown that once. A missing GPU quota, billing or
 permission stops it with the console link and what to ask for, not a raw error.
 `EDITION` is `nonprofit` if you say you are one (the MMS voice is CC-BY-NC), else
 `commercial`.
@@ -381,7 +391,11 @@ project with Cloud Build instead (`deploy.sh build`, about 30 minutes, once). Th
 in your project (`deploy.sh 7b-build`, about 50 minutes, once, without a bucket copy;
 setup.sh deploys omni-stt first and shows its token before this starts):
 its checkpoint is one 15.6 GB layer, and Cloud Run takes no layer over 9.9 GB from an
-external registry, remote repositories included.
+external registry, remote repositories included. Its base image now carries the
+voices too (coqui-tts and both voice models, about 1.2 GB of models in their own
+layer; besides the checkpoint the largest layer is still PyTorch's, about 7.8 GB as
+in omni-stt's image), so nothing new is published for
+the 7B: it is still built from this repository in your project.
 
 **Why not the "Run on Google Cloud" button.** It deploys one service per click, has
 no GPU option, and builds the image with `docker build` in Cloud Shell, which
@@ -458,7 +472,8 @@ fetch (the code is copied before it); fine for now, worth splitting if builds ge
 
 ### omni-stt-7b: Meta's stock 7B for Lao and Khmer
 
-A second service, same protocol (`/listen` only, no `/speak`), serving Meta's
+A second service, same protocol (`/listen` only by default; `/speak` too with
+`VOICES_7B=1`, "7B only" below), serving Meta's
 stock `omniASR_LLM_7B` (no fine-tuned weights) converted to bf16 (`7b/to_bf16.py`:
 31 GB fp32 -> 15.6 GB; the pipeline decodes in bf16 anyway). A client changes
 only the URL; `?langs=lo` (or `km`) skips language ID.
@@ -501,6 +516,41 @@ Capacity (load7b.mjs, lo and km rooms, 120 s): transcript delay after the speech
 ends, p50/p90: 1 stream 2.2/3.3-3.9 s, 4 streams 3.3/6.4 s, 6 streams 4.5/7.0-7.7 s,
 8 streams 5.9/7.9 s; nothing dropped at 8, but the GPU was ~80% busy at 6. So
 `STT_MAX_CONNECTIONS` and `--concurrency` are 6. GPU memory ~17-18 GB of 24.
+
+#### 7B only: no omni-stt
+
+The 7B service can take over omni-stt's other two jobs, so an install runs one
+L4 instead of two (setup.sh's `7b-only` layout):
+
+- **Language ID for Haitian Creole.** It is the same server, so `ht` is a
+  candidate like any other: `?langs=ht,en,fr,...` (the room's languages, as a
+  client sends omni-stt) runs the same VoxLingua107 model and constrained
+  argmax. `transcribe=ht` has the 7B write the Haitian Creole too;
+  `transcribe=none` sends only the `language` messages, for a client that
+  hands Haitian Creole to Amazon Transcribe when it hears the switch (it
+  replays the utterance from `start_ms` out of its own audio buffer).
+- **The voices.** `7b/Dockerfile.base` now installs coqui-tts and bakes both
+  voices in (EDITION `both` at build; `--build-arg EDITION=commercial` leaves
+  MMS out). The image still serves `/listen` only unless `STT_SERVE` names
+  both: `7b-deploy` with `VOICES_7B=1` sets `STT_SERVE=listen+speak` (a plus:
+  gcloud splits `--set-env-vars` at commas), `EDITION`, `HT_VOICE`,
+  `STT_MAX_SPEAKERS` (4), and `--concurrency` 6 + 4, a voice socket being a
+  request like a hearing one. `/speak` is omni-stt's, byte for byte, with the
+  same edition rules: MMS (CC-BY-NC) only for a non-profit edition.
+
+Measured on an L4 (2026-10-28,
+[eval/2026-10-omni-7b-voices](../../eval/2026-10-omni-7b-voices/README.md)):
+16.75 GB of GPU memory idle with the voices (16.36 GB without), **17.4 GB at
+the peak** of six hearing streams beside four voice streams, so about 5.6 GB of
+the L4's 23 GB to spare; process memory 3.2 GB. First voice audio 0.11/0.16 s
+(p50/p90) at six plus four, as on omni-stt (0.11/0.14 s at four plus two). The
+`language` message 0.04 s after an utterance ends, as on omni-stt. On unseen
+whole utterances the language ID made no false switch into Haitian Creole in
+480 non-Haitian decisions and missed 1-4 of 60 Haitian Creole ones (most
+beside French); short pieces miss more (2 s: 2-14 of 60). The 7B's own Haitian
+Creole is worse than the 300M's (CER 8.1% against 5.4% on the same 60 clips),
+which is why this layout leaves Haitian Creole's words to Amazon Transcribe and
+uses the 7B's only where Transcribe is not set up.
 
 ### Streaming track: Omnilingual CTC 3B for Khmer and Lao
 
