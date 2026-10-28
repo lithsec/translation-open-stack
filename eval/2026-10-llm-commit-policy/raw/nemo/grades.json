@@ -1,0 +1,4505 @@
+{
+ "WRITTEN:reg:en-es": {
+  "grades": {
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing with 'gatos' and 'que viven'."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong article and wrong verb used."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled 'pohutukawa' as 'Pohkin'."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong gender and numbers; completely changes meaning."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Added 'que' and used wrong gender for children."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled proper names."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated word at the end."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Missing placements and categories; garbled."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Completely garbled meaning."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'ocupantes' instead of occupations."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Missing the first clause of the sentence."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing at the end."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": false,
+     "note": "Translated 'antiques' as 'en el té'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses, but meaning is clear."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Broken grammar; 'es reconocido' instead of noun."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated word; missing final clause."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled words ('potencias', 'de la Reina')."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Repetitions; missing 'check the terms'."
+    }
+   ],
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing with 'que viven'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward 'natación segura'; misspelled 'pohutukawa'."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong numbers and missing female count."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled proper names."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'opposite'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject; translated psychology as physiology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing category."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Completely garbled meaning."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'ocupantes' instead of occupations."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Missing the first clause of the sentence."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": false,
+     "note": "Translated 'antiques' as 'en el té'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'es reconocido' instead of noun."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled word; missing final clause."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled words ('potencias', 'de la Reina')."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'check the terms'."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward 'nado seguro'; misspelled 'pohutukawa'."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong numbers and missing females."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled proper names."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'opposite'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject; translated psychology as physiology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing category."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Completely garbled meaning."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Missing the first clause of the sentence."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": false,
+     "note": "Translated 'antiques' as 'en el té'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'es reconocido' instead of noun."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing final clause."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled words ('potencias', 'la Reina')."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'check the terms'."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2923,
+   "candidatesTokenCount": 2550,
+   "totalTokenCount": 11381,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2923
+    }
+   ],
+   "thoughtsTokenCount": 5908,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "P8-nemo",
+   "B": "agree-nemo",
+   "C": "S-nemo"
+  }
+ },
+ "SAID:reg:en-es": {
+  "grades": {
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Restrictive clause changes the meaning slightly."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong article and wrong copula verb."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Translates males as females."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Added word and wrong gender agreement."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong proper nouns due to ASR errors."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Sentence is cut off at the end."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled and missing numbers and entities."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Added unnecessary word at the beginning."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing the main subject and verb."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing at the end."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": false,
+     "note": "Translates antiques as in the tea."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Broken grammar, translates noun as verb."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing had been scheduled and cut off."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong words used."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated text and garbled at the end."
+    }
+   ],
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Restrictive clause changes the meaning slightly."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Natación segura is slightly awkward."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number and added words."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong proper nouns due to ASR errors."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Missing the word opposite."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": true,
+     "note": "Changes passive to active with some."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Repeated text, wrong names, missing standing."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing the main subject and verb."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Translates antiques as in the tea."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Broken grammar, translates noun as verb."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing had been scheduled."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong words used."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Nado seguro is slightly awkward."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number and added words."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong proper nouns due to ASR errors."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Missing the word opposite."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject for accepted."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names, missing standing, untranslated sitting."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Translates occupants as positions."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing the main subject and verb."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Translates antiques as in the tea."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Broken grammar, translates noun as verb."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing had been scheduled."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong words used."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2893,
+   "candidatesTokenCount": 1669,
+   "totalTokenCount": 13858,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2893
+    }
+   ],
+   "thoughtsTokenCount": 9296,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "P8-nemo",
+   "B": "agree-nemo",
+   "C": "S-nemo"
+  }
+ },
+ "WRITTEN:reg:en-fr": {
+  "grades": {
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong pronoun 'Ils sont', wrong tree species."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning, wrong nouns and amounts."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong destinations and bus name."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled Kowloon, slightly awkward phrasing."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Missing subject, wrong field (physiology)."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Repetitions, wrong names, missing standing category."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled meaning."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Missing main clause, cut off word."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Number mismatch between noun and pronoun."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled 'antiques' as 'thé', missing end."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses, slightly awkward phrasing."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject structure."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning (powers, queen)."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Missing final parenthetical phrase."
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled pohutukawa trees."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing females and numbers, wrong nouns."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Missing article, added relative pronoun."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong destinations and bus name."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled Kowloon."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, missing second competitor's result."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled meaning."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word (occupants instead of occupations)."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Missing main clause."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward phrasing, wrong gender for pronoun."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'antiques' translation, awkward phrasing."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Broken negation 'ne avez'."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses, slightly awkward phrasing."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject structure."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning (powers, queen)."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Repetitions, missing final phrase."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree species (palmiers instead of pohutukawa)."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing females and cubs, wrong numbers."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Unnecessary preposition and relative pronoun."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong destinations."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation alters the flow awkwardly."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Reversed meaning, wrong field."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing category, misspelled names."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled meaning."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Missing main clause."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Pronoun gender mismatch."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled 'antiques' as 'thé', missing end."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses, slightly awkward phrasing."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward subject resolution."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning (powers, queen)."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Missing final parenthetical phrase."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3072,
+   "candidatesTokenCount": 1768,
+   "totalTokenCount": 10131,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3072
+    }
+   ],
+   "thoughtsTokenCount": 5291,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "agree-nemo",
+   "B": "P8-nemo",
+   "C": "S-nemo"
+  }
+ },
+ "SAID:reg:en-fr": {
+  "grades": {
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong tree species translated; wrong pronoun."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Translated males as meals; garbled end."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong city names; garbled."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Missing subject; active instead of passive."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Repetitions and wrong numbers."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning; hallucinated text."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing main clause; cut off."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Number mismatch between noun and pronoun."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Translated antiques as tea."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses changes meaning slightly."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Missing subject; grammatically broken."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Translated powders as powers, clean as queen."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Phonetic approximation of tree name."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Translated males as species; garbled end."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Added relative pronoun creates a fragment."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong city names; garbled."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled; missing sixteenth."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning; hallucinated text."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Occupants makes no sense here."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing main clause."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled phrasing at the end."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted antiques."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Missing negative particle pas."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses changes meaning slightly."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Missing subject; grammatically broken."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Translated powders as powers, clean as queen."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Repetitions and garbled text."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong tree species translated."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Translated as types of males; cut off."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Added relative pronoun creates a fragment."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong city names; garbled."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning; Aristotle accepted the views."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing category."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning; hallucinated text."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing main clause."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Number mismatch between noun and pronoun."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Translated antiques as tea."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses changes meaning slightly."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing had been scheduled."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Translated powders as powers, clean as queen."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3042,
+   "candidatesTokenCount": 2389,
+   "totalTokenCount": 14265,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3042
+    }
+   ],
+   "thoughtsTokenCount": 8834,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "agree-nemo",
+   "B": "P8-nemo",
+   "C": "S-nemo"
+  }
+ },
+ "WRITTEN:reg:es-en": {
+  "grades": {
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Typo 'tre es', missing pohutukawa."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Uses 'herds' instead of prides."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition and cut off."
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": false,
+     "note": "Missing most of the sentence."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Repetition of the sentence."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Missing the first sentence."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward 'then the revolution', 'candidates male'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off words."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Translates 3:2 as three point two."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition and includes '(leave blank)'."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled year and cut off words."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Run-on sentence."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error before pohutukawa."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong terms 'pods' and 'calves'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Translates 3:2 as 3.2."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing 'trees pōhutukawa'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong terms 'pods' and 'calves'."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Repetition of the sentence."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition and cut off."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Missing the first sentence."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled and repetitive."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Translates 3:2 as 3.2."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Repetition of the sentence."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing the beginning of the sentence."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing 'do it with'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3108,
+   "candidatesTokenCount": 1543,
+   "totalTokenCount": 11421,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3108
+    }
+   ],
+   "thoughtsTokenCount": 6770,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "P8-nemo",
+   "B": "S-nemo",
+   "C": "agree-nemo"
+  }
+ },
+ "WRITTEN:reg:fr-en": {
+  "grades": {
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated sentence."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning for 'pas si importante'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree name (cashew instead of pohutukawa)."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number (two instead of one)."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled and repeated parts."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Missing the beginning of the sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Missing standing/sitting, repeated."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning (transforms energy), repeated."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Uses 'antiquity' instead of 'antique'."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Added confusing text at the end."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Missing the beginning of the sentence."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number (100s instead of 400)."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated and cut off."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated sentence."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Uses 'species' instead of 'cats'."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning for 'pas si importante'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree name (cocoa pods)."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number (two instead of one)."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tense and misspelled name."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong category (visually impaired instead of sitting)."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning (transforms energy)."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Uses 'antiquity' instead of 'antique'."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong conjunction (but instead of and)."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number (one hundred instead of 400)."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning (or the conditions)."
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled and repeated."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled (prides, tre es of cacao)."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing (Wild children)."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled and missing parts."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Missing the beginning of the sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Missing standing/sitting, repeated."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time (During), cut off."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled, repeated, cut off."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Uses 'antiquity' instead of 'antique'."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled, mixed with previous sentence."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Missing the beginning of the sentence."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number (one hundred instead of 400)."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing (Games Olympics)."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward phrasing, repeated."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled and missing parts."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3035,
+   "candidatesTokenCount": 2486,
+   "totalTokenCount": 14478,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3035
+    }
+   ],
+   "thoughtsTokenCount": 8957,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "agree-nemo",
+   "B": "S-nemo",
+   "C": "P8-nemo"
+  }
+ },
+ "WRITTEN:irr:en-es": {
+  "grades": {
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Pohutukawa mistranslated as Pohkin."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong gender and missing thirty females."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing feral children."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong bus, destination, and stop."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward grammar with gerunds."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Psychology mistranslated as physiology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Names garbled, missing standing and Czech."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning, stark contrast mistranslated."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Occupations mistranslated as ocupantes."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing as antiques at the end."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses, slightly awkward."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Its renown translated as es reconocido."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing had been scheduled."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Powders mistranslated as potencias, clean as Reina."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing almost the entire sentence."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Pohutukawa mistranslated as Pohkin."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing thirty females."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing feral children."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong bus, destination, and stop."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Wrong person used instead of imperative."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Psychology mistranslated as physiology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Names garbled, missing standing and Czech."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning, stark contrast mistranslated."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing as antiques at the end."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses, slightly awkward."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Its renown translated as es reconocido."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing had been scheduled."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Powders mistranslated as potencias, clean as Reina."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing almost the entire sentence."
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Estaba is incorrect for this context."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Pohutukawa mistranslated as Pohkin."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong gender and missing thirty females."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing feral children."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Missing bus, wrong destination and stop."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward grammar, opp left untranslated."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Psychology mistranslated as physiology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Names garbled, missing standing and Czech."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning, stark contrast mistranslated."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Occupations mistranslated as ocupantes."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing as antiques, typo in impuestos."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled grammar with usted lo hace."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses, slightly awkward."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Its renown translated as es reconocido."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing had been scheduled, grammar error."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Powders mistranslated as potencias, clean as Reina."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing almost the entire sentence."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2725,
+   "candidatesTokenCount": 2457,
+   "totalTokenCount": 10500,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2725
+    }
+   ],
+   "thoughtsTokenCount": 5318,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "agree-nemo",
+   "B": "S-nemo",
+   "C": "P8-nemo"
+  }
+ },
+ "SAID:irr:en-es": {
+  "grades": {
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Translated males as hembras."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral children'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong bus and destination."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward use of gerunds."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation of 'Accepted were'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'Chet's'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled translation of 'stark contrast'."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Literal translation of 'occupants'."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses makes it awkward."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Wrong part of speech for renown."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'had been scheduled'."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong translation of powders and clean."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing almost everything."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong numbers and missing words."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral children'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong bus and destination."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Wrong person for verb."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation of 'Accepted were'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'Chet's'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled translation of 'stark contrast'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses makes it awkward."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Wrong part of speech for renown."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'had been scheduled'."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong translation of powders and clean."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing almost everything."
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Used 'estaba' instead of 'era'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Translated males as hembras."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral children'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Missing bus and wrong destination."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Untranslated 'opp' and awkward grammar."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation of 'Accepted were'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'Chet's'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled translation of 'stark contrast'."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Literal translation of 'occupants'."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Typo and missing 'agencies'."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled grammar."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing punctuation makes it awkward."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Wrong part of speech for renown."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'had been scheduled'."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong translation of powders and clean."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing almost everything."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2695,
+   "candidatesTokenCount": 1690,
+   "totalTokenCount": 11637,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2695
+    }
+   ],
+   "thoughtsTokenCount": 7252,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "agree-nemo",
+   "B": "S-nemo",
+   "C": "P8-nemo"
+  }
+ },
+ "WRITTEN:irr:en-fr": {
+  "grades": {
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree species (palmiers instead of pohutukawa)"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'as many as thirty females'"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'Feral children'"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong entities and numbers"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Uses 3rd person instead of imperative"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Translated psychology as physiologie"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names, omitted standing and Czech"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'stark contrast' and 'African'"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Singular noun with plural pronoun"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Incomplete sentence"
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation and capitalization"
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing"
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing (Il est réputé)"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Incomplete sentence"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning (puissances, reine)"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree species (Pohkin)"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Translated males as females, omitted thirty"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'Feral children'"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Missing subject, wrong entities"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Grammar errors and incomplete word (opp)"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Translated psychology as physiologie"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names, omitted standing and Czech"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled and incomplete"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Translated occupations as occupants"
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Translated cuts as tri"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Incomplete sentence, awkward phrasing"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Grammar error (vous faites pas besoin)"
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing punctuation"
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing (C'est réputé)"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Incomplete sentence"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning and untranslated words"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree species (palmiers instead of pohutukawa)"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'as many as thirty'"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'Feral children'"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong entities"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Uses 3rd person instead of imperative"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Translated psychology as physiologie"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names, omitted standing and Czech"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled and incomplete"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Singular noun with plural pronoun"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing punctuation"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Grammar error (Il est réputé... a commencé)"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Incomplete sentence"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning (puissances, Reine)"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2836,
+   "candidatesTokenCount": 2430,
+   "totalTokenCount": 8981,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2836
+    }
+   ],
+   "thoughtsTokenCount": 3715,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "S-nemo",
+   "B": "P8-nemo",
+   "C": "agree-nemo"
+  }
+ },
+ "SAID:irr:en-fr": {
+  "grades": {
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "palmiers instead of pohikina trees"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "hallucinated accompagnés de leurs petits"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "missing Feral children"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "wrong subject and locations"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "wrong person for verbs"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "acceptant là où is garbled"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "wrong names, missing standing and Chet's"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "missing The city, socle instead of flair"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "postes instead of occupants"
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "missing translation"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "réduction is singular but elles is plural"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Il est réputé instead of Sa renommée"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "missing had been scheduled"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "puissances instead of powders, reine instead of clean"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "missing almost everything"
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Pohkin instead of pohikina"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "femelles instead of males"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "missing Feral children"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "missing subject and wrong locations"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "wrong person for verbs, opp"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "accepté où is garbled"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "wrong names, missing standing and Chet's"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "contrats instead of contrast, sol instead of flair"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "occupants ouverts is awkward"
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "missing translation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "le tri instead of cuts"
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "taxes administrations is awkward"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "vous faites pas besoin is grammatically incorrect"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "C'est réputé instead of Sa renommée"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "missing had been scheduled"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "puissances instead of powders, reine instead of clean"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "missing almost everything"
+    }
+   ],
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "palmiers instead of pohikina trees"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "hallucinated femelles et de petits"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "missing Feral children"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "wrong subject and locations"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "wrong person for verbs"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "acceptant instead of accepted were"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "wrong names, missing standing and Chet's"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "contrats instead of contrast, plan instead of flair"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "postes instead of occupants"
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "missing translation"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "réduction is singular but elles is plural"
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "added comme tels"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "missing subject for a commencé"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "missing had been scheduled"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "puissances instead of powders, reine instead of clean"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "missing almost everything"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2806,
+   "candidatesTokenCount": 1735,
+   "totalTokenCount": 12959,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2806
+    }
+   ],
+   "thoughtsTokenCount": 8418,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "S-nemo",
+   "B": "P8-nemo",
+   "C": "agree-nemo"
+  }
+ },
+ "WRITTEN:irr:es-en": {
+  "grades": {
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text and misspelled pohutukawa."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text and used herds instead of prides."
+    },
+    {
+     "i": 4,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text and cut off."
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": true,
+     "note": "Missing first half of the sentence."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated text and cut off."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Missing first sentence and cut off."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off word re instead of cuts."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first part and wrong ratio format."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing first clause."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text and cut off."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled start and cut off."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted pohutukawa trees."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Used herds instead of prides."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong ratio format 3.2 instead of 3:2."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text and misspelled pohutukawa."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text and used herds instead of prides."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Garbled repeated text."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first part and wrong ratio format."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing first clause."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text and cut off."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3195,
+   "candidatesTokenCount": 2131,
+   "totalTokenCount": 13100,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3195
+    }
+   ],
+   "thoughtsTokenCount": 7774,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "P8-nemo",
+   "B": "S-nemo",
+   "C": "agree-nemo"
+  }
+ },
+ "WRITTEN:irr:fr-en": {
+  "grades": {
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition and garbled at the end."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled and repetition."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing and 'packs' instead of 'prides'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Missing first half of the sentence."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Misspelled names and repetition."
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled and missing words."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'sitting'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'African' at the end."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition and cut off."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "'antiquity' instead of 'antique'."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled and missing 'yacht'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Missing beginning of the sentence."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year ('investigation one hundred')."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing first half of the sentence."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing ('clean hands and damp')."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "'previous time of the city' is wrong."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "'species' instead of 'cats'."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "'important enough' instead of 'so important'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "'palms' instead of 'pohutukawa'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number ('two or three')."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled names."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'sitting'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "'antiquity' instead of 'antique'."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'yacht'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year ('one hundred')."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "'as well as the conditions' is wrong."
+    }
+   ],
+   "agree-nemo": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "'important enough' instead of 'so important'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition and 'palms'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Misspelled names and repetition."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Missing beginning of the sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'sitting'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'African' at the end."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition and added 'African'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "'antiquity' instead of 'antique'."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'yacht' and repetition."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Missing beginning of the sentence."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year and repetition."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half and wrong year."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "'time preceding the city' is wrong."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3009,
+   "candidatesTokenCount": 2474,
+   "totalTokenCount": 12440,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3009
+    }
+   ],
+   "thoughtsTokenCount": 6957,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "P8-nemo",
+   "B": "S-nemo",
+   "C": "agree-nemo"
+  }
+ }
+}
