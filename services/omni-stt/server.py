@@ -7,7 +7,7 @@ the languages a room actually uses; and Haitian Creole voices (/speak). No trans
 
 Protocol:
 
-    client connects  wss://host/listen?langs=ht,en[&rate=24000][&transcribe=ht]
+    client connects  wss://host/listen?langs=ht,en[&rate=24000][&transcribe=ht|none]
                      Authorization: Bearer <token>, or (a browser, which cannot
                      set that header) the subprotocols "omni-stt" and
                      "bearer.<token>": Sec-WebSocket-Protocol: omni-stt, bearer.<token>

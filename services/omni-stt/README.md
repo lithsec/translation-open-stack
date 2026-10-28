@@ -24,7 +24,7 @@ the stack's parts rather than copying them:
 ## Protocol
 
 ```
-connect   wss://<host>/listen?langs=ht,en[&rate=24000][&transcribe=ht]
+connect   wss://<host>/listen?langs=ht,en[&rate=24000][&transcribe=ht|none]
           Authorization: Bearer <token>            (a browser: Sec-WebSocket-Protocol: omni-stt, bearer.<token>)
 server    {"type":"hello","langs":["ht","en"],"rate":16000}
 client    binary: mono PCM16 at 16 kHz (24 kHz with ?rate=24000), ~100 ms per message is ideal
@@ -56,7 +56,11 @@ GET /mic      a one-file microphone test page: type the languages and the token,
   words. The others get only their `language` message, sent before any
   transcribing. Live Translation's Haitian Creole exception uses
   `langs=ht,en,ja,...&transcribe=ht`: Azure keeps every other language, and an
-  English utterance costs the GPU only the language ID.
+  English utterance costs the GPU only the language ID. `transcribe=none`:
+  language ID only, every utterance gets just its `language` message (a
+  client that hands Haitian Creole to another recogniser when it hears the
+  switch, as in the 7B-only layout below). An older server refuses `none`
+  with 4400 (it is not among `langs`), so a client can tell.
 - Served languages: `en es fr pt it de ru uk zh ja ko vi ar fa id tr bn ur hi sw ro ht km lo tl`
   (`OMNI_CODES` in `server.py`). Anything else is refused at connect with an error and
   close code 4400, as is a mix containing a language VoxLingua107 doesn't know.
