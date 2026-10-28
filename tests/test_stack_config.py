@@ -22,7 +22,8 @@ BEFORE = {
     "MMS_VOICES": {"ht": "facebook/mms-tts-hat", "km": "facebook/mms-tts-khm", "lo": "facebook/mms-tts-lao",
                    "tl": "facebook/mms-tts-tgl"},
     "OMNI_LANGS": {"ht": "hat_Latn", "km": "khm_Khmr", "lo": "lao_Laoo", "sw": "swh_Latn",
-                   "hi": "hin_Deva", "fa": "pes_Arab", "bn": "ben_Beng", "ur": "urd_Arab"},
+                   "hi": "hin_Deva", "fa": "pes_Arab", "bn": "ben_Beng", "ur": "urd_Arab",
+                   "ro": "ron_Latn"},   # the 7B only (omni = "large-only"), else Whisper
     "LANG_TO_MADLAD": {
         "es": "es", "fr": "fr", "pt": "pt", "sw": "sw", "ht": "ht", "km": "km", "lo": "lo",
         "ru": "ru", "uk": "uk", "it": "it", "zh": "zh", "ja": "ja", "ko": "ko", "de": "de",

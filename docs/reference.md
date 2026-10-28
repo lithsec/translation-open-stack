@@ -152,7 +152,7 @@ entirely. All keys are optional.
 | `piper` | `"<voice name>"` | A Piper voice (CPU), e.g. `"de_DE-thorsten-high"`; must be in `voices.lock`. |
 | `mms` | `"<hugging face repo>"` | Meta MMS-TTS (CC-BY-NC; nonprofit only). |
 | `asr` | `"whisper"` \| `"omni:<code>"` | Recogniser when this language is **spoken**. |
-| `omni` | `"large"` \| `"base"` | With `asr = "omni:..."`: `[models.omnilingual_large]` (the 7B) when the server loaded it (`OMNI_LARGE=1`, `--omni-large`), the base card otherwise. Lao and Khmer say `"large"`. |
+| `omni` | `"large"` \| `"large-only"` \| `"base"` | With `asr = "omni:..."`: `[models.omnilingual_large]` (the 7B) when the server loaded it (`OMNI_LARGE=1`, `--omni-large`), the base card otherwise; `"large-only"`: Whisper otherwise. Lao and Khmer say `"large"`, Romanian `"large-only"`. |
 | `endpoint_ms` | integer, 100–3000 | When this language is spoken (fixed `?src=`): the pause that ends an utterance, instead of `--endpoint-ms`. Set alone (without the two `long_` keys), it holds at any length: no shorter gap past `--long-utterance-s`. Japanese, Haitian Creole, Khmer, Lao: 900. |
 | `max_utterance_s` | integer, 3–30 | ... and where an utterance with no such pause is cut, instead of `--max-utterance-s`. Japanese, Haitian Creole, Khmer, Lao: 15. |
 | `long_utterance_s` | integer, 2–30 | ... past this much audio a shorter pause will do (a clause gap), instead of `--long-utterance-s`. Japanese, Haitian Creole, Khmer, Lao: 8. |
