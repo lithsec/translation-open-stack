@@ -374,7 +374,8 @@ over 7.9 GB) is built and published by
 [omni-stt-image.yml](../../.github/workflows/omni-stt-image.yml), with a provenance
 attestation. `OMNI_STT_IMAGE=build bash .../setup.sh` (or an empty pin) builds it in your
 project with Cloud Build instead (`deploy.sh build`, about 30 minutes, once). The 7B is always built
-in your project (`deploy.sh 7b-build`, about an hour, once, without a bucket copy):
+in your project (`deploy.sh 7b-build`, about 50 minutes, once, without a bucket copy;
+setup.sh deploys omni-stt first and shows its token before this starts):
 its checkpoint is one 15.6 GB layer, and Cloud Run takes no layer over 9.9 GB from an
 external registry, remote repositories included.
 
@@ -386,9 +387,11 @@ all of it: two services, GPUs, the registry proxy, the token.
 **Cost, in plain words** (public list prices; check
 [Cloud Run pricing](https://cloud.google.com/run/pricing)): about **$1 an hour per
 service while it is awake** (the L4 without zonal redundancy, 4 vCPU, 16 GiB), and
-**$0 while idle**: a service wakes when a room connects (about 17-40 s for
-omni-stt, about 50 s for the 7B) and sleeps about 15 minutes after the last one
-leaves. Image storage is $0.10 per GB a month (about $1 for omni-stt, $2-3 more for
+**$0 while idle**: a service wakes when a room connects (about 50 s for
+omni-stt from zero, measured 2026-10-28; about 70 s for the 7B) and sleeps about
+15 minutes after the last one leaves. With one instance at most, a second room
+that connects while the service is still waking is refused once (HTTP 429, "no
+available instance") and gets in when it reconnects. Image storage is $0.10 per GB a month (about $1 for omni-stt, $2-3 more for
 the 7B), and a build in your project bills Cloud Build minutes once. **GPU quota:** a
 new project may need to request Cloud Run L4 quota in its region (IAM & Admin >
 Quotas, "Total Nvidia L4 GPU allocation without zonal redundancy, per project per

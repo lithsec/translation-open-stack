@@ -34,9 +34,11 @@ case "$args" in
   "billing projects describe"*) echo "${STUB_BILLING:-True}"; exit 0 ;;
   "beta quotas info list"*) [ -n "${STUB_QUOTA_JSON:-}" ] || exit 1; echo "$STUB_QUOTA_JSON"; exit 0 ;;
   "iam service-accounts describe"*) [ -n "${STUB_SA_DISPLAY:-}" ] || exit 1; echo "$STUB_SA_DISPLAY"; exit 0 ;;
-  "secrets describe"*) [ -n "${STUB_LABELS:-}" ] || exit 1; echo "$STUB_LABELS"; exit 0 ;;
+  "secrets describe"*) l="${STUB_SECRET_LABELS:-${STUB_LABELS:-}}"; [ -n "$l" ] || exit 1; echo "$l"; exit 0 ;;
+  "artifacts repositories list"*) exit 0 ;;
   "artifacts repositories describe"*) [ -n "${STUB_LABELS:-}" ] || exit 1; echo "$STUB_LABELS"; exit 0 ;;
-  "artifacts docker images describe"*) exit 1 ;;
+  "artifacts docker images describe"*) [ -n "${STUB_DIGEST:-}" ] || exit 1; echo "$STUB_DIGEST"; exit 0 ;;
+  "run services describe"*"status.conditions"*) echo "${STUB_READY:-True}"; exit 0 ;;
   "run services describe"*)
     if [ -n "${STUB_LABELS:-}" ]; then echo "$STUB_LABELS"; exit 0; fi
     [ "${STUB_ALLOW:-0}" = 1 ] || exit 1; echo "https://omni-stt-xyz.a.run.app"; exit 0 ;;
@@ -45,6 +47,7 @@ echo "$args" >> "$CALLS"
 [ "${STUB_ALLOW:-0}" = 1 ] || exit 99
 case "$args" in
   "run deploy"*) if [ -n "${STUB_DEPLOY_ERR:-}" ]; then echo "$STUB_DEPLOY_ERR" >&2; exit 1; fi ;;
+  "builds submit"*) [ -z "${STUB_BUILT:-}" ] || : > "$STUB_BUILT" ;;
 esac
 cat > /dev/null
 exit 0
@@ -119,6 +122,22 @@ def test_build_path_and_the_7b_service():
     assert "EDITION=nonprofit" in next(line for line in out.splitlines() if "run deploy omni-stt " in line)
     assert "Omnilingual 7B URL for Lao and Khmer:" in out
     assert "gcloud storage cp" not in out           # 7b-build without MODEL_BUCKET: no bucket copy
+    # Cloud Build's service account gets its role (a new project gives it none),
+    # before the first build.
+    grant = out.index("--role roles/cloudbuild.builds.builder")
+    assert "compute@developer.gserviceaccount.com" in out[out.rindex("\n", 0, grant):grant], out
+    assert grant < out.index("builds submit")
+    # omni-stt is deployed before the hour-long 7B build starts.
+    lines = out.splitlines()
+    first_deploy = next(i for i, l in enumerate(lines) if "run deploy omni-stt " in l)
+    builds = [i for i, l in enumerate(lines) if "builds submit" in l]
+    assert builds[0] < first_deploy < builds[1], (builds, first_deploy)
+
+
+def test_pulled_image_needs_no_cloud_build_role():
+    code, out, made = _run(SETUP, {"OMNI_STT_IMAGE": PINNED})
+    assert code == 0, out
+    assert "cloudbuild.builds.builder" not in out
 
 
 def test_refusals_say_why():
@@ -158,6 +177,44 @@ def test_a_real_run_prints_the_token_once():
     assert len(tokens) == 1, tokens
     assert "COPY THE TOKEN NOW" in out and "Service:" in out
     assert any(c.startswith("run deploy omni-stt ") for c in made), made
+
+
+def test_with_the_7b_the_token_is_shown_before_its_build():
+    with tempfile.TemporaryDirectory() as tmp:
+        built = os.path.join(tmp, "built")
+        code, out, made = _run(SETUP, {"DRY_RUN": "0", "STUB_ALLOW": "1", "OMNI_STT_IMAGE": PINNED,
+                                       "WITH_7B": "yes", "STUB_DIGEST": "sha256:" + "cd" * 32,
+                                       "STUB_BUILT": built})
+    assert code == 0, out
+    tokens = re.findall(r"\b[0-9a-f]{64}\b", out.replace(DIGEST, "").replace("cd" * 32, ""))
+    assert len(tokens) == 1, tokens
+    assert out.index(tokens[0]) < out.index("Now the 7B image"), out
+    assert "(shown above, when omni-stt came up)" in out
+    assert "Omnilingual 7B URL for Lao and Khmer:" in out
+    assert any(c.startswith("secrets update omni-stt-app-token --update-labels token-shown=yes") for c in made), made
+
+
+def test_a_token_never_shown_is_replaced():
+    code, out, made = _run(SETUP, {"DRY_RUN": "0", "STUB_ALLOW": "1", "OMNI_STT_IMAGE": PINNED,
+                                   "STUB_SECRET_LABELS": "managed-by=omni-stt-setup;token-shown=no"})
+    assert code == 0, out
+    assert "stopped before showing its token" in out
+    assert any(c.startswith("secrets versions add omni-stt-app-token") for c in made), made
+    assert len(re.findall(r"\b[0-9a-f]{64}\b", out.replace(DIGEST, ""))) == 1
+    # A token that was shown is kept.
+    code, out, made = _run(SETUP, {"DRY_RUN": "0", "STUB_ALLOW": "1", "OMNI_STT_IMAGE": PINNED,
+                                   "STUB_SECRET_LABELS": "managed-by=omni-stt-setup;token-shown=yes"})
+    assert code == 0, out
+    assert not any(c.startswith("secrets versions add") for c in made), made
+    assert "unchanged: the one you pasted before" in out
+
+
+def test_a_slow_first_deploy_is_waited_out():
+    err = "ERROR: (gcloud.run.deploy) Provisioning revision instances to receive traffic. Resource readiness deadline exceeded."
+    code, out, made = _run(SETUP, {"DRY_RUN": "0", "STUB_ALLOW": "1", "OMNI_STT_IMAGE": PINNED,
+                                   "STUB_DEPLOY_ERR": err})
+    assert code == 0, out
+    assert "omni-stt is ready." in out and "COPY THE TOKEN NOW" in out
 
 
 def test_teardown_deletes_only_what_setup_made():

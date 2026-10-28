@@ -86,3 +86,5 @@ done
 say ""
 say "Done. Cloud Build keeps its source uploads (a few MB) in the bucket ${PROJECT}_cloudbuild;"
 say "delete it in Cloud Storage if you like. The APIs stay enabled; they cost nothing."
+say "If setup.sh built an image, Cloud Build's service account keeps the Cloud Build role it"
+say "was given (it costs nothing). Deleting the project removes all of it."

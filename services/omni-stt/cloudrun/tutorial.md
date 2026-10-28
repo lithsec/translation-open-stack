@@ -51,10 +51,14 @@ What it does:
 2. Lets you pick a region that offers Cloud Run L4 GPUs.
 3. Enables the APIs it needs and checks the GPU quota.
 4. Makes a service account and a random access token (kept in Secret Manager).
-5. Gets the images: built once in your project with Cloud Build (about 30
-   minutes for omni-stt, about an hour for the 7B), or a published image
-   pulled through an Artifact Registry remote repository when one is pinned.
-6. Deploys the service(s): 1 L4 each, at most 1 instance, 0 when idle.
+5. Gets the omni-stt image: the published one, pulled through an Artifact
+   Registry remote repository in your project.
+6. Deploys omni-stt: 1 L4, at most 1 instance, 0 when idle. The first deploy
+   copies the 16 GB image, about 11 minutes; gcloud may say "readiness
+   deadline exceeded" meanwhile, and the script waits it out.
+7. With the 7B: shows omni-stt's settings and token straight away, then builds
+   the 7B image once in your project with Cloud Build (about 50 minutes) and
+   deploys it (about 12 more minutes, again mostly the image copy).
 
 You can close Cloud Shell during a build: the build keeps going. Run the same
 command again afterwards; the script is safe to re-run and picks up where it

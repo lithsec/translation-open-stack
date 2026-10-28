@@ -24,15 +24,19 @@
 #      Cloud Quotas, and Cloud Build when an image is built here), and checks
 #      the L4 quota in the region when it can, before anything is built;
 #   4. makes a service account for the services, and an access token in Secret
-#      Manager that only that account can read;
-#   5. gets the images: omni-stt from GitHub Container Registry through an
+#      Manager that only that account can read (a token an unfinished run never
+#      showed is replaced on the next run); when anything is built here, gives
+#      Cloud Build's service account its role (new projects give it none);
+#   5. gets the omni-stt image: from GitHub Container Registry through an
 #      Artifact Registry remote repository, by pinned digest (images.env), or,
-#      while none is pinned, built with Cloud Build in your project; the 7B is
-#      always built in your project (images.env says why);
-#   6. deploys each service: 1 L4, min 0 / max 1 instances, CPU always
-#      allocated, one hour request timeout (the WebSocket ceiling), concurrency
-#      = the rooms one instance takes (4 for omni-stt, 6 for the 7B);
-#   7. prints what to paste into Live Translation, the token shown once.
+#      with OMNI_STT_IMAGE=build or no pin, built with Cloud Build here;
+#   6. deploys omni-stt: 1 L4, min 0 / max 1 instances, CPU always allocated,
+#      one hour request timeout (the WebSocket ceiling), concurrency = the rooms
+#      one instance takes (4); a first deploy that outlasts gcloud's readiness
+#      wait (the image copy) is waited out, not reported as a failure;
+#   7. with the 7B: shows omni-stt's settings and token, then builds the 7B in
+#      your project (images.env says why) and deploys it (concurrency 6);
+#      then prints what to paste into Live Translation, the token shown once.
 #
 # Cost (public list prices, check https://cloud.google.com/run/pricing): about
 # $1 an hour per service while an instance is up (the L4, 4 vCPU, 16 GiB), $0
@@ -129,6 +133,31 @@ explain_failure() {
   tail -n 25 "$log"
   say "---------------------"
 }
+# gcloud run deploy, but a first deploy whose image copy (11 minutes for
+# omni-stt from the ghcr proxy, measured 2026-10-28) outlasts gcloud's
+# readiness deadline is not a failure: Cloud Run keeps going and the service
+# turns Ready a minute later. Wait for that (up to 15 minutes) instead of
+# stopping; anything else is explained and stops, as run_or_explain does.
+deploy_service() {
+  local name="$1"; shift
+  if [ "$DRY_RUN" = 1 ]; then run gcloud run deploy "$name" "$@"; return; fi
+  local log st i
+  log="$(mktemp)"
+  if gcloud run deploy "$name" "$@" 2> >(tee "$log" >&2); then rm -f "$log"; return; fi
+  sleep 1
+  if grep -qiE 'readiness deadline exceeded|deadline exceeded' "$log"; then
+    say "The first deploy copies the image, which can outlast gcloud's wait; waiting for $name to come up..."
+    for i in $(seq 1 90); do
+      st="$(gcloud run services describe "$name" --project "$PROJECT" --region "$REGION" \
+        --format 'value(status.conditions[0].status)' 2>/dev/null || true)"
+      if [ "$st" = True ]; then say "$name is ready."; rm -f "$log"; return; fi
+      sleep 10
+    done
+  fi
+  explain_failure "$log" "Deploying $name"
+  rm -f "$log"
+  exit 1
+}
 # Run a changing gcloud command; on failure explain it and stop.
 run_or_explain() {
   local what="$1"; shift
@@ -210,7 +239,7 @@ if [ -z "${WITH_7B:-}" ]; then
   say ""
   say "The 7B service hears Lao and Khmer much better than the base model. It is a second"
   say "L4 (about \$1 an hour while warm, \$0 idle), and its image is built once in your"
-  say "project (about an hour of Cloud Build)."
+  say "project (about 50 minutes of Cloud Build)."
   WITH_7B="$(ask "Also deploy the 7B service for Lao and Khmer? (yes/no)" no)"
 fi
 WITH_7B="$(yes_no "$WITH_7B")" || die "WITH_7B must be yes or no" 2
@@ -231,7 +260,7 @@ step "3/7 The plan"
 say "Project:      $PROJECT"
 say "Region:       $REGION"
 say "omni-stt:     $src"
-[ "$WITH_7B" = yes ] && say "omni-stt-7b:  built in your project with Cloud Build (about an hour, once)"
+[ "$WITH_7B" = yes ] && say "omni-stt-7b:  built in your project with Cloud Build (about 50 minutes, once)"
 say "Each service: 1 NVIDIA L4, 4 vCPU, 16 GiB, min 0 / max 1 instance, 1 h request timeout"
 say "Edition:      $EDITION (the voices omni-stt may use)"
 say "Cost:         about \$1 an hour per service while it is awake, \$0 while idle"
@@ -296,11 +325,19 @@ else
     --project "$PROJECT" --display-name "omni-stt on Cloud Run (setup.sh)"
 fi
 TOKEN=""
-if gcloud secrets describe "$SECRET_NAME" --project "$PROJECT" >/dev/null 2>&1; then
+# token-shown=no until the token is printed at the end: a run that stopped
+# before then stored a token nobody saw, so the next run replaces it.
+if secret_labels="$(gcloud secrets describe "$SECRET_NAME" --project "$PROJECT" --format='value(labels)' 2>/dev/null)"; then
+  case ";$secret_labels;" in
+    *";token-shown=no;"*)
+      [ "$NEW_TOKEN" = 1 ] || say "An earlier run stopped before showing its token; making a new one."
+      NEW_TOKEN=1 ;;
+  esac
   if [ "$NEW_TOKEN" = 1 ]; then
     TOKEN="$(openssl rand -hex 32)"
     if [ "$DRY_RUN" = 1 ]; then run gcloud secrets versions add "$SECRET_NAME" --data-file=- --project "$PROJECT"
     else printf '%s' "$TOKEN" | run_or_explain "Replacing the token" gcloud secrets versions add "$SECRET_NAME" --data-file=- --project "$PROJECT" >/dev/null; fi
+    run gcloud secrets update "$SECRET_NAME" --update-labels token-shown=no --project "$PROJECT" >/dev/null
     say "A new token was stored (the old one stops working when the services restart below)."
   else
     say "The access token exists (secret $SECRET_NAME); it was shown when it was made."
@@ -309,15 +346,30 @@ if gcloud secrets describe "$SECRET_NAME" --project "$PROJECT" >/dev/null 2>&1; 
 else
   TOKEN="$(openssl rand -hex 32)"
   if [ "$DRY_RUN" = 1 ]; then
-    run gcloud secrets create "$SECRET_NAME" --data-file=- --replication-policy automatic --labels "$LABEL_KEY=$LABEL_VAL" --project "$PROJECT"
+    run gcloud secrets create "$SECRET_NAME" --data-file=- --replication-policy automatic --labels "$LABEL_KEY=$LABEL_VAL,token-shown=no" --project "$PROJECT"
   else
     printf '%s' "$TOKEN" | run_or_explain "Storing the token" gcloud secrets create "$SECRET_NAME" --data-file=- \
-      --replication-policy automatic --labels "$LABEL_KEY=$LABEL_VAL" --project "$PROJECT" >/dev/null
+      --replication-policy automatic --labels "$LABEL_KEY=$LABEL_VAL,token-shown=no" --project "$PROJECT" >/dev/null
   fi
   say "A new access token was stored in Secret Manager ($SECRET_NAME)."
 fi
 run_or_explain "Letting the service account read the token" gcloud secrets add-iam-policy-binding "$SECRET_NAME" \
   --project "$PROJECT" --member "serviceAccount:$RUN_SA" --role roles/secretmanager.secretAccessor --condition=None >/dev/null
+
+# Cloud Build runs as the project's default compute service account, which a
+# new project (in an organisation made since 2024) creates with no roles at all:
+# the build then cannot read its own uploaded source ("storage.objects.get
+# access ... denied"). Give it the Cloud Build role now, so the grant has
+# reached Cloud Build by the time a build starts.
+ensure_builder() {
+  local num
+  num="$(gcloud projects describe "$PROJECT" --format 'value(projectNumber)')"
+  say "Letting Cloud Build's service account ($num-compute@...) build and push images." >&2
+  run_or_explain "Granting Cloud Build its role" gcloud projects add-iam-policy-binding "$PROJECT" \
+    --member "serviceAccount:$num-compute@developer.gserviceaccount.com" \
+    --role roles/cloudbuild.builds.builder --condition=None >/dev/null
+}
+if [ -z "$OMNI_STT_IMAGE" ] || [ "$WITH_7B" = yes ]; then ensure_builder; fi
 
 step "6/7 Images"
 ensure_repo() {  # name, then extra create flags
@@ -325,6 +377,16 @@ ensure_repo() {  # name, then extra create flags
   if gcloud artifacts repositories describe "$name" --location "$REGION" --project "$PROJECT" >/dev/null 2>&1; then
     say "Artifact Registry repository $name exists in $REGION."
   else
+    # Just after the API is enabled on a new project, Artifact Registry can
+    # refuse its owner for a minute or two (PERMISSION_DENIED, measured
+    # 2026-10-28): try again for up to 5 minutes before explaining it.
+    local i
+    for i in 1 2 3 4 5 6 7 8 9 10; do
+      [ "$DRY_RUN" = 1 ] && break
+      gcloud artifacts repositories list --location "$REGION" --project "$PROJECT" --limit 1 >/dev/null 2>&1 && break
+      [ "$i" = 1 ] && say "Artifact Registry is not ready for this project yet (normal right after enabling it); waiting..."
+      sleep 30
+    done
     run_or_explain "Creating the Artifact Registry repository $name" gcloud artifacts repositories create "$name" \
       --repository-format docker --location "$REGION" --project "$PROJECT" --labels "$LABEL_KEY=$LABEL_VAL" "$@"
   fi
@@ -368,11 +430,41 @@ else
   IMAGE="$(build_image build "")"
   say "omni-stt image: $IMAGE"
 fi
-if [ "$WITH_7B" = yes ]; then
-  [ -n "$OMNI_STT_IMAGE" ] && ensure_repo "$BUILD_REPO" --description "omni-stt images built by setup.sh"
-  IMAGE_7B="$(build_image 7b-build -7b)"
-  say "omni-stt-7b image: $IMAGE_7B"
+if [ "$WITH_7B" = yes ] && [ -n "$OMNI_STT_IMAGE" ]; then
+  ensure_repo "$BUILD_REPO" --description "omni-stt images built by setup.sh"
 fi
+
+url_of() {
+  if [ "$DRY_RUN" = 1 ]; then printf 'https://%s-(dry-run).run.app' "$1"; return; fi
+  gcloud run services describe "$1" --project "$PROJECT" --region "$REGION" --format 'value(status.url)'
+}
+
+# The token, printed once: here at the end, or, while the 7B builds, as soon
+# as omni-stt is up (so Live Translation can use it an hour sooner).
+TOKEN_SHOWN=0
+show_token() {
+  if [ "$TOKEN_SHOWN" = 1 ]; then
+    printf '  Token:                                 (shown above, when %s came up)\n' "$SERVICE"
+    return
+  fi
+  TOKEN_SHOWN=1
+  if [ -n "$TOKEN" ]; then
+    if [ "$DRY_RUN" = 1 ]; then
+      printf '  Token:                                 (shown here in a real run)\n'
+    else
+      printf '  Token:                                 %s\n' "$TOKEN"
+      gcloud secrets update "$SECRET_NAME" --update-labels token-shown=yes --project "$PROJECT" >/dev/null 2>&1 || true
+      cat <<'EOF'
+
+  COPY THE TOKEN NOW. It is shown only this once; Live Translation stores
+  it encrypted and never shows it again. Lost it: run this script again
+  with --new-token, then paste the new one.
+EOF
+    fi
+  else
+    printf '  Token:                                 (unchanged: the one you pasted before)\n'
+  fi
+}
 
 step "7/7 Deploying"
 # Flags shared by both services. --no-cpu-throttling: CPU stays allocated (a
@@ -389,24 +481,31 @@ common=(--project "$PROJECT" --region "$REGION" --service-account "$RUN_SA"
   --labels "$LABEL_KEY=$LABEL_VAL" --no-invoker-iam-check --quiet)
 # Endpointing and batching as deploy.sh's defaults (README, Endpointing).
 tuning="ENDPOINT_MS=200,MAX_UTTERANCE_S=10.0,MIN_SPEECH_MS=1000,STT_BATCH_MAX=8,STT_BATCH_WAIT_MS=10"
-say "Deploying $SERVICE (the first deploy copies the image and can take 10-20 minutes)..."
-run_or_explain "Deploying $SERVICE" gcloud run deploy "$SERVICE" --image "$IMAGE" "${common[@]}" \
+say "Deploying $SERVICE (the first deploy copies the image: 10-15 minutes)..."
+deploy_service "$SERVICE" --image "$IMAGE" "${common[@]}" \
   --concurrency "$MAX_STREAMS" \
   --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,OMNI_CARD=omniASR_LLM_300M,HT_VOICE=coqui,EDITION=$EDITION,STT_MAX_SPEAKERS=4,$tuning"
+say "$SERVICE is deployed: $(url_of "$SERVICE")"
 if [ "$WITH_7B" = yes ]; then
+  if [ -n "$TOKEN" ]; then
+    say ""
+    say "omni-stt works now. Its settings, while the 7B builds (the 7B URL follows at the end):"
+    say "  Service:                               $(url_of "$SERVICE")"
+    show_token
+  fi
+  # Built after omni-stt is up, so the hour-long 7B build does not hold it back.
+  say "Now the 7B image (about 50 minutes of Cloud Build; omni-stt already works meanwhile)."
+  IMAGE_7B="$(build_image 7b-build -7b)"
+  say "omni-stt-7b image: $IMAGE_7B"
   say "Deploying $SERVICE_7B..."
   # The startup probe: the port opens once the 16 GB checkpoint is loaded and
   # warm (about 50 s from cold); checked every 2 s, for up to 15 minutes.
-  run_or_explain "Deploying $SERVICE_7B" gcloud run deploy "$SERVICE_7B" --image "$IMAGE_7B" "${common[@]}" \
+  deploy_service "$SERVICE_7B" --image "$IMAGE_7B" "${common[@]}" \
     --concurrency "$MAX_STREAMS_7B" \
     --startup-probe "tcpSocket.port=8080,initialDelaySeconds=0,periodSeconds=2,timeoutSeconds=2,failureThreshold=450" \
     --set-env-vars "STT_SERVE=listen,STT_MAX_CONNECTIONS=$MAX_STREAMS_7B,OMNI_CARD=omniASR_LLM_7B_bf16,OMNI_MMAP=1,$tuning"
 fi
 
-url_of() {
-  if [ "$DRY_RUN" = 1 ]; then printf 'https://%s-(dry-run).run.app' "$1"; return; fi
-  gcloud run services describe "$1" --project "$PROJECT" --region "$REGION" --format 'value(status.url)'
-}
 URL="$(url_of "$SERVICE")"
 URL_7B=""; [ "$WITH_7B" = yes ] && URL_7B="$(url_of "$SERVICE_7B")"
 
@@ -419,21 +518,7 @@ cat <<EOF
   Service:                               $URL
 EOF
 [ -n "$URL_7B" ] && printf '  Omnilingual 7B URL for Lao and Khmer:  %s\n' "$URL_7B"
-if [ -n "$TOKEN" ]; then
-  if [ "$DRY_RUN" = 1 ]; then
-    printf '  Token:                                 (shown here in a real run)\n'
-  else
-    printf '  Token:                                 %s\n' "$TOKEN"
-    cat <<'EOF'
-
-  COPY THE TOKEN NOW. It is shown only this once; Live Translation stores
-  it encrypted and never shows it again. Lost it: run this script again
-  with --new-token, then paste the new one.
-EOF
-  fi
-else
-  printf '  Token:                                 (unchanged: the one you pasted before)\n'
-fi
+show_token
 cap_7b=""; [ -n "$URL_7B" ] && cap_7b=", the 7B about $MAX_STREAMS_7B"
 cat <<EOF
 
