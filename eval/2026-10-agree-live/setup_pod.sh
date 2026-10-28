@@ -12,7 +12,7 @@ export HF_HUB_ENABLE_HF_TRANSFER=0
 ( set -e; cd /workspace
   git clone -q https://github.com/lithsec/translation-open-stack.git tos
   cd tos && git checkout -q "${BRANCH:-main}" && git log --oneline -1
-  cp -r /models/voices /workspace/voices
+  if [ -d /models/voices ]; then cp -r /models/voices /workspace/voices; fi   # the voices volume, when mounted
   bash scripts/install-deps.sh
   bash scripts/prepare-mt.sh
   echo SETUP_STACK_DONE ) > /workspace/logs/setup_stack.log 2>&1 &
