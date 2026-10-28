@@ -1,0 +1,165 @@
+# Builds the stock omni-stt image (services/omni-stt: Omnilingual 300M,
+# VoxLingua107 language ID, Silero VAD, the Haitian Creole voices) and, when
+# asked, publishes it to
+#   ghcr.io/lithsec/omni-stt:<version>  (and :latest)
+# the image services/omni-stt/cloudrun/setup.sh deploys by digest
+# (cloudrun/images.env) through an Artifact Registry remote repository.
+#
+# Stock weights only: this builds from the public checkout, with no private.env
+# and no fine-tuned card (deploy.sh build-ft never runs here). Every layer must
+# be under 9.9 GB, Cloud Run's limit for images from an external registry; the
+# job checks that before it pushes.
+#
+# Runs only when asked: the image is about 12 GB and the build loads every
+# model once on the CPU. Either
+#   git tag omni-stt-2026.10.28 && git push origin omni-stt-2026.10.28
+# (builds and publishes :2026.10.28 from the tagged commit), or Actions >
+# omni-stt image > Run workflow (publish ticked, and a version).
+name: omni-stt image
+
+on:
+  push:
+    tags: ['omni-stt-*']
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Push to ghcr.io after the checks pass
+        type: boolean
+        default: false
+      version:
+        description: Image tag when publishing, e.g. 2026.10.28 (also tagged latest)
+        type: string
+        default: ''
+
+concurrency:
+  group: omni-stt-image-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write       # the publish step only
+  id-token: write       # the provenance and SBOM attestations (publish only)
+  attestations: write
+
+env:
+  # A tag push publishes, as <tag without "omni-stt-">.
+  PUBLISH: ${{ github.event_name == 'push' || inputs.publish }}
+  VERSION: ${{ github.event_name == 'push' && github.ref_name || inputs.version }}
+  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/omni-stt
+  # Cloud Run's per-layer ceiling for remote repositories, with no slack taken.
+  MAX_LAYER_BYTES: '9900000000'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check the version
+        if: env.PUBLISH == 'true'
+        run: 'VERSION="${VERSION#omni-stt-}"; [[ "$VERSION" =~ ^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$ ]] || { echo "set a version (e.g. 2026.10.28)"; exit 1; }'
+
+      # About 14 GB is free on a fresh runner; the build needs more (PyTorch's
+      # CUDA wheels, the 6 GB checkpoint, and the image store's copy of both).
+      - name: Free disk space
+        working-directory: /
+        run: |
+          df -h /
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /usr/local/.ghcup \
+            /opt/hostedtoolcache/CodeQL /usr/local/share/boost /usr/share/swift
+          docker system prune -af >/dev/null
+          df -h /
+
+      - name: Build
+        run: |
+          ctx="$(PROJECT=unused PRIVATE_ENV=/nonexistent bash services/omni-stt/deploy.sh stage)"
+          # No attestations in the image itself (they would make it an index);
+          # provenance and the SBOM are GitHub attestations, below.
+          docker buildx build --platform linux/amd64 --provenance=false --sbom=false --load \
+            --build-arg EDITION=both \
+            --label org.opencontainers.image.source="https://github.com/${GITHUB_REPOSITORY}" \
+            --label org.opencontainers.image.revision="${GITHUB_SHA}" \
+            --label org.opencontainers.image.description="omni-stt: Omnilingual ASR on an NVIDIA GPU (stock weights)" \
+            --label org.opencontainers.image.licenses="Apache-2.0 AND CC-BY-NC-4.0 AND CC-BY-SA-4.0" \
+            -t omni-stt:ci "$ctx"
+          rm -rf "$ctx"
+          df -h /
+
+      - name: Layer sizes (each under 9.9 GB)
+        run: |
+          docker image inspect omni-stt:ci --format 'image size: {{.Size}} bytes' | tee -a "$GITHUB_STEP_SUMMARY"
+          echo '| layer bytes (unpacked) | step |' >> "$GITHUB_STEP_SUMMARY"
+          echo '|---:|---|' >> "$GITHUB_STEP_SUMMARY"
+          docker history --no-trunc --human=false --format '{{.Size}}\t{{.CreatedBy}}' omni-stt:ci \
+            | awk -F'\t' '$1 > 0 { printf "| %d | `%s` |\n", $1, substr($2, 1, 90) }' | tee -a "$GITHUB_STEP_SUMMARY"
+          biggest=$(docker history --human=false --format '{{.Size}}' omni-stt:ci | sort -n | tail -1)
+          echo "largest layer: $biggest bytes (limit $MAX_LAYER_BYTES)" | tee -a "$GITHUB_STEP_SUMMARY"
+          [ "$biggest" -lt "$MAX_LAYER_BYTES" ]
+
+      # No GPU here: the imports, the models on disk, offline mode, and that the
+      # server starts its checks rather than reaching for the network.
+      - name: Smoke test (CPU)
+        run: |
+          docker run --rm --entrypoint bash omni-stt:ci -euo pipefail -c '
+            [ "$(id -un)" = stt ] && echo "runs as stt"
+            [ "$HF_HUB_OFFLINE" = 1 ]
+            du -sh /opt/models/*
+            python -c "import torch, torchaudio, omnilingual_asr, speechbrain, websockets, TTS, transformers; print(\"imports ok: torch\", torch.__version__, \"cuda\", torch.version.cuda)"
+            pip check
+          '
+
+      - name: Publish to GHCR
+        id: publish
+        if: env.PUBLISH == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          VERSION="${VERSION#omni-stt-}"
+          echo "$GH_TOKEN" | docker login ghcr.io -u "$GITHUB_ACTOR" --password-stdin
+          for t in "$VERSION" latest; do
+            docker tag omni-stt:ci "$IMAGE_NAME:$t"
+            docker push "$IMAGE_NAME:$t"
+          done
+          # The manifest Cloud Run will pull: one image (not an index), small layers.
+          raw="$(docker buildx imagetools inspect --raw "$IMAGE_NAME:$VERSION")"
+          printf '%s' "$raw" | python3 -c '
+          import json, os, sys
+          m = json.load(sys.stdin)
+          assert "layers" in m, "expected one image manifest, got " + m.get("mediaType", "?")
+          limit = int(os.environ["MAX_LAYER_BYTES"])
+          sizes = [l["size"] for l in m["layers"]]
+          print("compressed layers:", ", ".join(f"{s / 1e9:.2f} GB" for s in sizes))
+          assert max(sizes) < limit, f"a layer is {max(sizes)} bytes, over {limit}"
+          '
+          digest="$(docker buildx imagetools inspect "$IMAGE_NAME:$VERSION" --format '{{json .Manifest}}' \
+            | python3 -c 'import json, sys; print(json.load(sys.stdin)["digest"])')"
+          [[ "$digest" =~ ^sha256:[0-9a-f]{64}$ ]]
+          echo "digest=$digest" >> "$GITHUB_OUTPUT"
+          { echo "published $IMAGE_NAME:$VERSION"
+            echo ""
+            echo "images.env: OMNI_STT_IMAGE=$IMAGE_NAME@$digest"; } | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Provenance attestation
+        if: env.PUBLISH == 'true'
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ${{ env.IMAGE_NAME }}
+          subject-digest: ${{ steps.publish.outputs.digest }}
+
+      - name: SBOM
+        if: env.PUBLISH == 'true'
+        uses: anchore/sbom-action@v0
+        with:
+          image: omni-stt:ci
+          format: spdx-json
+          output-file: omni-stt.spdx.json
+          upload-artifact: true
+
+      - name: SBOM attestation
+        if: env.PUBLISH == 'true'
+        uses: actions/attest-sbom@v2
+        with:
+          subject-name: ${{ env.IMAGE_NAME }}
+          subject-digest: ${{ steps.publish.outputs.digest }}
+          sbom-path: omni-stt.spdx.json
