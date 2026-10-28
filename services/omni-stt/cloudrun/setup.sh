@@ -12,6 +12,8 @@
 # finished image is not rebuilt, and a redeploy changes nothing that works.
 # Answers can come from the environment instead of prompts:
 #   PROJECT, REGION, WITH_7B (yes|no), NONPROFIT (yes|no), ASSUME_YES=1.
+# OMNI_STT_IMAGE=build builds omni-stt in your project instead of pulling the
+# published image (images.env).
 # DRY_RUN=1 prints the commands that would change anything and runs only the
 # read-only ones (tests/test_omni_stt_cloudrun.py).
 #
@@ -142,9 +144,12 @@ run_or_explain() {
   rm -f "$log"
 }
 
-# images.env: KEY=value lines, read, never run.
+# images.env: KEY=value lines, read, never run. OMNI_STT_IMAGE=build in the
+# environment skips it and builds omni-stt in your project instead.
 OMNI_STT_IMAGE="${OMNI_STT_IMAGE:-}"
-if [ -z "$OMNI_STT_IMAGE" ] && [ -f "$HERE/images.env" ]; then
+if [ "$OMNI_STT_IMAGE" = build ]; then
+  OMNI_STT_IMAGE=""
+elif [ -z "$OMNI_STT_IMAGE" ] && [ -f "$HERE/images.env" ]; then
   while IFS= read -r line || [ -n "$line" ]; do
     line="${line%$'\r'}"
     case "$line" in OMNI_STT_IMAGE=*) OMNI_STT_IMAGE="${line#OMNI_STT_IMAGE=}" ;; esac
