@@ -334,6 +334,68 @@ The two static tokens must differ. With `EDITION=both`, only a `nonprofit`
 connection is offered MMS. `deploy.sh` mounts the signing key and the non-profit
 token when `SIGNING_SECRET` and `NONPROFIT_SECRET` name their secrets.
 
+## One-click setup (Open in Cloud Shell)
+
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/lithsec/translation-open-stack.git&cloudshell_git_branch=main&cloudshell_workspace=.&cloudshell_tutorial=services/omni-stt/cloudrun/tutorial.md&show=terminal&ephemeral=true)
+
+For someone who wants the hearing services in **their own** Google Cloud project
+without reading the rest of this page (for example to paste into Live
+Translation's Omnilingual settings). The button clones this repository into Cloud
+Shell and opens a short tutorial ([cloudrun/tutorial.md](cloudrun/tutorial.md)) that
+runs one script:
+
+```
+bash services/omni-stt/cloudrun/setup.sh          # asks, shows the plan, then does it; safe to re-run
+bash services/omni-stt/cloudrun/setup.sh --new-token   # also replace the access token
+bash services/omni-stt/cloudrun/teardown.sh       # delete everything setup.sh made
+```
+
+[setup.sh](cloudrun/setup.sh) picks the project (and checks it has billing), a
+region with Cloud Run L4 GPUs (us-east4, us-central1, europe-west1, europe-west4,
+asia-southeast1, asia-south1 by invitation: Google's list of 2026-10-26), enables
+the APIs, makes a service account and a random token in Secret Manager (mounted as
+`STT_TOKEN_NONPROFIT`, readable by that account only), gets the images, and deploys
+`omni-stt` and, if asked, `omni-stt-7b`: one L4 each, 4 vCPU, 16 GiB, CPU always
+allocated, `--min-instances 0 --max-instances 1`, `--timeout 3600` (the WebSocket
+ceiling), `--concurrency` 4 and 6 (the rooms one instance takes, below). It ends
+by printing what to paste into Live Translation (**Service settings > Advanced >
+Omnilingual hearing (advanced)**: **Service**, **Omnilingual 7B URL for Lao and
+Khmer**, **Token**), the token shown that once. A missing GPU quota, billing or
+permission stops it with the console link and what to ask for, not a raw error.
+`EDITION` is `nonprofit` if you say you are one (the MMS voice is CC-BY-NC), else
+`commercial`.
+
+**Images.** `omni-stt` comes from GitHub Container Registry by pinned digest
+([cloudrun/images.env](cloudrun/images.env)), through an Artifact Registry remote
+repository (`ghcr`, upstream `https://ghcr.io`) in your project, which Google
+recommends over a direct ghcr.io pull for availability. **No omni-stt image is
+published yet**, so until one is pinned there the script builds it in your project
+with Cloud Build (`deploy.sh build`, about 30 minutes, once). The 7B is always built
+in your project (`deploy.sh 7b-build`, about an hour, once, without a bucket copy):
+its checkpoint is one 15.6 GB layer, and Cloud Run takes no layer over 9.9 GB from an
+external registry, remote repositories included.
+
+**Why not the "Run on Google Cloud" button.** It deploys one service per click, has
+no GPU option, and builds the image with `docker build` in Cloud Shell, which
+cannot build a 12-30 GB image with models inside. Cloud Shell plus a script does
+all of it: two services, GPUs, the registry proxy, the token.
+
+**Cost, in plain words** (public list prices; check
+[Cloud Run pricing](https://cloud.google.com/run/pricing)): about **$1 an hour per
+service while it is awake** (the L4 without zonal redundancy, 4 vCPU, 16 GiB), and
+**$0 while idle**: a service wakes when a room connects (about 17-40 s for
+omni-stt, about 50 s for the 7B) and sleeps about 15 minutes after the last one
+leaves. Image storage is $0.10 per GB a month (about $1 for omni-stt, $2-3 more for
+the 7B), and a build in your project bills Cloud Build minutes once. **GPU quota:** a
+new project may need to request Cloud Run L4 quota in its region (IAM & Admin >
+Quotas, "Total Nvidia L4 GPU allocation without zonal redundancy, per project per
+region"); the script says when.
+
+**Delete everything:** [teardown.sh](cloudrun/teardown.sh) removes the services, the
+secret, the service account and both repositories, only those carrying setup.sh's
+label (`managed-by=omni-stt-setup`), after you type the project ID. Or shut down the
+project.
+
 ## Deploy (Cloud Run, L4)
 
 `deploy.sh` (read it first; it does nothing until you call it):

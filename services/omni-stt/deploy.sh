@@ -17,8 +17,8 @@
 #                                        # for one 48 GB GPU (README "One GPU for both"; BASE_TAG: 7b-build's tag)
 #
 # 7b-build: converts Meta's omniASR_LLM_7B checkpoint to bf16 inside Cloud Build
-# (7b/to_bf16.py), copies it to MODEL_BUCKET (gs://, private; for the volume
-# and OMNI_FETCH options), and builds two images in the registry: <TAG>-7b-base
+# (7b/to_bf16.py), copies it to MODEL_BUCKET when set (gs://, private; for the volume
+# and OMNI_FETCH options; unset: no copy), and builds two images in the registry: <TAG>-7b-base
 # (no checkpoint: 7b/Dockerfile.base) and <TAG>-7b (checkpoint baked in:
 # 7b/Dockerfile.baked), pushed to REPO_REGION and to EXTRA_REPO_REGIONS. Stock
 # weights only. 7b-deploy: SERVICE_7B (omni-stt-7b), STORAGE (baked|gcs|fetch: where
@@ -304,12 +304,22 @@ YAML
     echo "health: $url/health   mic test: $url/mic   stream: ${url/https:/wss:}/listen?langs=ht,en   voices: ${url/https:/wss:}/speak"
     ;;
   7b-build)
-    : "${MODEL_BUCKET:?set MODEL_BUCKET (gs://..., private) for the 7B checkpoint copy}"
+    # MODEL_BUCKET is optional: unset, the checkpoint is only baked into the
+    # image (no bucket copy; the gcs and fetch storage options then need one).
+    case "${MODEL_BUCKET:-}" in ''|gs://*) ;; *) echo "refusing 7b-build: MODEL_BUCKET must be a gs:// URL" >&2; exit 3 ;; esac
     ctx="$(stage)"
     cp "$HERE/7b/"* "$ctx/"
     printf '*.pt\nckpt/\n' > "$ctx/.dockerignore"
     base="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b-base"
     baked="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b"
+    upload_step=""
+    if [ -n "${MODEL_BUCKET:-}" ]; then
+      upload_step="- id: upload
+  waitFor: [ckpt]
+  name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+  args: [\"gcloud\", \"storage\", \"cp\", \"ckpt/omniASR_LLM_7B_bf16.pt\", \"ckpt/SHA256SUMS\", \"${MODEL_BUCKET%/}/omniASR_LLM_7B_bf16/\"]
+"
+    fi
     tags_base="\"-t\", \"$base\""; tags_baked="\"-t\", \"$baked\""; imgs="\"$base\", \"$baked\""
     for r in ${EXTRA_REPO_REGIONS:-}; do
       tags_base="$tags_base, \"-t\", \"$r-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b-base\""
@@ -335,11 +345,7 @@ steps:
     rm fp32.pt
     sha256sum omniASR_LLM_7B_bf16.pt > SHA256SUMS && cat SHA256SUMS && ls -l
     cp ../Dockerfile.baked Dockerfile
-- id: upload
-  waitFor: [ckpt]
-  name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
-  args: ["gcloud", "storage", "cp", "ckpt/omniASR_LLM_7B_bf16.pt", "ckpt/SHA256SUMS", "${MODEL_BUCKET%/}/omniASR_LLM_7B_bf16/"]
-- id: base
+${upload_step}- id: base
   waitFor: ["-"]
   name: gcr.io/cloud-builders/docker
   args: ["build", "-f", "Dockerfile.base", $tags_base, "."]
@@ -357,7 +363,7 @@ YAML
     [ "${DRY_RUN:-0}" != 1 ] || cat "$ctx/cloudbuild.yaml"
     run gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
     rm -rf "$ctx"
-    echo "built $base and $baked; checkpoint at ${MODEL_BUCKET%/}/omniASR_LLM_7B_bf16/"
+    echo "built $base and $baked${MODEL_BUCKET:+; checkpoint at ${MODEL_BUCKET%/}/omniASR_LLM_7B_bf16/}"
     ;;
   7b-deploy)
     # Meta's stock 7B for Lao and Khmer, beside omni-stt (whose 300M card stays

@@ -59,6 +59,7 @@ jobs:
           python tests/test_omni_stt_ctc_stream.py
           python tests/test_omni_large.py
           python tests/test_omni_stt_duo.py
+          python tests/test_omni_stt_cloudrun.py
 
       - name: Language config (both editions)
         run: |
