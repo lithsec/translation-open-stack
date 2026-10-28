@@ -10,7 +10,7 @@ E="$HERE/work/e2e_$NAME"
 mkdir -p "$E/out/runs"
 ln -sfn "$CLIPS" "$E/clips"
 echo "${Q:-}" > "$E/query"
-export STACK_CONFIG="$HERE/configs/$C.toml" STACK_PROFILE=cuda-80gb
+export STACK_CONFIG="$HERE/configs/$C.toml" STACK_PROFILE=cuda-80gb MADLAD=3b   # MADLAD: the fallback only
 unset STACK_TOKEN   # localhost only (no public port on the pod)
 cd /workspace/tos
 bash scripts/run.sh "$LANGS" "$LANGS" > "$E/stack.log" 2>&1 &

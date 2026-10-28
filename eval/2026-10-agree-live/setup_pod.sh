@@ -15,7 +15,7 @@ export HF_HUB_ENABLE_HF_TRANSFER=0
   if [ -d /models/voices ]; then cp -r /models/voices /workspace/voices; fi   # the voices volume, when mounted
   bash scripts/fetch-voices.sh en,de,es,fr
   bash scripts/install-deps.sh
-  bash scripts/prepare-mt.sh
+  MADLAD=3b bash scripts/prepare-mt.sh   # the fallback only: every direction here is Gemma or Hy-MT2
   echo SETUP_STACK_DONE ) > /workspace/logs/setup_stack.log 2>&1 &
 ( set -e; export HF_HOME=/workspace/hf-cache
   python3 -m venv /root/vllm
