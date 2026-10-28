@@ -41,7 +41,7 @@ bench() {  # name, args...
 }
 
 # The separate omni-stt service (300M card, voices beside it), as setup.sh deploys it.
-start omni300 OMNI_CARD=omniASR_LLM_300M STT_SERVE=listen,speak STT_MAX_CONNECTIONS=4 STT_MAX_SPEAKERS=4 || exit 1
+start omni300 OMNI_CARD=${CARD300:-omniASR_LLM_300M} STT_SERVE=listen,speak STT_MAX_CONNECTIONS=4 STT_MAX_SPEAKERS=4 || exit 1
 bench omni300-hear1   --listen 1 --speak 0 --langs ht,en --transcribe ht --seconds 90
 bench omni300-speak1  --listen 0 --speak 1 --seconds 60
 bench omni300-4h2s    --listen 4 --speak 2 --langs ht,en --transcribe ht --seconds 120
