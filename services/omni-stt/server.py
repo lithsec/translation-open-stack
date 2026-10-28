@@ -7,7 +7,7 @@ the languages a room actually uses; and Haitian Creole voices (/speak). No trans
 
 Protocol:
 
-    client connects  wss://host/listen?langs=ht,en[&rate=24000][&transcribe=ht]
+    client connects  wss://host/listen?langs=ht,en[&rate=24000][&transcribe=ht|none]
                      Authorization: Bearer <token>, or (a browser, which cannot
                      set that header) the subprotocols "omni-stt" and
                      "bearer.<token>": Sec-WebSocket-Protocol: omni-stt, bearer.<token>
@@ -67,7 +67,8 @@ transcribes with that language's code. The recogniser is the stack's engine
 and the token check its stack_auth.py, so a fix there is a fix here.
 
 ?transcribe (default: every language in ?langs) names the languages whose
-utterances are transcribed; the others get only their "language" message. A
+utterances are transcribed; the others get only their "language" message
+(?transcribe=none: every utterance gets only that, language ID alone). A
 client that takes one language from here and the rest from another recogniser
 (Live Translation's Haitian Creole exception beside Azure) learns within the
 language ID's ~50 ms that an English utterance is not its business, and the GPU
@@ -304,9 +305,14 @@ def parse_langs(raw, lid_codes=None):
 
 
 def parse_transcribe(raw, langs):
-    """?transcribe=ht -> {"ht"}; absent or empty -> every language in langs."""
+    """?transcribe=ht -> {"ht"}; absent or empty -> every language in langs;
+    "none" -> no language: language ID only (a client that hands the speech to
+    another recogniser once it hears the switch, e.g. Haitian Creole to Amazon
+    Transcribe beside the 7B service)."""
     if not raw:
         return set(langs)
+    if raw.strip().lower() == "none":
+        return set()
     want = {c.strip().lower() for c in raw.split(",") if c.strip()}
     stray = sorted(want - set(langs))
     if stray:
@@ -1017,9 +1023,10 @@ def decode_batch(engine, items):
 
 
 def served(env=None):
-    """STT_SERVE -> {"listen", "speak"} (default both)."""
+    """STT_SERVE -> {"listen", "speak"} (default both). Comma- or plus-separated:
+    "listen+speak" survives gcloud's comma-separated --set-env-vars."""
     env = os.environ if env is None else env
-    want = {p.strip() for p in env.get("STT_SERVE", "listen,speak").split(",") if p.strip()}
+    want = {p.strip() for p in re.split(r"[,+]", env.get("STT_SERVE", "listen,speak")) if p.strip()}
     if not want or want - {"listen", "speak"}:
         raise SystemExit("[stt] STT_SERVE must name listen and/or speak")
     return want
@@ -1509,7 +1516,7 @@ async def handle(ws, models, sub="open"):
     await ws.send(json.dumps(hello))
     who = clean(sub, 24)
     print(f"[stt] {who}: listening, langs={','.join(langs)} rate={rate} "
-          f"transcribe={','.join(c for c in langs if c in transcribe)}", flush=True)
+          f"transcribe={','.join(c for c in langs if c in transcribe) or 'none'}", flush=True)
 
     conn_in = audio_input(rate, who)
     seg = Segmenter()

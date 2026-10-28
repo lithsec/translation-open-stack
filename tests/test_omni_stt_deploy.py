@@ -172,6 +172,23 @@ def test_no_private_default_is_committed():
     assert ignored.returncode == 0, "services/omni-stt/private.env must be git-ignored"
 
 
+def test_7b_deploy_with_the_voices():
+    # Default: /listen only, as before.
+    code, out, called = _run("7b-deploy", {"TAG": "abc123"})
+    assert code == 0 and not called, out
+    d = next(l for l in out.splitlines() if "run deploy omni-stt-7b" in l).replace("\\,", ",")
+    assert "STT_SERVE=listen," in d and "--concurrency 6" in d and "EDITION=" not in d, d
+    # VOICES_7B=1: /speak too, its sockets counted in --concurrency.
+    code, out, called = _run("7b-deploy", {"TAG": "abc123", "VOICES_7B": "1", "EDITION": "nonprofit"})
+    assert code == 0 and not called, out
+    d = next(l for l in out.splitlines() if "run deploy omni-stt-7b" in l).replace("\\,", ",")
+    for want in ("STT_SERVE=listen+speak,", "EDITION=nonprofit", "HT_VOICE=coqui", "STT_MAX_SPEAKERS=4",
+                 "--concurrency 10", "OMNI_CARD=omniASR_LLM_7B_bf16"):
+        assert want in d, (want, d)
+    code, out, _ = _run("7b-deploy", {"TAG": "abc123", "VOICES_7B": "yes"})
+    assert code == 2 and "VOICES_7B" in out, out
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_") and callable(fn):

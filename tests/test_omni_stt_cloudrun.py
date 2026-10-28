@@ -134,6 +134,45 @@ def test_build_path_and_the_7b_service():
     assert builds[0] < first_deploy < builds[1], (builds, first_deploy)
 
 
+def test_7b_only_layout_deploys_one_service_with_the_voices():
+    code, out, made = _run(SETUP, {"WITH_7B": "", "LAYOUT": "7b-only", "NONPROFIT": "yes"})
+    assert code == 0, out
+    assert made == [], made
+    lines = out.splitlines()
+    assert not any("run deploy omni-stt " in l for l in lines), out      # no omni-stt service
+    assert "remote-repository" not in out                               # nor its ghcr proxy
+    assert "artifacts repositories create omni-stt" in out
+    assert out.count("builds submit") == 1, out                          # the 7B only
+    d7 = next(l for l in lines if "run deploy omni-stt-7b " in l).replace("\\,", ",")
+    for flag in ("--concurrency 10", "STT_SERVE=listen+speak,", "STT_MAX_CONNECTIONS=6", "STT_MAX_SPEAKERS=4",
+                 "EDITION=nonprofit", "HT_VOICE=coqui", "OMNI_CARD=omniASR_LLM_7B_bf16", "--gpu-type nvidia-l4",
+                 "--max-instances 1", "STT_TOKEN_NONPROFIT=omni-stt-app-token:latest"):
+        assert flag in d7, (flag, d7)
+    # Both Live Translation fields get the 7B's address.
+    svc = next(l for l in lines if l.strip().startswith("Service:"))
+    url7 = next(l for l in lines if "Omnilingual 7B URL for Lao and Khmer:" in l)
+    assert svc.split()[-1] == url7.split()[-1] and "omni-stt-7b" in svc, (svc, url7)
+    assert "Amazon Transcribe" in out
+    assert "One instance of the 7B takes about 6 rooms" in out
+    # Commercial: the 7B never offers MMS.
+    code, out, made = _run(SETUP, {"WITH_7B": "", "LAYOUT": "7b-only", "NONPROFIT": "no"})
+    assert code == 0 and "EDITION=commercial" in out.replace("\\,", ","), out
+
+
+def test_layout_is_asked_and_7b_only_is_the_default():
+    code, out, made = _run(SETUP, {"WITH_7B": "", "LAYOUT": ""})
+    assert code == 0, out
+    assert "7B only (recommended)" in out and "Layout (1, 2 or 3) [1]: 1" in out, out
+    assert not any("run deploy omni-stt " in l for l in out.splitlines())
+    assert any("run deploy omni-stt-7b " in l for l in out.splitlines())
+    code, out, made = _run(SETUP, {"WITH_7B": "", "LAYOUT": "7b"})
+    assert code == 2 and "LAYOUT must be" in out, out
+    # The older WITH_7B still means what it did.
+    code, out, made = _run(SETUP, {"WITH_7B": "yes", "LAYOUT": "", "OMNI_STT_IMAGE": PINNED})
+    assert code == 0 and any("run deploy omni-stt " in l for l in out.splitlines()), out
+    assert any("run deploy omni-stt-7b " in l for l in out.splitlines())
+
+
 def test_pulled_image_needs_no_cloud_build_role():
     code, out, made = _run(SETUP, {"OMNI_STT_IMAGE": PINNED})
     assert code == 0, out

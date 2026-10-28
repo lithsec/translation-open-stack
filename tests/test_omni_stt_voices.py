@@ -129,6 +129,7 @@ def test_default_voice():
     assert stt.default_voice(["mms"], {"HT_VOICE": "coqui"}) == "mms"
     assert stt.served({}) == {"listen", "speak"}
     assert stt.served({"STT_SERVE": "speak"}) == {"speak"}
+    assert stt.served({"STT_SERVE": "listen+speak"}) == {"listen", "speak"}   # gcloud-safe
 
 
 # ---------------------------------------------------------------- /speak protocol
