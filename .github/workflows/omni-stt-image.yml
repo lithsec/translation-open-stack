@@ -38,7 +38,7 @@ concurrency:
 permissions:
   contents: read
   packages: write       # the publish step only
-  id-token: write       # the provenance and SBOM attestations (publish only)
+  id-token: write       # the provenance attestation (publish only)
   attestations: write
 
 env:
@@ -75,7 +75,7 @@ jobs:
         run: |
           ctx="$(PROJECT=unused PRIVATE_ENV=/nonexistent bash services/omni-stt/deploy.sh stage)"
           # No attestations in the image itself (they would make it an index);
-          # provenance and the SBOM are GitHub attestations, below.
+          # provenance is a GitHub attestation and the SBOM a run artifact, below.
           docker buildx build --platform linux/amd64 --provenance=false --sbom=false --load \
             --build-arg EDITION=both \
             --label org.opencontainers.image.source="https://github.com/${GITHUB_REPOSITORY}" \
@@ -147,6 +147,8 @@ jobs:
           subject-name: ${{ env.IMAGE_NAME }}
           subject-digest: ${{ steps.publish.outputs.digest }}
 
+      # The SBOM (SPDX, every package in the image) is kept as this run's
+      # artifact, not attested: it is over the 16 MB an attestation can carry.
       - name: SBOM
         if: env.PUBLISH == 'true'
         uses: anchore/sbom-action@v0
@@ -155,11 +157,3 @@ jobs:
           format: spdx-json
           output-file: omni-stt.spdx.json
           upload-artifact: true
-
-      - name: SBOM attestation
-        if: env.PUBLISH == 'true'
-        uses: actions/attest-sbom@v2
-        with:
-          subject-name: ${{ env.IMAGE_NAME }}
-          subject-digest: ${{ steps.publish.outputs.digest }}
-          sbom-path: omni-stt.spdx.json

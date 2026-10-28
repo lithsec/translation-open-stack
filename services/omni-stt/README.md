@@ -368,9 +368,12 @@ permission stops it with the console link and what to ask for, not a raw error.
 **Images.** `omni-stt` comes from GitHub Container Registry by pinned digest
 ([cloudrun/images.env](cloudrun/images.env)), through an Artifact Registry remote
 repository (`ghcr`, upstream `https://ghcr.io`) in your project, which Google
-recommends over a direct ghcr.io pull for availability. **No omni-stt image is
-published yet**, so until one is pinned there the script builds it in your project
-with Cloud Build (`deploy.sh build`, about 30 minutes, once). The 7B is always built
+recommends over a direct ghcr.io pull for availability. The image
+(`ghcr.io/lithsec/omni-stt`, stock weights only, about 16.6 GB unpacked, no layer
+over 7.9 GB) is built and published by
+[omni-stt-image.yml](../../.github/workflows/omni-stt-image.yml), with a provenance
+attestation. `OMNI_STT_IMAGE=build bash .../setup.sh` (or an empty pin) builds it in your
+project with Cloud Build instead (`deploy.sh build`, about 30 minutes, once). The 7B is always built
 in your project (`deploy.sh 7b-build`, about an hour, once, without a bucket copy):
 its checkpoint is one 15.6 GB layer, and Cloud Run takes no layer over 9.9 GB from an
 external registry, remote repositories included.

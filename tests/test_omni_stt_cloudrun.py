@@ -92,8 +92,20 @@ def test_prebuilt_image_goes_through_a_ghcr_remote_repository():
     assert not re.search(r"\b[0-9a-f]{64}\b", out.replace(DIGEST, "")), "a token was printed in a dry run"
 
 
+def test_images_env_pins_a_published_digest():
+    # The checked-in images.env is what a real run pulls: a ghcr digest, no tag.
+    with open(os.path.join(os.path.dirname(SETUP), "images.env")) as f:
+        pins = [l.strip() for l in f if l.startswith("OMNI_STT_IMAGE=")]
+    assert len(pins) == 1, pins
+    assert re.fullmatch(r"OMNI_STT_IMAGE=ghcr\.io/lithsec/omni-stt@sha256:[0-9a-f]{64}", pins[0]), pins
+    code, out, made = _run(SETUP)                 # no override: images.env decides
+    assert code == 0, out
+    assert "run deploy omni-stt --image us-east4-docker.pkg.dev/proj-test/ghcr/lithsec/omni-stt@sha256:" in out, out
+    assert "builds submit" not in out
+
+
 def test_build_path_and_the_7b_service():
-    code, out, made = _run(SETUP, {"WITH_7B": "yes", "NONPROFIT": "yes"})
+    code, out, made = _run(SETUP, {"WITH_7B": "yes", "NONPROFIT": "yes", "OMNI_STT_IMAGE": "build"})
     assert code == 0, out
     assert made == [], made
     assert "cloudbuild.googleapis.com" in out
