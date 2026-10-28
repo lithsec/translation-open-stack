@@ -597,6 +597,19 @@ def test_listen_transcribes_only_what_is_asked():
     assert stt.parse_transcribe("", ["ht", "en"]) == {"ht", "en"}
     assert stt.parse_transcribe(" HT ", ["ht", "en"]) == {"ht"}
     assert "not in langs: fr" in _raises(stt.parse_transcribe, "ht,fr", ["ht", "en"])
+    assert stt.parse_transcribe("none", ["ht", "en"]) == set()
+    assert stt.parse_transcribe(" None ", ["ht"]) == set()
+
+
+def test_listen_language_id_only():
+    # ?transcribe=none: every utterance gets its language and nothing else (a
+    # client that hands Haitian Creole to another recogniser on detection).
+    _fake_vad()
+    ws = FakeWS("/listen?langs=ht,en&transcribe=none", _speech(0.6) + _speech(0.3) + [json.dumps({"type": "flush"})])
+    asyncio.run(stt.handle(ws, FakeModels()))
+    kinds = [m["type"] for m in ws.sent]
+    assert kinds == ["hello", "language", "language", "flushed"], kinds
+    assert [m["lang"] for m in ws.sent[1:3]] == ["en", "ht"]
 
 
 def test_listen_24k_and_one_language():

@@ -1,11 +1,16 @@
-# omni-stt for Meta's stock omniASR_LLM_7B: /listen only (no voices), Silero VAD
-# and VoxLingua107 language ID baked in, and the 7B checkpoint NOT in this image:
+# omni-stt for Meta's stock omniASR_LLM_7B: Silero VAD, VoxLingua107 language
+# ID and the Haitian Creole voices (/speak: MMS-TTS, CC-BY-NC; Coqui VITS
+# OpenBible, CC-BY-SA) baked in, and the 7B checkpoint NOT in this image:
 # Dockerfile.baked layers it on, or the service reads it from Cloud Storage
 # (a volume mount, or OMNI_FETCH at start). Stock weights only: nothing private.
 #
 #   ./deploy.sh 7b-build         # Cloud Build: convert, upload, both images
 #
-# Same base and pins as ../Dockerfile (its comments say why), minus Coqui TTS.
+# Same base and pins as ../Dockerfile (its comments say why). The image serves
+# /listen only unless STT_SERVE says listen,speak (7b-deploy with VOICES_7B=1,
+# setup.sh's "7B only" layout); the running service's EDITION decides which
+# voices load (commercial: never MMS). --build-arg EDITION=commercial leaves
+# MMS's weights out of the image altogether.
 ARG BASE_IMAGE=python:3.12-slim-bookworm@sha256:34386ef0cb081344d7ec1c103ba398e6e9f64e9ab3a1509accc92a4e24a07258
 FROM ${BASE_IMAGE}
 
@@ -36,6 +41,13 @@ ENV STT_MODELS=/opt/models \
     STT_SERVE=listen
 
 RUN useradd --uid 10001 --create-home stt && mkdir -p /opt/models/cards /opt/models/7b && chown -R stt /opt/models
+# The voices' packages (../Dockerfile has the reasoning for these pins), in a
+# step of their own so the layer above is reused.
+RUN grep -vE '^(librosa|contourpy)==' constraints.txt > /tmp/voices-c.txt \
+ && pip install -c /tmp/voices-c.txt coqui-tts==0.27.5 numpy==1.26.4 scipy==1.13.1 torch==2.8.0 torchaudio==2.8.0 \
+ && rm /tmp/voices-c.txt && pip check \
+ && python -c "import TTS, transformers, numpy, omnilingual_asr; print('coqui-tts', TTS.__version__, 'transformers', transformers.__version__, 'numpy', numpy.__version__)"
+
 COPY . ./
 RUN cp cards.yaml /opt/models/cards/omni7b.yaml
 USER stt
@@ -44,6 +56,11 @@ USER stt
 RUN python -c "import server; server.load_vad(); server.load_lid('cpu'); \
 from fairseq2.data.tokenizers.hub import load_tokenizer; load_tokenizer('omniASR_LLM_7B_bf16'); print('fetched')" \
  && du -sh /opt/models/*
+# The voices of EDITION (both: MMS and Coqui), loaded once on the CPU so their
+# weights land where the server reads them (about 1 GB).
+ARG EDITION=both
+RUN EDITION=$EDITION python -c "import server; from voices import Voices; Voices('cpu', server.voice_list())" \
+ && du -sh /opt/models/hf
 
 ENV HF_HUB_OFFLINE=1 \
     PORT=8080

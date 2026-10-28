@@ -10,7 +10,8 @@
 #   ./deploy.sh build-ft                 # a fine-tuned checkpoint layered on BASE_TAG (Dockerfile.ft)
 #   ./deploy.sh build-voices             # the Haitian Creole voices layered on BASE_TAG (Dockerfile.voices)
 #   ./deploy.sh 7b-build                 # Meta's stock omniASR_LLM_7B (bf16): images and bucket copy (7b/)
-#   ./deploy.sh 7b-deploy                # the separate omni-stt-7b service (lo, km), /listen only
+#   ./deploy.sh 7b-deploy                # the separate omni-stt-7b service (lo, km), /listen only;
+#                                        # VOICES_7B=1: also /speak (the Haitian Creole voices)
 #   ./deploy.sh 3b-build                 # Meta's stock omniASR_CTC_3B (bf16) baked in (3b/)
 #   ./deploy.sh 3b-deploy                # the separate omni-stt-3b-stream service (km, lo live text)
 #   ./deploy.sh duo-build                # the 7B and the CTC 3B streaming service in one image,
@@ -24,6 +25,9 @@
 # weights only. 7b-deploy: SERVICE_7B (omni-stt-7b), STORAGE (baked|gcs|fetch: where
 # the checkpoint comes from), MAX_STREAMS_7B (6), MEMORY (16Gi; fetch needs 32Gi), CPU (4),
 # SIGNING_SECRET, NONPROFIT_SECRET (optional, as "deploy": STT_SIGNING_KEY, STT_TOKEN_NONPROFIT).
+# VOICES_7B=1 serves /speak too (STT_SERVE=listen+speak), with EDITION, HT_VOICE and
+# MAX_SPEAKERS as "deploy", and --concurrency MAX_STREAMS_7B + MAX_SPEAKERS (a /speak
+# socket is a Cloud Run request like a /listen one): the "7B only" layout, no omni-stt.
 #
 # 3b-build: downloads Meta's omniASR_CTC_3B checkpoint and converts it to bf16
 # inside Cloud Build (7b/to_bf16.py), and builds <TAG>-3b-base (7b/Dockerfile.base,
@@ -367,7 +371,7 @@ YAML
     ;;
   7b-deploy)
     # Meta's stock 7B for Lao and Khmer, beside omni-stt (whose 300M card stays
-    # for ht and the rest). /listen only: no voices. STORAGE picks where the
+    # for ht and the rest). /listen only, unless VOICES_7B=1 (the voices too). STORAGE picks where the
     # checkpoint is read from at a cold start:
     #   baked  the image <TAG>-7b (the checkpoint in its last layer)
     #   gcs    the image <TAG>-7b-base + a Cloud Storage volume at /mnt/models
@@ -375,7 +379,14 @@ YAML
     STORAGE="${STORAGE:-baked}"
     MAX_STREAMS="${MAX_STREAMS_7B:-6}"
     extra=()
-    envs="STT_SERVE=listen,STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS,OMNI_MMAP=${OMNI_MMAP:-1}$CUT_ENV${EXTRA_ENV:+,$EXTRA_ENV}"
+    serve=listen; concurrency="$MAX_STREAMS"; voice_env=""
+    case "${VOICES_7B:-0}" in
+      1) serve="listen+speak"; concurrency=$((MAX_STREAMS + MAX_SPEAKERS))
+         voice_env=",HT_VOICE=$HT_VOICE,EDITION=$EDITION,STT_MAX_SPEAKERS=$MAX_SPEAKERS" ;;
+      0) ;;
+      *) echo "VOICES_7B must be 0 or 1" >&2; exit 2 ;;
+    esac
+    envs="STT_SERVE=$serve,STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS,OMNI_MMAP=${OMNI_MMAP:-1}$voice_env$CUT_ENV${EXTRA_ENV:+,$EXTRA_ENV}"
     case "$STORAGE" in
       baked) IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/omni-stt:$TAG-7b"; envs="$envs,OMNI_CARD=omniASR_LLM_7B_bf16" ;;
       gcs)   IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/omni-stt:$TAG-7b-base"; envs="$envs,OMNI_CARD=omniASR_LLM_7B_bf16_volume"
@@ -397,7 +408,7 @@ YAML
       --gpu 1 --gpu-type nvidia-l4 --no-gpu-zonal-redundancy \
       --cpu "${CPU:-4}" --memory "${MEMORY:-16Gi}" --no-cpu-throttling --cpu-boost \
       --min-instances 0 --max-instances 1 \
-      --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
+      --concurrency "$concurrency" --timeout 3600 --port 8080 \
       --startup-probe "tcpSocket.port=8080,initialDelaySeconds=0,periodSeconds=2,timeoutSeconds=2,failureThreshold=450" \
       --set-env-vars "$envs" \
       --set-secrets "$SECRETS" \

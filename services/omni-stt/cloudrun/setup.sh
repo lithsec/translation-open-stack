@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
-# Guided setup: the Omnilingual hearing services (omni-stt, and the 7B service
-# for Lao and Khmer if you want it) on Cloud Run with an NVIDIA L4, scaled to
-# zero, in your own Google Cloud project. Made for Cloud Shell (the "Open in
+# Guided setup: the Omnilingual hearing services on Cloud Run with an NVIDIA L4,
+# scaled to zero, in your own Google Cloud project. Three layouts:
+#   7b-only   the 7B service alone, one L4 (recommended): Lao and Khmer, the
+#             Haitian Creole language ID and the Haitian Creole voices; the
+#             Haitian Creole words come from Amazon Transcribe in Live
+#             Translation (or from the 7B itself)
+#   omni-stt  omni-stt alone (the 300M card: Haitian Creole, its voices)
+#   both      omni-stt, and the 7B service for Lao and Khmer
+# Made for Cloud Shell (the "Open in
 # Cloud Shell" button in services/omni-stt/README.md), and fine anywhere gcloud
 # is signed in.
 #
@@ -11,7 +17,8 @@
 # Safe to run again: everything it makes is looked up first and reused, a
 # finished image is not rebuilt, and a redeploy changes nothing that works.
 # Answers can come from the environment instead of prompts:
-#   PROJECT, REGION, WITH_7B (yes|no), NONPROFIT (yes|no), ASSUME_YES=1.
+#   PROJECT, REGION, LAYOUT (7b-only|omni-stt|both; WITH_7B=yes|no, the older
+#   setting, means both|omni-stt), NONPROFIT (yes|no), ASSUME_YES=1.
 # OMNI_STT_IMAGE=build builds omni-stt in your project instead of pulling the
 # published image (images.env).
 # DRY_RUN=1 prints the commands that would change anything and runs only the
@@ -27,16 +34,17 @@
 #      Manager that only that account can read (a token an unfinished run never
 #      showed is replaced on the next run); when anything is built here, gives
 #      Cloud Build's service account its role (new projects give it none);
-#   5. gets the omni-stt image: from GitHub Container Registry through an
+#   5. with omni-stt: gets its image, from GitHub Container Registry through an
 #      Artifact Registry remote repository, by pinned digest (images.env), or,
 #      with OMNI_STT_IMAGE=build or no pin, built with Cloud Build here;
-#   6. deploys omni-stt: 1 L4, min 0 / max 1 instances, CPU always allocated,
-#      one hour request timeout (the WebSocket ceiling), concurrency = the rooms
-#      one instance takes (4); a first deploy that outlasts gcloud's readiness
-#      wait (the image copy) is waited out, not reported as a failure;
-#   7. with the 7B: shows omni-stt's settings and token, then builds the 7B in
-#      your project (images.env says why) and deploys it (concurrency 6);
-#      then prints what to paste into Live Translation, the token shown once.
+#   6. with omni-stt: deploys it: 1 L4, min 0 / max 1 instances, CPU always
+#      allocated, one hour request timeout (the WebSocket ceiling), concurrency
+#      = the rooms one instance takes (4); a first deploy that outlasts gcloud's
+#      readiness wait (the image copy) is waited out, not reported as a failure;
+#   7. with the 7B: (both: shows omni-stt's settings and token first) builds the
+#      7B in your project (images.env says why) and deploys it (concurrency 6;
+#      7b-only: with the voices, 6 hearing + 4 voice sockets); then prints what
+#      to paste into Live Translation, the token shown once.
 #
 # Cost (public list prices, check https://cloud.google.com/run/pricing): about
 # $1 an hour per service while an instance is up (the L4, 4 vCPU, 16 GiB), $0
@@ -59,6 +67,7 @@ LABEL_KEY=managed-by
 LABEL_VAL=omni-stt-setup
 MAX_STREAMS=4        # rooms one omni-stt instance takes (README, Cost model)
 MAX_STREAMS_7B=6     # rooms one 7B instance takes (README, omni-stt-7b)
+MAX_SPEAKERS_7B=4    # voice sockets beside them in the 7b-only layout (README, 7B only)
 
 # Cloud Run regions with NVIDIA L4 GPUs, from Google's "GPU support for
 # services" page (last updated 2026-10-26). us-east4 first: it is where this
@@ -235,14 +244,31 @@ for r in "${REGIONS[@]}"; do [ "$r" = "$REGION" ] && ok=1; done
 (ALLOW_ANY_REGION=1 skips this check if Google has added regions since.)" 2
 say "Region $REGION."
 
-if [ -z "${WITH_7B:-}" ]; then
-  say ""
-  say "The 7B service hears Lao and Khmer much better than the base model. It is a second"
-  say "L4 (about \$1 an hour while warm, \$0 idle), and its image is built once in your"
-  say "project (about 50 minutes of Cloud Build)."
-  WITH_7B="$(ask "Also deploy the 7B service for Lao and Khmer? (yes/no)" no)"
+if [ -z "${LAYOUT:-}" ] && [ -n "${WITH_7B:-}" ]; then
+  w="$(yes_no "$WITH_7B")" || die "WITH_7B must be yes or no" 2
+  if [ "$w" = yes ]; then LAYOUT=both; else LAYOUT=omni-stt; fi
 fi
-WITH_7B="$(yes_no "$WITH_7B")" || die "WITH_7B must be yes or no" 2
+if [ -z "${LAYOUT:-}" ]; then
+  say ""
+  say "Which services?"
+  say "  1) 7B only (recommended): one L4. Haitian Creole heard by Amazon Transcribe"
+  say "     (Live Translation starts it when the 7B hears a switch into Haitian Creole);"
+  say "     voices on the 7B; Lao and Khmer on the 7B. Its image is built once in your"
+  say "     project (about 50 minutes of Cloud Build)."
+  say "  2) omni-stt only: one L4, Haitian Creole heard and spoken by omni-stt (300M card)."
+  say "  3) Both: two L4s, omni-stt plus the 7B for Lao and Khmer."
+  pick="$(ask "Layout (1, 2 or 3)" 1)"
+  case "$pick" in
+    1|7b-only) LAYOUT=7b-only ;; 2|omni-stt) LAYOUT=omni-stt ;; 3|both) LAYOUT=both ;;
+    *) die "pick 1, 2 or 3" 2 ;;
+  esac
+fi
+case "$LAYOUT" in
+  7b-only)  WITH_OMNI=no;  WITH_7B=yes ;;
+  omni-stt) WITH_OMNI=yes; WITH_7B=no ;;
+  both)     WITH_OMNI=yes; WITH_7B=yes ;;
+  *) die "LAYOUT must be 7b-only, omni-stt or both" 2 ;;
+esac
 if [ -z "${NONPROFIT:-}" ]; then
   say ""
   say "One Haitian Creole voice (MMS) is licensed for non-commercial use only (CC-BY-NC)."
@@ -251,7 +277,9 @@ fi
 NONPROFIT="$(yes_no "$NONPROFIT")" || die "NONPROFIT must be yes or no" 2
 if [ "$NONPROFIT" = yes ]; then EDITION=nonprofit; else EDITION=commercial; fi
 
-if [ -n "$OMNI_STT_IMAGE" ]; then
+if [ "$WITH_OMNI" = no ]; then
+  src="not deployed (7B only)"
+elif [ -n "$OMNI_STT_IMAGE" ]; then
   src="the published image (${OMNI_STT_IMAGE#*@}) through an Artifact Registry remote repository"
 else
   src="built in your project with Cloud Build (about 30 minutes, once)"
@@ -261,8 +289,9 @@ say "Project:      $PROJECT"
 say "Region:       $REGION"
 say "omni-stt:     $src"
 [ "$WITH_7B" = yes ] && say "omni-stt-7b:  built in your project with Cloud Build (about 50 minutes, once)"
+[ "$LAYOUT" = 7b-only ] && say "              with the Haitian Creole language ID and voices (no omni-stt)"
 say "Each service: 1 NVIDIA L4, 4 vCPU, 16 GiB, min 0 / max 1 instance, 1 h request timeout"
-say "Edition:      $EDITION (the voices omni-stt may use)"
+say "Edition:      $EDITION (the voices /speak may use)"
 say "Cost:         about \$1 an hour per service while it is awake, \$0 while idle"
 say "              (it sleeps about 15 minutes after the last room disconnects),"
 say "              plus image storage, about \$0.10 per GB a month."
@@ -271,7 +300,7 @@ go="$(ask "Go ahead? (yes/no)" yes)"
 
 step "4/7 APIs and GPU quota"
 apis=(run.googleapis.com artifactregistry.googleapis.com secretmanager.googleapis.com iam.googleapis.com cloudquotas.googleapis.com)
-if [ -z "$OMNI_STT_IMAGE" ] || [ "$WITH_7B" = yes ]; then apis+=(cloudbuild.googleapis.com); fi
+if { [ "$WITH_OMNI" = yes ] && [ -z "$OMNI_STT_IMAGE" ]; } || [ "$WITH_7B" = yes ]; then apis+=(cloudbuild.googleapis.com); fi
 run_or_explain "Enabling the APIs" gcloud services enable "${apis[@]}" --project "$PROJECT"
 
 # Best effort: the L4 quota in the region, before anything is built. New
@@ -299,7 +328,7 @@ for q in infos:
 sys.exit(0)
 PY
 }
-need_gpus=1; [ "$WITH_7B" = yes ] && need_gpus=2
+need_gpus=1; [ "$LAYOUT" = both ] && need_gpus=2
 quota_rc=0; quota="$(quota_check)" || quota_rc=$?
 if [ "$quota_rc" = 0 ]; then
   [ -n "$quota" ] && say "L4 quota in $REGION: $quota GPU(s)."
@@ -369,7 +398,7 @@ ensure_builder() {
     --member "serviceAccount:$num-compute@developer.gserviceaccount.com" \
     --role roles/cloudbuild.builds.builder --condition=None >/dev/null
 }
-if [ -z "$OMNI_STT_IMAGE" ] || [ "$WITH_7B" = yes ]; then ensure_builder; fi
+if { [ "$WITH_OMNI" = yes ] && [ -z "$OMNI_STT_IMAGE" ]; } || [ "$WITH_7B" = yes ]; then ensure_builder; fi
 
 step "6/7 Images"
 ensure_repo() {  # name, then extra create flags
@@ -419,7 +448,9 @@ Run this script again to retry; a finished image is never rebuilt."
   fi
   printf '%s@%s' "${ref%:*}" "$digest"
 }
-if [ -n "$OMNI_STT_IMAGE" ]; then
+if [ "$WITH_OMNI" = no ]; then
+  ensure_repo "$BUILD_REPO" --description "omni-stt images built by setup.sh"
+elif [ -n "$OMNI_STT_IMAGE" ]; then
   ensure_repo "$REMOTE_REPO" --mode remote-repository --remote-docker-repo https://ghcr.io \
     --remote-repo-config-desc "GitHub Container Registry (public images)" \
     --description "Proxy of ghcr.io for the omni-stt image (setup.sh)"
@@ -430,7 +461,7 @@ else
   IMAGE="$(build_image build "")"
   say "omni-stt image: $IMAGE"
 fi
-if [ "$WITH_7B" = yes ] && [ -n "$OMNI_STT_IMAGE" ]; then
+if [ "$LAYOUT" = both ] && [ -n "$OMNI_STT_IMAGE" ]; then
   ensure_repo "$BUILD_REPO" --description "omni-stt images built by setup.sh"
 fi
 
@@ -481,32 +512,47 @@ common=(--project "$PROJECT" --region "$REGION" --service-account "$RUN_SA"
   --labels "$LABEL_KEY=$LABEL_VAL" --no-invoker-iam-check --quiet)
 # Endpointing and batching as deploy.sh's defaults (README, Endpointing).
 tuning="ENDPOINT_MS=200,MAX_UTTERANCE_S=10.0,MIN_SPEECH_MS=1000,STT_BATCH_MAX=8,STT_BATCH_WAIT_MS=10"
-say "Deploying $SERVICE (the first deploy copies the image: 10-15 minutes)..."
-deploy_service "$SERVICE" --image "$IMAGE" "${common[@]}" \
-  --concurrency "$MAX_STREAMS" \
-  --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,OMNI_CARD=omniASR_LLM_300M,HT_VOICE=coqui,EDITION=$EDITION,STT_MAX_SPEAKERS=4,$tuning"
-say "$SERVICE is deployed: $(url_of "$SERVICE")"
+if [ "$WITH_OMNI" = yes ]; then
+  say "Deploying $SERVICE (the first deploy copies the image: 10-15 minutes)..."
+  deploy_service "$SERVICE" --image "$IMAGE" "${common[@]}" \
+    --concurrency "$MAX_STREAMS" \
+    --set-env-vars "STT_MAX_CONNECTIONS=$MAX_STREAMS,OMNI_CARD=omniASR_LLM_300M,HT_VOICE=coqui,EDITION=$EDITION,STT_MAX_SPEAKERS=4,$tuning"
+  say "$SERVICE is deployed: $(url_of "$SERVICE")"
+fi
 if [ "$WITH_7B" = yes ]; then
-  if [ -n "$TOKEN" ]; then
+  if [ "$WITH_OMNI" = yes ] && [ -n "$TOKEN" ]; then
     say ""
     say "omni-stt works now. Its settings, while the 7B builds (the 7B URL follows at the end):"
     say "  Service:                               $(url_of "$SERVICE")"
     show_token
   fi
   # Built after omni-stt is up, so the hour-long 7B build does not hold it back.
-  say "Now the 7B image (about 50 minutes of Cloud Build; omni-stt already works meanwhile)."
+  if [ "$WITH_OMNI" = yes ]; then
+    say "Now the 7B image (about 50 minutes of Cloud Build; omni-stt already works meanwhile)."
+  else
+    say "Now the 7B image (about 50 minutes of Cloud Build; closing Cloud Shell does not stop it)."
+  fi
   IMAGE_7B="$(build_image 7b-build -7b)"
   say "omni-stt-7b image: $IMAGE_7B"
   say "Deploying $SERVICE_7B..."
   # The startup probe: the port opens once the 16 GB checkpoint is loaded and
   # warm (about 50 s from cold); checked every 2 s, for up to 15 minutes.
+  # 7b-only: the voices too (STT_SERVE=listen+speak: gcloud splits
+  # --set-env-vars at commas), their sockets counted in the concurrency.
+  if [ "$WITH_OMNI" = no ]; then
+    conc_7b=$((MAX_STREAMS_7B + MAX_SPEAKERS_7B))
+    env_7b="STT_SERVE=listen+speak,STT_MAX_CONNECTIONS=$MAX_STREAMS_7B,OMNI_CARD=omniASR_LLM_7B_bf16,OMNI_MMAP=1,HT_VOICE=coqui,EDITION=$EDITION,STT_MAX_SPEAKERS=$MAX_SPEAKERS_7B,$tuning"
+  else
+    conc_7b="$MAX_STREAMS_7B"
+    env_7b="STT_SERVE=listen,STT_MAX_CONNECTIONS=$MAX_STREAMS_7B,OMNI_CARD=omniASR_LLM_7B_bf16,OMNI_MMAP=1,$tuning"
+  fi
   deploy_service "$SERVICE_7B" --image "$IMAGE_7B" "${common[@]}" \
-    --concurrency "$MAX_STREAMS_7B" \
+    --concurrency "$conc_7b" \
     --startup-probe "tcpSocket.port=8080,initialDelaySeconds=0,periodSeconds=2,timeoutSeconds=2,failureThreshold=450" \
-    --set-env-vars "STT_SERVE=listen,STT_MAX_CONNECTIONS=$MAX_STREAMS_7B,OMNI_CARD=omniASR_LLM_7B_bf16,OMNI_MMAP=1,$tuning"
+    --set-env-vars "$env_7b"
 fi
 
-URL="$(url_of "$SERVICE")"
+URL=""; [ "$WITH_OMNI" = yes ] && URL="$(url_of "$SERVICE")"
 URL_7B=""; [ "$WITH_7B" = yes ] && URL_7B="$(url_of "$SERVICE_7B")"
 
 cat <<EOF
@@ -515,16 +561,31 @@ cat <<EOF
  Done. Paste these into Live Translation:
    Service settings > Advanced > Omnilingual hearing (advanced)
 =====================================================================
-  Service:                               $URL
+  Service:                               ${URL:-$URL_7B}
 EOF
 [ -n "$URL_7B" ] && printf '  Omnilingual 7B URL for Lao and Khmer:  %s\n' "$URL_7B"
 show_token
-cap_7b=""; [ -n "$URL_7B" ] && cap_7b=", the 7B about $MAX_STREAMS_7B"
+if [ "$WITH_OMNI" = no ]; then
+  cat <<EOF
+
+  Both addresses are the 7B service: it does the Haitian Creole language ID
+  and voices omni-stt would (the same /listen and /speak), and Lao and Khmer.
+  Haitian Creole's words: Amazon Transcribe, which Live Translation starts
+  when the 7B names an utterance Haitian Creole (it needs its AWS setting, or
+  Managed by Lithos); a Live Translation without that hand-off has the 7B
+  write them itself.
+EOF
+fi
+cap=""
+[ "$WITH_OMNI" = yes ] && cap="One instance of omni-stt takes about $MAX_STREAMS rooms at once"
+if [ -n "$URL_7B" ]; then
+  if [ -n "$cap" ]; then cap="$cap, the 7B about $MAX_STREAMS_7B"; else cap="One instance of the 7B takes about $MAX_STREAMS_7B rooms at once"; fi
+fi
 cat <<EOF
 
   Then turn on "Hear Haitian Creole with Omnilingual" and press Test: it
   wakes the service(s) (about 40 s for omni-stt, 50 s for the 7B) and checks
-  the token. One instance of omni-stt takes about $MAX_STREAMS rooms at once$cap_7b.
+  the token. $cap.
 
   Cost: about \$1 an hour per service while it is awake, \$0 while idle.
   Remove everything: bash services/omni-stt/cloudrun/teardown.sh
