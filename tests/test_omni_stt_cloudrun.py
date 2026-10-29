@@ -148,10 +148,12 @@ def test_7b_only_layout_deploys_one_service_with_the_voices():
                  "EDITION=nonprofit", "HT_VOICE=coqui", "OMNI_CARD=omniASR_LLM_7B_bf16", "--gpu-type nvidia-l4",
                  "--max-instances 1", "STT_TOKEN_NONPROFIT=omni-stt-app-token:latest"):
         assert flag in d7, (flag, d7)
-    # Both Live Translation fields get the 7B's address.
-    svc = next(l for l in lines if l.strip().startswith("Service:"))
-    url7 = next(l for l in lines if "Omnilingual 7B URL for Lao and Khmer:" in l)
-    assert svc.split()[-1] == url7.split()[-1] and "omni-stt-7b" in svc, (svc, url7)
+    # One address for Live Translation's one Omnilingual service field: the 7B's
+    # (an older Live Translation, with two fields, is told to put it in both).
+    svc = next(l for l in lines if l.strip().startswith("Omnilingual service:"))
+    assert "omni-stt-7b" in svc, svc
+    assert "Omnilingual 7B URL for Lao and Khmer:" not in out
+    assert "the same address in both" in out
     assert "Amazon Transcribe" in out
     assert "One instance of the 7B takes about 6 rooms" in out
     # Commercial: the 7B never offers MMS.
@@ -214,7 +216,7 @@ def test_a_real_run_prints_the_token_once():
     assert code == 0, out
     tokens = re.findall(r"\b[0-9a-f]{64}\b", out.replace(DIGEST, ""))
     assert len(tokens) == 1, tokens
-    assert "COPY THE TOKEN NOW" in out and "Service:" in out
+    assert "COPY THE TOKEN NOW" in out and "Omnilingual service:" in out
     assert any(c.startswith("run deploy omni-stt ") for c in made), made
 
 

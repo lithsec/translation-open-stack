@@ -45,6 +45,7 @@ server    {"type":"partial","track":"ctc","text":"<revisable tail>","lang":"km",
 server    {"type":"committed","track":"ctc","text":"<newly committed text>","lang":"km","start_ms":5700,"end_ms":6200,"end":false}
 
 GET /health   200 "ok" (the port opens only once the models are loaded and warm)
+GET /info     what the service offers, JSON (below); the token in the Authorization header adds its own edition and voices
 GET /mic      a one-file microphone test page: type the languages and the token, press Start, talk
 ```
 
@@ -65,6 +66,25 @@ GET /mic      a one-file microphone test page: type the languages and the token,
   (`OMNI_CODES` in `server.py`). Anything else is refused at connect with an error and
   close code 4400, as is a mix containing a language VoxLingua107 doesn't know.
 - `start_ms`/`end_ms` count from the connection's first sample.
+- `GET /info` (`service_info`), for a client that shows only what is there
+  (Live Translation's single Omnilingual service setting reads it on Test):
+
+  ```
+  {"type":"info","service":"omni-stt","models":["7b"],"serve":["listen","speak"],
+   "langs":["ar","bn",...],"editions":["nonprofit"],"voices_state":"ready",
+   "voices_by_edition":{"nonprofit":["mms","coqui"]},
+   "edition":"nonprofit","voices":["mms","coqui"]}
+  ```
+
+  `models`: the recogniser's size (`300m`, `7b`, `3b`; never the card's name,
+  which can be a private fine-tuned card's). `voices_state`: `ready`, `loading`
+  (a cold start: the voices load after the recogniser; the names are those
+  that will load), `failed` or `none` (no `/speak`). `edition` and `voices`
+  only with a token the service takes (the header, never `?token=`): that
+  token's `/speak` edition (`null`: refused there with 4403) and its voices.
+  No token, or a wrong one: still 200, without those two. An older image
+  answers `/info` with an HTTP error (not a WebSocket upgrade), so a client
+  can tell and fall back on `/speak`'s hello.
 - The token: the `Authorization` header, or, from a browser (which cannot set
   that header on a WebSocket), the two subprotocols `omni-stt` and
   `bearer.<token>` (`new WebSocket(url, ["omni-stt", "bearer." + token])`; the
@@ -373,8 +393,10 @@ Each service: one L4, 4 vCPU, 16 GiB, CPU always allocated, `--min-instances 0
 --max-instances 1`, `--timeout 3600` (the WebSocket ceiling), `--concurrency` 4
 for omni-stt and 6 for the 7B beside it (the rooms one instance takes, below). It ends
 by printing what to paste into Live Translation (**Service settings > Advanced >
-Omnilingual hearing (advanced)**: **Service**, **Omnilingual 7B URL for Lao and
-Khmer**, **Token**; 7B only: the 7B's address in both), the token shown that once. A missing GPU quota, billing or
+Omnilingual hearing (advanced)**: **Omnilingual service** (7B only: the 7B's
+address) and **Token**; the Both layout adds **Omnilingual 7B URL for Lao and
+Khmer**, for an older Live Translation with two address fields, which with 7B
+only takes the same address in both), the token shown that once. A missing GPU quota, billing or
 permission stops it with the console link and what to ask for, not a raw error.
 `EDITION` is `nonprofit` if you say you are one (the MMS voice is CC-BY-NC), else
 `commercial`.
