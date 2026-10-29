@@ -1,0 +1,119 @@
+profile: cuda-80gb
+edition: nonprofit
+config: /workspace/al/configs/G5.toml
+profile: cuda-80gb (One 80 GB+ NVIDIA GPU: the reference, plus Omnilingual 7B for Lao and Khmer); details: stack_config.py profile
+devices: default=auto
+edition: nonprofit
+  ar  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: piper ar_JO-kareem-medium ❓ > espeak ⚠️ (last resort)
+  bn  asr=omni:ben_Beng  ✅  mt=hymt   ✅  voice: piper bn_BD-google-medium ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ bn voice piper bn_BD-google-medium: CC-BY-SA 4.0: credit Google's OpenSLR 37 Bengali corpus and keep the CMU notice
+  de  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: piper de_DE-thorsten-high ❓ > espeak ⚠️ (last resort)
+  en  asr=whisper        ✅  mt=hymt   ✅  voice: kokoro a:am_michael ✅ > piper en_US-lessac-medium ⛔ > espeak ⚠️ (last resort)
+  es  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: kokoro e:ef_dora ✅ > piper es_ES-davefx-medium ❓ > espeak ⚠️ (last resort)
+  fa  asr=omni:pes_Arab  ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: piper fa_IR-gyro-medium ❓ > espeak ⚠️ (last resort)
+  fr  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: kokoro f:ff_siwis ✅ > piper fr_FR-siwis-medium ❓ > espeak ⚠️ (last resort)
+  hi  asr=omni:hin_Deva  ✅  mt=hymt   ✅  voice: kokoro h:hf_alpha ✅ > piper hi_IN-rohan-medium ❓ > espeak ⚠️ (last resort)
+  ht  asr=omni:hat_Latn  ✅  mt=llmmt>madlad (to en: llmmt>hymt) ❓  voice: mms facebook/mms-tts-hat ⛔ > espeak ⚠️ (last resort)
+  id  asr=whisper        ✅  mt=hymt   ✅  voice: piper id_ID-news_tts-medium ❓ > espeak ⚠️ (last resort)
+  it  asr=whisper        ✅  mt=hymt   ✅  voice: kokoro i:if_sara ✅ > piper it_IT-serena-high ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ it voice piper it_IT-serena-high: CC-BY 4.0: credit the serena-synthetic-it-27h dataset (committa)
+  ja  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: kokoro j:jf_alpha ✅ > piper ja_JP-hi_fi_captain-medium ⛔
+  km  asr=omni:khm_Khmr  ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: voxcpm ✅ > mms facebook/mms-tts-khm ⛔
+  ko  asr=whisper        ✅  mt=hymt   ✅  voice: piper ko_KR-kss-medium ⛔ > espeak ⚠️ (last resort)
+  lo  asr=omni:lao_Laoo  ✅  mt=llmmt>madlad (to en: llmmt>hymt) ❓  voice: voxcpm ✅ > mms facebook/mms-tts-lao ⛔
+  pt  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: kokoro p:pf_dora ✅ > piper pt_BR-faber-medium ❓ > espeak ⚠️ (last resort)
+  ro  asr=whisper        ✅  mt=madlad ✅  voice: piper ro_RO-mihai-medium ❓ > espeak ⚠️ (last resort)
+  ru  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: piper ru_RU-irina-medium ❓ > espeak ⚠️ (last resort)
+  sw  asr=omni:swh_Latn  ✅  mt=llmmt>madlad ❓  voice: piper sw_CD-lanfrica-medium ❓ > espeak ⚠️ (last resort)
+  tl  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: voxcpm ✅ > mms facebook/mms-tts-tgl ⛔
+  tr  asr=whisper        ✅  mt=hymt   ✅  voice: piper tr_TR-dfki-medium ⛔ > espeak ⚠️ (last resort)
+  uk  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: piper uk_UA-ukrainian_tts-medium ✅ > espeak ⚠️ (last resort)
+  ur  asr=omni:urd_Arab  ✅  mt=hymt   ✅  voice: piper ur_PK-aegis_female-medium ✅ > espeak ⚠️ (last resort)
+  vi  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: piper vi_VN-vais1000-medium ❓ > espeak ⚠️ (last resort)
+  zh  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: kokoro z:zf_xiaobei ✅ > piper zh_CN-huayan-medium ❓ > espeak ⚠️ (last resort)
+  nonprofit loads 21 ⛔/❓ voices: non-commercial use only (`check --edition commercial` for what a commercial deployment gets)
+models:
+  whisper     ✅ MIT            model=large-v3  multi_model=(same as model)  multi_revision=(none)  revision=edaa852ec7e145841d8ffdb056a99866b5f0a478
+  omnilingual ✅ Apache-2.0     card=omniASR_LLM_300M
+  omnilingual_large ✅ Apache-2.0     card=omniASR_LLM_7B
+  lid         ✅ Apache-2.0     repo=speechbrain/lang-id-voxlingua107-ecapa  revision=0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9
+  vad         ✅ MIT            repo=snakers4/silero-vad  ref=5cd7945676eb32225748052e2e6a0580e4686a08
+  hymt        ✅ Apache-2.0     repo=tencent/Hy-MT2-7B  revision=9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223
+  madlad      ✅ Apache-2.0     repo=google/madlad400-7b-mt  revision=1ff63ce7ddd571a69d45cad9672c553428419671
+  madlad3b    ✅ Apache-2.0     repo=google/madlad400-3b-mt  revision=fa184c675da0b5c9e1c8694fccd4e12e2d422094
+  kokoro      ✅ Apache-2.0     repo=hexgrad/Kokoro-82M  revision=f3ff3571791e39611d31c381e3a41a3af07b4987
+  voxcpm      ✅ Apache-2.0     repo=openbmb/VoxCPM2  revision=32279effe8c19989596f05d353d1447f51d9e915
+voices at capacity:
+  a chain is tried in order: when VoxCPM2 is at capacity (every instance at its limit) or down, the sentence waits briefly (VOXCPM_QUEUE_S, 2 s) for a free instance, then goes to the next voice (languages with no voice after VoxCPM2 wait up to VOXCPM_WAIT_S, 15 s); eSpeak NG (last resort) ends every chain it speaks, if espeak-ng is installed
+  VoxCPM2 speaks 3 languages (km, lo, tl); one instance makes ~2-3 real-time voices, and takes up to 1 sentences at once (VOXCPM_MAX_INFLIGHT)
+  VoxCPM2 instances: 1 (the nonprofit default) (VOXCPM_INSTANCES=auto|<n>, VOXCPM_GPUS)
+  on this machine now: VoxCPM2: 1 instance (one GPU); overflow → fallback voices
+engines: recognizer omni, whisper; translator echo, hymt, llmmt, madlad; voice coqui, cosyvoice, espeak, kokoro, mms, piper, voxcpm
+[stack] language config: /workspace/al/configs/G5.toml
+[stack] edition: nonprofit
+[stack] device=cuda
+[stack] loading Silero VAD (snakers4/silero-vad:5cd7945676eb32225748052e2e6a0580e4686a08)…
+Using cache found in /workspace/torch-cache/hub/snakers4_silero-vad_5cd7945676eb32225748052e2e6a0580e4686a08
+[stack] loading faster-whisper large-v3 @ edaa852ec7e145841d8ffdb056a99866b5f0a478 on cuda…
+[stack] sharing large-v3 for English and --xeng sources
+[stack] whisper on cuda: +3.5 GB (41.7 GB in use there)
+/usr/local/lib/python3.12/dist-packages/speechbrain/utils/torch_audio_backend.py:64: UserWarning: torchaudio._backend.list_audio_backends has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
+  available_backends = torchaudio.list_audio_backends()
+[stack] loading speechbrain/lang-id-voxlingua107-ecapa @ 0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9 for src=auto…
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 2602.82it/s]
+Could not parse CUDA device string 'cuda': not enough values to unpack (expected 2, got 1). Falling back to device 0.
+[stack] auto-routing among: ['en', 'de']
+[stack] loading Omnilingual ASR (omniASR_LLM_300M) on cuda…
+
+[stack] omni on cuda: +3.3 GB (45.2 GB in use there)
+[stack] loading Hy-MT2 from /workspace/mt/hymt2-7b-nf4…
+The tokenizer you are loading from '/workspace/mt/hymt2-7b-nf4' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[stack] hymt on cuda: +7.0 GB (52.2 GB in use there)
+[stack] Kokoro TTS enabled (24kHz native, GPU)
+[stack] loading MADLAD tokenizer from /workspace/madlad-ct2…
+[stack] MT via CTranslate2: /workspace/madlad-ct2
+[stack] MT is CTranslate2 only — bf16 copy not loaded
+[stack] madlad on cuda: +3.1 GB (55.2 GB in use there)
+[stack] en: en_US-lessac-medium (intra_op=4)
+[stack] de: de_DE-thorsten-high (intra_op=4)
+[stack] eSpeak NG last-resort voice for de,en
+[stack] loading translator llmmt (engines.llmmt)…
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) answering — de use it
+[licence] edition nonprofit: every configured voice may load (non-commercial use only; EDITION=commercial filters by licence)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files: 100%|██████████| 10/10 [00:00<00:00, 2445.80it/s]
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/rnn.py:123: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+[stack] warm in 1.8s (2 languages, 2 voice engines in parallel) — first utterance pays nothing
+[stack] access: OPEN (LAN only); limits 30/client, 60 total, 360 min/session
+[stack] ready on :8790 for ['en', 'de']
+[stack] client: de -> en (context)
+[stack] room open/e2e_de_en_5q64os: +en (primary, utterance)
+[stack] utterance 7.1s speech | lid 0.00s asr 0.24s mt 0.65s tts1[en] 0.70s done 0.71s
+[stack] utterance 11.6s speech | lid 0.00s asr 0.27s mt 0.75s tts1[en] 0.80s done 0.81s
+[stack] room open/e2e_de_en_5q64os: forced cut at 11.3s of 12.0s (sentence)
+[stack] utterance 11.3s speech | lid 0.00s asr 0.28s mt 0.61s tts1[en] 0.66s done 0.67s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.25s mt 0.74s tts1[en] 0.79s done 0.81s
+[stack] utterance 5.4s speech | lid 0.00s asr 0.17s mt 0.44s tts1[en] 0.48s done 0.49s
+[stack] utterance 9.8s speech | lid 0.00s asr 0.23s mt 0.51s tts1[en] 0.55s done 0.60s
+[stack] room open/e2e_de_en_5q64os: forced cut at 9.6s of 12.0s (clause)
+[stack] utterance 9.6s speech | lid 0.00s asr 0.20s mt 0.64s tts1[en] 0.69s done 0.70s
+[stack] utterance 4.2s speech | lid 0.00s asr 0.11s mt 0.31s tts1[en] 0.35s done 0.36s
+[stack] utterance 8.2s speech | lid 0.00s asr 0.17s mt 0.41s tts1[en] 0.45s done 0.50s
+[stack] utterance 9.1s speech | lid 0.00s asr 0.24s mt 0.58s tts1[en] 0.63s done 0.67s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.14s mt 0.39s tts1[en] 0.44s done 0.44s
+[stack] utterance 7.7s speech | lid 0.00s asr 0.18s mt 0.54s tts1[en] 0.59s done 0.60s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.21s mt 0.60s tts1[en] 0.65s done 0.66s
+[stack] utterance 9.7s speech | lid 0.00s asr 0.25s mt 0.60s tts1[en] 0.64s done 0.73s
+[stack] room open/e2e_de_en_5q64os: forced cut at 11.7s of 12.0s (sentence)
+[stack] utterance 11.7s speech | lid 0.00s asr 0.29s mt 0.74s tts1[en] 0.79s done 0.81s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.18s mt 0.45s tts1[en] 0.50s done 0.51s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.21s mt 0.55s tts1[en] 0.60s done 0.64s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.27s mt 0.65s tts1[en] 0.71s done 0.72s
+[stack] utterance 8.9s speech | lid 0.00s asr 0.20s mt 0.51s tts1[en] 0.56s done 0.57s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.21s mt 0.61s tts1[en] 0.66s done 0.70s
+[stack] room open/e2e_de_en_5q64os: forced cut at 11.3s of 12.0s (sentence)
+[stack] utterance 11.3s speech | lid 0.00s asr 0.28s mt 0.59s tts1[en] 0.64s done 0.65s
+[stack] dropped short noise (p=0.53): Bekannt.
