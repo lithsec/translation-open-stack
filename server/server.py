@@ -200,8 +200,10 @@ STREAM_MAX_WORDS = int(os.environ.get("LITHOS_STREAM_MAX_WORDS", 8))
 STREAM_MIN_WORDS = int(os.environ.get("LITHOS_STREAM_MIN_WORDS", 4))
 # Words that must pile up before a mere comma is accepted as a boundary.
 STREAM_COMMA_WORDS = int(os.environ.get("LITHOS_STREAM_COMMA_WORDS", 6))
-# The commit policy when a client names none (?policy=): "clause", the rules above, or "agree", where the
-# translator decides (agree.py). Agree runs only on the directions Gemma serves and agree.eligible() takes.
+# The commit policy when a client names none (?policy=): "clause", the rules above; "agree", where the
+# translator decides (agree.py), on the directions Gemma serves and agree.eligible() takes; or "thought", where
+# Gemma decides when a thought is complete (thought.py) on the directions thought.eligible() takes, and agree or
+# the clause rule elsewhere.
 STREAM_POLICY = os.environ.get("LITHOS_STREAM_POLICY", "clause")
 # Buffer trimming (LITHOS_TRIM=1): once a turn's buffer passes this, cut it at
 # the end of the SECOND-to-last whisper segment -- the last one is still
@@ -545,6 +547,22 @@ class Pipeline:
         return agree.AgreeTurn(lambda prompt: eng.ask(src, lang, prompt), names.get(src, src),
                                names.get(lang, lang), llmmt.context_head(context, src, lang))
 
+    def thought_turn(self, src, langs, context=()):
+        """A thought.ThoughtTurn for a turn spoken in src and heard in langs, deciding on the Gemma chat server one
+        of those directions names; None (and agree or the clause rule) when none does."""
+        import thought
+        from engines import llmmt
+        eng = self.engines.get("translator", "llmmt")
+        if eng is None or not getattr(eng, "available", False):
+            return None
+        for lg in langs:
+            if (eng.server_for(src, lg) or ("",))[0] == "chat" and eng.supports_pair(src, lg):
+                names = llmmt.NAMES
+                return thought.ThoughtTurn(lambda p, lg=lg: eng.ask(src, lg, p, thought.THOUGHT_MAX_TOKENS),
+                                           resume_point, names.get(src, src), [names.get(t, t) for t in langs],
+                                           context)
+        return None
+
     def synthesise_futures(self, text, lang, edition=None):
         """This utterance's audio, one future per sentence, in order (engines/manager.py),
         in the connection's edition."""
@@ -731,10 +749,12 @@ class Room:
         # cough cannot make itself the room's language.
         self.lid_commit = None
         # Simultaneous mode, decided by whoever opens the room (?stream=1), and its commit
-        # policy (?policy=): "clause" or "agree" (agree.py: lang -> AgreeTurn for this turn).
+        # policy (?policy=): "clause", "agree" (agree.py: lang -> AgreeTurn for this turn) or "thought"
+        # (thought.py: the turn's one ThoughtTurn; False until the turn's first pass decides, None: none).
         self.stream = False
         self.policy = "clause"
         self.agree = {}
+        self.thought = False
         self.since_asr_ms = 0.0
         self.last_pass = ""       # previous pass's text, for LocalAgreement
         self.translated_n = 0     # words already translated AND spoken
@@ -1138,13 +1158,23 @@ async def room_speak(pipe, room, lg, w, tr):
 
 
 async def room_flush(pipe, room, words, final):
-    """Translate and speak what the committed words allow: by the room's policy for the directions that agree
-    (agree.py), by whole clauses for the rest (room_clause_flush).
+    """Translate and speak what the committed words allow: by the room's policy for the directions it takes
+    (thought.py, then agree.py), by whole clauses for the rest (room_clause_flush).
 
     A member whose language is the one being spoken is served the microphone at the turn boundary, not a
     piece-by-piece re-speak of their own words."""
     members = [(lg, ws_) for lg, ws_ in room.groups().items() if lg != room.turn_src]
-    if room.policy == "agree" and members:
+    if room.policy == "thought" and members:
+        import thought
+        cut = [(lg, w) for lg, w in members if thought.eligible(room.turn_src, lg)]
+        if cut and room.thought is False:
+            ctx = room.context.before(room.turn_src) or {}
+            room.thought = pipe.thought_turn(room.turn_src, [lg for lg, _ in cut], ctx.get("pieces") or [])
+        if cut and room.thought is not None:
+            await room_thought_flush(pipe, room, words, final, cut)
+            members = [(lg, w) for lg, w in members if (lg, w) not in cut]
+    thoughts = room.policy == "thought" and bool(room.thought)   # they record the turn's context
+    if room.policy in ("agree", "thought") and members:
         for lg, _ in members:
             if lg not in room.agree:
                 # Made at the turn's first pass with any words; None: this direction keeps the clause rule.
@@ -1152,10 +1182,29 @@ async def room_flush(pipe, room, words, final):
         agreeing = [(lg, w) for lg, w in members if room.agree.get(lg) is not None]
         if agreeing:
             await room_agree_flush(pipe, room, words, final, agreeing,
-                                   only_agree=len(agreeing) == len(members))
+                                   only_agree=len(agreeing) == len(members) and not thoughts)
         members = [(lg, w) for lg, w in members if room.agree.get(lg) is None]
     if members:
         await room_clause_flush(pipe, room, words, final, members)
+
+
+async def room_thought_flush(pipe, room, words, final, members):
+    """The thought policy for these members (thought.ThoughtTurn, one for the room): translate and speak a thought
+    once two decisions agree it is complete; at the end of the turn, the rest."""
+    import asyncio
+    loop = asyncio.get_running_loop()
+    turn = room.thought
+    if final:
+        piece = turn.finish(words)
+    else:
+        piece = await loop.run_in_executor(None, turn.step, words)
+    if not piece:
+        return
+    langs = [lg for lg, _ in members]
+    context = room.context.before(room.turn_src)
+    translations = await loop.run_in_executor(None, pipe.translate_batch, piece, langs, room.turn_src, context)
+    room.context.after(room.turn_src, piece, dict(zip(langs, translations)))
+    await asyncio.gather(*[room_speak(pipe, room, lg, w, tr) for (lg, w), tr in zip(members, translations) if tr])
 
 
 async def room_agree_flush(pipe, room, words, final, members, only_agree):
@@ -1347,6 +1396,7 @@ async def room_pass(pipe, room, audio, src, final, ctx=None):
         room.translated_n = 0
         room.spoken_words = []
         room.agree = {}
+        room.thought = False
         room.turn_src = None
     elif room.translated_n > spoke:
         print("[stack] commit %d->%d words at %.1fs buffered (%.2fs)" % (
@@ -1528,7 +1578,7 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, co
                 # speaker's first words must not be glued onto its tail.
                 room.buf = np.zeros(0, dtype=np.float32)
                 room.fixed_words, room.trimmed_audio = [], []
-                room.agree = {}
+                room.agree, room.thought = {}, False
                 room.turn_gen += 1
                 room.quiet_ms = 0.0
                 room.speech_seen = False
@@ -1592,10 +1642,11 @@ def parse_request(q, pipe):
     if room is not None and not ROOM_ID_RE.fullmatch(room):
         raise BadRequest("room must be 1-64 letters, digits, '-' or '_'")
 
-    # Simultaneous mode's commit policy (?stream=1 rooms): "clause" (the default) or "agree" (agree.py).
+    # Simultaneous mode's commit policy (?stream=1 rooms): "clause" (the default), "agree" (agree.py) or
+    # "thought" (thought.py, and agree where it does not apply).
     policy = arg("policy") or STREAM_POLICY
-    if policy not in ("clause", "agree"):
-        raise BadRequest(f"policy {clean(policy, 24)!r} is not understood; use clause or agree")
+    if policy not in ("clause", "agree", "thought"):
+        raise BadRequest(f"policy {clean(policy, 24)!r} is not understood; use clause, agree or thought")
 
     flag = lambda name: arg(name, "0") not in ("0", "", "false")  # noqa: E731
     return {"lang": lang, "src": src, "route_to": route == "to", "cands": cands, "room": room,

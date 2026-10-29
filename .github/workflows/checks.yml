@@ -42,6 +42,7 @@ jobs:
           python tests/test_nonspeech.py
           python tests/test_streaming.py
           python tests/test_agree.py
+          python tests/test_thought.py
           python tests/test_engines.py
           python tests/test_translation_context.py
           python tests/test_llmmt.py
