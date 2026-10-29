@@ -1,0 +1,1655 @@
+{
+ "lang": "fr",
+ "model": "nvidia/nemotron-3.5-asr-streaming-0.6b@ea30d66debe3740a08b573244286791d423d6b3e",
+ "att_context_size": [
+  56,
+  6
+ ],
+ "err": "",
+ "partials": [
+  {
+   "t": 2204.8,
+   "text": "Les lions sont l'é",
+   "offsetMs": 1152.0,
+   "stable": 3
+  },
+  {
+   "t": 2763.8,
+   "text": "Les lions sont l'échelle les plus",
+   "offsetMs": 1152.0,
+   "stable": 5
+  },
+  {
+   "t": 3324.0,
+   "text": "Les lions sont l'échelle les plus sociables",
+   "offsetMs": 1152.0,
+   "stable": 6
+  },
+  {
+   "t": 3884.1,
+   "text": "Les lions sont l'échelle les plus sociables, vivant en",
+   "offsetMs": 1152.0,
+   "stable": 8
+  },
+  {
+   "t": 4444.1,
+   "text": "Les lions sont l'échelle les plus sociables, vivant en grand groupe",
+   "offsetMs": 1152.0,
+   "stable": 10
+  },
+  {
+   "t": 5003.4,
+   "text": "Les lions sont l'échelle les plus sociables, vivant en grand groupe appelé",
+   "offsetMs": 1152.0,
+   "stable": 11
+  },
+  {
+   "t": 5563.3,
+   "text": "Les lions sont l'échelle les plus sociables, vivant en grand groupe appelé Muth",
+   "offsetMs": 1152.0,
+   "stable": 12
+  },
+  {
+   "t": 7242.9,
+   "text": "dans",
+   "offsetMs": 6688.0,
+   "stable": 0
+  },
+  {
+   "t": 7804.5,
+   "text": "dans le climat chaud",
+   "offsetMs": 6688.0,
+   "stable": 3
+  },
+  {
+   "t": 8364.0,
+   "text": "dans le climat chaud du Moyen Ori",
+   "offsetMs": 6688.0,
+   "stable": 6
+  },
+  {
+   "t": 8925.1,
+   "text": "dans le climat chaud du Moyen Orient, la maison",
+   "offsetMs": 6688.0,
+   "stable": 8
+  },
+  {
+   "t": 9483.8,
+   "text": "dans le climat chaud du Moyen Orient, la maison n'était pas",
+   "offsetMs": 6688.0,
+   "stable": 10
+  },
+  {
+   "t": 10044.4,
+   "text": "dans le climat chaud du Moyen Orient, la maison n'était pas assez importante",
+   "offsetMs": 6688.0,
+   "stable": 12
+  },
+  {
+   "t": 12283.6,
+   "text": "presque",
+   "offsetMs": 11904.0,
+   "stable": 0
+  },
+  {
+   "t": 12843.5,
+   "text": "presque toutes les",
+   "offsetMs": 11904.0,
+   "stable": 2
+  },
+  {
+   "t": 13403.9,
+   "text": "presque toutes les pirages sont",
+   "offsetMs": 11904.0,
+   "stable": 4
+  },
+  {
+   "t": 13964.1,
+   "text": "presque toutes les pirages sont sablonneuses",
+   "offsetMs": 11904.0,
+   "stable": 5
+  },
+  {
+   "t": 14524.9,
+   "text": "presque toutes les pirages sont sablonneuses et permettent de se ba",
+   "offsetMs": 11904.0,
+   "stable": 10
+  },
+  {
+   "t": 15086.7,
+   "text": "presque toutes les pirages sont sablonneuses et permettent de se baigner en toute",
+   "offsetMs": 11904.0,
+   "stable": 12
+  },
+  {
+   "t": 15644.5,
+   "text": "presque toutes les pirages sont sablonneuses et permettent de se baigner en toute sécurité",
+   "offsetMs": 11904.0,
+   "stable": 13
+  },
+  {
+   "t": 16203.1,
+   "text": "presque toutes les pirages sont sablonneuses et permettent de se baigner en toute sécurité qui",
+   "offsetMs": 11904.0,
+   "stable": 14
+  },
+  {
+   "t": 16764.3,
+   "text": "presque toutes les pirages sont sablonneuses et permettent de se baigner en toute sécurité qui la plupart",
+   "offsetMs": 11904.0,
+   "stable": 16
+  },
+  {
+   "t": 17323.9,
+   "text": "presque toutes les pirages sont sablonneuses et permettent de se baigner en toute sécurité qui la plupart sont ombrag",
+   "offsetMs": 11904.0,
+   "stable": 18
+  },
+  {
+   "t": 17883.5,
+   "text": "presque toutes les pirages sont sablonneuses et permettent de se baigner en toute sécurité qui la plupart sont ombragés par des",
+   "offsetMs": 11904.0,
+   "stable": 20
+  },
+  {
+   "t": 18443.1,
+   "text": "presque toutes les pirages sont sablonneuses et permettent de se baigner en toute sécurité qui la plupart sont ombragés par des po",
+   "offsetMs": 11904.0,
+   "stable": 21
+  },
+  {
+   "t": 19004.2,
+   "text": "presque toutes les pirages sont sablonneuses et permettent de se baigner en toute sécurité qui la plupart sont ombragés par des pouds du cacawa",
+   "offsetMs": 11904.0,
+   "stable": 23
+  },
+  {
+   "t": 21243.7,
+   "text": "l'éme",
+   "offsetMs": 20896.0,
+   "stable": 0
+  },
+  {
+   "t": 21803.5,
+   "text": "l'émeute sont",
+   "offsetMs": 20896.0,
+   "stable": 1
+  },
+  {
+   "t": 22363.6,
+   "text": "l'émeute sont composées",
+   "offsetMs": 20896.0,
+   "stable": 2
+  },
+  {
+   "t": 22926.6,
+   "text": "l'émeute sont composées d'un trois mâ",
+   "offsetMs": 20896.0,
+   "stable": 5
+  },
+  {
+   "t": 23484.2,
+   "text": "l'émeute sont composées d'un trois mâles adultes",
+   "offsetMs": 20896.0,
+   "stable": 6
+  },
+  {
+   "t": 24043.2,
+   "text": "l'émeute sont composées d'un trois mâles adultes appar",
+   "offsetMs": 20896.0,
+   "stable": 7
+  },
+  {
+   "t": 24604.2,
+   "text": "l'émeute sont composées d'un trois mâles adultes apparentés ainsi",
+   "offsetMs": 20896.0,
+   "stable": 8
+  },
+  {
+   "t": 25164.1,
+   "text": "l'émeute sont composées d'un trois mâles adultes apparentés ainsi que d'une",
+   "offsetMs": 20896.0,
+   "stable": 10
+  },
+  {
+   "t": 25726.1,
+   "text": "l'émeute sont composées d'un trois mâles adultes apparentés ainsi que d'une trentaine de fem",
+   "offsetMs": 20896.0,
+   "stable": 13
+  },
+  {
+   "t": 26284.1,
+   "text": "l'émeute sont composées d'un trois mâles adultes apparentés ainsi que d'une trentaine de femelles et de",
+   "offsetMs": 20896.0,
+   "stable": 15
+  },
+  {
+   "t": 26844.1,
+   "text": "l'émeute sont composées d'un trois mâles adultes apparentés ainsi que d'une trentaine de femelles et de lionceaux",
+   "offsetMs": 20896.0,
+   "stable": 16
+  },
+  {
+   "t": 29083.9,
+   "text": "Les enfants",
+   "offsetMs": 28224.0,
+   "stable": 1
+  },
+  {
+   "t": 29644.4,
+   "text": "Les enfants sauvages peuvent",
+   "offsetMs": 28224.0,
+   "stable": 3
+  },
+  {
+   "t": 30203.7,
+   "text": "Les enfants sauvages peuvent avoir suivi",
+   "offsetMs": 28224.0,
+   "stable": 5
+  },
+  {
+   "t": 30763.3,
+   "text": "Les enfants sauvages peuvent avoir suivi de gra",
+   "offsetMs": 28224.0,
+   "stable": 7
+  },
+  {
+   "t": 31323.2,
+   "text": "Les enfants sauvages peuvent avoir suivi de graves",
+   "offsetMs": 28224.0,
+   "stable": 7
+  },
+  {
+   "t": 31883.8,
+   "text": "Les enfants sauvages peuvent avoir suivi de graves abus",
+   "offsetMs": 28224.0,
+   "stable": 8
+  },
+  {
+   "t": 32444.0,
+   "text": "Les enfants sauvages peuvent avoir suivi de graves abus ou trau",
+   "offsetMs": 28224.0,
+   "stable": 10
+  },
+  {
+   "t": 33003.8,
+   "text": "Les enfants sauvages peuvent avoir suivi de graves abus ou traumatismes",
+   "offsetMs": 28224.0,
+   "stable": 10
+  },
+  {
+   "t": 33564.1,
+   "text": "Les enfants sauvages peuvent avoir suivi de graves abus ou traumatismes avant d'être",
+   "offsetMs": 28224.0,
+   "stable": 12
+  },
+  {
+   "t": 34124.6,
+   "text": "Les enfants sauvages peuvent avoir suivi de graves abus ou traumatismes avant d'être abandonnés ou",
+   "offsetMs": 28224.0,
+   "stable": 14
+  },
+  {
+   "t": 34684.7,
+   "text": "Les enfants sauvages peuvent avoir suivi de graves abus ou traumatismes avant d'être abandonnés ou de s'enfuir",
+   "offsetMs": 28224.0,
+   "stable": 16
+  },
+  {
+   "t": 36928.3,
+   "text": "Le bus",
+   "offsetMs": 36160.0,
+   "stable": 1
+  },
+  {
+   "t": 37485.3,
+   "text": "Le bus quatre cent tr",
+   "offsetMs": 36160.0,
+   "stable": 4
+  },
+  {
+   "t": 38043.9,
+   "text": "Le bus quatre cent trois de Sco",
+   "offsetMs": 36160.0,
+   "stable": 6
+  },
+  {
+   "t": 38603.7,
+   "text": "Le bus quatre cent trois de Scotterb",
+   "offsetMs": 36160.0,
+   "stable": 6
+  },
+  {
+   "t": 39164.5,
+   "text": "Le bus quatre cent trois de Scotterb seront régul",
+   "offsetMs": 36160.0,
+   "stable": 8
+  },
+  {
+   "t": 39723.4,
+   "text": "Le bus quatre cent trois de Scotterb seront régulièrement",
+   "offsetMs": 36160.0,
+   "stable": 8
+  },
+  {
+   "t": 40283.7,
+   "text": "Le bus quatre cent trois de Scotterb seront régulièrement à Sintra",
+   "offsetMs": 36160.0,
+   "stable": 10
+  },
+  {
+   "t": 41403.3,
+   "text": "avec un",
+   "offsetMs": 40608.0,
+   "stable": 1
+  },
+  {
+   "t": 41963.7,
+   "text": "avec un arrêt",
+   "offsetMs": 40608.0,
+   "stable": 2
+  },
+  {
+   "t": 42524.4,
+   "text": "avec un arrêt à cabo d'ar",
+   "offsetMs": 40608.0,
+   "stable": 5
+  },
+  {
+   "t": 43083.4,
+   "text": "avec un arrêt à cabo d'aroca",
+   "offsetMs": 40608.0,
+   "stable": 5
+  },
+  {
+   "t": 44763.2,
+   "text": "pour",
+   "offsetMs": 44352.0,
+   "stable": 0
+  },
+  {
+   "t": 45324.0,
+   "text": "pour admirer les",
+   "offsetMs": 44352.0,
+   "stable": 2
+  },
+  {
+   "t": 45883.8,
+   "text": "pour admirer les plus beaux pa",
+   "offsetMs": 44352.0,
+   "stable": 5
+  },
+  {
+   "t": 46443.7,
+   "text": "pour admirer les plus beaux panoramas de",
+   "offsetMs": 44352.0,
+   "stable": 6
+  },
+  {
+   "t": 47004.0,
+   "text": "pour admirer les plus beaux panoramas de Hong Kong",
+   "offsetMs": 44352.0,
+   "stable": 8
+  },
+  {
+   "t": 47563.3,
+   "text": "pour admirer les plus beaux panoramas de Hong Kong,",
+   "offsetMs": 44352.0,
+   "stable": 8
+  },
+  {
+   "t": 48124.4,
+   "text": "pour admirer les plus beaux panoramas de Hong Kong, quittez l'île",
+   "offsetMs": 44352.0,
+   "stable": 10
+  },
+  {
+   "t": 48684.6,
+   "text": "pour admirer les plus beaux panoramas de Hong Kong, quittez l'île et rejoigner le",
+   "offsetMs": 44352.0,
+   "stable": 13
+  },
+  {
+   "t": 49244.4,
+   "text": "pour admirer les plus beaux panoramas de Hong Kong, quittez l'île et rejoigner le front de mer",
+   "offsetMs": 44352.0,
+   "stable": 16
+  },
+  {
+   "t": 49803.2,
+   "text": "pour admirer les plus beaux panoramas de Hong Kong, quittez l'île et rejoigner le front de mer de",
+   "offsetMs": 44352.0,
+   "stable": 17
+  },
+  {
+   "t": 50363.8,
+   "text": "pour admirer les plus beaux panoramas de Hong Kong, quittez l'île et rejoigner le front de mer de Colwoon",
+   "offsetMs": 44352.0,
+   "stable": 18
+  },
+  {
+   "t": 50923.6,
+   "text": "pour admirer les plus beaux panoramas de Hong Kong, quittez l'île et rejoigner le front de mer de Colwoon si",
+   "offsetMs": 44352.0,
+   "stable": 19
+  },
+  {
+   "t": 51483.9,
+   "text": "pour admirer les plus beaux panoramas de Hong Kong, quittez l'île et rejoigner le front de mer de Colwoon situé en face",
+   "offsetMs": 44352.0,
+   "stable": 21
+  },
+  {
+   "t": 53727.3,
+   "text": "Les opinions",
+   "offsetMs": 52864.0,
+   "stable": 1
+  },
+  {
+   "t": 54289.1,
+   "text": "Les opinions d'aristo",
+   "offsetMs": 52864.0,
+   "stable": 2
+  },
+  {
+   "t": 54844.5,
+   "text": "Les opinions d'aristote sur toutes",
+   "offsetMs": 52864.0,
+   "stable": 4
+  },
+  {
+   "t": 55404.2,
+   "text": "Les opinions d'aristote sur toutes les questions",
+   "offsetMs": 52864.0,
+   "stable": 6
+  },
+  {
+   "t": 56524.4,
+   "text": "Les opinions d'aristote sur toutes les questions scientifiques",
+   "offsetMs": 52864.0,
+   "stable": 7
+  },
+  {
+   "t": 57084.2,
+   "text": "Les opinions d'aristote sur toutes les questions scientifiques, y compris",
+   "offsetMs": 52864.0,
+   "stable": 9
+  },
+  {
+   "t": 57644.6,
+   "text": "Les opinions d'aristote sur toutes les questions scientifiques, y compris la psychologie",
+   "offsetMs": 52864.0,
+   "stable": 11
+  },
+  {
+   "t": 58203.9,
+   "text": "Les opinions d'aristote sur toutes les questions scientifiques, y compris la psychologie, ont",
+   "offsetMs": 52864.0,
+   "stable": 12
+  },
+  {
+   "t": 58763.2,
+   "text": "Les opinions d'aristote sur toutes les questions scientifiques, y compris la psychologie, ont été",
+   "offsetMs": 52864.0,
+   "stable": 13
+  },
+  {
+   "t": 59324.2,
+   "text": "Les opinions d'aristote sur toutes les questions scientifiques, y compris la psychologie, ont été acceptées",
+   "offsetMs": 52864.0,
+   "stable": 14
+  },
+  {
+   "t": 62124.3,
+   "text": "l'australien",
+   "offsetMs": 61280.0,
+   "stable": 0
+  },
+  {
+   "t": 63244.4,
+   "text": "l'australien Mitchell Gourle",
+   "offsetMs": 61280.0,
+   "stable": 2
+  },
+  {
+   "t": 63804.2,
+   "text": "l'australien Mitchell Gourlet est arrivé",
+   "offsetMs": 61280.0,
+   "stable": 4
+  },
+  {
+   "t": 64364.0,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième",
+   "offsetMs": 61280.0,
+   "stable": 5
+  },
+  {
+   "t": 64923.8,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super",
+   "offsetMs": 61280.0,
+   "stable": 7
+  },
+  {
+   "t": 65483.4,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G",
+   "offsetMs": 61280.0,
+   "stable": 8
+  },
+  {
+   "t": 66043.7,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debou",
+   "offsetMs": 61280.0,
+   "stable": 9
+  },
+  {
+   "t": 66603.3,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout",
+   "offsetMs": 61280.0,
+   "stable": 9
+  },
+  {
+   "t": 67163.8,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme",
+   "offsetMs": 61280.0,
+   "stable": 10
+  },
+  {
+   "t": 67724.0,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme le tch",
+   "offsetMs": 61280.0,
+   "stable": 12
+  },
+  {
+   "t": 68284.1,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme le tchèque Ul",
+   "offsetMs": 61280.0,
+   "stable": 13
+  },
+  {
+   "t": 68844.5,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme le tchèque Uldrich",
+   "offsetMs": 61280.0,
+   "stable": 13
+  },
+  {
+   "t": 69404.2,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme le tchèque Uldrich Jeli",
+   "offsetMs": 61280.0,
+   "stable": 14
+  },
+  {
+   "t": 69963.6,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme le tchèque Uldrich Jelinek",
+   "offsetMs": 61280.0,
+   "stable": 14
+  },
+  {
+   "t": 70525.3,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme le tchèque Uldrich Jelinek s'est classé seizi",
+   "offsetMs": 61280.0,
+   "stable": 17
+  },
+  {
+   "t": 71084.1,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme le tchèque Uldrich Jelinek s'est classé seizième",
+   "offsetMs": 61280.0,
+   "stable": 17
+  },
+  {
+   "t": 71644.1,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme le tchèque Uldrich Jelinek s'est classé seizième au Super",
+   "offsetMs": 61280.0,
+   "stable": 19
+  },
+  {
+   "t": 72204.0,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme le tchèque Uldrich Jelinek s'est classé seizième au Super Jhassi",
+   "offsetMs": 61280.0,
+   "stable": 20
+  },
+  {
+   "t": 72764.6,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme le tchèque Uldrich Jelinek s'est classé seizième au Super Jhassi homme.",
+   "offsetMs": 61280.0,
+   "stable": 21
+  },
+  {
+   "t": 75003.7,
+   "text": "La ville",
+   "offsetMs": 83648.0,
+   "stable": 1
+  },
+  {
+   "t": 75563.8,
+   "text": "La ville contraste",
+   "offsetMs": 83648.0,
+   "stable": 2
+  },
+  {
+   "t": 76123.8,
+   "text": "La ville contraste fortement",
+   "offsetMs": 83648.0,
+   "stable": 3
+  },
+  {
+   "t": 76683.5,
+   "text": "La ville contraste fortement avec les",
+   "offsetMs": 83648.0,
+   "stable": 5
+  },
+  {
+   "t": 77243.8,
+   "text": "La ville contraste fortement avec les cités du",
+   "offsetMs": 83648.0,
+   "stable": 7
+  },
+  {
+   "t": 77804.3,
+   "text": "La ville contraste fortement avec les cités du reste du pays",
+   "offsetMs": 83648.0,
+   "stable": 10
+  },
+  {
+   "t": 78924.1,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle",
+   "offsetMs": 83648.0,
+   "stable": 12
+  },
+  {
+   "t": 79484.2,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un",
+   "offsetMs": 83648.0,
+   "stable": 14
+  },
+  {
+   "t": 80043.9,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style",
+   "offsetMs": 83648.0,
+   "stable": 15
+  },
+  {
+   "t": 80604.1,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage",
+   "offsetMs": 83648.0,
+   "stable": 16
+  },
+  {
+   "t": 81163.7,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe",
+   "offsetMs": 83648.0,
+   "stable": 17
+  },
+  {
+   "t": 81724.6,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'afri",
+   "offsetMs": 83648.0,
+   "stable": 18
+  },
+  {
+   "t": 82284.1,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain.",
+   "offsetMs": 83648.0,
+   "stable": 18
+  },
+  {
+   "t": 84524.4,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après",
+   "offsetMs": 83648.0,
+   "stable": 20
+  },
+  {
+   "t": 85084.7,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution",
+   "offsetMs": 83648.0,
+   "stable": 22
+  },
+  {
+   "t": 85645.1,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers",
+   "offsetMs": 83648.0,
+   "stable": 24
+  },
+  {
+   "t": 86204.2,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent",
+   "offsetMs": 83648.0,
+   "stable": 25
+  },
+  {
+   "t": 86764.5,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent ouverts à",
+   "offsetMs": 83648.0,
+   "stable": 27
+  },
+  {
+   "t": 87324.4,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent ouverts à tous les",
+   "offsetMs": 83648.0,
+   "stable": 29
+  },
+  {
+   "t": 87884.5,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent ouverts à tous les candidats mascul",
+   "offsetMs": 83648.0,
+   "stable": 31
+  },
+  {
+   "t": 88443.6,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins",
+   "offsetMs": 83648.0,
+   "stable": 31
+  },
+  {
+   "t": 89004.3,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant",
+   "offsetMs": 83648.0,
+   "stable": 32
+  },
+  {
+   "t": 89564.2,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambi",
+   "offsetMs": 83648.0,
+   "stable": 35
+  },
+  {
+   "t": 90124.0,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambitieux et",
+   "offsetMs": 83648.0,
+   "stable": 36
+  },
+  {
+   "t": 90684.2,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambitieux et aux plus talen",
+   "offsetMs": 83648.0,
+   "stable": 39
+  },
+  {
+   "t": 91244.2,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambitieux et aux plus talentueux de ré",
+   "offsetMs": 83648.0,
+   "stable": 41
+  },
+  {
+   "t": 91803.7,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambitieux et aux plus talentueux de réussir",
+   "offsetMs": 83648.0,
+   "stable": 41
+  },
+  {
+   "t": 93484.2,
+   "text": "la bombe",
+   "offsetMs": 92704.0,
+   "stable": 1
+  },
+  {
+   "t": 94043.9,
+   "text": "la bombe à fission",
+   "offsetMs": 92704.0,
+   "stable": 3
+  },
+  {
+   "t": 94604.7,
+   "text": "la bombe à fission fonctionne selon",
+   "offsetMs": 92704.0,
+   "stable": 5
+  },
+  {
+   "t": 95164.3,
+   "text": "la bombe à fission fonctionne selon le principe",
+   "offsetMs": 92704.0,
+   "stable": 7
+  },
+  {
+   "t": 95724.0,
+   "text": "la bombe à fission fonctionne selon le principe suivant",
+   "offsetMs": 92704.0,
+   "stable": 8
+  },
+  {
+   "t": 96844.4,
+   "text": "la bombe à fission fonctionne selon le principe suivant elle trans",
+   "offsetMs": 92704.0,
+   "stable": 10
+  },
+  {
+   "t": 97404.7,
+   "text": "la bombe à fission fonctionne selon le principe suivant elle transforme l'énergie",
+   "offsetMs": 92704.0,
+   "stable": 11
+  },
+  {
+   "t": 97964.4,
+   "text": "la bombe à fission fonctionne selon le principe suivant elle transforme l'énergie en assemblan",
+   "offsetMs": 92704.0,
+   "stable": 13
+  },
+  {
+   "t": 98524.5,
+   "text": "la bombe à fission fonctionne selon le principe suivant elle transforme l'énergie en assemblant un noyau",
+   "offsetMs": 92704.0,
+   "stable": 15
+  },
+  {
+   "t": 99084.2,
+   "text": "la bombe à fission fonctionne selon le principe suivant elle transforme l'énergie en assemblant un noyau d'une",
+   "offsetMs": 92704.0,
+   "stable": 16
+  },
+  {
+   "t": 99644.4,
+   "text": "la bombe à fission fonctionne selon le principe suivant elle transforme l'énergie en assemblant un noyau d'une myriade de prot",
+   "offsetMs": 92704.0,
+   "stable": 19
+  },
+  {
+   "t": 100205.9,
+   "text": "la bombe à fission fonctionne selon le principe suivant elle transforme l'énergie en assemblant un noyau d'une myriade de protons et neu",
+   "offsetMs": 92704.0,
+   "stable": 21
+  },
+  {
+   "t": 100764.4,
+   "text": "la bombe à fission fonctionne selon le principe suivant elle transforme l'énergie en assemblant un noyau d'une myriade de protons et neutrons",
+   "offsetMs": 92704.0,
+   "stable": 21
+  },
+  {
+   "t": 102444.9,
+   "text": "Il n'a pas",
+   "offsetMs": 101728.0,
+   "stable": 2
+  },
+  {
+   "t": 103004.6,
+   "text": "Il n'a pas chiffré",
+   "offsetMs": 101728.0,
+   "stable": 3
+  },
+  {
+   "t": 103564.6,
+   "text": "Il n'a pas chiffré ces réductions",
+   "offsetMs": 101728.0,
+   "stable": 5
+  },
+  {
+   "t": 104124.0,
+   "text": "Il n'a pas chiffré ces réductions, disant",
+   "offsetMs": 101728.0,
+   "stable": 6
+  },
+  {
+   "t": 104684.9,
+   "text": "Il n'a pas chiffré ces réductions, disant qu'elles seront",
+   "offsetMs": 101728.0,
+   "stable": 8
+  },
+  {
+   "t": 105244.4,
+   "text": "Il n'a pas chiffré ces réductions, disant qu'elles seront basées sur",
+   "offsetMs": 101728.0,
+   "stable": 10
+  },
+  {
+   "t": 105804.2,
+   "text": "Il n'a pas chiffré ces réductions, disant qu'elles seront basées sur la production",
+   "offsetMs": 101728.0,
+   "stable": 12
+  },
+  {
+   "t": 106364.3,
+   "text": "Il n'a pas chiffré ces réductions, disant qu'elles seront basées sur la production économique",
+   "offsetMs": 101728.0,
+   "stable": 13
+  },
+  {
+   "t": 106924.2,
+   "text": "Il n'a pas chiffré ces réductions, disant qu'elles seront basées sur la production économique chinoise",
+   "offsetMs": 101728.0,
+   "stable": 14
+  },
+  {
+   "t": 109165.4,
+   "text": "Il n'existe pas",
+   "offsetMs": 124064.0,
+   "stable": 2
+  },
+  {
+   "t": 109725.6,
+   "text": "Il n'existe pas de défini",
+   "offsetMs": 124064.0,
+   "stable": 4
+  },
+  {
+   "t": 110285.3,
+   "text": "Il n'existe pas de définition univer",
+   "offsetMs": 124064.0,
+   "stable": 5
+  },
+  {
+   "t": 110843.7,
+   "text": "Il n'existe pas de définition universelle",
+   "offsetMs": 124064.0,
+   "stable": 5
+  },
+  {
+   "t": 111403.6,
+   "text": "Il n'existe pas de définition universelle per",
+   "offsetMs": 124064.0,
+   "stable": 6
+  },
+  {
+   "t": 111964.2,
+   "text": "Il n'existe pas de définition universelle permettant de",
+   "offsetMs": 124064.0,
+   "stable": 7
+  },
+  {
+   "t": 112524.2,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer",
+   "offsetMs": 124064.0,
+   "stable": 8
+  },
+  {
+   "t": 113084.6,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet",
+   "offsetMs": 124064.0,
+   "stable": 11
+  },
+  {
+   "t": 113643.7,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manu",
+   "offsetMs": 124064.0,
+   "stable": 12
+  },
+  {
+   "t": 114204.2,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé",
+   "offsetMs": 124064.0,
+   "stable": 12
+  },
+  {
+   "t": 114763.8,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une",
+   "offsetMs": 124064.0,
+   "stable": 14
+  },
+  {
+   "t": 115324.2,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité",
+   "offsetMs": 124064.0,
+   "stable": 15
+  },
+  {
+   "t": 116444.3,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Cer",
+   "offsetMs": 124064.0,
+   "stable": 16
+  },
+  {
+   "t": 117004.4,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organ",
+   "offsetMs": 124064.0,
+   "stable": 17
+  },
+  {
+   "t": 117563.8,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes",
+   "offsetMs": 124064.0,
+   "stable": 17
+  },
+  {
+   "t": 118124.1,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux",
+   "offsetMs": 124064.0,
+   "stable": 18
+  },
+  {
+   "t": 118683.9,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux défini",
+   "offsetMs": 124064.0,
+   "stable": 19
+  },
+  {
+   "t": 119243.9,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux définissent les",
+   "offsetMs": 124064.0,
+   "stable": 20
+  },
+  {
+   "t": 119804.1,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux définissent les biens de plus",
+   "offsetMs": 124064.0,
+   "stable": 23
+  },
+  {
+   "t": 120364.2,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux définissent les biens de plus de cent an",
+   "offsetMs": 124064.0,
+   "stable": 26
+  },
+  {
+   "t": 120924.2,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux définissent les biens de plus de cent ans",
+   "offsetMs": 124064.0,
+   "stable": 26
+  },
+  {
+   "t": 121484.1,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux définissent les biens de plus de cent ans comme des",
+   "offsetMs": 124064.0,
+   "stable": 28
+  },
+  {
+   "t": 122044.7,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux définissent les biens de plus de cent ans comme des antiquités",
+   "offsetMs": 124064.0,
+   "stable": 29
+  },
+  {
+   "t": 124286.2,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux définissent les biens de plus de cent ans comme des antiquités. Vous n'avez pas for",
+   "offsetMs": 124064.0,
+   "stable": 33
+  },
+  {
+   "t": 124845.0,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux définissent les biens de plus de cent ans comme des antiquités. Vous n'avez pas forcément besoin",
+   "offsetMs": 124064.0,
+   "stable": 34
+  },
+  {
+   "t": 125405.0,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux définissent les biens de plus de cent ans comme des antiquités. Vous n'avez pas forcément besoin d'un yacht",
+   "offsetMs": 124064.0,
+   "stable": 36
+  },
+  {
+   "t": 125964.5,
+   "text": "dans les ar",
+   "offsetMs": 126560.0,
+   "stable": 2
+  },
+  {
+   "t": 126524.6,
+   "text": "dans les archipels",
+   "offsetMs": 126560.0,
+   "stable": 2
+  },
+  {
+   "t": 127084.0,
+   "text": "dans les archipels, mais sur",
+   "offsetMs": 126560.0,
+   "stable": 4
+  },
+  {
+   "t": 127644.2,
+   "text": "dans les archipels, mais sur les lacs",
+   "offsetMs": 126560.0,
+   "stable": 6
+  },
+  {
+   "t": 130444.4,
+   "text": "On dit donc",
+   "offsetMs": 129920.0,
+   "stable": 2
+  },
+  {
+   "t": 131005.2,
+   "text": "On dit donc que le rapport d'",
+   "offsetMs": 129920.0,
+   "stable": 6
+  },
+  {
+   "t": 131564.4,
+   "text": "On dit donc que le rapport d'aspect de ce",
+   "offsetMs": 129920.0,
+   "stable": 8
+  },
+  {
+   "t": 132124.7,
+   "text": "On dit donc que le rapport d'aspect de ce format en di",
+   "offsetMs": 129920.0,
+   "stable": 11
+  },
+  {
+   "t": 132685.1,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par douze",
+   "offsetMs": 129920.0,
+   "stable": 13
+  },
+  {
+   "t": 133244.7,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le",
+   "offsetMs": 129920.0,
+   "stable": 16
+  },
+  {
+   "t": 133804.3,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple",
+   "offsetMs": 129920.0,
+   "stable": 18
+  },
+  {
+   "t": 134364.4,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapports",
+   "offsetMs": 129920.0,
+   "stable": 20
+  },
+  {
+   "t": 134924.2,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapports de nombre en",
+   "offsetMs": 129920.0,
+   "stable": 23
+  },
+  {
+   "t": 135483.8,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapports de nombre entier",
+   "offsetMs": 129920.0,
+   "stable": 23
+  },
+  {
+   "t": 136044.4,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapports de nombre entier est de trois",
+   "offsetMs": 129920.0,
+   "stable": 26
+  },
+  {
+   "t": 136603.8,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapports de nombre entier est de trois sur deux",
+   "offsetMs": 129920.0,
+   "stable": 28
+  },
+  {
+   "t": 138285.4,
+   "text": "Sa réputation",
+   "offsetMs": 137536.0,
+   "stable": 1
+  },
+  {
+   "t": 138844.5,
+   "text": "Sa réputation en tant qu'",
+   "offsetMs": 137536.0,
+   "stable": 4
+  },
+  {
+   "t": 139404.3,
+   "text": "Sa réputation en tant qu'épicentre",
+   "offsetMs": 137536.0,
+   "stable": 4
+  },
+  {
+   "t": 139964.3,
+   "text": "Sa réputation en tant qu'épicentre du luxe",
+   "offsetMs": 137536.0,
+   "stable": 6
+  },
+  {
+   "t": 140524.4,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté",
+   "offsetMs": 137536.0,
+   "stable": 8
+  },
+  {
+   "t": 141084.9,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de",
+   "offsetMs": 137536.0,
+   "stable": 11
+  },
+  {
+   "t": 141644.6,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'enquête",
+   "offsetMs": 137536.0,
+   "stable": 12
+  },
+  {
+   "t": 142204.4,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'enquête cent et a",
+   "offsetMs": 137536.0,
+   "stable": 15
+  },
+  {
+   "t": 142765.4,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'enquête cent et a duré jusqu'à mille",
+   "offsetMs": 137536.0,
+   "stable": 18
+  },
+  {
+   "t": 143324.7,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'enquête cent et a duré jusqu'à mille cent environ",
+   "offsetMs": 137536.0,
+   "stable": 20
+  },
+  {
+   "t": 146125.1,
+   "text": "Les politiques",
+   "offsetMs": 145440.0,
+   "stable": 1
+  },
+  {
+   "t": 146684.9,
+   "text": "Les politiques d'annulation",
+   "offsetMs": 145440.0,
+   "stable": 2
+  },
+  {
+   "t": 147244.1,
+   "text": "Les politiques d'annulation varient",
+   "offsetMs": 145440.0,
+   "stable": 3
+  },
+  {
+   "t": 147804.3,
+   "text": "Les politiques d'annulation varient mais à partir de",
+   "offsetMs": 145440.0,
+   "stable": 7
+  },
+  {
+   "t": 148364.5,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars",
+   "offsetMs": 145440.0,
+   "stable": 9
+  },
+  {
+   "t": 148925.3,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des po",
+   "offsetMs": 145440.0,
+   "stable": 13
+  },
+  {
+   "t": 149485.0,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'an",
+   "offsetMs": 145440.0,
+   "stable": 14
+  },
+  {
+   "t": 150044.7,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basée",
+   "offsetMs": 145440.0,
+   "stable": 15
+  },
+  {
+   "t": 150604.2,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le",
+   "offsetMs": 145440.0,
+   "stable": 17
+  },
+  {
+   "t": 151164.7,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus",
+   "offsetMs": 145440.0,
+   "stable": 18
+  },
+  {
+   "t": 151724.0,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne",
+   "offsetMs": 145440.0,
+   "stable": 19
+  },
+  {
+   "t": 152284.9,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas",
+   "offsetMs": 145440.0,
+   "stable": 21
+  },
+  {
+   "t": 152845.2,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet",
+   "offsetMs": 145440.0,
+   "stable": 23
+  },
+  {
+   "t": 153404.7,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille vingt",
+   "offsetMs": 145440.0,
+   "stable": 26
+  },
+  {
+   "t": 153964.1,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille vingt datent à",
+   "offsetMs": 145440.0,
+   "stable": 28
+  },
+  {
+   "t": 154524.5,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille vingt datent à laquelle les",
+   "offsetMs": 145440.0,
+   "stable": 30
+  },
+  {
+   "t": 155085.1,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille vingt datent à laquelle les Jeux olympiques",
+   "offsetMs": 145440.0,
+   "stable": 32
+  },
+  {
+   "t": 156204.4,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille vingt datent à laquelle les Jeux olympiques avaient été prévu",
+   "offsetMs": 145440.0,
+   "stable": 35
+  },
+  {
+   "t": 156763.8,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille vingt datent à laquelle les Jeux olympiques avaient été prévues",
+   "offsetMs": 145440.0,
+   "stable": 35
+  },
+  {
+   "t": 159564.3,
+   "text": "mélanger",
+   "offsetMs": 158784.0,
+   "stable": 0
+  },
+  {
+   "t": 160124.5,
+   "text": "mélanger les deux poudres",
+   "offsetMs": 158784.0,
+   "stable": 3
+  },
+  {
+   "t": 160687.0,
+   "text": "mélanger les deux poudres sèches en",
+   "offsetMs": 158784.0,
+   "stable": 5
+  },
+  {
+   "t": 161244.6,
+   "text": "mélanger les deux poudres sèches ensemble, puis",
+   "offsetMs": 158784.0,
+   "stable": 6
+  },
+  {
+   "t": 161804.7,
+   "text": "mélanger les deux poudres sèches ensemble, puis, avec",
+   "offsetMs": 158784.0,
+   "stable": 7
+  },
+  {
+   "t": 162365.0,
+   "text": "mélanger les deux poudres sèches ensemble, puis, avec les mains propre",
+   "offsetMs": 158784.0,
+   "stable": 10
+  },
+  {
+   "t": 162925.1,
+   "text": "mélanger les deux poudres sèches ensemble, puis, avec les mains propres et humi",
+   "offsetMs": 158784.0,
+   "stable": 12
+  },
+  {
+   "t": 163484.9,
+   "text": "mélanger les deux poudres sèches ensemble, puis, avec les mains propres et humides, pré",
+   "offsetMs": 158784.0,
+   "stable": 13
+  },
+  {
+   "t": 164045.1,
+   "text": "mélanger les deux poudres sèches ensemble, puis, avec les mains propres et humides, précélés en une boul",
+   "offsetMs": 158784.0,
+   "stable": 16
+  },
+  {
+   "t": 164604.0,
+   "text": "mélanger les deux poudres sèches ensemble, puis, avec les mains propres et humides, précélés en une boule",
+   "offsetMs": 158784.0,
+   "stable": 16
+  },
+  {
+   "t": 166845.9,
+   "text": "les croisées en Saint",
+   "offsetMs": 166112.0,
+   "stable": 3
+  },
+  {
+   "t": 167404.8,
+   "text": "les croisées en Saint-Pétersbour",
+   "offsetMs": 166112.0,
+   "stable": 3
+  },
+  {
+   "t": 167964.5,
+   "text": "les croisées en Saint-Pétersbourg inclu",
+   "offsetMs": 166112.0,
+   "stable": 4
+  },
+  {
+   "t": 168524.5,
+   "text": "les croisées en Saint-Pétersbourg incluent du temps",
+   "offsetMs": 166112.0,
+   "stable": 6
+  },
+  {
+   "t": 169084.9,
+   "text": "les croisées en Saint-Pétersbourg incluent du temps passé dans la vill",
+   "offsetMs": 166112.0,
+   "stable": 10
+  },
+  {
+   "t": 169643.9,
+   "text": "les croisées en Saint-Pétersbourg incluent du temps passé dans la ville",
+   "offsetMs": 166112.0,
+   "stable": 10
+  },
+  {
+   "t": 170204.3,
+   "text": "les passa",
+   "offsetMs": 169760.0,
+   "stable": 1
+  },
+  {
+   "t": 170764.4,
+   "text": "les passagers des",
+   "offsetMs": 169760.0,
+   "stable": 2
+  },
+  {
+   "t": 171324.9,
+   "text": "les passagers des croisières sont",
+   "offsetMs": 169760.0,
+   "stable": 4
+  },
+  {
+   "t": 171884.5,
+   "text": "les passagers des croisières sont exemptés de",
+   "offsetMs": 169760.0,
+   "stable": 6
+  },
+  {
+   "t": 172445.0,
+   "text": "les passagers des croisières sont exemptés de l'obligation de",
+   "offsetMs": 169760.0,
+   "stable": 8
+  },
+  {
+   "t": 173004.1,
+   "text": "les passagers des croisières sont exemptés de l'obligation de visa",
+   "offsetMs": 169760.0,
+   "stable": 9
+  },
+  {
+   "t": 173564.6,
+   "text": "les passagers des croisières sont exemptés de l'obligation de visa, voire les",
+   "offsetMs": 169760.0,
+   "stable": 11
+  },
+  {
+   "t": 174124.4,
+   "text": "les passagers des croisières sont exemptés de l'obligation de visa, voire les conditions",
+   "offsetMs": 169760.0,
+   "stable": 12
+  }
+ ],
+ "finals": [
+  {
+   "t": 5563.3,
+   "text": "Les lions sont l'échelle les plus sociables, vivant en grand groupe appelé Muth",
+   "offsetMs": 1644.8,
+   "durationMs": 3918.5,
+   "vadOffsetMs": 1152.0,
+   "vadDurationMs": 3808.0
+  },
+  {
+   "t": 10602.8,
+   "text": "dans le climat chaud du Moyen Orient, la maison n'était pas assez importante",
+   "offsetMs": 6682.9,
+   "durationMs": 3361.5,
+   "vadOffsetMs": 6688.0,
+   "vadDurationMs": 3040.0
+  },
+  {
+   "t": 19563.1,
+   "text": "presque toutes les pirages sont sablonneuses et permettent de se baigner en toute sécurité qui la plupart sont ombragés par des pouds du cacawa",
+   "offsetMs": 11723.6,
+   "durationMs": 7280.6,
+   "vadOffsetMs": 11904.0,
+   "vadDurationMs": 6912.0
+  },
+  {
+   "t": 27403.7,
+   "text": "l'émeute sont composées d'un trois mâles adultes apparentés ainsi que d'une trentaine de femelles et de lionceaux",
+   "offsetMs": 20683.7,
+   "durationMs": 6160.4,
+   "vadOffsetMs": 20896.0,
+   "vadDurationMs": 5632.0
+  },
+  {
+   "t": 35243.0,
+   "text": "Les enfants sauvages peuvent avoir suivi de graves abus ou traumatismes avant d'être abandonnés ou de s'enfuir",
+   "offsetMs": 28523.9,
+   "durationMs": 6160.8,
+   "vadOffsetMs": 28224.0,
+   "vadDurationMs": 6208.0
+  },
+  {
+   "t": 40843.0,
+   "text": "Le bus quatre cent trois de Scotterb seront régulièrement à Sintra",
+   "offsetMs": 36368.3,
+   "durationMs": 3915.4,
+   "vadOffsetMs": 36160.0,
+   "vadDurationMs": 3808.0
+  },
+  {
+   "t": 43083.4,
+   "text": "avec un arrêt à cabo d'aroca",
+   "offsetMs": 40843.3,
+   "durationMs": 2240.1,
+   "vadOffsetMs": 40608.0,
+   "vadDurationMs": 1888.0
+  },
+  {
+   "t": 52043.2,
+   "text": "pour admirer les plus beaux panoramas de Hong Kong, quittez l'île et rejoigner le front de mer de Colwoon situé en face",
+   "offsetMs": 44203.2,
+   "durationMs": 7280.7,
+   "vadOffsetMs": 44352.0,
+   "vadDurationMs": 7136.0
+  },
+  {
+   "t": 59883.3,
+   "text": "Les opinions d'aristote sur toutes les questions scientifiques, y compris la psychologie, ont été acceptées",
+   "offsetMs": 53167.3,
+   "durationMs": 6156.9,
+   "vadOffsetMs": 52864.0,
+   "vadDurationMs": 6240.0
+  },
+  {
+   "t": 72764.6,
+   "text": "l'australien Mitchell Gourlet est arrivé onzième au Super G debout homme le tchèque Uldrich Jelinek s'est classé seizième au Super Jhassi homme.",
+   "offsetMs": 61564.3,
+   "durationMs": 11200.3,
+   "vadOffsetMs": 61280.0,
+   "vadDurationMs": 10944.0
+  },
+  {
+   "t": 92363.2,
+   "text": "La ville contraste fortement avec les cités du reste du pays, car elle possède un style davantage arabe qu'africain. Aussi, après la Révolution, les métiers furent ouverts à tous les candidats masculins, permettant aux plus ambitieux et aux plus talentueux de réussir",
+   "offsetMs": 74443.7,
+   "durationMs": 17360.0,
+   "vadOffsetMs": 83648.0,
+   "vadDurationMs": 7712.0
+  },
+  {
+   "t": 100764.4,
+   "text": "la bombe à fission fonctionne selon le principe suivant elle transforme l'énergie en assemblant un noyau d'une myriade de protons et neutrons",
+   "offsetMs": 92924.2,
+   "durationMs": 7840.2,
+   "vadOffsetMs": 92704.0,
+   "vadDurationMs": 7456.0
+  },
+  {
+   "t": 107483.6,
+   "text": "Il n'a pas chiffré ces réductions, disant qu'elles seront basées sur la production économique chinoise",
+   "offsetMs": 101884.9,
+   "durationMs": 5039.3,
+   "vadOffsetMs": 101728.0,
+   "vadDurationMs": 5088.0
+  },
+  {
+   "t": 125405.0,
+   "text": "Il n'existe pas de définition universelle permettant de déterminer si un objet manufacturé est une antiquité. Certains organismes fiscaux définissent les biens de plus de cent ans comme des antiquités. Vous n'avez pas forcément besoin d'un yacht",
+   "offsetMs": 108605.4,
+   "durationMs": 16799.6,
+   "vadOffsetMs": 124064.0,
+   "vadDurationMs": 448.0
+  },
+  {
+   "t": 127644.2,
+   "text": "dans les archipels, mais sur les lacs",
+   "offsetMs": 125404.5,
+   "durationMs": 2239.7,
+   "vadOffsetMs": 126560.0,
+   "vadDurationMs": 320.0
+  },
+  {
+   "t": 137163.6,
+   "text": "On dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapports de nombre entier est de trois sur deux",
+   "offsetMs": 129884.4,
+   "durationMs": 6719.4,
+   "vadOffsetMs": 129920.0,
+   "vadDurationMs": 6304.0
+  },
+  {
+   "t": 143884.3,
+   "text": "Sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'enquête cent et a duré jusqu'à mille cent environ",
+   "offsetMs": 137725.4,
+   "durationMs": 5599.3,
+   "vadOffsetMs": 137536.0,
+   "vadDurationMs": 5664.0
+  },
+  {
+   "t": 157323.6,
+   "text": "Les politiques d'annulation varient mais à partir de fin mars, la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille vingt datent à laquelle les Jeux olympiques avaient été prévues",
+   "offsetMs": 145565.1,
+   "durationMs": 11198.7,
+   "vadOffsetMs": 145440.0,
+   "vadDurationMs": 10944.0
+  },
+  {
+   "t": 164604.0,
+   "text": "mélanger les deux poudres sèches ensemble, puis, avec les mains propres et humides, précélés en une boule",
+   "offsetMs": 159004.3,
+   "durationMs": 5599.7,
+   "vadOffsetMs": 158784.0,
+   "vadDurationMs": 5248.0
+  },
+  {
+   "t": 169643.9,
+   "text": "les croisées en Saint-Pétersbourg incluent du temps passé dans la ville",
+   "offsetMs": 166285.9,
+   "durationMs": 3358.0,
+   "vadOffsetMs": 166112.0,
+   "vadDurationMs": 2816.0
+  },
+  {
+   "t": 174683.7,
+   "text": "les passagers des croisières sont exemptés de l'obligation de visa, voire les conditions",
+   "offsetMs": 169644.3,
+   "durationMs": 4480.1,
+   "vadOffsetMs": 169760.0,
+   "vadDurationMs": 3840.0
+  }
+ ],
+ "steps": 314,
+ "compute_ms": 10733,
+ "rtf": 0.0612,
+ "spans_from": "word arrival"
+}

@@ -1,0 +1,387 @@
+{
+ "date": "2026-10-23",
+ "what": "omniASR_LLM_300M fine-tuned for Khmer on public data (DDD Khmer ASR Cultural CC BY-SA 4.0 sample + FLEURS km train CC BY 4.0), against stock 300M and 7B",
+ "training": {
+  "recipe": "omnilingual-asr workflows.recipes.wav2vec2.asr (checkout 81f51e2), omnilingual-asr 0.1.0, fairseq2 0.6, torch 2.8.0",
+  "gpu": "1x A100 SXM 80 GB",
+  "steps": 3000,
+  "lr": 3e-06,
+  "batch": "<=120 s audio x 2 accumulated",
+  "seconds": 4584,
+  "picked_step": 2500,
+  "picked_by": "dev CER (ddd and fleurs dev)"
+ },
+ "data": {
+  "ddd/train": {
+   "hours": 101.172,
+   "clips": 43975,
+   "speakers": 12
+  },
+  "ddd/dev": {
+   "hours": 0.83,
+   "clips": 400,
+   "speakers": 4
+  },
+  "fleurs/train": {
+   "hours": 6.973,
+   "clips": 1659,
+   "speakers": 1
+  },
+  "fleurs/dev": {
+   "hours": 1.271,
+   "clips": 324,
+   "speakers": 1
+  }
+ },
+ "per_sentence": {
+  "base300": {
+   "card": "omniASR_LLM_300M",
+   "weights": null,
+   "sets": {
+    "rv": {
+     "n": 30,
+     "seconds": 53.1,
+     "written_judge": 14.23,
+     "written_full": 13.44,
+     "max_chars_per_s": 17.6
+    },
+    "unseen": {
+     "n": 20,
+     "seconds": 32.4,
+     "written_judge": 13.6,
+     "written_full": 13.01,
+     "said_judge": 11.97,
+     "said_full": 11.83,
+     "max_chars_per_s": 19.5
+    },
+    "setb": {
+     "n": 20,
+     "seconds": 32.4,
+     "written_judge": 13.52,
+     "written_full": 12.51,
+     "said_judge": 8.9,
+     "said_full": 9.41,
+     "max_chars_per_s": 18.8
+    }
+   },
+   "dev": {}
+  },
+  "base300dev": {
+   "card": "omniASR_LLM_300M",
+   "weights": null,
+   "sets": {},
+   "dev": {
+    "ddd": {
+     "n": 400,
+     "judge": 7.16,
+     "full": 7.91
+    },
+    "fleurs": {
+     "n": 324,
+     "judge": 13.02,
+     "full": 12.79
+    }
+   }
+  },
+  "base7b": {
+   "card": "omniASR_LLM_7B",
+   "weights": null,
+   "sets": {
+    "rv": {
+     "n": 30,
+     "seconds": 55.0,
+     "written_judge": 12.69,
+     "written_full": 11.16,
+     "max_chars_per_s": 17.6
+    },
+    "unseen": {
+     "n": 20,
+     "seconds": 34.2,
+     "written_judge": 11.51,
+     "written_full": 10.05,
+     "said_judge": 9.14,
+     "said_full": 8.12,
+     "max_chars_per_s": 21.8
+    },
+    "setb": {
+     "n": 20,
+     "seconds": 34.4,
+     "written_judge": 10.1,
+     "written_full": 8.38,
+     "said_judge": 5.1,
+     "said_full": 5.32,
+     "max_chars_per_s": 18.5
+    }
+   },
+   "dev": {}
+  },
+  "ft_s1000": {
+   "card": "omniASR_LLM_300M",
+   "weights": "step_1000",
+   "sets": {
+    "rv": {
+     "n": 30,
+     "seconds": 45.0,
+     "written_judge": 13.19,
+     "written_full": 12.06,
+     "max_chars_per_s": 15.0
+    },
+    "unseen": {
+     "n": 20,
+     "seconds": 28.4,
+     "written_judge": 14.4,
+     "written_full": 13.86,
+     "said_judge": 12.84,
+     "said_full": 12.32,
+     "max_chars_per_s": 17.7
+    },
+    "setb": {
+     "n": 20,
+     "seconds": 27.7,
+     "written_judge": 12.28,
+     "written_full": 10.6,
+     "said_judge": 7.68,
+     "said_full": 7.82,
+     "max_chars_per_s": 15.1
+    }
+   },
+   "dev": {
+    "ddd": {
+     "n": 400,
+     "judge": 5.79,
+     "full": 5.75
+    },
+    "fleurs": {
+     "n": 324,
+     "judge": 12.09,
+     "full": 11.93
+    }
+   }
+  },
+  "ft_s1500": {
+   "card": "omniASR_LLM_300M",
+   "weights": "step_1500",
+   "sets": {
+    "rv": {
+     "n": 30,
+     "seconds": 43.8,
+     "written_judge": 13.42,
+     "written_full": 12.37,
+     "max_chars_per_s": 15.0
+    },
+    "unseen": {
+     "n": 20,
+     "seconds": 28.2,
+     "written_judge": 12.95,
+     "written_full": 12.7,
+     "said_judge": 11.32,
+     "said_full": 10.98,
+     "max_chars_per_s": 16.2
+    },
+    "setb": {
+     "n": 20,
+     "seconds": 27.6,
+     "written_judge": 12.35,
+     "written_full": 10.91,
+     "said_judge": 7.6,
+     "said_full": 7.69,
+     "max_chars_per_s": 14.8
+    }
+   },
+   "dev": {
+    "ddd": {
+     "n": 400,
+     "judge": 4.82,
+     "full": 4.99
+    },
+    "fleurs": {
+     "n": 324,
+     "judge": 11.66,
+     "full": 11.42
+    }
+   }
+  },
+  "ft_s2000": {
+   "card": "omniASR_LLM_300M",
+   "weights": "step_2000",
+   "sets": {
+    "rv": {
+     "n": 30,
+     "seconds": 45.1,
+     "written_judge": 13.01,
+     "written_full": 12.03,
+     "max_chars_per_s": 14.9
+    },
+    "unseen": {
+     "n": 20,
+     "seconds": 27.7,
+     "written_judge": 12.59,
+     "written_full": 11.89,
+     "said_judge": 11.39,
+     "said_full": 10.67,
+     "max_chars_per_s": 15.1
+    },
+    "setb": {
+     "n": 20,
+     "seconds": 28.3,
+     "written_judge": 13.15,
+     "written_full": 11.71,
+     "said_judge": 8.75,
+     "said_full": 8.91,
+     "max_chars_per_s": 15.1
+    }
+   },
+   "dev": {
+    "ddd": {
+     "n": 400,
+     "judge": 4.63,
+     "full": 4.75
+    },
+    "fleurs": {
+     "n": 324,
+     "judge": 11.9,
+     "full": 11.67
+    }
+   }
+  },
+  "ft_s2500": {
+   "card": "omniASR_LLM_300M",
+   "weights": "step_2500",
+   "sets": {
+    "rv": {
+     "n": 30,
+     "seconds": 45.0,
+     "written_judge": 12.78,
+     "written_full": 11.89,
+     "max_chars_per_s": 14.9
+    },
+    "unseen": {
+     "n": 20,
+     "seconds": 28.2,
+     "written_judge": 12.52,
+     "written_full": 12.02,
+     "said_judge": 10.89,
+     "said_full": 10.71,
+     "max_chars_per_s": 15.1
+    },
+    "setb": {
+     "n": 20,
+     "seconds": 28.2,
+     "written_judge": 12.94,
+     "written_full": 11.22,
+     "said_judge": 8.44,
+     "said_full": 8.41,
+     "max_chars_per_s": 15.1
+    }
+   },
+   "dev": {
+    "ddd": {
+     "n": 400,
+     "judge": 4.4,
+     "full": 4.55
+    },
+    "fleurs": {
+     "n": 324,
+     "judge": 11.62,
+     "full": 11.35
+    }
+   }
+  },
+  "ft_s3000": {
+   "card": "omniASR_LLM_300M",
+   "weights": "step_3000",
+   "sets": {
+    "rv": {
+     "n": 30,
+     "seconds": 43.8,
+     "written_judge": 12.55,
+     "written_full": 11.64,
+     "max_chars_per_s": 14.8
+    },
+    "unseen": {
+     "n": 20,
+     "seconds": 27.7,
+     "written_judge": 13.1,
+     "written_full": 12.29,
+     "said_judge": 11.47,
+     "said_full": 11.07,
+     "max_chars_per_s": 15.1
+    },
+    "setb": {
+     "n": 20,
+     "seconds": 27.4,
+     "written_judge": 12.65,
+     "written_full": 11.18,
+     "said_judge": 8.14,
+     "said_full": 8.37,
+     "max_chars_per_s": 14.8
+    }
+   },
+   "dev": {
+    "ddd": {
+     "n": 400,
+     "judge": 4.59,
+     "full": 4.61
+    },
+    "fleurs": {
+     "n": 324,
+     "judge": 11.76,
+     "full": 11.41
+    }
+   }
+  }
+ },
+ "endpointed": {
+  "omniASR_LLM_300M|rv|700:15.0": {
+   "segments": 35,
+   "forced": 0,
+   "written_judge": 15.14,
+   "written_full": 13.92,
+   "written_full_guard": 13.92
+  },
+  "omniASR_LLM_300M|unseen|700:15.0": {
+   "segments": 25,
+   "forced": 0,
+   "written_judge": 12.23,
+   "written_full": 11.22,
+   "written_full_guard": 11.22,
+   "said_judge": 10.74,
+   "said_full": 10.13,
+   "said_full_guard": 10.13
+  },
+  "omniASR_LLM_7B|rv|700:15.0": {
+   "segments": 35,
+   "forced": 0,
+   "written_judge": 11.6,
+   "written_full": 10.34,
+   "written_full_guard": 9.61
+  },
+  "omniASR_LLM_7B|unseen|700:15.0": {
+   "segments": 25,
+   "forced": 0,
+   "written_judge": 12.66,
+   "written_full": 10.95,
+   "written_full_guard": 10.95,
+   "said_judge": 10.23,
+   "said_full": 9.06,
+   "said_full_guard": 9.06
+  },
+  "omniASR_LLM_300M_km_public|rv|700:15.0": {
+   "segments": 35,
+   "forced": 0,
+   "written_judge": 12.37,
+   "written_full": 11.36,
+   "written_full_guard": 11.36
+  },
+  "omniASR_LLM_300M_km_public|unseen|700:15.0": {
+   "segments": 25,
+   "forced": 0,
+   "written_judge": 13.97,
+   "written_full": 13.06,
+   "written_full_guard": 13.06,
+   "said_judge": 11.68,
+   "said_full": 11.12,
+   "said_full_guard": 11.12
+  }
+ }
+}

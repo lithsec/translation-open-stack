@@ -69,6 +69,7 @@ most `STACK_MAX_SESSION_MIN` minutes (360).
 | `src` | no (default `en`) | source language (`en` or one of `--srcs`), or `auto` to identify it per utterance |
 | `room` | no | share ONE pipeline across connections — see below. 1-64 letters, digits, `-` or `_` |
 | `stream` | no | `1` = simultaneous mode: commit and speak clauses while the speaker is still talking |
+| `policy` | no | with `stream=1` in a room: `clause` (the default, or `LITHOS_STREAM_POLICY`) cuts the committed words into clauses; `agree` lets Gemma decide: only what two successive translations of the turn so far agree on is spoken (`server/agree.py`). Agree runs on the directions Gemma serves that it lists; the rest keep `clause`. The primary connection's value counts |
 | `priority` | no | `1` = translate this language ahead of the others in the room |
 | `route` | no | `to` (the only value; no room) = translate whatever is spoken INTO `lang` and skip speech already in `lang`: one connection per direction of a two-way conversation |
 | `cands` | no | with `src=auto`, no room: the only languages the conversation uses, e.g. `en,es`. Detection chooses among these instead of every language the server knows. At most 8, each a language the server knows |
@@ -143,7 +144,7 @@ difference between the last language arriving 15 s after the first and all of
 them arriving within 0.1 s.
 
 Room-wide settings come from the primary connection, so every client in a room
-must pass the same `stream` value.
+must pass the same `stream` and `policy` values.
 
 **A room belongs to the token that opened it.** Rooms are keyed by the token's
 subject and the `room` id together, so two clients with different tokens that

@@ -1,0 +1,13 @@
+--- /Users/sstone/dev/translation-open-stack/.claude/worktrees/agent-a25b48013faa92829/services/omni-stt/ctc_stream.py	2026-10-27 14:35:46
++++ omni-stt/ctc_stream.py	2026-10-27 14:43:14
+@@ -74,6 +74,10 @@
+ SCRIPTS = {
+     "km": ((0x1780, 0x17FF), (0x19E0, 0x19FF)),     # Khmer, Khmer Symbols
+     "lo": ((0x0E80, 0x0EFF),),                      # Lao
++    # eval/2026-10-open-streaming only: Latin (Latin-1 Supplement, Latin Extended-A)
++    "en": ((0x00C0, 0x00FF), (0x0100, 0x017F)),
++    "es": ((0x00C0, 0x00FF), (0x0100, 0x017F)),
++    "fr": ((0x00C0, 0x00FF), (0x0100, 0x017F)),
+ }
+ 
+ 

@@ -7,7 +7,7 @@ the languages a room actually uses; and Haitian Creole voices (/speak). No trans
 
 Protocol:
 
-    client connects  wss://host/listen?langs=ht,en[&rate=24000][&transcribe=ht]
+    client connects  wss://host/listen?langs=ht,en[&rate=24000][&transcribe=ht|none]
                      Authorization: Bearer <token>, or (a browser, which cannot
                      set that header) the subprotocols "omni-stt" and
                      "bearer.<token>": Sec-WebSocket-Protocol: omni-stt, bearer.<token>
@@ -30,6 +30,13 @@ Protocol:
                       "start_ms":1200,"end_ms":2700}   the whole current hypothesis
                      {"type":"stable","text":"...","delta":"...", ...same fields}
                                           the prefix two passes agreed on (never retracted)
+                     With STT_CTC_STREAM=1 and ?stream=ctc[&lookahead=1|2] on a km or lo
+                     connection (ctc_stream.py): the hello adds "stream": {...}, and
+                     about every 500 ms of speech, connection-wide:
+                     {"type":"partial","track":"ctc","text":<revisable tail>,"lang":"km",
+                      "start_ms":...,"end_ms":...}
+                     {"type":"committed","track":"ctc","text":<newly committed text>,
+                      "lang":"km","start_ms":...,"end_ms":...,"end":false}   never revised
 
     client connects  wss://host/speak[?voice=mms|coqui]   (same token)
     server sends     {"type":"hello","lang":"ht","voices":["mms","coqui"],"voice":"coqui","rate":24000,
@@ -46,6 +53,10 @@ Protocol:
     edition this server does not serve is closed with 4403 (as the stack does).
 
     GET /health      200 "ok" once the models are loaded (the port opens only then)
+    GET /info        what this service offers, as JSON (service_info): the model
+                     ("300m", "7b", "3b"), the languages /listen serves, and the
+                     /speak voices; with the token (the Authorization header) also
+                     the edition that token is served in and the voices it may use
     GET /mic         a microphone test page (mic.html): speak, see each transcript
 
 Per utterance, the stack's own pipeline minus the translation (server/server.py):
@@ -60,7 +71,8 @@ transcribes with that language's code. The recogniser is the stack's engine
 and the token check its stack_auth.py, so a fix there is a fix here.
 
 ?transcribe (default: every language in ?langs) names the languages whose
-utterances are transcribed; the others get only their "language" message. A
+utterances are transcribed; the others get only their "language" message
+(?transcribe=none: every utterance gets only that, language ID alone). A
 client that takes one language from here and the rest from another recogniser
 (Live Translation's Haitian Creole exception beside Azure) learns within the
 language ID's ~50 ms that an English utterance is not its business, and the GPU
@@ -102,6 +114,11 @@ says why the default is not that); STT_BATCH_GEN_RATIO tunes the length grouping
 that path needs (pick_group).
 STT_MAX_CHARS_PER_S (default 30) and STT_MAX_REPEATS (default 6): the repetition
 guard (repetition_guard).
+STT_CTC_STREAM=1 (default 0): load the streaming track's CTC card beside the
+recogniser (ctc_stream.py; STT_CTC_CARD, default omniASR_CTC_3B; STT_CTC_LANGS,
+default km,lo; STT_CTC_CHUNK_MS 500, STT_CTC_LEFT_MS 8000, STT_CTC_LOOKAHEAD_MS
+2000: a connection's ?lookahead=1|2 overrides it; STT_CTC_QUIET_MS 2000: the pass
+rhythm while the VAD hears nothing; STT_CTC_DITHER 1e-4; STT_CTC_BATCH_MAX 16).
 STT_DENOISE=1 (default 0): a spectral noise reducer in front of the VAD, per
 connection (denoise.py; STT_DENOISE_NR_DB, STT_DENOISE_TRACK_S,
 STT_DENOISE_OVERSUB tune it). For a distant or noisy microphone; off by default
@@ -144,6 +161,7 @@ for p in (HERE, os.path.join(HERE, "..", "..", "server")):
         sys.path.insert(0, os.path.abspath(p))
         break
 import partials  # noqa: E402  (beside this file, as omni_batch is)
+import ctc_stream  # noqa: E402
 
 VAD_RATE = 16000
 RATES = (16000, 24000)
@@ -163,6 +181,9 @@ OMNI_CODES = {
     "ko": "kor_Hang", "vi": "vie_Latn", "ar": "arb_Arab", "fa": "fas_Arab", "id": "ind_Latn",
     "tr": "tur_Latn", "bn": "ben_Beng", "ur": "urd_Arab", "hi": "hin_Deva", "sw": "swh_Latn",
     "ro": "ron_Latn", "ht": "hat_Latn", "km": "khm_Khmr", "lo": "lao_Laoo", "tl": "tgl_Latn",
+    # Cape Verdean Creole (Kabuverdianu): in omnilingual-asr 0.1.0's lang_ids; not in VoxLingua107,
+    # so it is served alone (?langs=kea), like Tagalog (eval/2026-10-language-short-check).
+    "kea": "kea_Latn",
 }
 
 # Language ID: the stack's model, at the stack's pinned revision (languages.toml [models.lid]).
@@ -288,9 +309,14 @@ def parse_langs(raw, lid_codes=None):
 
 
 def parse_transcribe(raw, langs):
-    """?transcribe=ht -> {"ht"}; absent or empty -> every language in langs."""
+    """?transcribe=ht -> {"ht"}; absent or empty -> every language in langs;
+    "none" -> no language: language ID only (a client that hands the speech to
+    another recogniser once it hears the switch, e.g. Haitian Creole to Amazon
+    Transcribe beside the 7B service)."""
     if not raw:
         return set(langs)
+    if raw.strip().lower() == "none":
+        return set()
     want = {c.strip().lower() for c in raw.split(",") if c.strip()}
     stray = sorted(want - set(langs))
     if stray:
@@ -787,6 +813,7 @@ class Models:
         print(f"[stt] device={self.device} torch={torch.__version__} serving {','.join(sorted(self.serve))}", flush=True)
         self.lid_index = {}
         self.omni = None
+        self.ctc = None
         # The voices load on a thread of their own: on a cold Cloud Run
         # instance Coqui's import alone took ~30 s (2026-10-19), which /listen,
         # the service's first job, should not wait for. /speak waits for
@@ -838,6 +865,14 @@ class Models:
             else:
                 self.lid, self.lid_index = load_lid(self.device)
                 self.omni = load_omni(self.device, self.card)
+            self.ctc = None
+            if ctc_stream.ENABLED:
+                # The streaming track's card (ctc_stream.py), after the
+                # recogniser: one fairseq2 load at a time. When the recogniser
+                # is that card (the separate streaming service: the 7B and the
+                # 3B do not fit one L4 together), its pipeline is shared.
+                same = self.card == ctc_stream.CARD
+                self.ctc = ctc_stream.CTCModel(self.device, pipeline=self.omni.omni if same else None)
             print(f"[stt] models loaded", flush=True)
             if not defer_voices:
                 self.start_voices()
@@ -934,7 +969,21 @@ class Models:
         """[(pcm16k, lang), ...] -> [text, ...]: one batched decode (omni_batch's
         aligned decode when the card allows it, else the library's), then the
         repetition guard on each text against its own audio length."""
-        texts = decode_batch(self.omni, items)
+        ctc = getattr(self, "ctc", None)
+        if ctc is not None and ctc.pipe is getattr(self.omni, "omni", None):
+            # The recogniser is the streaming track's CTC card: its own
+            # languages get the masked decode (CTCModel.transcribe_batch).
+            mine = [i for i, (_, lang) in enumerate(items) if lang in ctc.langs]
+            rest = [i for i in range(len(items)) if i not in set(mine)]
+            texts = [None] * len(items)
+            if mine:
+                for i, t in zip(mine, ctc.transcribe_batch([items[i] for i in mine])):
+                    texts[i] = self.omni._filtered(t)
+            if rest:
+                for i, t in zip(rest, decode_batch(self.omni, [items[i] for i in rest])):
+                    texts[i] = t
+        else:
+            texts = decode_batch(self.omni, items)
         out = []
         for (pcm, _), text in zip(items, texts):
             audio_s = len(pcm) / VAD_RATE
@@ -978,12 +1027,75 @@ def decode_batch(engine, items):
 
 
 def served(env=None):
-    """STT_SERVE -> {"listen", "speak"} (default both)."""
+    """STT_SERVE -> {"listen", "speak"} (default both). Comma- or plus-separated:
+    "listen+speak" survives gcloud's comma-separated --set-env-vars."""
     env = os.environ if env is None else env
-    want = {p.strip() for p in env.get("STT_SERVE", "listen,speak").split(",") if p.strip()}
+    want = {p.strip() for p in re.split(r"[,+]", env.get("STT_SERVE", "listen,speak")) if p.strip()}
     if not want or want - {"listen", "speak"}:
         raise SystemExit("[stt] STT_SERVE must name listen and/or speak")
     return want
+
+
+def model_size(card):
+    """An Omnilingual card name -> its size as a client names it ("300m", "7b",
+    "3b"), or None. Only the size: a card's full name can be a private one
+    (a fine-tuned card), and /info is answered without a token."""
+    m = re.search(r"(\d+)([MB])(?![A-Za-z])", card or "")
+    return f"{m.group(1)}{m.group(2).lower()}" if m else None
+
+
+def service_info(models, headers=None, query=None, env=None):
+    """GET /info: what this service offers, so a client (Live Translation's
+    Omnilingual service setting) can show only what is there.
+
+        {"type": "info", "service": "omni-stt", "models": ["7b"],
+         "serve": ["listen", "speak"], "langs": [...], "editions": ["nonprofit"],
+         "voices_state": "ready", "voices_by_edition": {"nonprofit": ["mms", "coqui"]},
+         "edition": "nonprofit", "voices": ["mms", "coqui"]}
+
+    models: the recogniser's size ([] when /listen is not served). langs: what
+    /listen takes (OMNI_CODES). voices_state: "ready", "loading" (a cold start:
+    the voices load after the recogniser; the names are then the ones that will
+    load), "failed" or "none" (no /speak). voices_by_edition: per edition served,
+    the voices it may use (voices.permitted). With a token this service takes
+    (credentials_for), "edition" and "voices": that token's /speak edition
+    (speak_edition; null: refused there, 4403) and its voices. Without one, or
+    with a bad one, those two are absent: nothing here is secret, and nothing
+    about a token is said without it. Never the card's name (model_size)."""
+    env = os.environ if env is None else env
+    serve = set(getattr(models, "serve", ()) or ())
+    eds = service_editions(env)
+    size = model_size(getattr(models, "card", "")) if "listen" in serve else None
+    out = {"type": "info", "service": "omni-stt", "models": [size] if size else [],
+           "serve": sorted(serve), "langs": sorted(OMNI_CODES) if "listen" in serve else [],
+           "editions": eds}
+    loaded = getattr(models, "voices", None)
+    ready = getattr(models, "voices_ready", None)
+    if "speak" not in serve:
+        state, names = "none", []
+    elif loaded is not None:
+        state, names = "ready", list(loaded.names)
+    elif ready is not None and not ready.is_set():
+        state = "loading"
+        try:
+            names = list(getattr(models, "_voice_names", None) or voice_list(env))
+        except SystemExit:
+            names = []
+    else:
+        state, names = "failed", []
+    out["voices_state"] = state
+    try:
+        from voices import permitted
+    except Exception:  # noqa: BLE001 (a recogniser-only image without the voices' code)
+        permitted = None
+    by = {ed: (permitted(names, ed) if permitted else []) for ed in eds}
+    out["voices_by_edition"] = by
+    sub, claim = credentials_for(headers or {}, query or {}, env)
+    if sub is not None:
+        ed = speak_edition(eds, claim, open_server=(sub == "open"))
+        out["edition"] = ed
+        out["voices"] = by.get(ed, []) if ed else []
+    return out
 
 
 def voice_list(env=None):
@@ -1455,15 +1567,22 @@ async def handle(ws, models, sub="open"):
         langs = parse_langs((q.get("langs") or [""])[0], set(models.lid_index))
         rate = parse_rate((q.get("rate") or [""])[0])
         transcribe = parse_transcribe((q.get("transcribe") or [""])[0], langs)
+        try:
+            stream_cfg = ctc_stream.parse_stream(q, langs, getattr(models, "ctc", None) is not None)
+        except ctc_stream.BadParam as e:
+            raise BadRequest(str(e))
     except BadRequest as e:
         print(f"[stt] {clean(sub, 24)}: refused: {clean(e, 200)}", flush=True)
         await ws.send(json.dumps({"type": "error", "detail": str(e)}))
         await ws.close(code=CLOSE_BAD_REQUEST, reason="bad request")
         return
-    await ws.send(json.dumps({"type": "hello", "langs": langs, "rate": rate}))
+    hello = {"type": "hello", "langs": langs, "rate": rate}
+    if stream_cfg is not None:
+        hello["stream"] = ctc_stream.hello_field(stream_cfg)
+    await ws.send(json.dumps(hello))
     who = clean(sub, 24)
     print(f"[stt] {who}: listening, langs={','.join(langs)} rate={rate} "
-          f"transcribe={','.join(c for c in langs if c in transcribe)}", flush=True)
+          f"transcribe={','.join(c for c in langs if c in transcribe) or 'none'}", flush=True)
 
     conn_in = audio_input(rate, who)
     seg = Segmenter()
@@ -1478,6 +1597,8 @@ async def handle(ws, models, sub="open"):
         while True:
             item = await queue.get()
             if item == "flush":
+                if track:
+                    await track.drain()     # the streaming track's last commit goes first
                 await ws.send(json.dumps({"type": "flushed"}))
                 continue
             t0 = time.monotonic()
@@ -1502,8 +1623,16 @@ async def handle(ws, models, sub="open"):
     # Partial text while a piece is still being spoken (STT_PARTIALS=1 only;
     # partials.py): extra passes over a copy of the Segmenter's buffer, through
     # the same Batcher; the final goes out by the path above, unchanged.
+    # The streaming track (STT_CTC_STREAM=1 and ?stream=ctc; ctc_stream.py):
+    # the CTC card's chunked passes over the same blocks, on its own worker.
+    # It replaces the LLM partial passes on its connections.
+    track = None
+    if stream_cfg is not None and stream_cfg["track"] == "ctc":
+        track = ctc_stream.CTCStream(stream_cfg["lang"], stream_cfg["lookahead_ms"], models.ctc.submit,
+                                     lambda m: ws.send(json.dumps(m, ensure_ascii=False)), models.ctc.detok,
+                                     who=who, joins=getattr(models.ctc, "joins", None))
     partial = None
-    if partials.ENABLED:
+    if partials.ENABLED and track is None:
         partial = partials.PartialStream(langs, transcribe, batcher.submit,
                                          lambda m: ws.send(json.dumps(m, ensure_ascii=False)),
                                          busy=lambda: partials.queue_busy(batcher), who=who)
@@ -1520,21 +1649,30 @@ async def handle(ws, models, sub="open"):
                 if kind == "flush":
                     if partial:
                         partial.piece_ended()
+                    if track:
+                        track.turn_ended()
                     enqueue(seg.flush())
                     queue.put_nowait("flush")
                 else:
                     await ws.send(json.dumps({"type": "error", "detail": "text messages: only {\"type\":\"flush\"}"}))
                 continue
             for block in conn_in.feed(msg):
-                utts = seg.feed(block, vad_windows(vad, block))
+                windows = vad_windows(vad, block)
+                utts = seg.feed(block, windows)
                 enqueue(utts)
                 if partial:
                     partial.after_feed(seg, utts)
+                if track:
+                    track.feed(block, max(windows, default=0.0) if isinstance(windows, (list, tuple)) else float(windows))
+                    if utts and not seg.speech_seen:
+                        track.turn_ended()       # a pause ended the turn (not a cut mid-speech)
         # Disconnected: nothing more can be sent, so the unfinished turn is dropped.
     finally:
         batcher.closed()
         if partial:
             partial.close()
+        if track:
+            track.close()
         task.cancel()
         if heard["audio_s"]:
             print(f"[stt] {who}: closed; {heard['n']} transcripts, {heard['audio_s']:.0f}s of speech, "
@@ -1759,6 +1897,8 @@ def warmup(models):
         models.transcribe(noise, "en")
         if len(models.lid_index) > 1:
             models.identify(noise, ["en", "ht"])
+    if getattr(models, "ctc", None) is not None:
+        models.ctc.warm()
     # (The voices warm themselves on their loading thread: Models._load_voices.)
     print(f"[stt] warm in {time.time() - t0:.1f}s", flush=True)
 
@@ -1793,6 +1933,13 @@ async def main():
         path = request.path.split("?")[0]
         if path == "/health":
             return connection.respond(HTTPStatus.OK, "ok\n")
+        if path == "/info":
+            # The token only from the header: a query token would be logged (the URL).
+            info = service_info(models, request.headers, {})
+            resp = connection.respond(HTTPStatus.OK, json.dumps(info) + "\n")
+            resp.headers["Content-Type"] = "application/json"
+            resp.headers["Cache-Control"] = "no-store"
+            return resp
         if path == "/mic":
             # The page holds no secret: the token is typed into it.
             resp = connection.respond(HTTPStatus.OK, mic_page)

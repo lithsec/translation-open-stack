@@ -112,6 +112,24 @@ def test_deploy_mounts_only_the_secrets_named():
         assert code == 3 and "refusing" in out and not called, (extra, out)
 
 
+def test_3b_targets_dry_run():
+    code, out, called = _run("3b-build", {"TAG": "abc"})
+    assert code == 0 and not called, out
+    assert "+ gcloud builds submit" in out
+    assert "https://dl.fbaipublicfiles.com/mms/omniASR-CTC-3B.pt" in out
+    assert '"-t", "us-east4-docker.pkg.dev/proj/omni-stt/omni-stt:abc-3b"' in out
+    code, out, called = _run("3b-deploy", {"TAG": "abc", "SIGNING_SECRET": "omni-stt-signing-key"})
+    assert code == 0 and not called, out
+    out = out.replace("\\,", ",")
+    assert "+ gcloud run deploy omni-stt-3b-stream " in out, out
+    assert "--image us-east4-docker.pkg.dev/proj/omni-stt/omni-stt:abc-3b " in out
+    assert "--min-instances 0 --max-instances 2 --concurrency 6 --timeout 3600 " in out
+    assert "STT_CTC_STREAM=1,OMNI_CARD=omniASR_CTC_3B_bf16,STT_CTC_CARD=omniASR_CTC_3B_bf16,STT_MAX_CONNECTIONS=6," in out
+    assert "--set-secrets STT_TOKEN=omni-stt-token:latest,STT_SIGNING_KEY=omni-stt-signing-key:latest " in out
+    code, out, called = _run("3b-deploy", {"MAX_STREAMS_3B": "6,X=1"})
+    assert code == 3 and not called, out
+
+
 def _private_values():
     """The private values (card, bucket, project) in this checkout's own
     services/omni-stt/private.env, if any: never in a committed file."""
@@ -130,6 +148,17 @@ def _private_values():
     return out
 
 
+def test_duo_build_dry_run():
+    code, out, called = _run("duo-build", {"BASE_TAG": "abc123", "TAG": "def456"})
+    assert code == 0, out
+    assert "+ gcloud builds submit" in out and not called
+    assert "BASE_IMAGE=us-east4-docker.pkg.dev/proj/omni-stt/omni-stt:abc123-7b" in out
+    assert "us-east4-docker.pkg.dev/proj/omni-stt/omni-stt:def456-duo" in out
+    assert "omniASR-CTC-3B.pt" in out and "Dockerfile.duo" in out
+    code, out, _ = _run("duo-build", {"BASE_TAG": None})
+    assert code != 0 and "BASE_TAG" in out
+
+
 def test_no_private_default_is_committed():
     names = ("deploy.sh", "Dockerfile", "Dockerfile.ft", "Dockerfile.voices", "README.md", "private.env.example")
     texts = {n: open(os.path.join(SVC, n), encoding="utf-8").read() for n in names}
@@ -141,6 +170,23 @@ def test_no_private_default_is_committed():
             assert value not in text, f"{name} names a private.env value"
     ignored = subprocess.run(["git", "-C", ROOT, "check-ignore", "-q", "services/omni-stt/private.env"])
     assert ignored.returncode == 0, "services/omni-stt/private.env must be git-ignored"
+
+
+def test_7b_deploy_with_the_voices():
+    # Default: /listen only, as before.
+    code, out, called = _run("7b-deploy", {"TAG": "abc123"})
+    assert code == 0 and not called, out
+    d = next(l for l in out.splitlines() if "run deploy omni-stt-7b" in l).replace("\\,", ",")
+    assert "STT_SERVE=listen," in d and "--concurrency 6" in d and "EDITION=" not in d, d
+    # VOICES_7B=1: /speak too, its sockets counted in --concurrency.
+    code, out, called = _run("7b-deploy", {"TAG": "abc123", "VOICES_7B": "1", "EDITION": "nonprofit"})
+    assert code == 0 and not called, out
+    d = next(l for l in out.splitlines() if "run deploy omni-stt-7b" in l).replace("\\,", ",")
+    for want in ("STT_SERVE=listen+speak,", "EDITION=nonprofit", "HT_VOICE=coqui", "STT_MAX_SPEAKERS=4",
+                 "--concurrency 10", "OMNI_CARD=omniASR_LLM_7B_bf16"):
+        assert want in d, (want, d)
+    code, out, _ = _run("7b-deploy", {"TAG": "abc123", "VOICES_7B": "yes"})
+    assert code == 2 and "VOICES_7B" in out, out
 
 
 if __name__ == "__main__":

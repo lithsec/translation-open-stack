@@ -1,0 +1,2662 @@
+{
+ "grader": "gemini-pro-latest",
+ "tts": {
+  "en": {
+   "ttfa_ms": [
+    241,
+    147,
+    165,
+    162,
+    152,
+    160,
+    161,
+    118,
+    3130,
+    170,
+    166,
+    157,
+    170,
+    155,
+    145,
+    152,
+    151,
+    160,
+    128,
+    120,
+    178,
+    161,
+    132,
+    138
+   ],
+   "ttfa_p50": 158.5,
+   "cps": 12.27,
+   "n": 24
+  },
+  "es": {
+   "ttfa_ms": [
+    131,
+    172,
+    141,
+    174,
+    148,
+    168,
+    142,
+    211,
+    189,
+    167,
+    141,
+    159,
+    141,
+    178,
+    138,
+    151,
+    180,
+    174,
+    199,
+    143,
+    216,
+    131,
+    144,
+    161
+   ],
+   "ttfa_p50": 160.0,
+   "cps": 13.7,
+   "n": 24
+  },
+  "pt": {
+   "ttfa_ms": [
+    157,
+    163,
+    172,
+    209,
+    152,
+    166,
+    167,
+    200,
+    157,
+    157,
+    129,
+    196,
+    148,
+    147,
+    188,
+    154,
+    169,
+    172,
+    175,
+    205,
+    203,
+    208,
+    154,
+    185
+   ],
+   "ttfa_p50": 168.0,
+   "cps": 11.52,
+   "n": 24
+  },
+  "fr": {
+   "ttfa_ms": [
+    174,
+    152,
+    139,
+    165,
+    154,
+    156,
+    164,
+    139,
+    124,
+    138,
+    149,
+    129,
+    126,
+    149,
+    142,
+    162,
+    135,
+    168,
+    135,
+    200,
+    138,
+    163,
+    135,
+    139
+   ],
+   "ttfa_p50": 145.5,
+   "cps": 12.43,
+   "n": 24
+  },
+  "ja": {
+   "ttfa_ms": [
+    242,
+    162,
+    159,
+    293,
+    177,
+    171,
+    253,
+    194,
+    266,
+    214,
+    200,
+    325,
+    216,
+    292,
+    156,
+    428,
+    154,
+    164,
+    284,
+    156,
+    176,
+    238,
+    160,
+    214
+   ],
+   "ttfa_p50": 207.0,
+   "cps": 4.64,
+   "n": 24
+  }
+ },
+ "rows": {
+  "reg:en-es": {
+   "S-nemo": {
+    "written": {
+     "q": 56.7,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 58.3,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 8212,
+     "phrase_start_to_audio_p90": 30607,
+     "sentence_start_to_first_audio_p50": 18840,
+     "sentence_start_to_first_audio_p90": 31660,
+     "sentence_end_to_last_audio_p50": 12182,
+     "sentence_end_to_last_audio_p90": 26420,
+     "queued_sentence_end_to_last_audio_p50": 20580,
+     "queued_sentence_end_to_last_audio_p90": 33260,
+     "queued_phrase_start_to_audio_p50": 36532
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 12,
+    "chunks_per_sentence": 0.6,
+    "mt_wall_p50_ms": 1022,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 60474,
+     "out": 11658
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "P8-ctc": {
+    "written": {
+     "q": 25.0,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 25.0,
+     "crit": 9,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3398,
+     "phrase_start_to_audio_p90": 5785,
+     "sentence_start_to_first_audio_p50": 5005,
+     "sentence_start_to_first_audio_p90": 8235,
+     "sentence_end_to_last_audio_p50": 1345,
+     "sentence_end_to_last_audio_p90": 6788,
+     "queued_sentence_end_to_last_audio_p50": 4544,
+     "queued_sentence_end_to_last_audio_p90": 10307,
+     "queued_phrase_start_to_audio_p50": 5785
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 46,
+    "chunks_per_sentence": 2.3,
+    "mt_wall_p50_ms": 512,
+    "revised_tokens": 83,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 251636,
+     "out": 9939
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 49,
+     "rate": 0.265
+    }
+   },
+   "P8-nemo": {
+    "written": {
+     "q": 41.7,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 48.3,
+     "crit": 5,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2669,
+     "phrase_start_to_audio_p90": 4222,
+     "sentence_start_to_first_audio_p50": 3761,
+     "sentence_start_to_first_audio_p90": 5355,
+     "sentence_end_to_last_audio_p50": 1466,
+     "sentence_end_to_last_audio_p90": 6497,
+     "queued_sentence_end_to_last_audio_p50": 7720,
+     "queued_sentence_end_to_last_audio_p90": 11430,
+     "queued_phrase_start_to_audio_p50": 6799
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 58,
+    "chunks_per_sentence": 2.9,
+    "mt_wall_p50_ms": 624,
+    "revised_tokens": 16,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 460562,
+     "out": 13157
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 24,
+     "chunks": 66,
+     "rate": 0.364
+    }
+   },
+   "S-ctc": {
+    "written": {
+     "q": 40.0,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 46.7,
+     "crit": 6,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 5701,
+     "phrase_start_to_audio_p90": 8509,
+     "sentence_start_to_first_audio_p50": 7356,
+     "sentence_start_to_first_audio_p90": 12184,
+     "sentence_end_to_last_audio_p50": 1464,
+     "sentence_end_to_last_audio_p90": 5622,
+     "queued_sentence_end_to_last_audio_p50": 6183,
+     "queued_sentence_end_to_last_audio_p90": 13074,
+     "queued_phrase_start_to_audio_p50": 12480
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 23,
+    "chunks_per_sentence": 1.15,
+    "mt_wall_p50_ms": 851,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 72331,
+     "out": 10579
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "S-simul": {
+    "written": {
+     "q": 45.0,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 51.7,
+     "crit": 6,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 7298,
+     "phrase_start_to_audio_p90": 12930,
+     "sentence_start_to_first_audio_p50": 6326,
+     "sentence_start_to_first_audio_p90": 11316,
+     "sentence_end_to_last_audio_p50": 2132,
+     "sentence_end_to_last_audio_p90": 2732,
+     "queued_sentence_end_to_last_audio_p50": 2576,
+     "queued_sentence_end_to_last_audio_p90": 6991,
+     "queued_phrase_start_to_audio_p50": 8686
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 20,
+    "chunks_per_sentence": 1.0,
+    "mt_wall_p50_ms": 1029,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 67967,
+     "out": 10314
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 3,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "P8-simul": {
+    "written": {
+     "q": 30.0,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 30.0,
+     "crit": 7,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3234,
+     "phrase_start_to_audio_p90": 4825,
+     "sentence_start_to_first_audio_p50": 3842,
+     "sentence_start_to_first_audio_p90": 4956,
+     "sentence_end_to_last_audio_p50": 1455,
+     "sentence_end_to_last_audio_p90": 1867,
+     "queued_sentence_end_to_last_audio_p50": 4435,
+     "queued_sentence_end_to_last_audio_p90": 7745,
+     "queued_phrase_start_to_audio_p50": 5317
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 54,
+    "chunks_per_sentence": 2.7,
+    "mt_wall_p50_ms": 443,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 300562,
+     "out": 10711
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 3,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 8,
+     "chunks": 57,
+     "rate": 0.14
+    }
+   }
+  },
+  "reg:en-fr": {
+   "S-nemo": {
+    "written": {
+     "q": 56.7,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 61.7,
+     "crit": 9,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 8175,
+     "phrase_start_to_audio_p90": 31187,
+     "sentence_start_to_first_audio_p50": 19008,
+     "sentence_start_to_first_audio_p90": 32230,
+     "sentence_end_to_last_audio_p50": 12324,
+     "sentence_end_to_last_audio_p90": 26990,
+     "queued_sentence_end_to_last_audio_p50": 33830,
+     "queued_sentence_end_to_last_audio_p90": 49907,
+     "queued_phrase_start_to_audio_p50": 44314
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 12,
+    "chunks_per_sentence": 0.6,
+    "mt_wall_p50_ms": 1299,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 62986,
+     "out": 12959
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "S-ctc": {
+    "written": {
+     "q": 45.0,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 55.0,
+     "crit": 13,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 5584,
+     "phrase_start_to_audio_p90": 8412,
+     "sentence_start_to_first_audio_p50": 7214,
+     "sentence_start_to_first_audio_p90": 12437,
+     "sentence_end_to_last_audio_p50": 1392,
+     "sentence_end_to_last_audio_p90": 5904,
+     "queued_sentence_end_to_last_audio_p50": 11361,
+     "queued_sentence_end_to_last_audio_p90": 21073,
+     "queued_phrase_start_to_audio_p50": 18749
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 23,
+    "chunks_per_sentence": 1.15,
+    "mt_wall_p50_ms": 836,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 74358,
+     "out": 11416
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "P8-simul": {
+    "written": {
+     "q": 28.3,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 36.7,
+     "crit": 15,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3176,
+     "phrase_start_to_audio_p90": 4678,
+     "sentence_start_to_first_audio_p50": 3808,
+     "sentence_start_to_first_audio_p90": 5342,
+     "sentence_end_to_last_audio_p50": 1450,
+     "sentence_end_to_last_audio_p90": 1900,
+     "queued_sentence_end_to_last_audio_p50": 6879,
+     "queued_sentence_end_to_last_audio_p90": 9853,
+     "queued_phrase_start_to_audio_p50": 7623
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 54,
+    "chunks_per_sentence": 2.7,
+    "mt_wall_p50_ms": 521,
+    "revised_tokens": 21,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 305455,
+     "out": 11438
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 3,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 4,
+     "chunks": 57,
+     "rate": 0.07
+    }
+   },
+   "P8-ctc": {
+    "written": {
+     "q": 26.7,
+     "crit": 15,
+     "n": 20
+    },
+    "said": {
+     "q": 30.0,
+     "crit": 17,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3502,
+     "phrase_start_to_audio_p90": 5988,
+     "sentence_start_to_first_audio_p50": 5148,
+     "sentence_start_to_first_audio_p90": 8324,
+     "sentence_end_to_last_audio_p50": 1470,
+     "sentence_end_to_last_audio_p90": 6830,
+     "queued_sentence_end_to_last_audio_p50": 12100,
+     "queued_sentence_end_to_last_audio_p90": 17598,
+     "queued_phrase_start_to_audio_p50": 12339
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 46,
+    "chunks_per_sentence": 2.3,
+    "mt_wall_p50_ms": 556,
+    "revised_tokens": 83,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 257102,
+     "out": 11063
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 10,
+     "chunks": 48,
+     "rate": 0.208
+    }
+   },
+   "P8-nemo": {
+    "written": {
+     "q": 40.0,
+     "crit": 12,
+     "n": 20
+    },
+    "said": {
+     "q": 50.0,
+     "crit": 11,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2808,
+     "phrase_start_to_audio_p90": 4328,
+     "sentence_start_to_first_audio_p50": 3835,
+     "sentence_start_to_first_audio_p90": 5413,
+     "sentence_end_to_last_audio_p50": 1506,
+     "sentence_end_to_last_audio_p90": 5251,
+     "queued_sentence_end_to_last_audio_p50": 15926,
+     "queued_sentence_end_to_last_audio_p90": 24354,
+     "queued_phrase_start_to_audio_p50": 14424
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 58,
+    "chunks_per_sentence": 2.9,
+    "mt_wall_p50_ms": 722,
+    "revised_tokens": 16,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 472264,
+     "out": 14039
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 17,
+     "chunks": 65,
+     "rate": 0.262
+    }
+   },
+   "S-simul": {
+    "written": {
+     "q": 41.7,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 51.7,
+     "crit": 11,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 7462,
+     "phrase_start_to_audio_p90": 12619,
+     "sentence_start_to_first_audio_p50": 6321,
+     "sentence_start_to_first_audio_p90": 11285,
+     "sentence_end_to_last_audio_p50": 2121,
+     "sentence_end_to_last_audio_p90": 2545,
+     "queued_sentence_end_to_last_audio_p50": 3615,
+     "queued_sentence_end_to_last_audio_p90": 9735,
+     "queued_phrase_start_to_audio_p50": 10956
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 20,
+    "chunks_per_sentence": 1.0,
+    "mt_wall_p50_ms": 934,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 69752,
+     "out": 11174
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 3,
+    "providers": [
+     "vllm-pod"
+    ]
+   }
+  },
+  "reg:es-en": {
+   "P8-simul": {
+    "written": {
+     "q": 56.7,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 57.9,
+     "crit": 3,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3494,
+     "phrase_start_to_audio_p90": 4619,
+     "sentence_start_to_first_audio_p50": 3840,
+     "sentence_start_to_first_audio_p90": 4632,
+     "sentence_end_to_last_audio_p50": 1480,
+     "sentence_end_to_last_audio_p90": 2050,
+     "queued_sentence_end_to_last_audio_p50": 6201,
+     "queued_sentence_end_to_last_audio_p90": 13057,
+     "queued_phrase_start_to_audio_p50": 6133
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 83,
+    "chunks_per_sentence": 4.15,
+    "mt_wall_p50_ms": 411,
+    "revised_tokens": 96,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 425000,
+     "out": 10910
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 10,
+     "chunks": 83,
+     "rate": 0.12
+    }
+   },
+   "P8-ctc": {
+    "written": {
+     "q": 48.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 49.1,
+     "crit": 4,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3551,
+     "phrase_start_to_audio_p90": 5882,
+     "sentence_start_to_first_audio_p50": 4731,
+     "sentence_start_to_first_audio_p90": 5838,
+     "sentence_end_to_last_audio_p50": 1028,
+     "sentence_end_to_last_audio_p90": 1288,
+     "queued_sentence_end_to_last_audio_p50": 4278,
+     "queued_sentence_end_to_last_audio_p90": 9174,
+     "queued_phrase_start_to_audio_p50": 6275
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 69,
+    "chunks_per_sentence": 3.45,
+    "mt_wall_p50_ms": 434,
+    "revised_tokens": 100,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 301493,
+     "out": 9331
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 11,
+     "chunks": 69,
+     "rate": 0.159
+    }
+   },
+   "S-ctc": {
+    "written": {
+     "q": 73.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 75.4,
+     "crit": 3,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 6437,
+     "phrase_start_to_audio_p90": 9726,
+     "sentence_start_to_first_audio_p50": 7704,
+     "sentence_start_to_first_audio_p90": 11343,
+     "sentence_end_to_last_audio_p50": 1352,
+     "sentence_end_to_last_audio_p90": 1758,
+     "queued_sentence_end_to_last_audio_p50": 5769,
+     "queued_sentence_end_to_last_audio_p90": 13578,
+     "queued_phrase_start_to_audio_p50": 9450
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 32,
+    "chunks_per_sentence": 1.6,
+    "mt_wall_p50_ms": 612,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 80398,
+     "out": 9385
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "S-simul": {
+    "written": {
+     "q": 86.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 87.7,
+     "crit": 1,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 9543,
+     "phrase_start_to_audio_p90": 14384,
+     "sentence_start_to_first_audio_p50": 9587,
+     "sentence_start_to_first_audio_p90": 16119,
+     "sentence_end_to_last_audio_p50": 2008,
+     "sentence_end_to_last_audio_p90": 2384,
+     "queued_sentence_end_to_last_audio_p50": 9188,
+     "queued_sentence_end_to_last_audio_p90": 18712,
+     "queued_phrase_start_to_audio_p50": 15728
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 21,
+    "chunks_per_sentence": 1.05,
+    "mt_wall_p50_ms": 745,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 73550,
+     "out": 9970
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "P8-nemo": {
+    "written": {
+     "q": 61.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 61.4,
+     "crit": 1,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2591,
+     "phrase_start_to_audio_p90": 3913,
+     "sentence_start_to_first_audio_p50": 3787,
+     "sentence_start_to_first_audio_p90": 6756,
+     "sentence_end_to_last_audio_p50": 1429,
+     "sentence_end_to_last_audio_p90": 8656,
+     "queued_sentence_end_to_last_audio_p50": 5730,
+     "queued_sentence_end_to_last_audio_p90": 16525,
+     "queued_phrase_start_to_audio_p50": 5599
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 83,
+    "chunks_per_sentence": 4.15,
+    "mt_wall_p50_ms": 542,
+    "revised_tokens": 64,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 445525,
+     "out": 10910
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 14,
+     "chunks": 85,
+     "rate": 0.165
+    }
+   },
+   "S-nemo": {
+    "written": {
+     "q": 91.7,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 93.0,
+     "crit": 0,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 9207,
+     "phrase_start_to_audio_p90": 14822,
+     "sentence_start_to_first_audio_p50": 9704,
+     "sentence_start_to_first_audio_p90": 15777,
+     "sentence_end_to_last_audio_p50": 2033,
+     "sentence_end_to_last_audio_p90": 2495,
+     "queued_sentence_end_to_last_audio_p50": 4709,
+     "queued_sentence_end_to_last_audio_p90": 11199,
+     "queued_phrase_start_to_audio_p50": 14435
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 21,
+    "chunks_per_sentence": 1.05,
+    "mt_wall_p50_ms": 860,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 69133,
+     "out": 9349
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   }
+  },
+  "reg:fr-en": {
+   "P8-nemo": {
+    "written": {
+     "q": 41.7,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 41.7,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2412,
+     "phrase_start_to_audio_p90": 4108,
+     "sentence_start_to_first_audio_p50": 3480,
+     "sentence_start_to_first_audio_p90": 4635,
+     "sentence_end_to_last_audio_p50": 1596,
+     "sentence_end_to_last_audio_p90": 6612,
+     "queued_sentence_end_to_last_audio_p50": 11697,
+     "queued_sentence_end_to_last_audio_p90": 39342,
+     "queued_phrase_start_to_audio_p50": 7091
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 75,
+    "chunks_per_sentence": 3.75,
+    "mt_wall_p50_ms": 528,
+    "revised_tokens": 134,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 476906,
+     "out": 11787
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 3,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 25,
+     "chunks": 78,
+     "rate": 0.321
+    }
+   },
+   "P8-ctc": {
+    "written": {
+     "q": 58.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 58.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3360,
+     "phrase_start_to_audio_p90": 5249,
+     "sentence_start_to_first_audio_p50": 4524,
+     "sentence_start_to_first_audio_p90": 5639,
+     "sentence_end_to_last_audio_p50": 1060,
+     "sentence_end_to_last_audio_p90": 2164,
+     "queued_sentence_end_to_last_audio_p50": 6584,
+     "queued_sentence_end_to_last_audio_p90": 9616,
+     "queued_phrase_start_to_audio_p50": 6178
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 59,
+    "chunks_per_sentence": 2.95,
+    "mt_wall_p50_ms": 433,
+    "revised_tokens": 102,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 318006,
+     "out": 9261
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 9,
+     "chunks": 60,
+     "rate": 0.15
+    }
+   },
+   "S-nemo": {
+    "written": {
+     "q": 73.3,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 73.3,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 7489,
+     "phrase_start_to_audio_p90": 13395,
+     "sentence_start_to_first_audio_p50": 7890,
+     "sentence_start_to_first_audio_p90": 18799,
+     "sentence_end_to_last_audio_p50": 1810,
+     "sentence_end_to_last_audio_p90": 5339,
+     "queued_sentence_end_to_last_audio_p50": 12209,
+     "queued_sentence_end_to_last_audio_p90": 24597,
+     "queued_phrase_start_to_audio_p50": 19726
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 21,
+    "chunks_per_sentence": 1.05,
+    "mt_wall_p50_ms": 805,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 80538,
+     "out": 9795
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "P8-simul": {
+    "written": {
+     "q": 41.7,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 41.7,
+     "crit": 6,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2920,
+     "phrase_start_to_audio_p90": 4198,
+     "sentence_start_to_first_audio_p50": 3644,
+     "sentence_start_to_first_audio_p90": 4675,
+     "sentence_end_to_last_audio_p50": 1512,
+     "sentence_end_to_last_audio_p90": 5654,
+     "queued_sentence_end_to_last_audio_p50": 5887,
+     "queued_sentence_end_to_last_audio_p90": 7565,
+     "queued_phrase_start_to_audio_p50": 5784
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 71,
+    "chunks_per_sentence": 3.55,
+    "mt_wall_p50_ms": 410,
+    "revised_tokens": 67,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 411913,
+     "out": 10350
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 17,
+     "chunks": 73,
+     "rate": 0.233
+    }
+   },
+   "S-simul": {
+    "written": {
+     "q": 73.3,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 73.3,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 8083,
+     "phrase_start_to_audio_p90": 13051,
+     "sentence_start_to_first_audio_p50": 8423,
+     "sentence_start_to_first_audio_p90": 13616,
+     "sentence_end_to_last_audio_p50": 1949,
+     "sentence_end_to_last_audio_p90": 7162,
+     "queued_sentence_end_to_last_audio_p50": 3807,
+     "queued_sentence_end_to_last_audio_p90": 10465,
+     "queued_phrase_start_to_audio_p50": 11098
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 20,
+    "chunks_per_sentence": 1.0,
+    "mt_wall_p50_ms": 670,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 78772,
+     "out": 9775
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "S-ctc": {
+    "written": {
+     "q": 76.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 76.7,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 5257,
+     "phrase_start_to_audio_p90": 8861,
+     "sentence_start_to_first_audio_p50": 6498,
+     "sentence_start_to_first_audio_p90": 14999,
+     "sentence_end_to_last_audio_p50": 1338,
+     "sentence_end_to_last_audio_p90": 1779,
+     "queued_sentence_end_to_last_audio_p50": 8000,
+     "queued_sentence_end_to_last_audio_p90": 17668,
+     "queued_phrase_start_to_audio_p50": 10055
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 27,
+    "chunks_per_sentence": 1.35,
+    "mt_wall_p50_ms": 599,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 86555,
+     "out": 9754
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   }
+  },
+  "irr:en-es": {
+   "S-nemo": {
+    "written": {
+     "q": 51.7,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 56.7,
+     "crit": 7,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 8138,
+     "phrase_start_to_audio_p90": 22279,
+     "sentence_start_to_first_audio_p50": 13803,
+     "sentence_start_to_first_audio_p90": 28701,
+     "sentence_end_to_last_audio_p50": 7801,
+     "sentence_end_to_last_audio_p90": 23461,
+     "queued_sentence_end_to_last_audio_p50": 21558,
+     "queued_sentence_end_to_last_audio_p90": 36061,
+     "queued_phrase_start_to_audio_p50": 37125
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 12,
+    "chunks_per_sentence": 0.6,
+    "mt_wall_p50_ms": 755,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 64748,
+     "out": 11752
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "P8-ctc": {
+    "written": {
+     "q": 30.0,
+     "crit": 14,
+     "n": 20
+    },
+    "said": {
+     "q": 31.7,
+     "crit": 14,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2989,
+     "phrase_start_to_audio_p90": 5653,
+     "sentence_start_to_first_audio_p50": 4820,
+     "sentence_start_to_first_audio_p90": 6178,
+     "sentence_end_to_last_audio_p50": 1143,
+     "sentence_end_to_last_audio_p90": 1530,
+     "queued_sentence_end_to_last_audio_p50": 3562,
+     "queued_sentence_end_to_last_audio_p90": 8151,
+     "queued_phrase_start_to_audio_p50": 5689
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 43,
+    "chunks_per_sentence": 2.15,
+    "mt_wall_p50_ms": 506,
+    "revised_tokens": 84,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 261851,
+     "out": 10751
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 12,
+     "chunks": 45,
+     "rate": 0.267
+    }
+   },
+   "P8-nemo": {
+    "written": {
+     "q": 41.7,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 48.3,
+     "crit": 8,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3145,
+     "phrase_start_to_audio_p90": 4637,
+     "sentence_start_to_first_audio_p50": 4068,
+     "sentence_start_to_first_audio_p90": 5360,
+     "sentence_end_to_last_audio_p50": 1516,
+     "sentence_end_to_last_audio_p90": 5874,
+     "queued_sentence_end_to_last_audio_p50": 8747,
+     "queued_sentence_end_to_last_audio_p90": 13384,
+     "queued_phrase_start_to_audio_p50": 9585
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 48,
+    "chunks_per_sentence": 2.4,
+    "mt_wall_p50_ms": 760,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 398653,
+     "out": 12656
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 14,
+     "chunks": 55,
+     "rate": 0.255
+    }
+   },
+   "P8-simul": {
+    "written": {
+     "q": 38.3,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 38.3,
+     "crit": 9,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3210,
+     "phrase_start_to_audio_p90": 4870,
+     "sentence_start_to_first_audio_p50": 3982,
+     "sentence_start_to_first_audio_p90": 4991,
+     "sentence_end_to_last_audio_p50": 1500,
+     "sentence_end_to_last_audio_p90": 2394,
+     "queued_sentence_end_to_last_audio_p50": 6626,
+     "queued_sentence_end_to_last_audio_p90": 9436,
+     "queued_phrase_start_to_audio_p50": 6858
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 54,
+    "chunks_per_sentence": 2.7,
+    "mt_wall_p50_ms": 488,
+    "revised_tokens": 20,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 340600,
+     "out": 12094
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 3,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 7,
+     "chunks": 56,
+     "rate": 0.125
+    }
+   },
+   "S-simul": {
+    "written": {
+     "q": 48.3,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 58.3,
+     "crit": 7,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 6817,
+     "phrase_start_to_audio_p90": 12700,
+     "sentence_start_to_first_audio_p50": 6553,
+     "sentence_start_to_first_audio_p90": 11994,
+     "sentence_end_to_last_audio_p50": 1875,
+     "sentence_end_to_last_audio_p90": 2464,
+     "queued_sentence_end_to_last_audio_p50": 6707,
+     "queued_sentence_end_to_last_audio_p90": 12991,
+     "queued_phrase_start_to_audio_p50": 12849
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 19,
+    "chunks_per_sentence": 0.95,
+    "mt_wall_p50_ms": 501,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 75499,
+     "out": 11826
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 3,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "S-ctc": {
+    "written": {
+     "q": 41.7,
+     "crit": 12,
+     "n": 20
+    },
+    "said": {
+     "q": 46.7,
+     "crit": 12,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 5451,
+     "phrase_start_to_audio_p90": 7293,
+     "sentence_start_to_first_audio_p50": 6997,
+     "sentence_start_to_first_audio_p90": 11252,
+     "sentence_end_to_last_audio_p50": 1361,
+     "sentence_end_to_last_audio_p90": 6298,
+     "queued_sentence_end_to_last_audio_p50": 16917,
+     "queued_sentence_end_to_last_audio_p90": 21163,
+     "queued_phrase_start_to_audio_p50": 21195
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 22,
+    "chunks_per_sentence": 1.1,
+    "mt_wall_p50_ms": 732,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 78113,
+     "out": 11361
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 2,
+    "providers": [
+     "vllm-pod"
+    ]
+   }
+  },
+  "irr:en-fr": {
+   "P8-ctc": {
+    "written": {
+     "q": 21.7,
+     "crit": 17,
+     "n": 20
+    },
+    "said": {
+     "q": 25.0,
+     "crit": 18,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3005,
+     "phrase_start_to_audio_p90": 5779,
+     "sentence_start_to_first_audio_p50": 4999,
+     "sentence_start_to_first_audio_p90": 6285,
+     "sentence_end_to_last_audio_p50": 1311,
+     "sentence_end_to_last_audio_p90": 1609,
+     "queued_sentence_end_to_last_audio_p50": 7191,
+     "queued_sentence_end_to_last_audio_p90": 16130,
+     "queued_phrase_start_to_audio_p50": 10002
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 43,
+    "chunks_per_sentence": 2.15,
+    "mt_wall_p50_ms": 536,
+    "revised_tokens": 84,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 266201,
+     "out": 11704
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 16,
+     "chunks": 44,
+     "rate": 0.364
+    }
+   },
+   "S-simul": {
+    "written": {
+     "q": 48.3,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 58.3,
+     "crit": 10,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 6934,
+     "phrase_start_to_audio_p90": 13201,
+     "sentence_start_to_first_audio_p50": 7227,
+     "sentence_start_to_first_audio_p90": 12185,
+     "sentence_end_to_last_audio_p50": 1893,
+     "sentence_end_to_last_audio_p90": 2497,
+     "queued_sentence_end_to_last_audio_p50": 17432,
+     "queued_sentence_end_to_last_audio_p90": 22632,
+     "queued_phrase_start_to_audio_p50": 21780
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 19,
+    "chunks_per_sentence": 0.95,
+    "mt_wall_p50_ms": 638,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 78235,
+     "out": 13145
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 3,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "P8-simul": {
+    "written": {
+     "q": 26.7,
+     "crit": 13,
+     "n": 20
+    },
+    "said": {
+     "q": 38.3,
+     "crit": 15,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3166,
+     "phrase_start_to_audio_p90": 4810,
+     "sentence_start_to_first_audio_p50": 4040,
+     "sentence_start_to_first_audio_p90": 5121,
+     "sentence_end_to_last_audio_p50": 1468,
+     "sentence_end_to_last_audio_p90": 2269,
+     "queued_sentence_end_to_last_audio_p50": 14279,
+     "queued_sentence_end_to_last_audio_p90": 18802,
+     "queued_phrase_start_to_audio_p50": 16153
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 54,
+    "chunks_per_sentence": 2.7,
+    "mt_wall_p50_ms": 543,
+    "revised_tokens": 20,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 348736,
+     "out": 13218
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 3,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 11,
+     "chunks": 55,
+     "rate": 0.2
+    }
+   },
+   "S-ctc": {
+    "written": {
+     "q": 36.7,
+     "crit": 15,
+     "n": 20
+    },
+    "said": {
+     "q": 43.3,
+     "crit": 15,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 5524,
+     "phrase_start_to_audio_p90": 7687,
+     "sentence_start_to_first_audio_p50": 7021,
+     "sentence_start_to_first_audio_p90": 11663,
+     "sentence_end_to_last_audio_p50": 1442,
+     "sentence_end_to_last_audio_p90": 5794,
+     "queued_sentence_end_to_last_audio_p50": 16151,
+     "queued_sentence_end_to_last_audio_p90": 28701,
+     "queued_phrase_start_to_audio_p50": 22112
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 22,
+    "chunks_per_sentence": 1.1,
+    "mt_wall_p50_ms": 821,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 80483,
+     "out": 12534
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "S-nemo": {
+    "written": {
+     "q": 45.0,
+     "crit": 12,
+     "n": 20
+    },
+    "said": {
+     "q": 51.7,
+     "crit": 11,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 8207,
+     "phrase_start_to_audio_p90": 22425,
+     "sentence_start_to_first_audio_p50": 13851,
+     "sentence_start_to_first_audio_p90": 28650,
+     "sentence_end_to_last_audio_p50": 7750,
+     "sentence_end_to_last_audio_p90": 23410,
+     "queued_sentence_end_to_last_audio_p50": 27768,
+     "queued_sentence_end_to_last_audio_p90": 45510,
+     "queued_phrase_start_to_audio_p50": 41583
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 12,
+    "chunks_per_sentence": 0.6,
+    "mt_wall_p50_ms": 1039,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 67143,
+     "out": 12852
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "P8-nemo": {
+    "written": {
+     "q": 33.3,
+     "crit": 13,
+     "n": 20
+    },
+    "said": {
+     "q": 46.7,
+     "crit": 12,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3112,
+     "phrase_start_to_audio_p90": 4549,
+     "sentence_start_to_first_audio_p50": 4049,
+     "sentence_start_to_first_audio_p90": 5464,
+     "sentence_end_to_last_audio_p50": 1574,
+     "sentence_end_to_last_audio_p90": 5789,
+     "queued_sentence_end_to_last_audio_p50": 19867,
+     "queued_sentence_end_to_last_audio_p90": 28143,
+     "queued_phrase_start_to_audio_p50": 19422
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 48,
+    "chunks_per_sentence": 2.4,
+    "mt_wall_p50_ms": 713,
+    "revised_tokens": 8,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 406057,
+     "out": 13072
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 19,
+     "chunks": 54,
+     "rate": 0.352
+    }
+   }
+  },
+  "irr:es-en": {
+   "S-simul": {
+    "written": {
+     "q": 78.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 80.7,
+     "crit": 1,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 10055,
+     "phrase_start_to_audio_p90": 28914,
+     "sentence_start_to_first_audio_p50": 11346,
+     "sentence_start_to_first_audio_p90": 33633,
+     "sentence_end_to_last_audio_p50": 2552,
+     "sentence_end_to_last_audio_p90": 21153,
+     "queued_sentence_end_to_last_audio_p50": 15595,
+     "queued_sentence_end_to_last_audio_p90": 42206,
+     "queued_phrase_start_to_audio_p50": 21222
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 16,
+    "chunks_per_sentence": 0.8,
+    "mt_wall_p50_ms": 730,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 74207,
+     "out": 10805
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "S-ctc": {
+    "written": {
+     "q": 78.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 80.7,
+     "crit": 3,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 7496,
+     "phrase_start_to_audio_p90": 10195,
+     "sentence_start_to_first_audio_p50": 8223,
+     "sentence_start_to_first_audio_p90": 11184,
+     "sentence_end_to_last_audio_p50": 1444,
+     "sentence_end_to_last_audio_p90": 1746,
+     "queued_sentence_end_to_last_audio_p50": 18913,
+     "queued_sentence_end_to_last_audio_p90": 27795,
+     "queued_phrase_start_to_audio_p50": 22930
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 29,
+    "chunks_per_sentence": 1.45,
+    "mt_wall_p50_ms": 724,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 84261,
+     "out": 10574
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "S-nemo": {
+    "written": {
+     "q": 93.3,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 96.5,
+     "crit": 0,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 9244,
+     "phrase_start_to_audio_p90": 12278,
+     "sentence_start_to_first_audio_p50": 9265,
+     "sentence_start_to_first_audio_p90": 14616,
+     "sentence_end_to_last_audio_p50": 2065,
+     "sentence_end_to_last_audio_p90": 2349,
+     "queued_sentence_end_to_last_audio_p50": 8171,
+     "queued_sentence_end_to_last_audio_p90": 18150,
+     "queued_phrase_start_to_audio_p50": 14030
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 22,
+    "chunks_per_sentence": 1.1,
+    "mt_wall_p50_ms": 815,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 77346,
+     "out": 10381
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "P8-ctc": {
+    "written": {
+     "q": 50.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 50.9,
+     "crit": 2,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3709,
+     "phrase_start_to_audio_p90": 5733,
+     "sentence_start_to_first_audio_p50": 4881,
+     "sentence_start_to_first_audio_p90": 5936,
+     "sentence_end_to_last_audio_p50": 1005,
+     "sentence_end_to_last_audio_p90": 1289,
+     "queued_sentence_end_to_last_audio_p50": 7165,
+     "queued_sentence_end_to_last_audio_p90": 13619,
+     "queued_phrase_start_to_audio_p50": 7947
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 71,
+    "chunks_per_sentence": 3.55,
+    "mt_wall_p50_ms": 425,
+    "revised_tokens": 103,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 349619,
+     "out": 10516
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 18,
+     "chunks": 71,
+     "rate": 0.254
+    }
+   },
+   "P8-simul": {
+    "written": {
+     "q": 33.3,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 35.1,
+     "crit": 6,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3543,
+     "phrase_start_to_audio_p90": 5244,
+     "sentence_start_to_first_audio_p50": 3946,
+     "sentence_start_to_first_audio_p90": 5287,
+     "sentence_end_to_last_audio_p50": 1585,
+     "sentence_end_to_last_audio_p90": 3825,
+     "queued_sentence_end_to_last_audio_p50": 10667,
+     "queued_sentence_end_to_last_audio_p90": 22641,
+     "queued_phrase_start_to_audio_p50": 10559
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 81,
+    "chunks_per_sentence": 4.05,
+    "mt_wall_p50_ms": 405,
+    "revised_tokens": 99,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 548590,
+     "out": 12056
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 29,
+     "chunks": 85,
+     "rate": 0.341
+    }
+   },
+   "P8-nemo": {
+    "written": {
+     "q": 51.7,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 54.4,
+     "crit": 0,
+     "n": 19
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2489,
+     "phrase_start_to_audio_p90": 3655,
+     "sentence_start_to_first_audio_p50": 3803,
+     "sentence_start_to_first_audio_p90": 7702,
+     "sentence_end_to_last_audio_p50": 1710,
+     "sentence_end_to_last_audio_p90": 9152,
+     "queued_sentence_end_to_last_audio_p50": 14050,
+     "queued_sentence_end_to_last_audio_p90": 32453,
+     "queued_phrase_start_to_audio_p50": 10814
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 83,
+    "chunks_per_sentence": 4.15,
+    "mt_wall_p50_ms": 451,
+    "revised_tokens": 117,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 476135,
+     "out": 12384
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 25,
+     "chunks": 88,
+     "rate": 0.284
+    }
+   }
+  },
+  "irr:fr-en": {
+   "P8-ctc": {
+    "written": {
+     "q": 63.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 63.3,
+     "crit": 4,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3063,
+     "phrase_start_to_audio_p90": 5179,
+     "sentence_start_to_first_audio_p50": 4207,
+     "sentence_start_to_first_audio_p90": 5023,
+     "sentence_end_to_last_audio_p50": 1054,
+     "sentence_end_to_last_audio_p90": 1436,
+     "queued_sentence_end_to_last_audio_p50": 9407,
+     "queued_sentence_end_to_last_audio_p90": 17186,
+     "queued_phrase_start_to_audio_p50": 7907
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 60,
+    "chunks_per_sentence": 3.0,
+    "mt_wall_p50_ms": 436,
+    "revised_tokens": 87,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 360949,
+     "out": 10847
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 6,
+     "chunks": 61,
+     "rate": 0.098
+    }
+   },
+   "S-simul": {
+    "written": {
+     "q": 73.3,
+     "crit": 1,
+     "n": 20
+    },
+    "said": {
+     "q": 73.3,
+     "crit": 1,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 9174,
+     "phrase_start_to_audio_p90": 19094,
+     "sentence_start_to_first_audio_p50": 9526,
+     "sentence_start_to_first_audio_p90": 19006,
+     "sentence_end_to_last_audio_p50": 1914,
+     "sentence_end_to_last_audio_p90": 13526,
+     "queued_sentence_end_to_last_audio_p50": 6033,
+     "queued_sentence_end_to_last_audio_p90": 18431,
+     "queued_phrase_start_to_audio_p50": 13513
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 15,
+    "chunks_per_sentence": 0.75,
+    "mt_wall_p50_ms": 580,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 71616,
+     "out": 10282
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "S-ctc": {
+    "written": {
+     "q": 78.3,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 5177,
+     "phrase_start_to_audio_p90": 7777,
+     "sentence_start_to_first_audio_p50": 6302,
+     "sentence_start_to_first_audio_p90": 14593,
+     "sentence_end_to_last_audio_p50": 1304,
+     "sentence_end_to_last_audio_p90": 1599,
+     "queued_sentence_end_to_last_audio_p50": 8646,
+     "queued_sentence_end_to_last_audio_p90": 23412,
+     "queued_phrase_start_to_audio_p50": 10703
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 27,
+    "chunks_per_sentence": 1.35,
+    "mt_wall_p50_ms": 597,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 94576,
+     "out": 10621
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.072,
+     "rtf_per_stream_batch16": 0.038,
+     "gpu_gb": 6.48,
+     "gpu_gb_16_streams": 10.12,
+     "process_gb_nvidia_smi": 8.2,
+     "gpu": "A100-SXM4-80GB",
+     "note": "bench_ctc.py: one 10.5 s window pass per 0.5 s of speech"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "P8-simul": {
+    "written": {
+     "q": 46.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 46.7,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 3225,
+     "phrase_start_to_audio_p90": 4254,
+     "sentence_start_to_first_audio_p50": 3293,
+     "sentence_start_to_first_audio_p90": 4582,
+     "sentence_end_to_last_audio_p50": 1540,
+     "sentence_end_to_last_audio_p90": 3929,
+     "queued_sentence_end_to_last_audio_p50": 4762,
+     "queued_sentence_end_to_last_audio_p90": 10198,
+     "queued_phrase_start_to_audio_p50": 5032
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 66,
+    "chunks_per_sentence": 3.3,
+    "mt_wall_p50_ms": 395,
+    "revised_tokens": 66,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 467887,
+     "out": 10960
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.3733,
+     "gpu_gb": 7.47,
+     "process_gb_nvidia_smi": 10.3,
+     "gpu": "A100-SXM4-80GB",
+     "note": "computationally unaware pass over reg/en (simul_run.py)"
+    },
+    "sentences_without_output": 1,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 13,
+     "chunks": 71,
+     "rate": 0.183
+    }
+   },
+   "S-nemo": {
+    "written": {
+     "q": 78.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 2,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 7503,
+     "phrase_start_to_audio_p90": 13183,
+     "sentence_start_to_first_audio_p50": 7808,
+     "sentence_start_to_first_audio_p90": 17493,
+     "sentence_end_to_last_audio_p50": 1888,
+     "sentence_end_to_last_audio_p90": 4033,
+     "queued_sentence_end_to_last_audio_p50": 11136,
+     "queued_sentence_end_to_last_audio_p90": 30387,
+     "queued_phrase_start_to_audio_p50": 18452
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 21,
+    "chunks_per_sentence": 1.05,
+    "mt_wall_p50_ms": 717,
+    "revised_tokens": 0,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 87571,
+     "out": 10712
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 0,
+    "providers": [
+     "vllm-pod"
+    ]
+   },
+   "P8-nemo": {
+    "written": {
+     "q": 36.7,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 36.7,
+     "crit": 3,
+     "n": 20
+    },
+    "lat": {
+     "phrase_start_to_audio_p50": 2482,
+     "phrase_start_to_audio_p90": 4296,
+     "sentence_start_to_first_audio_p50": 3463,
+     "sentence_start_to_first_audio_p90": 7077,
+     "sentence_end_to_last_audio_p50": 2756,
+     "sentence_end_to_last_audio_p90": 7833,
+     "queued_sentence_end_to_last_audio_p50": 13809,
+     "queued_sentence_end_to_last_audio_p90": 50297,
+     "queued_phrase_start_to_audio_p50": 11700
+    },
+    "sentence_cut": "verbatim anchors",
+    "chunks": 72,
+    "chunks_per_sentence": 3.6,
+    "mt_wall_p50_ms": 497,
+    "revised_tokens": 143,
+    "translation_per_hour": 0.0,
+    "tokens_per_hour": {
+     "in": 503729,
+     "out": 12881
+    },
+    "recognition_gpu": {
+     "rtf_one_stream": 0.0667,
+     "gpu_gb": 2.8,
+     "gpu": "A100-SXM4-80GB",
+     "note": "sum of synchronised step times / audio, fp32, 0.56 s chunks"
+    },
+    "sentences_without_output": 2,
+    "providers": [
+     "vllm-pod"
+    ],
+    "contradictions": {
+     "wrong": 26,
+     "chunks": 78,
+     "rate": 0.333
+    }
+   }
+  }
+ },
+ "recognition": [
+  {
+   "lang": "en",
+   "pattern": "reg",
+   "system": "simul",
+   "said": {
+    "cer": 24.9,
+    "wer": 29.8
+   },
+   "text": {
+    "cer": 27.8,
+    "wer": 33.0
+   }
+  },
+  {
+   "lang": "es",
+   "pattern": "reg",
+   "system": "simul",
+   "said": {
+    "cer": 3.9,
+    "wer": 8.4
+   },
+   "text": {
+    "cer": 3.9,
+    "wer": 8.4
+   }
+  },
+  {
+   "lang": "fr",
+   "pattern": "reg",
+   "system": "simul",
+   "said": {
+    "cer": 17.0,
+    "wer": 21.3
+   },
+   "text": {
+    "cer": 17.0,
+    "wer": 21.3
+   }
+  },
+  {
+   "lang": "en",
+   "pattern": "irr",
+   "system": "simul",
+   "said": {
+    "cer": 22.6,
+    "wer": 28.2
+   },
+   "text": {
+    "cer": 25.7,
+    "wer": 31.7
+   }
+  },
+  {
+   "lang": "es",
+   "pattern": "irr",
+   "system": "simul",
+   "said": {
+    "cer": 4.7,
+    "wer": 8.7
+   },
+   "text": {
+    "cer": 4.7,
+    "wer": 8.7
+   }
+  },
+  {
+   "lang": "fr",
+   "pattern": "irr",
+   "system": "simul",
+   "said": {
+    "cer": 14.4,
+    "wer": 19.3
+   },
+   "text": {
+    "cer": 14.4,
+    "wer": 19.3
+   }
+  },
+  {
+   "lang": "en",
+   "pattern": "reg",
+   "system": "ctc",
+   "said": {
+    "cer": 20.9,
+    "wer": 32.0
+   },
+   "text": {
+    "cer": 24.8,
+    "wer": 34.8
+   }
+  },
+  {
+   "lang": "es",
+   "pattern": "reg",
+   "system": "ctc",
+   "said": {
+    "cer": 4.6,
+    "wer": 10.8
+   },
+   "text": {
+    "cer": 4.6,
+    "wer": 10.8
+   }
+  },
+  {
+   "lang": "fr",
+   "pattern": "reg",
+   "system": "ctc",
+   "said": {
+    "cer": 6.9,
+    "wer": 15.0
+   },
+   "text": {
+    "cer": 6.9,
+    "wer": 15.0
+   }
+  },
+  {
+   "lang": "en",
+   "pattern": "irr",
+   "system": "ctc",
+   "said": {
+    "cer": 23.7,
+    "wer": 37.1
+   },
+   "text": {
+    "cer": 27.5,
+    "wer": 39.8
+   }
+  },
+  {
+   "lang": "es",
+   "pattern": "irr",
+   "system": "ctc",
+   "said": {
+    "cer": 4.4,
+    "wer": 10.4
+   },
+   "text": {
+    "cer": 4.4,
+    "wer": 10.4
+   }
+  },
+  {
+   "lang": "fr",
+   "pattern": "irr",
+   "system": "ctc",
+   "said": {
+    "cer": 6.1,
+    "wer": 13.2
+   },
+   "text": {
+    "cer": 6.1,
+    "wer": 13.2
+   }
+  },
+  {
+   "lang": "en",
+   "pattern": "reg",
+   "system": "nemo",
+   "said": {
+    "cer": 7.8,
+    "wer": 15.6
+   },
+   "text": {
+    "cer": 11.7,
+    "wer": 19.1
+   }
+  },
+  {
+   "lang": "es",
+   "pattern": "reg",
+   "system": "nemo",
+   "said": {
+    "cer": 2.4,
+    "wer": 6.1
+   },
+   "text": {
+    "cer": 2.4,
+    "wer": 6.1
+   }
+  },
+  {
+   "lang": "fr",
+   "pattern": "reg",
+   "system": "nemo",
+   "said": {
+    "cer": 3.8,
+    "wer": 10.4
+   },
+   "text": {
+    "cer": 3.8,
+    "wer": 10.4
+   }
+  },
+  {
+   "lang": "en",
+   "pattern": "irr",
+   "system": "nemo",
+   "said": {
+    "cer": 17.0,
+    "wer": 23.7
+   },
+   "text": {
+    "cer": 21.2,
+    "wer": 27.5
+   }
+  },
+  {
+   "lang": "es",
+   "pattern": "irr",
+   "system": "nemo",
+   "said": {
+    "cer": 2.8,
+    "wer": 7.6
+   },
+   "text": {
+    "cer": 2.8,
+    "wer": 7.6
+   }
+  },
+  {
+   "lang": "fr",
+   "pattern": "irr",
+   "system": "nemo",
+   "said": {
+    "cer": 4.1,
+    "wer": 10.7
+   },
+   "text": {
+    "cer": 4.1,
+    "wer": 10.7
+   }
+  }
+ ]
+}

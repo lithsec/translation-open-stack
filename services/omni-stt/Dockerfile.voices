@@ -25,7 +25,7 @@ RUN grep -vE '^(librosa|contourpy)==' /tmp/constraints.txt > /tmp/voices-c.txt \
  && rm /tmp/voices-c.txt /tmp/constraints.txt && pip check \
  && python -c "import TTS, transformers, numpy, omnilingual_asr; print('coqui-tts', TTS.__version__, 'transformers', transformers.__version__, 'numpy', numpy.__version__)"
 # The server and the stack files it imports (engines/ now with mms.py and coqui.py).
-COPY server.py omni_batch.py partials.py dips.py denoise.py voices.py ht_numbers.py mic.html audio_in.py stack_auth.py licences.py /opt/stt/
+COPY server.py omni_batch.py partials.py ctc_stream.py dips.py denoise.py voices.py ht_numbers.py mic.html audio_in.py stack_auth.py licences.py /opt/stt/
 COPY engines/ /opt/stt/engines/
 USER stt
 # Only the voices are fetched (the base image has the rest): online for this step.

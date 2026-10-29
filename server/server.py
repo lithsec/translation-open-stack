@@ -200,6 +200,9 @@ STREAM_MAX_WORDS = int(os.environ.get("LITHOS_STREAM_MAX_WORDS", 8))
 STREAM_MIN_WORDS = int(os.environ.get("LITHOS_STREAM_MIN_WORDS", 4))
 # Words that must pile up before a mere comma is accepted as a boundary.
 STREAM_COMMA_WORDS = int(os.environ.get("LITHOS_STREAM_COMMA_WORDS", 6))
+# The commit policy when a client names none (?policy=): "clause", the rules above, or "agree", where the
+# translator decides (agree.py). Agree runs only on the directions Gemma serves and agree.eligible() takes.
+STREAM_POLICY = os.environ.get("LITHOS_STREAM_POLICY", "clause")
 # Buffer trimming (LITHOS_TRIM=1): once a turn's buffer passes this, cut it at
 # the end of the SECOND-to-last whisper segment -- the last one is still
 # liable to move -- and carry the cut segments forward as fixed text. This is
@@ -528,6 +531,20 @@ class Pipeline:
         client that asked (?context=1); None, and nothing changes, otherwise."""
         return self.engines.translate_batch(text, langs, src, context=context)
 
+    def agree_turn(self, src, lang, context=None):
+        """An agree.AgreeTurn for src -> lang when that direction may agree (agree.eligible) and Gemma
+        (llmmt, a chat server) is the translator serving it now; None, and the clause rule, otherwise."""
+        import agree
+        from engines import llmmt
+        if not src or not agree.eligible(src, lang):
+            return None
+        eng = self.engines.translator_for(lang, src)
+        if getattr(eng, "name", None) != "llmmt" or (eng.server_for(src, lang) or ("",))[0] != "chat":
+            return None
+        names = llmmt.NAMES
+        return agree.AgreeTurn(lambda prompt: eng.ask(src, lang, prompt), names.get(src, src),
+                               names.get(lang, lang), llmmt.context_head(context, src, lang))
+
     def synthesise_futures(self, text, lang, edition=None):
         """This utterance's audio, one future per sentence, in order (engines/manager.py),
         in the connection's edition."""
@@ -713,8 +730,11 @@ class Room:
         # Detected language awaiting proof that the pass was speech, so a
         # cough cannot make itself the room's language.
         self.lid_commit = None
-        # Simultaneous mode, decided by whoever opens the room (?stream=1).
+        # Simultaneous mode, decided by whoever opens the room (?stream=1), and its commit
+        # policy (?policy=): "clause" or "agree" (agree.py: lang -> AgreeTurn for this turn).
         self.stream = False
+        self.policy = "clause"
+        self.agree = {}
         self.since_asr_ms = 0.0
         self.last_pass = ""       # previous pass's text, for LocalAgreement
         self.translated_n = 0     # words already translated AND spoken
@@ -1096,14 +1116,80 @@ def resume_point(spoken, words):
     return min(len(spoken), len(words))
 
 
+async def room_speak(pipe, room, lg, w, tr):
+    """Send one piece of translation, text then speech, to everyone listening to lg (w)."""
+    import asyncio, json
+    out = Fanout(w)
+    try:
+        await out.send(json.dumps({"type": "transcript", "delta": tr + " "}))
+    except Exception:
+        return
+    for fut in pipe.synthesise_futures(tr, lg, room.edition):
+        try:
+            audio = await asyncio.wrap_future(fut)
+        except Exception as e:
+            print(f"[stack] tts failed ({lg}): {e}", flush=True)
+            continue
+        if audio:
+            try:
+                await send_speech(out, audio)
+            except Exception:
+                return
+
+
 async def room_flush(pipe, room, words, final):
+    """Translate and speak what the committed words allow: by the room's policy for the directions that agree
+    (agree.py), by whole clauses for the rest (room_clause_flush).
+
+    A member whose language is the one being spoken is served the microphone at the turn boundary, not a
+    piece-by-piece re-speak of their own words."""
+    members = [(lg, ws_) for lg, ws_ in room.groups().items() if lg != room.turn_src]
+    if room.policy == "agree" and members:
+        for lg, _ in members:
+            if lg not in room.agree:
+                # Made at the turn's first pass with any words; None: this direction keeps the clause rule.
+                room.agree[lg] = pipe.agree_turn(room.turn_src, lg, room.context.before(room.turn_src))
+        agreeing = [(lg, w) for lg, w in members if room.agree.get(lg) is not None]
+        if agreeing:
+            await room_agree_flush(pipe, room, words, final, agreeing,
+                                   only_agree=len(agreeing) == len(members))
+        members = [(lg, w) for lg, w in members if room.agree.get(lg) is None]
+    if members:
+        await room_clause_flush(pipe, room, words, final, members)
+
+
+async def room_agree_flush(pipe, room, words, final, members, only_agree):
+    """The agree policy for these members (agree.AgreeTurn per language): speak what two successive translations
+    of the turn so far agree on; at the end of the turn, the rest."""
+    import asyncio
+    loop = asyncio.get_running_loop()
+    text = " ".join(words)
+
+    def one(lg):
+        turn = room.agree[lg]
+        if final:
+            return turn.finish(text, lambda t: pipe.translate_batch(t, [lg], room.turn_src,
+                                                                     room.context.before(room.turn_src))[0])
+        return turn.step(words)
+
+    if not words:
+        return
+    outs = await asyncio.gather(*[loop.run_in_executor(None, one, lg) for lg, _ in members])
+    if final and only_agree:
+        # The whole turn as each language heard it, for the next turn's context (a room that also has
+        # clause-rule members records their clauses instead).
+        room.context.after(room.turn_src, text, {lg: " ".join(room.agree[lg].spoken) for lg, _ in members})
+    await asyncio.gather(*[room_speak(pipe, room, lg, w, tr) for (lg, w), tr in zip(members, outs) if tr])
+
+
+async def room_clause_flush(pipe, room, words, final, members):
     """Translate and speak the committed words that complete a clause.
 
     Audio cannot be un-said, so only COMMITTED words get here, and only whole
     clauses: MT reorders across a clause boundary, so half a clause is not
     half a translation, it is a wrong one.
     """
-    import asyncio, json
+    import asyncio
     loop = asyncio.get_running_loop()
     pending = words[resume_point(room.spoken_words, words):]
     if not pending:
@@ -1137,35 +1223,11 @@ async def room_flush(pipe, room, words, final):
     segment = " ".join(pending[:clause_end])
     room.spoken_words.extend(pending[:clause_end])
     room.translated_n += clause_end
-    # A member whose language is the one being spoken is served the microphone
-    # at the turn boundary, not a clause-by-clause re-speak of their own words.
-    members = [(lg, ws_) for lg, ws_ in room.groups().items() if lg != room.turn_src]
-    if not members:
-        return
     langs = [lg for lg, _ in members]
     context = room.context.before(room.turn_src)    # the previous clauses, for ?context=1
     translations = await loop.run_in_executor(None, pipe.translate_batch, segment, langs, room.turn_src, context)
     room.context.after(room.turn_src, segment, dict(zip(langs, translations)))
-
-    async def speak(lg, w, tr):
-        out = Fanout(w)      # everyone listening to lg
-        try:
-            await out.send(json.dumps({"type": "transcript", "delta": tr + " "}))
-        except Exception:
-            return
-        for fut in pipe.synthesise_futures(tr, lg, room.edition):
-            try:
-                audio = await asyncio.wrap_future(fut)
-            except Exception as e:
-                print(f"[stack] tts failed ({lg}): {e}", flush=True)
-                continue
-            if audio:
-                try:
-                    await send_speech(out, audio)
-                except Exception:
-                    return
-
-    await asyncio.gather(*[speak(lg, w, tr) for (lg, w), tr in zip(members, translations)])
+    await asyncio.gather(*[room_speak(pipe, room, lg, w, tr) for (lg, w), tr in zip(members, translations)])
 
 
 async def room_pass(pipe, room, audio, src, final, ctx=None):
@@ -1284,6 +1346,7 @@ async def room_pass(pipe, room, audio, src, final, ctx=None):
         room.last_pass = ""
         room.translated_n = 0
         room.spoken_words = []
+        room.agree = {}
         room.turn_src = None
     elif room.translated_n > spoke:
         print("[stack] commit %d->%d words at %.1fs buffered (%.2fs)" % (
@@ -1311,7 +1374,7 @@ async def forced_cut(pipe, buf, src, fallback_src="en", only=None):
     return (found[0], found[1]) if found else (quietest_cut(buf), "quietest")
 
 
-async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, context=False):
+async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, context=False, policy="clause"):
     """One connection in the room `key`: (token subject, ?room= id, edition). The
     edition is part of the key, so a room's voices are always its members' edition."""
     import numpy as np
@@ -1333,13 +1396,14 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, co
     if is_primary:
         room.primary = ws
         room.stream = stream
+        room.policy = policy
         room.context = TranslationMemory(context)
         room.queue = asyncio.Queue()
         room.worker = asyncio.create_task(room_worker(pipe, room, src))
         if os.environ.get("LITHOS_ROOM_HEARTBEAT") == "1":
             room.heartbeat = asyncio.create_task(room_heartbeat(room, room_id))
-    print(f"[stack] room {room_id}: +{lang}"
-          f"{' (primary, ' + ('simultaneous' if room.stream else 'utterance') + ')' if is_primary else ''}")
+    mode = ("simultaneous, " + room.policy) if room.stream else "utterance"
+    print(f"[stack] room {room_id}: +{lang}{' (primary, ' + mode + ')' if is_primary else ''}")
 
     try:
         async for msg in ws:
@@ -1464,6 +1528,7 @@ async def handle_room(ws, pipe, key, lang, src, stream=False, priority=False, co
                 # speaker's first words must not be glued onto its tail.
                 room.buf = np.zeros(0, dtype=np.float32)
                 room.fixed_words, room.trimmed_audio = [], []
+                room.agree = {}
                 room.turn_gen += 1
                 room.quiet_ms = 0.0
                 room.speech_seen = False
@@ -1527,9 +1592,15 @@ def parse_request(q, pipe):
     if room is not None and not ROOM_ID_RE.fullmatch(room):
         raise BadRequest("room must be 1-64 letters, digits, '-' or '_'")
 
+    # Simultaneous mode's commit policy (?stream=1 rooms): "clause" (the default) or "agree" (agree.py).
+    policy = arg("policy") or STREAM_POLICY
+    if policy not in ("clause", "agree"):
+        raise BadRequest(f"policy {clean(policy, 24)!r} is not understood; use clause or agree")
+
     flag = lambda name: arg(name, "0") not in ("0", "", "false")  # noqa: E731
     return {"lang": lang, "src": src, "route_to": route == "to", "cands": cands, "room": room,
-            "stream": flag("stream"), "priority": flag("priority"), "context": flag("context")}
+            "stream": flag("stream"), "priority": flag("priority"), "context": flag("context"),
+            "policy": policy}
 
 
 async def handle(ws, pipe, sub="open", edition=None):
@@ -1576,7 +1647,7 @@ async def handle(ws, pipe, sub="open", edition=None):
         # Shared-pipeline mode (see Room). src is fixed per room. The room is
         # this subject's: another token's ?room=main is a different room.
         await handle_room(ws, pipe, (sub, req["room"], edition), lang, src, req["stream"], req["priority"],
-                          req["context"])
+                          req["context"], req["policy"])
         return
 
     if getattr(pipe, "streaming", False):

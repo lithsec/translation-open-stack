@@ -57,6 +57,7 @@ step in between: the [user guide](docs/user-guide.md).
 | To | Read |
 |---|---|
 | Install, run on RunPod, connect apps, pick languages, swap voices and models, size GPUs, troubleshoot | [docs/user-guide.md](docs/user-guide.md) |
+| Put the Omnilingual hearing services (omni-stt, and its 7B service for Lao and Khmer) on Cloud Run in your own Google Cloud project, one click plus a guided script | [services/omni-stt/README.md](services/omni-stt/README.md#one-click-setup-open-in-cloud-shell) |
 | Look up an environment variable, a `languages.toml` key, a command, a pin, or a close code | [docs/reference.md](docs/reference.md) |
 | Check what each model and voice's licence allows, and what `EDITION=commercial` changes | [docs/licences.md](docs/licences.md) |
 | Write a client | [docs/dev/protocol.md](docs/dev/protocol.md) |

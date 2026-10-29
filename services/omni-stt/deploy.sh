@@ -10,16 +10,32 @@
 #   ./deploy.sh build-ft                 # a fine-tuned checkpoint layered on BASE_TAG (Dockerfile.ft)
 #   ./deploy.sh build-voices             # the Haitian Creole voices layered on BASE_TAG (Dockerfile.voices)
 #   ./deploy.sh 7b-build                 # Meta's stock omniASR_LLM_7B (bf16): images and bucket copy (7b/)
-#   ./deploy.sh 7b-deploy                # the separate omni-stt-7b service (lo, km), /listen only
+#   ./deploy.sh 7b-deploy                # the separate omni-stt-7b service (lo, km), /listen only;
+#                                        # VOICES_7B=1: also /speak (the Haitian Creole voices)
+#   ./deploy.sh 3b-build                 # Meta's stock omniASR_CTC_3B (bf16) baked in (3b/)
+#   ./deploy.sh 3b-deploy                # the separate omni-stt-3b-stream service (km, lo live text)
+#   ./deploy.sh duo-build                # the 7B and the CTC 3B streaming service in one image,
+#                                        # for one 48 GB GPU (README "One GPU for both"; BASE_TAG: 7b-build's tag)
 #
 # 7b-build: converts Meta's omniASR_LLM_7B checkpoint to bf16 inside Cloud Build
-# (7b/to_bf16.py), copies it to MODEL_BUCKET (gs://, private; for the volume
-# and OMNI_FETCH options), and builds two images in the registry: <TAG>-7b-base
+# (7b/to_bf16.py), copies it to MODEL_BUCKET when set (gs://, private; for the volume
+# and OMNI_FETCH options; unset: no copy), and builds two images in the registry: <TAG>-7b-base
 # (no checkpoint: 7b/Dockerfile.base) and <TAG>-7b (checkpoint baked in:
 # 7b/Dockerfile.baked), pushed to REPO_REGION and to EXTRA_REPO_REGIONS. Stock
 # weights only. 7b-deploy: SERVICE_7B (omni-stt-7b), STORAGE (baked|gcs|fetch: where
 # the checkpoint comes from), MAX_STREAMS_7B (6), MEMORY (16Gi; fetch needs 32Gi), CPU (4),
 # SIGNING_SECRET, NONPROFIT_SECRET (optional, as "deploy": STT_SIGNING_KEY, STT_TOKEN_NONPROFIT).
+# VOICES_7B=1 serves /speak too (STT_SERVE=listen+speak), with EDITION, HT_VOICE and
+# MAX_SPEAKERS as "deploy", and --concurrency MAX_STREAMS_7B + MAX_SPEAKERS (a /speak
+# socket is a Cloud Run request like a /listen one): the "7B only" layout, no omni-stt.
+#
+# 3b-build: downloads Meta's omniASR_CTC_3B checkpoint and converts it to bf16
+# inside Cloud Build (7b/to_bf16.py), and builds <TAG>-3b-base (7b/Dockerfile.base,
+# no checkpoint) and <TAG>-3b (checkpoint and card baked in: 3b/Dockerfile.baked).
+# No bucket copy. Stock weights only. 3b-deploy: SERVICE_3B (omni-stt-3b-stream),
+# the 3B as recogniser and streaming track (STT_CTC_STREAM=1; README "Streaming
+# track"), MAX_STREAMS_3B (6: sockets per instance), MAX_INSTANCES_3B (2),
+# MEMORY, CPU, SIGNING_SECRET, NONPROFIT_SECRET and EXTRA_ENV as 7b-deploy.
 #
 # Optional: REGION (us-east4: has Cloud Run L4 and, on a new project, the only
 # GPU quota we found; us-central1 had none, 2026-10-17), REPO (Artifact Registry
@@ -175,7 +191,7 @@ stage() {
   # neither the eval audio nor .git is uploaded to Cloud Build.
   local dir
   dir="$(mktemp -d)"
-  cp "$HERE/server.py" "$HERE/omni_batch.py" "$HERE/denoise.py" "$HERE/partials.py" "$HERE/dips.py" "$HERE/voices.py" "$HERE/ht_numbers.py" "$HERE/mic.html" "$HERE/Dockerfile" "$dir/"
+  cp "$HERE/server.py" "$HERE/omni_batch.py" "$HERE/denoise.py" "$HERE/partials.py" "$HERE/ctc_stream.py" "$HERE/dips.py" "$HERE/voices.py" "$HERE/ht_numbers.py" "$HERE/mic.html" "$HERE/Dockerfile" "$dir/"
   cp "$ROOT/server/audio_in.py" "$ROOT/server/stack_auth.py" "$ROOT/server/licences.py" "$ROOT/constraints.txt" "$dir/"
   mkdir "$dir/engines"
   cp "$ROOT/server/engines/"{__init__,base,common,omnilingual,mms,coqui}.py "$dir/engines/"
@@ -292,12 +308,22 @@ YAML
     echo "health: $url/health   mic test: $url/mic   stream: ${url/https:/wss:}/listen?langs=ht,en   voices: ${url/https:/wss:}/speak"
     ;;
   7b-build)
-    : "${MODEL_BUCKET:?set MODEL_BUCKET (gs://..., private) for the 7B checkpoint copy}"
+    # MODEL_BUCKET is optional: unset, the checkpoint is only baked into the
+    # image (no bucket copy; the gcs and fetch storage options then need one).
+    case "${MODEL_BUCKET:-}" in ''|gs://*) ;; *) echo "refusing 7b-build: MODEL_BUCKET must be a gs:// URL" >&2; exit 3 ;; esac
     ctx="$(stage)"
     cp "$HERE/7b/"* "$ctx/"
     printf '*.pt\nckpt/\n' > "$ctx/.dockerignore"
     base="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b-base"
     baked="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b"
+    upload_step=""
+    if [ -n "${MODEL_BUCKET:-}" ]; then
+      upload_step="- id: upload
+  waitFor: [ckpt]
+  name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+  args: [\"gcloud\", \"storage\", \"cp\", \"ckpt/omniASR_LLM_7B_bf16.pt\", \"ckpt/SHA256SUMS\", \"${MODEL_BUCKET%/}/omniASR_LLM_7B_bf16/\"]
+"
+    fi
     tags_base="\"-t\", \"$base\""; tags_baked="\"-t\", \"$baked\""; imgs="\"$base\", \"$baked\""
     for r in ${EXTRA_REPO_REGIONS:-}; do
       tags_base="$tags_base, \"-t\", \"$r-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-7b-base\""
@@ -323,11 +349,7 @@ steps:
     rm fp32.pt
     sha256sum omniASR_LLM_7B_bf16.pt > SHA256SUMS && cat SHA256SUMS && ls -l
     cp ../Dockerfile.baked Dockerfile
-- id: upload
-  waitFor: [ckpt]
-  name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
-  args: ["gcloud", "storage", "cp", "ckpt/omniASR_LLM_7B_bf16.pt", "ckpt/SHA256SUMS", "${MODEL_BUCKET%/}/omniASR_LLM_7B_bf16/"]
-- id: base
+${upload_step}- id: base
   waitFor: ["-"]
   name: gcr.io/cloud-builders/docker
   args: ["build", "-f", "Dockerfile.base", $tags_base, "."]
@@ -345,11 +367,11 @@ YAML
     [ "${DRY_RUN:-0}" != 1 ] || cat "$ctx/cloudbuild.yaml"
     run gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
     rm -rf "$ctx"
-    echo "built $base and $baked; checkpoint at ${MODEL_BUCKET%/}/omniASR_LLM_7B_bf16/"
+    echo "built $base and $baked${MODEL_BUCKET:+; checkpoint at ${MODEL_BUCKET%/}/omniASR_LLM_7B_bf16/}"
     ;;
   7b-deploy)
     # Meta's stock 7B for Lao and Khmer, beside omni-stt (whose 300M card stays
-    # for ht and the rest). /listen only: no voices. STORAGE picks where the
+    # for ht and the rest). /listen only, unless VOICES_7B=1 (the voices too). STORAGE picks where the
     # checkpoint is read from at a cold start:
     #   baked  the image <TAG>-7b (the checkpoint in its last layer)
     #   gcs    the image <TAG>-7b-base + a Cloud Storage volume at /mnt/models
@@ -357,7 +379,14 @@ YAML
     STORAGE="${STORAGE:-baked}"
     MAX_STREAMS="${MAX_STREAMS_7B:-6}"
     extra=()
-    envs="STT_SERVE=listen,STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS,OMNI_MMAP=${OMNI_MMAP:-1}$CUT_ENV${EXTRA_ENV:+,$EXTRA_ENV}"
+    serve=listen; concurrency="$MAX_STREAMS"; voice_env=""
+    case "${VOICES_7B:-0}" in
+      1) serve="listen+speak"; concurrency=$((MAX_STREAMS + MAX_SPEAKERS))
+         voice_env=",HT_VOICE=$HT_VOICE,EDITION=$EDITION,STT_MAX_SPEAKERS=$MAX_SPEAKERS" ;;
+      0) ;;
+      *) echo "VOICES_7B must be 0 or 1" >&2; exit 2 ;;
+    esac
+    envs="STT_SERVE=$serve,STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS,OMNI_MMAP=${OMNI_MMAP:-1}$voice_env$CUT_ENV${EXTRA_ENV:+,$EXTRA_ENV}"
     case "$STORAGE" in
       baked) IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/omni-stt:$TAG-7b"; envs="$envs,OMNI_CARD=omniASR_LLM_7B_bf16" ;;
       gcs)   IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/omni-stt:$TAG-7b-base"; envs="$envs,OMNI_CARD=omniASR_LLM_7B_bf16_volume"
@@ -379,11 +408,124 @@ YAML
       --gpu 1 --gpu-type nvidia-l4 --no-gpu-zonal-redundancy \
       --cpu "${CPU:-4}" --memory "${MEMORY:-16Gi}" --no-cpu-throttling --cpu-boost \
       --min-instances 0 --max-instances 1 \
-      --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
+      --concurrency "$concurrency" --timeout 3600 --port 8080 \
       --startup-probe "tcpSocket.port=8080,initialDelaySeconds=0,periodSeconds=2,timeoutSeconds=2,failureThreshold=450" \
       --set-env-vars "$envs" \
       --set-secrets "$SECRETS" \
       --no-invoker-iam-check ${extra[@]+"${extra[@]}"} ${DEPLOY_FLAGS:-}
+    ;;
+  3b-build)
+    ctx="$(stage)"
+    cp "$HERE/7b/Dockerfile.base" "$HERE/7b/cards.yaml" "$HERE/7b/to_bf16.py" "$ctx/"
+    mkdir "$ctx/3b"
+    cp "$HERE/3b/"* "$ctx/3b/"
+    printf '*.pt\nckpt/\n' > "$ctx/.dockerignore"
+    base="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-3b-base"
+    baked="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-3b"
+    cat > "$ctx/cloudbuild.yaml" <<YAML
+steps:
+- id: ckpt
+  name: python:3.12-slim-bookworm
+  entrypoint: bash
+  args:
+  - -c
+  - |
+    set -e
+    apt-get update -qq && apt-get install -y -qq curl >/dev/null
+    pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.8.0 numpy
+    mkdir -p ckpt && cd ckpt
+    t=\$\$(date +%s)
+    curl -sSfL --retry 5 -o fp32.pt https://dl.fbaipublicfiles.com/mms/omniASR-CTC-3B.pt
+    echo "downloaded \$\$(du -h fp32.pt | cut -f1) in \$\$((\$\$(date +%s) - t))s"
+    python ../to_bf16.py fp32.pt omniASR_CTC_3B_bf16.pt
+    rm fp32.pt
+    sha256sum omniASR_CTC_3B_bf16.pt && ls -l
+    cp ../3b/Dockerfile.baked Dockerfile
+    cp ../3b/cards.yaml cards.yaml
+- id: base
+  waitFor: ["-"]
+  name: gcr.io/cloud-builders/docker
+  args: ["build", "-f", "Dockerfile.base", "-t", "$base", "."]
+- id: baked
+  waitFor: [ckpt, base]
+  name: gcr.io/cloud-builders/docker
+  dir: ckpt
+  args: ["build", "--build-arg", "BASE_IMAGE=$base", "-t", "$baked", "."]
+images: ["$base", "$baked"]
+options:
+  machineType: E2_HIGHCPU_32
+  diskSizeGb: 200
+timeout: 7200s
+YAML
+    [ "${DRY_RUN:-0}" != 1 ] || cat "$ctx/cloudbuild.yaml"
+    run gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
+    rm -rf "$ctx"
+    echo "built $base and $baked (deploy with TAG=$TAG ./deploy.sh 3b-deploy)"
+    ;;
+  3b-deploy)
+    # The streaming service for Khmer and Lao (README "Streaming track"): the
+    # stock 3B CTC card is both the recogniser (its own masked per-piece
+    # finals) and the ?stream=ctc track, one copy on the GPU. Separate from
+    # omni-stt-7b because the 3B does not fit beside the 7B on one L4.
+    # Concurrency 6: an L4 carried about six streams that never stop talking
+    # with the commit lag at the look-ahead plus 0.1-0.3 s; Cloud Run starts a
+    # second instance (MAX_INSTANCES_3B) for the seventh socket. Probe, auth
+    # and flags as 7b-deploy.
+    MAX_STREAMS="${MAX_STREAMS_3B:-6}"
+    MAX_INSTANCES="${MAX_INSTANCES_3B:-2}"
+    [[ "$MAX_STREAMS$MAX_INSTANCES" =~ ^[0-9]+$ ]] || { echo "refusing: MAX_STREAMS_3B and MAX_INSTANCES_3B must be numbers" >&2; exit 3; }
+    IMAGE="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-3b"
+    envs="STT_SERVE=listen,STT_CTC_STREAM=1,OMNI_CARD=omniASR_CTC_3B_bf16,STT_CTC_CARD=omniASR_CTC_3B_bf16,STT_MAX_CONNECTIONS=$MAX_STREAMS,ENDPOINT_MS=$ENDPOINT_MS,MAX_UTTERANCE_S=$MAX_UTTERANCE_S,MIN_SPEECH_MS=$MIN_SPEECH_MS,STT_BATCH_MAX=$BATCH_MAX,STT_BATCH_WAIT_MS=$BATCH_WAIT_MS,OMNI_MMAP=${OMNI_MMAP:-1}$CUT_ENV${EXTRA_ENV:+,$EXTRA_ENV}"
+    run gcloud run deploy "${SERVICE_3B:-omni-stt-3b-stream}" --project "$PROJECT" --region "$REGION" --image "$IMAGE" \
+      --gpu 1 --gpu-type nvidia-l4 --no-gpu-zonal-redundancy \
+      --cpu "${CPU:-4}" --memory "${MEMORY:-16Gi}" --no-cpu-throttling --cpu-boost \
+      --min-instances 0 --max-instances "$MAX_INSTANCES" \
+      --concurrency "$MAX_STREAMS" --timeout 3600 --port 8080 \
+      --startup-probe "tcpSocket.port=8080,initialDelaySeconds=0,periodSeconds=2,timeoutSeconds=2,failureThreshold=450" \
+      --set-env-vars "$envs" \
+      --set-secrets "$SECRETS" \
+      --no-invoker-iam-check ${DEPLOY_FLAGS:-}
+    ;;
+  duo-build)
+    # The 7B finals service and the CTC 3B streaming service in one image, for
+    # one 48 GB-class GPU (README "One GPU for both"): layered on BASE_TAG's 7B image
+    # (<BASE_TAG>-7b, from 7b-build). Meta's 3B checkpoint is converted to bf16
+    # here, as 7b-build does for the 7B. Stock weights only. -> <TAG>-duo.
+    : "${BASE_TAG:?set BASE_TAG to the tag 7b-build used (its <BASE_TAG>-7b image is the base)}"
+    ctx="$(stage)"
+    cp "$HERE/7b/to_bf16.py" "$HERE/duo/"{Dockerfile.duo,cards.yaml,duo-start.sh,router.py} "$ctx/"
+    base="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$BASE_TAG-7b"
+    duo="$REPO_REGION-docker.pkg.dev/$PROJECT/$REPO/$SERVICE:$TAG-duo"
+    cat > "$ctx/cloudbuild.yaml" <<YAML
+steps:
+- id: ckpt
+  name: python:3.12-slim-bookworm
+  entrypoint: bash
+  args:
+  - -c
+  - |
+    set -e
+    apt-get update -qq && apt-get install -y -qq curl >/dev/null
+    pip install -q --index-url https://download.pytorch.org/whl/cpu torch==2.8.0 numpy
+    mkdir -p ckpt
+    curl -sSfL --retry 5 -o ckpt/fp32.pt https://dl.fbaipublicfiles.com/mms/omniASR-CTC-3B.pt
+    python to_bf16.py ckpt/fp32.pt ckpt/omniASR_CTC_3B_bf16.pt
+    rm ckpt/fp32.pt
+    cd ckpt && sha256sum omniASR_CTC_3B_bf16.pt > SHA256SUMS && cat SHA256SUMS
+- id: duo
+  waitFor: [ckpt]
+  name: gcr.io/cloud-builders/docker
+  args: ["build", "-f", "Dockerfile.duo", "--build-arg", "BASE_IMAGE=$base", "-t", "$duo", "."]
+images: ["$duo"]
+options:
+  machineType: E2_HIGHCPU_32
+  diskSizeGb: 200
+timeout: 5400s
+YAML
+    [ "${DRY_RUN:-0}" != 1 ] || cat "$ctx/cloudbuild.yaml"
+    run gcloud builds submit "$ctx" --config "$ctx/cloudbuild.yaml" --project "$PROJECT"
+    rm -rf "$ctx"
+    echo "built $duo (RunPod: README "One GPU for both")"
     ;;
   stage)
     stage

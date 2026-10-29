@@ -152,12 +152,12 @@ entirely. All keys are optional.
 | `piper` | `"<voice name>"` | A Piper voice (CPU), e.g. `"de_DE-thorsten-high"`; must be in `voices.lock`. |
 | `mms` | `"<hugging face repo>"` | Meta MMS-TTS (CC-BY-NC; nonprofit only). |
 | `asr` | `"whisper"` \| `"omni:<code>"` | Recogniser when this language is **spoken**. |
-| `omni` | `"large"` \| `"base"` | With `asr = "omni:..."`: `[models.omnilingual_large]` (the 7B) when the server loaded it (`OMNI_LARGE=1`, `--omni-large`), the base card otherwise. Lao and Khmer say `"large"`. |
-| `endpoint_ms` | integer, 100–3000 | When this language is spoken (fixed `?src=`): the pause that ends an utterance, instead of `--endpoint-ms`. Set alone (without the two `long_` keys), it holds at any length: no shorter gap past `--long-utterance-s`. Japanese, Haitian Creole, Khmer, Lao: 900. |
-| `max_utterance_s` | integer, 3–30 | ... and where an utterance with no such pause is cut, instead of `--max-utterance-s`. Japanese, Haitian Creole, Khmer, Lao: 15. |
-| `long_utterance_s` | integer, 2–30 | ... past this much audio a shorter pause will do (a clause gap), instead of `--long-utterance-s`. Japanese, Haitian Creole, Khmer, Lao: 8. |
-| `long_endpoint_ms` | integer, 100–3000 | ... this one, instead of the built-in 280 ms. Japanese, Haitian Creole, Khmer, Lao: 500. |
-| `min_speech_ms` | integer, 0–5000 | ... and a pause doesn't end an utterance holding less speech than this unless the quiet lasts 1.5 s: a short piece waits for the rest of its sentence. Japanese, Haitian Creole, Khmer, Lao: 2500 ([eval/2026-10-pauses](../eval/2026-10-pauses/)). Utterance mode only; simultaneous mode keeps its own rules. |
+| `omni` | `"large"` \| `"large-only"` \| `"base"` | With `asr = "omni:..."`: `[models.omnilingual_large]` (the 7B) when the server loaded it (`OMNI_LARGE=1`, `--omni-large`), the base card otherwise; `"large-only"`: Whisper otherwise. Lao and Khmer say `"large"`, Romanian `"large-only"`. |
+| `endpoint_ms` | integer, 100–3000 | When this language is spoken (fixed `?src=`): the pause that ends an utterance, instead of `--endpoint-ms`. Set alone (without the two `long_` keys), it holds at any length: no shorter gap past `--long-utterance-s`. Japanese, Haitian Creole, Khmer, Lao, German: 900. |
+| `max_utterance_s` | integer, 3–30 | ... and where an utterance with no such pause is cut, instead of `--max-utterance-s`. Japanese, Haitian Creole, Khmer, Lao: 15; German: 12. |
+| `long_utterance_s` | integer, 2–30 | ... past this much audio a shorter pause will do (a clause gap), instead of `--long-utterance-s`. Japanese, Haitian Creole, Khmer, Lao, German: 8. |
+| `long_endpoint_ms` | integer, 100–3000 | ... this one, instead of the built-in 280 ms. Japanese, Haitian Creole, Khmer, Lao, German: 500. |
+| `min_speech_ms` | integer, 0–5000 | ... and a pause doesn't end an utterance holding less speech than this unless the quiet lasts 1.5 s: a short piece waits for the rest of its sentence. Japanese, Haitian Creole, Khmer, Lao, German: 2500 ([eval/2026-10-pauses](../eval/2026-10-pauses/)). Utterance mode only; simultaneous mode keeps its own rules. |
 | `translator` | `"hymt"` \| `"madlad"` \| `"llmmt"`, or a list | Translator **into** this language. Hy-MT2 covers the 36 languages in `stack_config.HYMT_LANGS`; anything else must be `"madlad"`. A list is tried in order per request: the first engine that is running and can do the pair serves it, so `["llmmt", "hymt"]` is the LLM server while it answers and Hy-MT2 otherwise. |
 | `translator_to_en` | as `translator` | Translator **from** this language **into English**. Without it, `[en]`'s `translator` serves every language into English. |
 | `llmmt` | `"<style> <url> <model>"` | The LLM server (`engines/llmmt.py`, OpenAI-compatible, e.g. vLLM) for this language's pairs; style `chat` or `milmmt`. |
@@ -180,11 +180,22 @@ The shipped choices, from the full stack live on two clip sets
 | Direction | Translator | Without its LLM server |
 |---|---|---|
 | en → es, pt, fr, ja, km | Gemma 4 31B (`llmmt`, port 8101) | Hy-MT2 |
+| en → de, ru, zh, vi, tl ¹ | Gemma 4 31B | Hy-MT2 |
+| en → uk, ar, fa ² | Gemma 4 31B | Hy-MT2 |
+| en → sw ² | Gemma 4 31B | MADLAD |
 | ja → en | Gemma 4 31B | Hy-MT2 |
+| zh, vi, tl, ar, fa → en ¹ | Gemma 4 31B | Hy-MT2 |
 | en ↔ ht | Gemma 4 31B | MADLAD into ht, Hy-MT2 (after MADLAD's pivot) into en |
 | en ↔ lo | MiLMMT-46 12B (`llmmt`, port 8102) | MADLAD into lo, Hy-MT2 into en |
 | es, pt, fr, km → en | Hy-MT2 | — |
 | every other pair | as before (Hy-MT2, or MADLAD) | — |
+
+¹ From Lithos Talk's route table (2026-10-27): Gemma 4 within 5 points of gpt-5.6-sol and
+scoring at least 80, measured hosted in bf16 on Azure or MAI transcripts. Not yet measured on
+this stack's 4-bit build and recognisers.
+² The router prefers gpt-5.6-sol here, but Gemma 4 beats the stack's own translator in the
+short check (`eval/2026-10-language-short-check`): uk 88 vs Hy-MT2 75, ar 90 vs 85, fa 90 vs 88;
+sw 87 vs MADLAD's 69 (September, round 8).
 
 The two LLMs run in vLLM beside the stack:
 

@@ -22,7 +22,8 @@ BEFORE = {
     "MMS_VOICES": {"ht": "facebook/mms-tts-hat", "km": "facebook/mms-tts-khm", "lo": "facebook/mms-tts-lao",
                    "tl": "facebook/mms-tts-tgl"},
     "OMNI_LANGS": {"ht": "hat_Latn", "km": "khm_Khmr", "lo": "lao_Laoo", "sw": "swh_Latn",
-                   "hi": "hin_Deva", "fa": "pes_Arab", "bn": "ben_Beng", "ur": "urd_Arab"},
+                   "hi": "hin_Deva", "fa": "pes_Arab", "bn": "ben_Beng", "ur": "urd_Arab",
+                   "ro": "ron_Latn"},   # the 7B only (omni = "large-only"), else Whisper
     "LANG_TO_MADLAD": {
         "es": "es", "fr": "fr", "pt": "pt", "sw": "sw", "ht": "ht", "km": "km", "lo": "lo",
         "ru": "ru", "uk": "uk", "it": "it", "zh": "zh", "ja": "ja", "ko": "ko", "de": "de",
@@ -32,7 +33,9 @@ BEFORE = {
     # Added 2026-10-22: longer turns for Japanese, Haitian Creole, Khmer and Lao (eval/2026-10-pauses;
     # Lao and Khmer had 700 ms / 15 s from eval/2026-10-lao-khmer-7b before).
     "ENDPOINTING": {l: {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500, "max_utterance_s": 15,
-                        "min_speech_ms": 2500} for l in ("ja", "ht", "km", "lo")},
+                        "min_speech_ms": 2500} for l in ("ja", "ht", "km", "lo")}
+                   | {"de": {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500, "max_utterance_s": 12,
+                             "min_speech_ms": 2500}},   # German: long turns cut at 12 s (eval/2026-10-agree-live)
 }
 
 

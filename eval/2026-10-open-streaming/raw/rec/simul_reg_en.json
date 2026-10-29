@@ -1,0 +1,1250 @@
+{
+ "model": "SimulStreaming AlignAtt, Whisper large-v3",
+ "err": "",
+ "partials": [
+  {
+   "t": 2414.9,
+   "text": "Lions are",
+   "offsetMs": 1116.0,
+   "stable": 2
+  },
+  {
+   "t": 2916.7,
+   "text": "Lions are the most",
+   "offsetMs": 1116.0,
+   "stable": 4
+  },
+  {
+   "t": 3436.3,
+   "text": "Lions are the most social cats",
+   "offsetMs": 1116.0,
+   "stable": 6
+  },
+  {
+   "t": 3910.6,
+   "text": "Lions are the most social cats living",
+   "offsetMs": 1116.0,
+   "stable": 7
+  },
+  {
+   "t": 4451.1,
+   "text": "Lions are the most social cats living in large",
+   "offsetMs": 1116.0,
+   "stable": 9
+  },
+  {
+   "t": 4929.6,
+   "text": "Lions are the most social cats living in large groups",
+   "offsetMs": 1116.0,
+   "stable": 10
+  },
+  {
+   "t": 5473.6,
+   "text": "Lions are the most social cats living in large groups called pr",
+   "offsetMs": 1116.0,
+   "stable": 12
+  },
+  {
+   "t": 5952.1,
+   "text": "Lions are the most social cats living in large groups called prides",
+   "offsetMs": 1116.0,
+   "stable": 12
+  },
+  {
+   "t": 7472.9,
+   "text": "In",
+   "offsetMs": 6716.0,
+   "stable": 1
+  },
+  {
+   "t": 8011.6,
+   "text": "In the warm",
+   "offsetMs": 6716.0,
+   "stable": 3
+  },
+  {
+   "t": 8552.4,
+   "text": "In the warm climate of",
+   "offsetMs": 6716.0,
+   "stable": 5
+  },
+  {
+   "t": 9078.0,
+   "text": "In the warm climate of the Middle East",
+   "offsetMs": 6716.0,
+   "stable": 8
+  },
+  {
+   "t": 9556.4,
+   "text": "In the warm climate of the Middle East,",
+   "offsetMs": 6716.0,
+   "stable": 8
+  },
+  {
+   "t": 10126.0,
+   "text": "In the warm climate of the Middle East, the house was",
+   "offsetMs": 6716.0,
+   "stable": 11
+  },
+  {
+   "t": 10605.2,
+   "text": "In the warm climate of the Middle East, the house was not",
+   "offsetMs": 6716.0,
+   "stable": 12
+  },
+  {
+   "t": 11154.9,
+   "text": "In the warm climate of the Middle East, the house was not so important",
+   "offsetMs": 6716.0,
+   "stable": 14
+  },
+  {
+   "t": 13190.0,
+   "text": "They are",
+   "offsetMs": 11900.0,
+   "stable": 2
+  },
+  {
+   "t": 13694.6,
+   "text": "They are almost all",
+   "offsetMs": 11900.0,
+   "stable": 4
+  },
+  {
+   "t": 14169.7,
+   "text": "They are almost all sandy",
+   "offsetMs": 11900.0,
+   "stable": 5
+  },
+  {
+   "t": 14686.4,
+   "text": "They are almost all sandy beaches",
+   "offsetMs": 11900.0,
+   "stable": 6
+  },
+  {
+   "t": 15226.8,
+   "text": "They are almost all sandy beaches with safe",
+   "offsetMs": 11900.0,
+   "stable": 8
+  },
+  {
+   "t": 15704.5,
+   "text": "They are almost all sandy beaches with safe swimming",
+   "offsetMs": 11900.0,
+   "stable": 9
+  },
+  {
+   "t": 16250.7,
+   "text": "They are almost all sandy beaches with safe swimming and most",
+   "offsetMs": 11900.0,
+   "stable": 11
+  },
+  {
+   "t": 16754.2,
+   "text": "They are almost all sandy beaches with safe swimming and most have shade",
+   "offsetMs": 11900.0,
+   "stable": 13
+  },
+  {
+   "t": 17238.4,
+   "text": "They are almost all sandy beaches with safe swimming and most have shade provided",
+   "offsetMs": 11900.0,
+   "stable": 14
+  },
+  {
+   "t": 17762.5,
+   "text": "They are almost all sandy beaches with safe swimming and most have shade provided by",
+   "offsetMs": 11900.0,
+   "stable": 15
+  },
+  {
+   "t": 19273.9,
+   "text": "Polygon",
+   "offsetMs": 17980.0,
+   "stable": 1
+  },
+  {
+   "t": 19786.9,
+   "text": "Polygon trees",
+   "offsetMs": 17980.0,
+   "stable": 2
+  },
+  {
+   "t": 20301.3,
+   "text": "Polygon trees.",
+   "offsetMs": 17980.0,
+   "stable": 2
+  },
+  {
+   "t": 27608.7,
+   "text": "F",
+   "offsetMs": 26812.0,
+   "stable": 1
+  },
+  {
+   "t": 28081.2,
+   "text": "Feral",
+   "offsetMs": 26812.0,
+   "stable": 1
+  },
+  {
+   "t": 28645.8,
+   "text": "Feral children may have",
+   "offsetMs": 26812.0,
+   "stable": 4
+  },
+  {
+   "t": 29118.4,
+   "text": "Feral children may have experienced",
+   "offsetMs": 26812.0,
+   "stable": 5
+  },
+  {
+   "t": 29635.6,
+   "text": "Feral children may have experienced severe",
+   "offsetMs": 26812.0,
+   "stable": 6
+  },
+  {
+   "t": 30177.8,
+   "text": "Feral children may have experienced severe child abuse",
+   "offsetMs": 26812.0,
+   "stable": 8
+  },
+  {
+   "t": 30684.4,
+   "text": "Feral children may have experienced severe child abuse or trauma",
+   "offsetMs": 26812.0,
+   "stable": 10
+  },
+  {
+   "t": 31162.8,
+   "text": "Feral children may have experienced severe child abuse or trauma before",
+   "offsetMs": 26812.0,
+   "stable": 11
+  },
+  {
+   "t": 31707.3,
+   "text": "Feral children may have experienced severe child abuse or trauma before being abandoned",
+   "offsetMs": 26812.0,
+   "stable": 13
+  },
+  {
+   "t": 32191.3,
+   "text": "Feral children may have experienced severe child abuse or trauma before being abandoned or",
+   "offsetMs": 26812.0,
+   "stable": 14
+  },
+  {
+   "t": 32740.8,
+   "text": "Feral children may have experienced severe child abuse or trauma before being abandoned or running away",
+   "offsetMs": 26812.0,
+   "stable": 16
+  },
+  {
+   "t": 34459.9,
+   "text": "Scott",
+   "offsetMs": 33692.0,
+   "stable": 1
+  },
+  {
+   "t": 35025.2,
+   "text": "Scott Bort,",
+   "offsetMs": 33692.0,
+   "stable": 2
+  },
+  {
+   "t": 35552.0,
+   "text": "Scott Bort, Buzz403",
+   "offsetMs": 33692.0,
+   "stable": 3
+  },
+  {
+   "t": 36077.4,
+   "text": "Scott Bort, Buzz403, Traverse",
+   "offsetMs": 33692.0,
+   "stable": 4
+  },
+  {
+   "t": 36554.9,
+   "text": "Scott Bort, Buzz403, Traverse Regular",
+   "offsetMs": 33692.0,
+   "stable": 5
+  },
+  {
+   "t": 37150.7,
+   "text": "Scott Bort, Buzz403, Traverse Regularly, Decent",
+   "offsetMs": 33692.0,
+   "stable": 6
+  },
+  {
+   "t": 37646.6,
+   "text": "Scott Bort, Buzz403, Traverse Regularly, Decentra, Stop",
+   "offsetMs": 33692.0,
+   "stable": 7
+  },
+  {
+   "t": 38182.2,
+   "text": "Scott Bort, Buzz403, Traverse Regularly, Decentra, Stopping at Cab",
+   "offsetMs": 33692.0,
+   "stable": 9
+  },
+  {
+   "t": 38747.2,
+   "text": "Scott Bort, Buzz403, Traverse Regularly, Decentra, Stopping at Cabo de Roca",
+   "offsetMs": 33692.0,
+   "stable": 11
+  },
+  {
+   "t": 40993.8,
+   "text": "to get the best",
+   "offsetMs": 39644.0,
+   "stable": 4
+  },
+  {
+   "t": 41428.0,
+   "text": "to get the best views",
+   "offsetMs": 39644.0,
+   "stable": 5
+  },
+  {
+   "t": 41968.0,
+   "text": "to get the best views of Hong",
+   "offsetMs": 39644.0,
+   "stable": 7
+  },
+  {
+   "t": 42508.2,
+   "text": "to get the best views of Hong Kong,",
+   "offsetMs": 39644.0,
+   "stable": 8
+  },
+  {
+   "t": 43011.8,
+   "text": "to get the best views of Hong Kong, leave the",
+   "offsetMs": 39644.0,
+   "stable": 10
+  },
+  {
+   "t": 43541.3,
+   "text": "to get the best views of Hong Kong, leave the island and head",
+   "offsetMs": 39644.0,
+   "stable": 13
+  },
+  {
+   "t": 44077.1,
+   "text": "to get the best views of Hong Kong, leave the island and head for the K",
+   "offsetMs": 39644.0,
+   "stable": 16
+  },
+  {
+   "t": 44613.3,
+   "text": "to get the best views of Hong Kong, leave the island and head for the Kowloon",
+   "offsetMs": 39644.0,
+   "stable": 16
+  },
+  {
+   "t": 45123.8,
+   "text": "to get the best views of Hong Kong, leave the island and head for the Kowloon Waterfront",
+   "offsetMs": 39644.0,
+   "stable": 17
+  },
+  {
+   "t": 45609.5,
+   "text": "to get the best views of Hong Kong, leave the island and head for the Kowloon Waterfront opposite",
+   "offsetMs": 39644.0,
+   "stable": 18
+  },
+  {
+   "t": 47248.3,
+   "text": "Accept",
+   "offsetMs": 46492.0,
+   "stable": 1
+  },
+  {
+   "t": 47761.0,
+   "text": "Accepted",
+   "offsetMs": 46492.0,
+   "stable": 1
+  },
+  {
+   "t": 48299.4,
+   "text": "Accepted were Aristotle",
+   "offsetMs": 46492.0,
+   "stable": 3
+  },
+  {
+   "t": 48839.2,
+   "text": "Accepted were Aristotle's views",
+   "offsetMs": 46492.0,
+   "stable": 4
+  },
+  {
+   "t": 49404.3,
+   "text": "Accepted were Aristotle's views on all matters",
+   "offsetMs": 46492.0,
+   "stable": 7
+  },
+  {
+   "t": 49907.7,
+   "text": "Accepted were Aristotle's views on all matters of science",
+   "offsetMs": 46492.0,
+   "stable": 9
+  },
+  {
+   "t": 50411.6,
+   "text": "Accepted were Aristotle's views on all matters of science, including",
+   "offsetMs": 46492.0,
+   "stable": 10
+  },
+  {
+   "t": 50895.7,
+   "text": "Accepted were Aristotle's views on all matters of science, including physiology",
+   "offsetMs": 46492.0,
+   "stable": 11
+  },
+  {
+   "t": 52692.8,
+   "text": "I",
+   "offsetMs": 51932.0,
+   "stable": 1
+  },
+  {
+   "t": 53205.4,
+   "text": "I'm",
+   "offsetMs": 51932.0,
+   "stable": 1
+  },
+  {
+   "t": 53718.1,
+   "text": "I'm Mitchell",
+   "offsetMs": 51932.0,
+   "stable": 2
+  },
+  {
+   "t": 54231.6,
+   "text": "I'm Mitchell G",
+   "offsetMs": 51932.0,
+   "stable": 3
+  },
+  {
+   "t": 54796.1,
+   "text": "I'm Mitchell Gowrie,",
+   "offsetMs": 51932.0,
+   "stable": 3
+  },
+  {
+   "t": 55521.2,
+   "text": "finished",
+   "offsetMs": 54748.0,
+   "stable": 1
+  },
+  {
+   "t": 56588.3,
+   "text": "finished 11th",
+   "offsetMs": 54748.0,
+   "stable": 2
+  },
+  {
+   "t": 57128.4,
+   "text": "finished 11th in the",
+   "offsetMs": 54748.0,
+   "stable": 4
+  },
+  {
+   "t": 57627.1,
+   "text": "finished 11th in the men's",
+   "offsetMs": 54748.0,
+   "stable": 5
+  },
+  {
+   "t": 58141.3,
+   "text": "finished 11th in the men's standing",
+   "offsetMs": 54748.0,
+   "stable": 6
+  },
+  {
+   "t": 59218.1,
+   "text": "finished 11th in the men's standing Super G",
+   "offsetMs": 54748.0,
+   "stable": 8
+  },
+  {
+   "t": 59696.6,
+   "text": "finished 11th in the men's standing Super G Ch",
+   "offsetMs": 54748.0,
+   "stable": 9
+  },
+  {
+   "t": 60240.6,
+   "text": "finished 11th in the men's standing Super G Chet's",
+   "offsetMs": 54748.0,
+   "stable": 9
+  },
+  {
+   "t": 60724.9,
+   "text": "finished 11th in the men's standing Super G Chet's competitor",
+   "offsetMs": 54748.0,
+   "stable": 10
+  },
+  {
+   "t": 61787.1,
+   "text": "finished 11th in the men's standing Super G Chet's competitor Ul",
+   "offsetMs": 54748.0,
+   "stable": 11
+  },
+  {
+   "t": 62310.6,
+   "text": "finished 11th in the men's standing Super G Chet's competitor Ulrich",
+   "offsetMs": 54748.0,
+   "stable": 11
+  },
+  {
+   "t": 63424.1,
+   "text": "finished 11th in the men's standing Super G Chet's competitor Ulrich Joklin",
+   "offsetMs": 54748.0,
+   "stable": 12
+  },
+  {
+   "t": 63909.5,
+   "text": "finished 11th in the men's standing Super G Chet's competitor Ulrich Joklin finished",
+   "offsetMs": 54748.0,
+   "stable": 13
+  },
+  {
+   "t": 64433.6,
+   "text": "finished 11th in the men's standing Super G Chet's competitor Ulrich Joklin finished 16",
+   "offsetMs": 54748.0,
+   "stable": 14
+  },
+  {
+   "t": 64958.3,
+   "text": "finished 11th in the men's standing Super G Chet's competitor Ulrich Joklin finished 16th",
+   "offsetMs": 54748.0,
+   "stable": 14
+  },
+  {
+   "t": 65534.8,
+   "text": "finished 11th in the men's standing Super G Chet's competitor Ulrich Joklin finished 16th in the men",
+   "offsetMs": 54748.0,
+   "stable": 17
+  },
+  {
+   "t": 66045.8,
+   "text": "finished 11th in the men's standing Super G Chet's competitor Ulrich Joklin finished 16th in the men's sitting",
+   "offsetMs": 54748.0,
+   "stable": 18
+  },
+  {
+   "t": 66533.4,
+   "text": "finished 11th in the men's standing Super G Chet's competitor Ulrich Joklin finished 16th in the men's sitting Super",
+   "offsetMs": 54748.0,
+   "stable": 19
+  },
+  {
+   "t": 67058.6,
+   "text": "finished 11th in the men's standing Super G Chet's competitor Ulrich Joklin finished 16th in the men's sitting Super G",
+   "offsetMs": 54748.0,
+   "stable": 20
+  },
+  {
+   "t": 70673.7,
+   "text": "to the rest",
+   "offsetMs": 69440.0,
+   "stable": 3
+  },
+  {
+   "t": 71225.8,
+   "text": "to the rest of the country's",
+   "offsetMs": 69440.0,
+   "stable": 6
+  },
+  {
+   "t": 71687.1,
+   "text": "to the rest of the country's cities because",
+   "offsetMs": 69440.0,
+   "stable": 8
+  },
+  {
+   "t": 72216.6,
+   "text": "to the rest of the country's cities because it is more",
+   "offsetMs": 69440.0,
+   "stable": 11
+  },
+  {
+   "t": 72751.1,
+   "text": "to the rest of the country's cities because it is more of an Arabic",
+   "offsetMs": 69440.0,
+   "stable": 14
+  },
+  {
+   "t": 73287.0,
+   "text": "to the rest of the country's cities because it is more of an Arabic flair than",
+   "offsetMs": 69440.0,
+   "stable": 16
+  },
+  {
+   "t": 73771.1,
+   "text": "to the rest of the country's cities because it is more of an Arabic flair than of",
+   "offsetMs": 69440.0,
+   "stable": 17
+  },
+  {
+   "t": 77523.5,
+   "text": "Also",
+   "offsetMs": 76292.0,
+   "stable": 1
+  },
+  {
+   "t": 78062.2,
+   "text": "Also after Revolution",
+   "offsetMs": 76292.0,
+   "stable": 3
+  },
+  {
+   "t": 78602.6,
+   "text": "Also after Revolution, occup",
+   "offsetMs": 76292.0,
+   "stable": 4
+  },
+  {
+   "t": 79076.8,
+   "text": "Also after Revolution, occupants",
+   "offsetMs": 76292.0,
+   "stable": 4
+  },
+  {
+   "t": 79616.1,
+   "text": "Also after Revolution, occupants were open",
+   "offsetMs": 76292.0,
+   "stable": 6
+  },
+  {
+   "t": 80185.2,
+   "text": "Also after Revolution, occupants were open to all male",
+   "offsetMs": 76292.0,
+   "stable": 9
+  },
+  {
+   "t": 80664.5,
+   "text": "Also after Revolution, occupants were open to all male applicants",
+   "offsetMs": 76292.0,
+   "stable": 10
+  },
+  {
+   "t": 81183.2,
+   "text": "Also after Revolution, occupants were open to all male applicants,",
+   "offsetMs": 76292.0,
+   "stable": 10
+  },
+  {
+   "t": 81708.3,
+   "text": "Also after Revolution, occupants were open to all male applicants, allowing",
+   "offsetMs": 76292.0,
+   "stable": 11
+  },
+  {
+   "t": 82260.0,
+   "text": "Also after Revolution, occupants were open to all male applicants, allowing the most",
+   "offsetMs": 76292.0,
+   "stable": 13
+  },
+  {
+   "t": 82745.0,
+   "text": "Also after Revolution, occupants were open to all male applicants, allowing the most ambitious",
+   "offsetMs": 76292.0,
+   "stable": 14
+  },
+  {
+   "t": 83294.2,
+   "text": "Also after Revolution, occupants were open to all male applicants, allowing the most ambitious and successful",
+   "offsetMs": 76292.0,
+   "stable": 16
+  },
+  {
+   "t": 84343.0,
+   "text": "Also after Revolution, occupants were open to all male applicants, allowing the most ambitious and successful to succeed",
+   "offsetMs": 76292.0,
+   "stable": 18
+  },
+  {
+   "t": 84827.9,
+   "text": "Also after Revolution, occupants were open to all male applicants, allowing the most ambitious and successful to succeed.",
+   "offsetMs": 76292.0,
+   "stable": 18
+  },
+  {
+   "t": 95019.2,
+   "text": "saying",
+   "offsetMs": 94236.0,
+   "stable": 1
+  },
+  {
+   "t": 95559.6,
+   "text": "saying they will",
+   "offsetMs": 94236.0,
+   "stable": 3
+  },
+  {
+   "t": 96058.9,
+   "text": "saying they will be made",
+   "offsetMs": 94236.0,
+   "stable": 5
+  },
+  {
+   "t": 96624.4,
+   "text": "saying they will be made based on China",
+   "offsetMs": 94236.0,
+   "stable": 8
+  },
+  {
+   "t": 97127.7,
+   "text": "saying they will be made based on China's economic",
+   "offsetMs": 94236.0,
+   "stable": 9
+  },
+  {
+   "t": 97605.8,
+   "text": "saying they will be made based on China's economic output",
+   "offsetMs": 94236.0,
+   "stable": 10
+  },
+  {
+   "t": 99459.3,
+   "text": "There is no",
+   "offsetMs": 98140.0,
+   "stable": 3
+  },
+  {
+   "t": 99958.7,
+   "text": "There is no universal definition",
+   "offsetMs": 98140.0,
+   "stable": 5
+  },
+  {
+   "t": 101052.0,
+   "text": "There is no universal definition for which manufacturers",
+   "offsetMs": 98140.0,
+   "stable": 8
+  },
+  {
+   "t": 102113.6,
+   "text": "There is no universal definition for which manufacturers' items are",
+   "offsetMs": 98140.0,
+   "stable": 10
+  },
+  {
+   "t": 102617.7,
+   "text": "There is no universal definition for which manufacturers' items are antiques",
+   "offsetMs": 98140.0,
+   "stable": 11
+  },
+  {
+   "t": 103130.4,
+   "text": "There is no universal definition for which manufacturers' items are antiques. Some",
+   "offsetMs": 98140.0,
+   "stable": 12
+  },
+  {
+   "t": 103644.4,
+   "text": "There is no universal definition for which manufacturers' items are antiques. Some tax agencies",
+   "offsetMs": 98140.0,
+   "stable": 14
+  },
+  {
+   "t": 104130.2,
+   "text": "There is no universal definition for which manufacturers' items are antiques. Some tax agencies define",
+   "offsetMs": 98140.0,
+   "stable": 15
+  },
+  {
+   "t": 104656.3,
+   "text": "There is no universal definition for which manufacturers' items are antiques. Some tax agencies define goods",
+   "offsetMs": 98140.0,
+   "stable": 16
+  },
+  {
+   "t": 105232.1,
+   "text": "There is no universal definition for which manufacturers' items are antiques. Some tax agencies define goods older than 100",
+   "offsetMs": 98140.0,
+   "stable": 19
+  },
+  {
+   "t": 105717.9,
+   "text": "There is no universal definition for which manufacturers' items are antiques. Some tax agencies define goods older than 100 years",
+   "offsetMs": 98140.0,
+   "stable": 20
+  },
+  {
+   "t": 108207.4,
+   "text": "In",
+   "offsetMs": 107140.0,
+   "stable": 1
+  },
+  {
+   "t": 108747.1,
+   "text": "In the arch",
+   "offsetMs": 107140.0,
+   "stable": 3
+  },
+  {
+   "t": 109287.4,
+   "text": "In the archipel",
+   "offsetMs": 107140.0,
+   "stable": 3
+  },
+  {
+   "t": 109760.7,
+   "text": "In the archipelago",
+   "offsetMs": 107140.0,
+   "stable": 3
+  },
+  {
+   "t": 110274.3,
+   "text": "In the archipelago and",
+   "offsetMs": 107140.0,
+   "stable": 4
+  },
+  {
+   "t": 110789.5,
+   "text": "In the archipelago and lakes",
+   "offsetMs": 107140.0,
+   "stable": 5
+  },
+  {
+   "t": 111890.9,
+   "text": "In the archipelago and lakes you do not",
+   "offsetMs": 107140.0,
+   "stable": 8
+  },
+  {
+   "t": 112370.3,
+   "text": "In the archipelago and lakes you do not necessarily",
+   "offsetMs": 107140.0,
+   "stable": 9
+  },
+  {
+   "t": 113424.8,
+   "text": "In the archipelago and lakes you do not necessarily need",
+   "offsetMs": 107140.0,
+   "stable": 10
+  },
+  {
+   "t": 113974.6,
+   "text": "In the archipelago and lakes you do not necessarily need a yacht",
+   "offsetMs": 107140.0,
+   "stable": 12
+  },
+  {
+   "t": 114459.2,
+   "text": "In the archipelago and lakes you do not necessarily need a yacht.",
+   "offsetMs": 107140.0,
+   "stable": 12
+  },
+  {
+   "t": 117936.7,
+   "text": "show this format",
+   "offsetMs": 116636.0,
+   "stable": 3
+  },
+  {
+   "t": 118411.2,
+   "text": "show this format dividing",
+   "offsetMs": 116636.0,
+   "stable": 4
+  },
+  {
+   "t": 118926.0,
+   "text": "show this format dividing by",
+   "offsetMs": 116636.0,
+   "stable": 5
+  },
+  {
+   "t": 119466.1,
+   "text": "show this format dividing by 12 to",
+   "offsetMs": 116636.0,
+   "stable": 7
+  },
+  {
+   "t": 119965.8,
+   "text": "show this format dividing by 12 to obtain the",
+   "offsetMs": 116636.0,
+   "stable": 9
+  },
+  {
+   "t": 120510.0,
+   "text": "show this format dividing by 12 to obtain the simplest whole",
+   "offsetMs": 116636.0,
+   "stable": 11
+  },
+  {
+   "t": 120987.9,
+   "text": "show this format dividing by 12 to obtain the simplest whole number",
+   "offsetMs": 116636.0,
+   "stable": 12
+  },
+  {
+   "t": 121505.9,
+   "text": "show this format dividing by 12 to obtain the simplest whole number ratio",
+   "offsetMs": 116636.0,
+   "stable": 13
+  },
+  {
+   "t": 122030.8,
+   "text": "show this format dividing by 12 to obtain the simplest whole number ratio is",
+   "offsetMs": 116636.0,
+   "stable": 14
+  },
+  {
+   "t": 122581.3,
+   "text": "show this format dividing by 12 to obtain the simplest whole number ratio is therefore said",
+   "offsetMs": 116636.0,
+   "stable": 16
+  },
+  {
+   "t": 123091.2,
+   "text": "show this format dividing by 12 to obtain the simplest whole number ratio is therefore said to be",
+   "offsetMs": 116636.0,
+   "stable": 18
+  },
+  {
+   "t": 123629.0,
+   "text": "show this format dividing by 12 to obtain the simplest whole number ratio is therefore said to be 3 to 2",
+   "offsetMs": 116636.0,
+   "stable": 21
+  },
+  {
+   "t": 125940.8,
+   "text": "is renowned",
+   "offsetMs": 124636.0,
+   "stable": 2
+  },
+  {
+   "t": 126480.9,
+   "text": "is renowned for being",
+   "offsetMs": 124636.0,
+   "stable": 4
+  },
+  {
+   "t": 126981.4,
+   "text": "is renowned for being an epic",
+   "offsetMs": 124636.0,
+   "stable": 6
+  },
+  {
+   "t": 127507.5,
+   "text": "is renowned for being an epicenter of luxury",
+   "offsetMs": 124636.0,
+   "stable": 8
+  },
+  {
+   "t": 127985.3,
+   "text": "is renowned for being an epicenter of luxury,",
+   "offsetMs": 124636.0,
+   "stable": 8
+  },
+  {
+   "t": 129036.7,
+   "text": "is renowned for being an epicenter of luxury, began",
+   "offsetMs": 124636.0,
+   "stable": 9
+  },
+  {
+   "t": 129582.5,
+   "text": "is renowned for being an epicenter of luxury, began in about",
+   "offsetMs": 124636.0,
+   "stable": 11
+  },
+  {
+   "t": 130066.8,
+   "text": "is renowned for being an epicenter of luxury, began in about 48",
+   "offsetMs": 124636.0,
+   "stable": 12
+  },
+  {
+   "t": 130591.1,
+   "text": "is renowned for being an epicenter of luxury, began in about 488",
+   "offsetMs": 124636.0,
+   "stable": 12
+  },
+  {
+   "t": 131141.2,
+   "text": "is renowned for being an epicenter of luxury, began in about 488 AD and",
+   "offsetMs": 124636.0,
+   "stable": 14
+  },
+  {
+   "t": 131652.3,
+   "text": "is renowned for being an epicenter of luxury, began in about 488 AD and lasted up",
+   "offsetMs": 124636.0,
+   "stable": 16
+  },
+  {
+   "t": 132137.1,
+   "text": "is renowned for being an epicenter of luxury, began in about 488 AD and lasted up until",
+   "offsetMs": 124636.0,
+   "stable": 17
+  },
+  {
+   "t": 133200.4,
+   "text": "is renowned for being an epicenter of luxury, began in about 488 AD and lasted up until about",
+   "offsetMs": 124636.0,
+   "stable": 18
+  },
+  {
+   "t": 134264.7,
+   "text": "is renowned for being an epicenter of luxury, began in about 488 AD and lasted up until about 11",
+   "offsetMs": 124636.0,
+   "stable": 19
+  },
+  {
+   "t": 134814.9,
+   "text": "is renowned for being an epicenter of luxury, began in about 488 AD and lasted up until about 1100 AD",
+   "offsetMs": 124636.0,
+   "stable": 20
+  },
+  {
+   "t": 135300.3,
+   "text": "is renowned for being an epicenter of luxury, began in about 488 AD and lasted up until about 1100 AD.",
+   "offsetMs": 124636.0,
+   "stable": 20
+  },
+  {
+   "t": 142305.1,
+   "text": "insulation policies",
+   "offsetMs": 141040.0,
+   "stable": 2
+  },
+  {
+   "t": 142818.4,
+   "text": "insulation policies.",
+   "offsetMs": 141040.0,
+   "stable": 2
+  },
+  {
+   "t": 143357.4,
+   "text": "insulation policies. Don't",
+   "offsetMs": 141040.0,
+   "stable": 3
+  },
+  {
+   "t": 143927.4,
+   "text": "insulation policies. Don't extend to July",
+   "offsetMs": 141040.0,
+   "stable": 6
+  },
+  {
+   "t": 144406.0,
+   "text": "insulation policies. Don't extend to July 2020",
+   "offsetMs": 141040.0,
+   "stable": 7
+  },
+  {
+   "t": 144926.2,
+   "text": "insulation policies. Don't extend to July 2020 when",
+   "offsetMs": 141040.0,
+   "stable": 8
+  },
+  {
+   "t": 145481.9,
+   "text": "insulation policies. Don't extend to July 2020 when the Olympics",
+   "offsetMs": 141040.0,
+   "stable": 10
+  },
+  {
+   "t": 148741.5,
+   "text": "Swirl",
+   "offsetMs": 147532.0,
+   "stable": 1
+  },
+  {
+   "t": 149307.3,
+   "text": "Swirl the two dry",
+   "offsetMs": 147532.0,
+   "stable": 4
+  },
+  {
+   "t": 149781.2,
+   "text": "Swirl the two dry powers",
+   "offsetMs": 147532.0,
+   "stable": 5
+  },
+  {
+   "t": 150295.4,
+   "text": "Swirl the two dry powers together",
+   "offsetMs": 147532.0,
+   "stable": 6
+  },
+  {
+   "t": 150860.5,
+   "text": "Swirl the two dry powers together and then with",
+   "offsetMs": 147532.0,
+   "stable": 9
+  },
+  {
+   "t": 151337.6,
+   "text": "Swirl the two dry powers together and then with clean",
+   "offsetMs": 147532.0,
+   "stable": 10
+  },
+  {
+   "t": 151882.1,
+   "text": "Swirl the two dry powers together and then with clean wet hands",
+   "offsetMs": 147532.0,
+   "stable": 12
+  },
+  {
+   "t": 152902.6,
+   "text": "Swirl the two dry powers together and then with clean wet hands squeeze",
+   "offsetMs": 147532.0,
+   "stable": 13
+  },
+  {
+   "t": 153425.7,
+   "text": "Swirl the two dry powers together and then with clean wet hands squeeze them",
+   "offsetMs": 147532.0,
+   "stable": 14
+  },
+  {
+   "t": 153974.5,
+   "text": "Swirl the two dry powers together and then with clean wet hands squeeze them into a",
+   "offsetMs": 147532.0,
+   "stable": 16
+  },
+  {
+   "t": 154485.5,
+   "text": "Swirl the two dry powers together and then with clean wet hands squeeze them into a ball.",
+   "offsetMs": 147532.0,
+   "stable": 17
+  },
+  {
+   "t": 155047.0,
+   "text": "Swirl the two dry powers together and then with clean wet hands squeeze them into a ball. *BOOM*",
+   "offsetMs": 147532.0,
+   "stable": 18
+  }
+ ],
+ "finals": [
+  {
+   "t": 6198.7,
+   "text": "Lions are the most social cats living in large groups called prides.",
+   "offsetMs": 1116.0,
+   "durationMs": 4080.0
+  },
+  {
+   "t": 11400.9,
+   "text": "In the warm climate of the Middle East, the house was not so important.",
+   "offsetMs": 6716.0,
+   "durationMs": 3700.0
+  },
+  {
+   "t": 18008.9,
+   "text": "They are almost all sandy beaches with safe swimming and most have shade provided by...",
+   "offsetMs": 11900.0,
+   "durationMs": 5160.0
+  },
+  {
+   "t": 20537.0,
+   "text": "Polygon trees. The",
+   "offsetMs": 17980.0,
+   "durationMs": 1380.0
+  },
+  {
+   "t": 33104.8,
+   "text": "Feral children may have experienced severe child abuse or trauma before being abandoned or running away.",
+   "offsetMs": 26812.0,
+   "durationMs": 5320.0
+  },
+  {
+   "t": 38995.8,
+   "text": "Scott Bort, Buzz403, Traverse Regularly, Decentra, Stopping at Cabo de Roca.",
+   "offsetMs": 33692.0,
+   "durationMs": 4460.0
+  },
+  {
+   "t": 46094.1,
+   "text": "to get the best views of Hong Kong, leave the island and head for the Kowloon Waterfront opposite.",
+   "offsetMs": 39644.0,
+   "durationMs": 5500.0
+  },
+  {
+   "t": 51419.4,
+   "text": "Accepted were Aristotle's views on all matters of science, including physiology.",
+   "offsetMs": 46492.0,
+   "durationMs": 4200.0
+  },
+  {
+   "t": 55007.3,
+   "text": "I'm Mitchell Gowrie,",
+   "offsetMs": 51932.0,
+   "durationMs": 2000.0
+  },
+  {
+   "t": 67344.8,
+   "text": "finished 11th in the men's standing Super G Chet's competitor Ulrich Joklin finished 16th in the men's sitting Super G.",
+   "offsetMs": 54748.0,
+   "durationMs": 11660.0
+  },
+  {
+   "t": 74055.9,
+   "text": "to the rest of the country's cities because it is more of an Arabic flair than of an",
+   "offsetMs": 69440.0,
+   "durationMs": 3740.0
+  },
+  {
+   "t": 76003.3,
+   "text": "♪ ♪",
+   "offsetMs": 75028.0,
+   "durationMs": 280.0
+  },
+  {
+   "t": 85273.3,
+   "text": "Also after Revolution, occupants were open to all male applicants, allowing the most ambitious and successful to succeed. .",
+   "offsetMs": 76292.0,
+   "durationMs": 7900.0
+  },
+  {
+   "t": 97846.8,
+   "text": "saying they will be made based on China's economic output.",
+   "offsetMs": 94236.0,
+   "durationMs": 2940.0
+  },
+  {
+   "t": 106163.4,
+   "text": "There is no universal definition for which manufacturers' items are antiques. Some tax agencies define goods older than 100 years.",
+   "offsetMs": 98140.0,
+   "durationMs": 6980.0
+  },
+  {
+   "t": 114705.1,
+   "text": "In the archipelago and lakes you do not necessarily need a yacht. In",
+   "offsetMs": 107140.0,
+   "durationMs": 6340.0
+  },
+  {
+   "t": 123993.8,
+   "text": "show this format dividing by 12 to obtain the simplest whole number ratio is therefore said to be 3 to 2.",
+   "offsetMs": 116636.0,
+   "durationMs": 6380.0
+  },
+  {
+   "t": 135928.4,
+   "text": "is renowned for being an epicenter of luxury, began in about 488 AD and lasted up until about 1100 AD. *Gunshot*",
+   "offsetMs": 124636.0,
+   "durationMs": 10280.0
+  },
+  {
+   "t": 145725.0,
+   "text": "insulation policies. Don't extend to July 2020 when the Olympics are",
+   "offsetMs": 141040.0,
+   "durationMs": 3800.0
+  },
+  {
+   "t": 155320.6,
+   "text": "Swirl the two dry powers together and then with clean wet hands squeeze them into a ball. *BOOM* *B",
+   "offsetMs": 147532.0,
+   "durationMs": 6620.0
+  }
+ ]
+}

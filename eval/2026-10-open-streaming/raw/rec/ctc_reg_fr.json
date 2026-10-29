@@ -1,0 +1,6756 @@
+{
+ "lang": "fr",
+ "model": "omniASR_CTC_3B streaming track",
+ "lookahead_s": "2",
+ "hello": {
+  "type": "hello",
+  "langs": [
+   "fr"
+  ],
+  "rate": 16000,
+  "stream": {
+   "track": "ctc",
+   "lookahead_ms": 2000,
+   "chunk_ms": 500,
+   "left_ms": 8000
+  }
+ },
+ "err": "",
+ "partials": [
+  {
+   "t": 1263.0,
+   "text": "ki",
+   "offsetMs": 0,
+   "stable": 0
+  },
+  {
+   "t": 1873.6,
+   "text": "les lions sont",
+   "offsetMs": 0,
+   "stable": 0
+  },
+  {
+   "t": 2374.5,
+   "text": "les lions sont les chales les plus",
+   "offsetMs": 400,
+   "stable": 0
+  },
+  {
+   "t": 2993.5,
+   "text": "les lions sont leséchelles les plus sociables",
+   "offsetMs": 960,
+   "stable": 0
+  },
+  {
+   "t": 3583.1,
+   "text": "les lions les lions sont leséchelles les plus sociables",
+   "offsetMs": 960,
+   "stable": 1
+  },
+  {
+   "t": 3583.2,
+   "text": "les lions sont leéchelles les plus sociables vivant",
+   "offsetMs": 1540,
+   "stable": 1
+  },
+  {
+   "t": 4202.6,
+   "text": "les lions sont leéchelles le sont leéchelles les plus sociables vivant",
+   "offsetMs": 1540,
+   "stable": 4
+  },
+  {
+   "t": 4202.7,
+   "text": "les lions sont leéchelles le s plus sociables vivant en grand groupe",
+   "offsetMs": 2120,
+   "stable": 4
+  },
+  {
+   "t": 4802.9,
+   "text": "les lions sont leéchelles les plus sociab s plus sociables vivant en grand groupe",
+   "offsetMs": 2120,
+   "stable": 6
+  },
+  {
+   "t": 4803.0,
+   "text": "les lions sont leéchelles les plus sociab les vivant en grand groupe appelé",
+   "offsetMs": 2700,
+   "stable": 6
+  },
+  {
+   "t": 5337.0,
+   "text": "les lions sont leéchelles les plus sociables vivan les vivant en grand groupe appelé",
+   "offsetMs": 2700,
+   "stable": 7
+  },
+  {
+   "t": 5337.3,
+   "text": "les lions sont leéchelles les plus sociables vivan t en grand groupe appelé met",
+   "offsetMs": 3280,
+   "stable": 7
+  },
+  {
+   "t": 7273.1,
+   "text": "dans le",
+   "offsetMs": 5376,
+   "stable": 0
+  },
+  {
+   "t": 7882.0,
+   "text": "dans le climat chaud du",
+   "offsetMs": 5856,
+   "stable": 0
+  },
+  {
+   "t": 8479.8,
+   "text": "dans le climat chaud du moyen orient",
+   "offsetMs": 6436,
+   "stable": 0
+  },
+  {
+   "t": 9078.2,
+   "text": "dans le cli dans le climat chaud du moyen orient",
+   "offsetMs": 6436,
+   "stable": 2
+  },
+  {
+   "t": 9078.2,
+   "text": "dans le cli mat chaud du moyen orient la maison",
+   "offsetMs": 7016,
+   "stable": 2
+  },
+  {
+   "t": 9587.7,
+   "text": "dans le climat chaud du mo mat chaud du moyen orient la maison",
+   "offsetMs": 7016,
+   "stable": 5
+  },
+  {
+   "t": 9587.7,
+   "text": "dans le climat chaud du mo yen orient la maison n'était pas si importat",
+   "offsetMs": 7596,
+   "stable": 5
+  },
+  {
+   "t": 10185.0,
+   "text": "dans le climat chaud du moyen orient yen orient la maison n'était pas si importat",
+   "offsetMs": 7596,
+   "stable": 6
+  },
+  {
+   "t": 10185.1,
+   "text": "dans le climat chaud du moyen orient la maison n'était pas si importante",
+   "offsetMs": 8176,
+   "stable": 6
+  },
+  {
+   "t": 12481.2,
+   "text": "e presque toutes",
+   "offsetMs": 10472,
+   "stable": 0
+  },
+  {
+   "t": 13083.3,
+   "text": "presque toutes les pirages",
+   "offsetMs": 11052,
+   "stable": 0
+  },
+  {
+   "t": 13679.4,
+   "text": "presque toutes les plages sont sablonneuses",
+   "offsetMs": 11632,
+   "stable": 0
+  },
+  {
+   "t": 14350.9,
+   "text": "presque presque toutes les plages sont sablonneuses",
+   "offsetMs": 11632,
+   "stable": 0
+  },
+  {
+   "t": 14351.0,
+   "text": "presque toutes les plages sont sablonneuses et permettent de",
+   "offsetMs": 12192,
+   "stable": 0
+  },
+  {
+   "t": 14792.3,
+   "text": "presque toutes les pirage toutes les plages sont sablonneuses et permettent de",
+   "offsetMs": 12192,
+   "stable": 3
+  },
+  {
+   "t": 14792.4,
+   "text": "presque toutes les pirage s sont sablonneuses et permettent de se baigner en toutes",
+   "offsetMs": 12772,
+   "stable": 3
+  },
+  {
+   "t": 15421.8,
+   "text": "presque toutes les pirages sont sablon s sont sablonneuses et permettent de se baigner en toutes",
+   "offsetMs": 12772,
+   "stable": 5
+  },
+  {
+   "t": 15421.9,
+   "text": "presque toutes les pirages sont sablon neuses et permettent de se baigner en toute sécurité",
+   "offsetMs": 13352,
+   "stable": 5
+  },
+  {
+   "t": 16276.0,
+   "text": "laplu",
+   "offsetMs": 15648,
+   "stable": 0
+  },
+  {
+   "t": 16861.2,
+   "text": "qui la plupart sont",
+   "offsetMs": 15648,
+   "stable": 0
+  },
+  {
+   "t": 17512.3,
+   "text": "quila plupart sont ombragées par",
+   "offsetMs": 15648,
+   "stable": 0
+  },
+  {
+   "t": 17982.5,
+   "text": "quila p quila plupart sont ombragées par",
+   "offsetMs": 15648,
+   "stable": 1
+  },
+  {
+   "t": 17982.5,
+   "text": "quila p lupart sont ombragés par des",
+   "offsetMs": 15948,
+   "stable": 1
+  },
+  {
+   "t": 18579.8,
+   "text": "quila plupart sont lupart sont ombragés par des",
+   "offsetMs": 15948,
+   "stable": 2
+  },
+  {
+   "t": 18579.9,
+   "text": "quila plupart sont ombragés par des polus",
+   "offsetMs": 16528,
+   "stable": 2
+  },
+  {
+   "t": 19295.0,
+   "text": "quila plupart sont ombragés ombragés par des polus",
+   "offsetMs": 16528,
+   "stable": 3
+  },
+  {
+   "t": 19295.0,
+   "text": "quila plupart sont ombragés par des pous du",
+   "offsetMs": 17088,
+   "stable": 3
+  },
+  {
+   "t": 21539.1,
+   "text": "les mdes",
+   "offsetMs": 19496,
+   "stable": 0
+  },
+  {
+   "t": 22044.8,
+   "text": "les meudes sont composées",
+   "offsetMs": 20076,
+   "stable": 0
+  },
+  {
+   "t": 22644.5,
+   "text": "les meudes sont composés d'unà",
+   "offsetMs": 20656,
+   "stable": 0
+  },
+  {
+   "t": 23244.4,
+   "text": "les meudes les meudes sont composés d'unà",
+   "offsetMs": 20656,
+   "stable": 1
+  },
+  {
+   "t": 23244.5,
+   "text": "les meudes sont composées d'un à trois mal adlte",
+   "offsetMs": 21216,
+   "stable": 1
+  },
+  {
+   "t": 23892.9,
+   "text": "les meudes sont compos sont composées d'un à trois mal adlte",
+   "offsetMs": 21216,
+   "stable": 3
+  },
+  {
+   "t": 23893.3,
+   "text": "les meudes sont compos és d'un à trois mal adulte",
+   "offsetMs": 21796,
+   "stable": 3
+  },
+  {
+   "t": 24345.9,
+   "text": "les meudes sont composés d'un à tr és d'un à trois mal adulte",
+   "offsetMs": 21796,
+   "stable": 6
+  },
+  {
+   "t": 24346.0,
+   "text": "les meudes sont composés d'un à tr ois mal adulte apparentés ainsi",
+   "offsetMs": 22376,
+   "stable": 6
+  },
+  {
+   "t": 24940.0,
+   "text": "les meudes sont composés d'un à trois mal adu ois mal adulte apparentés ainsi",
+   "offsetMs": 22376,
+   "stable": 8
+  },
+  {
+   "t": 24940.1,
+   "text": "les meudes sont composés d'un à trois mal adu lte apparentés ainsi que d'une",
+   "offsetMs": 22956,
+   "stable": 8
+  },
+  {
+   "t": 25539.9,
+   "text": "les meudes sont composés d'un à trois mal adulte a lte apparentés ainsi que d'une",
+   "offsetMs": 22956,
+   "stable": 9
+  },
+  {
+   "t": 25540.0,
+   "text": "les meudes sont composés d'un à trois mal adulte a pparentés ainsi que d'une trentaine de",
+   "offsetMs": 23536,
+   "stable": 9
+  },
+  {
+   "t": 26139.8,
+   "text": "les meudes sont composés d'un à trois mal adulte apparentés a pparentés ainsi que d'une trentaine de",
+   "offsetMs": 23536,
+   "stable": 10
+  },
+  {
+   "t": 26139.8,
+   "text": "les meudes sont composés d'un à trois mal adulte apparentés a insi que d'une trentaine de femelles et de",
+   "offsetMs": 24096,
+   "stable": 10
+  },
+  {
+   "t": 26639.2,
+   "text": "les meudes sont composés d'un à trois mal adulte apparentés ainsi que d insi que d'une trentaine de femelles et de",
+   "offsetMs": 24096,
+   "stable": 12
+  },
+  {
+   "t": 26639.3,
+   "text": "les meudes sont composés d'un à trois mal adulte apparentés ainsi que d 'une trentaine de femelles et de longceau",
+   "offsetMs": 24676,
+   "stable": 12
+  },
+  {
+   "t": 28881.4,
+   "text": "les enfants",
+   "offsetMs": 26880,
+   "stable": 0
+  },
+  {
+   "t": 29481.9,
+   "text": "les enfants sauvages peuvent",
+   "offsetMs": 27460,
+   "stable": 0
+  },
+  {
+   "t": 30080.1,
+   "text": "les enfants sauvages peuvent avoir suvi",
+   "offsetMs": 28040,
+   "stable": 0
+  },
+  {
+   "t": 30680.0,
+   "text": "les enfant les enfants sauvages peuvent avoir suvi",
+   "offsetMs": 28040,
+   "stable": 1
+  },
+  {
+   "t": 30680.1,
+   "text": "les enfant s sauvages peuvent avoir suivi de",
+   "offsetMs": 28620,
+   "stable": 1
+  },
+  {
+   "t": 31181.7,
+   "text": "les enfants sauvages s sauvages peuvent avoir suivi de",
+   "offsetMs": 28620,
+   "stable": 2
+  },
+  {
+   "t": 31181.8,
+   "text": "les enfants sauvages peuvent avoir suivi de graves",
+   "offsetMs": 29200,
+   "stable": 2
+  },
+  {
+   "t": 31798.1,
+   "text": "les enfants sauvages peuvent avoir peuvent avoir suivi de graves",
+   "offsetMs": 29200,
+   "stable": 4
+  },
+  {
+   "t": 31798.3,
+   "text": "les enfants sauvages peuvent avoir suivi de graves abs",
+   "offsetMs": 29760,
+   "stable": 4
+  },
+  {
+   "t": 32367.7,
+   "text": "ouau",
+   "offsetMs": 31776,
+   "stable": 0
+  },
+  {
+   "t": 32968.2,
+   "text": "ou traumatismes vant",
+   "offsetMs": 31776,
+   "stable": 0
+  },
+  {
+   "t": 33538.8,
+   "text": "ou traumatismes avant d'être",
+   "offsetMs": 31776,
+   "stable": 0
+  },
+  {
+   "t": 34107.0,
+   "text": "ou trau ou traumatismes avant d'être",
+   "offsetMs": 31776,
+   "stable": 1
+  },
+  {
+   "t": 34107.1,
+   "text": "ou trau matismes avant d'être abandonnés ou de",
+   "offsetMs": 32076,
+   "stable": 1
+  },
+  {
+   "t": 34645.7,
+   "text": "ou traumatismes a matismes avant d'être abandonnés ou de",
+   "offsetMs": 32076,
+   "stable": 2
+  },
+  {
+   "t": 34645.8,
+   "text": "ou traumatismes a vant d'être abandonnés ou de s'enfuir",
+   "offsetMs": 32656,
+   "stable": 2
+  },
+  {
+   "t": 36737.9,
+   "text": "le b",
+   "offsetMs": 34752,
+   "stable": 0
+  },
+  {
+   "t": 37339.6,
+   "text": "le bus",
+   "offsetMs": 35332,
+   "stable": 0
+  },
+  {
+   "t": 37939.6,
+   "text": "le bus de",
+   "offsetMs": 35912,
+   "stable": 0
+  },
+  {
+   "t": 38438.8,
+   "text": "le bu le bus de",
+   "offsetMs": 35912,
+   "stable": 1
+  },
+  {
+   "t": 38438.8,
+   "text": "le bu s de",
+   "offsetMs": 36492,
+   "stable": 1
+  },
+  {
+   "t": 39039.6,
+   "text": "le bus s de",
+   "offsetMs": 36492,
+   "stable": 1
+  },
+  {
+   "t": 39039.7,
+   "text": "le bus de scotherb se",
+   "offsetMs": 37072,
+   "stable": 1
+  },
+  {
+   "t": 39639.4,
+   "text": "le bus de sco de scotherb se",
+   "offsetMs": 37072,
+   "stable": 3
+  },
+  {
+   "t": 39639.5,
+   "text": "le bus de sco ttherb se rend régulièrement",
+   "offsetMs": 37632,
+   "stable": 3
+  },
+  {
+   "t": 40247.0,
+   "text": "le bus de scotthurb ttherb se rend régulièrement",
+   "offsetMs": 37632,
+   "stable": 3
+  },
+  {
+   "t": 40247.0,
+   "text": "le bus de scotthurb se rend régulièrement à",
+   "offsetMs": 38212,
+   "stable": 3
+  },
+  {
+   "t": 41465.4,
+   "text": "avec un arrêt",
+   "offsetMs": 40320,
+   "stable": 0
+  },
+  {
+   "t": 42066.6,
+   "text": "avec un arrêt à",
+   "offsetMs": 40320,
+   "stable": 0
+  },
+  {
+   "t": 42681.4,
+   "text": "avec un arrêt à cabo",
+   "offsetMs": 40620,
+   "stable": 0
+  },
+  {
+   "t": 45044.3,
+   "text": "pour admirer",
+   "offsetMs": 43016,
+   "stable": 0
+  },
+  {
+   "t": 45554.6,
+   "text": "pour admirer les plus bau",
+   "offsetMs": 43596,
+   "stable": 0
+  },
+  {
+   "t": 46138.8,
+   "text": "pour admirer les plus beaux panoramas de",
+   "offsetMs": 44176,
+   "stable": 0
+  },
+  {
+   "t": 46739.6,
+   "text": "pour admi pour admirer les plus beaux panoramas de",
+   "offsetMs": 44176,
+   "stable": 1
+  },
+  {
+   "t": 46739.7,
+   "text": "pour admi rer les plus beaux panoramas deon",
+   "offsetMs": 44736,
+   "stable": 1
+  },
+  {
+   "t": 47339.7,
+   "text": "pour admirer les plus beau rer les plus beaux panoramas deon",
+   "offsetMs": 44736,
+   "stable": 4
+  },
+  {
+   "t": 47339.7,
+   "text": "pour admirer les plus beau x panoramas de hong kong",
+   "offsetMs": 45316,
+   "stable": 4
+  },
+  {
+   "t": 47984.3,
+   "text": "pour admirer les plus beaux panorama x panoramas de hong kong",
+   "offsetMs": 45316,
+   "stable": 5
+  },
+  {
+   "t": 47984.3,
+   "text": "pour admirer les plus beaux panorama s de hong kong quitter l'île",
+   "offsetMs": 45896,
+   "stable": 5
+  },
+  {
+   "t": 48445.5,
+   "text": "pour admirer les plus beaux panoramas de hong ko s de hong kong quitter l'île",
+   "offsetMs": 45896,
+   "stable": 8
+  },
+  {
+   "t": 48445.6,
+   "text": "pour admirer les plus beaux panoramas de hong ko ng quittez l'île et rejoignez",
+   "offsetMs": 46476,
+   "stable": 8
+  },
+  {
+   "t": 49045.0,
+   "text": "pour admirer les plus beaux panoramas de hong kong q ng quittez l'île et rejoignez",
+   "offsetMs": 46476,
+   "stable": 9
+  },
+  {
+   "t": 49045.1,
+   "text": "pour admirer les plus beaux panoramas de hong kong q uittez l'île et rejoignez le front de mer",
+   "offsetMs": 47056,
+   "stable": 9
+  },
+  {
+   "t": 49645.0,
+   "text": "pour admirer les plus beaux panoramas de hong kong quittez l'îl uittez l'île et rejoignez le front de mer",
+   "offsetMs": 47056,
+   "stable": 10
+  },
+  {
+   "t": 49645.1,
+   "text": "pour admirer les plus beaux panoramas de hong kong quittez l'îl e et rejoignet le front de mer de",
+   "offsetMs": 47616,
+   "stable": 10
+  },
+  {
+   "t": 50246.7,
+   "text": "pour admirer les plus beaux panoramas de hong kong quittez l'île et rejoig e et rejoignet le front de mer de",
+   "offsetMs": 47616,
+   "stable": 12
+  },
+  {
+   "t": 50246.8,
+   "text": "pour admirer les plus beaux panoramas de hong kong quittez l'île et rejoig nez le front de mer deolw",
+   "offsetMs": 48196,
+   "stable": 12
+  },
+  {
+   "t": 50814.1,
+   "text": "pour admirer les plus beaux panoramas de hong kong quittez l'île et rejoignez le front de nez le front de mer deolw",
+   "offsetMs": 48196,
+   "stable": 15
+  },
+  {
+   "t": 50814.2,
+   "text": "pour admirer les plus beaux panoramas de hong kong quittez l'île et rejoignez le front de mer de",
+   "offsetMs": 48776,
+   "stable": 15
+  },
+  {
+   "t": 51339.5,
+   "text": "pour admirer les plus beaux panoramas de hong kong quittez l'île et rejoignez le front de mer de mer de",
+   "offsetMs": 48776,
+   "stable": 17
+  },
+  {
+   "t": 51339.6,
+   "text": "pour admirer les plus beaux panoramas de hong kong quittez l'île et rejoignez le front de mer de kolwon situé en face",
+   "offsetMs": 49356,
+   "stable": 17
+  },
+  {
+   "t": 54647.5,
+   "text": "les opinions d'aristote",
+   "offsetMs": 52624,
+   "stable": 0
+  },
+  {
+   "t": 55140.0,
+   "text": "les o les opinions d'aristote",
+   "offsetMs": 52624,
+   "stable": 1
+  },
+  {
+   "t": 55140.1,
+   "text": "les o pinions d'aristote sur toutes les questions",
+   "offsetMs": 53184,
+   "stable": 1
+  },
+  {
+   "t": 56268.4,
+   "text": "is",
+   "offsetMs": 55680,
+   "stable": 0
+  },
+  {
+   "t": 56880.6,
+   "text": "scientifiques y compris",
+   "offsetMs": 55680,
+   "stable": 0
+  },
+  {
+   "t": 57482.5,
+   "text": "scientifiques y comprisl",
+   "offsetMs": 55680,
+   "stable": 0
+  },
+  {
+   "t": 57984.2,
+   "text": "scient scientifiques y comprisl",
+   "offsetMs": 55680,
+   "stable": 0
+  },
+  {
+   "t": 57984.3,
+   "text": "scient ifiques y compris la psychologie",
+   "offsetMs": 55980,
+   "stable": 0
+  },
+  {
+   "t": 58579.9,
+   "text": "scientifiques y co ifiques y compris la psychologie",
+   "offsetMs": 55980,
+   "stable": 2
+  },
+  {
+   "t": 58580.0,
+   "text": "scientifiques y co mpris la psychologie ont été",
+   "offsetMs": 56560,
+   "stable": 2
+  },
+  {
+   "t": 59180.8,
+   "text": "scientifiques y compris la psy mpris la psychologie ont été",
+   "offsetMs": 56560,
+   "stable": 4
+  },
+  {
+   "t": 59180.9,
+   "text": "scientifiques y compris la psy chologie ont été acceptées",
+   "offsetMs": 57120,
+   "stable": 4
+  },
+  {
+   "t": 59820.3,
+   "text": "scientifiques y compris la psychologie chologie ont été acceptées",
+   "offsetMs": 57120,
+   "stable": 4
+  },
+  {
+   "t": 59820.4,
+   "text": "scientifiques y compris la psychologie ont été acceptées",
+   "offsetMs": 57700,
+   "stable": 4
+  },
+  {
+   "t": 62004.1,
+   "text": "l'australien",
+   "offsetMs": 59908,
+   "stable": 0
+  },
+  {
+   "t": 63639.5,
+   "text": "l'austra l'australien",
+   "offsetMs": 61068,
+   "stable": 0
+  },
+  {
+   "t": 63639.6,
+   "text": "l'austra lien michel gourlay est arrivé",
+   "offsetMs": 61648,
+   "stable": 0
+  },
+  {
+   "t": 64240.6,
+   "text": "l'australien mi lien michel gourlay est arrivé",
+   "offsetMs": 61648,
+   "stable": 1
+  },
+  {
+   "t": 64240.7,
+   "text": "l'australien mi chel gourlay est arrivé zime",
+   "offsetMs": 62208,
+   "stable": 1
+  },
+  {
+   "t": 64769.6,
+   "text": "l'australien michel gourl chel gourlay est arrivé zime",
+   "offsetMs": 62208,
+   "stable": 2
+  },
+  {
+   "t": 64769.7,
+   "text": "l'australien michel gourl ay est arrivé onzième au",
+   "offsetMs": 62788,
+   "stable": 2
+  },
+  {
+   "t": 65340.5,
+   "text": "l'australien michel gourlay est arrivé ay est arrivé onzième au",
+   "offsetMs": 62788,
+   "stable": 4
+  },
+  {
+   "t": 65340.5,
+   "text": "l'australien michel gourlay est arrivé onzième aue",
+   "offsetMs": 63368,
+   "stable": 4
+  },
+  {
+   "t": 65944.0,
+   "text": "l'australien michel gourlay est arrivé zième onzième aue",
+   "offsetMs": 63368,
+   "stable": 5
+  },
+  {
+   "t": 65944.1,
+   "text": "l'australien michel gourlay est arrivé zième au super g deout",
+   "offsetMs": 63948,
+   "stable": 5
+  },
+  {
+   "t": 66541.5,
+   "text": "l'australien michel gourlay est arrivé zième au supe au super g deout",
+   "offsetMs": 63948,
+   "stable": 7
+  },
+  {
+   "t": 66541.6,
+   "text": "l'australien michel gourlay est arrivé zième au supe r g",
+   "offsetMs": 64528,
+   "stable": 7
+  },
+  {
+   "t": 67567.9,
+   "text": "le",
+   "offsetMs": 67008,
+   "stable": 0
+  },
+  {
+   "t": 68169.1,
+   "text": "le cèk",
+   "offsetMs": 67008,
+   "stable": 0
+  },
+  {
+   "t": 68791.9,
+   "text": "le chèkldc",
+   "offsetMs": 67008,
+   "stable": 0
+  },
+  {
+   "t": 69385.4,
+   "text": "le c le chèkldc",
+   "offsetMs": 67008,
+   "stable": 1
+  },
+  {
+   "t": 69385.6,
+   "text": "le c hèk oldrich",
+   "offsetMs": 67308,
+   "stable": 1
+  },
+  {
+   "t": 69872.9,
+   "text": "le chèk ol hèk oldrich",
+   "offsetMs": 67308,
+   "stable": 2
+  },
+  {
+   "t": 69873.0,
+   "text": "le chèk ol drich jelinek s'etcla",
+   "offsetMs": 67888,
+   "stable": 2
+  },
+  {
+   "t": 70470.8,
+   "text": "le chèk oldrich drich jelinek s'etcla",
+   "offsetMs": 67888,
+   "stable": 2
+  },
+  {
+   "t": 70470.9,
+   "text": "le chèk oldrich jellinek s'est classé zime",
+   "offsetMs": 68448,
+   "stable": 2
+  },
+  {
+   "t": 71070.5,
+   "text": "le chèk oldrich jelin jellinek s'est classé zime",
+   "offsetMs": 68448,
+   "stable": 3
+  },
+  {
+   "t": 71070.6,
+   "text": "le chèk oldrich jelin ek s'est classé seizième",
+   "offsetMs": 69028,
+   "stable": 3
+  },
+  {
+   "t": 71639.6,
+   "text": "le chèk oldrich jelineck s'est ek s'est classé seizième",
+   "offsetMs": 69028,
+   "stable": 4
+  },
+  {
+   "t": 71639.7,
+   "text": "le chèk oldrich jelineck s'est classé seizième au suerg",
+   "offsetMs": 69608,
+   "stable": 4
+  },
+  {
+   "t": 72138.9,
+   "text": "le chèk oldrich jelineck s'est classé seiz classé seizième au suerg",
+   "offsetMs": 69608,
+   "stable": 6
+  },
+  {
+   "t": 72139.0,
+   "text": "le chèk oldrich jelineck s'est classé seiz ième au superg",
+   "offsetMs": 70188,
+   "stable": 6
+  },
+  {
+   "t": 76641.2,
+   "text": "la ville",
+   "offsetMs": 72576,
+   "stable": 1
+  },
+  {
+   "t": 76641.3,
+   "text": "la ville contraste fortement avec les",
+   "offsetMs": 74596,
+   "stable": 1
+  },
+  {
+   "t": 78648.2,
+   "text": "la ville contraste fortement avec les ci contraste fortement avec les",
+   "offsetMs": 74596,
+   "stable": 6
+  },
+  {
+   "t": 78648.3,
+   "text": "la ville contraste fortement avec les ci tés du reste du pays",
+   "offsetMs": 76616,
+   "stable": 6
+  },
+  {
+   "t": 80692.1,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle tés du reste du pays",
+   "offsetMs": 76616,
+   "stable": 12
+  },
+  {
+   "t": 80692.1,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage",
+   "offsetMs": 78636,
+   "stable": 12
+  },
+  {
+   "t": 82653.2,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage a possède un style davantage",
+   "offsetMs": 78636,
+   "stable": 17
+  },
+  {
+   "t": 82653.3,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage a rabe qu'africain",
+   "offsetMs": 80656,
+   "stable": 17
+  },
+  {
+   "t": 83653.9,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'afric rabe qu'africain",
+   "offsetMs": 80656,
+   "stable": 18
+  },
+  {
+   "t": 83654.0,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'afric aine",
+   "offsetMs": 81616,
+   "stable": 18
+  },
+  {
+   "t": 84145.8,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aine",
+   "offsetMs": 81616,
+   "stable": 18
+  },
+  {
+   "t": 84145.8,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi",
+   "offsetMs": 82176,
+   "stable": 18
+  },
+  {
+   "t": 84739.4,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi après la révoluion",
+   "offsetMs": 82756,
+   "stable": 18
+  },
+  {
+   "t": 85339.4,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi après la révolutionle",
+   "offsetMs": 83336,
+   "stable": 18
+  },
+  {
+   "t": 85939.4,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi aussi après la révolutionle",
+   "offsetMs": 83336,
+   "stable": 19
+  },
+  {
+   "t": 85939.6,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi après la révolution les métiers furent",
+   "offsetMs": 83916,
+   "stable": 19
+  },
+  {
+   "t": 86443.0,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi après la rév après la révolution les métiers furent",
+   "offsetMs": 83916,
+   "stable": 22
+  },
+  {
+   "t": 86443.1,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi après la rév olution les métiers furent ouverts",
+   "offsetMs": 84496,
+   "stable": 22
+  },
+  {
+   "t": 87043.3,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi après la révolution le olution les métiers furent ouverts",
+   "offsetMs": 84496,
+   "stable": 23
+  },
+  {
+   "t": 87043.4,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi après la révolution le s métiers furent ouverts à tous les",
+   "offsetMs": 85056,
+   "stable": 23
+  },
+  {
+   "t": 87643.8,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi après la révolution les métiers f s métiers furent ouverts à tous les",
+   "offsetMs": 85056,
+   "stable": 25
+  },
+  {
+   "t": 87643.9,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi après la révolution les métiers f urent ouverts à tous les candidats masculins",
+   "offsetMs": 85636,
+   "stable": 25
+  },
+  {
+   "t": 88741.6,
+   "text": "permettant",
+   "offsetMs": 88128,
+   "stable": 0
+  },
+  {
+   "t": 89243.9,
+   "text": "permettant aux plus",
+   "offsetMs": 88128,
+   "stable": 0
+  },
+  {
+   "t": 89844.0,
+   "text": "permettant aux plus ambitieux",
+   "offsetMs": 88128,
+   "stable": 0
+  },
+  {
+   "t": 90447.0,
+   "text": "perme permettant aux plus ambitieux",
+   "offsetMs": 88128,
+   "stable": 0
+  },
+  {
+   "t": 90447.0,
+   "text": "perme ttant au plus ambitieux et aux plus",
+   "offsetMs": 88428,
+   "stable": 0
+  },
+  {
+   "t": 91046.0,
+   "text": "permettant aux plu ttant au plus ambitieux et aux plus",
+   "offsetMs": 88428,
+   "stable": 2
+  },
+  {
+   "t": 91046.0,
+   "text": "permettant aux plu s ambitieux et aux plus talentueux de",
+   "offsetMs": 89008,
+   "stable": 2
+  },
+  {
+   "t": 91545.7,
+   "text": "permettant aux plus ambitieu s ambitieux et aux plus talentueux de",
+   "offsetMs": 89008,
+   "stable": 3
+  },
+  {
+   "t": 91545.7,
+   "text": "permettant aux plus ambitieu x et aux plus talentueux de réussir",
+   "offsetMs": 89568,
+   "stable": 3
+  },
+  {
+   "t": 93341.7,
+   "text": "la",
+   "offsetMs": 91776,
+   "stable": 0
+  },
+  {
+   "t": 93841.3,
+   "text": "la bombe",
+   "offsetMs": 91876,
+   "stable": 0
+  },
+  {
+   "t": 94444.0,
+   "text": "la bombe à ficion fonctionne seo",
+   "offsetMs": 92456,
+   "stable": 0
+  },
+  {
+   "t": 95045.9,
+   "text": "la bom la bombe à ficion fonctionne seo",
+   "offsetMs": 92456,
+   "stable": 1
+  },
+  {
+   "t": 95046.0,
+   "text": "la bom be à fision fonctionne selon le principe",
+   "offsetMs": 93036,
+   "stable": 1
+  },
+  {
+   "t": 95646.9,
+   "text": "la bombe à fision be à fision fonctionne selon le principe",
+   "offsetMs": 93036,
+   "stable": 3
+  },
+  {
+   "t": 95647.0,
+   "text": "la bombe à fision fonctionne selon le principe suivant",
+   "offsetMs": 93616,
+   "stable": 3
+  },
+  {
+   "t": 96145.9,
+   "text": "la bombe à fision fonctionne fonctionne selon le principe suivant",
+   "offsetMs": 93616,
+   "stable": 4
+  },
+  {
+   "t": 96146.0,
+   "text": "la bombe à fision fonctionne selon le principe suivant",
+   "offsetMs": 94176,
+   "stable": 4
+  },
+  {
+   "t": 96746.0,
+   "text": "la bombe à fision fonctionne selon le princ selon le principe suivant",
+   "offsetMs": 94176,
+   "stable": 7
+  },
+  {
+   "t": 96746.0,
+   "text": "la bombe à fision fonctionne selon le princ ipe suivant elle transfoe",
+   "offsetMs": 94756,
+   "stable": 7
+  },
+  {
+   "t": 97344.9,
+   "text": "la bombe à fision fonctionne selon le principe sui ipe suivant elle transfoe",
+   "offsetMs": 94756,
+   "stable": 8
+  },
+  {
+   "t": 97344.9,
+   "text": "la bombe à fision fonctionne selon le principe sui vant elle transforme l'énergie",
+   "offsetMs": 95336,
+   "stable": 8
+  },
+  {
+   "t": 97946.0,
+   "text": "la bombe à fision fonctionne selon le principe suivant vant elle transforme l'énergie",
+   "offsetMs": 95336,
+   "stable": 8
+  },
+  {
+   "t": 97946.1,
+   "text": "la bombe à fision fonctionne selon le principe suivant elle transforme l'énergie en assemblant",
+   "offsetMs": 95916,
+   "stable": 8
+  },
+  {
+   "t": 98444.7,
+   "text": "la bombe à fision fonctionne selon le principe suivant elle tran elle transforme l'énergie en assemblant",
+   "offsetMs": 95916,
+   "stable": 10
+  },
+  {
+   "t": 98444.8,
+   "text": "la bombe à fision fonctionne selon le principe suivant elle tran sforme l'énergie en assemblant un noyau",
+   "offsetMs": 96496,
+   "stable": 10
+  },
+  {
+   "t": 99046.6,
+   "text": "la bombe à fision fonctionne selon le principe suivant elle transforme l'éner sforme l'énergie en assemblant un noyau",
+   "offsetMs": 96496,
+   "stable": 11
+  },
+  {
+   "t": 99046.6,
+   "text": "la bombe à fision fonctionne selon le principe suivant elle transforme l'éner gie en assemblant un noyau d'unemiiae",
+   "offsetMs": 97056,
+   "stable": 11
+  },
+  {
+   "t": 99646.6,
+   "text": "la bombe à fision fonctionne selon le principe suivant elle transforme l'énergie en assem gie en assemblant un noyau d'unemiiae",
+   "offsetMs": 97056,
+   "stable": 13
+  },
+  {
+   "t": 99646.6,
+   "text": "la bombe à fision fonctionne selon le principe suivant elle transforme l'énergie en assem blant un noyau d'une myriade de proton",
+   "offsetMs": 97636,
+   "stable": 13
+  },
+  {
+   "t": 100246.5,
+   "text": "la bombe à fision fonctionne selon le principe suivant elle transforme l'énergie en assemblant un noyau blant un noyau d'une myriade de proton",
+   "offsetMs": 97636,
+   "stable": 15
+  },
+  {
+   "t": 100246.5,
+   "text": "la bombe à fision fonctionne selon le principe suivant elle transforme l'énergie en assemblant un noyau d'une myriade de protons et neuretron",
+   "offsetMs": 98216,
+   "stable": 15
+  },
+  {
+   "t": 102338.1,
+   "text": "il n'a pas",
+   "offsetMs": 100512,
+   "stable": 0
+  },
+  {
+   "t": 102945.8,
+   "text": "il n'a pas chiffré",
+   "offsetMs": 100912,
+   "stable": 0
+  },
+  {
+   "t": 103440.9,
+   "text": "il n'a pas chiffré ses réductions",
+   "offsetMs": 101472,
+   "stable": 0
+  },
+  {
+   "t": 104136.8,
+   "text": "isant q'e",
+   "offsetMs": 103584,
+   "stable": 0
+  },
+  {
+   "t": 104737.0,
+   "text": "isant qu'elles seront bases",
+   "offsetMs": 103584,
+   "stable": 0
+  },
+  {
+   "t": 105337.9,
+   "text": "isant qu'elles seront basées sur la",
+   "offsetMs": 103584,
+   "stable": 0
+  },
+  {
+   "t": 105839.2,
+   "text": "isant q isant qu'elles seront basées sur la",
+   "offsetMs": 103584,
+   "stable": 1
+  },
+  {
+   "t": 105839.3,
+   "text": "isant q u'elles seront basées sur la production",
+   "offsetMs": 103884,
+   "stable": 1
+  },
+  {
+   "t": 106439.3,
+   "text": "isant qu'elles seront b u'elles seront basées sur la production",
+   "offsetMs": 103884,
+   "stable": 3
+  },
+  {
+   "t": 106439.4,
+   "text": "isant qu'elles seront b asées sur la production économique",
+   "offsetMs": 104464,
+   "stable": 3
+  },
+  {
+   "t": 107066.0,
+   "text": "isant qu'elles seront basées s asées sur la production économique",
+   "offsetMs": 104464,
+   "stable": 4
+  },
+  {
+   "t": 107066.1,
+   "text": "isant qu'elles seront basées s ur la production économique chinoise",
+   "offsetMs": 105024,
+   "stable": 4
+  },
+  {
+   "t": 109145.2,
+   "text": "nps",
+   "offsetMs": 107136,
+   "stable": 0
+  },
+  {
+   "t": 111146.4,
+   "text": "il n'existe pas de nps",
+   "offsetMs": 107136,
+   "stable": 3
+  },
+  {
+   "t": 111146.5,
+   "text": "il n'existe pas de définition universelle",
+   "offsetMs": 109156,
+   "stable": 3
+  },
+  {
+   "t": 113147.3,
+   "text": "il n'existe pas de é définition universelle",
+   "offsetMs": 109156,
+   "stable": 4
+  },
+  {
+   "t": 113147.4,
+   "text": "il n'existe pas de é tt dé",
+   "offsetMs": 111176,
+   "stable": 4
+  },
+  {
+   "t": 115174.0,
+   "text": "il n'existe pas de éettant de déterminer si un objet man tt dé",
+   "offsetMs": 111176,
+   "stable": 10
+  },
+  {
+   "t": 115174.2,
+   "text": "il n'existe pas de éettant de déterminer si un objet man ufacturé est une antiquité",
+   "offsetMs": 113196,
+   "stable": 10
+  },
+  {
+   "t": 117241.0,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité ufacturé est une antiquité",
+   "offsetMs": 113196,
+   "stable": 13
+  },
+  {
+   "t": 117241.0,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes",
+   "offsetMs": 115216,
+   "stable": 13
+  },
+  {
+   "t": 118355.5,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certain certains organismes",
+   "offsetMs": 115216,
+   "stable": 14
+  },
+  {
+   "t": 118355.5,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certain s organismes fiscaux",
+   "offsetMs": 116356,
+   "stable": 14
+  },
+  {
+   "t": 118945.8,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organis s organismes fiscaux",
+   "offsetMs": 116356,
+   "stable": 15
+  },
+  {
+   "t": 118945.9,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organis mes fiscaux définissent es",
+   "offsetMs": 116936,
+   "stable": 15
+  },
+  {
+   "t": 119546.1,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes fisc mes fiscaux définissent es",
+   "offsetMs": 116936,
+   "stable": 16
+  },
+  {
+   "t": 119546.2,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes fisc aux définissent les biens de",
+   "offsetMs": 117516,
+   "stable": 16
+  },
+  {
+   "t": 120041.1,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes fiscaux d aux définissent les biens de",
+   "offsetMs": 117516,
+   "stable": 17
+  },
+  {
+   "t": 120041.1,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes fiscaux d éfinissent les biens de plus de",
+   "offsetMs": 118096,
+   "stable": 17
+  },
+  {
+   "t": 120640.7,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes fiscaux définissent éfinissent les biens de plus de",
+   "offsetMs": 118096,
+   "stable": 17
+  },
+  {
+   "t": 120640.8,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes fiscaux définissent les biens de plus de cent ans",
+   "offsetMs": 118656,
+   "stable": 17
+  },
+  {
+   "t": 121240.9,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes fiscaux définissent les biens les biens de plus de cent ans",
+   "offsetMs": 118656,
+   "stable": 19
+  },
+  {
+   "t": 121241.0,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes fiscaux définissent les biens de plus de cent ans comme des",
+   "offsetMs": 119236,
+   "stable": 19
+  },
+  {
+   "t": 121845.6,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes fiscaux définissent les biens de plus de c de plus de cent ans comme des",
+   "offsetMs": 119236,
+   "stable": 23
+  },
+  {
+   "t": 121845.6,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes fiscaux définissent les biens de plus de c ent ans comme des antiquités",
+   "offsetMs": 119816,
+   "stable": 23
+  },
+  {
+   "t": 124144.9,
+   "text": "vous n'avez pas",
+   "offsetMs": 122120,
+   "stable": 0
+  },
+  {
+   "t": 124747.6,
+   "text": "vous n'avez pas forcément besoin",
+   "offsetMs": 122700,
+   "stable": 0
+  },
+  {
+   "t": 125278.6,
+   "text": "vous n'avez pas forcément besoin d'unyact",
+   "offsetMs": 123280,
+   "stable": 0
+  },
+  {
+   "t": 125878.8,
+   "text": "vous n'avez pa vous n'avez pas forcément besoin d'unyact",
+   "offsetMs": 123280,
+   "stable": 2
+  },
+  {
+   "t": 125878.9,
+   "text": "vous n'avez pa s forcément besoin d'un yacht dans les",
+   "offsetMs": 123840,
+   "stable": 2
+  },
+  {
+   "t": 126478.5,
+   "text": "vous n'avez pas forcément bes s forcément besoin d'un yacht dans les",
+   "offsetMs": 123840,
+   "stable": 4
+  },
+  {
+   "t": 126478.6,
+   "text": "vous n'avez pas forcément bes oin d'un yacht dans les archipels",
+   "offsetMs": 124420,
+   "stable": 4
+  },
+  {
+   "t": 127082.9,
+   "text": "vous n'avez pas forcément besoin d'ayacht oin d'un yacht dans les archipels",
+   "offsetMs": 124420,
+   "stable": 5
+  },
+  {
+   "t": 127083.0,
+   "text": "vous n'avez pas forcément besoin d'ayacht e dans les archipels et sure",
+   "offsetMs": 125000,
+   "stable": 5
+  },
+  {
+   "t": 127610.6,
+   "text": "vous n'avez pas forcément besoin d'ayacht dans les ar e dans les archipels et sure",
+   "offsetMs": 125000,
+   "stable": 8
+  },
+  {
+   "t": 127610.6,
+   "text": "vous n'avez pas forcément besoin d'ayacht dans les ar chipels et sur les lacs",
+   "offsetMs": 125580,
+   "stable": 8
+  },
+  {
+   "t": 130682.2,
+   "text": "on dit donc quele",
+   "offsetMs": 128640,
+   "stable": 0
+  },
+  {
+   "t": 131281.4,
+   "text": "on dit donc que le rapport daspect de",
+   "offsetMs": 129220,
+   "stable": 0
+  },
+  {
+   "t": 131885.0,
+   "text": "o on dit donc que le rapport daspect de",
+   "offsetMs": 129220,
+   "stable": 0
+  },
+  {
+   "t": 131885.1,
+   "text": "o n dit donc que le rapport aspect de ce format",
+   "offsetMs": 129800,
+   "stable": 0
+  },
+  {
+   "t": 132382.8,
+   "text": "on dit donc que le n dit donc que le rapport aspect de ce format",
+   "offsetMs": 129800,
+   "stable": 4
+  },
+  {
+   "t": 132382.9,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par",
+   "offsetMs": 130380,
+   "stable": 4
+  },
+  {
+   "t": 132980.5,
+   "text": "on dit donc que le rapport d'aspect rapport d'aspect de ce format en divisant par",
+   "offsetMs": 130380,
+   "stable": 6
+  },
+  {
+   "t": 132980.6,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir",
+   "offsetMs": 130960,
+   "stable": 6
+  },
+  {
+   "t": 133579.1,
+   "text": "on dit donc que le rapport d'aspect de ce format de ce format en divisant par douze pour obtenir",
+   "offsetMs": 130960,
+   "stable": 9
+  },
+  {
+   "t": 133579.2,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus siml",
+   "offsetMs": 131520,
+   "stable": 9
+  },
+  {
+   "t": 134211.5,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant pa en divisant par douze pour obtenir le plus siml",
+   "offsetMs": 131520,
+   "stable": 12
+  },
+  {
+   "t": 134211.7,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant pa r douze pour obtenir le plus simple dérapport",
+   "offsetMs": 132100,
+   "stable": 12
+  },
+  {
+   "t": 134670.3,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obt r douze pour obtenir le plus simple dérapport",
+   "offsetMs": 132100,
+   "stable": 15
+  },
+  {
+   "t": 134670.4,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obt enir le plus simple dérapports de nombre",
+   "offsetMs": 132680,
+   "stable": 15
+  },
+  {
+   "t": 135270.6,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus s enir le plus simple dérapports de nombre",
+   "offsetMs": 132680,
+   "stable": 18
+  },
+  {
+   "t": 135270.8,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus s imple des rapports de nombre entier",
+   "offsetMs": 133260,
+   "stable": 18
+  },
+  {
+   "t": 135870.3,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapp imple des rapports de nombre entier",
+   "offsetMs": 133260,
+   "stable": 20
+  },
+  {
+   "t": 135870.3,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapp orts de nombre entier est de trois",
+   "offsetMs": 133840,
+   "stable": 20
+  },
+  {
+   "t": 136471.0,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapports de nombr orts de nombre entier est de trois",
+   "offsetMs": 133840,
+   "stable": 22
+  },
+  {
+   "t": 136471.1,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapports de nombr e entier est de trois sur deux",
+   "offsetMs": 134400,
+   "stable": 22
+  },
+  {
+   "t": 138041.5,
+   "text": "ça",
+   "offsetMs": 136608,
+   "stable": 0
+  },
+  {
+   "t": 138642.6,
+   "text": "sa réputation entant",
+   "offsetMs": 136608,
+   "stable": 0
+  },
+  {
+   "t": 139181.8,
+   "text": "sa réputation en tant qu'épicentre",
+   "offsetMs": 137188,
+   "stable": 0
+  },
+  {
+   "t": 139746.5,
+   "text": "sa ré sa réputation en tant qu'épicentre",
+   "offsetMs": 137188,
+   "stable": 1
+  },
+  {
+   "t": 139746.5,
+   "text": "sa ré putation en tant qu'épicentre du luxe",
+   "offsetMs": 137768,
+   "stable": 1
+  },
+  {
+   "t": 140346.6,
+   "text": "sa réputation en tan putation en tant qu'épicentre du luxe",
+   "offsetMs": 137768,
+   "stable": 3
+  },
+  {
+   "t": 140346.7,
+   "text": "sa réputation en tan t qu'épicentre du luxe a débuté",
+   "offsetMs": 138348,
+   "stable": 3
+  },
+  {
+   "t": 140946.4,
+   "text": "sa réputation en tant qu'épicentr t qu'épicentre du luxe a débuté",
+   "offsetMs": 138348,
+   "stable": 4
+  },
+  {
+   "t": 140946.5,
+   "text": "sa réputation en tant qu'épicentr e du luxe a débuté aux environs de",
+   "offsetMs": 138928,
+   "stable": 4
+  },
+  {
+   "t": 141547.8,
+   "text": "sa réputation en tant qu'épicentre du luxe e du luxe a débuté aux environs de",
+   "offsetMs": 138928,
+   "stable": 6
+  },
+  {
+   "t": 141547.9,
+   "text": "sa réputation en tant qu'épicentre du luxe a débuté aux environs de lan",
+   "offsetMs": 139488,
+   "stable": 6
+  },
+  {
+   "t": 142041.4,
+   "text": "sa réputation en tant qu'épicentre du luxe a débu a débuté aux environs de lan",
+   "offsetMs": 139488,
+   "stable": 8
+  },
+  {
+   "t": 142041.5,
+   "text": "sa réputation en tant qu'épicentre du luxe a débu té aux environs de l'antcen et a",
+   "offsetMs": 140068,
+   "stable": 8
+  },
+  {
+   "t": 142642.2,
+   "text": "sa réputation en tant qu'épicentre du luxe a débuté aux environ té aux environs de l'antcen et a",
+   "offsetMs": 140068,
+   "stable": 10
+  },
+  {
+   "t": 142642.2,
+   "text": "sa réputation en tant qu'épicentre du luxe a débuté aux environ s de l'anet a duré jusqu'à",
+   "offsetMs": 140648,
+   "stable": 10
+  },
+  {
+   "t": 143242.1,
+   "text": "sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'an quatre c s de l'anet a duré jusqu'à",
+   "offsetMs": 140648,
+   "stable": 14
+  },
+  {
+   "t": 143242.2,
+   "text": "sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'an quatre c ent et a duré jusqu'à mille cents environ",
+   "offsetMs": 141228,
+   "stable": 14
+  },
+  {
+   "t": 146046.1,
+   "text": "les politiques",
+   "offsetMs": 144016,
+   "stable": 0
+  },
+  {
+   "t": 146545.9,
+   "text": "les politiques d'annulation",
+   "offsetMs": 144576,
+   "stable": 0
+  },
+  {
+   "t": 147146.1,
+   "text": "les politiques d'annulation varienais",
+   "offsetMs": 145156,
+   "stable": 0
+  },
+  {
+   "t": 147744.2,
+   "text": "les poli les politiques d'annulation varienais",
+   "offsetMs": 145156,
+   "stable": 1
+  },
+  {
+   "t": 147744.2,
+   "text": "les poli tiques d'annulation varient mais à partir de",
+   "offsetMs": 145736,
+   "stable": 1
+  },
+  {
+   "t": 148344.4,
+   "text": "les politiques d'annula tiques d'annulation varient mais à partir de",
+   "offsetMs": 145736,
+   "stable": 2
+  },
+  {
+   "t": 148344.4,
+   "text": "les politiques d'annula tion varient mais à partir de fin mars",
+   "offsetMs": 146316,
+   "stable": 2
+  },
+  {
+   "t": 148844.0,
+   "text": "les politiques d'annulation varient tion varient mais à partir de fin mars",
+   "offsetMs": 146316,
+   "stable": 3
+  },
+  {
+   "t": 148844.0,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des",
+   "offsetMs": 146896,
+   "stable": 3
+  },
+  {
+   "t": 149444.3,
+   "text": "les politiques d'annulation varient mais à partir mais à partir de fin mars la plupart des",
+   "offsetMs": 146896,
+   "stable": 6
+  },
+  {
+   "t": 149444.4,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques",
+   "offsetMs": 147456,
+   "stable": 6
+  },
+  {
+   "t": 150043.8,
+   "text": "les politiques d'annulation varient mais à partir de fin mars de fin mars la plupart des politiques",
+   "offsetMs": 147456,
+   "stable": 9
+  },
+  {
+   "t": 150043.8,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées",
+   "offsetMs": 148036,
+   "stable": 9
+  },
+  {
+   "t": 150644.1,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des la plupart des politiques d'annulation basées",
+   "offsetMs": 148036,
+   "stable": 12
+  },
+  {
+   "t": 150644.2,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur lecona",
+   "offsetMs": 148616,
+   "stable": 12
+  },
+  {
+   "t": 151145.2,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'an politiques d'annulation basées sur lecona",
+   "offsetMs": 148616,
+   "stable": 14
+  },
+  {
+   "t": 151145.3,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'an nulation basées sur le coronavirus",
+   "offsetMs": 149196,
+   "stable": 14
+  },
+  {
+   "t": 151739.4,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basé nulation basées sur le coronavirus",
+   "offsetMs": 149196,
+   "stable": 15
+  },
+  {
+   "t": 151739.4,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basé es sur le coronavirus ne s'n",
+   "offsetMs": 149776,
+   "stable": 15
+  },
+  {
+   "t": 152339.3,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le cor es sur le coronavirus ne s'n",
+   "offsetMs": 149776,
+   "stable": 18
+  },
+  {
+   "t": 152339.4,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le cor onavirus ne s'étendent pas jusqu'en",
+   "offsetMs": 150336,
+   "stable": 18
+  },
+  {
+   "t": 152939.8,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus onavirus ne s'étendent pas jusqu'en",
+   "offsetMs": 150336,
+   "stable": 18
+  },
+  {
+   "t": 152939.9,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet",
+   "offsetMs": 150916,
+   "stable": 18
+  },
+  {
+   "t": 153547.4,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'é ne s'étendent pas jusqu'en juillet",
+   "offsetMs": 150916,
+   "stable": 20
+  },
+  {
+   "t": 153547.4,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'é tendent pas jusqu'en juillet",
+   "offsetMs": 151496,
+   "stable": 20
+  },
+  {
+   "t": 154048.1,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jus tendent pas jusqu'en juillet",
+   "offsetMs": 151496,
+   "stable": 22
+  },
+  {
+   "t": 154048.1,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jus qu'en juillet deux mille vngt date à laquell",
+   "offsetMs": 152076,
+   "stable": 22
+  },
+  {
+   "t": 154640.4,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mi qu'en juillet deux mille vngt date à laquell",
+   "offsetMs": 152076,
+   "stable": 25
+  },
+  {
+   "t": 154640.5,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mi lle vingt date à laquelle les jeux olympiques",
+   "offsetMs": 152656,
+   "stable": 25
+  },
+  {
+   "t": 155239.1,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille ng lle vingt date à laquelle les jeux olympiques",
+   "offsetMs": 152656,
+   "stable": 26
+  },
+  {
+   "t": 155239.2,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille ng date à laquelle les jeux olympiques",
+   "offsetMs": 153216,
+   "stable": 26
+  },
+  {
+   "t": 155839.3,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille ng date à la date à laquelle les jeux olympiques",
+   "offsetMs": 153216,
+   "stable": 29
+  },
+  {
+   "t": 155839.3,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille ng date à la quelle les jeux olympiques avaient",
+   "offsetMs": 153796,
+   "stable": 29
+  },
+  {
+   "t": 156366.0,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille ng date à laquelle les jeux o quelle les jeux olympiques avaient",
+   "offsetMs": 153796,
+   "stable": 32
+  },
+  {
+   "t": 156366.1,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille ng date à laquelle les jeux o lympiques avaient été prévus",
+   "offsetMs": 154376,
+   "stable": 32
+  },
+  {
+   "t": 159343.6,
+   "text": "mélange",
+   "offsetMs": 157348,
+   "stable": 0
+  },
+  {
+   "t": 159943.9,
+   "text": "mélanger les deuxpoudre",
+   "offsetMs": 157928,
+   "stable": 0
+  },
+  {
+   "t": 160545.9,
+   "text": "mélanger les deux poudre sèche",
+   "offsetMs": 158508,
+   "stable": 0
+  },
+  {
+   "t": 161043.8,
+   "text": "mélan mélanger les deux poudre sèche",
+   "offsetMs": 158508,
+   "stable": 0
+  },
+  {
+   "t": 161043.9,
+   "text": "mélan ger les deux poudre sèche ensemble",
+   "offsetMs": 159088,
+   "stable": 0
+  },
+  {
+   "t": 161644.2,
+   "text": "mélanger les deux po ger les deux poudre sèche ensemble",
+   "offsetMs": 159088,
+   "stable": 3
+  },
+  {
+   "t": 161644.3,
+   "text": "mélanger les deux po udre sèche ensemble puis avec",
+   "offsetMs": 159648,
+   "stable": 3
+  },
+  {
+   "t": 162244.1,
+   "text": "mélanger les deux poudre sèches udre sèche ensemble puis avec",
+   "offsetMs": 159648,
+   "stable": 4
+  },
+  {
+   "t": 162244.2,
+   "text": "mélanger les deux poudre sèches ensemble puis avec les mains pr",
+   "offsetMs": 160228,
+   "stable": 4
+  },
+  {
+   "t": 162843.2,
+   "text": "mélanger les deux poudre sèches ensemble ensemble puis avec les mains pr",
+   "offsetMs": 160228,
+   "stable": 5
+  },
+  {
+   "t": 162843.2,
+   "text": "mélanger les deux poudre sèches ensemble puis avec les mains propres et",
+   "offsetMs": 160808,
+   "stable": 5
+  },
+  {
+   "t": 163404.2,
+   "text": "mélanger les deux poudre sèches ensemble puis ave puis avec les mains propres et",
+   "offsetMs": 160808,
+   "stable": 7
+  },
+  {
+   "t": 163404.3,
+   "text": "mélanger les deux poudre sèches ensemble puis ave c les mains propres et humides",
+   "offsetMs": 161388,
+   "stable": 7
+  },
+  {
+   "t": 163939.6,
+   "text": "mélanger les deux poudre sèches ensemble puis avec les mains pr c les mains propres et humides",
+   "offsetMs": 161388,
+   "stable": 10
+  },
+  {
+   "t": 163939.6,
+   "text": "mélanger les deux poudre sèches ensemble puis avec les mains pr opres et humides précédés en une boule",
+   "offsetMs": 161968,
+   "stable": 10
+  },
+  {
+   "t": 168279.9,
+   "text": "es rois",
+   "offsetMs": 165712,
+   "stable": 1
+  },
+  {
+   "t": 168280.0,
+   "text": "es rois r àtersbourg",
+   "offsetMs": 166272,
+   "stable": 1
+  },
+  {
+   "t": 168880.0,
+   "text": "es roisrs à saint-péter r àtersbourg",
+   "offsetMs": 166272,
+   "stable": 3
+  },
+  {
+   "t": 168880.1,
+   "text": "es roisrs à saint-péter sbourg un clus du temps passédant l",
+   "offsetMs": 166852,
+   "stable": 3
+  },
+  {
+   "t": 170436.7,
+   "text": "des passagers",
+   "offsetMs": 169344,
+   "stable": 0
+  },
+  {
+   "t": 171037.4,
+   "text": "les passagers des croisières",
+   "offsetMs": 169344,
+   "stable": 0
+  },
+  {
+   "t": 171638.3,
+   "text": "les les passagers des croisières",
+   "offsetMs": 169344,
+   "stable": 0
+  },
+  {
+   "t": 171638.4,
+   "text": "les passagers des croisières sont exemptés",
+   "offsetMs": 169644,
+   "stable": 0
+  },
+  {
+   "t": 172249.6,
+   "text": "les passagers passagers des croisières sont exemptés",
+   "offsetMs": 169644,
+   "stable": 1
+  },
+  {
+   "t": 172249.7,
+   "text": "les passagers des croisières sont exemptés de l'obligation",
+   "offsetMs": 170224,
+   "stable": 1
+  },
+  {
+   "t": 172747.3,
+   "text": "les passagers des croisière des croisières sont exemptés de l'obligation",
+   "offsetMs": 170224,
+   "stable": 3
+  },
+  {
+   "t": 172747.4,
+   "text": "les passagers des croisière s sont exemptés de l'obligation de visa",
+   "offsetMs": 170784,
+   "stable": 3
+  },
+  {
+   "t": 173345.8,
+   "text": "les passagers des croisières sont exempt s sont exemptés de l'obligation de visa",
+   "offsetMs": 170784,
+   "stable": 5
+  },
+  {
+   "t": 173345.9,
+   "text": "les passagers des croisières sont exempt és de l'obligation de visa voir",
+   "offsetMs": 171364,
+   "stable": 5
+  },
+  {
+   "t": 173945.9,
+   "text": "les passagers des croisières sont exemptés de l'obligat és de l'obligation de visa voir",
+   "offsetMs": 171364,
+   "stable": 7
+  },
+  {
+   "t": 173945.9,
+   "text": "les passagers des croisières sont exemptés de l'obligat ion de visa voire les conditions",
+   "offsetMs": 171944,
+   "stable": 7
+  }
+ ],
+ "finals": [
+  {
+   "t": 5511.0,
+   "text": "les lions sont leéchelles les plus sociables vivant en grand groupe appelé met",
+   "offsetMs": 652,
+   "durationMs": 4590
+  },
+  {
+   "t": 10408.5,
+   "text": "dans le climat chaud du moyen orient la maison n'était pas si importante",
+   "offsetMs": 6124,
+   "durationMs": 4110
+  },
+  {
+   "t": 15718.2,
+   "text": "presque toutes les pirages sont sablonneuses et permettent de se baigner en toute sécurité",
+   "offsetMs": 11308,
+   "durationMs": 4302
+  },
+  {
+   "t": 19377.5,
+   "text": "quila plupart sont ombragés par des polus duc",
+   "offsetMs": 15648,
+   "durationMs": 3418
+  },
+  {
+   "t": 26902.3,
+   "text": "les meudes sont composés d'un à trois mal adulte apparentés ainsi que d'une trentaine de femelles et de longcau",
+   "offsetMs": 20332,
+   "durationMs": 6510
+  },
+  {
+   "t": 31846.6,
+   "text": "les enfants sauvages peuvent avoir suivi de graves abus",
+   "offsetMs": 27724,
+   "durationMs": 4014
+  },
+  {
+   "t": 34744.9,
+   "text": "ou traumatismes avant d'être abandonnés ou de s'enfuir",
+   "offsetMs": 31776,
+   "durationMs": 2938
+  },
+  {
+   "t": 40407.9,
+   "text": "le bus de scotthurb se rend régulièrementà",
+   "offsetMs": 35596,
+   "durationMs": 4686
+  },
+  {
+   "t": 42863.6,
+   "text": "avec un arrêt à cabo aro",
+   "offsetMs": 40320,
+   "durationMs": 2458
+  },
+  {
+   "t": 51741.1,
+   "text": "pour admirer les plus beaux panoramas de hong kong quittez l'île et rejoignez le front de mer de kolwoun situé en face",
+   "offsetMs": 43852,
+   "durationMs": 7710
+  },
+  {
+   "t": 55684.7,
+   "text": "les opinions d'aristote sur toutes les questions",
+   "offsetMs": 52300,
+   "durationMs": 3342
+  },
+  {
+   "t": 59876.4,
+   "text": "scientifiques y compris la psychologie ont été acceptées",
+   "offsetMs": 55680,
+   "durationMs": 3994
+  },
+  {
+   "t": 67095.5,
+   "text": "l'australien michel gourlay est arrivé zième au superg debuthmm",
+   "offsetMs": 60748,
+   "durationMs": 6222
+  },
+  {
+   "t": 72540.9,
+   "text": "le chèk oldrich jelineck s'est classé seizième au super g asi ho",
+   "offsetMs": 67008,
+   "durationMs": 5530
+  },
+  {
+   "t": 88144.1,
+   "text": "la ville contraste fortement avec les cités du reste du pays car elle possède un style davantage arabe qu'africain aussi après la révolution les métiers frent ouverts à tous les candidats masculins",
+   "offsetMs": 83020,
+   "durationMs": 5070
+  },
+  {
+   "t": 91745.8,
+   "text": "permettant aux plus ambitieux et aux plus talentueux de réussir",
+   "offsetMs": 88128,
+   "durationMs": 3610
+  },
+  {
+   "t": 100607.9,
+   "text": "la bombe à fision fonctionne selon le principe suivant elle transforme l'énergie en assemblant un noyau d'une myriade de protons et neuretron",
+   "offsetMs": 92140,
+   "durationMs": 8178
+  },
+  {
+   "t": 103587.7,
+   "text": "il n'a pas chiffré ces réductions",
+   "offsetMs": 101164,
+   "durationMs": 2382
+  },
+  {
+   "t": 107138.5,
+   "text": "isant qu'elles seront basées sur la production économique chinoise",
+   "offsetMs": 103584,
+   "durationMs": 3514
+  },
+  {
+   "t": 122007.4,
+   "text": "il n'existe pas de éettant de déterminer si un objet manfacturé est une antiquité certains organismes fiscaux définissent les biens de plus de cent ans comme des antiquités",
+   "offsetMs": 117772,
+   "durationMs": 4110
+  },
+  {
+   "t": 127658.6,
+   "text": "vous n'avez pas forcément besoin d'ayacht dans les archipells et sur les lacs",
+   "offsetMs": 122956,
+   "durationMs": 4590
+  },
+  {
+   "t": 136640.5,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapports de nombre entier est de trois sur deux",
+   "offsetMs": 128908,
+   "durationMs": 7506
+  },
+  {
+   "t": 143648.8,
+   "text": "sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'an quatre cents et a duré jusqu'à mille cents environ",
+   "offsetMs": 136876,
+   "durationMs": 6514
+  },
+  {
+   "t": 156745.8,
+   "text": "les politiques d'annulation varient mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet deux mille ng date à laquelle les jeux olympiques avaient été prévus",
+   "offsetMs": 153314,
+   "durationMs": 3416
+  },
+  {
+   "t": 164351.6,
+   "text": "mélanger les deux poudre sèches ensemble puis avec les mains propres et humides précédes en une boule",
+   "offsetMs": 158284,
+   "durationMs": 6030
+  },
+  {
+   "t": 169344.8,
+   "text": "es roisrs à saint-pétersbourg un clus du temps passé dans la ville",
+   "offsetMs": 165388,
+   "durationMs": 3918
+  },
+  {
+   "t": 174102.6,
+   "text": "les passagers des croisières sont exemptés de l'obligation de visa voir les conditions",
+   "offsetMs": 169344,
+   "durationMs": 4666
+  }
+ ],
+ "pieces": [
+  {
+   "t": 5355.4,
+   "text": "les lions sont léchelle les plus sociables vivant un grand groupe appelé met",
+   "offsetMs": 652,
+   "durationMs": 4590
+  },
+  {
+   "t": 10398.8,
+   "text": "dans le climat chaud du moyen orient la maison n'était pas si importante",
+   "offsetMs": 6124,
+   "durationMs": 4110
+  },
+  {
+   "t": 15734.0,
+   "text": "presque toutes les piages sont sablonneuses et permettent de se baigner en toute sécurité",
+   "offsetMs": 11308,
+   "durationMs": 4302
+  },
+  {
+   "t": 19325.0,
+   "text": "la plupart sont ombragés par des prus du cracawa",
+   "offsetMs": 15648,
+   "durationMs": 3418
+  },
+  {
+   "t": 26896.3,
+   "text": "les meudes sont composées d'un à trois male adulte apparentés ainsi que d'une trentaine de femelles et de liongceaux",
+   "offsetMs": 20332,
+   "durationMs": 6510
+  },
+  {
+   "t": 31828.0,
+   "text": "les enfants sauvages peuvent avoir suivi de graves abus",
+   "offsetMs": 27724,
+   "durationMs": 4014
+  },
+  {
+   "t": 34774.3,
+   "text": "au traumatisme avant d'être abandonné ou de s'enfuir",
+   "offsetMs": 31776,
+   "durationMs": 2938
+  },
+  {
+   "t": 40396.0,
+   "text": "le bus cde scotturb se rend régulièrement à cintra",
+   "offsetMs": 35596,
+   "durationMs": 4686
+  },
+  {
+   "t": 42873.8,
+   "text": "avec un arrêt à cabot d'aroca",
+   "offsetMs": 40320,
+   "durationMs": 2458
+  },
+  {
+   "t": 51775.9,
+   "text": "pour admirer les plus beaux panoramas de hong kong quittez l'île et rejoignet le front de mer de colwoun situé en face",
+   "offsetMs": 43852,
+   "durationMs": 7710
+  },
+  {
+   "t": 59858.7,
+   "text": "scientifiques y compris la psychologie ont été acceptés",
+   "offsetMs": 55680,
+   "durationMs": 3994
+  },
+  {
+   "t": 67104.3,
+   "text": "l'australien michel gourlay est arrivé onzième au super g debout humm",
+   "offsetMs": 60748,
+   "durationMs": 6222
+  },
+  {
+   "t": 72569.4,
+   "text": "le tchek oldrich jellinek s'est classé seizième au superghasi homme",
+   "offsetMs": 67008,
+   "durationMs": 5530
+  },
+  {
+   "t": 88174.0,
+   "text": "aussi après la révolution les métiers furent ouverts à tous les candidats masculins",
+   "offsetMs": 83020,
+   "durationMs": 5070
+  },
+  {
+   "t": 91775.3,
+   "text": "permettant au plus ambitieux et au plus talentueux de réussir",
+   "offsetMs": 88128,
+   "durationMs": 3610
+  },
+  {
+   "t": 100623.5,
+   "text": "la bombe à ficion fonctionne selon le principe suivant elle transforme l'énergie en assemblant un noyau d'une myriade de proton et neuretron",
+   "offsetMs": 92140,
+   "durationMs": 8178
+  },
+  {
+   "t": 103598.2,
+   "text": "il n'a pas chiffré ses réductions",
+   "offsetMs": 101164,
+   "durationMs": 2382
+  },
+  {
+   "t": 107166.2,
+   "text": "dsant qu'elles seront basées sur la production économique chinoise",
+   "offsetMs": 103584,
+   "durationMs": 3514
+  },
+  {
+   "t": 121995.4,
+   "text": "définissent les biens de plus de cent ans comme des antiquités",
+   "offsetMs": 117772,
+   "durationMs": 4110
+  },
+  {
+   "t": 127611.0,
+   "text": "vous n'avez pas forcément besoin d'un yacht dans les archipels et sur les lacs",
+   "offsetMs": 122956,
+   "durationMs": 4590
+  },
+  {
+   "t": 136669.6,
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapports de nombre entier est de trois sur deux",
+   "offsetMs": 128908,
+   "durationMs": 7506
+  },
+  {
+   "t": 143679.8,
+   "text": "sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'anquête cent et a duré jusqu'à mille cent environ",
+   "offsetMs": 136876,
+   "durationMs": 6514
+  },
+  {
+   "t": 154856.2,
+   "text": "les politiques d'annulation varies mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet",
+   "offsetMs": 144844,
+   "durationMs": 8470
+  },
+  {
+   "t": 156771.0,
+   "text": "date à laquelle les jeux olympiques avaient été prévues",
+   "offsetMs": 153314,
+   "durationMs": 3416
+  },
+  {
+   "t": 164368.0,
+   "text": "mélangez les deux poudres sèches ensemble puis avec les mains propres et humides pressez les en une boule",
+   "offsetMs": 158284,
+   "durationMs": 6030
+  },
+  {
+   "t": 169374.2,
+   "text": "les croisires à saint-pétersbourg un clus du temps passé dans le ville",
+   "offsetMs": 165388,
+   "durationMs": 3918
+  },
+  {
+   "t": 174112.6,
+   "text": "les passagers des croisières sont exemptés de l'obligation de visa voir les conditions",
+   "offsetMs": 169344,
+   "durationMs": 4666
+  }
+ ],
+ "raw": [
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ki",
+   "lang": "fr",
+   "start_ms": 0,
+   "end_ms": 1248,
+   "t": 1263.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les lions sont",
+   "lang": "fr",
+   "start_ms": 0,
+   "end_ms": 1824,
+   "t": 1873.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les lions sont les chales les plus",
+   "lang": "fr",
+   "start_ms": 400,
+   "end_ms": 2400,
+   "t": 2374.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les lions sont leséchelles les plus sociables",
+   "lang": "fr",
+   "start_ms": 960,
+   "end_ms": 2976,
+   "t": 2993.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "les lions ",
+   "lang": "fr",
+   "start_ms": 960,
+   "end_ms": 1540,
+   "end": false,
+   "t": 3583.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "sont leéchelles les plus sociables vivant",
+   "lang": "fr",
+   "start_ms": 1540,
+   "end_ms": 3552,
+   "t": 3583.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "sont leéchelles le",
+   "lang": "fr",
+   "start_ms": 1540,
+   "end_ms": 2120,
+   "end": false,
+   "t": 4202.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s plus sociables vivant en grand groupe",
+   "lang": "fr",
+   "start_ms": 2120,
+   "end_ms": 4128,
+   "t": 4202.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s plus sociab",
+   "lang": "fr",
+   "start_ms": 2120,
+   "end_ms": 2700,
+   "end": false,
+   "t": 4802.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les vivant en grand groupe appelé",
+   "lang": "fr",
+   "start_ms": 2700,
+   "end_ms": 4704,
+   "t": 4803.0
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 652,
+   "end_ms": 5242,
+   "t": 5202.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "les vivan",
+   "lang": "fr",
+   "start_ms": 2700,
+   "end_ms": 3280,
+   "end": false,
+   "t": 5337.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "t en grand groupe appelé met",
+   "lang": "fr",
+   "start_ms": 3280,
+   "end_ms": 5280,
+   "t": 5337.3
+  },
+  {
+   "type": "inputTranscript",
+   "text": "les lions sont léchelle les plus sociables vivant un grand groupe appelé met",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 652,
+   "end_ms": 5242,
+   "t": 5355.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "t en grand groupe appelé met",
+   "lang": "fr",
+   "start_ms": 3280,
+   "end_ms": 5376,
+   "end": true,
+   "t": 5511.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 5376,
+   "end_ms": 5376,
+   "t": 5511.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "dans le",
+   "lang": "fr",
+   "start_ms": 5376,
+   "end_ms": 7296,
+   "t": 7273.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "dans le climat chaud du",
+   "lang": "fr",
+   "start_ms": 5856,
+   "end_ms": 7872,
+   "t": 7882.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "dans le climat chaud du moyen orient",
+   "lang": "fr",
+   "start_ms": 6436,
+   "end_ms": 8448,
+   "t": 8479.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "dans le cli",
+   "lang": "fr",
+   "start_ms": 6436,
+   "end_ms": 7016,
+   "end": false,
+   "t": 9078.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "mat chaud du moyen orient la maison",
+   "lang": "fr",
+   "start_ms": 7016,
+   "end_ms": 9024,
+   "t": 9078.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "mat chaud du mo",
+   "lang": "fr",
+   "start_ms": 7016,
+   "end_ms": 7596,
+   "end": false,
+   "t": 9587.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "yen orient la maison n'était pas si importat",
+   "lang": "fr",
+   "start_ms": 7596,
+   "end_ms": 9600,
+   "t": 9587.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "yen orient ",
+   "lang": "fr",
+   "start_ms": 7596,
+   "end_ms": 8176,
+   "end": false,
+   "t": 10185.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "la maison n'était pas si importante",
+   "lang": "fr",
+   "start_ms": 8176,
+   "end_ms": 10176,
+   "t": 10185.1
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 6124,
+   "end_ms": 10234,
+   "t": 10203.2
+  },
+  {
+   "type": "inputTranscript",
+   "text": "dans le climat chaud du moyen orient la maison n'était pas si importante",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 6124,
+   "end_ms": 10234,
+   "t": 10398.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "la maison n'était pas si importante",
+   "lang": "fr",
+   "start_ms": 8176,
+   "end_ms": 10272,
+   "end": true,
+   "t": 10408.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 10272,
+   "end_ms": 10272,
+   "t": 10408.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "e presque toutes",
+   "lang": "fr",
+   "start_ms": 10472,
+   "end_ms": 12480,
+   "t": 12481.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "presque toutes les pirages",
+   "lang": "fr",
+   "start_ms": 11052,
+   "end_ms": 13056,
+   "t": 13083.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "presque toutes les plages sont sablonneuses",
+   "lang": "fr",
+   "start_ms": 11632,
+   "end_ms": 13632,
+   "t": 13679.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "presque ",
+   "lang": "fr",
+   "start_ms": 11632,
+   "end_ms": 12192,
+   "end": false,
+   "t": 14350.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "toutes les plages sont sablonneuses et permettent de",
+   "lang": "fr",
+   "start_ms": 12192,
+   "end_ms": 14208,
+   "t": 14351.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "toutes les pirage",
+   "lang": "fr",
+   "start_ms": 12192,
+   "end_ms": 12772,
+   "end": false,
+   "t": 14792.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s sont sablonneuses et permettent de se baigner en toutes",
+   "lang": "fr",
+   "start_ms": 12772,
+   "end_ms": 14784,
+   "t": 14792.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s sont sablon",
+   "lang": "fr",
+   "start_ms": 12772,
+   "end_ms": 13352,
+   "end": false,
+   "t": 15421.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "neuses et permettent de se baigner en toute sécurité",
+   "lang": "fr",
+   "start_ms": 13352,
+   "end_ms": 15360,
+   "t": 15421.9
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 11308,
+   "end_ms": 15610,
+   "t": 15602.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "neuses et permettent de se baigner en toute sécurité",
+   "lang": "fr",
+   "start_ms": 13352,
+   "end_ms": 15648,
+   "end": true,
+   "t": 15718.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 15648,
+   "end_ms": 15648,
+   "t": 15718.2
+  },
+  {
+   "type": "inputTranscript",
+   "text": "presque toutes les piages sont sablonneuses et permettent de se baigner en toute sécurité",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 11308,
+   "end_ms": 15610,
+   "t": 15734.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "laplu",
+   "lang": "fr",
+   "start_ms": 15648,
+   "end_ms": 16224,
+   "t": 16276.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "qui la plupart sont",
+   "lang": "fr",
+   "start_ms": 15648,
+   "end_ms": 16800,
+   "t": 16861.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "quila plupart sont ombragées par",
+   "lang": "fr",
+   "start_ms": 15648,
+   "end_ms": 17376,
+   "t": 17512.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "quila p",
+   "lang": "fr",
+   "start_ms": 15648,
+   "end_ms": 15948,
+   "end": false,
+   "t": 17982.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "lupart sont ombragés par des",
+   "lang": "fr",
+   "start_ms": 15948,
+   "end_ms": 17952,
+   "t": 17982.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "lupart sont ",
+   "lang": "fr",
+   "start_ms": 15948,
+   "end_ms": 16528,
+   "end": false,
+   "t": 18579.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ombragés par des polus",
+   "lang": "fr",
+   "start_ms": 16528,
+   "end_ms": 18528,
+   "t": 18579.9
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 15648,
+   "end_ms": 19066,
+   "t": 19104.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ombragés ",
+   "lang": "fr",
+   "start_ms": 16528,
+   "end_ms": 17088,
+   "end": false,
+   "t": 19295.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "par des pous du",
+   "lang": "fr",
+   "start_ms": 17088,
+   "end_ms": 19104,
+   "t": 19295.0
+  },
+  {
+   "type": "inputTranscript",
+   "text": "la plupart sont ombragés par des prus du cracawa",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 15648,
+   "end_ms": 19066,
+   "t": 19325.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "par des polus duc",
+   "lang": "fr",
+   "start_ms": 17088,
+   "end_ms": 19296,
+   "end": true,
+   "t": 19377.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 19296,
+   "end_ms": 19296,
+   "t": 19377.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les mdes",
+   "lang": "fr",
+   "start_ms": 19496,
+   "end_ms": 21504,
+   "t": 21539.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les meudes sont composées",
+   "lang": "fr",
+   "start_ms": 20076,
+   "end_ms": 22080,
+   "t": 22044.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les meudes sont composés d'unà",
+   "lang": "fr",
+   "start_ms": 20656,
+   "end_ms": 22656,
+   "t": 22644.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "les meudes",
+   "lang": "fr",
+   "start_ms": 20656,
+   "end_ms": 21216,
+   "end": false,
+   "t": 23244.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "sont composées d'un à trois mal adlte",
+   "lang": "fr",
+   "start_ms": 21216,
+   "end_ms": 23232,
+   "t": 23244.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " sont compos",
+   "lang": "fr",
+   "start_ms": 21216,
+   "end_ms": 21796,
+   "end": false,
+   "t": 23892.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "és d'un à trois mal adulte",
+   "lang": "fr",
+   "start_ms": 21796,
+   "end_ms": 23808,
+   "t": 23893.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "és d'un à tr",
+   "lang": "fr",
+   "start_ms": 21796,
+   "end_ms": 22376,
+   "end": false,
+   "t": 24345.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ois mal adulte apparentés ainsi",
+   "lang": "fr",
+   "start_ms": 22376,
+   "end_ms": 24384,
+   "t": 24346.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ois mal adu",
+   "lang": "fr",
+   "start_ms": 22376,
+   "end_ms": 22956,
+   "end": false,
+   "t": 24940.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "lte apparentés ainsi que d'une",
+   "lang": "fr",
+   "start_ms": 22956,
+   "end_ms": 24960,
+   "t": 24940.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "lte a",
+   "lang": "fr",
+   "start_ms": 22956,
+   "end_ms": 23536,
+   "end": false,
+   "t": 25539.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "pparentés ainsi que d'une trentaine de",
+   "lang": "fr",
+   "start_ms": 23536,
+   "end_ms": 25536,
+   "t": 25540.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "pparentés a",
+   "lang": "fr",
+   "start_ms": 23536,
+   "end_ms": 24096,
+   "end": false,
+   "t": 26139.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "insi que d'une trentaine de femelles et de",
+   "lang": "fr",
+   "start_ms": 24096,
+   "end_ms": 26112,
+   "t": 26139.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "insi que d",
+   "lang": "fr",
+   "start_ms": 24096,
+   "end_ms": 24676,
+   "end": false,
+   "t": 26639.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "'une trentaine de femelles et de longceau",
+   "lang": "fr",
+   "start_ms": 24676,
+   "end_ms": 26688,
+   "t": 26639.3
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 20332,
+   "end_ms": 26842,
+   "t": 26802.8
+  },
+  {
+   "type": "inputTranscript",
+   "text": "les meudes sont composées d'un à trois male adulte apparentés ainsi que d'une trentaine de femelles et de liongceaux",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 20332,
+   "end_ms": 26842,
+   "t": 26896.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "'une trentaine de femelles et de longcau",
+   "lang": "fr",
+   "start_ms": 24676,
+   "end_ms": 26880,
+   "end": true,
+   "t": 26902.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 26880,
+   "end_ms": 26880,
+   "t": 26902.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les enfants",
+   "lang": "fr",
+   "start_ms": 26880,
+   "end_ms": 28896,
+   "t": 28881.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les enfants sauvages peuvent",
+   "lang": "fr",
+   "start_ms": 27460,
+   "end_ms": 29472,
+   "t": 29481.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les enfants sauvages peuvent avoir suvi",
+   "lang": "fr",
+   "start_ms": 28040,
+   "end_ms": 30048,
+   "t": 30080.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "les enfant",
+   "lang": "fr",
+   "start_ms": 28040,
+   "end_ms": 28620,
+   "end": false,
+   "t": 30680.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s sauvages peuvent avoir suivi de",
+   "lang": "fr",
+   "start_ms": 28620,
+   "end_ms": 30624,
+   "t": 30680.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s sauvages ",
+   "lang": "fr",
+   "start_ms": 28620,
+   "end_ms": 29200,
+   "end": false,
+   "t": 31181.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "peuvent avoir suivi de graves",
+   "lang": "fr",
+   "start_ms": 29200,
+   "end_ms": 31200,
+   "t": 31181.8
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 27724,
+   "end_ms": 31738,
+   "t": 31703.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "peuvent avoir ",
+   "lang": "fr",
+   "start_ms": 29200,
+   "end_ms": 29760,
+   "end": false,
+   "t": 31798.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "suivi de graves abs",
+   "lang": "fr",
+   "start_ms": 29760,
+   "end_ms": 31776,
+   "t": 31798.3
+  },
+  {
+   "type": "inputTranscript",
+   "text": "les enfants sauvages peuvent avoir suivi de graves abus",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 27724,
+   "end_ms": 31738,
+   "t": 31828.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "suivi de graves abus",
+   "lang": "fr",
+   "start_ms": 29760,
+   "end_ms": 31776,
+   "end": true,
+   "t": 31846.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 31776,
+   "end_ms": 31776,
+   "t": 31846.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ouau",
+   "lang": "fr",
+   "start_ms": 31776,
+   "end_ms": 32352,
+   "t": 32367.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ou traumatismes vant",
+   "lang": "fr",
+   "start_ms": 31776,
+   "end_ms": 32928,
+   "t": 32968.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ou traumatismes avant d'être",
+   "lang": "fr",
+   "start_ms": 31776,
+   "end_ms": 33504,
+   "t": 33538.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ou trau",
+   "lang": "fr",
+   "start_ms": 31776,
+   "end_ms": 32076,
+   "end": false,
+   "t": 34107.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "matismes avant d'être abandonnés ou de",
+   "lang": "fr",
+   "start_ms": 32076,
+   "end_ms": 34080,
+   "t": 34107.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "matismes a",
+   "lang": "fr",
+   "start_ms": 32076,
+   "end_ms": 32656,
+   "end": false,
+   "t": 34645.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "vant d'être abandonnés ou de s'enfuir",
+   "lang": "fr",
+   "start_ms": 32656,
+   "end_ms": 34656,
+   "t": 34645.8
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 31776,
+   "end_ms": 34714,
+   "t": 34702.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "vant d'être abandonnés ou de s'enfuir",
+   "lang": "fr",
+   "start_ms": 32656,
+   "end_ms": 34752,
+   "end": true,
+   "t": 34744.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 34752,
+   "end_ms": 34752,
+   "t": 34744.9
+  },
+  {
+   "type": "inputTranscript",
+   "text": "au traumatisme avant d'être abandonné ou de s'enfuir",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 31776,
+   "end_ms": 34714,
+   "t": 34774.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "le b",
+   "lang": "fr",
+   "start_ms": 34752,
+   "end_ms": 36768,
+   "t": 36737.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "le bus",
+   "lang": "fr",
+   "start_ms": 35332,
+   "end_ms": 37344,
+   "t": 37339.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "le bus de",
+   "lang": "fr",
+   "start_ms": 35912,
+   "end_ms": 37920,
+   "t": 37939.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "le bu",
+   "lang": "fr",
+   "start_ms": 35912,
+   "end_ms": 36492,
+   "end": false,
+   "t": 38438.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s de",
+   "lang": "fr",
+   "start_ms": 36492,
+   "end_ms": 38496,
+   "t": 38438.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s ",
+   "lang": "fr",
+   "start_ms": 36492,
+   "end_ms": 37072,
+   "end": false,
+   "t": 39039.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "de scotherb se",
+   "lang": "fr",
+   "start_ms": 37072,
+   "end_ms": 39072,
+   "t": 39039.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "de sco",
+   "lang": "fr",
+   "start_ms": 37072,
+   "end_ms": 37632,
+   "end": false,
+   "t": 39639.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ttherb se rend régulièrement",
+   "lang": "fr",
+   "start_ms": 37632,
+   "end_ms": 39648,
+   "t": 39639.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "tthurb ",
+   "lang": "fr",
+   "start_ms": 37632,
+   "end_ms": 38212,
+   "end": false,
+   "t": 40247.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "se rend régulièrement à",
+   "lang": "fr",
+   "start_ms": 38212,
+   "end_ms": 40224,
+   "t": 40247.0
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 35596,
+   "end_ms": 40282,
+   "t": 40303.1
+  },
+  {
+   "type": "inputTranscript",
+   "text": "le bus cde scotturb se rend régulièrement à cintra",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 35596,
+   "end_ms": 40282,
+   "t": 40396.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "se rend régulièrementà",
+   "lang": "fr",
+   "start_ms": 38212,
+   "end_ms": 40320,
+   "end": true,
+   "t": 40407.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 40320,
+   "end_ms": 40320,
+   "t": 40408.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "avec un arrêt",
+   "lang": "fr",
+   "start_ms": 40320,
+   "end_ms": 41472,
+   "t": 41465.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "avec un arrêt à",
+   "lang": "fr",
+   "start_ms": 40320,
+   "end_ms": 42048,
+   "t": 42066.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "avec un arrêt à cabo",
+   "lang": "fr",
+   "start_ms": 40620,
+   "end_ms": 42624,
+   "t": 42681.4
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 40320,
+   "end_ms": 42778,
+   "t": 42803.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "avec un arrêt à cabo aro",
+   "lang": "fr",
+   "start_ms": 40620,
+   "end_ms": 42816,
+   "end": true,
+   "t": 42863.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 42816,
+   "end_ms": 42816,
+   "t": 42863.6
+  },
+  {
+   "type": "inputTranscript",
+   "text": "avec un arrêt à cabot d'aroca",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 40320,
+   "end_ms": 42778,
+   "t": 42873.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "pour admirer",
+   "lang": "fr",
+   "start_ms": 43016,
+   "end_ms": 45024,
+   "t": 45044.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "pour admirer les plus bau",
+   "lang": "fr",
+   "start_ms": 43596,
+   "end_ms": 45600,
+   "t": 45554.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "pour admirer les plus beaux panoramas de",
+   "lang": "fr",
+   "start_ms": 44176,
+   "end_ms": 46176,
+   "t": 46138.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "pour admi",
+   "lang": "fr",
+   "start_ms": 44176,
+   "end_ms": 44736,
+   "end": false,
+   "t": 46739.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "rer les plus beaux panoramas deon",
+   "lang": "fr",
+   "start_ms": 44736,
+   "end_ms": 46752,
+   "t": 46739.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "rer les plus beau",
+   "lang": "fr",
+   "start_ms": 44736,
+   "end_ms": 45316,
+   "end": false,
+   "t": 47339.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "x panoramas de hong kong",
+   "lang": "fr",
+   "start_ms": 45316,
+   "end_ms": 47328,
+   "t": 47339.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "x panorama",
+   "lang": "fr",
+   "start_ms": 45316,
+   "end_ms": 45896,
+   "end": false,
+   "t": 47984.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s de hong kong quitter l'île",
+   "lang": "fr",
+   "start_ms": 45896,
+   "end_ms": 47904,
+   "t": 47984.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s de hong ko",
+   "lang": "fr",
+   "start_ms": 45896,
+   "end_ms": 46476,
+   "end": false,
+   "t": 48445.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ng quittez l'île et rejoignez",
+   "lang": "fr",
+   "start_ms": 46476,
+   "end_ms": 48480,
+   "t": 48445.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ng q",
+   "lang": "fr",
+   "start_ms": 46476,
+   "end_ms": 47056,
+   "end": false,
+   "t": 49045.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "uittez l'île et rejoignez le front de mer",
+   "lang": "fr",
+   "start_ms": 47056,
+   "end_ms": 49056,
+   "t": 49045.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "uittez l'îl",
+   "lang": "fr",
+   "start_ms": 47056,
+   "end_ms": 47616,
+   "end": false,
+   "t": 49645.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "e et rejoignet le front de mer de",
+   "lang": "fr",
+   "start_ms": 47616,
+   "end_ms": 49632,
+   "t": 49645.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "e et rejoig",
+   "lang": "fr",
+   "start_ms": 47616,
+   "end_ms": 48196,
+   "end": false,
+   "t": 50246.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "nez le front de mer deolw",
+   "lang": "fr",
+   "start_ms": 48196,
+   "end_ms": 50208,
+   "t": 50246.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "nez le front de",
+   "lang": "fr",
+   "start_ms": 48196,
+   "end_ms": 48776,
+   "end": false,
+   "t": 50814.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "mer de",
+   "lang": "fr",
+   "start_ms": 48776,
+   "end_ms": 50784,
+   "t": 50814.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " mer de ",
+   "lang": "fr",
+   "start_ms": 48776,
+   "end_ms": 49356,
+   "end": false,
+   "t": 51339.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "kolwon situé en face",
+   "lang": "fr",
+   "start_ms": 49356,
+   "end_ms": 51360,
+   "t": 51339.6
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 43852,
+   "end_ms": 51562,
+   "t": 51702.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "kolwoun situé en face",
+   "lang": "fr",
+   "start_ms": 49356,
+   "end_ms": 51744,
+   "end": true,
+   "t": 51741.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 51744,
+   "end_ms": 51744,
+   "t": 51741.1
+  },
+  {
+   "type": "inputTranscript",
+   "text": "pour admirer les plus beaux panoramas de hong kong quittez l'île et rejoignet le front de mer de colwoun situé en face",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 43852,
+   "end_ms": 51562,
+   "t": 51775.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les opinions d'aristote",
+   "lang": "fr",
+   "start_ms": 52624,
+   "end_ms": 54624,
+   "t": 54647.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "les o",
+   "lang": "fr",
+   "start_ms": 52624,
+   "end_ms": 53184,
+   "end": false,
+   "t": 55140.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "pinions d'aristote sur toutes les questions",
+   "lang": "fr",
+   "start_ms": 53184,
+   "end_ms": 55200,
+   "t": 55140.1
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 52300,
+   "end_ms": 55642,
+   "t": 55603.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "pinions d'aristote sur toutes les questions",
+   "lang": "fr",
+   "start_ms": 53184,
+   "end_ms": 55680,
+   "end": true,
+   "t": 55684.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 55680,
+   "end_ms": 55680,
+   "t": 55684.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "is",
+   "lang": "fr",
+   "start_ms": 55680,
+   "end_ms": 56256,
+   "t": 56268.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "scientifiques y compris",
+   "lang": "fr",
+   "start_ms": 55680,
+   "end_ms": 56832,
+   "t": 56880.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "scientifiques y comprisl",
+   "lang": "fr",
+   "start_ms": 55680,
+   "end_ms": 57408,
+   "t": 57482.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "scient",
+   "lang": "fr",
+   "start_ms": 55680,
+   "end_ms": 55980,
+   "end": false,
+   "t": 57984.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ifiques y compris la psychologie",
+   "lang": "fr",
+   "start_ms": 55980,
+   "end_ms": 57984,
+   "t": 57984.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ifiques y co",
+   "lang": "fr",
+   "start_ms": 55980,
+   "end_ms": 56560,
+   "end": false,
+   "t": 58579.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "mpris la psychologie ont été",
+   "lang": "fr",
+   "start_ms": 56560,
+   "end_ms": 58560,
+   "t": 58580.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "mpris la psy",
+   "lang": "fr",
+   "start_ms": 56560,
+   "end_ms": 57120,
+   "end": false,
+   "t": 59180.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "chologie ont été acceptées",
+   "lang": "fr",
+   "start_ms": 57120,
+   "end_ms": 59136,
+   "t": 59180.9
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 55680,
+   "end_ms": 59674,
+   "t": 59703.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "chologie ",
+   "lang": "fr",
+   "start_ms": 57120,
+   "end_ms": 57700,
+   "end": false,
+   "t": 59820.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ont été acceptées",
+   "lang": "fr",
+   "start_ms": 57700,
+   "end_ms": 59712,
+   "t": 59820.4
+  },
+  {
+   "type": "inputTranscript",
+   "text": "scientifiques y compris la psychologie ont été acceptés",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 55680,
+   "end_ms": 59674,
+   "t": 59858.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ont été acceptées",
+   "lang": "fr",
+   "start_ms": 57700,
+   "end_ms": 59808,
+   "end": true,
+   "t": 59876.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 59808,
+   "end_ms": 59808,
+   "t": 59876.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "l'australien",
+   "lang": "fr",
+   "start_ms": 59908,
+   "end_ms": 61920,
+   "t": 62004.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "l'austra",
+   "lang": "fr",
+   "start_ms": 61068,
+   "end_ms": 61648,
+   "end": false,
+   "t": 63639.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "lien michel gourlay est arrivé",
+   "lang": "fr",
+   "start_ms": 61648,
+   "end_ms": 63648,
+   "t": 63639.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "lien mi",
+   "lang": "fr",
+   "start_ms": 61648,
+   "end_ms": 62208,
+   "end": false,
+   "t": 64240.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "chel gourlay est arrivé zime",
+   "lang": "fr",
+   "start_ms": 62208,
+   "end_ms": 64224,
+   "t": 64240.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "chel gourl",
+   "lang": "fr",
+   "start_ms": 62208,
+   "end_ms": 62788,
+   "end": false,
+   "t": 64769.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ay est arrivé onzième au",
+   "lang": "fr",
+   "start_ms": 62788,
+   "end_ms": 64800,
+   "t": 64769.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ay est arrivé",
+   "lang": "fr",
+   "start_ms": 62788,
+   "end_ms": 63368,
+   "end": false,
+   "t": 65340.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "onzième aue",
+   "lang": "fr",
+   "start_ms": 63368,
+   "end_ms": 65376,
+   "t": 65340.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " zième",
+   "lang": "fr",
+   "start_ms": 63368,
+   "end_ms": 63948,
+   "end": false,
+   "t": 65944.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "au super g deout",
+   "lang": "fr",
+   "start_ms": 63948,
+   "end_ms": 65952,
+   "t": 65944.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " au supe",
+   "lang": "fr",
+   "start_ms": 63948,
+   "end_ms": 64528,
+   "end": false,
+   "t": 66541.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "r g",
+   "lang": "fr",
+   "start_ms": 64528,
+   "end_ms": 66528,
+   "t": 66541.6
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 60748,
+   "end_ms": 66970,
+   "t": 67003.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "rg debuthmm",
+   "lang": "fr",
+   "start_ms": 64528,
+   "end_ms": 67008,
+   "end": true,
+   "t": 67095.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 67008,
+   "end_ms": 67008,
+   "t": 67095.8
+  },
+  {
+   "type": "inputTranscript",
+   "text": "l'australien michel gourlay est arrivé onzième au super g debout humm",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 60748,
+   "end_ms": 66970,
+   "t": 67104.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "le",
+   "lang": "fr",
+   "start_ms": 67008,
+   "end_ms": 67584,
+   "t": 67567.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "le cèk",
+   "lang": "fr",
+   "start_ms": 67008,
+   "end_ms": 68160,
+   "t": 68169.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "le chèkldc",
+   "lang": "fr",
+   "start_ms": 67008,
+   "end_ms": 68736,
+   "t": 68791.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "le c",
+   "lang": "fr",
+   "start_ms": 67008,
+   "end_ms": 67308,
+   "end": false,
+   "t": 69385.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "hèk oldrich",
+   "lang": "fr",
+   "start_ms": 67308,
+   "end_ms": 69312,
+   "t": 69385.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "hèk ol",
+   "lang": "fr",
+   "start_ms": 67308,
+   "end_ms": 67888,
+   "end": false,
+   "t": 69872.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "drich jelinek s'etcla",
+   "lang": "fr",
+   "start_ms": 67888,
+   "end_ms": 69888,
+   "t": 69873.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "drich ",
+   "lang": "fr",
+   "start_ms": 67888,
+   "end_ms": 68448,
+   "end": false,
+   "t": 70470.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "jellinek s'est classé zime",
+   "lang": "fr",
+   "start_ms": 68448,
+   "end_ms": 70464,
+   "t": 70470.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "jelin",
+   "lang": "fr",
+   "start_ms": 68448,
+   "end_ms": 69028,
+   "end": false,
+   "t": 71070.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ek s'est classé seizième",
+   "lang": "fr",
+   "start_ms": 69028,
+   "end_ms": 71040,
+   "t": 71070.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "eck s'est ",
+   "lang": "fr",
+   "start_ms": 69028,
+   "end_ms": 69608,
+   "end": false,
+   "t": 71639.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "classé seizième au suerg",
+   "lang": "fr",
+   "start_ms": 69608,
+   "end_ms": 71616,
+   "t": 71639.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "classé seiz",
+   "lang": "fr",
+   "start_ms": 69608,
+   "end_ms": 70188,
+   "end": false,
+   "t": 72138.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ième au superg",
+   "lang": "fr",
+   "start_ms": 70188,
+   "end_ms": 72192,
+   "t": 72139.0
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 67008,
+   "end_ms": 72538,
+   "t": 72503.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ième au super g asi ho",
+   "lang": "fr",
+   "start_ms": 70188,
+   "end_ms": 72576,
+   "end": true,
+   "t": 72540.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 72576,
+   "end_ms": 72576,
+   "t": 72540.9
+  },
+  {
+   "type": "inputTranscript",
+   "text": "le tchek oldrich jellinek s'est classé seizième au superghasi homme",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 67008,
+   "end_ms": 72538,
+   "t": 72569.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "la ville ",
+   "lang": "fr",
+   "start_ms": 72576,
+   "end_ms": 74596,
+   "end": false,
+   "t": 76641.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "contraste fortement avec les",
+   "lang": "fr",
+   "start_ms": 74596,
+   "end_ms": 76608,
+   "t": 76641.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "contraste fortement avec les ci",
+   "lang": "fr",
+   "start_ms": 74596,
+   "end_ms": 76616,
+   "end": false,
+   "t": 78648.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "tés du reste du pays",
+   "lang": "fr",
+   "start_ms": 76616,
+   "end_ms": 78624,
+   "t": 78648.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "tés du reste du pays car elle ",
+   "lang": "fr",
+   "start_ms": 76616,
+   "end_ms": 78636,
+   "end": false,
+   "t": 80692.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "possède un style davantage",
+   "lang": "fr",
+   "start_ms": 78636,
+   "end_ms": 80640,
+   "t": 80692.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "possède un style davantage a",
+   "lang": "fr",
+   "start_ms": 78636,
+   "end_ms": 80656,
+   "end": false,
+   "t": 82653.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "rabe qu'africain",
+   "lang": "fr",
+   "start_ms": 80656,
+   "end_ms": 82656,
+   "t": 82653.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "rabe qu'afric",
+   "lang": "fr",
+   "start_ms": 80656,
+   "end_ms": 81616,
+   "end": false,
+   "t": 83653.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "aine",
+   "lang": "fr",
+   "start_ms": 81616,
+   "end_ms": 83616,
+   "t": 83654.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ain ",
+   "lang": "fr",
+   "start_ms": 81616,
+   "end_ms": 82176,
+   "end": false,
+   "t": 84145.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "aussi",
+   "lang": "fr",
+   "start_ms": 82176,
+   "end_ms": 84192,
+   "t": 84145.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "aussi après la révoluion",
+   "lang": "fr",
+   "start_ms": 82756,
+   "end_ms": 84768,
+   "t": 84739.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "aussi après la révolutionle",
+   "lang": "fr",
+   "start_ms": 83336,
+   "end_ms": 85344,
+   "t": 85339.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "aussi",
+   "lang": "fr",
+   "start_ms": 83336,
+   "end_ms": 83916,
+   "end": false,
+   "t": 85939.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "après la révolution les métiers furent",
+   "lang": "fr",
+   "start_ms": 83916,
+   "end_ms": 85920,
+   "t": 85939.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " après la rév",
+   "lang": "fr",
+   "start_ms": 83916,
+   "end_ms": 84496,
+   "end": false,
+   "t": 86443.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "olution les métiers furent ouverts",
+   "lang": "fr",
+   "start_ms": 84496,
+   "end_ms": 86496,
+   "t": 86443.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "olution le",
+   "lang": "fr",
+   "start_ms": 84496,
+   "end_ms": 85056,
+   "end": false,
+   "t": 87043.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s métiers furent ouverts à tous les",
+   "lang": "fr",
+   "start_ms": 85056,
+   "end_ms": 87072,
+   "t": 87043.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s métiers f",
+   "lang": "fr",
+   "start_ms": 85056,
+   "end_ms": 85636,
+   "end": false,
+   "t": 87643.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "urent ouverts à tous les candidats masculins",
+   "lang": "fr",
+   "start_ms": 85636,
+   "end_ms": 87648,
+   "t": 87643.9
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 83020,
+   "end_ms": 88090,
+   "t": 88102.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "rent ouverts à tous les candidats masculins",
+   "lang": "fr",
+   "start_ms": 85636,
+   "end_ms": 88128,
+   "end": true,
+   "t": 88144.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 88128,
+   "end_ms": 88128,
+   "t": 88144.1
+  },
+  {
+   "type": "inputTranscript",
+   "text": "aussi après la révolution les métiers furent ouverts à tous les candidats masculins",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 83020,
+   "end_ms": 88090,
+   "t": 88174.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "permettant",
+   "lang": "fr",
+   "start_ms": 88128,
+   "end_ms": 88704,
+   "t": 88741.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "permettant aux plus",
+   "lang": "fr",
+   "start_ms": 88128,
+   "end_ms": 89280,
+   "t": 89243.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "permettant aux plus ambitieux",
+   "lang": "fr",
+   "start_ms": 88128,
+   "end_ms": 89856,
+   "t": 89844.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "perme",
+   "lang": "fr",
+   "start_ms": 88128,
+   "end_ms": 88428,
+   "end": false,
+   "t": 90447.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ttant au plus ambitieux et aux plus",
+   "lang": "fr",
+   "start_ms": 88428,
+   "end_ms": 90432,
+   "t": 90447.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ttant aux plu",
+   "lang": "fr",
+   "start_ms": 88428,
+   "end_ms": 89008,
+   "end": false,
+   "t": 91046.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s ambitieux et aux plus talentueux de",
+   "lang": "fr",
+   "start_ms": 89008,
+   "end_ms": 91008,
+   "t": 91046.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s ambitieu",
+   "lang": "fr",
+   "start_ms": 89008,
+   "end_ms": 89568,
+   "end": false,
+   "t": 91545.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "x et aux plus talentueux de réussir",
+   "lang": "fr",
+   "start_ms": 89568,
+   "end_ms": 91584,
+   "t": 91545.7
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 88128,
+   "end_ms": 91738,
+   "t": 91702.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "x et aux plus talentueux de réussir",
+   "lang": "fr",
+   "start_ms": 89568,
+   "end_ms": 91776,
+   "end": true,
+   "t": 91745.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 91776,
+   "end_ms": 91776,
+   "t": 91745.8
+  },
+  {
+   "type": "inputTranscript",
+   "text": "permettant au plus ambitieux et au plus talentueux de réussir",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 88128,
+   "end_ms": 91738,
+   "t": 91775.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "la",
+   "lang": "fr",
+   "start_ms": 91776,
+   "end_ms": 93312,
+   "t": 93341.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "la bombe",
+   "lang": "fr",
+   "start_ms": 91876,
+   "end_ms": 93888,
+   "t": 93841.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "la bombe à ficion fonctionne seo",
+   "lang": "fr",
+   "start_ms": 92456,
+   "end_ms": 94464,
+   "t": 94444.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "la bom",
+   "lang": "fr",
+   "start_ms": 92456,
+   "end_ms": 93036,
+   "end": false,
+   "t": 95045.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "be à fision fonctionne selon le principe",
+   "lang": "fr",
+   "start_ms": 93036,
+   "end_ms": 95040,
+   "t": 95046.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "be à fision",
+   "lang": "fr",
+   "start_ms": 93036,
+   "end_ms": 93616,
+   "end": false,
+   "t": 95646.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "fonctionne selon le principe suivant",
+   "lang": "fr",
+   "start_ms": 93616,
+   "end_ms": 95616,
+   "t": 95647.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " fonctionne ",
+   "lang": "fr",
+   "start_ms": 93616,
+   "end_ms": 94176,
+   "end": false,
+   "t": 96145.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "selon le principe suivant",
+   "lang": "fr",
+   "start_ms": 94176,
+   "end_ms": 96192,
+   "t": 96146.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "selon le princ",
+   "lang": "fr",
+   "start_ms": 94176,
+   "end_ms": 94756,
+   "end": false,
+   "t": 96746.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ipe suivant elle transfoe",
+   "lang": "fr",
+   "start_ms": 94756,
+   "end_ms": 96768,
+   "t": 96746.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ipe sui",
+   "lang": "fr",
+   "start_ms": 94756,
+   "end_ms": 95336,
+   "end": false,
+   "t": 97344.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "vant elle transforme l'énergie",
+   "lang": "fr",
+   "start_ms": 95336,
+   "end_ms": 97344,
+   "t": 97344.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "vant ",
+   "lang": "fr",
+   "start_ms": 95336,
+   "end_ms": 95916,
+   "end": false,
+   "t": 97946.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "elle transforme l'énergie en assemblant",
+   "lang": "fr",
+   "start_ms": 95916,
+   "end_ms": 97920,
+   "t": 97946.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "elle tran",
+   "lang": "fr",
+   "start_ms": 95916,
+   "end_ms": 96496,
+   "end": false,
+   "t": 98444.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "sforme l'énergie en assemblant un noyau",
+   "lang": "fr",
+   "start_ms": 96496,
+   "end_ms": 98496,
+   "t": 98444.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "sforme l'éner",
+   "lang": "fr",
+   "start_ms": 96496,
+   "end_ms": 97056,
+   "end": false,
+   "t": 99046.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "gie en assemblant un noyau d'unemiiae",
+   "lang": "fr",
+   "start_ms": 97056,
+   "end_ms": 99072,
+   "t": 99046.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "gie en assem",
+   "lang": "fr",
+   "start_ms": 97056,
+   "end_ms": 97636,
+   "end": false,
+   "t": 99646.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "blant un noyau d'une myriade de proton",
+   "lang": "fr",
+   "start_ms": 97636,
+   "end_ms": 99648,
+   "t": 99646.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "blant un noyau",
+   "lang": "fr",
+   "start_ms": 97636,
+   "end_ms": 98216,
+   "end": false,
+   "t": 100246.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "d'une myriade de protons et neuretron",
+   "lang": "fr",
+   "start_ms": 98216,
+   "end_ms": 100224,
+   "t": 100246.5
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 92140,
+   "end_ms": 100318,
+   "t": 100502.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " d'une myriade de protons et neuretron",
+   "lang": "fr",
+   "start_ms": 98216,
+   "end_ms": 100512,
+   "end": true,
+   "t": 100607.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 100512,
+   "end_ms": 100512,
+   "t": 100607.9
+  },
+  {
+   "type": "inputTranscript",
+   "text": "la bombe à ficion fonctionne selon le principe suivant elle transforme l'énergie en assemblant un noyau d'une myriade de proton et neuretron",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 92140,
+   "end_ms": 100318,
+   "t": 100623.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "il n'a pas",
+   "lang": "fr",
+   "start_ms": 100512,
+   "end_ms": 102336,
+   "t": 102338.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "il n'a pas chiffré",
+   "lang": "fr",
+   "start_ms": 100912,
+   "end_ms": 102912,
+   "t": 102945.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "il n'a pas chiffré ses réductions",
+   "lang": "fr",
+   "start_ms": 101472,
+   "end_ms": 103488,
+   "t": 103440.9
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 101164,
+   "end_ms": 103546,
+   "t": 103503.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "il n'a pas chiffré ces réductions",
+   "lang": "fr",
+   "start_ms": 101472,
+   "end_ms": 103584,
+   "end": true,
+   "t": 103587.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 103584,
+   "end_ms": 103584,
+   "t": 103587.7
+  },
+  {
+   "type": "inputTranscript",
+   "text": "il n'a pas chiffré ses réductions",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 101164,
+   "end_ms": 103546,
+   "t": 103598.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "isant q'e",
+   "lang": "fr",
+   "start_ms": 103584,
+   "end_ms": 104160,
+   "t": 104136.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "isant qu'elles seront bases",
+   "lang": "fr",
+   "start_ms": 103584,
+   "end_ms": 104736,
+   "t": 104737.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "isant qu'elles seront basées sur la",
+   "lang": "fr",
+   "start_ms": 103584,
+   "end_ms": 105312,
+   "t": 105337.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "isant q",
+   "lang": "fr",
+   "start_ms": 103584,
+   "end_ms": 103884,
+   "end": false,
+   "t": 105839.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "u'elles seront basées sur la production",
+   "lang": "fr",
+   "start_ms": 103884,
+   "end_ms": 105888,
+   "t": 105839.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "u'elles seront b",
+   "lang": "fr",
+   "start_ms": 103884,
+   "end_ms": 104464,
+   "end": false,
+   "t": 106439.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "asées sur la production économique",
+   "lang": "fr",
+   "start_ms": 104464,
+   "end_ms": 106464,
+   "t": 106439.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "asées s",
+   "lang": "fr",
+   "start_ms": 104464,
+   "end_ms": 105024,
+   "end": false,
+   "t": 107066.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ur la production économique chinoise",
+   "lang": "fr",
+   "start_ms": 105024,
+   "end_ms": 107040,
+   "t": 107066.1
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 103584,
+   "end_ms": 107098,
+   "t": 107102.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ur la production économique chinoise",
+   "lang": "fr",
+   "start_ms": 105024,
+   "end_ms": 107136,
+   "end": true,
+   "t": 107138.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 107136,
+   "end_ms": 107136,
+   "t": 107138.5
+  },
+  {
+   "type": "inputTranscript",
+   "text": "dsant qu'elles seront basées sur la production économique chinoise",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 103584,
+   "end_ms": 107098,
+   "t": 107166.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "nps",
+   "lang": "fr",
+   "start_ms": 107136,
+   "end_ms": 109152,
+   "t": 109145.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "il n'existe pas de ",
+   "lang": "fr",
+   "start_ms": 107136,
+   "end_ms": 109156,
+   "end": false,
+   "t": 111146.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "définition universelle",
+   "lang": "fr",
+   "start_ms": 109156,
+   "end_ms": 111168,
+   "t": 111146.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "é",
+   "lang": "fr",
+   "start_ms": 109156,
+   "end_ms": 111176,
+   "end": false,
+   "t": 113147.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "tt dé",
+   "lang": "fr",
+   "start_ms": 111176,
+   "end_ms": 113184,
+   "t": 113147.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ettant de déterminer si un objet man",
+   "lang": "fr",
+   "start_ms": 111176,
+   "end_ms": 113196,
+   "end": false,
+   "t": 115174.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ufacturé est une antiquité",
+   "lang": "fr",
+   "start_ms": 113196,
+   "end_ms": 115200,
+   "t": 115174.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "facturé est une antiquité ",
+   "lang": "fr",
+   "start_ms": 113196,
+   "end_ms": 115216,
+   "end": false,
+   "t": 117241.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "certains organismes",
+   "lang": "fr",
+   "start_ms": 115216,
+   "end_ms": 117216,
+   "t": 117241.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "certain",
+   "lang": "fr",
+   "start_ms": 115216,
+   "end_ms": 116356,
+   "end": false,
+   "t": 118355.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s organismes fiscaux",
+   "lang": "fr",
+   "start_ms": 116356,
+   "end_ms": 118368,
+   "t": 118355.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s organis",
+   "lang": "fr",
+   "start_ms": 116356,
+   "end_ms": 116936,
+   "end": false,
+   "t": 118945.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "mes fiscaux définissent es",
+   "lang": "fr",
+   "start_ms": 116936,
+   "end_ms": 118944,
+   "t": 118945.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "mes fisc",
+   "lang": "fr",
+   "start_ms": 116936,
+   "end_ms": 117516,
+   "end": false,
+   "t": 119546.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "aux définissent les biens de",
+   "lang": "fr",
+   "start_ms": 117516,
+   "end_ms": 119520,
+   "t": 119546.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "aux d",
+   "lang": "fr",
+   "start_ms": 117516,
+   "end_ms": 118096,
+   "end": false,
+   "t": 120041.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "éfinissent les biens de plus de",
+   "lang": "fr",
+   "start_ms": 118096,
+   "end_ms": 120096,
+   "t": 120041.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "éfinissent",
+   "lang": "fr",
+   "start_ms": 118096,
+   "end_ms": 118656,
+   "end": false,
+   "t": 120640.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les biens de plus de cent ans",
+   "lang": "fr",
+   "start_ms": 118656,
+   "end_ms": 120672,
+   "t": 120640.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " les biens ",
+   "lang": "fr",
+   "start_ms": 118656,
+   "end_ms": 119236,
+   "end": false,
+   "t": 121240.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "de plus de cent ans comme des",
+   "lang": "fr",
+   "start_ms": 119236,
+   "end_ms": 121248,
+   "t": 121241.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "de plus de c",
+   "lang": "fr",
+   "start_ms": 119236,
+   "end_ms": 119816,
+   "end": false,
+   "t": 121845.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ent ans comme des antiquités",
+   "lang": "fr",
+   "start_ms": 119816,
+   "end_ms": 121824,
+   "t": 121845.6
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 117772,
+   "end_ms": 121882,
+   "t": 121902.7
+  },
+  {
+   "type": "inputTranscript",
+   "text": "définissent les biens de plus de cent ans comme des antiquités",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 117772,
+   "end_ms": 121882,
+   "t": 121995.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ent ans comme des antiquités",
+   "lang": "fr",
+   "start_ms": 119816,
+   "end_ms": 121920,
+   "end": true,
+   "t": 122007.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 121920,
+   "end_ms": 121920,
+   "t": 122007.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "vous n'avez pas",
+   "lang": "fr",
+   "start_ms": 122120,
+   "end_ms": 124128,
+   "t": 124144.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "vous n'avez pas forcément besoin",
+   "lang": "fr",
+   "start_ms": 122700,
+   "end_ms": 124704,
+   "t": 124747.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "vous n'avez pas forcément besoin d'unyact",
+   "lang": "fr",
+   "start_ms": 123280,
+   "end_ms": 125280,
+   "t": 125278.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "vous n'avez pa",
+   "lang": "fr",
+   "start_ms": 123280,
+   "end_ms": 123840,
+   "end": false,
+   "t": 125878.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s forcément besoin d'un yacht dans les",
+   "lang": "fr",
+   "start_ms": 123840,
+   "end_ms": 125856,
+   "t": 125878.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s forcément bes",
+   "lang": "fr",
+   "start_ms": 123840,
+   "end_ms": 124420,
+   "end": false,
+   "t": 126478.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "oin d'un yacht dans les archipels",
+   "lang": "fr",
+   "start_ms": 124420,
+   "end_ms": 126432,
+   "t": 126478.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "oin d'ayacht",
+   "lang": "fr",
+   "start_ms": 124420,
+   "end_ms": 125000,
+   "end": false,
+   "t": 127082.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "e dans les archipels et sure",
+   "lang": "fr",
+   "start_ms": 125000,
+   "end_ms": 127008,
+   "t": 127083.0
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 122956,
+   "end_ms": 127546,
+   "t": 127509.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " dans les ar",
+   "lang": "fr",
+   "start_ms": 125000,
+   "end_ms": 125580,
+   "end": false,
+   "t": 127610.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "chipels et sur les lacs",
+   "lang": "fr",
+   "start_ms": 125580,
+   "end_ms": 127584,
+   "t": 127610.6
+  },
+  {
+   "type": "inputTranscript",
+   "text": "vous n'avez pas forcément besoin d'un yacht dans les archipels et sur les lacs",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 122956,
+   "end_ms": 127546,
+   "t": 127611.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "chipells et sur les lacs",
+   "lang": "fr",
+   "start_ms": 125580,
+   "end_ms": 127680,
+   "end": true,
+   "t": 127658.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 127680,
+   "end_ms": 127680,
+   "t": 127658.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "on dit donc quele",
+   "lang": "fr",
+   "start_ms": 128640,
+   "end_ms": 130656,
+   "t": 130682.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "on dit donc que le rapport daspect de",
+   "lang": "fr",
+   "start_ms": 129220,
+   "end_ms": 131232,
+   "t": 131281.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "o",
+   "lang": "fr",
+   "start_ms": 129220,
+   "end_ms": 129800,
+   "end": false,
+   "t": 131885.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "n dit donc que le rapport  aspect de ce format",
+   "lang": "fr",
+   "start_ms": 129800,
+   "end_ms": 131808,
+   "t": 131885.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "n dit donc que le ",
+   "lang": "fr",
+   "start_ms": 129800,
+   "end_ms": 130380,
+   "end": false,
+   "t": 132382.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "rapport d'aspect de ce format en divisant par",
+   "lang": "fr",
+   "start_ms": 130380,
+   "end_ms": 132384,
+   "t": 132382.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "rapport d'aspect",
+   "lang": "fr",
+   "start_ms": 130380,
+   "end_ms": 130960,
+   "end": false,
+   "t": 132980.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "de ce format en divisant par douze pour obtenir",
+   "lang": "fr",
+   "start_ms": 130960,
+   "end_ms": 132960,
+   "t": 132980.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " de ce format",
+   "lang": "fr",
+   "start_ms": 130960,
+   "end_ms": 131520,
+   "end": false,
+   "t": 133579.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "en divisant par douze pour obtenir le plus siml",
+   "lang": "fr",
+   "start_ms": 131520,
+   "end_ms": 133536,
+   "t": 133579.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " en divisant pa",
+   "lang": "fr",
+   "start_ms": 131520,
+   "end_ms": 132100,
+   "end": false,
+   "t": 134211.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "r douze pour obtenir le plus simple dérapport",
+   "lang": "fr",
+   "start_ms": 132100,
+   "end_ms": 134112,
+   "t": 134211.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "r douze pour obt",
+   "lang": "fr",
+   "start_ms": 132100,
+   "end_ms": 132680,
+   "end": false,
+   "t": 134670.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "enir le plus simple dérapports de nombre",
+   "lang": "fr",
+   "start_ms": 132680,
+   "end_ms": 134688,
+   "t": 134670.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "enir le plus s",
+   "lang": "fr",
+   "start_ms": 132680,
+   "end_ms": 133260,
+   "end": false,
+   "t": 135270.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "imple des rapports de nombre entier",
+   "lang": "fr",
+   "start_ms": 133260,
+   "end_ms": 135264,
+   "t": 135270.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "imple des rapp",
+   "lang": "fr",
+   "start_ms": 133260,
+   "end_ms": 133840,
+   "end": false,
+   "t": 135870.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "orts de nombre entier est de trois",
+   "lang": "fr",
+   "start_ms": 133840,
+   "end_ms": 135840,
+   "t": 135870.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "orts de nombr",
+   "lang": "fr",
+   "start_ms": 133840,
+   "end_ms": 134400,
+   "end": false,
+   "t": 136471.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "e entier est de trois sur deux",
+   "lang": "fr",
+   "start_ms": 134400,
+   "end_ms": 136416,
+   "t": 136471.1
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 128908,
+   "end_ms": 136414,
+   "t": 136603.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "e entier est de trois sur deux",
+   "lang": "fr",
+   "start_ms": 134400,
+   "end_ms": 136608,
+   "end": true,
+   "t": 136640.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 136608,
+   "end_ms": 136608,
+   "t": 136640.6
+  },
+  {
+   "type": "inputTranscript",
+   "text": "on dit donc que le rapport d'aspect de ce format en divisant par douze pour obtenir le plus simple des rapports de nombre entier est de trois sur deux",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 128908,
+   "end_ms": 136414,
+   "t": 136669.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ça",
+   "lang": "fr",
+   "start_ms": 136608,
+   "end_ms": 138048,
+   "t": 138041.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "sa réputation entant",
+   "lang": "fr",
+   "start_ms": 136608,
+   "end_ms": 138624,
+   "t": 138642.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "sa réputation en tant qu'épicentre",
+   "lang": "fr",
+   "start_ms": 137188,
+   "end_ms": 139200,
+   "t": 139181.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "sa ré",
+   "lang": "fr",
+   "start_ms": 137188,
+   "end_ms": 137768,
+   "end": false,
+   "t": 139746.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "putation en tant qu'épicentre du luxe",
+   "lang": "fr",
+   "start_ms": 137768,
+   "end_ms": 139776,
+   "t": 139746.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "putation en tan",
+   "lang": "fr",
+   "start_ms": 137768,
+   "end_ms": 138348,
+   "end": false,
+   "t": 140346.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "t qu'épicentre du luxe a débuté",
+   "lang": "fr",
+   "start_ms": 138348,
+   "end_ms": 140352,
+   "t": 140346.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "t qu'épicentr",
+   "lang": "fr",
+   "start_ms": 138348,
+   "end_ms": 138928,
+   "end": false,
+   "t": 140946.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "e du luxe a débuté aux environs de",
+   "lang": "fr",
+   "start_ms": 138928,
+   "end_ms": 140928,
+   "t": 140946.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "e du luxe",
+   "lang": "fr",
+   "start_ms": 138928,
+   "end_ms": 139488,
+   "end": false,
+   "t": 141547.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "a débuté aux environs de lan",
+   "lang": "fr",
+   "start_ms": 139488,
+   "end_ms": 141504,
+   "t": 141547.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " a débu",
+   "lang": "fr",
+   "start_ms": 139488,
+   "end_ms": 140068,
+   "end": false,
+   "t": 142041.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "té aux environs de l'antcen et a",
+   "lang": "fr",
+   "start_ms": 140068,
+   "end_ms": 142080,
+   "t": 142041.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "té aux environ",
+   "lang": "fr",
+   "start_ms": 140068,
+   "end_ms": 140648,
+   "end": false,
+   "t": 142642.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s de l'anet a duré jusqu'à",
+   "lang": "fr",
+   "start_ms": 140648,
+   "end_ms": 142656,
+   "t": 142642.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s de l'an quatre c",
+   "lang": "fr",
+   "start_ms": 140648,
+   "end_ms": 141228,
+   "end": false,
+   "t": 143242.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ent et a duré jusqu'à mille cents environ",
+   "lang": "fr",
+   "start_ms": 141228,
+   "end_ms": 143232,
+   "t": 143242.2
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 136876,
+   "end_ms": 143390,
+   "t": 143603.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ents et a duré jusqu'à mille cents environ",
+   "lang": "fr",
+   "start_ms": 141228,
+   "end_ms": 143616,
+   "end": true,
+   "t": 143648.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 143616,
+   "end_ms": 143616,
+   "t": 143648.8
+  },
+  {
+   "type": "inputTranscript",
+   "text": "sa réputation en tant qu'épicentre du luxe a débuté aux environs de l'anquête cent et a duré jusqu'à mille cent environ",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 136876,
+   "end_ms": 143390,
+   "t": 143679.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les politiques",
+   "lang": "fr",
+   "start_ms": 144016,
+   "end_ms": 146016,
+   "t": 146046.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les politiques d'annulation",
+   "lang": "fr",
+   "start_ms": 144576,
+   "end_ms": 146592,
+   "t": 146545.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les politiques d'annulation varienais",
+   "lang": "fr",
+   "start_ms": 145156,
+   "end_ms": 147168,
+   "t": 147146.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "les poli",
+   "lang": "fr",
+   "start_ms": 145156,
+   "end_ms": 145736,
+   "end": false,
+   "t": 147744.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "tiques d'annulation varient mais à partir de",
+   "lang": "fr",
+   "start_ms": 145736,
+   "end_ms": 147744,
+   "t": 147744.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "tiques d'annula",
+   "lang": "fr",
+   "start_ms": 145736,
+   "end_ms": 146316,
+   "end": false,
+   "t": 148344.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "tion varient mais à partir de fin mars",
+   "lang": "fr",
+   "start_ms": 146316,
+   "end_ms": 148320,
+   "t": 148344.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "tion varient ",
+   "lang": "fr",
+   "start_ms": 146316,
+   "end_ms": 146896,
+   "end": false,
+   "t": 148844.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "mais à partir de fin mars la plupart des",
+   "lang": "fr",
+   "start_ms": 146896,
+   "end_ms": 148896,
+   "t": 148844.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "mais à partir",
+   "lang": "fr",
+   "start_ms": 146896,
+   "end_ms": 147456,
+   "end": false,
+   "t": 149444.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "de fin mars la plupart des politiques",
+   "lang": "fr",
+   "start_ms": 147456,
+   "end_ms": 149472,
+   "t": 149444.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " de fin mars",
+   "lang": "fr",
+   "start_ms": 147456,
+   "end_ms": 148036,
+   "end": false,
+   "t": 150043.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "la plupart des politiques d'annulation basées",
+   "lang": "fr",
+   "start_ms": 148036,
+   "end_ms": 150048,
+   "t": 150043.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " la plupart des ",
+   "lang": "fr",
+   "start_ms": 148036,
+   "end_ms": 148616,
+   "end": false,
+   "t": 150644.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "politiques d'annulation basées sur lecona",
+   "lang": "fr",
+   "start_ms": 148616,
+   "end_ms": 150624,
+   "t": 150644.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "politiques d'an",
+   "lang": "fr",
+   "start_ms": 148616,
+   "end_ms": 149196,
+   "end": false,
+   "t": 151145.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "nulation basées sur le coronavirus",
+   "lang": "fr",
+   "start_ms": 149196,
+   "end_ms": 151200,
+   "t": 151145.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "nulation basé",
+   "lang": "fr",
+   "start_ms": 149196,
+   "end_ms": 149776,
+   "end": false,
+   "t": 151739.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "es sur le coronavirus ne s'n",
+   "lang": "fr",
+   "start_ms": 149776,
+   "end_ms": 151776,
+   "t": 151739.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "es sur le cor",
+   "lang": "fr",
+   "start_ms": 149776,
+   "end_ms": 150336,
+   "end": false,
+   "t": 152339.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "onavirus ne s'étendent pas jusqu'en",
+   "lang": "fr",
+   "start_ms": 150336,
+   "end_ms": 152352,
+   "t": 152339.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "onavirus ",
+   "lang": "fr",
+   "start_ms": 150336,
+   "end_ms": 150916,
+   "end": false,
+   "t": 152939.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ne s'étendent pas jusqu'en juillet",
+   "lang": "fr",
+   "start_ms": 150916,
+   "end_ms": 152928,
+   "t": 152939.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ne s'é",
+   "lang": "fr",
+   "start_ms": 150916,
+   "end_ms": 151496,
+   "end": false,
+   "t": 153547.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "tendent pas jusqu'en juillet",
+   "lang": "fr",
+   "start_ms": 151496,
+   "end_ms": 153504,
+   "t": 153547.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "tendent pas jus",
+   "lang": "fr",
+   "start_ms": 151496,
+   "end_ms": 152076,
+   "end": false,
+   "t": 154048.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "qu'en juillet deux mille vngt date à laquell",
+   "lang": "fr",
+   "start_ms": 152076,
+   "end_ms": 154080,
+   "t": 154048.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "qu'en juillet deux mi",
+   "lang": "fr",
+   "start_ms": 152076,
+   "end_ms": 152656,
+   "end": false,
+   "t": 154640.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "lle vingt date à laquelle les jeux olympiques",
+   "lang": "fr",
+   "start_ms": 152656,
+   "end_ms": 154656,
+   "t": 154640.5
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 144844,
+   "end_ms": 153314,
+   "t": 154802.8
+  },
+  {
+   "type": "inputTranscript",
+   "text": "les politiques d'annulation varies mais à partir de fin mars la plupart des politiques d'annulation basées sur le coronavirus ne s'étendent pas jusqu'en juillet",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 144844,
+   "end_ms": 153314,
+   "t": 154856.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "lle ng ",
+   "lang": "fr",
+   "start_ms": 152656,
+   "end_ms": 153216,
+   "end": false,
+   "t": 155239.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "date à laquelle les jeux olympiques",
+   "lang": "fr",
+   "start_ms": 153216,
+   "end_ms": 155232,
+   "t": 155239.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "date à la",
+   "lang": "fr",
+   "start_ms": 153216,
+   "end_ms": 153796,
+   "end": false,
+   "t": 155839.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "quelle les jeux olympiques avaient",
+   "lang": "fr",
+   "start_ms": 153796,
+   "end_ms": 155808,
+   "t": 155839.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "quelle les jeux o",
+   "lang": "fr",
+   "start_ms": 153796,
+   "end_ms": 154376,
+   "end": false,
+   "t": 156366.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "lympiques avaient été prévus",
+   "lang": "fr",
+   "start_ms": 154376,
+   "end_ms": 156384,
+   "t": 156366.1
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 153314,
+   "end_ms": 156730,
+   "t": 156702.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "lympiques avaient été prévus",
+   "lang": "fr",
+   "start_ms": 154376,
+   "end_ms": 156768,
+   "end": true,
+   "t": 156745.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 156768,
+   "end_ms": 156768,
+   "t": 156745.8
+  },
+  {
+   "type": "inputTranscript",
+   "text": "date à laquelle les jeux olympiques avaient été prévues",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 153314,
+   "end_ms": 156730,
+   "t": 156771.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "mélange",
+   "lang": "fr",
+   "start_ms": 157348,
+   "end_ms": 159360,
+   "t": 159343.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "mélanger les deuxpoudre",
+   "lang": "fr",
+   "start_ms": 157928,
+   "end_ms": 159936,
+   "t": 159943.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "mélanger les deux poudre sèche",
+   "lang": "fr",
+   "start_ms": 158508,
+   "end_ms": 160512,
+   "t": 160545.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "mélan",
+   "lang": "fr",
+   "start_ms": 158508,
+   "end_ms": 159088,
+   "end": false,
+   "t": 161043.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ger les deux poudre sèche ensemble",
+   "lang": "fr",
+   "start_ms": 159088,
+   "end_ms": 161088,
+   "t": 161043.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ger les deux po",
+   "lang": "fr",
+   "start_ms": 159088,
+   "end_ms": 159648,
+   "end": false,
+   "t": 161644.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "udre sèche ensemble puis avec",
+   "lang": "fr",
+   "start_ms": 159648,
+   "end_ms": 161664,
+   "t": 161644.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "udre sèches ",
+   "lang": "fr",
+   "start_ms": 159648,
+   "end_ms": 160228,
+   "end": false,
+   "t": 162244.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ensemble puis avec les mains pr",
+   "lang": "fr",
+   "start_ms": 160228,
+   "end_ms": 162240,
+   "t": 162244.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ensemble ",
+   "lang": "fr",
+   "start_ms": 160228,
+   "end_ms": 160808,
+   "end": false,
+   "t": 162843.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "puis avec les mains propres et",
+   "lang": "fr",
+   "start_ms": 160808,
+   "end_ms": 162816,
+   "t": 162843.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "puis ave",
+   "lang": "fr",
+   "start_ms": 160808,
+   "end_ms": 161388,
+   "end": false,
+   "t": 163404.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "c les mains propres et humides",
+   "lang": "fr",
+   "start_ms": 161388,
+   "end_ms": 163392,
+   "t": 163404.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "c les mains pr",
+   "lang": "fr",
+   "start_ms": 161388,
+   "end_ms": 161968,
+   "end": false,
+   "t": 163939.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "opres et humides précédés en une boule",
+   "lang": "fr",
+   "start_ms": 161968,
+   "end_ms": 163968,
+   "t": 163939.6
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 158284,
+   "end_ms": 164314,
+   "t": 164303.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "opres et humides précédes en une boule",
+   "lang": "fr",
+   "start_ms": 161968,
+   "end_ms": 164352,
+   "end": true,
+   "t": 164351.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 164352,
+   "end_ms": 164352,
+   "t": 164351.6
+  },
+  {
+   "type": "inputTranscript",
+   "text": "mélangez les deux poudres sèches ensemble puis avec les mains propres et humides pressez les en une boule",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 158284,
+   "end_ms": 164314,
+   "t": 164368.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "es rois",
+   "lang": "fr",
+   "start_ms": 165712,
+   "end_ms": 166272,
+   "end": false,
+   "t": 168279.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "r àtersbourg",
+   "lang": "fr",
+   "start_ms": 166272,
+   "end_ms": 168288,
+   "t": 168280.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "rs à saint-péter",
+   "lang": "fr",
+   "start_ms": 166272,
+   "end_ms": 166852,
+   "end": false,
+   "t": 168880.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "sbourg un clus du temps passédant l",
+   "lang": "fr",
+   "start_ms": 166852,
+   "end_ms": 168864,
+   "t": 168880.1
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 165388,
+   "end_ms": 169306,
+   "t": 169302.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "sbourg un clus du temps passé dans la ville",
+   "lang": "fr",
+   "start_ms": 166852,
+   "end_ms": 169344,
+   "end": true,
+   "t": 169344.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 169344,
+   "end_ms": 169344,
+   "t": 169344.9
+  },
+  {
+   "type": "inputTranscript",
+   "text": "les croisires à saint-pétersbourg un clus du temps passé dans le ville",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 165388,
+   "end_ms": 169306,
+   "t": 169374.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "des passagers",
+   "lang": "fr",
+   "start_ms": 169344,
+   "end_ms": 170496,
+   "t": 170436.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "les passagers des croisières",
+   "lang": "fr",
+   "start_ms": 169344,
+   "end_ms": 171072,
+   "t": 171037.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "les ",
+   "lang": "fr",
+   "start_ms": 169344,
+   "end_ms": 169644,
+   "end": false,
+   "t": 171638.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "passagers des croisières sont exemptés",
+   "lang": "fr",
+   "start_ms": 169644,
+   "end_ms": 171648,
+   "t": 171638.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "passagers ",
+   "lang": "fr",
+   "start_ms": 169644,
+   "end_ms": 170224,
+   "end": false,
+   "t": 172249.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "des croisières sont exemptés de l'obligation",
+   "lang": "fr",
+   "start_ms": 170224,
+   "end_ms": 172224,
+   "t": 172249.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "des croisière",
+   "lang": "fr",
+   "start_ms": 170224,
+   "end_ms": 170784,
+   "end": false,
+   "t": 172747.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s sont exemptés de l'obligation de visa",
+   "lang": "fr",
+   "start_ms": 170784,
+   "end_ms": 172800,
+   "t": 172747.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s sont exempt",
+   "lang": "fr",
+   "start_ms": 170784,
+   "end_ms": 171364,
+   "end": false,
+   "t": 173345.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "és de l'obligation de visa voir",
+   "lang": "fr",
+   "start_ms": 171364,
+   "end_ms": 173376,
+   "t": 173345.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "és de l'obligat",
+   "lang": "fr",
+   "start_ms": 171364,
+   "end_ms": 171944,
+   "end": false,
+   "t": 173945.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ion de visa voire les conditions",
+   "lang": "fr",
+   "start_ms": 171944,
+   "end_ms": 173952,
+   "t": 173945.9
+  },
+  {
+   "type": "language",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 169344,
+   "end_ms": 174010,
+   "t": 174002.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ion de visa voir les conditions",
+   "lang": "fr",
+   "start_ms": 171944,
+   "end_ms": 174048,
+   "end": true,
+   "t": 174102.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "fr",
+   "start_ms": 174048,
+   "end_ms": 174048,
+   "t": 174102.6
+  },
+  {
+   "type": "inputTranscript",
+   "text": "les passagers des croisières sont exemptés de l'obligation de visa voir les conditions",
+   "lang": "fr",
+   "confidence": 1.0,
+   "start_ms": 169344,
+   "end_ms": 174010,
+   "t": 174112.6
+  },
+  {
+   "type": "flushed",
+   "t": 177401.7
+  }
+ ]
+}

@@ -1,0 +1,5445 @@
+{
+ "lang": "en",
+ "model": "omniASR_CTC_3B streaming track",
+ "lookahead_s": "2",
+ "hello": {
+  "type": "hello",
+  "langs": [
+   "en"
+  ],
+  "rate": 16000,
+  "stream": {
+   "track": "ctc",
+   "lookahead_ms": 2000,
+   "chunk_ms": 500,
+   "left_ms": 8000
+  }
+ },
+ "err": "",
+ "partials": [
+  {
+   "t": 1851.4,
+   "text": "lion",
+   "offsetMs": 0,
+   "stable": 0
+  },
+  {
+   "t": 2347.8,
+   "text": "li",
+   "offsetMs": 400,
+   "stable": 0
+  },
+  {
+   "t": 2948.7,
+   "text": "lions ae temos social c",
+   "offsetMs": 960,
+   "stable": 0
+  },
+  {
+   "t": 4754.9,
+   "text": "social c",
+   "offsetMs": 2120,
+   "stable": 1
+  },
+  {
+   "t": 4754.9,
+   "text": "social c ats living in large groups called",
+   "offsetMs": 2700,
+   "stable": 1
+  },
+  {
+   "t": 5258.3,
+   "text": "social cats li ats living in large groups called",
+   "offsetMs": 2700,
+   "stable": 2
+  },
+  {
+   "t": 5258.3,
+   "text": "social cats li ving in large groups called prides",
+   "offsetMs": 3280,
+   "stable": 2
+  },
+  {
+   "t": 7470.1,
+   "text": "in the warm",
+   "offsetMs": 5472,
+   "stable": 0
+  },
+  {
+   "t": 8085.5,
+   "text": "in the warm climate of them",
+   "offsetMs": 6052,
+   "stable": 0
+  },
+  {
+   "t": 8683.2,
+   "text": "in the warm climate of the middle east",
+   "offsetMs": 6632,
+   "stable": 0
+  },
+  {
+   "t": 9329.1,
+   "text": "in the war in the warm climate of the middle east",
+   "offsetMs": 6632,
+   "stable": 2
+  },
+  {
+   "t": 9329.2,
+   "text": "in the war iate of the mie ea teoe",
+   "offsetMs": 7212,
+   "stable": 2
+  },
+  {
+   "t": 9782.3,
+   "text": "in the warm climate iate of the mie ea teoe",
+   "offsetMs": 7212,
+   "stable": 3
+  },
+  {
+   "t": 9782.4,
+   "text": "in the warm climate of the middle east the house was not",
+   "offsetMs": 7792,
+   "stable": 3
+  },
+  {
+   "t": 10389.7,
+   "text": "in the warm climate of the middle ea of the middle east the house was not",
+   "offsetMs": 7792,
+   "stable": 7
+  },
+  {
+   "t": 10389.8,
+   "text": "in the warm climate of the middle ea st the house was not so importan",
+   "offsetMs": 8352,
+   "stable": 7
+  },
+  {
+   "t": 14380.1,
+   "text": "they ar",
+   "offsetMs": 11808,
+   "stable": 1
+  },
+  {
+   "t": 14380.2,
+   "text": "they ar e almost all sandy beaches with",
+   "offsetMs": 12388,
+   "stable": 1
+  },
+  {
+   "t": 14983.6,
+   "text": "they are almost al e almost all sandy beaches with",
+   "offsetMs": 12388,
+   "stable": 3
+  },
+  {
+   "t": 14983.6,
+   "text": "they are almost al l sandy beaches with safe swimming",
+   "offsetMs": 12968,
+   "stable": 3
+  },
+  {
+   "t": 15610.2,
+   "text": "they are almost all sandy be l sandy beaches with safe swimming",
+   "offsetMs": 12968,
+   "stable": 5
+  },
+  {
+   "t": 15610.3,
+   "text": "they are almost all sandy be aches with safe swimming and most",
+   "offsetMs": 13548,
+   "stable": 5
+  },
+  {
+   "t": 16180.5,
+   "text": "they are almost all sandy beaches wi aches with safe swimming and most",
+   "offsetMs": 13548,
+   "stable": 6
+  },
+  {
+   "t": 16180.6,
+   "text": "they are almost all sandy beaches wi th safe swimming and most have shade",
+   "offsetMs": 14128,
+   "stable": 6
+  },
+  {
+   "t": 16787.1,
+   "text": "they are almost all sandy beaches with safe sw th safe swimming and most have shade",
+   "offsetMs": 14128,
+   "stable": 8
+  },
+  {
+   "t": 16787.1,
+   "text": "they are almost all sandy beaches with safe sw imming and most have shade provided",
+   "offsetMs": 14688,
+   "stable": 8
+  },
+  {
+   "t": 17282.8,
+   "text": "they are almost all sandy beaches with safe swimming and imming and most have shade provided",
+   "offsetMs": 14688,
+   "stable": 9
+  },
+  {
+   "t": 17282.9,
+   "text": "they are almost all sandy beaches with safe swimming and most have shade provided by",
+   "offsetMs": 15268,
+   "stable": 9
+  },
+  {
+   "t": 18779.1,
+   "text": "o",
+   "offsetMs": 17472,
+   "stable": 0
+  },
+  {
+   "t": 19287.3,
+   "text": "pohican trees",
+   "offsetMs": 17472,
+   "stable": 0
+  },
+  {
+   "t": 23957.8,
+   "text": "rides are",
+   "offsetMs": 19872,
+   "stable": 1
+  },
+  {
+   "t": 23957.9,
+   "text": "rides are made up of one t three related",
+   "offsetMs": 21892,
+   "stable": 1
+  },
+  {
+   "t": 25947.4,
+   "text": "rides are made up of one on to three related made up of one t three related",
+   "offsetMs": 21892,
+   "stable": 9
+  },
+  {
+   "t": 25947.5,
+   "text": "rides are made up of one on to three related adult mills along with oen",
+   "offsetMs": 23912,
+   "stable": 9
+  },
+  {
+   "t": 26957.9,
+   "text": "rides are made up of one on to three related adult mills along wi adult mills along with oen",
+   "offsetMs": 23912,
+   "stable": 13
+  },
+  {
+   "t": 26958.1,
+   "text": "rides are made up of one on to three related adult mills along wi th",
+   "offsetMs": 24972,
+   "stable": 13
+  },
+  {
+   "t": 27539.8,
+   "text": "rides are made up of one on to three related adult mills along with on th",
+   "offsetMs": 24972,
+   "stable": 14
+  },
+  {
+   "t": 27539.9,
+   "text": "rides are made up of one on to three related adult mills along with on arlhilden",
+   "offsetMs": 25552,
+   "stable": 14
+  },
+  {
+   "t": 28139.8,
+   "text": "rides are made up of one on to three related adult mills along with on faral children may have",
+   "offsetMs": 26112,
+   "stable": 14
+  },
+  {
+   "t": 28740.6,
+   "text": "rides are made up of one on to three related adult mills along with on faral children may have experience",
+   "offsetMs": 26692,
+   "stable": 14
+  },
+  {
+   "t": 29244.8,
+   "text": "rides are made up of one on to three related adult mills along with on faral children may have experience",
+   "offsetMs": 26692,
+   "stable": 14
+  },
+  {
+   "t": 29244.8,
+   "text": "rides are made up of one on to three related adult mills along with on a",
+   "offsetMs": 27272,
+   "stable": 14
+  },
+  {
+   "t": 29843.6,
+   "text": "rides are made up of one on to three related adult mills along with on children may a",
+   "offsetMs": 27272,
+   "stable": 16
+  },
+  {
+   "t": 29843.6,
+   "text": "rides are made up of one on to three related adult mills along with on children may have experienced severe child abuse or",
+   "offsetMs": 27852,
+   "stable": 16
+  },
+  {
+   "t": 30444.2,
+   "text": "rides are made up of one on to three related adult mills along with on children may have experie have experienced severe child abuse or",
+   "offsetMs": 27852,
+   "stable": 18
+  },
+  {
+   "t": 30444.2,
+   "text": "rides are made up of one on to three related adult mills along with on children may have experie nce sovere child abuse or tromab",
+   "offsetMs": 28432,
+   "stable": 18
+  },
+  {
+   "t": 31043.6,
+   "text": "rides are made up of one on to three related adult mills along with on children may have experienced severe nce sovere child abuse or tromab",
+   "offsetMs": 28432,
+   "stable": 19
+  },
+  {
+   "t": 31043.7,
+   "text": "rides are made up of one on to three related adult mills along with on children may have experienced severe child abuse or trauma before being",
+   "offsetMs": 28992,
+   "stable": 19
+  },
+  {
+   "t": 31543.5,
+   "text": "rides are made up of one on to three related adult mills along with on children may have experienced severe child abu child abuse or trauma before being",
+   "offsetMs": 28992,
+   "stable": 21
+  },
+  {
+   "t": 31543.6,
+   "text": "rides are made up of one on to three related adult mills along with on children may have experienced severe child abu se or trauma before being abandoned",
+   "offsetMs": 29572,
+   "stable": 21
+  },
+  {
+   "t": 32138.5,
+   "text": "rides are made up of one on to three related adult mills along with on children may have experienced severe child abuse or traum se or trauma before being abandoned",
+   "offsetMs": 29572,
+   "stable": 23
+  },
+  {
+   "t": 32138.5,
+   "text": "rides are made up of one on to three related adult mills along with on children may have experienced severe child abuse or traum a before being abandoned or running away",
+   "offsetMs": 30152,
+   "stable": 23
+  },
+  {
+   "t": 36739.0,
+   "text": "bus for or",
+   "offsetMs": 34184,
+   "stable": 2
+  },
+  {
+   "t": 36739.0,
+   "text": "bus for or three travers regularledstrs",
+   "offsetMs": 34764,
+   "stable": 2
+  },
+  {
+   "t": 37339.7,
+   "text": "bus for or three traver three travers regularledstrs",
+   "offsetMs": 34764,
+   "stable": 4
+  },
+  {
+   "t": 37339.8,
+   "text": "bus for or three traver s regularly to centra stopping at",
+   "offsetMs": 35344,
+   "stable": 4
+  },
+  {
+   "t": 37939.5,
+   "text": "bus for or three travers regularl s regularly to centra stopping at",
+   "offsetMs": 35344,
+   "stable": 5
+  },
+  {
+   "t": 37939.6,
+   "text": "bus for or three travers regularl y to centra stopping atb",
+   "offsetMs": 35904,
+   "stable": 5
+  },
+  {
+   "t": 40462.8,
+   "text": "to get the best",
+   "offsetMs": 38404,
+   "stable": 0
+  },
+  {
+   "t": 40939.9,
+   "text": "to get the best viewsof",
+   "offsetMs": 38984,
+   "stable": 0
+  },
+  {
+   "t": 41539.4,
+   "text": "to get the best views of hong kong",
+   "offsetMs": 39564,
+   "stable": 0
+  },
+  {
+   "t": 42139.7,
+   "text": "to get the to get the best views of hong kong",
+   "offsetMs": 39564,
+   "stable": 2
+  },
+  {
+   "t": 42139.8,
+   "text": "to get the best views of hong kong leave",
+   "offsetMs": 40144,
+   "stable": 2
+  },
+  {
+   "t": 42746.1,
+   "text": "to get the best view best views of hong kong leave",
+   "offsetMs": 40144,
+   "stable": 4
+  },
+  {
+   "t": 42746.1,
+   "text": "to get the best view s of hong kong leave the island",
+   "offsetMs": 40704,
+   "stable": 4
+  },
+  {
+   "t": 43244.9,
+   "text": "to get the best views of hong k s of hong kong leave the island",
+   "offsetMs": 40704,
+   "stable": 7
+  },
+  {
+   "t": 43244.9,
+   "text": "to get the best views of hong k ong leave the island and head for the",
+   "offsetMs": 41284,
+   "stable": 7
+  },
+  {
+   "t": 43844.8,
+   "text": "to get the best views of hong kong le ong leave the island and head for the",
+   "offsetMs": 41284,
+   "stable": 8
+  },
+  {
+   "t": 43844.8,
+   "text": "to get the best views of hong kong le ave the island and head for the coloon",
+   "offsetMs": 41864,
+   "stable": 8
+  },
+  {
+   "t": 44445.2,
+   "text": "to get the best views of hong kong leave the islan ave the island and head for the coloon",
+   "offsetMs": 41864,
+   "stable": 10
+  },
+  {
+   "t": 44445.3,
+   "text": "to get the best views of hong kong leave the islan d and head for the co loon water",
+   "offsetMs": 42444,
+   "stable": 10
+  },
+  {
+   "t": 45046.2,
+   "text": "to get the best views of hong kong leave the island and head for d and head for the co loon water",
+   "offsetMs": 42444,
+   "stable": 13
+  },
+  {
+   "t": 45046.3,
+   "text": "to get the best views of hong kong leave the island and head for the co loon water frontopposi",
+   "offsetMs": 43024,
+   "stable": 13
+  },
+  {
+   "t": 45549.1,
+   "text": "to get the best views of hong kong leave the island and head for the co l the co loon water frontopposi",
+   "offsetMs": 43024,
+   "stable": 16
+  },
+  {
+   "t": 45549.2,
+   "text": "to get the best views of hong kong leave the island and head for the co l oon water front opposite",
+   "offsetMs": 43584,
+   "stable": 16
+  },
+  {
+   "t": 47237.7,
+   "text": "xepted",
+   "offsetMs": 45600,
+   "stable": 0
+  },
+  {
+   "t": 47837.3,
+   "text": "excepted were aristotles",
+   "offsetMs": 45800,
+   "stable": 0
+  },
+  {
+   "t": 48345.0,
+   "text": "accepted were aristotle's views on",
+   "offsetMs": 46380,
+   "stable": 0
+  },
+  {
+   "t": 48944.8,
+   "text": "accept accepted were aristotle's views on",
+   "offsetMs": 46380,
+   "stable": 0
+  },
+  {
+   "t": 48944.9,
+   "text": "accept ed were aristotle's views on all matters",
+   "offsetMs": 46960,
+   "stable": 0
+  },
+  {
+   "t": 49544.9,
+   "text": "accepted were aris ed were aristotle's views on all matters",
+   "offsetMs": 46960,
+   "stable": 2
+  },
+  {
+   "t": 49545.0,
+   "text": "accepted were aris totle's views on all matters of science",
+   "offsetMs": 47520,
+   "stable": 2
+  },
+  {
+   "t": 50146.1,
+   "text": "accepted were aristotle's views totle's views on all matters of science",
+   "offsetMs": 47520,
+   "stable": 3
+  },
+  {
+   "t": 50146.2,
+   "text": "accepted were aristotle's views on all matters of science including",
+   "offsetMs": 48100,
+   "stable": 3
+  },
+  {
+   "t": 50646.4,
+   "text": "accepted were aristotle's views on all ma on all matters of science including",
+   "offsetMs": 48100,
+   "stable": 6
+  },
+  {
+   "t": 50646.5,
+   "text": "accepted were aristotle's views on all ma tters of science including physiology",
+   "offsetMs": 48680,
+   "stable": 6
+  },
+  {
+   "t": 53246.6,
+   "text": "australia'smil",
+   "offsetMs": 51280,
+   "stable": 0
+  },
+  {
+   "t": 53844.0,
+   "text": "australia's mitchelga",
+   "offsetMs": 51840,
+   "stable": 0
+  },
+  {
+   "t": 54446.0,
+   "text": "aus australia's mitchelga",
+   "offsetMs": 51840,
+   "stable": 0
+  },
+  {
+   "t": 54446.0,
+   "text": "aus tralia's mitchel gallery",
+   "offsetMs": 52420,
+   "stable": 0
+  },
+  {
+   "t": 56138.2,
+   "text": "finished theeleventh",
+   "offsetMs": 54432,
+   "stable": 0
+  },
+  {
+   "t": 56747.2,
+   "text": "finished the eleventh in the men",
+   "offsetMs": 54732,
+   "stable": 0
+  },
+  {
+   "t": 57345.9,
+   "text": "i finished the eleventh in the men",
+   "offsetMs": 54732,
+   "stable": 0
+  },
+  {
+   "t": 57346.0,
+   "text": "i th in ta",
+   "offsetMs": 55312,
+   "stable": 0
+  },
+  {
+   "t": 57846.8,
+   "text": "i the eleven th in ta",
+   "offsetMs": 55312,
+   "stable": 2
+  },
+  {
+   "t": 57846.9,
+   "text": "i the eleven th in the man's standing",
+   "offsetMs": 55872,
+   "stable": 2
+  },
+  {
+   "t": 58444.1,
+   "text": "i the eleventh in the m th in the man's standing",
+   "offsetMs": 55872,
+   "stable": 5
+  },
+  {
+   "t": 58444.1,
+   "text": "i the eleventh in the m an's standing",
+   "offsetMs": 56452,
+   "stable": 5
+  },
+  {
+   "t": 59043.9,
+   "text": "i the eleventh in the men's an's standing",
+   "offsetMs": 56452,
+   "stable": 5
+  },
+  {
+   "t": 59043.9,
+   "text": "i the eleventh in the men's standing superg",
+   "offsetMs": 57032,
+   "stable": 5
+  },
+  {
+   "t": 59644.2,
+   "text": "i the eleventh in the men's standin standing superg",
+   "offsetMs": 57032,
+   "stable": 6
+  },
+  {
+   "t": 59644.3,
+   "text": "i the eleventh in the men's standin g superg",
+   "offsetMs": 57612,
+   "stable": 6
+  },
+  {
+   "t": 60337.0,
+   "text": "competitor",
+   "offsetMs": 59808,
+   "stable": 0
+  },
+  {
+   "t": 63038.0,
+   "text": "jucklin",
+   "offsetMs": 61920,
+   "stable": 0
+  },
+  {
+   "t": 63638.3,
+   "text": "jukln",
+   "offsetMs": 61920,
+   "stable": 0
+  },
+  {
+   "t": 64239.0,
+   "text": "j jukln",
+   "offsetMs": 61920,
+   "stable": 0
+  },
+  {
+   "t": 64239.0,
+   "text": "j ucklin finishedh",
+   "offsetMs": 62220,
+   "stable": 0
+  },
+  {
+   "t": 64741.4,
+   "text": "jucklin ucklin finishedh",
+   "offsetMs": 62220,
+   "stable": 0
+  },
+  {
+   "t": 64741.5,
+   "text": "jucklin finished sixteenth in the men",
+   "offsetMs": 62800,
+   "stable": 0
+  },
+  {
+   "t": 65339.7,
+   "text": "jucklin fini finished sixteenth in the men",
+   "offsetMs": 62800,
+   "stable": 1
+  },
+  {
+   "t": 65339.8,
+   "text": "jucklin fini shed sixteenth in the men's",
+   "offsetMs": 63360,
+   "stable": 1
+  },
+  {
+   "t": 65946.5,
+   "text": "jucklin fini shed sixteenth in the men's",
+   "offsetMs": 63360,
+   "stable": 1
+  },
+  {
+   "t": 65946.5,
+   "text": "jucklin fini h in the men g",
+   "offsetMs": 63940,
+   "stable": 1
+  },
+  {
+   "t": 66543.3,
+   "text": "jucklin fini enth in h in the men g",
+   "offsetMs": 63940,
+   "stable": 3
+  },
+  {
+   "t": 66543.3,
+   "text": "jucklin fini enth in the men's sitting supeg",
+   "offsetMs": 64520,
+   "stable": 3
+  },
+  {
+   "t": 69555.5,
+   "text": "the cities instart contract",
+   "offsetMs": 67496,
+   "stable": 0
+  },
+  {
+   "t": 70039.6,
+   "text": "the citis in start contracts to the res",
+   "offsetMs": 68076,
+   "stable": 0
+  },
+  {
+   "t": 70639.4,
+   "text": "the the citis in start contracts to the res",
+   "offsetMs": 68076,
+   "stable": 0
+  },
+  {
+   "t": 70639.5,
+   "text": "the i ina ontratotherest ofthe cnt",
+   "offsetMs": 68656,
+   "stable": 0
+  },
+  {
+   "t": 71239.0,
+   "text": "the is instart co i ina ontratotherest ofthe cnt",
+   "offsetMs": 68656,
+   "stable": 3
+  },
+  {
+   "t": 71239.1,
+   "text": "the is instart co ntracts to the rest of the country cities",
+   "offsetMs": 69216,
+   "stable": 3
+  },
+  {
+   "t": 71839.0,
+   "text": "the is instart contracts to the re ntracts to the rest of the country cities",
+   "offsetMs": 69216,
+   "stable": 6
+  },
+  {
+   "t": 71839.1,
+   "text": "the is instart contracts to the re st of the country citiesis more of a",
+   "offsetMs": 69796,
+   "stable": 6
+  },
+  {
+   "t": 72339.8,
+   "text": "the is instart contracts to the rest of the country st of the country citiesis more of a",
+   "offsetMs": 69796,
+   "stable": 9
+  },
+  {
+   "t": 72339.8,
+   "text": "the is instart contracts to the rest of the country cities thecit is more of an arabic",
+   "offsetMs": 70376,
+   "stable": 9
+  },
+  {
+   "t": 72939.3,
+   "text": "the is instart contracts to the rest of the country cities teca cities thecit is more of an arabic",
+   "offsetMs": 70376,
+   "stable": 11
+  },
+  {
+   "t": 72939.3,
+   "text": "the is instart contracts to the rest of the country cities teca t is more of an arabic flarer than",
+   "offsetMs": 70956,
+   "stable": 11
+  },
+  {
+   "t": 73549.7,
+   "text": "the is instart contracts to the rest of the country cities tecat is more of t is more of an arabic flarer than",
+   "offsetMs": 70956,
+   "stable": 14
+  },
+  {
+   "t": 73549.8,
+   "text": "the is instart contracts to the rest of the country cities tecat is more of an arabic flayer than of an",
+   "offsetMs": 71536,
+   "stable": 14
+  },
+  {
+   "t": 77136.4,
+   "text": "a",
+   "offsetMs": 76032,
+   "stable": 0
+  },
+  {
+   "t": 77738.6,
+   "text": "alo after revolution",
+   "offsetMs": 76032,
+   "stable": 0
+  },
+  {
+   "t": 78346.0,
+   "text": "aoafter revolution",
+   "offsetMs": 76332,
+   "stable": 0
+  },
+  {
+   "t": 80043.7,
+   "text": "i",
+   "offsetMs": 77472,
+   "stable": 0
+  },
+  {
+   "t": 80043.7,
+   "text": "i pall",
+   "offsetMs": 78052,
+   "stable": 0
+  },
+  {
+   "t": 80644.0,
+   "text": "i upants were pall",
+   "offsetMs": 78052,
+   "stable": 2
+  },
+  {
+   "t": 80644.0,
+   "text": "i upants were opend to all male applicants",
+   "offsetMs": 78632,
+   "stable": 2
+  },
+  {
+   "t": 81245.6,
+   "text": "i upants were op a opend to all male applicants",
+   "offsetMs": 78632,
+   "stable": 4
+  },
+  {
+   "t": 81245.6,
+   "text": "i upants were op a ll mal applct w",
+   "offsetMs": 79212,
+   "stable": 4
+  },
+  {
+   "t": 81744.0,
+   "text": "i upants were op all male a ll mal applct w",
+   "offsetMs": 79212,
+   "stable": 6
+  },
+  {
+   "t": 81744.0,
+   "text": "i upants were op all male a pplicants allowing the most",
+   "offsetMs": 79792,
+   "stable": 6
+  },
+  {
+   "t": 82344.0,
+   "text": "i upants were op all male applicants pplicants allowing the most",
+   "offsetMs": 79792,
+   "stable": 6
+  },
+  {
+   "t": 82344.0,
+   "text": "i upants were op all male applicants allowing the most ambitious",
+   "offsetMs": 80352,
+   "stable": 6
+  },
+  {
+   "t": 82946.9,
+   "text": "i upants were op all male applicants allo allowing the most ambitious",
+   "offsetMs": 80352,
+   "stable": 7
+  },
+  {
+   "t": 82947.0,
+   "text": "i upants were op all male applicants allo wing the most ambitious and success",
+   "offsetMs": 80932,
+   "stable": 7
+  },
+  {
+   "t": 83545.9,
+   "text": "i upants were op all male applicants allowing the mos wing the most ambitious and success",
+   "offsetMs": 80932,
+   "stable": 9
+  },
+  {
+   "t": 83546.8,
+   "text": "i upants were op all male applicants allowing the mos t ambitious and successful to",
+   "offsetMs": 81512,
+   "stable": 9
+  },
+  {
+   "t": 84045.6,
+   "text": "i upants were op all male applicants allowing the most ambiti t ambitious and successful to",
+   "offsetMs": 81512,
+   "stable": 10
+  },
+  {
+   "t": 84045.7,
+   "text": "i upants were op all male applicants allowing the most ambiti ous and successful to succeed",
+   "offsetMs": 82092,
+   "stable": 10
+  },
+  {
+   "t": 84648.4,
+   "text": "i upants were op all male applicants allowing the most ambitious and suc ous and successful to succeed",
+   "offsetMs": 82092,
+   "stable": 12
+  },
+  {
+   "t": 84648.4,
+   "text": "i upants were op all male applicants allowing the most ambitious and suc cessful to succeed",
+   "offsetMs": 82672,
+   "stable": 12
+  },
+  {
+   "t": 90748.4,
+   "text": "s on the principle that it takes e energy to put to",
+   "offsetMs": 86692,
+   "stable": 11
+  },
+  {
+   "t": 90748.4,
+   "text": "s on the principle that it takes e energy to put to gether a nucleus with many protons",
+   "offsetMs": 88712,
+   "stable": 11
+  },
+  {
+   "t": 92748.5,
+   "text": "s on the principle that it takes e energy to put together a nucleus with many protons an gether a nucleus with many protons",
+   "offsetMs": 88712,
+   "stable": 17
+  },
+  {
+   "t": 92748.5,
+   "text": "s on the principle that it takes e energy to put together a nucleus with many protons an d neutrons",
+   "offsetMs": 90732,
+   "stable": 17
+  },
+  {
+   "t": 94354.3,
+   "text": "s on the principle that it takes e energy to put together a nucleus with many protons and neutron d neutrons",
+   "offsetMs": 90732,
+   "stable": 18
+  },
+  {
+   "t": 94354.4,
+   "text": "s on the principle that it takes e energy to put together a nucleus with many protons and neutron he did not set a figure for the",
+   "offsetMs": 92352,
+   "stable": 18
+  },
+  {
+   "t": 95843.4,
+   "text": "base",
+   "offsetMs": 95232,
+   "stable": 0
+  },
+  {
+   "t": 96344.2,
+   "text": "based on china's",
+   "offsetMs": 95232,
+   "stable": 0
+  },
+  {
+   "t": 96943.6,
+   "text": "based on china's economic",
+   "offsetMs": 95232,
+   "stable": 0
+  },
+  {
+   "t": 98844.7,
+   "text": "there isno",
+   "offsetMs": 97248,
+   "stable": 0
+  },
+  {
+   "t": 99444.2,
+   "text": "there is no universal",
+   "offsetMs": 97448,
+   "stable": 0
+  },
+  {
+   "t": 100045.7,
+   "text": "there is no universal definition",
+   "offsetMs": 98028,
+   "stable": 0
+  },
+  {
+   "t": 100646.5,
+   "text": "there is no there is no universal definition",
+   "offsetMs": 98028,
+   "stable": 2
+  },
+  {
+   "t": 100646.7,
+   "text": "there is no universal definition for whicha",
+   "offsetMs": 98608,
+   "stable": 2
+  },
+  {
+   "t": 101140.8,
+   "text": "there is no universa universal definition for whicha",
+   "offsetMs": 98608,
+   "stable": 3
+  },
+  {
+   "t": 101140.8,
+   "text": "there is no universa l definition for which manufactured items",
+   "offsetMs": 99168,
+   "stable": 3
+  },
+  {
+   "t": 101739.7,
+   "text": "there is no universal definition l definition for which manufactured items",
+   "offsetMs": 99168,
+   "stable": 4
+  },
+  {
+   "t": 101739.7,
+   "text": "there is no universal definition for which manufactured items are intique",
+   "offsetMs": 99748,
+   "stable": 4
+  },
+  {
+   "t": 102743.6,
+   "text": "some",
+   "offsetMs": 102144,
+   "stable": 0
+  },
+  {
+   "t": 103241.1,
+   "text": "some tax agencyes",
+   "offsetMs": 102144,
+   "stable": 0
+  },
+  {
+   "t": 103847.3,
+   "text": "some tax agencies define",
+   "offsetMs": 102144,
+   "stable": 0
+  },
+  {
+   "t": 104439.0,
+   "text": "some some tax agencies define",
+   "offsetMs": 102144,
+   "stable": 0
+  },
+  {
+   "t": 104439.1,
+   "text": "some tax agencies define goods oldera",
+   "offsetMs": 102444,
+   "stable": 0
+  },
+  {
+   "t": 105039.2,
+   "text": "some tax ag tax agencies define goods oldera",
+   "offsetMs": 102444,
+   "stable": 2
+  },
+  {
+   "t": 105039.2,
+   "text": "some tax ag encies define goods older than a hundred",
+   "offsetMs": 103024,
+   "stable": 2
+  },
+  {
+   "t": 105550.7,
+   "text": "some tax agencies defi encies define goods older than a hundred",
+   "offsetMs": 103024,
+   "stable": 3
+  },
+  {
+   "t": 105550.8,
+   "text": "some tax agencies defi ne goods older than a hundred years",
+   "offsetMs": 103584,
+   "stable": 3
+  },
+  {
+   "t": 108239.2,
+   "text": "in the",
+   "offsetMs": 106280,
+   "stable": 0
+  },
+  {
+   "t": 108839.1,
+   "text": "ieil",
+   "offsetMs": 106860,
+   "stable": 0
+  },
+  {
+   "t": 109446.7,
+   "text": "iehi",
+   "offsetMs": 107440,
+   "stable": 0
+  },
+  {
+   "t": 110047.1,
+   "text": "inthea iehi",
+   "offsetMs": 107440,
+   "stable": 0
+  },
+  {
+   "t": 110047.2,
+   "text": "inthea rchipela go",
+   "offsetMs": 108000,
+   "stable": 0
+  },
+  {
+   "t": 110547.2,
+   "text": "inthearchipel rchipela go",
+   "offsetMs": 108000,
+   "stable": 0
+  },
+  {
+   "t": 110547.3,
+   "text": "inthearchipel agos and lakes",
+   "offsetMs": 108580,
+   "stable": 0
+  },
+  {
+   "t": 111144.3,
+   "text": "inthearchipela agos and lakes",
+   "offsetMs": 108580,
+   "stable": 0
+  },
+  {
+   "t": 111144.5,
+   "text": "inthearchipela gos and lakeso",
+   "offsetMs": 109160,
+   "stable": 0
+  },
+  {
+   "t": 111739.5,
+   "text": "inthearchipelagos gos and lakeso",
+   "offsetMs": 109160,
+   "stable": 0
+  },
+  {
+   "t": 111739.5,
+   "text": "inthearchipelagos and lakes you do not",
+   "offsetMs": 109740,
+   "stable": 0
+  },
+  {
+   "t": 112339.0,
+   "text": "inthearchipelagos and lak and lakes you do not",
+   "offsetMs": 109740,
+   "stable": 2
+  },
+  {
+   "t": 112339.0,
+   "text": "inthearchipelagos and lak es you do not necessaryly",
+   "offsetMs": 110320,
+   "stable": 2
+  },
+  {
+   "t": 112839.5,
+   "text": "inthearchipelagos and lakes you do es you do not necessaryly",
+   "offsetMs": 110320,
+   "stable": 4
+  },
+  {
+   "t": 112839.6,
+   "text": "inthearchipelagos and lakes you do not necessarily need",
+   "offsetMs": 110880,
+   "stable": 4
+  },
+  {
+   "t": 113446.8,
+   "text": "inthearchipelagos and lakes you do not not necessarily need",
+   "offsetMs": 110880,
+   "stable": 5
+  },
+  {
+   "t": 113446.9,
+   "text": "inthearchipelagos and lakes you do not necessarily need a yacht",
+   "offsetMs": 111460,
+   "stable": 5
+  },
+  {
+   "t": 116840.0,
+   "text": "the aspectraio",
+   "offsetMs": 114832,
+   "stable": 0
+  },
+  {
+   "t": 117440.6,
+   "text": "the aspect ratio of this form",
+   "offsetMs": 115392,
+   "stable": 0
+  },
+  {
+   "t": 117944.5,
+   "text": "the the aspect ratio of this form",
+   "offsetMs": 115392,
+   "stable": 0
+  },
+  {
+   "t": 117944.6,
+   "text": "the aspect ratial of this formatdivie",
+   "offsetMs": 115972,
+   "stable": 0
+  },
+  {
+   "t": 118546.5,
+   "text": "the aspect ra aspect ratial of this formatdivie",
+   "offsetMs": 115972,
+   "stable": 2
+  },
+  {
+   "t": 118546.5,
+   "text": "the aspect ra tial of this format dividing by v",
+   "offsetMs": 116552,
+   "stable": 2
+  },
+  {
+   "t": 119146.1,
+   "text": "the aspect ratial of this tial of this format dividing by v",
+   "offsetMs": 116552,
+   "stable": 4
+  },
+  {
+   "t": 119146.2,
+   "text": "the aspect ratial of this format dividing by twelve to opta",
+   "offsetMs": 117132,
+   "stable": 4
+  },
+  {
+   "t": 119746.7,
+   "text": "the aspect ratial of this format d format dividing by twelve to opta",
+   "offsetMs": 117132,
+   "stable": 6
+  },
+  {
+   "t": 119746.7,
+   "text": "the aspect ratial of this format d ividing by twelve to obtain the simplest",
+   "offsetMs": 117712,
+   "stable": 6
+  },
+  {
+   "t": 120241.9,
+   "text": "the aspect ratial of this format dividing by ividing by twelve to obtain the simplest",
+   "offsetMs": 117712,
+   "stable": 7
+  },
+  {
+   "t": 120242.0,
+   "text": "the aspect ratial of this format dividing by twelve to obtain the simplest wholer",
+   "offsetMs": 118272,
+   "stable": 7
+  },
+  {
+   "t": 120841.6,
+   "text": "the aspect ratial of this format dividing by twelve to ob twelve to obtain the simplest wholer",
+   "offsetMs": 118272,
+   "stable": 10
+  },
+  {
+   "t": 120841.6,
+   "text": "the aspect ratial of this format dividing by twelve to ob tain the simplest whole number ratio",
+   "offsetMs": 118852,
+   "stable": 10
+  },
+  {
+   "t": 121441.7,
+   "text": "the aspect ratial of this format dividing by twelve to obtain the sim tain the simplest whole number ratio",
+   "offsetMs": 118852,
+   "stable": 12
+  },
+  {
+   "t": 121441.8,
+   "text": "the aspect ratial of this format dividing by twelve to obtain the sim plest whole number ratio",
+   "offsetMs": 119432,
+   "stable": 12
+  },
+  {
+   "t": 122046.2,
+   "text": "the aspect ratial of this format dividing by twelve to obtain the simplest whole plest whole number ratio",
+   "offsetMs": 119432,
+   "stable": 13
+  },
+  {
+   "t": 122046.4,
+   "text": "the aspect ratial of this format dividing by twelve to obtain the simplest whole number ratio is therefore said",
+   "offsetMs": 120012,
+   "stable": 13
+  },
+  {
+   "t": 122539.2,
+   "text": "the aspect ratial of this format dividing by twelve to obtain the simplest whole number rat number ratio is therefore said",
+   "offsetMs": 120012,
+   "stable": 15
+  },
+  {
+   "t": 122539.2,
+   "text": "the aspect ratial of this format dividing by twelve to obtain the simplest whole number rat io is therefore said to be three",
+   "offsetMs": 120592,
+   "stable": 15
+  },
+  {
+   "t": 123139.5,
+   "text": "the aspect ratial of this format dividing by twelve to obtain the simplest whole number ratio io is therefore said to be three",
+   "offsetMs": 120592,
+   "stable": 15
+  },
+  {
+   "t": 123139.6,
+   "text": "the aspect ratial of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two",
+   "offsetMs": 121152,
+   "stable": 15
+  },
+  {
+   "t": 125945.0,
+   "text": "is renownforbein",
+   "offsetMs": 123936,
+   "stable": 0
+  },
+  {
+   "t": 126544.8,
+   "text": "is renown for beingei",
+   "offsetMs": 124516,
+   "stable": 0
+  },
+  {
+   "t": 127147.7,
+   "text": "its re is renown for beingei",
+   "offsetMs": 124516,
+   "stable": 1
+  },
+  {
+   "t": 127147.7,
+   "text": "its re nown for being an epicentr of luxury",
+   "offsetMs": 125096,
+   "stable": 1
+  },
+  {
+   "t": 127648.5,
+   "text": "its renown for be nown for being an epicentr of luxury",
+   "offsetMs": 125096,
+   "stable": 3
+  },
+  {
+   "t": 127648.5,
+   "text": "its renown for be ing an epicentr of luxury",
+   "offsetMs": 125676,
+   "stable": 3
+  },
+  {
+   "t": 128238.9,
+   "text": "its renown for be ing an epicentr of luxury",
+   "offsetMs": 125676,
+   "stable": 3
+  },
+  {
+   "t": 128238.9,
+   "text": "its renown for be",
+   "offsetMs": 126256,
+   "stable": 3
+  },
+  {
+   "t": 128839.7,
+   "text": "its renown for be o",
+   "offsetMs": 126256,
+   "stable": 4
+  },
+  {
+   "t": 128839.8,
+   "text": "its renown for be o y",
+   "offsetMs": 126816,
+   "stable": 4
+  },
+  {
+   "t": 129439.4,
+   "text": "its renown for be o xury y",
+   "offsetMs": 126816,
+   "stable": 5
+  },
+  {
+   "t": 129439.5,
+   "text": "its renown for be o xury began in about",
+   "offsetMs": 127396,
+   "stable": 5
+  },
+  {
+   "t": 129946.0,
+   "text": "its renown for be o xury be began in about",
+   "offsetMs": 127396,
+   "stable": 6
+  },
+  {
+   "t": 129946.0,
+   "text": "its renown for be o xury be gan in about four hundre",
+   "offsetMs": 127976,
+   "stable": 6
+  },
+  {
+   "t": 130544.5,
+   "text": "its renown for be o xury bega i gan in about four hundre",
+   "offsetMs": 127976,
+   "stable": 7
+  },
+  {
+   "t": 130544.6,
+   "text": "its renown for be o xury bega i bforun",
+   "offsetMs": 128556,
+   "stable": 7
+  },
+  {
+   "t": 131145.7,
+   "text": "its renown for be o xury bega i fo bforun",
+   "offsetMs": 128556,
+   "stable": 8
+  },
+  {
+   "t": 131145.8,
+   "text": "its renown for be o xury bega i fo hue an",
+   "offsetMs": 129136,
+   "stable": 8
+  },
+  {
+   "t": 131746.7,
+   "text": "its renown for be o xury bega i for hundred hue an",
+   "offsetMs": 129136,
+   "stable": 9
+  },
+  {
+   "t": 131746.8,
+   "text": "its renown for be o xury bega i for hundred eigty and lasted up",
+   "offsetMs": 129696,
+   "stable": 9
+  },
+  {
+   "t": 132245.3,
+   "text": "its renown for be o xury bega i for hundred a eigty and lasted up",
+   "offsetMs": 129696,
+   "stable": 10
+  },
+  {
+   "t": 132245.4,
+   "text": "its renown for be o xury bega i for hundred a",
+   "offsetMs": 130276,
+   "stable": 10
+  },
+  {
+   "t": 132844.5,
+   "text": "its renown for be o xury bega i for hundred and lasted",
+   "offsetMs": 130276,
+   "stable": 11
+  },
+  {
+   "t": 132844.5,
+   "text": "its renown for be o xury bega i for hundred and lasted up until about",
+   "offsetMs": 130856,
+   "stable": 11
+  },
+  {
+   "t": 133443.5,
+   "text": "its renown for be o xury bega i for hundred and lasted up up until about",
+   "offsetMs": 130856,
+   "stable": 12
+  },
+  {
+   "t": 133443.6,
+   "text": "its renown for be o xury bega i for hundred and lasted up until about",
+   "offsetMs": 131436,
+   "stable": 12
+  },
+  {
+   "t": 134043.7,
+   "text": "its renown for be o xury bega i for hundred and lasted up unti until about",
+   "offsetMs": 131436,
+   "stable": 13
+  },
+  {
+   "t": 134043.8,
+   "text": "its renown for be o xury bega i for hundred and lasted up unti l about eleven hundred",
+   "offsetMs": 132016,
+   "stable": 13
+  },
+  {
+   "t": 134539.1,
+   "text": "its renown for be o xury bega i for hundred and lasted up until abo l about eleven hundred",
+   "offsetMs": 132016,
+   "stable": 14
+  },
+  {
+   "t": 134539.2,
+   "text": "its renown for be o xury bega i for hundred and lasted up until abo ut eleven hundred et",
+   "offsetMs": 132576,
+   "stable": 14
+  },
+  {
+   "t": 135139.0,
+   "text": "its renown for be o xury bega i for hundred and lasted up until about ut eleven hundred et",
+   "offsetMs": 132576,
+   "stable": 14
+  },
+  {
+   "t": 135139.1,
+   "text": "its renown for be o xury bega i for hundred and lasted up until about eleven hundred ad",
+   "offsetMs": 133156,
+   "stable": 14
+  },
+  {
+   "t": 141746.4,
+   "text": "march most",
+   "offsetMs": 139204,
+   "stable": 1
+  },
+  {
+   "t": 141746.5,
+   "text": "march most coronavirus based cancellation policy",
+   "offsetMs": 139784,
+   "stable": 1
+  },
+  {
+   "t": 142341.0,
+   "text": "march most coronavir coronavirus based cancellation policy",
+   "offsetMs": 139784,
+   "stable": 2
+  },
+  {
+   "t": 142341.1,
+   "text": "march most coronavir us based cancellation policies",
+   "offsetMs": 140364,
+   "stable": 2
+  },
+  {
+   "t": 142941.4,
+   "text": "march most coronavirus base ca us based cancellation policies",
+   "offsetMs": 140364,
+   "stable": 4
+  },
+  {
+   "t": 142941.5,
+   "text": "march most coronavirus base ca ncellation policies don't extend",
+   "offsetMs": 140944,
+   "stable": 4
+  },
+  {
+   "t": 143541.2,
+   "text": "march most coronavirus base cancellation p ncellation policies don't extend",
+   "offsetMs": 140944,
+   "stable": 5
+  },
+  {
+   "t": 143541.3,
+   "text": "march most coronavirus base cancellation p olicies don't extend to july",
+   "offsetMs": 141504,
+   "stable": 5
+  },
+  {
+   "t": 144046.5,
+   "text": "march most coronavirus base cancellation policies olicies don't extend to july",
+   "offsetMs": 141504,
+   "stable": 5
+  },
+  {
+   "t": 144046.6,
+   "text": "march most coronavirus base cancellation policies don't extend to july twenty twenty",
+   "offsetMs": 142084,
+   "stable": 5
+  },
+  {
+   "t": 144647.4,
+   "text": "march most coronavirus base cancellation policies don't e don't extend to july twenty twenty",
+   "offsetMs": 142084,
+   "stable": 7
+  },
+  {
+   "t": 144647.4,
+   "text": "march most coronavirus base cancellation policies don't e xtend to july eeen",
+   "offsetMs": 142664,
+   "stable": 7
+  },
+  {
+   "t": 150045.4,
+   "text": "ir",
+   "offsetMs": 147472,
+   "stable": 0
+  },
+  {
+   "t": 150045.5,
+   "text": "ir ttwo dry powrs gher ad",
+   "offsetMs": 148032,
+   "stable": 0
+  },
+  {
+   "t": 150643.5,
+   "text": "ir thetwo dry ttwo dry powrs gher ad",
+   "offsetMs": 148032,
+   "stable": 2
+  },
+  {
+   "t": 150643.6,
+   "text": "ir thetwo dry powers together and then",
+   "offsetMs": 148612,
+   "stable": 2
+  },
+  {
+   "t": 151145.7,
+   "text": "ir thetwo dry powers powers together and then",
+   "offsetMs": 148612,
+   "stable": 3
+  },
+  {
+   "t": 151145.8,
+   "text": "ir thetwo dry powers together and then with queenet",
+   "offsetMs": 149192,
+   "stable": 3
+  },
+  {
+   "t": 151740.3,
+   "text": "ir thetwo dry powers together and then with queenet",
+   "offsetMs": 149192,
+   "stable": 3
+  },
+  {
+   "t": 151740.4,
+   "text": "ir thetwo dry powers",
+   "offsetMs": 149772,
+   "stable": 3
+  },
+  {
+   "t": 152339.6,
+   "text": "ir thetwo dry powers te w",
+   "offsetMs": 149772,
+   "stable": 5
+  },
+  {
+   "t": 152339.7,
+   "text": "ir thetwo dry powers te w e e ha",
+   "offsetMs": 150352,
+   "stable": 5
+  },
+  {
+   "t": 152939.7,
+   "text": "ir thetwo dry powers te w e e ha",
+   "offsetMs": 150352,
+   "stable": 5
+  },
+  {
+   "t": 152939.8,
+   "text": "ir thetwo dry powers te w",
+   "offsetMs": 150912,
+   "stable": 5
+  },
+  {
+   "t": 153548.0,
+   "text": "ir thetwo dry powers te w t ha",
+   "offsetMs": 150912,
+   "stable": 7
+  },
+  {
+   "t": 153548.1,
+   "text": "ir thetwo dry powers te w t ha nds squeeze them into a ball",
+   "offsetMs": 151492,
+   "stable": 7
+  },
+  {
+   "t": 154046.1,
+   "text": "ir thetwo dry powers te w t hands nds squeeze them into a ball",
+   "offsetMs": 151492,
+   "stable": 7
+  },
+  {
+   "t": 154046.2,
+   "text": "ir thetwo dry powers te w t hands squeeze them into a ball",
+   "offsetMs": 152072,
+   "stable": 7
+  }
+ ],
+ "finals": [
+  {
+   "t": 5520.9,
+   "text": "social cats living in large groups called prides",
+   "offsetMs": 652,
+   "durationMs": 4782
+  },
+  {
+   "t": 10924.7,
+   "text": "in the warm climate of the middle east the house was not so important",
+   "offsetMs": 6316,
+   "durationMs": 4494
+  },
+  {
+   "t": 17518.4,
+   "text": "they are almost all sandy beaches with safe swimming and most have shade provided by",
+   "offsetMs": 11500,
+   "durationMs": 5934
+  },
+  {
+   "t": 19988.0,
+   "text": "pohican trees",
+   "offsetMs": 17548,
+   "durationMs": 2286
+  },
+  {
+   "t": 32564.5,
+   "text": "rides are made up of one on to three related adult mills along with on children may have experienced severe child abuse or trauma before being abandoned or running away",
+   "offsetMs": 26380,
+   "durationMs": 6126
+  },
+  {
+   "t": 38342.2,
+   "text": "bus for or three travers regularly to centra stopping at cabl dero",
+   "offsetMs": 33292,
+   "durationMs": 4974
+  },
+  {
+   "t": 45615.1,
+   "text": "to get the best views of hong kong leave the island and head for the co loon water front opposite",
+   "offsetMs": 39244,
+   "durationMs": 6318
+  },
+  {
+   "t": 50871.9,
+   "text": "accepted were aristotle's views on all matters of science including physiology",
+   "offsetMs": 46060,
+   "durationMs": 4782
+  },
+  {
+   "t": 54510.4,
+   "text": "australia's mitchel gallery",
+   "offsetMs": 51532,
+   "durationMs": 2862
+  },
+  {
+   "t": 59843.1,
+   "text": "i the eleventh in the men's standing supergch",
+   "offsetMs": 54432,
+   "durationMs": 5338
+  },
+  {
+   "t": 61939.2,
+   "text": "competitor ri",
+   "offsetMs": 59808,
+   "durationMs": 2074
+  },
+  {
+   "t": 66843.4,
+   "text": "jucklin fini enth in the men's sitting superg",
+   "offsetMs": 61920,
+   "durationMs": 4858
+  },
+  {
+   "t": 73598.1,
+   "text": "the is instart contracts to the rest of the country cities tecat is more of an arabic flaer than of an",
+   "offsetMs": 68908,
+   "durationMs": 4590
+  },
+  {
+   "t": 84722.5,
+   "text": "i upants were op all male applicants allowing the most ambitious and successful to succeed",
+   "offsetMs": 76032,
+   "durationMs": 8578
+  },
+  {
+   "t": 95268.9,
+   "text": "s on the principle that it takes e energy to put together a nucleus with many protons and neutron he did not set a figure for the clex saying they will be made",
+   "offsetMs": 93772,
+   "durationMs": 942
+  },
+  {
+   "t": 97244.3,
+   "text": "based on china's economic output",
+   "offsetMs": 95232,
+   "durationMs": 1978
+  },
+  {
+   "t": 102140.4,
+   "text": "there is no universal definition for which manufactured items are inte",
+   "offsetMs": 97708,
+   "durationMs": 4398
+  },
+  {
+   "t": 105596.3,
+   "text": "some tax agencies define goods older than a hundred years",
+   "offsetMs": 102144,
+   "durationMs": 3418
+  },
+  {
+   "t": 113949.0,
+   "text": "inthearchipelagos and lakes you do not necessarily need a yacht",
+   "offsetMs": 106540,
+   "durationMs": 7398
+  },
+  {
+   "t": 123441.4,
+   "text": "the aspect ratial of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two",
+   "offsetMs": 116236,
+   "durationMs": 7038
+  },
+  {
+   "t": 135238.3,
+   "text": "its renown for be o xury bega i for hundred and lasted up until about eleven hundred ad",
+   "offsetMs": 131650,
+   "durationMs": 3576
+  },
+  {
+   "t": 145156.8,
+   "text": "march most coronavirus base cancellation policies don't extend to july twenty twenty when the olympics",
+   "offsetMs": 140620,
+   "durationMs": 4494
+  },
+  {
+   "t": 154447.3,
+   "text": "ir thetwo dry powers te w t hands squeeze them into a ball",
+   "offsetMs": 147052,
+   "durationMs": 7310
+  }
+ ],
+ "pieces": [
+  {
+   "t": 5611.2,
+   "text": "lions are the most social cats living in large groups called prides",
+   "offsetMs": 652,
+   "durationMs": 4782
+  },
+  {
+   "t": 10939.4,
+   "text": "in the warm climate of the middle east the house was not so important",
+   "offsetMs": 6316,
+   "durationMs": 4494
+  },
+  {
+   "t": 17552.1,
+   "text": "they are almost all sandy beaches with safe swimming and most have shade provided by",
+   "offsetMs": 11500,
+   "durationMs": 5934
+  },
+  {
+   "t": 19982.1,
+   "text": "pothaigine trees",
+   "offsetMs": 17548,
+   "durationMs": 2286
+  },
+  {
+   "t": 32576.1,
+   "text": "faral children may have experience sovere child abuse or trauma before being abandoned or running away",
+   "offsetMs": 26380,
+   "durationMs": 6126
+  },
+  {
+   "t": 38367.2,
+   "text": "scotboard buzz four or three travers regularly to centra stopping at cabol de roca",
+   "offsetMs": 33292,
+   "durationMs": 4974
+  },
+  {
+   "t": 45630.9,
+   "text": "to get the best views of hong kong leave the island and head for the co loon water front opposite",
+   "offsetMs": 39244,
+   "durationMs": 6318
+  },
+  {
+   "t": 50895.8,
+   "text": "excepted were aristotle's views on all matters of science including physiology",
+   "offsetMs": 46060,
+   "durationMs": 4782
+  },
+  {
+   "t": 54502.7,
+   "text": "australia's micel galry",
+   "offsetMs": 51532,
+   "durationMs": 2862
+  },
+  {
+   "t": 59966.2,
+   "text": "finihed thlvth in the men' standing superg",
+   "offsetMs": 54432,
+   "durationMs": 5338
+  },
+  {
+   "t": 61964.5,
+   "text": "mpr orik",
+   "offsetMs": 59808,
+   "durationMs": 2074
+  },
+  {
+   "t": 66871.1,
+   "text": "jucklin finished sixteenth in the men's sittingueg",
+   "offsetMs": 61920,
+   "durationMs": 4858
+  },
+  {
+   "t": 73590.4,
+   "text": "r contracts to the rest of the country cities b it is more of an arabic flayer than of",
+   "offsetMs": 68908,
+   "durationMs": 4590
+  },
+  {
+   "t": 84726.9,
+   "text": "also after revolution occupants were open to all male applicants allowing the most ambitious and successful to succeed",
+   "offsetMs": 76032,
+   "durationMs": 8578
+  },
+  {
+   "t": 95279.4,
+   "text": "f e ck",
+   "offsetMs": 93772,
+   "durationMs": 942
+  },
+  {
+   "t": 97272.7,
+   "text": "basd on china's economic output",
+   "offsetMs": 95232,
+   "durationMs": 1978
+  },
+  {
+   "t": 102167.0,
+   "text": "there is no universal definition for which manufactured items are entique",
+   "offsetMs": 97708,
+   "durationMs": 4398
+  },
+  {
+   "t": 105587.0,
+   "text": "some tax agencies define goods older than a hundred years",
+   "offsetMs": 102144,
+   "durationMs": 3418
+  },
+  {
+   "t": 113985.8,
+   "text": "in the archipelagos and lakes you do not necessarily need a yacht",
+   "offsetMs": 106540,
+   "durationMs": 7398
+  },
+  {
+   "t": 123468.1,
+   "text": "ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two",
+   "offsetMs": 116236,
+   "durationMs": 7038
+  },
+  {
+   "t": 134317.6,
+   "text": "its renown for being an epicenter of luxury began in about four hundred eighty and lasted up",
+   "offsetMs": 124204,
+   "durationMs": 7446
+  },
+  {
+   "t": 145176.1,
+   "text": "consolation policies don't extend to july twenty twenty when the olympics",
+   "offsetMs": 140620,
+   "durationMs": 4494
+  },
+  {
+   "t": 154482.6,
+   "text": "swirl the two dry powers together and then with quean let hands squeeze them into a ball",
+   "offsetMs": 147052,
+   "durationMs": 7310
+  }
+ ],
+ "raw": [
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "lion",
+   "lang": "en",
+   "start_ms": 0,
+   "end_ms": 1824,
+   "t": 1851.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "li",
+   "lang": "en",
+   "start_ms": 400,
+   "end_ms": 2400,
+   "t": 2347.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "lions ae temos social c",
+   "lang": "en",
+   "start_ms": 960,
+   "end_ms": 2976,
+   "t": 2948.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 1540,
+   "end_ms": 3552,
+   "t": 3552.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "  ",
+   "lang": "en",
+   "start_ms": 1540,
+   "end_ms": 2120,
+   "end": false,
+   "t": 4158.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " social c",
+   "lang": "en",
+   "start_ms": 2120,
+   "end_ms": 2700,
+   "end": false,
+   "t": 4754.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ats living in large groups called",
+   "lang": "en",
+   "start_ms": 2700,
+   "end_ms": 4704,
+   "t": 4754.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ats li",
+   "lang": "en",
+   "start_ms": 2700,
+   "end_ms": 3280,
+   "end": false,
+   "t": 5258.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ving in large groups called prides",
+   "lang": "en",
+   "start_ms": 3280,
+   "end_ms": 5280,
+   "t": 5258.3
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 652,
+   "end_ms": 5434,
+   "t": 5403.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ving in large groups called prides",
+   "lang": "en",
+   "start_ms": 3280,
+   "end_ms": 5472,
+   "end": true,
+   "t": 5520.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 5472,
+   "end_ms": 5472,
+   "t": 5520.9
+  },
+  {
+   "type": "inputTranscript",
+   "text": "lions are the most social cats living in large groups called prides",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 652,
+   "end_ms": 5434,
+   "t": 5611.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "in the warm",
+   "lang": "en",
+   "start_ms": 5472,
+   "end_ms": 7488,
+   "t": 7470.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "in the warm climate of them",
+   "lang": "en",
+   "start_ms": 6052,
+   "end_ms": 8064,
+   "t": 8085.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "in the warm climate of the middle east",
+   "lang": "en",
+   "start_ms": 6632,
+   "end_ms": 8640,
+   "t": 8683.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "in the war",
+   "lang": "en",
+   "start_ms": 6632,
+   "end_ms": 7212,
+   "end": false,
+   "t": 9329.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "iate of the mie ea teoe",
+   "lang": "en",
+   "start_ms": 7212,
+   "end_ms": 9216,
+   "t": 9329.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "m climate ",
+   "lang": "en",
+   "start_ms": 7212,
+   "end_ms": 7792,
+   "end": false,
+   "t": 9782.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "of the middle east the house was not",
+   "lang": "en",
+   "start_ms": 7792,
+   "end_ms": 9792,
+   "t": 9782.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "of the middle ea",
+   "lang": "en",
+   "start_ms": 7792,
+   "end_ms": 8352,
+   "end": false,
+   "t": 10389.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "st the house was not so importan",
+   "lang": "en",
+   "start_ms": 8352,
+   "end_ms": 10368,
+   "t": 10389.8
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 6316,
+   "end_ms": 10810,
+   "t": 10803.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "st the house was not so important",
+   "lang": "en",
+   "start_ms": 8352,
+   "end_ms": 10848,
+   "end": true,
+   "t": 10924.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 10848,
+   "end_ms": 10848,
+   "t": 10924.7
+  },
+  {
+   "type": "inputTranscript",
+   "text": "in the warm climate of the middle east the house was not so important",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 6316,
+   "end_ms": 10810,
+   "t": 10939.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "they ar",
+   "lang": "en",
+   "start_ms": 11808,
+   "end_ms": 12388,
+   "end": false,
+   "t": 14380.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "e almost all sandy beaches with",
+   "lang": "en",
+   "start_ms": 12388,
+   "end_ms": 14400,
+   "t": 14380.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "e almost al",
+   "lang": "en",
+   "start_ms": 12388,
+   "end_ms": 12968,
+   "end": false,
+   "t": 14983.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "l sandy beaches with safe swimming",
+   "lang": "en",
+   "start_ms": 12968,
+   "end_ms": 14976,
+   "t": 14983.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "l sandy be",
+   "lang": "en",
+   "start_ms": 12968,
+   "end_ms": 13548,
+   "end": false,
+   "t": 15610.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "aches with safe swimming and most",
+   "lang": "en",
+   "start_ms": 13548,
+   "end_ms": 15552,
+   "t": 15610.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "aches wi",
+   "lang": "en",
+   "start_ms": 13548,
+   "end_ms": 14128,
+   "end": false,
+   "t": 16180.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "th safe swimming and most have shade",
+   "lang": "en",
+   "start_ms": 14128,
+   "end_ms": 16128,
+   "t": 16180.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "th safe sw",
+   "lang": "en",
+   "start_ms": 14128,
+   "end_ms": 14688,
+   "end": false,
+   "t": 16787.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "imming and most have shade provided",
+   "lang": "en",
+   "start_ms": 14688,
+   "end_ms": 16704,
+   "t": 16787.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "imming and ",
+   "lang": "en",
+   "start_ms": 14688,
+   "end_ms": 15268,
+   "end": false,
+   "t": 17282.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "most have shade provided by",
+   "lang": "en",
+   "start_ms": 15268,
+   "end_ms": 17280,
+   "t": 17282.9
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 11500,
+   "end_ms": 17434,
+   "t": 17403.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "most have shade provided by",
+   "lang": "en",
+   "start_ms": 15268,
+   "end_ms": 17472,
+   "end": true,
+   "t": 17518.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 17472,
+   "end_ms": 17472,
+   "t": 17518.5
+  },
+  {
+   "type": "inputTranscript",
+   "text": "they are almost all sandy beaches with safe swimming and most have shade provided by",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 11500,
+   "end_ms": 17434,
+   "t": 17552.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "o",
+   "lang": "en",
+   "start_ms": 17472,
+   "end_ms": 18720,
+   "t": 18779.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "pohican trees",
+   "lang": "en",
+   "start_ms": 17472,
+   "end_ms": 19296,
+   "t": 19287.3
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 17548,
+   "end_ms": 19834,
+   "t": 19802.9
+  },
+  {
+   "type": "inputTranscript",
+   "text": "pothaigine trees",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 17548,
+   "end_ms": 19834,
+   "t": 19982.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "pohican trees",
+   "lang": "en",
+   "start_ms": 17872,
+   "end_ms": 19872,
+   "end": true,
+   "t": 19988.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 19872,
+   "end_ms": 19872,
+   "t": 19988.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "rides are ",
+   "lang": "en",
+   "start_ms": 19872,
+   "end_ms": 21892,
+   "end": false,
+   "t": 23957.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "made up of one t three related",
+   "lang": "en",
+   "start_ms": 21892,
+   "end_ms": 23904,
+   "t": 23957.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "made up of one on to three related ",
+   "lang": "en",
+   "start_ms": 21892,
+   "end_ms": 23912,
+   "end": false,
+   "t": 25947.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "adult mills along with oen",
+   "lang": "en",
+   "start_ms": 23912,
+   "end_ms": 25920,
+   "t": 25947.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "adult mills along wi",
+   "lang": "en",
+   "start_ms": 23912,
+   "end_ms": 24972,
+   "end": false,
+   "t": 26957.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "th",
+   "lang": "en",
+   "start_ms": 24972,
+   "end_ms": 26976,
+   "t": 26958.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "th on",
+   "lang": "en",
+   "start_ms": 24972,
+   "end_ms": 25552,
+   "end": false,
+   "t": 27539.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "arlhilden",
+   "lang": "en",
+   "start_ms": 25552,
+   "end_ms": 27552,
+   "t": 27539.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "faral children may have",
+   "lang": "en",
+   "start_ms": 26112,
+   "end_ms": 28128,
+   "t": 28139.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "faral children may have experience",
+   "lang": "en",
+   "start_ms": 26692,
+   "end_ms": 28704,
+   "t": 28740.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " ",
+   "lang": "en",
+   "start_ms": 26692,
+   "end_ms": 27272,
+   "end": false,
+   "t": 29244.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "a",
+   "lang": "en",
+   "start_ms": 27272,
+   "end_ms": 29280,
+   "t": 29244.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "children may ",
+   "lang": "en",
+   "start_ms": 27272,
+   "end_ms": 27852,
+   "end": false,
+   "t": 29843.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "have experienced severe child abuse or",
+   "lang": "en",
+   "start_ms": 27852,
+   "end_ms": 29856,
+   "t": 29843.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "have experie",
+   "lang": "en",
+   "start_ms": 27852,
+   "end_ms": 28432,
+   "end": false,
+   "t": 30444.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "nce sovere child abuse or tromab",
+   "lang": "en",
+   "start_ms": 28432,
+   "end_ms": 30432,
+   "t": 30444.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "nced severe ",
+   "lang": "en",
+   "start_ms": 28432,
+   "end_ms": 28992,
+   "end": false,
+   "t": 31043.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "child abuse or trauma before being",
+   "lang": "en",
+   "start_ms": 28992,
+   "end_ms": 31008,
+   "t": 31043.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "child abu",
+   "lang": "en",
+   "start_ms": 28992,
+   "end_ms": 29572,
+   "end": false,
+   "t": 31543.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "se or trauma before being abandoned",
+   "lang": "en",
+   "start_ms": 29572,
+   "end_ms": 31584,
+   "t": 31543.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "se or traum",
+   "lang": "en",
+   "start_ms": 29572,
+   "end_ms": 30152,
+   "end": false,
+   "t": 32138.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "a before being abandoned or running away",
+   "lang": "en",
+   "start_ms": 30152,
+   "end_ms": 32160,
+   "t": 32138.5
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 26380,
+   "end_ms": 32506,
+   "t": 32502.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "a before being abandoned or running away",
+   "lang": "en",
+   "start_ms": 30152,
+   "end_ms": 32544,
+   "end": true,
+   "t": 32564.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 32544,
+   "end_ms": 32544,
+   "t": 32564.5
+  },
+  {
+   "type": "inputTranscript",
+   "text": "faral children may have experience sovere child abuse or trauma before being abandoned or running away",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 26380,
+   "end_ms": 32506,
+   "t": 32576.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " bus for or",
+   "lang": "en",
+   "start_ms": 34184,
+   "end_ms": 34764,
+   "end": false,
+   "t": 36739.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "three travers regularledstrs",
+   "lang": "en",
+   "start_ms": 34764,
+   "end_ms": 36768,
+   "t": 36739.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " three traver",
+   "lang": "en",
+   "start_ms": 34764,
+   "end_ms": 35344,
+   "end": false,
+   "t": 37339.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s regularly to centra stopping at",
+   "lang": "en",
+   "start_ms": 35344,
+   "end_ms": 37344,
+   "t": 37339.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s regularl",
+   "lang": "en",
+   "start_ms": 35344,
+   "end_ms": 35904,
+   "end": false,
+   "t": 37939.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "y to centra stopping atb",
+   "lang": "en",
+   "start_ms": 35904,
+   "end_ms": 37920,
+   "t": 37939.6
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 33292,
+   "end_ms": 38266,
+   "t": 38304.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "y to centra stopping at cabl dero",
+   "lang": "en",
+   "start_ms": 35904,
+   "end_ms": 38304,
+   "end": true,
+   "t": 38342.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 38304,
+   "end_ms": 38304,
+   "t": 38342.3
+  },
+  {
+   "type": "inputTranscript",
+   "text": "scotboard buzz four or three travers regularly to centra stopping at cabol de roca",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 33292,
+   "end_ms": 38266,
+   "t": 38367.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "to get the best",
+   "lang": "en",
+   "start_ms": 38404,
+   "end_ms": 40416,
+   "t": 40462.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "to get the best viewsof",
+   "lang": "en",
+   "start_ms": 38984,
+   "end_ms": 40992,
+   "t": 40939.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "to get the best views of hong kong",
+   "lang": "en",
+   "start_ms": 39564,
+   "end_ms": 41568,
+   "t": 41539.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "to get the ",
+   "lang": "en",
+   "start_ms": 39564,
+   "end_ms": 40144,
+   "end": false,
+   "t": 42139.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "best views of hong kong leave",
+   "lang": "en",
+   "start_ms": 40144,
+   "end_ms": 42144,
+   "t": 42139.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "best view",
+   "lang": "en",
+   "start_ms": 40144,
+   "end_ms": 40704,
+   "end": false,
+   "t": 42746.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "s of hong kong leave the island",
+   "lang": "en",
+   "start_ms": 40704,
+   "end_ms": 42720,
+   "t": 42746.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s of hong k",
+   "lang": "en",
+   "start_ms": 40704,
+   "end_ms": 41284,
+   "end": false,
+   "t": 43244.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ong leave the island and head for the",
+   "lang": "en",
+   "start_ms": 41284,
+   "end_ms": 43296,
+   "t": 43244.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ong le",
+   "lang": "en",
+   "start_ms": 41284,
+   "end_ms": 41864,
+   "end": false,
+   "t": 43844.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ave the island and head for the coloon",
+   "lang": "en",
+   "start_ms": 41864,
+   "end_ms": 43872,
+   "t": 43844.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ave the islan",
+   "lang": "en",
+   "start_ms": 41864,
+   "end_ms": 42444,
+   "end": false,
+   "t": 44445.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "d and head for the co loon water",
+   "lang": "en",
+   "start_ms": 42444,
+   "end_ms": 44448,
+   "t": 44445.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "d and head for",
+   "lang": "en",
+   "start_ms": 42444,
+   "end_ms": 43024,
+   "end": false,
+   "t": 45046.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "the co loon water frontopposi",
+   "lang": "en",
+   "start_ms": 43024,
+   "end_ms": 45024,
+   "t": 45046.3
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 39244,
+   "end_ms": 45562,
+   "t": 45503.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " the co l",
+   "lang": "en",
+   "start_ms": 43024,
+   "end_ms": 43584,
+   "end": false,
+   "t": 45549.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "oon water front opposite",
+   "lang": "en",
+   "start_ms": 43584,
+   "end_ms": 45600,
+   "t": 45549.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "oon water front opposite",
+   "lang": "en",
+   "start_ms": 43584,
+   "end_ms": 45600,
+   "end": true,
+   "t": 45615.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 45600,
+   "end_ms": 45600,
+   "t": 45615.1
+  },
+  {
+   "type": "inputTranscript",
+   "text": "to get the best views of hong kong leave the island and head for the co loon water front opposite",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 39244,
+   "end_ms": 45562,
+   "t": 45630.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "xepted",
+   "lang": "en",
+   "start_ms": 45600,
+   "end_ms": 47232,
+   "t": 47237.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "excepted were aristotles",
+   "lang": "en",
+   "start_ms": 45800,
+   "end_ms": 47808,
+   "t": 47837.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "accepted were aristotle's views on",
+   "lang": "en",
+   "start_ms": 46380,
+   "end_ms": 48384,
+   "t": 48345.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "accept",
+   "lang": "en",
+   "start_ms": 46380,
+   "end_ms": 46960,
+   "end": false,
+   "t": 48944.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ed were aristotle's views on all matters",
+   "lang": "en",
+   "start_ms": 46960,
+   "end_ms": 48960,
+   "t": 48944.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ed were aris",
+   "lang": "en",
+   "start_ms": 46960,
+   "end_ms": 47520,
+   "end": false,
+   "t": 49544.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "totle's views on all matters of science",
+   "lang": "en",
+   "start_ms": 47520,
+   "end_ms": 49536,
+   "t": 49545.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "totle's views",
+   "lang": "en",
+   "start_ms": 47520,
+   "end_ms": 48100,
+   "end": false,
+   "t": 50146.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "on all matters of science including",
+   "lang": "en",
+   "start_ms": 48100,
+   "end_ms": 50112,
+   "t": 50146.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " on all ma",
+   "lang": "en",
+   "start_ms": 48100,
+   "end_ms": 48680,
+   "end": false,
+   "t": 50646.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "tters of science including physiology",
+   "lang": "en",
+   "start_ms": 48680,
+   "end_ms": 50688,
+   "t": 50646.5
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 46060,
+   "end_ms": 50842,
+   "t": 50802.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "tters of science including physiology",
+   "lang": "en",
+   "start_ms": 48680,
+   "end_ms": 50880,
+   "end": true,
+   "t": 50871.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 50880,
+   "end_ms": 50880,
+   "t": 50872.0
+  },
+  {
+   "type": "inputTranscript",
+   "text": "excepted were aristotle's views on all matters of science including physiology",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 46060,
+   "end_ms": 50842,
+   "t": 50895.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "australia'smil",
+   "lang": "en",
+   "start_ms": 51280,
+   "end_ms": 53280,
+   "t": 53246.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "australia's mitchelga",
+   "lang": "en",
+   "start_ms": 51840,
+   "end_ms": 53856,
+   "t": 53844.0
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 51532,
+   "end_ms": 54394,
+   "t": 54404.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "aus",
+   "lang": "en",
+   "start_ms": 51840,
+   "end_ms": 52420,
+   "end": false,
+   "t": 54446.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "tralia's mitchel gallery",
+   "lang": "en",
+   "start_ms": 52420,
+   "end_ms": 54432,
+   "t": 54446.0
+  },
+  {
+   "type": "inputTranscript",
+   "text": "australia's micel galry",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 51532,
+   "end_ms": 54394,
+   "t": 54502.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "tralia's mitchel gallery",
+   "lang": "en",
+   "start_ms": 52420,
+   "end_ms": 54432,
+   "end": true,
+   "t": 54510.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 54432,
+   "end_ms": 54432,
+   "t": 54510.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "finished theeleventh",
+   "lang": "en",
+   "start_ms": 54432,
+   "end_ms": 56160,
+   "t": 56138.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "finished the eleventh in the men",
+   "lang": "en",
+   "start_ms": 54732,
+   "end_ms": 56736,
+   "t": 56747.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "i",
+   "lang": "en",
+   "start_ms": 54732,
+   "end_ms": 55312,
+   "end": false,
+   "t": 57345.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "th in ta",
+   "lang": "en",
+   "start_ms": 55312,
+   "end_ms": 57312,
+   "t": 57346.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " the eleven",
+   "lang": "en",
+   "start_ms": 55312,
+   "end_ms": 55872,
+   "end": false,
+   "t": 57846.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "th in the man's standing",
+   "lang": "en",
+   "start_ms": 55872,
+   "end_ms": 57888,
+   "t": 57846.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "th in the m",
+   "lang": "en",
+   "start_ms": 55872,
+   "end_ms": 56452,
+   "end": false,
+   "t": 58444.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "an's standing",
+   "lang": "en",
+   "start_ms": 56452,
+   "end_ms": 58464,
+   "t": 58444.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "en's ",
+   "lang": "en",
+   "start_ms": 56452,
+   "end_ms": 57032,
+   "end": false,
+   "t": 59043.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "standing superg",
+   "lang": "en",
+   "start_ms": 57032,
+   "end_ms": 59040,
+   "t": 59043.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "standin",
+   "lang": "en",
+   "start_ms": 57032,
+   "end_ms": 57612,
+   "end": false,
+   "t": 59644.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "g superg",
+   "lang": "en",
+   "start_ms": 57612,
+   "end_ms": 59616,
+   "t": 59644.3
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 54432,
+   "end_ms": 59770,
+   "t": 59802.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "g supergch",
+   "lang": "en",
+   "start_ms": 57612,
+   "end_ms": 59808,
+   "end": true,
+   "t": 59843.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 59808,
+   "end_ms": 59808,
+   "t": 59843.2
+  },
+  {
+   "type": "inputTranscript",
+   "text": "finihed thlvth in the men' standing superg",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 54432,
+   "end_ms": 59770,
+   "t": 59966.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "competitor",
+   "lang": "en",
+   "start_ms": 59808,
+   "end_ms": 60384,
+   "t": 60337.0
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 59808,
+   "end_ms": 61882,
+   "t": 61903.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "competitor ri",
+   "lang": "en",
+   "start_ms": 59808,
+   "end_ms": 61920,
+   "end": true,
+   "t": 61939.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 61920,
+   "end_ms": 61920,
+   "t": 61939.3
+  },
+  {
+   "type": "inputTranscript",
+   "text": "mpr orik",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 59808,
+   "end_ms": 61882,
+   "t": 61964.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "jucklin",
+   "lang": "en",
+   "start_ms": 61920,
+   "end_ms": 63072,
+   "t": 63038.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "jukln",
+   "lang": "en",
+   "start_ms": 61920,
+   "end_ms": 63648,
+   "t": 63638.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "j",
+   "lang": "en",
+   "start_ms": 61920,
+   "end_ms": 62220,
+   "end": false,
+   "t": 64239.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ucklin finishedh",
+   "lang": "en",
+   "start_ms": 62220,
+   "end_ms": 64224,
+   "t": 64239.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ucklin ",
+   "lang": "en",
+   "start_ms": 62220,
+   "end_ms": 62800,
+   "end": false,
+   "t": 64741.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "finished sixteenth in the men",
+   "lang": "en",
+   "start_ms": 62800,
+   "end_ms": 64800,
+   "t": 64741.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "fini",
+   "lang": "en",
+   "start_ms": 62800,
+   "end_ms": 63360,
+   "end": false,
+   "t": 65339.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "shed sixteenth in the men's",
+   "lang": "en",
+   "start_ms": 63360,
+   "end_ms": 65376,
+   "t": 65339.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " ",
+   "lang": "en",
+   "start_ms": 63360,
+   "end_ms": 63940,
+   "end": false,
+   "t": 65946.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "h in the men g",
+   "lang": "en",
+   "start_ms": 63940,
+   "end_ms": 65952,
+   "t": 65946.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "enth in ",
+   "lang": "en",
+   "start_ms": 63940,
+   "end_ms": 64520,
+   "end": false,
+   "t": 66543.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "the men's sitting supeg",
+   "lang": "en",
+   "start_ms": 64520,
+   "end_ms": 66528,
+   "t": 66543.3
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 61920,
+   "end_ms": 66778,
+   "t": 66803.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "the men's sitting superg",
+   "lang": "en",
+   "start_ms": 64520,
+   "end_ms": 66816,
+   "end": true,
+   "t": 66843.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 66816,
+   "end_ms": 66816,
+   "t": 66843.5
+  },
+  {
+   "type": "inputTranscript",
+   "text": "jucklin finished sixteenth in the men's sittingueg",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 61920,
+   "end_ms": 66778,
+   "t": 66871.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "the cities instart contract",
+   "lang": "en",
+   "start_ms": 67496,
+   "end_ms": 69504,
+   "t": 69555.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "the citis in start contracts to the res",
+   "lang": "en",
+   "start_ms": 68076,
+   "end_ms": 70080,
+   "t": 70039.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "the ",
+   "lang": "en",
+   "start_ms": 68076,
+   "end_ms": 68656,
+   "end": false,
+   "t": 70639.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "i ina ontratotherest ofthe cnt",
+   "lang": "en",
+   "start_ms": 68656,
+   "end_ms": 70656,
+   "t": 70639.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "is instart co",
+   "lang": "en",
+   "start_ms": 68656,
+   "end_ms": 69216,
+   "end": false,
+   "t": 71239.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ntracts to the rest of the country cities",
+   "lang": "en",
+   "start_ms": 69216,
+   "end_ms": 71232,
+   "t": 71239.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ntracts to the re",
+   "lang": "en",
+   "start_ms": 69216,
+   "end_ms": 69796,
+   "end": false,
+   "t": 71839.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "st of the country citiesis more of a",
+   "lang": "en",
+   "start_ms": 69796,
+   "end_ms": 71808,
+   "t": 71839.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "st of the country",
+   "lang": "en",
+   "start_ms": 69796,
+   "end_ms": 70376,
+   "end": false,
+   "t": 72339.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "cities thecit is more of an arabic",
+   "lang": "en",
+   "start_ms": 70376,
+   "end_ms": 72384,
+   "t": 72339.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " cities teca",
+   "lang": "en",
+   "start_ms": 70376,
+   "end_ms": 70956,
+   "end": false,
+   "t": 72939.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "t is more of an arabic flarer than",
+   "lang": "en",
+   "start_ms": 70956,
+   "end_ms": 72960,
+   "t": 72939.3
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 68908,
+   "end_ms": 73498,
+   "t": 73503.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "t is more of ",
+   "lang": "en",
+   "start_ms": 70956,
+   "end_ms": 71536,
+   "end": false,
+   "t": 73549.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "an arabic flayer than of an",
+   "lang": "en",
+   "start_ms": 71536,
+   "end_ms": 73536,
+   "t": 73549.8
+  },
+  {
+   "type": "inputTranscript",
+   "text": "r contracts to the rest of the country cities b it is more of an arabic flayer than of",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 68908,
+   "end_ms": 73498,
+   "t": 73590.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "an arabic flaer than of an",
+   "lang": "en",
+   "start_ms": 71536,
+   "end_ms": 73536,
+   "end": true,
+   "t": 73598.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 73536,
+   "end_ms": 73536,
+   "t": 73598.2
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 74476,
+   "end_ms": 75514,
+   "t": 76002.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 73636,
+   "end_ms": 76032,
+   "end": true,
+   "t": 76067.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "a",
+   "lang": "en",
+   "start_ms": 76032,
+   "end_ms": 77184,
+   "t": 77136.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "alo after revolution",
+   "lang": "en",
+   "start_ms": 76032,
+   "end_ms": 77760,
+   "t": 77738.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "aoafter revolution",
+   "lang": "en",
+   "start_ms": 76332,
+   "end_ms": 78336,
+   "t": 78346.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 76912,
+   "end_ms": 78912,
+   "t": 78943.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "i ",
+   "lang": "en",
+   "start_ms": 77472,
+   "end_ms": 78052,
+   "end": false,
+   "t": 80043.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "pall",
+   "lang": "en",
+   "start_ms": 78052,
+   "end_ms": 80064,
+   "t": 80043.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "upants were ",
+   "lang": "en",
+   "start_ms": 78052,
+   "end_ms": 78632,
+   "end": false,
+   "t": 80644.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "opend to all male applicants",
+   "lang": "en",
+   "start_ms": 78632,
+   "end_ms": 80640,
+   "t": 80644.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "op a",
+   "lang": "en",
+   "start_ms": 78632,
+   "end_ms": 79212,
+   "end": false,
+   "t": 81245.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ll mal applct w",
+   "lang": "en",
+   "start_ms": 79212,
+   "end_ms": 81216,
+   "t": 81245.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ll male a",
+   "lang": "en",
+   "start_ms": 79212,
+   "end_ms": 79792,
+   "end": false,
+   "t": 81744.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "pplicants allowing the most",
+   "lang": "en",
+   "start_ms": 79792,
+   "end_ms": 81792,
+   "t": 81744.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "pplicants ",
+   "lang": "en",
+   "start_ms": 79792,
+   "end_ms": 80352,
+   "end": false,
+   "t": 82344.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "allowing the most ambitious",
+   "lang": "en",
+   "start_ms": 80352,
+   "end_ms": 82368,
+   "t": 82344.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "allo",
+   "lang": "en",
+   "start_ms": 80352,
+   "end_ms": 80932,
+   "end": false,
+   "t": 82946.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "wing the most ambitious and success",
+   "lang": "en",
+   "start_ms": 80932,
+   "end_ms": 82944,
+   "t": 82947.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "wing the mos",
+   "lang": "en",
+   "start_ms": 80932,
+   "end_ms": 81512,
+   "end": false,
+   "t": 83545.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "t ambitious and successful to",
+   "lang": "en",
+   "start_ms": 81512,
+   "end_ms": 83520,
+   "t": 83546.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "t ambiti",
+   "lang": "en",
+   "start_ms": 81512,
+   "end_ms": 82092,
+   "end": false,
+   "t": 84045.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ous and successful to succeed",
+   "lang": "en",
+   "start_ms": 82092,
+   "end_ms": 84096,
+   "t": 84045.7
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 76032,
+   "end_ms": 84610,
+   "t": 84603.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ous and suc",
+   "lang": "en",
+   "start_ms": 82092,
+   "end_ms": 82672,
+   "end": false,
+   "t": 84648.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "cessful to succeed",
+   "lang": "en",
+   "start_ms": 82672,
+   "end_ms": 84672,
+   "t": 84648.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "cessful to succeed",
+   "lang": "en",
+   "start_ms": 82672,
+   "end_ms": 84672,
+   "end": true,
+   "t": 84722.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 84672,
+   "end_ms": 84672,
+   "t": 84722.6
+  },
+  {
+   "type": "inputTranscript",
+   "text": "also after revolution occupants were open to all male applicants allowing the most ambitious and successful to succeed",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 76032,
+   "end_ms": 84610,
+   "t": 84726.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "s on the principle that it takes e energy to put to",
+   "lang": "en",
+   "start_ms": 86692,
+   "end_ms": 88712,
+   "end": false,
+   "t": 90748.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "gether a nucleus with many protons",
+   "lang": "en",
+   "start_ms": 88712,
+   "end_ms": 90720,
+   "t": 90748.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "gether a nucleus with many protons an",
+   "lang": "en",
+   "start_ms": 88712,
+   "end_ms": 90732,
+   "end": false,
+   "t": 92748.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "d neutrons",
+   "lang": "en",
+   "start_ms": 90732,
+   "end_ms": 92736,
+   "t": 92748.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "d neutron ",
+   "lang": "en",
+   "start_ms": 90732,
+   "end_ms": 92352,
+   "end": false,
+   "t": 94354.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "he did not set a figure for the",
+   "lang": "en",
+   "start_ms": 92352,
+   "end_ms": 94368,
+   "t": 94354.4
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 93772,
+   "end_ms": 94714,
+   "t": 95203.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "he did not set a figure for the clex saying they will be made",
+   "lang": "en",
+   "start_ms": 92352,
+   "end_ms": 95232,
+   "end": true,
+   "t": 95268.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 95232,
+   "end_ms": 95232,
+   "t": 95269.0
+  },
+  {
+   "type": "inputTranscript",
+   "text": "f e ck",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 93772,
+   "end_ms": 94714,
+   "t": 95279.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "base",
+   "lang": "en",
+   "start_ms": 95232,
+   "end_ms": 95808,
+   "t": 95843.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "based on china's",
+   "lang": "en",
+   "start_ms": 95232,
+   "end_ms": 96384,
+   "t": 96344.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "based on china's economic",
+   "lang": "en",
+   "start_ms": 95232,
+   "end_ms": 96960,
+   "t": 96943.6
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 95232,
+   "end_ms": 97210,
+   "t": 97202.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "based on china's economic output",
+   "lang": "en",
+   "start_ms": 95232,
+   "end_ms": 97248,
+   "end": true,
+   "t": 97244.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 97248,
+   "end_ms": 97248,
+   "t": 97244.3
+  },
+  {
+   "type": "inputTranscript",
+   "text": "basd on china's economic output",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 95232,
+   "end_ms": 97210,
+   "t": 97272.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "there isno",
+   "lang": "en",
+   "start_ms": 97248,
+   "end_ms": 98880,
+   "t": 98844.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "there is no universal",
+   "lang": "en",
+   "start_ms": 97448,
+   "end_ms": 99456,
+   "t": 99444.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "there is no universal definition",
+   "lang": "en",
+   "start_ms": 98028,
+   "end_ms": 100032,
+   "t": 100045.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "there is no",
+   "lang": "en",
+   "start_ms": 98028,
+   "end_ms": 98608,
+   "end": false,
+   "t": 100646.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "universal definition for whicha",
+   "lang": "en",
+   "start_ms": 98608,
+   "end_ms": 100608,
+   "t": 100646.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " universa",
+   "lang": "en",
+   "start_ms": 98608,
+   "end_ms": 99168,
+   "end": false,
+   "t": 101140.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "l definition for which manufactured items",
+   "lang": "en",
+   "start_ms": 99168,
+   "end_ms": 101184,
+   "t": 101140.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "l definition",
+   "lang": "en",
+   "start_ms": 99168,
+   "end_ms": 99748,
+   "end": false,
+   "t": 101739.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "for which manufactured items are intique",
+   "lang": "en",
+   "start_ms": 99748,
+   "end_ms": 101760,
+   "t": 101739.7
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 97708,
+   "end_ms": 102106,
+   "t": 102102.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " for which manufactured items are inte",
+   "lang": "en",
+   "start_ms": 99748,
+   "end_ms": 102144,
+   "end": true,
+   "t": 102140.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 102144,
+   "end_ms": 102144,
+   "t": 102140.5
+  },
+  {
+   "type": "inputTranscript",
+   "text": "there is no universal definition for which manufactured items are entique",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 97708,
+   "end_ms": 102106,
+   "t": 102167.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "some",
+   "lang": "en",
+   "start_ms": 102144,
+   "end_ms": 102720,
+   "t": 102743.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "some tax agencyes",
+   "lang": "en",
+   "start_ms": 102144,
+   "end_ms": 103296,
+   "t": 103241.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "some tax agencies define",
+   "lang": "en",
+   "start_ms": 102144,
+   "end_ms": 103872,
+   "t": 103847.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "some",
+   "lang": "en",
+   "start_ms": 102144,
+   "end_ms": 102444,
+   "end": false,
+   "t": 104439.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "tax agencies define goods oldera",
+   "lang": "en",
+   "start_ms": 102444,
+   "end_ms": 104448,
+   "t": 104439.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " tax ag",
+   "lang": "en",
+   "start_ms": 102444,
+   "end_ms": 103024,
+   "end": false,
+   "t": 105039.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "encies define goods older than a hundred",
+   "lang": "en",
+   "start_ms": 103024,
+   "end_ms": 105024,
+   "t": 105039.2
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 102144,
+   "end_ms": 105562,
+   "t": 105504.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "encies defi",
+   "lang": "en",
+   "start_ms": 103024,
+   "end_ms": 103584,
+   "end": false,
+   "t": 105550.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ne goods older than a hundred years",
+   "lang": "en",
+   "start_ms": 103584,
+   "end_ms": 105600,
+   "t": 105550.8
+  },
+  {
+   "type": "inputTranscript",
+   "text": "some tax agencies define goods older than a hundred years",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 102144,
+   "end_ms": 105562,
+   "t": 105587.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ne goods older than a hundred years",
+   "lang": "en",
+   "start_ms": 103584,
+   "end_ms": 105600,
+   "end": true,
+   "t": 105596.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 105600,
+   "end_ms": 105600,
+   "t": 105596.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "in the",
+   "lang": "en",
+   "start_ms": 106280,
+   "end_ms": 108288,
+   "t": 108239.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ieil",
+   "lang": "en",
+   "start_ms": 106860,
+   "end_ms": 108864,
+   "t": 108839.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "iehi",
+   "lang": "en",
+   "start_ms": 107440,
+   "end_ms": 109440,
+   "t": 109446.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "inthea",
+   "lang": "en",
+   "start_ms": 107440,
+   "end_ms": 108000,
+   "end": false,
+   "t": 110047.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "rchipela go",
+   "lang": "en",
+   "start_ms": 108000,
+   "end_ms": 110016,
+   "t": 110047.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "rchipel",
+   "lang": "en",
+   "start_ms": 108000,
+   "end_ms": 108580,
+   "end": false,
+   "t": 110547.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "agos and lakes",
+   "lang": "en",
+   "start_ms": 108580,
+   "end_ms": 110592,
+   "t": 110547.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "a",
+   "lang": "en",
+   "start_ms": 108580,
+   "end_ms": 109160,
+   "end": false,
+   "t": 111144.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "gos and lakeso",
+   "lang": "en",
+   "start_ms": 109160,
+   "end_ms": 111168,
+   "t": 111144.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "gos ",
+   "lang": "en",
+   "start_ms": 109160,
+   "end_ms": 109740,
+   "end": false,
+   "t": 111739.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "and lakes you do not",
+   "lang": "en",
+   "start_ms": 109740,
+   "end_ms": 111744,
+   "t": 111739.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "and lak",
+   "lang": "en",
+   "start_ms": 109740,
+   "end_ms": 110320,
+   "end": false,
+   "t": 112339.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "es you do not necessaryly",
+   "lang": "en",
+   "start_ms": 110320,
+   "end_ms": 112320,
+   "t": 112339.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "es you do",
+   "lang": "en",
+   "start_ms": 110320,
+   "end_ms": 110880,
+   "end": false,
+   "t": 112839.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "not necessarily need",
+   "lang": "en",
+   "start_ms": 110880,
+   "end_ms": 112896,
+   "t": 112839.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " not ",
+   "lang": "en",
+   "start_ms": 110880,
+   "end_ms": 111460,
+   "end": false,
+   "t": 113446.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "necessarily need a yacht",
+   "lang": "en",
+   "start_ms": 111460,
+   "end_ms": 113472,
+   "t": 113446.9
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 106540,
+   "end_ms": 113938,
+   "t": 113903.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "necessarily need a yacht",
+   "lang": "en",
+   "start_ms": 111460,
+   "end_ms": 113952,
+   "end": true,
+   "t": 113949.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 113952,
+   "end_ms": 113952,
+   "t": 113949.0
+  },
+  {
+   "type": "inputTranscript",
+   "text": "in the archipelagos and lakes you do not necessarily need a yacht",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 106540,
+   "end_ms": 113938,
+   "t": 113985.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "the aspectraio",
+   "lang": "en",
+   "start_ms": 114832,
+   "end_ms": 116832,
+   "t": 116840.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "the aspect ratio of this form",
+   "lang": "en",
+   "start_ms": 115392,
+   "end_ms": 117408,
+   "t": 117440.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "the",
+   "lang": "en",
+   "start_ms": 115392,
+   "end_ms": 115972,
+   "end": false,
+   "t": 117944.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "aspect ratial of this formatdivie",
+   "lang": "en",
+   "start_ms": 115972,
+   "end_ms": 117984,
+   "t": 117944.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " aspect ra",
+   "lang": "en",
+   "start_ms": 115972,
+   "end_ms": 116552,
+   "end": false,
+   "t": 118546.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "tial of this format dividing by v",
+   "lang": "en",
+   "start_ms": 116552,
+   "end_ms": 118560,
+   "t": 118546.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "tial of this ",
+   "lang": "en",
+   "start_ms": 116552,
+   "end_ms": 117132,
+   "end": false,
+   "t": 119146.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "format dividing by twelve to opta",
+   "lang": "en",
+   "start_ms": 117132,
+   "end_ms": 119136,
+   "t": 119146.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "format d",
+   "lang": "en",
+   "start_ms": 117132,
+   "end_ms": 117712,
+   "end": false,
+   "t": 119746.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ividing by twelve to obtain the simplest",
+   "lang": "en",
+   "start_ms": 117712,
+   "end_ms": 119712,
+   "t": 119746.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ividing by",
+   "lang": "en",
+   "start_ms": 117712,
+   "end_ms": 118272,
+   "end": false,
+   "t": 120241.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "twelve to obtain the simplest wholer",
+   "lang": "en",
+   "start_ms": 118272,
+   "end_ms": 120288,
+   "t": 120242.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " twelve to ob",
+   "lang": "en",
+   "start_ms": 118272,
+   "end_ms": 118852,
+   "end": false,
+   "t": 120841.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "tain the simplest whole number ratio",
+   "lang": "en",
+   "start_ms": 118852,
+   "end_ms": 120864,
+   "t": 120841.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "tain the sim",
+   "lang": "en",
+   "start_ms": 118852,
+   "end_ms": 119432,
+   "end": false,
+   "t": 121441.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "plest whole number ratio",
+   "lang": "en",
+   "start_ms": 119432,
+   "end_ms": 121440,
+   "t": 121441.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "plest whole",
+   "lang": "en",
+   "start_ms": 119432,
+   "end_ms": 120012,
+   "end": false,
+   "t": 122046.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "number ratio is therefore said",
+   "lang": "en",
+   "start_ms": 120012,
+   "end_ms": 122016,
+   "t": 122046.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " number rat",
+   "lang": "en",
+   "start_ms": 120012,
+   "end_ms": 120592,
+   "end": false,
+   "t": 122539.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "io is therefore said to be three",
+   "lang": "en",
+   "start_ms": 120592,
+   "end_ms": 122592,
+   "t": 122539.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "io ",
+   "lang": "en",
+   "start_ms": 120592,
+   "end_ms": 121152,
+   "end": false,
+   "t": 123139.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "is therefore said to be three to two",
+   "lang": "en",
+   "start_ms": 121152,
+   "end_ms": 123168,
+   "t": 123139.6
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 116236,
+   "end_ms": 123274,
+   "t": 123403.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "is therefore said to be three to two",
+   "lang": "en",
+   "start_ms": 121152,
+   "end_ms": 123456,
+   "end": true,
+   "t": 123441.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 123456,
+   "end_ms": 123456,
+   "t": 123441.4
+  },
+  {
+   "type": "inputTranscript",
+   "text": "ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 116236,
+   "end_ms": 123274,
+   "t": 123468.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "is renownforbein",
+   "lang": "en",
+   "start_ms": 123936,
+   "end_ms": 125952,
+   "t": 125945.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "is renown for beingei",
+   "lang": "en",
+   "start_ms": 124516,
+   "end_ms": 126528,
+   "t": 126544.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "its re",
+   "lang": "en",
+   "start_ms": 124516,
+   "end_ms": 125096,
+   "end": false,
+   "t": 127147.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "nown for being an epicentr of luxury",
+   "lang": "en",
+   "start_ms": 125096,
+   "end_ms": 127104,
+   "t": 127147.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "nown for be",
+   "lang": "en",
+   "start_ms": 125096,
+   "end_ms": 125676,
+   "end": false,
+   "t": 127648.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ing an epicentr of luxury",
+   "lang": "en",
+   "start_ms": 125676,
+   "end_ms": 127680,
+   "t": 127648.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " ",
+   "lang": "en",
+   "start_ms": 125676,
+   "end_ms": 126256,
+   "end": false,
+   "t": 128238.9
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 126256,
+   "end_ms": 128256,
+   "t": 128238.9
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " o ",
+   "lang": "en",
+   "start_ms": 126256,
+   "end_ms": 126816,
+   "end": false,
+   "t": 128839.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "y",
+   "lang": "en",
+   "start_ms": 126816,
+   "end_ms": 128832,
+   "t": 128839.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "xury ",
+   "lang": "en",
+   "start_ms": 126816,
+   "end_ms": 127396,
+   "end": false,
+   "t": 129439.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "began in about",
+   "lang": "en",
+   "start_ms": 127396,
+   "end_ms": 129408,
+   "t": 129439.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "be",
+   "lang": "en",
+   "start_ms": 127396,
+   "end_ms": 127976,
+   "end": false,
+   "t": 129946.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "gan in about four hundre",
+   "lang": "en",
+   "start_ms": 127976,
+   "end_ms": 129984,
+   "t": 129946.0
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ga i",
+   "lang": "en",
+   "start_ms": 127976,
+   "end_ms": 128556,
+   "end": false,
+   "t": 130544.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "bforun",
+   "lang": "en",
+   "start_ms": 128556,
+   "end_ms": 130560,
+   "t": 130544.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "  fo",
+   "lang": "en",
+   "start_ms": 128556,
+   "end_ms": 129136,
+   "end": false,
+   "t": 131145.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "hue an",
+   "lang": "en",
+   "start_ms": 129136,
+   "end_ms": 131136,
+   "t": 131145.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "r hundred ",
+   "lang": "en",
+   "start_ms": 129136,
+   "end_ms": 129696,
+   "end": false,
+   "t": 131746.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "eigty and lasted up",
+   "lang": "en",
+   "start_ms": 129696,
+   "end_ms": 131712,
+   "t": 131746.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " a",
+   "lang": "en",
+   "start_ms": 129696,
+   "end_ms": 130276,
+   "end": false,
+   "t": 132245.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 130276,
+   "end_ms": 132288,
+   "t": 132245.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "nd lasted ",
+   "lang": "en",
+   "start_ms": 130276,
+   "end_ms": 130856,
+   "end": false,
+   "t": 132844.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "up until about",
+   "lang": "en",
+   "start_ms": 130856,
+   "end_ms": 132864,
+   "t": 132844.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "up ",
+   "lang": "en",
+   "start_ms": 130856,
+   "end_ms": 131436,
+   "end": false,
+   "t": 133443.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "until about",
+   "lang": "en",
+   "start_ms": 131436,
+   "end_ms": 133440,
+   "t": 133443.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "unti",
+   "lang": "en",
+   "start_ms": 131436,
+   "end_ms": 132016,
+   "end": false,
+   "t": 134043.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "l about eleven hundred",
+   "lang": "en",
+   "start_ms": 132016,
+   "end_ms": 134016,
+   "t": 134043.8
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 124204,
+   "end_ms": 131650,
+   "t": 134202.9
+  },
+  {
+   "type": "inputTranscript",
+   "text": "its renown for being an epicenter of luxury began in about four hundred eighty and lasted up",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 124204,
+   "end_ms": 131650,
+   "t": 134317.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "l abo",
+   "lang": "en",
+   "start_ms": 132016,
+   "end_ms": 132576,
+   "end": false,
+   "t": 134539.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ut eleven hundred et",
+   "lang": "en",
+   "start_ms": 132576,
+   "end_ms": 134592,
+   "t": 134539.2
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ut ",
+   "lang": "en",
+   "start_ms": 132576,
+   "end_ms": 133156,
+   "end": false,
+   "t": 135139.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "eleven hundred ad",
+   "lang": "en",
+   "start_ms": 133156,
+   "end_ms": 135168,
+   "t": 135139.1
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 131650,
+   "end_ms": 135226,
+   "t": 135202.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "eleven hundred ad",
+   "lang": "en",
+   "start_ms": 133156,
+   "end_ms": 135264,
+   "end": true,
+   "t": 135238.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 135264,
+   "end_ms": 135264,
+   "t": 135238.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " march most",
+   "lang": "en",
+   "start_ms": 139204,
+   "end_ms": 139784,
+   "end": false,
+   "t": 141746.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "coronavirus based cancellation policy",
+   "lang": "en",
+   "start_ms": 139784,
+   "end_ms": 141792,
+   "t": 141746.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " coronavir",
+   "lang": "en",
+   "start_ms": 139784,
+   "end_ms": 140364,
+   "end": false,
+   "t": 142341.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "us based cancellation policies",
+   "lang": "en",
+   "start_ms": 140364,
+   "end_ms": 142368,
+   "t": 142341.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "us base ca",
+   "lang": "en",
+   "start_ms": 140364,
+   "end_ms": 140944,
+   "end": false,
+   "t": 142941.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ncellation policies don't extend",
+   "lang": "en",
+   "start_ms": 140944,
+   "end_ms": 142944,
+   "t": 142941.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ncellation p",
+   "lang": "en",
+   "start_ms": 140944,
+   "end_ms": 141504,
+   "end": false,
+   "t": 143541.2
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "olicies don't extend to july",
+   "lang": "en",
+   "start_ms": 141504,
+   "end_ms": 143520,
+   "t": 143541.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "olicies ",
+   "lang": "en",
+   "start_ms": 141504,
+   "end_ms": 142084,
+   "end": false,
+   "t": 144046.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "don't extend to july twenty twenty",
+   "lang": "en",
+   "start_ms": 142084,
+   "end_ms": 144096,
+   "t": 144046.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "don't e",
+   "lang": "en",
+   "start_ms": 142084,
+   "end_ms": 142664,
+   "end": false,
+   "t": 144647.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "xtend to july eeen",
+   "lang": "en",
+   "start_ms": 142664,
+   "end_ms": 144672,
+   "t": 144647.4
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 140620,
+   "end_ms": 145114,
+   "t": 145102.3
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "xtend to july twenty twenty when the olympics",
+   "lang": "en",
+   "start_ms": 142664,
+   "end_ms": 145152,
+   "end": true,
+   "t": 145156.8
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 145152,
+   "end_ms": 145152,
+   "t": 145156.9
+  },
+  {
+   "type": "inputTranscript",
+   "text": "consolation policies don't extend to july twenty twenty when the olympics",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 140620,
+   "end_ms": 145114,
+   "t": 145176.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "ir",
+   "lang": "en",
+   "start_ms": 147472,
+   "end_ms": 148032,
+   "end": false,
+   "t": 150045.4
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "ttwo dry powrs gher ad",
+   "lang": "en",
+   "start_ms": 148032,
+   "end_ms": 150048,
+   "t": 150045.5
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " thetwo dry",
+   "lang": "en",
+   "start_ms": 148032,
+   "end_ms": 148612,
+   "end": false,
+   "t": 150643.5
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "powers together and then",
+   "lang": "en",
+   "start_ms": 148612,
+   "end_ms": 150624,
+   "t": 150643.6
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " powers ",
+   "lang": "en",
+   "start_ms": 148612,
+   "end_ms": 149192,
+   "end": false,
+   "t": 151145.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "together and then with queenet",
+   "lang": "en",
+   "start_ms": 149192,
+   "end_ms": 151200,
+   "t": 151145.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "  ",
+   "lang": "en",
+   "start_ms": 149192,
+   "end_ms": 149772,
+   "end": false,
+   "t": 151740.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 149772,
+   "end_ms": 151776,
+   "t": 151740.4
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "te w ",
+   "lang": "en",
+   "start_ms": 149772,
+   "end_ms": 150352,
+   "end": false,
+   "t": 152339.6
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "e e ha",
+   "lang": "en",
+   "start_ms": 150352,
+   "end_ms": 152352,
+   "t": 152339.7
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": " ",
+   "lang": "en",
+   "start_ms": 150352,
+   "end_ms": 150912,
+   "end": false,
+   "t": 152939.7
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 150912,
+   "end_ms": 152928,
+   "t": 152939.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "t ha",
+   "lang": "en",
+   "start_ms": 150912,
+   "end_ms": 151492,
+   "end": false,
+   "t": 153548.0
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "nds squeeze them into a ball",
+   "lang": "en",
+   "start_ms": 151492,
+   "end_ms": 153504,
+   "t": 153548.1
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "nds ",
+   "lang": "en",
+   "start_ms": 151492,
+   "end_ms": 152072,
+   "end": false,
+   "t": 154046.1
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "squeeze them into a ball",
+   "lang": "en",
+   "start_ms": 152072,
+   "end_ms": 154080,
+   "t": 154046.2
+  },
+  {
+   "type": "language",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 147052,
+   "end_ms": 154362,
+   "t": 154402.8
+  },
+  {
+   "type": "committed",
+   "track": "ctc",
+   "text": "squeeze them into a ball",
+   "lang": "en",
+   "start_ms": 152072,
+   "end_ms": 154464,
+   "end": true,
+   "t": 154447.3
+  },
+  {
+   "type": "partial",
+   "track": "ctc",
+   "text": "",
+   "lang": "en",
+   "start_ms": 154464,
+   "end_ms": 154464,
+   "t": 154447.3
+  },
+  {
+   "type": "inputTranscript",
+   "text": "swirl the two dry powers together and then with quean let hands squeeze them into a ball",
+   "lang": "en",
+   "confidence": 1.0,
+   "start_ms": 147052,
+   "end_ms": 154362,
+   "t": 154482.6
+  },
+  {
+   "type": "flushed",
+   "t": 165402.4
+  }
+ ]
+}

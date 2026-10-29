@@ -105,6 +105,14 @@ def _context(context, tgt):
     return pieces, previous
 
 
+def context_head(context, src, tgt):
+    """The context lines request() puts before a chat prompt, for prompts built elsewhere (server/agree.py)."""
+    a, b = NAMES.get(src, src), NAMES.get(tgt, tgt)
+    pieces, previous = _context(context, tgt)
+    head = CONTEXT_PIECES.format(a=a, pieces="\n".join(pieces)) if pieces else ""
+    return head + (CONTEXT_TRANSLATION.format(b=b, translation=previous) if previous else "")
+
+
 def request(style, model, sentence, src, tgt, context=None):
     """(path, body) for one sentence. `context` as in engines/base.py; None
     gives exactly the prompt the engine has always sent."""
@@ -216,6 +224,20 @@ class LlmMT(Translator):
         style, url, model = server
         path, body = request(style, model, sentence, src, tgt, context)
         req = urllib.request.Request(url + path, data=json.dumps(body).encode(),
+                                     headers={"content-type": "application/json"})
+        with urllib.request.urlopen(req, timeout=TIMEOUT_S) as r:
+            return answer(style, json.loads(r.read()))
+
+    def ask(self, src, tgt, prompt):
+        """One prompt, as is, to the chat server src -> tgt goes to (simultaneous mode's agree policy,
+        server/agree.py); its text. Raises when no chat server serves the pair or the call fails."""
+        server = self.server_for(src, tgt) if self.supports_pair(src, tgt) else None
+        if server is None or server[0] != "chat":
+            raise RuntimeError(f"no chat server for {src}->{tgt}")
+        style, url, model = server
+        body = {"model": model, "messages": [{"role": "user", "content": prompt}], "temperature": 0,
+                "max_tokens": 600, "chat_template_kwargs": {"enable_thinking": False}}
+        req = urllib.request.Request(url + "/chat/completions", data=json.dumps(body).encode(),
                                      headers={"content-type": "application/json"})
         with urllib.request.urlopen(req, timeout=TIMEOUT_S) as r:
             return answer(style, json.loads(r.read()))

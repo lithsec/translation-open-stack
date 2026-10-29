@@ -24,7 +24,7 @@ the stack's parts rather than copying them:
 ## Protocol
 
 ```
-connect   wss://<host>/listen?langs=ht,en[&rate=24000][&transcribe=ht]
+connect   wss://<host>/listen?langs=ht,en[&rate=24000][&transcribe=ht|none]
           Authorization: Bearer <token>            (a browser: Sec-WebSocket-Protocol: omni-stt, bearer.<token>)
 server    {"type":"hello","langs":["ht","en"],"rate":16000}
 client    binary: mono PCM16 at 16 kHz (24 kHz with ?rate=24000), ~100 ms per message is ideal
@@ -38,7 +38,14 @@ server    {"type":"error","detail":"..."}
 server    {"type":"partial","text":"...","lang":"ht","confidence":0.93,"start_ms":1200,"end_ms":2700}
 server    {"type":"stable","text":"...","delta":"...","lang":"ht","confidence":0.93,"start_ms":1200,"end_ms":2700}
 
+          with STT_CTC_STREAM=1 and ?stream=ctc[&lookahead=1|2] on a km or lo connection (below,
+          Streaming track): the hello adds "stream", and while anyone speaks, connection-wide:
+server    {"type":"hello","langs":["km"],"rate":16000,"stream":{"track":"ctc","lookahead_ms":2000,"chunk_ms":500,"left_ms":8000}}
+server    {"type":"partial","track":"ctc","text":"<revisable tail>","lang":"km","start_ms":6200,"end_ms":8700}
+server    {"type":"committed","track":"ctc","text":"<newly committed text>","lang":"km","start_ms":5700,"end_ms":6200,"end":false}
+
 GET /health   200 "ok" (the port opens only once the models are loaded and warm)
+GET /info     what the service offers, JSON (below); the token in the Authorization header adds its own edition and voices
 GET /mic      a one-file microphone test page: type the languages and the token, press Start, talk
 ```
 
@@ -50,11 +57,34 @@ GET /mic      a one-file microphone test page: type the languages and the token,
   words. The others get only their `language` message, sent before any
   transcribing. Live Translation's Haitian Creole exception uses
   `langs=ht,en,ja,...&transcribe=ht`: Azure keeps every other language, and an
-  English utterance costs the GPU only the language ID.
+  English utterance costs the GPU only the language ID. `transcribe=none`:
+  language ID only, every utterance gets just its `language` message (a
+  client that hands Haitian Creole to another recogniser when it hears the
+  switch, as in the 7B-only layout below). An older server refuses `none`
+  with 4400 (it is not among `langs`), so a client can tell.
 - Served languages: `en es fr pt it de ru uk zh ja ko vi ar fa id tr bn ur hi sw ro ht km lo tl`
   (`OMNI_CODES` in `server.py`). Anything else is refused at connect with an error and
   close code 4400, as is a mix containing a language VoxLingua107 doesn't know.
 - `start_ms`/`end_ms` count from the connection's first sample.
+- `GET /info` (`service_info`), for a client that shows only what is there
+  (Live Translation's single Omnilingual service setting reads it on Test):
+
+  ```
+  {"type":"info","service":"omni-stt","models":["7b"],"serve":["listen","speak"],
+   "langs":["ar","bn",...],"editions":["nonprofit"],"voices_state":"ready",
+   "voices_by_edition":{"nonprofit":["mms","coqui"]},
+   "edition":"nonprofit","voices":["mms","coqui"]}
+  ```
+
+  `models`: the recogniser's size (`300m`, `7b`, `3b`; never the card's name,
+  which can be a private fine-tuned card's). `voices_state`: `ready`, `loading`
+  (a cold start: the voices load after the recogniser; the names are those
+  that will load), `failed` or `none` (no `/speak`). `edition` and `voices`
+  only with a token the service takes (the header, never `?token=`): that
+  token's `/speak` edition (`null`: refused there with 4403) and its voices.
+  No token, or a wrong one: still 200, without those two. An older image
+  answers `/info` with an HTTP error (not a WebSocket upgrade), so a client
+  can tell and fall back on `/speak`'s hello.
 - The token: the `Authorization` header, or, from a browser (which cannot set
   that header on a WebSocket), the two subprotocols `omni-stt` and
   `bearer.<token>` (`new WebSocket(url, ["omni-stt", "bearer." + token])`; the
@@ -328,6 +358,90 @@ The two static tokens must differ. With `EDITION=both`, only a `nonprofit`
 connection is offered MMS. `deploy.sh` mounts the signing key and the non-profit
 token when `SIGNING_SECRET` and `NONPROFIT_SECRET` name their secrets.
 
+## One-click setup (Open in Cloud Shell)
+
+[![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.svg)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/lithsec/translation-open-stack.git&cloudshell_git_branch=main&cloudshell_workspace=.&cloudshell_tutorial=services/omni-stt/cloudrun/tutorial.md&show=terminal&ephemeral=true)
+
+For someone who wants the hearing services in **their own** Google Cloud project
+without reading the rest of this page (for example to paste into Live
+Translation's Omnilingual settings). The button clones this repository into Cloud
+Shell and opens a short tutorial ([cloudrun/tutorial.md](cloudrun/tutorial.md)) that
+runs one script:
+
+```
+bash services/omni-stt/cloudrun/setup.sh          # asks, shows the plan, then does it; safe to re-run
+bash services/omni-stt/cloudrun/setup.sh --new-token   # also replace the access token
+bash services/omni-stt/cloudrun/teardown.sh       # delete everything setup.sh made
+```
+
+[setup.sh](cloudrun/setup.sh) picks the project (and checks it has billing), a
+region with Cloud Run L4 GPUs (us-east4, us-central1, europe-west1, europe-west4,
+asia-southeast1, asia-south1 by invitation: Google's list of 2026-10-26), enables
+the APIs, makes a service account and a random token in Secret Manager (mounted as
+`STT_TOKEN_NONPROFIT`, readable by that account only), gets the images, and deploys
+one of three layouts (`LAYOUT`, asked when unset):
+
+- **`7b-only`** (recommended, the default): `omni-stt-7b` alone, with the
+  voices (below, "7B only"): Lao and Khmer, the Haitian Creole language ID and
+  the Haitian Creole voices on one L4; Live Translation hears Haitian Creole
+  with Amazon Transcribe once the 7B names a switch into it.
+  `--concurrency` 10 (6 hearing + 4 voice sockets).
+- **`omni-stt`**: omni-stt alone (`WITH_7B=no`, the older setting, means this).
+- **`both`**: omni-stt and the 7B for Lao and Khmer, two L4s (`WITH_7B=yes`).
+
+Each service: one L4, 4 vCPU, 16 GiB, CPU always allocated, `--min-instances 0
+--max-instances 1`, `--timeout 3600` (the WebSocket ceiling), `--concurrency` 4
+for omni-stt and 6 for the 7B beside it (the rooms one instance takes, below). It ends
+by printing what to paste into Live Translation (**Service settings > Advanced >
+Omnilingual hearing (advanced)**: **Omnilingual service** (7B only: the 7B's
+address) and **Token**; the Both layout adds **Omnilingual 7B URL for Lao and
+Khmer**, for an older Live Translation with two address fields, which with 7B
+only takes the same address in both), the token shown that once. A missing GPU quota, billing or
+permission stops it with the console link and what to ask for, not a raw error.
+`EDITION` is `nonprofit` if you say you are one (the MMS voice is CC-BY-NC), else
+`commercial`.
+
+**Images.** `omni-stt` comes from GitHub Container Registry by pinned digest
+([cloudrun/images.env](cloudrun/images.env)), through an Artifact Registry remote
+repository (`ghcr`, upstream `https://ghcr.io`) in your project, which Google
+recommends over a direct ghcr.io pull for availability. The image
+(`ghcr.io/lithsec/omni-stt`, stock weights only, about 16.6 GB unpacked, no layer
+over 7.9 GB) is built and published by
+[omni-stt-image.yml](../../.github/workflows/omni-stt-image.yml), with a provenance
+attestation. `OMNI_STT_IMAGE=build bash .../setup.sh` (or an empty pin) builds it in your
+project with Cloud Build instead (`deploy.sh build`, about 30 minutes, once). The 7B is always built
+in your project (`deploy.sh 7b-build`, about 50 minutes, once, without a bucket copy;
+setup.sh deploys omni-stt first and shows its token before this starts):
+its checkpoint is one 15.6 GB layer, and Cloud Run takes no layer over 9.9 GB from an
+external registry, remote repositories included. Its base image now carries the
+voices too (coqui-tts and both voice models, about 1.2 GB of models in their own
+layer; besides the checkpoint the largest layer is still PyTorch's, about 7.8 GB as
+in omni-stt's image), so nothing new is published for
+the 7B: it is still built from this repository in your project.
+
+**Why not the "Run on Google Cloud" button.** It deploys one service per click, has
+no GPU option, and builds the image with `docker build` in Cloud Shell, which
+cannot build a 12-30 GB image with models inside. Cloud Shell plus a script does
+all of it: two services, GPUs, the registry proxy, the token.
+
+**Cost, in plain words** (public list prices; check
+[Cloud Run pricing](https://cloud.google.com/run/pricing)): about **$1 an hour per
+service while it is awake** (the L4 without zonal redundancy, 4 vCPU, 16 GiB), and
+**$0 while idle**: a service wakes when a room connects (about 50 s for
+omni-stt from zero, measured 2026-10-28; about 70 s for the 7B) and sleeps about
+15 minutes after the last one leaves. With one instance at most, a second room
+that connects while the service is still waking is refused once (HTTP 429, "no
+available instance") and gets in when it reconnects. Image storage is $0.10 per GB a month (about $1 for omni-stt, $2-3 more for
+the 7B), and a build in your project bills Cloud Build minutes once. **GPU quota:** a
+new project may need to request Cloud Run L4 quota in its region (IAM & Admin >
+Quotas, "Total Nvidia L4 GPU allocation without zonal redundancy, per project per
+region"); the script says when.
+
+**Delete everything:** [teardown.sh](cloudrun/teardown.sh) removes the services, the
+secret, the service account and both repositories, only those carrying setup.sh's
+label (`managed-by=omni-stt-setup`), after you type the project ID. Or shut down the
+project.
+
 ## Deploy (Cloud Run, L4)
 
 `deploy.sh` (read it first; it does nothing until you call it):
@@ -380,7 +494,8 @@ fetch (the code is copied before it); fine for now, worth splitting if builds ge
 
 ### omni-stt-7b: Meta's stock 7B for Lao and Khmer
 
-A second service, same protocol (`/listen` only, no `/speak`), serving Meta's
+A second service, same protocol (`/listen` only by default; `/speak` too with
+`VOICES_7B=1`, "7B only" below), serving Meta's
 stock `omniASR_LLM_7B` (no fine-tuned weights) converted to bf16 (`7b/to_bf16.py`:
 31 GB fp32 -> 15.6 GB; the pipeline decodes in bf16 anyway). A client changes
 only the URL; `?langs=lo` (or `km`) skips language ID.
@@ -423,6 +538,215 @@ Capacity (load7b.mjs, lo and km rooms, 120 s): transcript delay after the speech
 ends, p50/p90: 1 stream 2.2/3.3-3.9 s, 4 streams 3.3/6.4 s, 6 streams 4.5/7.0-7.7 s,
 8 streams 5.9/7.9 s; nothing dropped at 8, but the GPU was ~80% busy at 6. So
 `STT_MAX_CONNECTIONS` and `--concurrency` are 6. GPU memory ~17-18 GB of 24.
+
+#### 7B only: no omni-stt
+
+The 7B service can take over omni-stt's other two jobs, so an install runs one
+L4 instead of two (setup.sh's `7b-only` layout):
+
+- **Language ID for Haitian Creole.** It is the same server, so `ht` is a
+  candidate like any other: `?langs=ht,en,fr,...` (the room's languages, as a
+  client sends omni-stt) runs the same VoxLingua107 model and constrained
+  argmax. `transcribe=ht` has the 7B write the Haitian Creole too;
+  `transcribe=none` sends only the `language` messages, for a client that
+  hands Haitian Creole to Amazon Transcribe when it hears the switch (it
+  replays the utterance from `start_ms` out of its own audio buffer).
+- **The voices.** `7b/Dockerfile.base` now installs coqui-tts and bakes both
+  voices in (EDITION `both` at build; `--build-arg EDITION=commercial` leaves
+  MMS out). The image still serves `/listen` only unless `STT_SERVE` names
+  both: `7b-deploy` with `VOICES_7B=1` sets `STT_SERVE=listen+speak` (a plus:
+  gcloud splits `--set-env-vars` at commas), `EDITION`, `HT_VOICE`,
+  `STT_MAX_SPEAKERS` (4), and `--concurrency` 6 + 4, a voice socket being a
+  request like a hearing one. `/speak` is omni-stt's, byte for byte, with the
+  same edition rules: MMS (CC-BY-NC) only for a non-profit edition.
+
+Measured on an L4 (2026-10-28,
+[eval/2026-10-omni-7b-voices](../../eval/2026-10-omni-7b-voices/README.md)):
+16.75 GB of GPU memory idle with the voices (16.36 GB without), **17.4 GB at
+the peak** of six hearing streams beside four voice streams, so about 5.6 GB of
+the L4's 23 GB to spare; process memory 3.2 GB. First voice audio 0.11/0.16 s
+(p50/p90) at six plus four, as on omni-stt (0.11/0.14 s at four plus two). The
+`language` message 0.04 s after an utterance ends, as on omni-stt. On unseen
+whole utterances the language ID made no false switch into Haitian Creole in
+480 non-Haitian decisions and missed 1-4 of 60 Haitian Creole ones (most
+beside French); short pieces miss more (2 s: 2-14 of 60). The 7B's own Haitian
+Creole is worse than the 300M's (CER 8.1% against 5.4% on the same 60 clips),
+which is why this layout leaves Haitian Creole's words to Amazon Transcribe and
+uses the 7B's only where Transcribe is not set up.
+
+### Streaming track: Omnilingual CTC 3B for Khmer and Lao
+
+The LLM cards cannot stream: their decoder reads a whole piece and then
+writes its text, so a listener waits for the piece to end. A CTC card labels
+every 20 ms frame of audio as it goes, so `ctc_stream.py` decodes Meta's
+stock `omniASR_CTC_3B` in chunks while the speaker talks:
+
+- every `STT_CTC_CHUNK_MS` (500) of audio, one pass over the last
+  `STT_CTC_LEFT_MS` (8000) of context up to now;
+- frames older than now minus the **look-ahead** are committed and sent once,
+  as `committed`. The look-ahead is 1 or 2 s (`?lookahead=1|2`, default
+  `STT_CTC_LOOKAHEAD_MS` 2000). The newer frames are the revisable tail, sent
+  as `partial`;
+- when the segmenter ends a turn on a pause, one more pass commits everything
+  heard (`"end": true`);
+- a **script mask** before the argmax allows only the language's own script,
+  Basic Latin letters (names), digits and punctuation;
+- a commit never splits a grapheme cluster: it never ends before a combining
+  vowel sign or after a Khmer coeng;
+- the audio is never skipped. While the VAD hears nothing, a pass runs every
+  `STT_CTC_QUIET_MS` (2000) instead of every 500 ms, because Silero misses
+  quiet distant speech. A trace of noise (`STT_CTC_DITHER`, about -80 dBFS)
+  goes under every window, since exact digital silence beside quiet speech
+  threw the 3B's frames off.
+
+```
+connect   wss://<host>/listen?langs=km&stream=ctc&lookahead=2
+server    {"type":"hello","langs":["km"],"rate":16000,"stream":{"track":"ctc","lookahead_ms":2000,"chunk_ms":500,"left_ms":8000}}
+server    {"type":"partial","track":"ctc","text":"<the tail after the committed text>","lang":"km","start_ms":6200,"end_ms":8700}
+server    {"type":"committed","track":"ctc","text":"<only the newly committed text>","lang":"km","start_ms":5700,"end_ms":6200,"end":false}
+          ... and the usual "language" / "inputTranscript" per piece
+```
+
+- Opt-in per connection. A client that does not send `?stream=ctc` gets
+  exactly the messages it got before. The track needs a server started with
+  `STT_CTC_STREAM=1` and a one-language km or lo room (`STT_CTC_LANGS`). If
+  a client asks for the track where it cannot run, the hello says
+  `"stream":{"track":null,"reason":...}` and the connection carries on
+  without it. A malformed `stream=` or `lookahead=` is refused (4400).
+- `committed` is one append-only stream for the whole connection, not per
+  piece: concatenate the `text`s in order. Each commit's `start_ms` is the
+  previous one's `end_ms`. A `partial` replaces the previous partial (empty
+  text clears it), and its text follows the committed text. Committed text is
+  never revised, but the per-piece `inputTranscript` is still the text of
+  record.
+- On such a connection the LLM partial passes (`STT_PARTIALS`) are off.
+- `flushed` waits for the track's last commit.
+
+**Deployment: a separate service, not beside the 7B.** On an L4 the 7B takes
+15.6 GB (17.0 GB peak on six streams' batch), and loading the 3B's 6.2 GB
+beside it ran out of memory (2026-10-27). Run the track as its own omni-stt
+instance whose recogniser is the 3B itself:
+
+```
+OMNI_CARD=omniASR_CTC_3B STT_CTC_STREAM=1 STT_SERVE=listen ...   # the 7B base image's packages
+```
+
+The track then shares that instance's copy of the 3B, and the instance's own
+km and lo finals are the 3B's, masked the same way. A client that wants the
+7B's finals and live text opens both: `omni-stt-7b` for the finals, and this
+service with `?stream=ctc` for the live text, sending the same audio to
+each. Measured on an L4 ([eval/2026-10-ctc-stream](../../eval/2026-10-ctc-stream/README.md)):
+
+- **Capacity:** about 6 streams that never stop talking (63% GPU, with commit
+  lag at the look-ahead plus 0.1-0.3 s). The GPU saturates from about 10
+  streams. Past that, latency grows but the text does not change.
+- **Cold start:** 5-9 s from the page cache. The bf16 checkpoint is 6.2 GB
+  (`7b/to_bf16.py` converts the stock 12 GB fp32 file).
+- **Latency:** first partial 0.6-0.8 s after the speech starts. Committed
+  text trails the audio by the look-ahead plus about 0.05 s. A turn's last
+  commit and its 3B final arrive 0.1-0.6 s after the speech ends.
+- **CER (committed text, 2 s / 1 s look-ahead):** FLEURS km 16.1 / 17.1,
+  FLEURS lo 18.3 / 21.7, unseen km 25.2 / 28.2, unseen lo 7.7 / 10.8. The 7B
+  finals of the same clips score 12.3, 16.3, 24.2 and 4.9.
+
+#### omni-stt-3b-stream: the streaming service on Cloud Run
+
+`deploy.sh 3b-build` downloads Meta's stock `omniASR_CTC_3B` inside Cloud
+Build, converts it to bf16 (`7b/to_bf16.py`) and bakes it into the image with
+its card (`3b/cards.yaml`, `3b/Dockerfile.baked`, on `7b/Dockerfile.base`).
+`3b-deploy` deploys it as its own service, `omni-stt-3b-stream`:
+
+```
+./deploy.sh 3b-build                       # -> <TAG>-3b-base and <TAG>-3b
+TAG=<tag> ./deploy.sh 3b-deploy            # SIGNING_SECRET, NONPROFIT_SECRET as for deploy
+```
+
+- L4, 4 vCPU, 16 GiB, `--min-instances 0` (it bills only while a socket is
+  open, plus Cloud Run's idle window), `--max-instances 2`
+  (`MAX_INSTANCES_3B`).
+- `--concurrency 6` and `STT_MAX_CONNECTIONS=6` (`MAX_STREAMS_3B`): about
+  six streams that never stop talking per L4. A seventh socket starts the
+  second instance.
+- `--timeout 3600`: as for every service here, a WebSocket ends after an
+  hour and the client reconnects.
+- Credentials, startup probe and `--no-invoker-iam-check` as `7b-deploy`.
+  `STT_SERVE=listen`, `STT_CTC_STREAM=1`, and `OMNI_CARD` and `STT_CTC_CARD`
+  both `omniASR_CTC_3B_bf16`, so the recogniser and the track share one copy.
+- A client opens `wss://<host>/listen?langs=km&stream=ctc&lookahead=2` (or
+  `lo`). Cloud Run starts an instance on the first connection.
+
+Measured on Cloud Run (2026-10-27, us-east4, L4, 4 vCPU / 16 GiB, FLEURS km
+and lo test clips streamed at real time, `lookahead=2`):
+
+- **Cold start, zero to the hello:** 50 s on a host without the image
+  (instance start to ready 49 s: ~6 s to the container, ~14 s of imports,
+  ~24 s of model loads, of which the 3B was 10 s, then ~5 s of warm-up), and
+  18 s on a host that still had the image. The first partial came 0.8-1.8 s
+  after the hello. A later scale-out instance took 52 s.
+- **One socket per clip, 6 at a time, 4 minutes:** 104 connections, no
+  errors. Commit lag p50/p90 2.08/2.22 s (km) and 2.08/2.24 s (lo). First
+  partial after speech onset p50 0.7 s (km) and 1.0 s (lo). Closing commit
+  after speech end p90 about 1.0 s. Committed CER km 16.8, lo 18.6.
+- **6 long-lived sockets that never stop talking, 4 minutes, one instance:**
+  no errors. Commit lag p50/p90 2.53/2.81 s, partial lag 0.50/0.80 s, and the
+  GPU at ~99%. So six non-stop streams are about what one L4 carries. Rooms
+  with pauses leave headroom, because a quiet stream decodes every 2 s.
+- **Scale-out:** Cloud Run started the second instance during both 6-socket
+  runs, even when all six sockets stayed on the first one. Its autoscaler
+  aims below `--concurrency`. Six open sockets can therefore bill two L4s
+  until the idle one retires. `MAX_INSTANCES_3B=1` (or a lower
+  `MAX_STREAMS_3B`) is the knob to use.
+- **Scale to zero:** with no sockets, the instances retired 6-15 minutes
+  after the last connection closed.
+
+### One GPU for both: the 7B and the streaming service (duo)
+
+On a 48 GB card both fit, so the two services run as **two processes on one
+GPU behind one port** (`duo/`): the 7B finals service on :8081, the 3B
+streaming service on :8082, and `duo/router.py` on :8080. A WebSocket whose
+query names `stream=` goes to the streaming service, every other one to the
+7B. A client therefore keeps one address and opens its second socket by
+adding `&stream=ctc&lookahead=2` to the same `/listen` URL.
+
+- Two processes rather than one serving both: each is exactly the service
+  measured on its own (the 7B with no track, the 3B as recogniser and
+  track), so the 7B never spends a decode on a streaming socket's pieces, and
+  a fault in one cannot take the other's state with it. `duo-start.sh` starts
+  all three and stops the container if any of them exits.
+- The router passes path, query, the `Authorization` header and the offered
+  subprotocols through unchanged, so each service checks the token itself,
+  and its close codes (4400, 4401, 4429, ...) reach the client as sent. Its
+  `/health` is 200 only while both services answer theirs; its port opens
+  only once both are up. A service that is gone closes the client with 1011.
+- Optional idle stop for a pod: `DUO_IDLE_MIN` (minutes without a
+  connection) and `DUO_MAX_UPTIME_H` make the router stop its own pod through
+  RunPod's API with the pod's own key (`RUNPOD_POD_ID`, `RUNPOD_API_KEY`).
+  Exiting the container is not a stop: RunPod restarts it and keeps billing.
+- The single-model services are unchanged: `7b-deploy` (Cloud Run, L4) and
+  the image `<TAG>-7b` work as before.
+
+```
+./deploy.sh 7b-build                               # once: <TAG>-7b (the base)
+BASE_TAG=<that tag> ./deploy.sh duo-build          # -> <TAG>-duo (3B bf16 + card + router baked in)
+```
+
+On RunPod (or any GPU host): the image `<TAG>-duo`, one 48 GB-class GPU (an
+A40, RTX A6000, RTX 6000 Ada or L40S; any GPU with 40 GB free will do),
+HTTP port 8080, container disk 60 GB (the image is about 28 GB unpacked), and
+the usual credentials (`STT_SIGNING_KEY`, `STT_TOKEN_NONPROFIT`, `STT_TOKEN`)
+plus `DUO_IDLE_MIN=15` `DUO_MAX_UPTIME_H=8`. The image is in your Artifact
+Registry repository, so the host needs a registry credential for it.
+Settings for one service only: `DUO_LISTEN_STREAMS` (6), `DUO_STREAM_STREAMS`
+(12), `DUO_LISTEN_CARD`, `DUO_STREAM_CARD`; the rest (endpointing, batching)
+reach both.
+
+Measured on an A40 (48 GB), 2026-10-27
+([eval/2026-10-omni-duo](../../eval/2026-10-omni-duo/README.md)): ready 16 s
+after start with both checkpoints dropped from the page cache; 24.0 GB of GPU
+memory at idle, 29.8 GB at the peak of six 7B streams beside six streaming
+ones (16 GB to spare), 35.3 GB with ten streaming ones. With six of each the
+streaming commit lag stays at the look-ahead plus 0.1-0.4 s, and the 7B's
+finals take about 1.2-1.6 s longer than with the 7B alone.
 
 ## Measured locally
 

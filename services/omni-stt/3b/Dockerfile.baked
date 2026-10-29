@@ -1,0 +1,17 @@
+# The streaming service (omni-stt-3b-stream): Meta's stock omniASR_CTC_3B
+# (bf16, ~6.2 GB) as the recogniser and the streaming track (ctc_stream.py),
+# layered on the /listen-only base image (../7b/Dockerfile.base). Stock
+# weights only: nothing private.
+#
+#   ./deploy.sh 3b-build         # Cloud Build: download, convert, both images
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+COPY cards.yaml /opt/models/cards/omni3b.yaml
+# The 3B card's tokenizer (omniASR_tokenizer; the base fetched the 7B's only),
+# before the checkpoint so this layer survives a new checkpoint.
+RUN python -c "from fairseq2.data.tokenizers.hub import load_tokenizer; load_tokenizer('omniASR_CTC_3B_bf16'); print('fetched')"
+COPY omniASR_CTC_3B_bf16.pt /opt/models/3b/omniASR_CTC_3B_bf16.pt
+# The recogniser and the track are one card, so the service keeps one copy.
+ENV OMNI_CARD=omniASR_CTC_3B_bf16 \
+    STT_CTC_CARD=omniASR_CTC_3B_bf16 \
+    STT_CTC_STREAM=1

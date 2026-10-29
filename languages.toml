@@ -26,7 +26,13 @@
 #
 # Translators per direction (eval/2026-10-full-stack, live on two clip sets): Gemma 4 31B
 # out of English into es pt fr ja km, for ja -> en, and both ways for ht; MiLMMT-46 12B
-# both ways for lo; Hy-MT2 into English from es pt fr km. Gemma 4 and MiLMMT run in vLLM
+# both ways for lo; Hy-MT2 into English from es pt fr km. Added 2026-10-27 from Lithos
+# Talk's route table (Gemma within 5 points of gpt-5.6-sol and at least 80, hosted bf16
+# on Azure/MAI transcripts; not yet measured on this stack): Gemma 4 out of English into
+# de ru zh vi tl, and into English from zh vi tl ar fa. Also out of English into uk ar fa
+# sw, where the router prefers sol but Gemma beats the stack's own translator in the
+# short check (eval/2026-10-language-short-check: uk 88 vs Hy-MT2 75, ar 90 vs 85, fa 90
+# vs 88; sw 87 vs MADLAD's 69 in September). Gemma 4 and MiLMMT run in vLLM
 # beside the stack (ports 8101 and 8102, docs/reference.md); without them every pair
 # falls back to the translator it had before, and the log says so.
 #   madlad      "<code>"                   MADLAD's language tag, when it differs from the code
@@ -85,7 +91,8 @@ revision = "edaa852ec7e145841d8ffdb056a99866b5f0a478"
 [models.omnilingual]
 card = "omniASR_LLM_300M"
 
-# The larger card, for languages with omni = "large" (Lao, Khmer). Loaded only
+# The larger card, for languages with omni = "large" (Lao, Khmer) or "large-only"
+# (Romanian, which stays on Whisper without it). Loaded only
 # with OMNI_LARGE=1, which needs ~20 GB beside the rest (profiles/cuda-80gb.toml).
 [models.omnilingual_large]
 card = "omniASR_LLM_7B"
@@ -192,20 +199,37 @@ translator = "hymt"
 madlad = "it"
 
 # thorsten is the one German voice at `high`; Kokoro has no German.
+#
+# German speakers get long turns (see [ja]), cut at 12 s rather than 15: the verb comes last, so a
+# turn cut at a short pause leaves it out. de->en live: default turns 86.7 / 88.3 (regular /
+# irregular pauses), cut at 15 s 93.3 / 96.7 but the slowest tenth waited 10.0 s with irregular
+# pauses, at 12 s 91.7 / 91.7 with 6.8 s, at 10 s 86.7 / 73.3 (eval/2026-10-agree-live).
 [de]
 piper = "de_DE-thorsten-high"
 asr = "whisper"
-translator = "hymt"
+endpoint_ms = 900
+long_utterance_s = 8
+long_endpoint_ms = 500
+max_utterance_s = 12
+min_speech_ms = 2500
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = "hymt"
 madlad = "de"
 
 # thorsten is fine-tuned from lessac (❓). mls: CC-BY 4.0, trained from scratch.
 [de.commercial]
 piper = "de_DE-mls-medium"
 
+# Russian into English on Gemma too: live 85.8 against Hy-MT2's 81.7, and 94.2
+# against 84.2 from Whisper's output (eval/2026-10-de-ru-ro). German into English
+# tied (84.2 both), so it stays on Hy-MT2.
 [ru]
 piper = "ru_RU-irina-medium"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "ru"
 
 # Commercial: irina: unknown data licence, lessac-derived (❓); no clean Russian Piper voice. VoxCPM2
@@ -216,7 +240,9 @@ voxcpm = true
 [uk]
 piper = "uk_UA-ukrainian_tts-medium"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = "hymt"
 madlad = "uk"
 
 # Japanese and Mandarin: Kokoro's own G2P (misaki[ja] / misaki[zh]). Piper's
@@ -226,7 +252,9 @@ madlad = "uk"
 kokoro = "z:zf_xiaobei"
 piper = "zh_CN-huayan-medium"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "zh"
 
 # Japanese, Haitian Creole, Khmer and Lao: longer turns when they're spoken (fixed
@@ -265,7 +293,9 @@ voxcpm = true
 [vi]
 piper = "vi_VN-vais1000-medium"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "vi"
 
 # Commercial: vais1000 is lessac-derived (❓), vivos is CC-BY-NC-SA (⛔). VoxCPM2
@@ -283,7 +313,9 @@ voxcpm = true
 [ar]
 piper = "ar_JO-kareem-medium"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "ar"
 
 # Commercial: kareem: dataset without a licence, lessac-derived (❓). VoxCPM2
@@ -294,7 +326,9 @@ voxcpm = true
 [fa]
 piper = "fa_IR-gyro-medium"
 asr = "omni:pes_Arab"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "fa"
 
 [id]
@@ -343,7 +377,8 @@ madlad = "hi"
 [sw]
 piper = "sw_CD-lanfrica-medium"
 asr = "omni:swh_Latn"
-translator = "madlad"
+translator = ["llmmt", "madlad"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
 madlad = "sw"
 
 # Commercial: lanfrica: no dataset licence found, lessac-derived (❓). VoxCPM2
@@ -352,11 +387,14 @@ madlad = "sw"
 voxcpm = true
 
 # Romanian: Hy-MT2 does not support it either, so MADLAD 7B translates into it;
-# a Romanian speaker pivots through MADLAD <2en> (server.py). Whisper large-v3
-# recognises it (FLEURS, see docs/dev/model-evaluation.md).
+# a Romanian speaker pivots through MADLAD <2en> (server.py). Gemma tied MADLAD
+# both ways live (eval/2026-10-de-ru-ro). Hearing it: Omnilingual's 7B card where
+# it is loaded (2.8% of characters wrong, every diacritic kept), else Whisper
+# large-v3 (3.8%, 4.9% of diacritics lost); not the 300M card (5.5%).
 [ro]
 piper = "ro_RO-mihai-medium"
-asr = "whisper"
+asr = "omni:ron_Latn"
+omni = "large-only"
 translator = "madlad"
 madlad = "ro"
 
@@ -419,5 +457,7 @@ madlad = "lo"
 voxcpm = true
 mms = "facebook/mms-tts-tgl"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "fil"

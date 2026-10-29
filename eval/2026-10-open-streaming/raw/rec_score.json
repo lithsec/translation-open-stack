@@ -1,0 +1,338 @@
+[
+ {
+  "lang": "en",
+  "pattern": "reg",
+  "system": "simul",
+  "note": "",
+  "said": {
+   "cer": 24.9,
+   "wer": 29.8
+  },
+  "text": {
+   "cer": 27.8,
+   "wer": 33.0
+  },
+  "dropped": [
+   3,
+   11,
+   19
+  ],
+  "missing_starts": [
+   9,
+   12,
+   15,
+   17
+  ]
+ },
+ {
+  "lang": "es",
+  "pattern": "reg",
+  "system": "simul",
+  "note": "",
+  "said": {
+   "cer": 3.9,
+   "wer": 8.4
+  },
+  "text": {
+   "cer": 3.9,
+   "wer": 8.4
+  },
+  "dropped": [],
+  "missing_starts": []
+ },
+ {
+  "lang": "fr",
+  "pattern": "reg",
+  "system": "simul",
+  "note": "",
+  "said": {
+   "cer": 17.0,
+   "wer": 21.3
+  },
+  "text": {
+   "cer": 17.0,
+   "wer": 21.3
+  },
+  "dropped": [
+   9
+  ],
+  "missing_starts": [
+   13
+  ]
+ },
+ {
+  "lang": "en",
+  "pattern": "irr",
+  "system": "simul",
+  "note": "",
+  "said": {
+   "cer": 22.6,
+   "wer": 28.2
+  },
+  "text": {
+   "cer": 25.7,
+   "wer": 31.7
+  },
+  "dropped": [
+   11,
+   19
+  ],
+  "missing_starts": [
+   9,
+   12,
+   15,
+   17
+  ]
+ },
+ {
+  "lang": "es",
+  "pattern": "irr",
+  "system": "simul",
+  "note": "",
+  "said": {
+   "cer": 4.7,
+   "wer": 8.7
+  },
+  "text": {
+   "cer": 4.7,
+   "wer": 8.7
+  },
+  "dropped": [],
+  "missing_starts": []
+ },
+ {
+  "lang": "fr",
+  "pattern": "irr",
+  "system": "simul",
+  "note": "",
+  "said": {
+   "cer": 14.4,
+   "wer": 19.3
+  },
+  "text": {
+   "cer": 14.4,
+   "wer": 19.3
+  },
+  "dropped": [
+   9
+  ],
+  "missing_starts": [
+   13
+  ]
+ },
+ {
+  "lang": "en",
+  "pattern": "reg",
+  "system": "ctc",
+  "note": "",
+  "said": {
+   "cer": 20.9,
+   "wer": 32.0
+  },
+  "text": {
+   "cer": 24.8,
+   "wer": 34.8
+  },
+  "dropped": [
+   19
+  ],
+  "missing_starts": [
+   0,
+   5,
+   10,
+   11,
+   14,
+   17
+  ]
+ },
+ {
+  "lang": "es",
+  "pattern": "reg",
+  "system": "ctc",
+  "note": "",
+  "said": {
+   "cer": 4.6,
+   "wer": 10.8
+  },
+  "text": {
+   "cer": 4.6,
+   "wer": 10.8
+  },
+  "dropped": [],
+  "missing_starts": []
+ },
+ {
+  "lang": "fr",
+  "pattern": "reg",
+  "system": "ctc",
+  "note": "",
+  "said": {
+   "cer": 6.9,
+   "wer": 15.0
+  },
+  "text": {
+   "cer": 6.9,
+   "wer": 15.0
+  },
+  "dropped": [],
+  "missing_starts": []
+ },
+ {
+  "lang": "en",
+  "pattern": "irr",
+  "system": "ctc",
+  "note": "",
+  "said": {
+   "cer": 23.7,
+   "wer": 37.1
+  },
+  "text": {
+   "cer": 27.5,
+   "wer": 39.8
+  },
+  "dropped": [
+   19
+  ],
+  "missing_starts": [
+   0,
+   5,
+   11,
+   17
+  ]
+ },
+ {
+  "lang": "es",
+  "pattern": "irr",
+  "system": "ctc",
+  "note": "",
+  "said": {
+   "cer": 4.4,
+   "wer": 10.4
+  },
+  "text": {
+   "cer": 4.4,
+   "wer": 10.4
+  },
+  "dropped": [],
+  "missing_starts": []
+ },
+ {
+  "lang": "fr",
+  "pattern": "irr",
+  "system": "ctc",
+  "note": "",
+  "said": {
+   "cer": 6.1,
+   "wer": 13.2
+  },
+  "text": {
+   "cer": 6.1,
+   "wer": 13.2
+  },
+  "dropped": [],
+  "missing_starts": []
+ },
+ {
+  "lang": "en",
+  "pattern": "reg",
+  "system": "nemo",
+  "note": "",
+  "said": {
+   "cer": 7.8,
+   "wer": 15.6
+  },
+  "text": {
+   "cer": 11.7,
+   "wer": 19.1
+  },
+  "dropped": [],
+  "missing_starts": [
+   11
+  ]
+ },
+ {
+  "lang": "es",
+  "pattern": "reg",
+  "system": "nemo",
+  "note": "",
+  "said": {
+   "cer": 2.4,
+   "wer": 6.1
+  },
+  "text": {
+   "cer": 2.4,
+   "wer": 6.1
+  },
+  "dropped": [],
+  "missing_starts": []
+ },
+ {
+  "lang": "fr",
+  "pattern": "reg",
+  "system": "nemo",
+  "note": "",
+  "said": {
+   "cer": 3.8,
+   "wer": 10.4
+  },
+  "text": {
+   "cer": 3.8,
+   "wer": 10.4
+  },
+  "dropped": [],
+  "missing_starts": []
+ },
+ {
+  "lang": "en",
+  "pattern": "irr",
+  "system": "nemo",
+  "note": "",
+  "said": {
+   "cer": 17.0,
+   "wer": 23.7
+  },
+  "text": {
+   "cer": 21.2,
+   "wer": 27.5
+  },
+  "dropped": [
+   11,
+   19
+  ],
+  "missing_starts": [
+   9
+  ]
+ },
+ {
+  "lang": "es",
+  "pattern": "irr",
+  "system": "nemo",
+  "note": "",
+  "said": {
+   "cer": 2.8,
+   "wer": 7.6
+  },
+  "text": {
+   "cer": 2.8,
+   "wer": 7.6
+  },
+  "dropped": [],
+  "missing_starts": []
+ },
+ {
+  "lang": "fr",
+  "pattern": "irr",
+  "system": "nemo",
+  "note": "",
+  "said": {
+   "cer": 4.1,
+   "wer": 10.7
+  },
+  "text": {
+   "cer": 4.1,
+   "wer": 10.7
+  },
+  "dropped": [],
+  "missing_starts": []
+ }
+]
