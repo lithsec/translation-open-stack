@@ -53,6 +53,10 @@ Protocol:
     edition this server does not serve is closed with 4403 (as the stack does).
 
     GET /health      200 "ok" once the models are loaded (the port opens only then)
+    GET /info        what this service offers, as JSON (service_info): the model
+                     ("300m", "7b", "3b"), the languages /listen serves, and the
+                     /speak voices; with the token (the Authorization header) also
+                     the edition that token is served in and the voices it may use
     GET /mic         a microphone test page (mic.html): speak, see each transcript
 
 Per utterance, the stack's own pipeline minus the translation (server/server.py):
@@ -1032,6 +1036,68 @@ def served(env=None):
     return want
 
 
+def model_size(card):
+    """An Omnilingual card name -> its size as a client names it ("300m", "7b",
+    "3b"), or None. Only the size: a card's full name can be a private one
+    (a fine-tuned card), and /info is answered without a token."""
+    m = re.search(r"(\d+)([MB])(?![A-Za-z])", card or "")
+    return f"{m.group(1)}{m.group(2).lower()}" if m else None
+
+
+def service_info(models, headers=None, query=None, env=None):
+    """GET /info: what this service offers, so a client (Live Translation's
+    Omnilingual service setting) can show only what is there.
+
+        {"type": "info", "service": "omni-stt", "models": ["7b"],
+         "serve": ["listen", "speak"], "langs": [...], "editions": ["nonprofit"],
+         "voices_state": "ready", "voices_by_edition": {"nonprofit": ["mms", "coqui"]},
+         "edition": "nonprofit", "voices": ["mms", "coqui"]}
+
+    models: the recogniser's size ([] when /listen is not served). langs: what
+    /listen takes (OMNI_CODES). voices_state: "ready", "loading" (a cold start:
+    the voices load after the recogniser; the names are then the ones that will
+    load), "failed" or "none" (no /speak). voices_by_edition: per edition served,
+    the voices it may use (voices.permitted). With a token this service takes
+    (credentials_for), "edition" and "voices": that token's /speak edition
+    (speak_edition; null: refused there, 4403) and its voices. Without one, or
+    with a bad one, those two are absent: nothing here is secret, and nothing
+    about a token is said without it. Never the card's name (model_size)."""
+    env = os.environ if env is None else env
+    serve = set(getattr(models, "serve", ()) or ())
+    eds = service_editions(env)
+    size = model_size(getattr(models, "card", "")) if "listen" in serve else None
+    out = {"type": "info", "service": "omni-stt", "models": [size] if size else [],
+           "serve": sorted(serve), "langs": sorted(OMNI_CODES) if "listen" in serve else [],
+           "editions": eds}
+    loaded = getattr(models, "voices", None)
+    ready = getattr(models, "voices_ready", None)
+    if "speak" not in serve:
+        state, names = "none", []
+    elif loaded is not None:
+        state, names = "ready", list(loaded.names)
+    elif ready is not None and not ready.is_set():
+        state = "loading"
+        try:
+            names = list(getattr(models, "_voice_names", None) or voice_list(env))
+        except SystemExit:
+            names = []
+    else:
+        state, names = "failed", []
+    out["voices_state"] = state
+    try:
+        from voices import permitted
+    except Exception:  # noqa: BLE001 (a recogniser-only image without the voices' code)
+        permitted = None
+    by = {ed: (permitted(names, ed) if permitted else []) for ed in eds}
+    out["voices_by_edition"] = by
+    sub, claim = credentials_for(headers or {}, query or {}, env)
+    if sub is not None:
+        ed = speak_edition(eds, claim, open_server=(sub == "open"))
+        out["edition"] = ed
+        out["voices"] = by.get(ed, []) if ed else []
+    return out
+
+
 def voice_list(env=None):
     """STT_VOICES -> the voices to load: by default every voice an edition
     served here may use (EDITION=commercial: never MMS). Naming a voice no
@@ -1867,6 +1933,13 @@ async def main():
         path = request.path.split("?")[0]
         if path == "/health":
             return connection.respond(HTTPStatus.OK, "ok\n")
+        if path == "/info":
+            # The token only from the header: a query token would be logged (the URL).
+            info = service_info(models, request.headers, {})
+            resp = connection.respond(HTTPStatus.OK, json.dumps(info) + "\n")
+            resp.headers["Content-Type"] = "application/json"
+            resp.headers["Cache-Control"] = "no-store"
+            return resp
         if path == "/mic":
             # The page holds no secret: the token is typed into it.
             resp = connection.respond(HTTPStatus.OK, mic_page)

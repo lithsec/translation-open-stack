@@ -578,6 +578,76 @@ def test_guarded_serves_the_nonprofit_token_as_nonprofit():
             os.environ["STT_TOKEN_NONPROFIT"] = old
 
 
+def test_model_size_names_the_size_only():
+    assert stt.model_size("omniASR_LLM_7B_bf16") == "7b"
+    assert stt.model_size("omniASR_LLM_7B_bf16_volume") == "7b"
+    assert stt.model_size("omniASR_LLM_300M") == "300m"
+    assert stt.model_size("omniASR_CTC_3B") == "3b"
+    assert stt.model_size("") is None and stt.model_size("something") is None
+
+
+def test_service_info():
+    """GET /info: the model's size, the languages, the voices per edition; the
+    token's own edition and voices only with a token the service takes."""
+    import stack_auth
+    import threading
+
+    class M:
+        serve = {"listen", "speak"}
+        card = "omniASR_LLM_7B_bf16"
+        voices = FakeVoices()
+        voices_ready = threading.Event()
+
+    env = {"STT_SIGNING_KEY": KEY, "STT_TOKEN": "s3cret", "STT_TOKEN_NONPROFIT": "np-s3cret", "EDITION": "both"}
+    info = stt.service_info(M(), {}, {}, env)
+    assert info["models"] == ["7b"] and info["serve"] == ["listen", "speak"]
+    assert "ht" in info["langs"] and "lo" in info["langs"] and "km" in info["langs"]
+    assert info["editions"] == ["nonprofit", "commercial"] and info["voices_state"] == "ready"
+    assert info["voices_by_edition"] == {"nonprofit": ["mms", "coqui"], "commercial": ["coqui"]}
+    # No token, or a wrong one: nothing about a token.
+    assert "edition" not in info and "voices" not in info
+    assert "edition" not in stt.service_info(M(), {"Authorization": "Bearer nope"}, {}, env)
+    # The card's name never goes out (a fine-tuned card's can be private).
+    assert "omniASR" not in json.dumps(info)
+    # Each token in its edition, as /speak serves it.
+    np_info = stt.service_info(M(), {"Authorization": "Bearer np-s3cret"}, {}, env)
+    assert np_info["edition"] == "nonprofit" and np_info["voices"] == ["mms", "coqui"]
+    c_info = stt.service_info(M(), {"Authorization": "Bearer s3cret"}, {}, env)
+    assert c_info["edition"] == "commercial" and c_info["voices"] == ["coqui"]
+    tok = stack_auth.sign(KEY, "lt:room", 600, ed="nonprofit")
+    assert stt.service_info(M(), {"Authorization": f"Bearer {tok}"}, {}, env)["voices"] == ["mms", "coqui"]
+    # A non-profit-only server refuses a claim-less token on /speak: no voices for it.
+    only_np = dict(env, EDITION="nonprofit")
+    refused = stt.service_info(M(), {"Authorization": "Bearer s3cret"}, {}, only_np)
+    assert refused["edition"] is None and refused["voices"] == []
+
+    # A cold start: the recogniser is up, the voices still loading; the names they will load.
+    class Loading(M):
+        voices = None
+        _voice_names = ["mms", "coqui"]
+    info = stt.service_info(Loading(), {"Authorization": "Bearer np-s3cret"}, {}, env)
+    assert info["voices_state"] == "loading" and info["voices"] == ["mms", "coqui"]
+
+    # Failed to load, or no /speak at all.
+    class Failed(M):
+        voices = None
+        def __init__(self):
+            self.voices_ready = threading.Event()
+            self.voices_ready.set()
+    assert stt.service_info(Failed(), {}, {}, env)["voices_state"] == "failed"
+
+    class ListenOnly(M):
+        serve = {"listen"}
+        voices = None
+    info = stt.service_info(ListenOnly(), {"Authorization": "Bearer np-s3cret"}, {}, env)
+    assert info["voices_state"] == "none" and info["voices"] == [] and info["models"] == ["7b"]
+
+    # The 300M service.
+    class Small(M):
+        card = "omniASR_LLM_300M"
+    assert stt.service_info(Small(), {}, {}, env)["models"] == ["300m"]
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_") and callable(fn):

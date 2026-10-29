@@ -523,7 +523,7 @@ if [ "$WITH_7B" = yes ]; then
   if [ "$WITH_OMNI" = yes ] && [ -n "$TOKEN" ]; then
     say ""
     say "omni-stt works now. Its settings, while the 7B builds (the 7B URL follows at the end):"
-    say "  Service:                               $(url_of "$SERVICE")"
+    say "  Omnilingual service:                   $(url_of "$SERVICE")"
     show_token
   fi
   # Built after omni-stt is up, so the hour-long 7B build does not hold it back.
@@ -561,15 +561,17 @@ cat <<EOF
  Done. Paste these into Live Translation:
    Service settings > Advanced > Omnilingual hearing (advanced)
 =====================================================================
-  Service:                               ${URL:-$URL_7B}
+  Omnilingual service:                   ${URL:-$URL_7B}
 EOF
-[ -n "$URL_7B" ] && printf '  Omnilingual 7B URL for Lao and Khmer:  %s\n' "$URL_7B"
+[ -n "$URL" ] && [ -n "$URL_7B" ] && printf '  Omnilingual 7B URL for Lao and Khmer:  %s\n' "$URL_7B"
 show_token
 if [ "$WITH_OMNI" = no ]; then
   cat <<EOF
 
-  Both addresses are the 7B service: it does the Haitian Creole language ID
-  and voices omni-stt would (the same /listen and /speak), and Lao and Khmer.
+  One address: the 7B service. It does the Haitian Creole language ID and
+  voices omni-stt would (the same /listen and /speak), and Lao and Khmer; its
+  GET /info says what it offers, which Live Translation reads on Test. (An
+  older Live Translation with two address fields: the same address in both.)
   Haitian Creole's words: Amazon Transcribe, which Live Translation starts
   when the 7B names an utterance Haitian Creole (it needs its AWS setting, or
   Managed by Lithos); a Live Translation without that hand-off has the 7B

@@ -83,10 +83,12 @@ layout). Then run the script again, or try another region.
 The script ends with a box like this:
 
 ```
-Service:                               https://omni-stt-....run.app
-Omnilingual 7B URL for Lao and Khmer:  https://omni-stt-7b-....run.app
+Omnilingual service:                   https://omni-stt-7b-....run.app
 Token:                                 <64 characters>
 ```
+
+(The **Both** layout prints a second line, `Omnilingual 7B URL for Lao and
+Khmer`, with the 7B's address.)
 
 **Copy the token now.** It is shown only once. (Lost it? Run the script again
 with `--new-token`.)
@@ -94,12 +96,18 @@ with `--new-token`.)
 In Live Translation, open **Service settings > Advanced > Omnilingual hearing
 (advanced)** and paste:
 
-- **Service**: the omni-stt address (7B only: the 7B address).
-- **Omnilingual 7B URL for Lao and Khmer**: the 7B address, if you deployed it.
+- **Omnilingual service**: the address (7B only, the recommended layout: the
+  7B's address; the other layouts: the omni-stt address).
 - **Token**: the token (the same token works for both services).
 
-With **7B only** both addresses are the same: the 7B service answers
-everything omni-stt would (the same hearing and voice connections). For
+Press **Test**: Live Translation reads what the service offers (its
+`GET /info`: the model, the languages, the Haitian Creole voices) and shows
+only those voices. An older Live Translation has a second address field,
+**Omnilingual 7B URL for Lao and Khmer**: with **7B only** put the same
+address in both; with **Both**, the 7B's address there.
+
+With **7B only** the 7B service answers everything omni-stt would (the same
+hearing and voice connections). For
 Haitian Creole's words, give Live Translation its Amazon Transcribe setting
 (or use Managed by Lithos); without that hand-off the 7B writes them itself.
 
