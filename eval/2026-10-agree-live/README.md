@@ -2,11 +2,11 @@
 
 Two questions, answered live on the stack (one RTX PRO 6000 pod, every clip streamed in real time):
 
-1. **Simultaneous mode.** [`../2026-10-llm-commit-policy`](../2026-10-llm-commit-policy/) replayed recorded streaming
+1. **Simultaneous mode.** `../2026-10-llm-commit-policy` (#78) replayed recorded streaming
    recognition through Gemma on the Gemini API and found that *agree* nearly matched whole sentences while speaking
    about as early as the 8-word phrase rule. Does that hold on the stack itself, with its Whisper re-transcription and
    its own 4-bit Gemma? This branch adds the policy (`server/agree.py`, `?stream=1&policy=agree`).
-2. **German turns.** [`../2026-10-de-ru-ro`](../2026-10-de-ru-ro/) found long turns worth about 8 points for German
+2. **German turns.** `../2026-10-de-ru-ro` (#76) found long turns worth about 8 points for German
    speakers, but with a 15 s cap the slowest tenth of sentences waited almost 10 s. Does a lower cap keep the gain?
 
 ## Setup
@@ -18,7 +18,7 @@ Two questions, answered live on the stack (one RTX PRO 6000 pod, every clip stre
 - **Client** (`e2e_client.mjs`, ../2026-10-de-ru-ro's): one connection in its own room, fixed `?src=`, `?context=1`,
   100 ms chunks in real time. `Q` adds the mode's query parameters.
 - **Simultaneous mode** (`configs/S.toml`): en↔es and en↔fr on the unseen clips of
-  [`../2026-10-open-streaming`](../2026-10-open-streaming/) (20 FLEURS sentences, regular *reg* 1.0–1.95 s and
+  `../2026-10-open-streaming` (#77) (20 FLEURS sentences, regular *reg* 1.0–1.95 s and
   irregular *irr* 0.3–1.2 s pauses, rebuilt on the pod by its `build_unseen_subset.py`). Gemma translates both ways in
   this config (into English is Hy-MT2 by default), so the three arms differ only in when they speak:
   - **Utterance:** today's default; each turn is translated once it ends (700 ms pause, cut at 9 s).
