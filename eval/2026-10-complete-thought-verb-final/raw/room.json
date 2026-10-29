@@ -1,0 +1,153 @@
+{
+ "reg": {
+  "per-language": {
+   "gemma:ct": {
+    "calls_per_hour": 13889,
+    "in_tokens_per_hour": 5139586,
+    "out_tokens_per_hour": 201375,
+    "wall_p50": 310,
+    "wall_p90": 690
+   },
+   "gemma:flush": {
+    "calls_per_hour": 98,
+    "in_tokens_per_hour": 20716,
+    "out_tokens_per_hour": 3856,
+    "wall_p50": 633,
+    "wall_p90": 1362
+   },
+   "gemma:force": {
+    "calls_per_hour": 20,
+    "in_tokens_per_hour": 4112,
+    "out_tokens_per_hour": 1220,
+    "wall_p50": 870,
+    "wall_p90": 870
+   },
+   "sol:flush": {
+    "calls_per_hour": 157,
+    "in_tokens_per_hour": 27798,
+    "out_tokens_per_hour": 14184,
+    "wall_p50": 1478,
+    "wall_p90": 3158
+   },
+   "sol:translate": {
+    "calls_per_hour": 315,
+    "in_tokens_per_hour": 52449,
+    "out_tokens_per_hour": 16801,
+    "wall_p50": 1201,
+    "wall_p90": 1975
+   },
+   "_total": {
+    "calls_per_hour": 14479,
+    "in_tokens_per_hour": 5244661,
+    "out_tokens_per_hour": 237436
+   }
+  },
+  "room": {
+   "gemma:decide": {
+    "calls_per_hour": 5390,
+    "in_tokens_per_hour": 1800826,
+    "out_tokens_per_hour": 14578,
+    "wall_p50": 270,
+    "wall_p90": 333
+   },
+   "gemma:translate": {
+    "calls_per_hour": 826,
+    "in_tokens_per_hour": 170960,
+    "out_tokens_per_hour": 27995,
+    "wall_p50": 592,
+    "wall_p90": 897
+   },
+   "sol:translate": {
+    "calls_per_hour": 413,
+    "in_tokens_per_hour": 77257,
+    "out_tokens_per_hour": 28369,
+    "wall_p50": 1113,
+    "wall_p90": 2179
+   },
+   "_total": {
+    "calls_per_hour": 6629,
+    "in_tokens_per_hour": 2049043,
+    "out_tokens_per_hour": 70942
+   }
+  }
+ },
+ "irr": {
+  "per-language": {
+   "gemma:ct": {
+    "calls_per_hour": 15329,
+    "in_tokens_per_hour": 5814739,
+    "out_tokens_per_hour": 224908,
+    "wall_p50": 294,
+    "wall_p90": 684
+   },
+   "gemma:flush": {
+    "calls_per_hour": 22,
+    "in_tokens_per_hour": 3989,
+    "out_tokens_per_hour": 388,
+    "wall_p50": 528,
+    "wall_p90": 528
+   },
+   "gemma:force": {
+    "calls_per_hour": 86,
+    "in_tokens_per_hour": 15027,
+    "out_tokens_per_hour": 4980,
+    "wall_p50": 928,
+    "wall_p90": 1123
+   },
+   "sol:flush": {
+    "calls_per_hour": 43,
+    "in_tokens_per_hour": 9443,
+    "out_tokens_per_hour": 3665,
+    "wall_p50": 2074,
+    "wall_p90": 2074
+   },
+   "sol:force": {
+    "calls_per_hour": 43,
+    "in_tokens_per_hour": 7395,
+    "out_tokens_per_hour": 7136,
+    "wall_p50": 2295,
+    "wall_p90": 2295
+   },
+   "sol:translate": {
+    "calls_per_hour": 410,
+    "in_tokens_per_hour": 69680,
+    "out_tokens_per_hour": 21689,
+    "wall_p50": 1076,
+    "wall_p90": 2059
+   },
+   "_total": {
+    "calls_per_hour": 15933,
+    "in_tokens_per_hour": 5920273,
+    "out_tokens_per_hour": 262766
+   }
+  },
+  "room": {
+   "gemma:decide": {
+    "calls_per_hour": 5584,
+    "in_tokens_per_hour": 1929033,
+    "out_tokens_per_hour": 15566,
+    "wall_p50": 275,
+    "wall_p90": 353
+   },
+   "gemma:translate": {
+    "calls_per_hour": 819,
+    "in_tokens_per_hour": 181250,
+    "out_tokens_per_hour": 30722,
+    "wall_p50": 651,
+    "wall_p90": 1076
+   },
+   "sol:translate": {
+    "calls_per_hour": 410,
+    "in_tokens_per_hour": 81064,
+    "out_tokens_per_hour": 29709,
+    "wall_p50": 1216,
+    "wall_p90": 2246
+   },
+   "_total": {
+    "calls_per_hour": 6813,
+    "in_tokens_per_hour": 2191347,
+    "out_tokens_per_hour": 75997
+   }
+  }
+ }
+}
