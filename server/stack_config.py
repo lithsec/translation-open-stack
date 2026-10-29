@@ -113,6 +113,7 @@ HYMT_LANGS = {
 # a language without one keeps its own voices, minus any that licences.py does
 # not allow commercially (pt zh ja hi keep Kokoro; fa and ro get eSpeak NG only).
 # The longer turns Japanese, Haitian Creole, Khmer and Lao take when spoken (languages.toml, eval/2026-10-pauses).
+# German takes them cut at 12 s (eval/2026-10-agree-live).
 LONG_TURNS = {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500, "max_utterance_s": 15,
               "min_speech_ms": 2500}
 # Translators per direction, from the full stack live (eval/2026-10-full-stack): Gemma 4 (llmmt) out of
@@ -137,8 +138,8 @@ DEFAULTS = {
            "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": "hymt", "madlad": "pt"},
     "it": {"kokoro": "i:if_sara", "piper": "it_IT-serena-high", "asr": "whisper", "translator": "hymt",
            "madlad": "it"},
-    "de": {"piper": "de_DE-thorsten-high", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
-           "translator_to_en": "hymt", "madlad": "de",
+    "de": {"piper": "de_DE-thorsten-high", "asr": "whisper", **LONG_TURNS, "max_utterance_s": 12,
+           "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": "hymt", "madlad": "de",
            "commercial": {"piper": "de_DE-mls-medium"}},
     "ru": {"piper": "ru_RU-irina-medium", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
            "translator_to_en": ["llmmt", "hymt"], "madlad": "ru",

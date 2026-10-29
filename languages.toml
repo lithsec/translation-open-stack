@@ -199,9 +199,19 @@ translator = "hymt"
 madlad = "it"
 
 # thorsten is the one German voice at `high`; Kokoro has no German.
+#
+# German speakers get long turns (see [ja]), cut at 12 s rather than 15: the verb comes last, so a
+# turn cut at a short pause leaves it out. de->en live: default turns 86.7 / 88.3 (regular /
+# irregular pauses), cut at 15 s 93.3 / 96.7 but the slowest tenth waited 10.0 s with irregular
+# pauses, at 12 s 91.7 / 91.7 with 6.8 s, at 10 s 86.7 / 73.3 (eval/2026-10-agree-live).
 [de]
 piper = "de_DE-thorsten-high"
 asr = "whisper"
+endpoint_ms = 900
+long_utterance_s = 8
+long_endpoint_ms = 500
+max_utterance_s = 12
+min_speech_ms = 2500
 translator = ["llmmt", "hymt"]
 llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
 translator_to_en = "hymt"
