@@ -1,0 +1,1846 @@
+{
+ "reg:en-es": {
+  "agree-nemo": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 3 hallucinates next sentences"
+   },
+   {
+    "i": 4,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "chunk 1 hallucinates other sentences"
+   },
+   {
+    "i": 5,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "chunk 1 hallucinates other sentences"
+   },
+   {
+    "i": 6,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "chunk 1 hallucinates other sentences"
+   },
+   {
+    "i": 7,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "chunk 1 hallucinates other sentences"
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "chunk 1 hallucinates, chunk 3 repeats"
+   },
+   {
+    "i": 9,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 4 hallucinates next sentences"
+   },
+   {
+    "i": 12,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "chunk 1 hallucinates other sentences"
+   },
+   {
+    "i": 13,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "chunk 1 hallucinates other sentences"
+   },
+   {
+    "i": 14,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "chunk 1 hallucinates other sentences"
+   },
+   {
+    "i": 15,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 includes previous sentence"
+   },
+   {
+    "i": 17,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "chunk 5 includes next sentence"
+   },
+   {
+    "i": 18,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "chunk 1 includes previous sentence"
+   },
+   {
+    "i": 19,
+    "chunks": 3,
+    "wrong": 0
+   }
+  ],
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "chunk 2 wrong meaning, chunk 3 includes next"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "chunks 1 and 3 include other sentences"
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "chunks 1 and 3 include other sentences"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 1 includes previous sentence"
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "chunk 2 includes next sentence"
+   },
+   {
+    "i": 8,
+    "chunks": 7,
+    "wrong": 2,
+    "note": "chunk 1 includes previous, chunk 6 repeats"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 3 includes next sentence"
+   },
+   {
+    "i": 12,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "chunks 1 and 4 include other sentences"
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 1 includes previous sentence"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 17,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 4 includes next sentence"
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 1 includes previous sentence"
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 4 repeats chunk 1"
+   }
+  ]
+ },
+ "reg:en-fr": {
+  "agree-nemo": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repas changes meaning of males"
+   },
+   {
+    "i": 4,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 6,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 7,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "chunk 1 repeats, chunk 4 repeats"
+   },
+   {
+    "i": 9,
+    "chunks": 5,
+    "wrong": 3,
+    "note": "chunks 1, 2, 3 contradict villes"
+   },
+   {
+    "i": 10,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 11,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 13,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "chunk 1 repeats, chunk 4 contradicts"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 15,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 17,
+    "chunks": 7,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 19,
+    "chunks": 3,
+    "wrong": 0
+   }
+  ],
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "espèces changes meaning of males"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 8,
+    "chunks": 7,
+    "wrong": 3,
+    "note": "chunk 1 repeats, chunks 6 and 7 repeat"
+   },
+   {
+    "i": 9,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 contradicts villes"
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 11,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats previous chunk"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 17,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 4 repeats chunk 1"
+   }
+  ]
+ },
+ "reg:es-en": {
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 changes meaning"
+   },
+   {
+    "i": 5,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "chunks 5 and 6 repeat earlier chunks"
+   },
+   {
+    "i": 6,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "chunk 1 repeats from previous sentence"
+   },
+   {
+    "i": 7,
+    "chunks": 6,
+    "wrong": 3,
+    "note": "chunks 4, 5, and 6 repeat"
+   },
+   {
+    "i": 8,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "chunk 1 changes meaning"
+   },
+   {
+    "i": 11,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "chunks 2 and 5 change meaning"
+   },
+   {
+    "i": 16,
+    "chunks": 6,
+    "wrong": 3,
+    "note": "chunks 4, 5, and 6 hallucinate and repeat"
+   },
+   {
+    "i": 17,
+    "chunks": 7,
+    "wrong": 1,
+    "note": "chunk 4 is corrected by chunk 5"
+   },
+   {
+    "i": 18,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "chunk 2 changes meaning, chunk 3 repeats"
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 0
+   }
+  ],
+  "agree-nemo": [
+   {
+    "i": 0,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 1 changes meaning"
+   },
+   {
+    "i": 5,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "chunks 4 and 5 repeat earlier chunks"
+   },
+   {
+    "i": 6,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "chunk 1 repeats from previous sentence"
+   },
+   {
+    "i": 7,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "chunk 5 repeats earlier chunks"
+   },
+   {
+    "i": 8,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 9,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 6,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 8,
+    "wrong": 1,
+    "note": "chunk 8 repeats and corrects"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 3 changes meaning"
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 4 repeats earlier chunks"
+   },
+   {
+    "i": 17,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 3 changes meaning"
+   },
+   {
+    "i": 19,
+    "chunks": 5,
+    "wrong": 0
+   }
+  ]
+ },
+ "reg:fr-en": {
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "Repeats earlier chunks and contradicts meaning"
+   },
+   {
+    "i": 1,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "Prides instead of beaches, cacao instead of pohutukawa"
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 5,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Repeats and includes next sentence's text"
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Includes previous sentence's text"
+   },
+   {
+    "i": 7,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 8,
+    "chunks": 7,
+    "wrong": 3,
+    "note": "Repeats earlier chunks"
+   },
+   {
+    "i": 9,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "During instead of after changes meaning"
+   },
+   {
+    "i": 11,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "Repeats earlier chunks"
+   },
+   {
+    "i": 12,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "Includes next sentence's text"
+   },
+   {
+    "i": 14,
+    "chunks": 7,
+    "wrong": 7,
+    "note": "Includes adjacent sentences and repeats previous sentence"
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Includes previous sentence's text"
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "One hundred instead of 400 changes meaning"
+   },
+   {
+    "i": 17,
+    "chunks": 6,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 6,
+    "wrong": 3,
+    "note": "Repeats earlier chunks"
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "Out of order and nonsense chunk"
+   }
+  ],
+  "agree-nemo": [
+   {
+    "i": 0,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "Repeats earlier chunks and includes next sentence"
+   },
+   {
+    "i": 1,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "Includes previous sentence's text"
+   },
+   {
+    "i": 2,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "Cashew instead of pohutukawa changes meaning"
+   },
+   {
+    "i": 3,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Two instead of one changes meaning"
+   },
+   {
+    "i": 4,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 5,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Repeats earlier chunk"
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Repeats earlier chunks"
+   },
+   {
+    "i": 9,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "Includes next sentence's text"
+   },
+   {
+    "i": 10,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "Includes previous sentence's text"
+   },
+   {
+    "i": 11,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "Repeats earlier chunks and includes next sentence"
+   },
+   {
+    "i": 12,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "Includes previous sentence's text"
+   },
+   {
+    "i": 13,
+    "chunks": 6,
+    "wrong": 1,
+    "note": "Includes next sentence's text"
+   },
+   {
+    "i": 14,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "Includes previous sentence and repeats chunk"
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "100s instead of 400 changes meaning"
+   },
+   {
+    "i": 17,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Repeats earlier chunks"
+   },
+   {
+    "i": 19,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "Repeats earlier chunks"
+   }
+  ]
+ },
+ "irr:en-es": {
+  "agree-nemo": [
+   {
+    "i": 0,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "chunk 2 hallucinates next sentences"
+   },
+   {
+    "i": 4,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats previous hallucination"
+   },
+   {
+    "i": 5,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats previous hallucination"
+   },
+   {
+    "i": 6,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats previous hallucination"
+   },
+   {
+    "i": 7,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats previous hallucination"
+   },
+   {
+    "i": 8,
+    "chunks": 6,
+    "wrong": 1,
+    "note": "chunk 1 repeats hallucination"
+   },
+   {
+    "i": 9,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "chunk 2 hallucinates next sentence"
+   },
+   {
+    "i": 10,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 repeats"
+   },
+   {
+    "i": 11,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "chunk 2 hallucinates next sentence"
+   },
+   {
+    "i": 14,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats previous hallucination"
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 3 hallucinates 'Es'"
+   },
+   {
+    "i": 16,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 1 repeats"
+   },
+   {
+    "i": 17,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 1,
+    "wrong": 0
+   }
+  ],
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "estaba contradicted by importante"
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "hembras instead of males; hallucinates"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 1 repeats"
+   },
+   {
+    "i": 5,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "chunk 2 hallucinates next sentence"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 1 repeats"
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "chunk 2 hallucinates next sentence"
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 repeats"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 3 hallucinates next sentence"
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 1 repeats"
+   },
+   {
+    "i": 11,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 3 hallucinates next sentence"
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 1 repeats"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "usted lo hace contradicted"
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 17,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 4 hallucinates next sentence"
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 1 repeats"
+   },
+   {
+    "i": 19,
+    "chunks": 1,
+    "wrong": 0
+   }
+  ]
+ },
+ "irr:en-fr": {
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "femelles instead of males; guesses next sentence"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats previous sentence"
+   },
+   {
+    "i": 5,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "guesses next sentence"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeats previous sentence; se dirigent contradicts imperative"
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "guesses next sentence"
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeats previous sentence"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "guesses next sentence"
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats previous sentence"
+   },
+   {
+    "i": 11,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "guesses next sentence"
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats previous sentence"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "vous faites guesses verb do"
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 17,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "guesses wrong meaning"
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeats previous sentence; pressera contradicts imperative"
+   },
+   {
+    "i": 19,
+    "chunks": 1,
+    "wrong": 0
+   }
+  ],
+  "agree-nemo": [
+   {
+    "i": 0,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "palmiers guesses pohikina"
+   },
+   {
+    "i": 3,
+    "chunks": 5,
+    "wrong": 3,
+    "note": "femelles; petits; guesses next sentence"
+   },
+   {
+    "i": 4,
+    "chunks": 2,
+    "wrong": 2,
+    "note": "repeats previous sentence; guesses sentences 6-9"
+   },
+   {
+    "i": 5,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats massive hallucination"
+   },
+   {
+    "i": 6,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats massive hallucination"
+   },
+   {
+    "i": 7,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats massive hallucination"
+   },
+   {
+    "i": 8,
+    "chunks": 6,
+    "wrong": 1,
+    "note": "repeats massive hallucination"
+   },
+   {
+    "i": 9,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "guesses next sentence"
+   },
+   {
+    "i": 10,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats previous sentence"
+   },
+   {
+    "i": 11,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "guesses next sentence"
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeats previous sentence; guesses next sentence"
+   },
+   {
+    "i": 14,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats previous sentence"
+   },
+   {
+    "i": 15,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "guessed structure contradicted by began"
+   },
+   {
+    "i": 17,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "hallucinates meaning based on Olympics"
+   },
+   {
+    "i": 19,
+    "chunks": 1,
+    "wrong": 0
+   }
+  ]
+ },
+ "irr:es-en": {
+  "agree-nemo": [
+   {
+    "i": 0,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 6,
+    "wrong": 1,
+    "note": "chunk 6 repeats earlier chunks"
+   },
+   {
+    "i": 3,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "chunks 3 and 4 repeat earlier chunks"
+   },
+   {
+    "i": 4,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats chunk from previous sentence"
+   },
+   {
+    "i": 5,
+    "chunks": 6,
+    "wrong": 1,
+    "note": "chunk 5 repeats earlier chunks"
+   },
+   {
+    "i": 6,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "chunk 1 repeats previous sentence"
+   },
+   {
+    "i": 7,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "chunks 5 and 6 repeat earlier chunks"
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 repeats previous sentence"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 7,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "chunks 2 and 3 corrected and repeated"
+   },
+   {
+    "i": 13,
+    "chunks": 8,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 3 repeats earlier chunks"
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 4 repeats earlier chunks"
+   },
+   {
+    "i": 17,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 7,
+    "wrong": 2,
+    "note": "chunk 6 repeats, chunk 7 contradicted"
+   },
+   {
+    "i": 19,
+    "chunks": 1,
+    "wrong": 0
+   }
+  ],
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 6,
+    "wrong": 1,
+    "note": "chunk 6 repeats earlier chunk"
+   },
+   {
+    "i": 3,
+    "chunks": 7,
+    "wrong": 4,
+    "note": "chunks 1, 5, 6, and 7 repeat"
+   },
+   {
+    "i": 4,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 5,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "chunks 5 and 6 repeat earlier chunks"
+   },
+   {
+    "i": 6,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "chunk 1 repeats previous sentence"
+   },
+   {
+    "i": 7,
+    "chunks": 6,
+    "wrong": 3,
+    "note": "chunks 4, 5, and 6 repeat"
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 repeats previous sentence"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "chunks 3 and 4 repeat earlier chunks"
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 repeats previous sentence"
+   },
+   {
+    "i": 16,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "chunks 5 and 6 repeat earlier chunks"
+   },
+   {
+    "i": 17,
+    "chunks": 6,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 7,
+    "wrong": 3,
+    "note": "chunks 5, 6, and 7 repeat"
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "chunk 1 repeats, chunk 2 corrected later"
+   }
+  ]
+ },
+ "irr:fr-en": {
+  "agree-nemo": [
+   {
+    "i": 0,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "chunks 4 and 5 repeat earlier chunks"
+   },
+   {
+    "i": 1,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats chunk from previous sentence"
+   },
+   {
+    "i": 2,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "chunks 5 and 6 repeat earlier chunks"
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 3,
+    "note": "all chunks repeat earlier chunks"
+   },
+   {
+    "i": 4,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats chunk from previous sentence"
+   },
+   {
+    "i": 5,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 4 repeats earlier chunk"
+   },
+   {
+    "i": 6,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 8,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 9,
+    "chunks": 7,
+    "wrong": 1,
+    "note": "incomplete comparison changes meaning"
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "chunk 3 repeats earlier chunk"
+   },
+   {
+    "i": 11,
+    "chunks": 7,
+    "wrong": 2,
+    "note": "chunks 6 and 7 repeat earlier chunks"
+   },
+   {
+    "i": 12,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "repeats chunk from previous sentence"
+   },
+   {
+    "i": 13,
+    "chunks": 6,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "chunks 1 and 3 repeat earlier chunks"
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "aspects of changes meaning"
+   },
+   {
+    "i": 16,
+    "chunks": 7,
+    "wrong": 3,
+    "note": "mistranslates 400; chunks 6 and 7 repeat"
+   },
+   {
+    "i": 17,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 repeats chunk from previous sentence"
+   },
+   {
+    "i": 18,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "preceding and or change meaning"
+   }
+  ],
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "chunks 4 and 5 repeat earlier chunks"
+   },
+   {
+    "i": 1,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 6,
+    "wrong": 3,
+    "note": "prides is wrong; chunks 5 and 6 repeat"
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "thus and before being abandoned change meaning"
+   },
+   {
+    "i": 4,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "chunk 1 repeats chunk from previous sentence"
+   },
+   {
+    "i": 5,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 4 repeats earlier chunk"
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 repeats chunk from previous sentence"
+   },
+   {
+    "i": 7,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "incomplete comparison changes meaning"
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "chunk 1 repeats chunk from previous sentence"
+   },
+   {
+    "i": 11,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "chunks 5 and 6 repeat earlier chunks"
+   },
+   {
+    "i": 12,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 8,
+    "wrong": 7,
+    "note": "multiple repetitions; aspects of changes meaning"
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "chunk 1 repeats; and changes meaning"
+   },
+   {
+    "i": 16,
+    "chunks": 5,
+    "wrong": 4,
+    "note": "mistranslates 400; chunks 4 and 5 repeat"
+   },
+   {
+    "i": 17,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 repeats chunk from previous sentence"
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "previous time changes meaning"
+   }
+  ]
+ }
+}
