@@ -1,0 +1,122 @@
+profile: cuda-80gb
+edition: nonprofit
+config: /workspace/al/configs/G1.toml
+profile: cuda-80gb (One 80 GB+ NVIDIA GPU: the reference, plus Omnilingual 7B for Lao and Khmer); details: stack_config.py profile
+devices: default=auto
+edition: nonprofit
+  ar  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: piper ar_JO-kareem-medium ❓ > espeak ⚠️ (last resort)
+  bn  asr=omni:ben_Beng  ✅  mt=hymt   ✅  voice: piper bn_BD-google-medium ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ bn voice piper bn_BD-google-medium: CC-BY-SA 4.0: credit Google's OpenSLR 37 Bengali corpus and keep the CMU notice
+  de  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: piper de_DE-thorsten-high ❓ > espeak ⚠️ (last resort)
+  en  asr=whisper        ✅  mt=hymt   ✅  voice: kokoro a:am_michael ✅ > piper en_US-lessac-medium ⛔ > espeak ⚠️ (last resort)
+  es  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: kokoro e:ef_dora ✅ > piper es_ES-davefx-medium ❓ > espeak ⚠️ (last resort)
+  fa  asr=omni:pes_Arab  ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: piper fa_IR-gyro-medium ❓ > espeak ⚠️ (last resort)
+  fr  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: kokoro f:ff_siwis ✅ > piper fr_FR-siwis-medium ❓ > espeak ⚠️ (last resort)
+  hi  asr=omni:hin_Deva  ✅  mt=hymt   ✅  voice: kokoro h:hf_alpha ✅ > piper hi_IN-rohan-medium ❓ > espeak ⚠️ (last resort)
+  ht  asr=omni:hat_Latn  ✅  mt=llmmt>madlad (to en: llmmt>hymt) ❓  voice: mms facebook/mms-tts-hat ⛔ > espeak ⚠️ (last resort)
+  id  asr=whisper        ✅  mt=hymt   ✅  voice: piper id_ID-news_tts-medium ❓ > espeak ⚠️ (last resort)
+  it  asr=whisper        ✅  mt=hymt   ✅  voice: kokoro i:if_sara ✅ > piper it_IT-serena-high ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ it voice piper it_IT-serena-high: CC-BY 4.0: credit the serena-synthetic-it-27h dataset (committa)
+  ja  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: kokoro j:jf_alpha ✅ > piper ja_JP-hi_fi_captain-medium ⛔
+  km  asr=omni:khm_Khmr  ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: voxcpm ✅ > mms facebook/mms-tts-khm ⛔
+  ko  asr=whisper        ✅  mt=hymt   ✅  voice: piper ko_KR-kss-medium ⛔ > espeak ⚠️ (last resort)
+  lo  asr=omni:lao_Laoo  ✅  mt=llmmt>madlad (to en: llmmt>hymt) ❓  voice: voxcpm ✅ > mms facebook/mms-tts-lao ⛔
+  pt  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: kokoro p:pf_dora ✅ > piper pt_BR-faber-medium ❓ > espeak ⚠️ (last resort)
+  ro  asr=whisper        ✅  mt=madlad ✅  voice: piper ro_RO-mihai-medium ❓ > espeak ⚠️ (last resort)
+  ru  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: piper ru_RU-irina-medium ❓ > espeak ⚠️ (last resort)
+  sw  asr=omni:swh_Latn  ✅  mt=llmmt>madlad ❓  voice: piper sw_CD-lanfrica-medium ❓ > espeak ⚠️ (last resort)
+  tl  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: voxcpm ✅ > mms facebook/mms-tts-tgl ⛔
+  tr  asr=whisper        ✅  mt=hymt   ✅  voice: piper tr_TR-dfki-medium ⛔ > espeak ⚠️ (last resort)
+  uk  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ❓  voice: piper uk_UA-ukrainian_tts-medium ✅ > espeak ⚠️ (last resort)
+  ur  asr=omni:urd_Arab  ✅  mt=hymt   ✅  voice: piper ur_PK-aegis_female-medium ✅ > espeak ⚠️ (last resort)
+  vi  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: piper vi_VN-vais1000-medium ❓ > espeak ⚠️ (last resort)
+  zh  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ❓  voice: kokoro z:zf_xiaobei ✅ > piper zh_CN-huayan-medium ❓ > espeak ⚠️ (last resort)
+  nonprofit loads 21 ⛔/❓ voices: non-commercial use only (`check --edition commercial` for what a commercial deployment gets)
+models:
+  whisper     ✅ MIT            model=large-v3  multi_model=(same as model)  multi_revision=(none)  revision=edaa852ec7e145841d8ffdb056a99866b5f0a478
+  omnilingual ✅ Apache-2.0     card=omniASR_LLM_300M
+  omnilingual_large ✅ Apache-2.0     card=omniASR_LLM_7B
+  lid         ✅ Apache-2.0     repo=speechbrain/lang-id-voxlingua107-ecapa  revision=0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9
+  vad         ✅ MIT            repo=snakers4/silero-vad  ref=5cd7945676eb32225748052e2e6a0580e4686a08
+  hymt        ✅ Apache-2.0     repo=tencent/Hy-MT2-7B  revision=9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223
+  madlad      ✅ Apache-2.0     repo=google/madlad400-7b-mt  revision=1ff63ce7ddd571a69d45cad9672c553428419671
+  madlad3b    ✅ Apache-2.0     repo=google/madlad400-3b-mt  revision=fa184c675da0b5c9e1c8694fccd4e12e2d422094
+  kokoro      ✅ Apache-2.0     repo=hexgrad/Kokoro-82M  revision=f3ff3571791e39611d31c381e3a41a3af07b4987
+  voxcpm      ✅ Apache-2.0     repo=openbmb/VoxCPM2  revision=32279effe8c19989596f05d353d1447f51d9e915
+voices at capacity:
+  a chain is tried in order: when VoxCPM2 is at capacity (every instance at its limit) or down, the sentence waits briefly (VOXCPM_QUEUE_S, 2 s) for a free instance, then goes to the next voice (languages with no voice after VoxCPM2 wait up to VOXCPM_WAIT_S, 15 s); eSpeak NG (last resort) ends every chain it speaks, if espeak-ng is installed
+  VoxCPM2 speaks 3 languages (km, lo, tl); one instance makes ~2-3 real-time voices, and takes up to 1 sentences at once (VOXCPM_MAX_INFLIGHT)
+  VoxCPM2 instances: 1 (the nonprofit default) (VOXCPM_INSTANCES=auto|<n>, VOXCPM_GPUS)
+  on this machine now: VoxCPM2: 1 instance (one GPU); overflow → fallback voices
+engines: recognizer omni, whisper; translator echo, hymt, llmmt, madlad; voice coqui, cosyvoice, espeak, kokoro, mms, piper, voxcpm
+[stack] language config: /workspace/al/configs/G1.toml
+[stack] edition: nonprofit
+[stack] device=cuda
+[stack] loading Silero VAD (snakers4/silero-vad:5cd7945676eb32225748052e2e6a0580e4686a08)…
+Downloading: "https://github.com/snakers4/silero-vad/zipball/5cd7945676eb32225748052e2e6a0580e4686a08" to /workspace/torch-cache/hub/5cd7945676eb32225748052e2e6a0580e4686a08.zip
+[stack] loading faster-whisper large-v3 @ edaa852ec7e145841d8ffdb056a99866b5f0a478 on cuda…
+[stack] sharing large-v3 for English and --xeng sources
+[stack] whisper on cuda: +3.5 GB (41.7 GB in use there)
+/usr/local/lib/python3.12/dist-packages/speechbrain/utils/torch_audio_backend.py:64: UserWarning: torchaudio._backend.list_audio_backends has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
+  available_backends = torchaudio.list_audio_backends()
+[stack] loading speechbrain/lang-id-voxlingua107-ecapa @ 0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9 for src=auto…
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files:  89%|████████▉ | 8/9 [00:00<00:00, 24.62it/s]Fetching 9 files: 100%|██████████| 9/9 [00:00<00:00, 10.71it/s]
+Could not parse CUDA device string 'cuda': not enough values to unpack (expected 2, got 1). Falling back to device 0.
+[stack] auto-routing among: ['en', 'de']
+[stack] loading Omnilingual ASR (omniASR_LLM_300M) on cuda…
+  0%|          | 0.00/6.06G [00:00<?, ?B/s]  0%|          | 23.4M/6.06G [00:00<00:26, 245MB/s]  1%|          | 54.3M/6.06G [00:00<00:22, 291MB/s]  1%|▏         | 82.7M/6.06G [00:00<00:21, 294MB/s]  2%|▏         | 115M/6.06G [00:00<00:20, 311MB/s]   2%|▏         | 148M/6.06G [00:00<00:19, 326MB/s]  3%|▎         | 186M/6.06G [00:00<00:18, 347MB/s]  4%|▎         | 222M/6.06G [00:00<00:17, 357MB/s]  4%|▍         | 259M/6.06G [00:00<00:17, 366MB/s]  5%|▍         | 294M/6.06G [00:00<00:17, 363MB/s]  5%|▌         | 328M/6.06G [00:01<00:17, 349MB/s]  6%|▌         | 367M/6.06G [00:01<00:16, 368MB/s]  7%|▋         | 407M/6.06G [00:01<00:15, 382MB/s]  7%|▋         | 443M/6.06G [00:01<00:16, 366MB/s]  8%|▊         | 479M/6.06G [00:01<00:16, 366MB/s]  8%|▊         | 514M/6.06G [00:01<00:16, 365MB/s]  9%|▉         | 549M/6.06G [00:01<00:17, 344MB/s]  9%|▉         | 583M/6.06G [00:01<00:16, 347MB/s] 10%|█         | 622M/6.06G [00:01<00:16, 365MB/s] 11%|█         | 657M/6.06G [00:01<00:16, 364MB/s] 11%|█         | 695M/6.06G [00:02<00:15, 374MB/s] 12%|█▏        | 731M/6.06G [00:02<00:15, 368MB/s] 12%|█▏        | 766M/6.06G [00:02<00:16, 352MB/s] 13%|█▎        | 800M/6.06G [00:02<00:16, 353MB/s] 13%|█▎        | 834M/6.06G [00:02<00:15, 357MB/s] 14%|█▍        | 870M/6.06G [00:02<00:15, 360MB/s] 15%|█▍        | 909M/6.06G [00:02<00:14, 373MB/s] 15%|█▌        | 944M/6.06G [00:02<00:15, 366MB/s] 16%|█▌        | 981M/6.06G [00:02<00:14, 370MB/s] 16%|█▋        | 0.99G/6.06G [00:02<00:15, 361MB/s] 17%|█▋        | 1.03G/6.06G [00:03<00:15, 339MB/s] 17%|█▋        | 1.06G/6.06G [00:03<00:15, 345MB/s] 18%|█▊        | 1.10G/6.06G [00:03<00:14, 356MB/s] 19%|█▊        | 1.13G/6.06G [00:03<00:14, 374MB/s] 19%|█▉        | 1.17G/6.06G [00:03<00:13, 379MB/s] 20%|█▉        | 1.21G/6.06G [00:03<00:13, 374MB/s] 20%|██        | 1.24G/6.06G [00:03<00:13, 375MB/s] 21%|██        | 1.28G/6.06G [00:03<00:14, 367MB/s] 22%|██▏       | 1.31G/6.06G [00:03<00:14, 353MB/s] 22%|██▏       | 1.34G/6.06G [00:04<00:15, 333MB/s] 23%|██▎       | 1.37G/6.06G [00:04<00:16, 314MB/s] 23%|██▎       | 1.41G/6.06G [00:04<00:15, 321MB/s] 24%|██▍       | 1.45G/6.06G [00:04<00:14, 347MB/s] 24%|██▍       | 1.48G/6.06G [00:04<00:14, 339MB/s] 25%|██▍       | 1.51G/6.06G [00:04<00:14, 326MB/s] 25%|██▌       | 1.54G/6.06G [00:04<00:14, 337MB/s] 26%|██▌       | 1.58G/6.06G [00:04<00:14, 341MB/s] 27%|██▋       | 1.61G/6.06G [00:04<00:13, 353MB/s] 27%|██▋       | 1.65G/6.06G [00:05<00:14, 336MB/s] 28%|██▊       | 1.68G/6.06G [00:05<00:13, 343MB/s] 28%|██▊       | 1.71G/6.06G [00:05<00:14, 320MB/s] 29%|██▊       | 1.74G/6.06G [00:05<00:14, 314MB/s] 29%|██▉       | 1.77G/6.06G [00:05<00:14, 307MB/s] 30%|██▉       | 1.80G/6.06G [00:05<00:14, 321MB/s] 30%|███       | 1.84G/6.06G [00:05<00:13, 341MB/s] 31%|███       | 1.87G/6.06G [00:05<00:13, 332MB/s] 31%|███▏      | 1.90G/6.06G [00:05<00:13, 330MB/s] 32%|███▏      | 1.93G/6.06G [00:05<00:13, 325MB/s] 32%|███▏      | 1.96G/6.06G [00:06<00:14, 314MB/s] 33%|███▎      | 2.00G/6.06G [00:06<00:12, 340MB/s] 34%|███▎      | 2.04G/6.06G [00:06<00:12, 355MB/s] 34%|███▍      | 2.08G/6.06G [00:06<00:11, 371MB/s] 35%|███▍      | 2.11G/6.06G [00:06<00:12, 345MB/s] 35%|███▌      | 2.14G/6.06G [00:06<00:12, 335MB/s] 36%|███▌      | 2.18G/6.06G [00:06<00:13, 312MB/s] 36%|███▋      | 2.21G/6.06G [00:06<00:12, 330MB/s] 37%|███▋      | 2.24G/6.06G [00:06<00:12, 328MB/s] 37%|███▋      | 2.27G/6.06G [00:07<00:12, 330MB/s] 38%|███▊      | 2.31G/6.06G [00:07<00:11, 336MB/s] 39%|███▊      | 2.34G/6.06G [00:07<00:11, 343MB/s] 39%|███▉      | 2.37G/6.06G [00:07<00:11, 336MB/s] 40%|███▉      | 2.40G/6.06G [00:07<00:11, 334MB/s] 40%|████      | 2.43G/6.06G [00:07<00:11, 325MB/s] 41%|████      | 2.46G/6.06G [00:07<00:17, 215MB/s] 41%|████      | 2.49G/6.06G [00:07<00:16, 232MB/s] 42%|████▏     | 2.52G/6.06G [00:08<00:14, 260MB/s] 42%|████▏     | 2.56G/6.06G [00:08<00:12, 292MB/s] 43%|████▎     | 2.60G/6.06G [00:08<00:11, 313MB/s] 43%|████▎     | 2.63G/6.06G [00:08<00:11, 335MB/s] 44%|████▍     | 2.67G/6.06G [00:08<00:10, 340MB/s] 45%|████▍     | 2.70G/6.06G [00:08<00:10, 340MB/s] 45%|████▌     | 2.73G/6.06G [00:08<00:10, 340MB/s] 46%|████▌     | 2.76G/6.06G [00:08<00:10, 329MB/s] 46%|████▌     | 2.79G/6.06G [00:08<00:10, 331MB/s] 47%|████▋     | 2.83G/6.06G [00:09<00:10, 323MB/s] 47%|████▋     | 2.86G/6.06G [00:09<00:10, 332MB/s] 48%|████▊     | 2.89G/6.06G [00:09<00:10, 335MB/s] 48%|████▊     | 2.93G/6.06G [00:09<00:09, 347MB/s] 49%|████▉     | 2.96G/6.06G [00:09<00:09, 349MB/s] 49%|████▉     | 2.99G/6.06G [00:09<00:09, 352MB/s] 50%|████▉     | 3.02G/6.06G [00:09<00:09, 343MB/s] 50%|█████     | 3.06G/6.06G [00:09<00:09, 335MB/s] 51%|█████     | 3.09G/6.06G [00:09<00:09, 352MB/s] 52%|█████▏    | 3.13G/6.06G [00:09<00:10, 310MB/s] 52%|█████▏    | 3.16G/6.06G [00:10<00:09, 324MB/s] 53%|█████▎    | 3.19G/6.06G [00:10<00:15, 198MB/s] 53%|█████▎    | 3.22G/6.06G [00:10<00:15, 195MB/s] 54%|█████▎    | 3.25G/6.06G [00:10<00:13, 227MB/s] 54%|█████▍    | 3.28G/6.06G [00:10<00:12, 247MB/s] 55%|█████▍    | 3.31G/6.06G [00:10<00:11, 252MB/s] 55%|█████▌    | 3.34G/6.06G [00:10<00:10, 280MB/s] 56%|█████▌    | 3.37G/6.06G [00:11<00:10, 274MB/s] 56%|█████▌    | 3.40G/6.06G [00:11<00:09, 288MB/s] 56%|█████▋    | 3.43G/6.06G [00:11<00:14, 200MB/s] 57%|█████▋    | 3.45G/6.06G [00:11<00:12, 223MB/s] 57%|█████▋    | 3.48G/6.06G [00:11<00:11, 238MB/s] 58%|█████▊    | 3.51G/6.06G [00:11<00:11, 236MB/s] 58%|█████▊    | 3.54G/6.06G [00:11<00:10, 255MB/s] 59%|█████▉    | 3.56G/6.06G [00:11<00:10, 265MB/s] 59%|█████▉    | 3.59G/6.06G [00:12<00:11, 228MB/s] 60%|█████▉    | 3.62G/6.06G [00:12<00:10, 252MB/s] 60%|██████    | 3.66G/6.06G [00:12<00:09, 279MB/s] 61%|██████    | 3.69G/6.06G [00:12<00:08, 294MB/s] 61%|██████▏   | 3.72G/6.06G [00:12<00:08, 309MB/s] 62%|██████▏   | 3.75G/6.06G [00:12<00:07, 318MB/s] 62%|██████▏   | 3.79G/6.06G [00:12<00:07, 331MB/s] 63%|██████▎   | 3.82G/6.06G [00:12<00:07, 339MB/s] 64%|██████▎   | 3.85G/6.06G [00:12<00:06, 347MB/s] 64%|██████▍   | 3.89G/6.06G [00:13<00:06, 352MB/s] 65%|██████▍   | 3.93G/6.06G [00:13<00:06, 369MB/s] 65%|██████▌   | 3.96G/6.06G [00:13<00:06, 344MB/s] 66%|██████▌   | 3.99G/6.06G [00:13<00:06, 348MB/s] 66%|██████▋   | 4.03G/6.06G [00:13<00:06, 347MB/s] 67%|██████▋   | 4.06G/6.06G [00:13<00:08, 262MB/s] 67%|██████▋   | 4.09G/6.06G [00:13<00:07, 286MB/s] 68%|██████▊   | 4.13G/6.06G [00:13<00:06, 310MB/s] 69%|██████▊   | 4.16G/6.06G [00:13<00:06, 327MB/s] 69%|██████▉   | 4.19G/6.06G [00:14<00:06, 319MB/s] 70%|██████▉   | 4.23G/6.06G [00:14<00:05, 337MB/s] 70%|███████   | 4.26G/6.06G [00:14<00:05, 343MB/s] 71%|███████   | 4.30G/6.06G [00:14<00:05, 352MB/s] 71%|███████▏  | 4.33G/6.06G [00:14<00:05, 336MB/s] 72%|███████▏  | 4.37G/6.06G [00:14<00:05, 353MB/s] 73%|███████▎  | 4.41G/6.06G [00:14<00:04, 366MB/s] 73%|███████▎  | 4.44G/6.06G [00:14<00:05, 307MB/s] 74%|███████▎  | 4.47G/6.06G [00:14<00:05, 311MB/s] 74%|███████▍  | 4.50G/6.06G [00:15<00:07, 227MB/s] 75%|███████▍  | 4.54G/6.06G [00:15<00:06, 258MB/s] 75%|███████▌  | 4.57G/6.06G [00:15<00:05, 282MB/s] 76%|███████▌  | 4.60G/6.06G [00:15<00:05, 286MB/s] 76%|███████▋  | 4.63G/6.06G [00:15<00:05, 294MB/s] 77%|███████▋  | 4.66G/6.06G [00:15<00:04, 305MB/s] 77%|███████▋  | 4.69G/6.06G [00:15<00:04, 297MB/s] 78%|███████▊  | 4.72G/6.06G [00:15<00:04, 306MB/s] 78%|███████▊  | 4.75G/6.06G [00:16<00:04, 296MB/s] 79%|███████▉  | 4.78G/6.06G [00:16<00:04, 311MB/s] 79%|███████▉  | 4.81G/6.06G [00:16<00:04, 301MB/s] 80%|███████▉  | 4.84G/6.06G [00:16<00:04, 305MB/s] 80%|████████  | 4.87G/6.06G [00:16<00:04, 260MB/s] 81%|████████  | 4.90G/6.06G [00:16<00:04, 274MB/s] 81%|████████▏ | 4.93G/6.06G [00:16<00:04, 286MB/s] 82%|████████▏ | 4.96G/6.06G [00:16<00:04, 296MB/s] 82%|████████▏ | 4.99G/6.06G [00:16<00:03, 308MB/s] 83%|████████▎ | 5.02G/6.06G [00:17<00:05, 195MB/s] 83%|████████▎ | 5.06G/6.06G [00:17<00:04, 231MB/s] 84%|████████▍ | 5.09G/6.06G [00:17<00:04, 261MB/s] 84%|████████▍ | 5.12G/6.06G [00:17<00:03, 284MB/s] 85%|████████▌ | 5.15G/6.06G [00:17<00:03, 299MB/s] 86%|████████▌ | 5.18G/6.06G [00:17<00:03, 253MB/s] 86%|████████▌ | 5.21G/6.06G [00:18<00:04, 186MB/s] 86%|████████▋ | 5.24G/6.06G [00:18<00:04, 189MB/s] 87%|████████▋ | 5.26G/6.06G [00:18<00:04, 205MB/s] 87%|████████▋ | 5.28G/6.06G [00:18<00:04, 189MB/s] 88%|████████▊ | 5.32G/6.06G [00:18<00:03, 249MB/s] 88%|████████▊ | 5.35G/6.06G [00:18<00:03, 205MB/s] 89%|████████▊ | 5.38G/6.06G [00:18<00:03, 228MB/s] 89%|████████▉ | 5.41G/6.06G [00:18<00:02, 247MB/s] 90%|████████▉ | 5.44G/6.06G [00:19<00:02, 263MB/s] 90%|█████████ | 5.47G/6.06G [00:19<00:02, 261MB/s] 91%|█████████ | 5.50G/6.06G [00:19<00:02, 294MB/s] 91%|█████████ | 5.53G/6.06G [00:19<00:02, 285MB/s] 92%|█████████▏| 5.56G/6.06G [00:19<00:02, 266MB/s] 92%|█████████▏| 5.59G/6.06G [00:19<00:01, 281MB/s] 93%|█████████▎| 5.62G/6.06G [00:19<00:01, 301MB/s] 93%|█████████▎| 5.65G/6.06G [00:19<00:01, 274MB/s] 94%|█████████▍| 5.69G/6.06G [00:19<00:01, 322MB/s] 94%|█████████▍| 5.72G/6.06G [00:20<00:01, 325MB/s] 95%|█████████▍| 5.76G/6.06G [00:20<00:01, 330MB/s] 95%|█████████▌| 5.79G/6.06G [00:20<00:01, 219MB/s] 96%|█████████▌| 5.83G/6.06G [00:20<00:00, 269MB/s] 97%|█████████▋| 5.86G/6.06G [00:20<00:01, 210MB/s] 97%|█████████▋| 5.89G/6.06G [00:20<00:00, 236MB/s] 98%|█████████▊| 5.92G/6.06G [00:21<00:00, 242MB/s] 98%|█████████▊| 5.95G/6.06G [00:21<00:00, 227MB/s] 99%|█████████▉| 5.99G/6.06G [00:21<00:00, 285MB/s] 99%|█████████▉| 6.03G/6.06G [00:21<00:00, 315MB/s]100%|█████████▉| 6.06G/6.06G [00:21<00:00, 220MB/s]100%|██████████| 6.06G/6.06G [00:21<00:00, 301MB/s]
+
+  0%|          | 0.00/85.5k [00:00<?, ?B/s]100%|██████████| 85.5k/85.5k [00:00<00:00, 8.15MB/s]
+[stack] omni on cuda: +3.3 GB (45.2 GB in use there)
+[stack] loading Hy-MT2 from /workspace/mt/hymt2-7b-nf4…
+The tokenizer you are loading from '/workspace/mt/hymt2-7b-nf4' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[stack] hymt on cuda: +7.0 GB (52.2 GB in use there)
+[stack] Kokoro TTS enabled (24kHz native, GPU)
+[stack] loading MADLAD tokenizer from /workspace/madlad-ct2…
+[stack] MT via CTranslate2: /workspace/madlad-ct2
+[stack] MT is CTranslate2 only — bf16 copy not loaded
+[stack] madlad on cuda: +3.1 GB (55.2 GB in use there)
+[stack] en: en_US-lessac-medium (intra_op=4)
+[stack] de: de_DE-thorsten-high (intra_op=4)
+[stack] eSpeak NG last-resort voice for de,en
+[stack] loading translator llmmt (engines.llmmt)…
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) answering — de use it
+[licence] edition nonprofit: every configured voice may load (non-commercial use only; EDITION=commercial filters by licence)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Fetching 10 files:   0%|          | 0/10 [00:00<?, ?it/s]Fetching 10 files:  80%|████████  | 8/10 [00:00<00:00, 18.13it/s]Fetching 10 files: 100%|██████████| 10/10 [00:02<00:00,  4.93it/s]
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/rnn.py:123: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+[stack] warm in 4.9s (2 languages, 2 voice engines in parallel) — first utterance pays nothing
+[stack] access: OPEN (LAN only); limits 30/client, 60 total, 360 min/session
+[stack] ready on :8790 for ['en', 'de']
+[stack] client: de -> en (context)
+[stack] room open/e2e_de_en_8etkuz: +en (primary, utterance)
+[stack] utterance 7.1s speech | lid 0.00s asr 5.93s mt 6.33s tts1[en] 6.38s done 6.39s
+[stack] utterance 5.3s speech | lid 0.00s asr 0.11s mt 0.32s tts1[en] 0.36s done 0.36s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.22s mt 0.52s tts1[en] 0.56s done 0.57s
+[stack] utterance 11.8s speech | lid 0.00s asr 0.29s mt 0.59s tts1[en] 0.64s done 0.65s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.26s mt 0.73s tts1[en] 0.79s done 0.80s
+[stack] utterance 5.4s speech | lid 0.00s asr 0.18s mt 0.45s tts1[en] 0.49s done 0.50s
+[stack] utterance 9.8s speech | lid 0.00s asr 0.26s mt 0.52s tts1[en] 0.56s done 0.61s
+[stack] utterance 10.1s speech | lid 0.00s asr 0.20s mt 0.63s tts1[en] 0.67s done 0.68s
+[stack] utterance 3.7s speech | lid 0.00s asr 0.11s mt 0.31s tts1[en] 0.35s done 0.35s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.10s mt 0.29s tts1[en] 0.33s done 0.34s
+[stack] utterance 3.2s speech | lid 0.00s asr 0.08s mt 0.20s tts1[en] 0.23s done 0.24s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.13s mt 0.39s tts1[en] 0.43s done 0.44s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.12s mt 0.35s tts1[en] 0.39s done 0.39s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.13s mt 0.38s tts1[en] 0.42s done 0.43s
+[stack] utterance 7.7s speech | lid 0.00s asr 0.20s mt 0.55s tts1[en] 0.60s done 0.61s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.25s mt 0.63s tts1[en] 0.68s done 0.69s
+[stack] utterance 9.7s speech | lid 0.00s asr 0.27s mt 0.61s tts1[en] 0.65s done 0.73s
+[stack] utterance 10.1s speech | lid 0.00s asr 0.27s mt 0.68s tts1[en] 0.73s done 0.75s
+[stack] utterance 2.0s speech | lid 0.00s asr 0.08s mt 0.19s tts1[en] 0.23s done 0.23s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.19s mt 0.45s tts1[en] 0.49s done 0.50s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.22s mt 0.53s tts1[en] 0.57s done 0.61s
+[stack] utterance 11.6s speech | lid 0.00s asr 0.29s mt 0.67s tts1[en] 0.72s done 0.74s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.21s mt 0.50s tts1[en] 0.54s done 0.55s
+[stack] dropped short noise (p=0.63): Erdogan
+[stack] utterance 9.0s speech | lid 0.00s asr 0.23s mt 0.62s tts1[en] 0.66s done 0.70s
+[stack] utterance 11.6s speech | lid 0.00s asr 0.25s mt 0.57s tts1[en] 0.61s done 0.62s
+[stack] dropped short noise (p=0.69): Bekannt.

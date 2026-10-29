@@ -1,0 +1,802 @@
+{
+ "grader": "gemini-pro-latest, blind, the configurations side by side, one call per direction and clip",
+ "stream": {
+  "systems": {
+   "U": "Utterance",
+   "C": "Simultaneous, clause rule",
+   "A": "Simultaneous, agree"
+  },
+  "scores": {
+   "en-es:reg": {
+    "C": {
+     "score": 50.0,
+     "crit": 9
+    },
+    "A": {
+     "score": 60.0,
+     "crit": 8
+    },
+    "U": {
+     "score": 58.3,
+     "crit": 8
+    }
+   },
+   "es-en:reg": {
+    "A": {
+     "score": 83.3,
+     "crit": 1
+    },
+    "C": {
+     "score": 61.7,
+     "crit": 2
+    },
+    "U": {
+     "score": 83.3,
+     "crit": 1
+    }
+   },
+   "en-fr:reg": {
+    "C": {
+     "score": 50.0,
+     "crit": 11
+    },
+    "A": {
+     "score": 70.0,
+     "crit": 7
+    },
+    "U": {
+     "score": 68.3,
+     "crit": 8
+    }
+   },
+   "fr-en:reg": {
+    "C": {
+     "score": 71.7,
+     "crit": 1
+    },
+    "A": {
+     "score": 78.3,
+     "crit": 1
+    },
+    "U": {
+     "score": 81.7,
+     "crit": 1
+    }
+   },
+   "en-es:irr": {
+    "C": {
+     "score": 55.0,
+     "crit": 9
+    },
+    "U": {
+     "score": 61.7,
+     "crit": 9
+    },
+    "A": {
+     "score": 60.0,
+     "crit": 9
+    }
+   },
+   "es-en:irr": {
+    "U": {
+     "score": 80.0,
+     "crit": 2
+    },
+    "C": {
+     "score": 58.3,
+     "crit": 3
+    },
+    "A": {
+     "score": 76.7,
+     "crit": 2
+    }
+   },
+   "en-fr:irr": {
+    "U": {
+     "score": 55.0,
+     "crit": 6
+    },
+    "C": {
+     "score": 41.7,
+     "crit": 7
+    },
+    "A": {
+     "score": 51.7,
+     "crit": 6
+    }
+   },
+   "fr-en:irr": {
+    "U": {
+     "score": 80.0,
+     "crit": 1
+    },
+    "A": {
+     "score": 78.3,
+     "crit": 1
+    },
+    "C": {
+     "score": 73.3,
+     "crit": 1
+    }
+   }
+  },
+  "latency": {
+   "en-es:reg": {
+    "U": {
+     "start_to_first_audio_ms": {
+      "p50": 6632,
+      "p90": 9214,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1244,
+      "p90": 1575,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 7356,
+      "p90": 10388,
+      "n": 20
+     },
+     "cer": 0.083,
+     "missing_audio": 0
+    },
+    "C": {
+     "start_to_first_audio_ms": {
+      "p50": 4468,
+      "p90": 5474,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -1415,
+      "p90": 539,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 5709,
+      "p90": 7369,
+      "n": 20
+     },
+     "cer": 0.083,
+     "missing_audio": 0
+    },
+    "A": {
+     "start_to_first_audio_ms": {
+      "p50": 4366,
+      "p90": 5059,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -1936,
+      "p90": 208,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 6152,
+      "p90": 8451,
+      "n": 20
+     },
+     "cer": 0.083,
+     "missing_audio": 0
+    }
+   },
+   "es-en:reg": {
+    "U": {
+     "start_to_first_audio_ms": {
+      "p50": 8140,
+      "p90": 10548,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1534,
+      "p90": 1799,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 7925,
+      "p90": 12529,
+      "n": 20
+     },
+     "cer": 0.01,
+     "missing_audio": 0
+    },
+    "C": {
+     "start_to_first_audio_ms": {
+      "p50": 4573,
+      "p90": 5775,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -3027,
+      "p90": 133,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 5918,
+      "p90": 8024,
+      "n": 20
+     },
+     "cer": 0.01,
+     "missing_audio": 0
+    },
+    "A": {
+     "start_to_first_audio_ms": {
+      "p50": 3537,
+      "p90": 4667,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -3970,
+      "p90": -1528,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 6964,
+      "p90": 9143,
+      "n": 20
+     },
+     "cer": 0.01,
+     "missing_audio": 0
+    }
+   },
+   "en-fr:reg": {
+    "U": {
+     "start_to_first_audio_ms": {
+      "p50": 6827,
+      "p90": 9361,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1420,
+      "p90": 1682,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 7934,
+      "p90": 10055,
+      "n": 20
+     },
+     "cer": 0.083,
+     "missing_audio": 0
+    },
+    "C": {
+     "start_to_first_audio_ms": {
+      "p50": 4688,
+      "p90": 5650,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -1268,
+      "p90": 741,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 5988,
+      "p90": 7728,
+      "n": 20
+     },
+     "cer": 0.083,
+     "missing_audio": 0
+    },
+    "A": {
+     "start_to_first_audio_ms": {
+      "p50": 4591,
+      "p90": 5529,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -1764,
+      "p90": 378,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 6570,
+      "p90": 8000,
+      "n": 20
+     },
+     "cer": 0.083,
+     "missing_audio": 0
+    }
+   },
+   "fr-en:reg": {
+    "U": {
+     "start_to_first_audio_ms": {
+      "p50": 7747,
+      "p90": 9120,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1567,
+      "p90": 1799,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 7576,
+      "p90": 10646,
+      "n": 20
+     },
+     "cer": 0.025,
+     "missing_audio": 0
+    },
+    "C": {
+     "start_to_first_audio_ms": {
+      "p50": 4522,
+      "p90": 5725,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -1888,
+      "p90": -95,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 5797,
+      "p90": 7379,
+      "n": 20
+     },
+     "cer": 0.025,
+     "missing_audio": 0
+    },
+    "A": {
+     "start_to_first_audio_ms": {
+      "p50": 3609,
+      "p90": 5308,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -2336,
+      "p90": -160,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 6560,
+      "p90": 8722,
+      "n": 20
+     },
+     "cer": 0.025,
+     "missing_audio": 0
+    }
+   },
+   "en-es:irr": {
+    "U": {
+     "start_to_first_audio_ms": {
+      "p50": 7172,
+      "p90": 10356,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1282,
+      "p90": 2182,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 7967,
+      "p90": 13801,
+      "n": 20
+     },
+     "cer": 0.109,
+     "missing_audio": 0
+    },
+    "C": {
+     "start_to_first_audio_ms": {
+      "p50": 4404,
+      "p90": 6426,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -1688,
+      "p90": 1074,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 6222,
+      "p90": 8824,
+      "n": 20
+     },
+     "cer": 0.109,
+     "missing_audio": 0
+    },
+    "A": {
+     "start_to_first_audio_ms": {
+      "p50": 4032,
+      "p90": 6172,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -1748,
+      "p90": 755,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 6088,
+      "p90": 11569,
+      "n": 20
+     },
+     "cer": 0.109,
+     "missing_audio": 0
+    }
+   },
+   "es-en:irr": {
+    "U": {
+     "start_to_first_audio_ms": {
+      "p50": 8570,
+      "p90": 11559,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1515,
+      "p90": 1892,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 8124,
+      "p90": 13085,
+      "n": 20
+     },
+     "cer": 0.01,
+     "missing_audio": 0
+    },
+    "C": {
+     "start_to_first_audio_ms": {
+      "p50": 4589,
+      "p90": 5647,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -2806,
+      "p90": 650,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 6296,
+      "p90": 9225,
+      "n": 20
+     },
+     "cer": 0.01,
+     "missing_audio": 0
+    },
+    "A": {
+     "start_to_first_audio_ms": {
+      "p50": 3570,
+      "p90": 5299,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -3859,
+      "p90": 14,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 7440,
+      "p90": 9714,
+      "n": 20
+     },
+     "cer": 0.01,
+     "missing_audio": 0
+    }
+   },
+   "en-fr:irr": {
+    "U": {
+     "start_to_first_audio_ms": {
+      "p50": 7424,
+      "p90": 10555,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1560,
+      "p90": 2377,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 8264,
+      "p90": 13597,
+      "n": 20
+     },
+     "cer": 0.109,
+     "missing_audio": 0
+    },
+    "C": {
+     "start_to_first_audio_ms": {
+      "p50": 4620,
+      "p90": 6584,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -1545,
+      "p90": 1277,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 6262,
+      "p90": 9255,
+      "n": 20
+     },
+     "cer": 0.109,
+     "missing_audio": 0
+    },
+    "A": {
+     "start_to_first_audio_ms": {
+      "p50": 4279,
+      "p90": 6377,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -1561,
+      "p90": 918,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 6924,
+      "p90": 11287,
+      "n": 20
+     },
+     "cer": 0.109,
+     "missing_audio": 0
+    }
+   },
+   "fr-en:irr": {
+    "U": {
+     "start_to_first_audio_ms": {
+      "p50": 7858,
+      "p90": 9094,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1541,
+      "p90": 1793,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 7788,
+      "p90": 10636,
+      "n": 20
+     },
+     "cer": 0.03,
+     "missing_audio": 0
+    },
+    "C": {
+     "start_to_first_audio_ms": {
+      "p50": 4492,
+      "p90": 5729,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -2008,
+      "p90": 464,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 5476,
+      "p90": 7936,
+      "n": 20
+     },
+     "cer": 0.03,
+     "missing_audio": 0
+    },
+    "A": {
+     "start_to_first_audio_ms": {
+      "p50": 3638,
+      "p90": 5586,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": -2080,
+      "p90": -153,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 6869,
+      "p90": 8088,
+      "n": 20
+     },
+     "cer": 0.03,
+     "missing_audio": 0
+    }
+   }
+  }
+ },
+ "german": {
+  "systems": {
+   "G1": "Default turns (cut at 9 s)",
+   "G3": "Long turns, cut at 15 s",
+   "G4": "Long turns, cut at 10 s",
+   "G5": "Long turns, cut at 12 s"
+  },
+  "scores": {
+   "de-en:reg": {
+    "G4": {
+     "score": 86.7,
+     "crit": 2
+    },
+    "G1": {
+     "score": 86.7,
+     "crit": 2
+    },
+    "G3": {
+     "score": 93.3,
+     "crit": 1
+    },
+    "G5": {
+     "score": 91.7,
+     "crit": 1
+    }
+   },
+   "de-en:irr": {
+    "G4": {
+     "score": 73.3,
+     "crit": 3
+    },
+    "G5": {
+     "score": 91.7,
+     "crit": 1
+    },
+    "G3": {
+     "score": 96.7,
+     "crit": 0
+    },
+    "G1": {
+     "score": 88.3,
+     "crit": 1
+    }
+   }
+  },
+  "latency": {
+   "de-en:reg": {
+    "G1": {
+     "start_to_first_audio_ms": {
+      "p50": 9935,
+      "p90": 12235,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1454,
+      "p90": 1680,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 8575,
+      "p90": 13154,
+      "n": 20
+     },
+     "cer": 0.019,
+     "missing_audio": 0
+    },
+    "G3": {
+     "start_to_first_audio_ms": {
+      "p50": 10266,
+      "p90": 13593,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1938,
+      "p90": 2144,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 9475,
+      "p90": 13325,
+      "n": 20
+     },
+     "cer": 0.013,
+     "missing_audio": 0
+    },
+    "G4": {
+     "start_to_first_audio_ms": {
+      "p50": 9960,
+      "p90": 11197,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1892,
+      "p90": 2063,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 8787,
+      "p90": 11752,
+      "n": 20
+     },
+     "cer": 0.026,
+     "missing_audio": 0
+    },
+    "G5": {
+     "start_to_first_audio_ms": {
+      "p50": 10313,
+      "p90": 12842,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1957,
+      "p90": 2091,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 9520,
+      "p90": 13345,
+      "n": 20
+     },
+     "cer": 0.016,
+     "missing_audio": 0
+    }
+   },
+   "de-en:irr": {
+    "G1": {
+     "start_to_first_audio_ms": {
+      "p50": 9022,
+      "p90": 12204,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1479,
+      "p90": 1712,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 8925,
+      "p90": 11431,
+      "n": 20
+     },
+     "cer": 0.006,
+     "missing_audio": 0
+    },
+    "G3": {
+     "start_to_first_audio_ms": {
+      "p50": 12003,
+      "p90": 16448,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2036,
+      "p90": 9979,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 13090,
+      "p90": 20412,
+      "n": 20
+     },
+     "cer": 0.005,
+     "missing_audio": 0
+    },
+    "G4": {
+     "start_to_first_audio_ms": {
+      "p50": 10653,
+      "p90": 11356,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 1709,
+      "p90": 4892,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 10720,
+      "p90": 13468,
+      "n": 20
+     },
+     "cer": 0.097,
+     "missing_audio": 0
+    },
+    "G5": {
+     "start_to_first_audio_ms": {
+      "p50": 12118,
+      "p90": 13409,
+      "n": 20
+     },
+     "stop_to_first_audio_ms": {
+      "p50": 2005,
+      "p90": 6765,
+      "n": 20
+     },
+     "stop_to_audio_end_ms": {
+      "p50": 11626,
+      "p90": 14276,
+      "n": 20
+     },
+     "cer": 0.007,
+     "missing_audio": 0
+    }
+   }
+  }
+ }
+}
