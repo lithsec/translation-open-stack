@@ -1,0 +1,1307 @@
+{
+ "lang": "en",
+ "model": "nvidia/nemotron-3.5-asr-streaming-0.6b@ea30d66debe3740a08b573244286791d423d6b3e",
+ "att_context_size": [
+  56,
+  6
+ ],
+ "err": "",
+ "partials": [
+  {
+   "t": 2204.6,
+   "text": "Lions are",
+   "offsetMs": 1216.0,
+   "stable": 1
+  },
+  {
+   "t": 2764.6,
+   "text": "Lions are the most social",
+   "offsetMs": 1216.0,
+   "stable": 4
+  },
+  {
+   "t": 3323.6,
+   "text": "Lions are the most social cats",
+   "offsetMs": 1216.0,
+   "stable": 5
+  },
+  {
+   "t": 3883.7,
+   "text": "Lions are the most social cats living",
+   "offsetMs": 1216.0,
+   "stable": 6
+  },
+  {
+   "t": 4445.2,
+   "text": "Lions are the most social cats living in large groups",
+   "offsetMs": 1216.0,
+   "stable": 9
+  },
+  {
+   "t": 5003.3,
+   "text": "Lions are the most social cats living in large groups called",
+   "offsetMs": 1216.0,
+   "stable": 10
+  },
+  {
+   "t": 5563.6,
+   "text": "Lions are the most social cats living in large groups called prides",
+   "offsetMs": 1216.0,
+   "stable": 11
+  },
+  {
+   "t": 6684.0,
+   "text": "In the",
+   "offsetMs": 6144.0,
+   "stable": 1
+  },
+  {
+   "t": 7243.9,
+   "text": "In the warm climate",
+   "offsetMs": 6144.0,
+   "stable": 3
+  },
+  {
+   "t": 7804.1,
+   "text": "In the warm climate of the Middle",
+   "offsetMs": 6144.0,
+   "stable": 6
+  },
+  {
+   "t": 8363.8,
+   "text": "In the warm climate of the Middle East,",
+   "offsetMs": 6144.0,
+   "stable": 7
+  },
+  {
+   "t": 8923.9,
+   "text": "In the warm climate of the Middle East, the house was",
+   "offsetMs": 6144.0,
+   "stable": 10
+  },
+  {
+   "t": 9483.4,
+   "text": "In the warm climate of the Middle East, the house was not",
+   "offsetMs": 6144.0,
+   "stable": 11
+  },
+  {
+   "t": 10044.6,
+   "text": "In the warm climate of the Middle East, the house was not so important",
+   "offsetMs": 6144.0,
+   "stable": 13
+  },
+  {
+   "t": 11164.3,
+   "text": "They",
+   "offsetMs": 10688.0,
+   "stable": 0
+  },
+  {
+   "t": 11724.2,
+   "text": "They are almost",
+   "offsetMs": 10688.0,
+   "stable": 2
+  },
+  {
+   "t": 12283.9,
+   "text": "They are almost all",
+   "offsetMs": 10688.0,
+   "stable": 3
+  },
+  {
+   "t": 12844.8,
+   "text": "They are almost all sandy beaches",
+   "offsetMs": 10688.0,
+   "stable": 5
+  },
+  {
+   "t": 13403.7,
+   "text": "They are almost all sandy beaches with",
+   "offsetMs": 10688.0,
+   "stable": 6
+  },
+  {
+   "t": 13964.5,
+   "text": "They are almost all sandy beaches with safe swimming",
+   "offsetMs": 10688.0,
+   "stable": 8
+  },
+  {
+   "t": 14524.0,
+   "text": "They are almost all sandy beaches with safe swimming and most have",
+   "offsetMs": 10688.0,
+   "stable": 11
+  },
+  {
+   "t": 15084.1,
+   "text": "They are almost all sandy beaches with safe swimming and most have shade",
+   "offsetMs": 10688.0,
+   "stable": 12
+  },
+  {
+   "t": 15643.8,
+   "text": "They are almost all sandy beaches with safe swimming and most have shade provided by",
+   "offsetMs": 10688.0,
+   "stable": 14
+  },
+  {
+   "t": 17323.2,
+   "text": "Po",
+   "offsetMs": 16736.0,
+   "stable": 0
+  },
+  {
+   "t": 17883.3,
+   "text": "Pohkin",
+   "offsetMs": 16736.0,
+   "stable": 0
+  },
+  {
+   "t": 18444.2,
+   "text": "Pohkin trees.",
+   "offsetMs": 16736.0,
+   "stable": 1
+  },
+  {
+   "t": 19564.1,
+   "text": "Prides",
+   "offsetMs": 45696.0,
+   "stable": 0
+  },
+  {
+   "t": 20124.5,
+   "text": "Prides are made up of",
+   "offsetMs": 45696.0,
+   "stable": 4
+  },
+  {
+   "t": 20683.6,
+   "text": "Prides are made up of one of two",
+   "offsetMs": 45696.0,
+   "stable": 7
+  },
+  {
+   "t": 21243.6,
+   "text": "Prides are made up of one of two three",
+   "offsetMs": 45696.0,
+   "stable": 8
+  },
+  {
+   "t": 21806.2,
+   "text": "Prides are made up of one of two three related",
+   "offsetMs": 45696.0,
+   "stable": 9
+  },
+  {
+   "t": 22364.3,
+   "text": "Prides are made up of one of two three related adult",
+   "offsetMs": 45696.0,
+   "stable": 10
+  },
+  {
+   "t": 22924.6,
+   "text": "Prides are made up of one of two three related adult mills along",
+   "offsetMs": 45696.0,
+   "stable": 12
+  },
+  {
+   "t": 23483.8,
+   "text": "Prides are made up of one of two three related adult mills along with",
+   "offsetMs": 45696.0,
+   "stable": 13
+  },
+  {
+   "t": 24043.3,
+   "text": "Prides are made up of one of two three related adult mills along with us",
+   "offsetMs": 45696.0,
+   "stable": 14
+  },
+  {
+   "t": 24604.7,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children",
+   "offsetMs": 45696.0,
+   "stable": 16
+  },
+  {
+   "t": 25164.6,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experience",
+   "offsetMs": 45696.0,
+   "stable": 19
+  },
+  {
+   "t": 25724.0,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced sever",
+   "offsetMs": 45696.0,
+   "stable": 20
+  },
+  {
+   "t": 26284.3,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child",
+   "offsetMs": 45696.0,
+   "stable": 21
+  },
+  {
+   "t": 26844.5,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or",
+   "offsetMs": 45696.0,
+   "stable": 23
+  },
+  {
+   "t": 27404.0,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before",
+   "offsetMs": 45696.0,
+   "stable": 25
+  },
+  {
+   "t": 27963.6,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being",
+   "offsetMs": 45696.0,
+   "stable": 26
+  },
+  {
+   "t": 28525.1,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or runn",
+   "offsetMs": 45696.0,
+   "stable": 29
+  },
+  {
+   "t": 29084.3,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away",
+   "offsetMs": 45696.0,
+   "stable": 30
+  },
+  {
+   "t": 29643.8,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away.",
+   "offsetMs": 45696.0,
+   "stable": 30
+  },
+  {
+   "t": 30204.1,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard",
+   "offsetMs": 45696.0,
+   "stable": 31
+  },
+  {
+   "t": 30764.2,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour",
+   "offsetMs": 45696.0,
+   "stable": 33
+  },
+  {
+   "t": 31323.8,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three triver",
+   "offsetMs": 45696.0,
+   "stable": 35
+  },
+  {
+   "t": 31884.4,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly",
+   "offsetMs": 45696.0,
+   "stable": 36
+  },
+  {
+   "t": 32444.2,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centri",
+   "offsetMs": 45696.0,
+   "stable": 38
+  },
+  {
+   "t": 33004.2,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping",
+   "offsetMs": 45696.0,
+   "stable": 39
+  },
+  {
+   "t": 33564.1,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu",
+   "offsetMs": 45696.0,
+   "stable": 41
+  },
+  {
+   "t": 34123.6,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok",
+   "offsetMs": 45696.0,
+   "stable": 42
+  },
+  {
+   "t": 34683.7,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get",
+   "offsetMs": 45696.0,
+   "stable": 44
+  },
+  {
+   "t": 35243.8,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best",
+   "offsetMs": 45696.0,
+   "stable": 46
+  },
+  {
+   "t": 35804.2,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of",
+   "offsetMs": 45696.0,
+   "stable": 48
+  },
+  {
+   "t": 36364.3,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong",
+   "offsetMs": 45696.0,
+   "stable": 50
+  },
+  {
+   "t": 36924.3,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the",
+   "offsetMs": 45696.0,
+   "stable": 52
+  },
+  {
+   "t": 37483.5,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island",
+   "offsetMs": 45696.0,
+   "stable": 53
+  },
+  {
+   "t": 38044.0,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the",
+   "offsetMs": 45696.0,
+   "stable": 57
+  },
+  {
+   "t": 38603.6,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Kolo",
+   "offsetMs": 45696.0,
+   "stable": 58
+  },
+  {
+   "t": 39164.4,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfron",
+   "offsetMs": 45696.0,
+   "stable": 59
+  },
+  {
+   "t": 39724.3,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opp",
+   "offsetMs": 45696.0,
+   "stable": 60
+  },
+  {
+   "t": 40283.7,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite",
+   "offsetMs": 45696.0,
+   "stable": 60
+  },
+  {
+   "t": 41404.7,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite, accepted",
+   "offsetMs": 45696.0,
+   "stable": 61
+  },
+  {
+   "t": 41965.3,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite, accepted where Aristotle",
+   "offsetMs": 45696.0,
+   "stable": 63
+  },
+  {
+   "t": 42524.8,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite, accepted where Aristotle's views on",
+   "offsetMs": 45696.0,
+   "stable": 65
+  },
+  {
+   "t": 43084.8,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite, accepted where Aristotle's views on all matters of",
+   "offsetMs": 45696.0,
+   "stable": 68
+  },
+  {
+   "t": 43643.9,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite, accepted where Aristotle's views on all matters of science",
+   "offsetMs": 45696.0,
+   "stable": 69
+  },
+  {
+   "t": 44204.4,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite, accepted where Aristotle's views on all matters of science, including",
+   "offsetMs": 45696.0,
+   "stable": 70
+  },
+  {
+   "t": 44764.5,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite, accepted where Aristotle's views on all matters of science, including physiology",
+   "offsetMs": 45696.0,
+   "stable": 71
+  },
+  {
+   "t": 46443.5,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite, accepted where Aristotle's views on all matters of science, including physiology, Austra",
+   "offsetMs": 45696.0,
+   "stable": 72
+  },
+  {
+   "t": 47003.8,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite, accepted where Aristotle's views on all matters of science, including physiology, Australia's",
+   "offsetMs": 45696.0,
+   "stable": 72
+  },
+  {
+   "t": 47564.2,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite, accepted where Aristotle's views on all matters of science, including physiology, Australia's Mitchell Gowry",
+   "offsetMs": 45696.0,
+   "stable": 74
+  },
+  {
+   "t": 49244.2,
+   "text": "finished",
+   "offsetMs": 48416.0,
+   "stable": 0
+  },
+  {
+   "t": 49804.1,
+   "text": "finished the eleventh",
+   "offsetMs": 48416.0,
+   "stable": 2
+  },
+  {
+   "t": 50364.1,
+   "text": "finished the eleventh in the",
+   "offsetMs": 48416.0,
+   "stable": 4
+  },
+  {
+   "t": 50924.1,
+   "text": "finished the eleventh in the men's",
+   "offsetMs": 48416.0,
+   "stable": 5
+  },
+  {
+   "t": 51484.1,
+   "text": "finished the eleventh in the men's standing",
+   "offsetMs": 48416.0,
+   "stable": 6
+  },
+  {
+   "t": 52603.6,
+   "text": "finished the eleventh in the men's standing Super",
+   "offsetMs": 48416.0,
+   "stable": 7
+  },
+  {
+   "t": 53163.5,
+   "text": "finished the eleventh in the men's standing Super Ghet",
+   "offsetMs": 48416.0,
+   "stable": 8
+  },
+  {
+   "t": 53723.7,
+   "text": "finished the eleventh in the men's standing Super Ghet's",
+   "offsetMs": 48416.0,
+   "stable": 8
+  },
+  {
+   "t": 54283.7,
+   "text": "finished the eleventh in the men's standing Super Ghet's competitor",
+   "offsetMs": 48416.0,
+   "stable": 9
+  },
+  {
+   "t": 55404.0,
+   "text": "finished the eleventh in the men's standing Super Ghet's competitor Ulrick",
+   "offsetMs": 48416.0,
+   "stable": 10
+  },
+  {
+   "t": 56523.9,
+   "text": "Jock",
+   "offsetMs": 55680.0,
+   "stable": 0
+  },
+  {
+   "t": 57084.4,
+   "text": "Jocklyn",
+   "offsetMs": 55680.0,
+   "stable": 0
+  },
+  {
+   "t": 57644.1,
+   "text": "Jocklyn finished",
+   "offsetMs": 55680.0,
+   "stable": 1
+  },
+  {
+   "t": 58204.3,
+   "text": "Jocklyn finished sixteenth in",
+   "offsetMs": 55680.0,
+   "stable": 3
+  },
+  {
+   "t": 58763.7,
+   "text": "Jocklyn finished sixteenth in the",
+   "offsetMs": 55680.0,
+   "stable": 4
+  },
+  {
+   "t": 59324.8,
+   "text": "Jocklyn finished sixteenth in the men's sitting",
+   "offsetMs": 55680.0,
+   "stable": 6
+  },
+  {
+   "t": 59883.8,
+   "text": "Jocklyn finished sixteenth in the men's sitting Super",
+   "offsetMs": 55680.0,
+   "stable": 7
+  },
+  {
+   "t": 60443.7,
+   "text": "Jocklyn finished sixteenth in the men's sitting SuperG",
+   "offsetMs": 55680.0,
+   "stable": 7
+  },
+  {
+   "t": 62685.7,
+   "text": "contracts to",
+   "offsetMs": 68288.0,
+   "stable": 1
+  },
+  {
+   "t": 63245.6,
+   "text": "contracts to the rest of the coun",
+   "offsetMs": 68288.0,
+   "stable": 6
+  },
+  {
+   "t": 63804.8,
+   "text": "contracts to the rest of the country's cities",
+   "offsetMs": 68288.0,
+   "stable": 7
+  },
+  {
+   "t": 64364.0,
+   "text": "contracts to the rest of the country's cities because it is",
+   "offsetMs": 68288.0,
+   "stable": 10
+  },
+  {
+   "t": 64924.7,
+   "text": "contracts to the rest of the country's cities because it is more of an Ara",
+   "offsetMs": 68288.0,
+   "stable": 14
+  },
+  {
+   "t": 65485.0,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than",
+   "offsetMs": 68288.0,
+   "stable": 16
+  },
+  {
+   "t": 68843.6,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also",
+   "offsetMs": 68288.0,
+   "stable": 17
+  },
+  {
+   "t": 69403.4,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after",
+   "offsetMs": 68288.0,
+   "stable": 18
+  },
+  {
+   "t": 69964.0,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution",
+   "offsetMs": 68288.0,
+   "stable": 19
+  },
+  {
+   "t": 70524.3,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants",
+   "offsetMs": 68288.0,
+   "stable": 20
+  },
+  {
+   "t": 71083.7,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants were open",
+   "offsetMs": 68288.0,
+   "stable": 22
+  },
+  {
+   "t": 71644.1,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants were open to all",
+   "offsetMs": 68288.0,
+   "stable": 24
+  },
+  {
+   "t": 72204.1,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants were open to all male appli",
+   "offsetMs": 68288.0,
+   "stable": 26
+  },
+  {
+   "t": 72763.8,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants were open to all male applicants",
+   "offsetMs": 68288.0,
+   "stable": 26
+  },
+  {
+   "t": 73324.8,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants were open to all male applicants, allowing the",
+   "offsetMs": 68288.0,
+   "stable": 28
+  },
+  {
+   "t": 73884.2,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants were open to all male applicants, allowing the most am",
+   "offsetMs": 68288.0,
+   "stable": 30
+  },
+  {
+   "t": 74443.8,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants were open to all male applicants, allowing the most ambitious",
+   "offsetMs": 68288.0,
+   "stable": 30
+  },
+  {
+   "t": 75004.5,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants were open to all male applicants, allowing the most ambitious and success",
+   "offsetMs": 68288.0,
+   "stable": 32
+  },
+  {
+   "t": 75563.3,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants were open to all male applicants, allowing the most ambitious and successful",
+   "offsetMs": 68288.0,
+   "stable": 32
+  },
+  {
+   "t": 76124.2,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants were open to all male applicants, allowing the most ambitious and successful to succeed",
+   "offsetMs": 68288.0,
+   "stable": 34
+  },
+  {
+   "t": 84524.3,
+   "text": "He did not",
+   "offsetMs": 97088.0,
+   "stable": 2
+  },
+  {
+   "t": 85085.0,
+   "text": "He did not set a figure",
+   "offsetMs": 97088.0,
+   "stable": 5
+  },
+  {
+   "t": 85644.2,
+   "text": "He did not set a figure for the cut",
+   "offsetMs": 97088.0,
+   "stable": 8
+  },
+  {
+   "t": 86204.3,
+   "text": "He did not set a figure for the cut, saying they",
+   "offsetMs": 97088.0,
+   "stable": 10
+  },
+  {
+   "t": 86764.5,
+   "text": "He did not set a figure for the cut, saying they will be made based",
+   "offsetMs": 97088.0,
+   "stable": 14
+  },
+  {
+   "t": 87325.1,
+   "text": "He did not set a figure for the cut, saying they will be made based on China",
+   "offsetMs": 97088.0,
+   "stable": 16
+  },
+  {
+   "t": 87885.1,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's econo",
+   "offsetMs": 97088.0,
+   "stable": 17
+  },
+  {
+   "t": 88444.4,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic outpu",
+   "offsetMs": 97088.0,
+   "stable": 18
+  },
+  {
+   "t": 89004.3,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output.",
+   "offsetMs": 97088.0,
+   "stable": 18
+  },
+  {
+   "t": 89564.1,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no",
+   "offsetMs": 97088.0,
+   "stable": 21
+  },
+  {
+   "t": 90125.0,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal defi",
+   "offsetMs": 97088.0,
+   "stable": 23
+  },
+  {
+   "t": 90683.9,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for",
+   "offsetMs": 97088.0,
+   "stable": 24
+  },
+  {
+   "t": 91243.6,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which man",
+   "offsetMs": 97088.0,
+   "stable": 26
+  },
+  {
+   "t": 91805.0,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured item",
+   "offsetMs": 97088.0,
+   "stable": 27
+  },
+  {
+   "t": 92363.8,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are",
+   "offsetMs": 97088.0,
+   "stable": 28
+  },
+  {
+   "t": 92924.2,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques",
+   "offsetMs": 97088.0,
+   "stable": 29
+  },
+  {
+   "t": 93485.3,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some",
+   "offsetMs": 97088.0,
+   "stable": 30
+  },
+  {
+   "t": 94045.1,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies",
+   "offsetMs": 97088.0,
+   "stable": 32
+  },
+  {
+   "t": 94604.4,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define good",
+   "offsetMs": 97088.0,
+   "stable": 34
+  },
+  {
+   "t": 95164.5,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than",
+   "offsetMs": 97088.0,
+   "stable": 36
+  },
+  {
+   "t": 95724.1,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred year",
+   "offsetMs": 97088.0,
+   "stable": 39
+  },
+  {
+   "t": 96283.8,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years",
+   "offsetMs": 97088.0,
+   "stable": 39
+  },
+  {
+   "t": 97964.6,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years in the Ar",
+   "offsetMs": 97088.0,
+   "stable": 42
+  },
+  {
+   "t": 98523.7,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years in the Archipe",
+   "offsetMs": 97088.0,
+   "stable": 42
+  },
+  {
+   "t": 99083.6,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years in the Archipela",
+   "offsetMs": 97088.0,
+   "stable": 42
+  },
+  {
+   "t": 99643.6,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years in the Archipelagos",
+   "offsetMs": 97088.0,
+   "stable": 42
+  },
+  {
+   "t": 100203.8,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years in the Archipelagos and Lakes",
+   "offsetMs": 97088.0,
+   "stable": 44
+  },
+  {
+   "t": 100764.1,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years in the Archipelagos and Lakes you do",
+   "offsetMs": 97088.0,
+   "stable": 46
+  },
+  {
+   "t": 101323.4,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years in the Archipelagos and Lakes you do not",
+   "offsetMs": 97088.0,
+   "stable": 47
+  },
+  {
+   "t": 101884.5,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years in the Archipelagos and Lakes you do not necessarily",
+   "offsetMs": 97088.0,
+   "stable": 48
+  },
+  {
+   "t": 102443.6,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years in the Archipelagos and Lakes you do not necessarily need",
+   "offsetMs": 97088.0,
+   "stable": 49
+  },
+  {
+   "t": 103004.5,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years in the Archipelagos and Lakes you do not necessarily need a yacht",
+   "offsetMs": 97088.0,
+   "stable": 51
+  },
+  {
+   "t": 104684.2,
+   "text": "the",
+   "offsetMs": 113344.0,
+   "stable": 0
+  },
+  {
+   "t": 105245.1,
+   "text": "the aspect rati",
+   "offsetMs": 113344.0,
+   "stable": 2
+  },
+  {
+   "t": 105804.5,
+   "text": "the aspect ratio of this",
+   "offsetMs": 113344.0,
+   "stable": 4
+  },
+  {
+   "t": 106364.5,
+   "text": "the aspect ratio of this format di",
+   "offsetMs": 113344.0,
+   "stable": 6
+  },
+  {
+   "t": 106924.5,
+   "text": "the aspect ratio of this format dividing by twel",
+   "offsetMs": 113344.0,
+   "stable": 8
+  },
+  {
+   "t": 107484.3,
+   "text": "the aspect ratio of this format dividing by twelve to obta",
+   "offsetMs": 113344.0,
+   "stable": 10
+  },
+  {
+   "t": 108044.9,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest",
+   "offsetMs": 113344.0,
+   "stable": 12
+  },
+  {
+   "t": 108604.0,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole",
+   "offsetMs": 113344.0,
+   "stable": 13
+  },
+  {
+   "t": 109164.6,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number rati",
+   "offsetMs": 113344.0,
+   "stable": 15
+  },
+  {
+   "t": 109724.5,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is",
+   "offsetMs": 113344.0,
+   "stable": 16
+  },
+  {
+   "t": 110284.0,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore sa",
+   "offsetMs": 113344.0,
+   "stable": 18
+  },
+  {
+   "t": 110844.0,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be",
+   "offsetMs": 113344.0,
+   "stable": 20
+  },
+  {
+   "t": 111404.3,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two",
+   "offsetMs": 113344.0,
+   "stable": 23
+  },
+  {
+   "t": 114205.8,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned",
+   "offsetMs": 113344.0,
+   "stable": 25
+  },
+  {
+   "t": 114763.9,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being",
+   "offsetMs": 113344.0,
+   "stable": 27
+  },
+  {
+   "t": 115325.2,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter",
+   "offsetMs": 113344.0,
+   "stable": 29
+  },
+  {
+   "t": 115884.7,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury",
+   "offsetMs": 113344.0,
+   "stable": 31
+  },
+  {
+   "t": 117003.9,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began",
+   "offsetMs": 113344.0,
+   "stable": 32
+  },
+  {
+   "t": 117564.1,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began in about",
+   "offsetMs": 113344.0,
+   "stable": 34
+  },
+  {
+   "t": 118124.0,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began in about four hundred",
+   "offsetMs": 113344.0,
+   "stable": 36
+  },
+  {
+   "t": 118684.1,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began in about four hundred AD",
+   "offsetMs": 113344.0,
+   "stable": 37
+  },
+  {
+   "t": 119244.2,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began in about four hundred AD and la",
+   "offsetMs": 113344.0,
+   "stable": 39
+  },
+  {
+   "t": 119804.0,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began in about four hundred AD and lasted up",
+   "offsetMs": 113344.0,
+   "stable": 40
+  },
+  {
+   "t": 120923.9,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began in about four hundred AD and lasted up until",
+   "offsetMs": 113344.0,
+   "stable": 41
+  },
+  {
+   "t": 121483.7,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began in about four hundred AD and lasted up until about",
+   "offsetMs": 113344.0,
+   "stable": 42
+  },
+  {
+   "t": 122043.9,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began in about four hundred AD and lasted up until about eleven",
+   "offsetMs": 113344.0,
+   "stable": 43
+  },
+  {
+   "t": 122603.6,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began in about four hundred AD and lasted up until about eleven hundred",
+   "offsetMs": 113344.0,
+   "stable": 44
+  },
+  {
+   "t": 123164.3,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began in about four hundred AD and lasted up until about eleven hundred AD",
+   "offsetMs": 113344.0,
+   "stable": 45
+  },
+  {
+   "t": 124844.9,
+   "text": "cancellation",
+   "offsetMs": 133664.0,
+   "stable": 0
+  },
+  {
+   "t": 125405.8,
+   "text": "cancellation policies",
+   "offsetMs": 133664.0,
+   "stable": 1
+  },
+  {
+   "t": 125965.3,
+   "text": "cancellation policies vary, but as",
+   "offsetMs": 133664.0,
+   "stable": 4
+  },
+  {
+   "t": 126524.8,
+   "text": "cancellation policies vary, but as of late March",
+   "offsetMs": 133664.0,
+   "stable": 7
+  },
+  {
+   "t": 127084.3,
+   "text": "cancellation policies vary, but as of late March, most",
+   "offsetMs": 133664.0,
+   "stable": 8
+  },
+  {
+   "t": 127645.1,
+   "text": "cancellation policies vary, but as of late March, most coronavirus",
+   "offsetMs": 133664.0,
+   "stable": 9
+  },
+  {
+   "t": 128204.1,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cance",
+   "offsetMs": 133664.0,
+   "stable": 11
+  },
+  {
+   "t": 128764.3,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation poli",
+   "offsetMs": 133664.0,
+   "stable": 12
+  },
+  {
+   "t": 129324.0,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies",
+   "offsetMs": 133664.0,
+   "stable": 12
+  },
+  {
+   "t": 129884.3,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't exten",
+   "offsetMs": 133664.0,
+   "stable": 14
+  },
+  {
+   "t": 130444.9,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July",
+   "offsetMs": 133664.0,
+   "stable": 16
+  },
+  {
+   "t": 131004.1,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty",
+   "offsetMs": 133664.0,
+   "stable": 18
+  },
+  {
+   "t": 131563.5,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the",
+   "offsetMs": 133664.0,
+   "stable": 20
+  },
+  {
+   "t": 132124.2,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympic",
+   "offsetMs": 133664.0,
+   "stable": 21
+  },
+  {
+   "t": 132683.9,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics",
+   "offsetMs": 133664.0,
+   "stable": 21
+  },
+  {
+   "t": 134364.3,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swir",
+   "offsetMs": 133664.0,
+   "stable": 22
+  },
+  {
+   "t": 134924.0,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swirl the two",
+   "offsetMs": 133664.0,
+   "stable": 24
+  },
+  {
+   "t": 135487.0,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swirl the two dry powers to",
+   "offsetMs": 133664.0,
+   "stable": 27
+  },
+  {
+   "t": 136044.9,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swirl the two dry powers together",
+   "offsetMs": 133664.0,
+   "stable": 27
+  },
+  {
+   "t": 136604.1,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swirl the two dry powers together and then with",
+   "offsetMs": 133664.0,
+   "stable": 30
+  },
+  {
+   "t": 137164.4,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swirl the two dry powers together and then with Queen",
+   "offsetMs": 133664.0,
+   "stable": 31
+  },
+  {
+   "t": 137724.4,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swirl the two dry powers together and then with Queen wet hand",
+   "offsetMs": 133664.0,
+   "stable": 33
+  },
+  {
+   "t": 138283.6,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swirl the two dry powers together and then with Queen wet hands",
+   "offsetMs": 133664.0,
+   "stable": 33
+  },
+  {
+   "t": 138844.9,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swirl the two dry powers together and then with Queen wet hands squeeze them",
+   "offsetMs": 133664.0,
+   "stable": 35
+  },
+  {
+   "t": 139404.0,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swirl the two dry powers together and then with Queen wet hands squeeze them into a",
+   "offsetMs": 133664.0,
+   "stable": 37
+  },
+  {
+   "t": 139963.7,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swirl the two dry powers together and then with Queen wet hands squeeze them into a ball",
+   "offsetMs": 133664.0,
+   "stable": 38
+  },
+  {
+   "t": 142204.3,
+   "text": "St.",
+   "offsetMs": 142170.0,
+   "stable": 0
+  }
+ ],
+ "finals": [
+  {
+   "t": 6123.3,
+   "text": "Lions are the most social cats living in large groups called prides",
+   "offsetMs": 1644.6,
+   "durationMs": 3919.0,
+   "vadOffsetMs": 1216.0,
+   "vadDurationMs": 4000.0
+  },
+  {
+   "t": 10604.7,
+   "text": "In the warm climate of the Middle East, the house was not so important",
+   "offsetMs": 6124.0,
+   "durationMs": 3920.6,
+   "vadOffsetMs": 6144.0,
+   "vadDurationMs": 3712.0
+  },
+  {
+   "t": 16763.2,
+   "text": "They are almost all sandy beaches with safe swimming and most have shade provided by",
+   "offsetMs": 10604.3,
+   "durationMs": 5039.5,
+   "vadOffsetMs": 10688.0,
+   "vadDurationMs": 5088.0
+  },
+  {
+   "t": 19003.1,
+   "text": "Pohkin trees.",
+   "offsetMs": 16763.2,
+   "durationMs": 1681.0,
+   "vadOffsetMs": 16736.0,
+   "vadDurationMs": 1440.0
+  },
+  {
+   "t": 48123.5,
+   "text": "Prides are made up of one of two three related adult mills along with us feral children may have experienced severe child abuse or trauma before being abandoned or running away. Scotboard Bus Pour three trivers regularly to centrist, stopping at Kabu derok to get the best views of Hong Kong, leave the island and head for the Koloon waterfront opposite, accepted where Aristotle's views on all matters of science, including physiology, Australia's Mitchell Gowry",
+   "offsetMs": 19004.1,
+   "durationMs": 28560.1,
+   "vadOffsetMs": 45696.0,
+   "vadDurationMs": 1856.0
+  },
+  {
+   "t": 55963.4,
+   "text": "finished the eleventh in the men's standing Super Ghet's competitor Ulrick",
+   "offsetMs": 48684.2,
+   "durationMs": 6719.8,
+   "vadOffsetMs": 48416.0,
+   "vadDurationMs": 6656.0
+  },
+  {
+   "t": 61003.7,
+   "text": "Jocklyn finished sixteenth in the men's sitting SuperG",
+   "offsetMs": 55963.9,
+   "durationMs": 4479.8,
+   "vadOffsetMs": 55680.0,
+   "vadDurationMs": 4352.0
+  },
+  {
+   "t": 76683.3,
+   "text": "contracts to the rest of the country's cities because it is more of an Arabic floor than also after revolution occupants were open to all male applicants, allowing the most ambitious and successful to succeed",
+   "offsetMs": 62125.7,
+   "durationMs": 13998.5,
+   "vadOffsetMs": 68288.0,
+   "vadDurationMs": 7712.0
+  },
+  {
+   "t": 103568.9,
+   "text": "He did not set a figure for the cut, saying they will be made based on China's economic output. There is no universal definition for which manufactured items are antiques. Some tax agencies define goods older than a hundred years in the Archipelagos and Lakes you do not necessarily need a yacht",
+   "offsetMs": 83964.3,
+   "durationMs": 19040.2,
+   "vadOffsetMs": 97088.0,
+   "vadDurationMs": 5568.0
+  },
+  {
+   "t": 123723.5,
+   "text": "the aspect ratio of this format dividing by twelve to obtain the simplest whole number ratio is therefore said to be three to two. It's renowned for being an epicenter of luxury began in about four hundred AD and lasted up until about eleven hundred AD",
+   "offsetMs": 104124.2,
+   "durationMs": 19040.1,
+   "vadOffsetMs": 113344.0,
+   "vadDurationMs": 9632.0
+  },
+  {
+   "t": 140525.4,
+   "text": "cancellation policies vary, but as of late March, most coronavirus based cancellation policies don't extend to July twenty twenty when the Olympics swirl the two dry powers together and then with Queen wet hands squeeze them into a ball",
+   "offsetMs": 124284.9,
+   "durationMs": 15678.8,
+   "vadOffsetMs": 133664.0,
+   "vadDurationMs": 6016.0
+  },
+  {
+   "t": 147385.4,
+   "text": "St.",
+   "offsetMs": 141644.3,
+   "durationMs": 560.0,
+   "vadOffsetMs": 133664.0,
+   "vadDurationMs": 1
+  }
+ ],
+ "steps": 264,
+ "compute_ms": 9002,
+ "rtf": 0.0611,
+ "spans_from": "word arrival"
+}

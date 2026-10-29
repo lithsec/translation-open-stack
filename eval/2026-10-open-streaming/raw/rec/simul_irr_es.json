@@ -1,0 +1,2000 @@
+{
+ "model": "SimulStreaming AlignAtt, Whisper large-v3",
+ "err": "",
+ "partials": [
+  {
+   "t": 2348.8,
+   "text": "Los le",
+   "offsetMs": 1132.0,
+   "stable": 2
+  },
+  {
+   "t": 2888.1,
+   "text": "Los leones son",
+   "offsetMs": 1132.0,
+   "stable": 3
+  },
+  {
+   "t": 3454.1,
+   "text": "Los leones son los felinos",
+   "offsetMs": 1132.0,
+   "stable": 5
+  },
+  {
+   "t": 3953.4,
+   "text": "Los leones son los felinos que más",
+   "offsetMs": 1132.0,
+   "stable": 7
+  },
+  {
+   "t": 4496.5,
+   "text": "Los leones son los felinos que más socializ",
+   "offsetMs": 1132.0,
+   "stable": 8
+  },
+  {
+   "t": 4999.8,
+   "text": "Los leones son los felinos que más socializan y",
+   "offsetMs": 1132.0,
+   "stable": 9
+  },
+  {
+   "t": 5508.8,
+   "text": "Los leones son los felinos que más socializan y su vida",
+   "offsetMs": 1132.0,
+   "stable": 11
+  },
+  {
+   "t": 6017.9,
+   "text": "Los leones son los felinos que más socializan y su vida transcur",
+   "offsetMs": 1132.0,
+   "stable": 12
+  },
+  {
+   "t": 6527.0,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro",
+   "offsetMs": 1132.0,
+   "stable": 13
+  },
+  {
+   "t": 7036.0,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos",
+   "offsetMs": 1132.0,
+   "stable": 15
+  },
+  {
+   "t": 7571.8,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos de gran tama",
+   "offsetMs": 1132.0,
+   "stable": 18
+  },
+  {
+   "t": 8082.6,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos de gran tamaño denomin",
+   "offsetMs": 1132.0,
+   "stable": 19
+  },
+  {
+   "t": 8567.5,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos de gran tamaño denominados",
+   "offsetMs": 1132.0,
+   "stable": 19
+  },
+  {
+   "t": 9092.7,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos de gran tamaño denominados man",
+   "offsetMs": 1132.0,
+   "stable": 20
+  },
+  {
+   "t": 10829.6,
+   "text": "En medio",
+   "offsetMs": 9632.0,
+   "stable": 2
+  },
+  {
+   "t": 11395.5,
+   "text": "En medio del cál",
+   "offsetMs": 9632.0,
+   "stable": 4
+  },
+  {
+   "t": 11947.4,
+   "text": "En medio del cálido clima del",
+   "offsetMs": 9632.0,
+   "stable": 6
+  },
+  {
+   "t": 12411.6,
+   "text": "En medio del cálido clima del Oriente",
+   "offsetMs": 9632.0,
+   "stable": 7
+  },
+  {
+   "t": 12941.4,
+   "text": "En medio del cálido clima del Oriente Medio,",
+   "offsetMs": 9632.0,
+   "stable": 8
+  },
+  {
+   "t": 13479.1,
+   "text": "En medio del cálido clima del Oriente Medio, la casa no",
+   "offsetMs": 9632.0,
+   "stable": 11
+  },
+  {
+   "t": 14014.3,
+   "text": "En medio del cálido clima del Oriente Medio, la casa no era de mayor",
+   "offsetMs": 9632.0,
+   "stable": 14
+  },
+  {
+   "t": 14498.2,
+   "text": "En medio del cálido clima del Oriente Medio, la casa no era de mayor import",
+   "offsetMs": 9632.0,
+   "stable": 15
+  },
+  {
+   "t": 16513.0,
+   "text": "Las play",
+   "offsetMs": 15268.0,
+   "stable": 2
+  },
+  {
+   "t": 17052.5,
+   "text": "Las playas son",
+   "offsetMs": 15268.0,
+   "stable": 3
+  },
+  {
+   "t": 17592.5,
+   "text": "Las playas son casi todas",
+   "offsetMs": 15268.0,
+   "stable": 5
+  },
+  {
+   "t": 18131.5,
+   "text": "Las playas son casi todas de arena",
+   "offsetMs": 15268.0,
+   "stable": 7
+  },
+  {
+   "t": 18673.8,
+   "text": "Las playas son casi todas de arena con lugares",
+   "offsetMs": 15268.0,
+   "stable": 9
+  },
+  {
+   "t": 19152.8,
+   "text": "Las playas son casi todas de arena con lugares seg",
+   "offsetMs": 15268.0,
+   "stable": 10
+  },
+  {
+   "t": 19695.8,
+   "text": "Las playas son casi todas de arena con lugares seguros para",
+   "offsetMs": 15268.0,
+   "stable": 11
+  },
+  {
+   "t": 20204.8,
+   "text": "Las playas son casi todas de arena con lugares seguros para nadar",
+   "offsetMs": 15268.0,
+   "stable": 12
+  },
+  {
+   "t": 20739.0,
+   "text": "Las playas son casi todas de arena con lugares seguros para nadar y en su",
+   "offsetMs": 15268.0,
+   "stable": 15
+  },
+  {
+   "t": 21247.5,
+   "text": "Las playas son casi todas de arena con lugares seguros para nadar y en su mayoría tienen",
+   "offsetMs": 15268.0,
+   "stable": 17
+  },
+  {
+   "t": 21782.0,
+   "text": "Las playas son casi todas de arena con lugares seguros para nadar y en su mayoría tienen árboles",
+   "offsetMs": 15268.0,
+   "stable": 18
+  },
+  {
+   "t": 22538.7,
+   "text": "P",
+   "offsetMs": 21782.0,
+   "stable": 1
+  },
+  {
+   "t": 23102.5,
+   "text": "Poutukawa",
+   "offsetMs": 21782.0,
+   "stable": 1
+  },
+  {
+   "t": 23575.6,
+   "text": "Poutukawa.",
+   "offsetMs": 21782.0,
+   "stable": 1
+  },
+  {
+   "t": 24089.1,
+   "text": "Poutukawa. Que",
+   "offsetMs": 21782.0,
+   "stable": 2
+  },
+  {
+   "t": 24680.0,
+   "text": "Poutukawa. Que ofrecen lugares",
+   "offsetMs": 21782.0,
+   "stable": 4
+  },
+  {
+   "t": 25117.6,
+   "text": "Poutukawa. Que ofrecen lugares de",
+   "offsetMs": 21782.0,
+   "stable": 5
+  },
+  {
+   "t": 27138.7,
+   "text": "las manadas",
+   "offsetMs": 25900.0,
+   "stable": 2
+  },
+  {
+   "t": 27637.8,
+   "text": "las manadas están form",
+   "offsetMs": 25900.0,
+   "stable": 4
+  },
+  {
+   "t": 28151.3,
+   "text": "las manadas están formadas",
+   "offsetMs": 25900.0,
+   "stable": 4
+  },
+  {
+   "t": 28717.1,
+   "text": "las manadas están formadas por 1 a",
+   "offsetMs": 25900.0,
+   "stable": 7
+  },
+  {
+   "t": 29219.9,
+   "text": "las manadas están formadas por 1 a 3 mach",
+   "offsetMs": 25900.0,
+   "stable": 9
+  },
+  {
+   "t": 29723.1,
+   "text": "las manadas están formadas por 1 a 3 machos adult",
+   "offsetMs": 25900.0,
+   "stable": 10
+  },
+  {
+   "t": 30257.6,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo",
+   "offsetMs": 25900.0,
+   "stable": 12
+  },
+  {
+   "t": 30766.7,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar",
+   "offsetMs": 25900.0,
+   "stable": 14
+  },
+  {
+   "t": 31787.2,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar un",
+   "offsetMs": 25900.0,
+   "stable": 15
+  },
+  {
+   "t": 32362.2,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta",
+   "offsetMs": 25900.0,
+   "stable": 17
+  },
+  {
+   "t": 32846.4,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30",
+   "offsetMs": 25900.0,
+   "stable": 18
+  },
+  {
+   "t": 33422.5,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y",
+   "offsetMs": 25900.0,
+   "stable": 20
+  },
+  {
+   "t": 33957.1,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías",
+   "offsetMs": 25900.0,
+   "stable": 22
+  },
+  {
+   "t": 34968.6,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible",
+   "offsetMs": 25900.0,
+   "stable": 24
+  },
+  {
+   "t": 35453.9,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que",
+   "offsetMs": 25900.0,
+   "stable": 25
+  },
+  {
+   "t": 36057.5,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salv",
+   "offsetMs": 25900.0,
+   "stable": 29
+  },
+  {
+   "t": 36503.9,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes",
+   "offsetMs": 25900.0,
+   "stable": 29
+  },
+  {
+   "t": 37059.4,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan",
+   "offsetMs": 25900.0,
+   "stable": 30
+  },
+  {
+   "t": 37626.8,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan sufrido situ",
+   "offsetMs": 25900.0,
+   "stable": 32
+  },
+  {
+   "t": 38103.2,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan sufrido situaciones traum",
+   "offsetMs": 25900.0,
+   "stable": 33
+  },
+  {
+   "t": 38594.6,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan sufrido situaciones traumáticas",
+   "offsetMs": 25900.0,
+   "stable": 33
+  },
+  {
+   "t": 39125.5,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan sufrido situaciones traumáticas o",
+   "offsetMs": 25900.0,
+   "stable": 34
+  },
+  {
+   "t": 39707.9,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infant",
+   "offsetMs": 25900.0,
+   "stable": 36
+  },
+  {
+   "t": 40186.4,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave",
+   "offsetMs": 25900.0,
+   "stable": 37
+  },
+  {
+   "t": 41212.2,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave antes de",
+   "offsetMs": 25900.0,
+   "stable": 39
+  },
+  {
+   "t": 41729.5,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave antes de ser abandon",
+   "offsetMs": 25900.0,
+   "stable": 41
+  },
+  {
+   "t": 42273.3,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave antes de ser abandonados o de",
+   "offsetMs": 25900.0,
+   "stable": 43
+  },
+  {
+   "t": 42776.0,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave antes de ser abandonados o de que huyer",
+   "offsetMs": 25900.0,
+   "stable": 45
+  },
+  {
+   "t": 43545.9,
+   "text": "Scott",
+   "offsetMs": 42776.0,
+   "stable": 1
+  },
+  {
+   "t": 44059.2,
+   "text": "Scottur",
+   "offsetMs": 42776.0,
+   "stable": 1
+  },
+  {
+   "t": 44598.5,
+   "text": "Scottur, el",
+   "offsetMs": 42776.0,
+   "stable": 2
+  },
+  {
+   "t": 45164.6,
+   "text": "Scottur, el autobús",
+   "offsetMs": 42776.0,
+   "stable": 3
+  },
+  {
+   "t": 45665.9,
+   "text": "Scottur, el autobús 413",
+   "offsetMs": 42776.0,
+   "stable": 4
+  },
+  {
+   "t": 46701.7,
+   "text": "Scottur, el autobús 413 se dir",
+   "offsetMs": 42776.0,
+   "stable": 6
+  },
+  {
+   "t": 47205.7,
+   "text": "Scottur, el autobús 413 se dirige con",
+   "offsetMs": 42776.0,
+   "stable": 7
+  },
+  {
+   "t": 47688.6,
+   "text": "Scottur, el autobús 413 se dirige con regular",
+   "offsetMs": 42776.0,
+   "stable": 8
+  },
+  {
+   "t": 48264.9,
+   "text": "Scottur, el autobús 413 se dirige con regularidad a S",
+   "offsetMs": 42776.0,
+   "stable": 10
+  },
+  {
+   "t": 48799.3,
+   "text": "Scottur, el autobús 413 se dirige con regularidad a Sintra y",
+   "offsetMs": 42776.0,
+   "stable": 11
+  },
+  {
+   "t": 49334.4,
+   "text": "Scottur, el autobús 413 se dirige con regularidad a Sintra y para en Cab",
+   "offsetMs": 42776.0,
+   "stable": 14
+  },
+  {
+   "t": 49870.9,
+   "text": "Scottur, el autobús 413 se dirige con regularidad a Sintra y para en Cabo da Ro",
+   "offsetMs": 42776.0,
+   "stable": 16
+  },
+  {
+   "t": 50895.3,
+   "text": "La",
+   "offsetMs": 50140.0,
+   "stable": 1
+  },
+  {
+   "t": 51408.3,
+   "text": "La forma",
+   "offsetMs": 50140.0,
+   "stable": 2
+  },
+  {
+   "t": 51947.3,
+   "text": "La forma de disfr",
+   "offsetMs": 50140.0,
+   "stable": 4
+  },
+  {
+   "t": 52513.2,
+   "text": "La forma de disfrutar las mejores",
+   "offsetMs": 50140.0,
+   "stable": 6
+  },
+  {
+   "t": 53038.6,
+   "text": "La forma de disfrutar las mejores vistas de",
+   "offsetMs": 50140.0,
+   "stable": 8
+  },
+  {
+   "t": 53541.5,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong",
+   "offsetMs": 50140.0,
+   "stable": 10
+  },
+  {
+   "t": 54044.5,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir",
+   "offsetMs": 50140.0,
+   "stable": 12
+  },
+  {
+   "t": 54553.6,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la",
+   "offsetMs": 50140.0,
+   "stable": 14
+  },
+  {
+   "t": 55113.9,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirig",
+   "offsetMs": 50140.0,
+   "stable": 17
+  },
+  {
+   "t": 55609.5,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la",
+   "offsetMs": 50140.0,
+   "stable": 19
+  },
+  {
+   "t": 56145.1,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera",
+   "offsetMs": 50140.0,
+   "stable": 20
+  },
+  {
+   "t": 56707.5,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera de Kowlo",
+   "offsetMs": 50140.0,
+   "stable": 22
+  },
+  {
+   "t": 57179.8,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera de Kowloon,",
+   "offsetMs": 50140.0,
+   "stable": 22
+  },
+  {
+   "t": 57717.2,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera de Kowloon, ubicada",
+   "offsetMs": 50140.0,
+   "stable": 23
+  },
+  {
+   "t": 58204.6,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera de Kowloon, ubicada enf",
+   "offsetMs": 50140.0,
+   "stable": 24
+  },
+  {
+   "t": 59825.4,
+   "text": "Los pens",
+   "offsetMs": 58524.0,
+   "stable": 2
+  },
+  {
+   "t": 60390.7,
+   "text": "Los pensamientos de Arist",
+   "offsetMs": 58524.0,
+   "stable": 4
+  },
+  {
+   "t": 60889.6,
+   "text": "Los pensamientos de Aristóteles",
+   "offsetMs": 58524.0,
+   "stable": 4
+  },
+  {
+   "t": 61455.8,
+   "text": "Los pensamientos de Aristóteles, en especial",
+   "offsetMs": 58524.0,
+   "stable": 6
+  },
+  {
+   "t": 61958.8,
+   "text": "Los pensamientos de Aristóteles, en especial las cuest",
+   "offsetMs": 58524.0,
+   "stable": 8
+  },
+  {
+   "t": 62462.2,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de",
+   "offsetMs": 58524.0,
+   "stable": 9
+  },
+  {
+   "t": 62996.9,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia",
+   "offsetMs": 58524.0,
+   "stable": 11
+  },
+  {
+   "t": 63506.4,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia e incluso",
+   "offsetMs": 58524.0,
+   "stable": 13
+  },
+  {
+   "t": 64042.4,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia e incluso la psicología",
+   "offsetMs": 58524.0,
+   "stable": 15
+  },
+  {
+   "t": 64526.1,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia e incluso la psicología,",
+   "offsetMs": 58524.0,
+   "stable": 15
+  },
+  {
+   "t": 65050.7,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia e incluso la psicología, fueron",
+   "offsetMs": 58524.0,
+   "stable": 16
+  },
+  {
+   "t": 65600.2,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia e incluso la psicología, fueron aceptadas",
+   "offsetMs": 58524.0,
+   "stable": 17
+  },
+  {
+   "t": 67030.8,
+   "text": "¿",
+   "offsetMs": 66268.0,
+   "stable": 1
+  },
+  {
+   "t": 67595.2,
+   "text": "¿Mitchell",
+   "offsetMs": 66268.0,
+   "stable": 1
+  },
+  {
+   "t": 68093.9,
+   "text": "¿Mitchell Gurley",
+   "offsetMs": 66268.0,
+   "stable": 2
+  },
+  {
+   "t": 68661.9,
+   "text": "¿Mitchell Gurley, de Australia",
+   "offsetMs": 66268.0,
+   "stable": 4
+  },
+  {
+   "t": 69165.8,
+   "text": "¿Mitchell Gurley, de Australia, obt",
+   "offsetMs": 66268.0,
+   "stable": 5
+  },
+  {
+   "t": 69720.3,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undéc",
+   "offsetMs": 66268.0,
+   "stable": 7
+  },
+  {
+   "t": 70189.9,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto",
+   "offsetMs": 66268.0,
+   "stable": 8
+  },
+  {
+   "t": 70965.3,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categor",
+   "offsetMs": 66268.0,
+   "stable": 11
+  },
+  {
+   "t": 71216.4,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría",
+   "offsetMs": 66268.0,
+   "stable": 11
+  },
+  {
+   "t": 71765.7,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina",
+   "offsetMs": 66268.0,
+   "stable": 12
+  },
+  {
+   "t": 72276.2,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie",
+   "offsetMs": 66268.0,
+   "stable": 14
+  },
+  {
+   "t": 72812.5,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom",
+   "offsetMs": 66268.0,
+   "stable": 16
+  },
+  {
+   "t": 73296.3,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom super",
+   "offsetMs": 66268.0,
+   "stable": 17
+  },
+  {
+   "t": 73873.7,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante",
+   "offsetMs": 66268.0,
+   "stable": 17
+  },
+  {
+   "t": 74360.2,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante?",
+   "offsetMs": 66268.0,
+   "stable": 17
+  },
+  {
+   "t": 74938.4,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El compet",
+   "offsetMs": 66268.0,
+   "stable": 19
+  },
+  {
+   "t": 75449.8,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor che",
+   "offsetMs": 66268.0,
+   "stable": 20
+  },
+  {
+   "t": 75966.0,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor checo,",
+   "offsetMs": 66268.0,
+   "stable": 20
+  },
+  {
+   "t": 76481.3,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor checo, Aldrich",
+   "offsetMs": 66268.0,
+   "stable": 21
+  },
+  {
+   "t": 76997.3,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor checo, Aldrich Helinek",
+   "offsetMs": 66268.0,
+   "stable": 22
+  },
+  {
+   "t": 77487.2,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor checo, Aldrich Helinek,",
+   "offsetMs": 66268.0,
+   "stable": 22
+  },
+  {
+   "t": 78070.4,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor checo, Aldrich Helinek, terminó dec",
+   "offsetMs": 66268.0,
+   "stable": 24
+  },
+  {
+   "t": 78521.8,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor checo, Aldrich Helinek, terminó decim",
+   "offsetMs": 66268.0,
+   "stable": 24
+  },
+  {
+   "t": 79129.5,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor checo, Aldrich Helinek, terminó decimosexto en",
+   "offsetMs": 66268.0,
+   "stable": 25
+  },
+  {
+   "t": 79631.9,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor checo, Aldrich Helinek, terminó decimosexto en el grupo mascul",
+   "offsetMs": 66268.0,
+   "stable": 28
+  },
+  {
+   "t": 80083.3,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor checo, Aldrich Helinek, terminó decimosexto en el grupo masculino",
+   "offsetMs": 66268.0,
+   "stable": 28
+  },
+  {
+   "t": 80665.8,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor checo, Aldrich Helinek, terminó decimosexto en el grupo masculino de sentados",
+   "offsetMs": 66268.0,
+   "stable": 30
+  },
+  {
+   "t": 82463.0,
+   "text": "La ciudad",
+   "offsetMs": 81188.0,
+   "stable": 2
+  },
+  {
+   "t": 82975.4,
+   "text": "La ciudad contrast",
+   "offsetMs": 81188.0,
+   "stable": 3
+  },
+  {
+   "t": 83514.8,
+   "text": "La ciudad contrasta mucho",
+   "offsetMs": 81188.0,
+   "stable": 4
+  },
+  {
+   "t": 84080.3,
+   "text": "La ciudad contrasta mucho con los rest",
+   "offsetMs": 81188.0,
+   "stable": 7
+  },
+  {
+   "t": 84610.5,
+   "text": "La ciudad contrasta mucho con los restantes del país",
+   "offsetMs": 81188.0,
+   "stable": 9
+  },
+  {
+   "t": 85139.8,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya que",
+   "offsetMs": 81188.0,
+   "stable": 11
+  },
+  {
+   "t": 85700.9,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya que posee un estilo",
+   "offsetMs": 81188.0,
+   "stable": 14
+  },
+  {
+   "t": 86197.9,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya que posee un estilo más á",
+   "offsetMs": 81188.0,
+   "stable": 16
+  },
+  {
+   "t": 86765.8,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya que posee un estilo más árabe que af",
+   "offsetMs": 81188.0,
+   "stable": 18
+  },
+  {
+   "t": 87268.6,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya que posee un estilo más árabe que africano.",
+   "offsetMs": 81188.0,
+   "stable": 18
+  },
+  {
+   "t": 88836.3,
+   "text": "Asimismo",
+   "offsetMs": 87564.0,
+   "stable": 1
+  },
+  {
+   "t": 89335.8,
+   "text": "Asimismo, luego",
+   "offsetMs": 87564.0,
+   "stable": 2
+  },
+  {
+   "t": 89905.2,
+   "text": "Asimismo, luego la revolución",
+   "offsetMs": 87564.0,
+   "stable": 4
+  },
+  {
+   "t": 91030.7,
+   "text": "Asimismo, luego la revolución, los puest",
+   "offsetMs": 87564.0,
+   "stable": 6
+  },
+  {
+   "t": 91520.8,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron",
+   "offsetMs": 87564.0,
+   "stable": 7
+  },
+  {
+   "t": 92051.9,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos",
+   "offsetMs": 87564.0,
+   "stable": 8
+  },
+  {
+   "t": 92622.7,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candid",
+   "offsetMs": 87564.0,
+   "stable": 12
+  },
+  {
+   "t": 93052.2,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos mascul",
+   "offsetMs": 87564.0,
+   "stable": 13
+  },
+  {
+   "t": 93536.7,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos",
+   "offsetMs": 87564.0,
+   "stable": 13
+  },
+  {
+   "t": 94087.1,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo",
+   "offsetMs": 87564.0,
+   "stable": 14
+  },
+  {
+   "t": 94622.7,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo que permitió",
+   "offsetMs": 87564.0,
+   "stable": 16
+  },
+  {
+   "t": 95160.8,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo que permitió el exil",
+   "offsetMs": 87564.0,
+   "stable": 18
+  },
+  {
+   "t": 95757.7,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo que permitió el exilio,",
+   "offsetMs": 87564.0,
+   "stable": 18
+  },
+  {
+   "t": 96242.8,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo que permitió el exilio, el éxito",
+   "offsetMs": 87564.0,
+   "stable": 20
+  },
+  {
+   "t": 96722.2,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo que permitió el exilio, el éxito de los",
+   "offsetMs": 87564.0,
+   "stable": 22
+  },
+  {
+   "t": 97213.9,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo que permitió el exilio, el éxito de los más",
+   "offsetMs": 87564.0,
+   "stable": 23
+  },
+  {
+   "t": 97745.7,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo que permitió el exilio, el éxito de los más amb",
+   "offsetMs": 87564.0,
+   "stable": 24
+  },
+  {
+   "t": 98328.5,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo que permitió el exilio, el éxito de los más ambiciosos y",
+   "offsetMs": 87564.0,
+   "stable": 25
+  },
+  {
+   "t": 98832.3,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo que permitió el exilio, el éxito de los más ambiciosos y prestigios",
+   "offsetMs": 87564.0,
+   "stable": 26
+  },
+  {
+   "t": 99825.6,
+   "text": "La",
+   "offsetMs": 99068.0,
+   "stable": 1
+  },
+  {
+   "t": 100364.2,
+   "text": "La bomba",
+   "offsetMs": 99068.0,
+   "stable": 2
+  },
+  {
+   "t": 100929.9,
+   "text": "La bomba atómica",
+   "offsetMs": 99068.0,
+   "stable": 3
+  },
+  {
+   "t": 101429.5,
+   "text": "La bomba atómica opera en",
+   "offsetMs": 99068.0,
+   "stable": 5
+  },
+  {
+   "t": 101998.5,
+   "text": "La bomba atómica opera en base al principio",
+   "offsetMs": 99068.0,
+   "stable": 8
+  },
+  {
+   "t": 103059.9,
+   "text": "La bomba atómica opera en base al principio de que se",
+   "offsetMs": 99068.0,
+   "stable": 11
+  },
+  {
+   "t": 103569.2,
+   "text": "La bomba atómica opera en base al principio de que se requiere",
+   "offsetMs": 99068.0,
+   "stable": 12
+  },
+  {
+   "t": 104078.1,
+   "text": "La bomba atómica opera en base al principio de que se requiere energía para",
+   "offsetMs": 99068.0,
+   "stable": 14
+  },
+  {
+   "t": 104561.6,
+   "text": "La bomba atómica opera en base al principio de que se requiere energía para conform",
+   "offsetMs": 99068.0,
+   "stable": 15
+  },
+  {
+   "t": 105084.5,
+   "text": "La bomba atómica opera en base al principio de que se requiere energía para conformar",
+   "offsetMs": 99068.0,
+   "stable": 15
+  },
+  {
+   "t": 105659.8,
+   "text": "La bomba atómica opera en base al principio de que se requiere energía para conformar un núcle",
+   "offsetMs": 99068.0,
+   "stable": 17
+  },
+  {
+   "t": 106224.0,
+   "text": "La bomba atómica opera en base al principio de que se requiere energía para conformar un núcleo con gran cantidad",
+   "offsetMs": 99068.0,
+   "stable": 20
+  },
+  {
+   "t": 106695.0,
+   "text": "La bomba atómica opera en base al principio de que se requiere energía para conformar un núcleo con gran cantidad de prot",
+   "offsetMs": 99068.0,
+   "stable": 22
+  },
+  {
+   "t": 107232.7,
+   "text": "La bomba atómica opera en base al principio de que se requiere energía para conformar un núcleo con gran cantidad de protones y neut",
+   "offsetMs": 99068.0,
+   "stable": 24
+  },
+  {
+   "t": 107745.7,
+   "text": "La bomba atómica opera en base al principio de que se requiere energía para conformar un núcleo con gran cantidad de protones y neutrones.",
+   "offsetMs": 99068.0,
+   "stable": 24
+  },
+  {
+   "t": 109218.8,
+   "text": "no mencion",
+   "offsetMs": 108012.0,
+   "stable": 2
+  },
+  {
+   "t": 109757.8,
+   "text": "no mencionó una",
+   "offsetMs": 108012.0,
+   "stable": 3
+  },
+  {
+   "t": 110348.2,
+   "text": "no mencionó una cifra para",
+   "offsetMs": 108012.0,
+   "stable": 5
+  },
+  {
+   "t": 110810.3,
+   "text": "no mencionó una cifra para los rec",
+   "offsetMs": 108012.0,
+   "stable": 7
+  },
+  {
+   "t": 111312.8,
+   "text": "no mencionó una cifra para los recortes",
+   "offsetMs": 108012.0,
+   "stable": 7
+  },
+  {
+   "t": 111816.6,
+   "text": "no mencionó una cifra para los recortes y manifest",
+   "offsetMs": 108012.0,
+   "stable": 9
+  },
+  {
+   "t": 112299.6,
+   "text": "no mencionó una cifra para los recortes y manifestó",
+   "offsetMs": 108012.0,
+   "stable": 9
+  },
+  {
+   "t": 112900.5,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán",
+   "offsetMs": 108012.0,
+   "stable": 12
+  },
+  {
+   "t": 113420.4,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la",
+   "offsetMs": 108012.0,
+   "stable": 16
+  },
+  {
+   "t": 113865.4,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción",
+   "offsetMs": 108012.0,
+   "stable": 17
+  },
+  {
+   "t": 114416.6,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica",
+   "offsetMs": 108012.0,
+   "stable": 18
+  },
+  {
+   "t": 114953.2,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China.",
+   "offsetMs": 108012.0,
+   "stable": 20
+  },
+  {
+   "t": 115965.9,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay",
+   "offsetMs": 108012.0,
+   "stable": 22
+  },
+  {
+   "t": 116477.9,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criter",
+   "offsetMs": 108012.0,
+   "stable": 24
+  },
+  {
+   "t": 116989.9,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal",
+   "offsetMs": 108012.0,
+   "stable": 25
+  },
+  {
+   "t": 117501.6,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine",
+   "offsetMs": 108012.0,
+   "stable": 27
+  },
+  {
+   "t": 117992.2,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cu",
+   "offsetMs": 108012.0,
+   "stable": 28
+  },
+  {
+   "t": 118575.2,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un",
+   "offsetMs": 108012.0,
+   "stable": 29
+  },
+  {
+   "t": 119051.0,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufact",
+   "offsetMs": 108012.0,
+   "stable": 31
+  },
+  {
+   "t": 119594.0,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede",
+   "offsetMs": 108012.0,
+   "stable": 32
+  },
+  {
+   "t": 120044.8,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser",
+   "offsetMs": 108012.0,
+   "stable": 33
+  },
+  {
+   "t": 120602.6,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado",
+   "offsetMs": 108012.0,
+   "stable": 34
+  },
+  {
+   "t": 121119.8,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antig",
+   "offsetMs": 108012.0,
+   "stable": 36
+  },
+  {
+   "t": 121690.4,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad.",
+   "offsetMs": 108012.0,
+   "stable": 36
+  },
+  {
+   "t": 122168.2,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas",
+   "offsetMs": 108012.0,
+   "stable": 37
+  },
+  {
+   "t": 122685.8,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias",
+   "offsetMs": 108012.0,
+   "stable": 38
+  },
+  {
+   "t": 123204.7,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias imposit",
+   "offsetMs": 108012.0,
+   "stable": 39
+  },
+  {
+   "t": 123725.4,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen",
+   "offsetMs": 108012.0,
+   "stable": 40
+  },
+  {
+   "t": 124221.4,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen estable",
+   "offsetMs": 108012.0,
+   "stable": 41
+  },
+  {
+   "t": 124756.9,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido",
+   "offsetMs": 108012.0,
+   "stable": 41
+  },
+  {
+   "t": 125318.9,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los",
+   "offsetMs": 108012.0,
+   "stable": 43
+  },
+  {
+   "t": 126201.7,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de",
+   "offsetMs": 108012.0,
+   "stable": 45
+  },
+  {
+   "t": 126545.6,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100",
+   "offsetMs": 108012.0,
+   "stable": 48
+  },
+  {
+   "t": 126987.5,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son",
+   "offsetMs": 108012.0,
+   "stable": 50
+  },
+  {
+   "t": 127483.2,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antig",
+   "offsetMs": 108012.0,
+   "stable": 51
+  },
+  {
+   "t": 128412.8,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades",
+   "offsetMs": 108012.0,
+   "stable": 51
+  },
+  {
+   "t": 129042.6,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades.",
+   "offsetMs": 108012.0,
+   "stable": 51
+  },
+  {
+   "t": 129689.2,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre",
+   "offsetMs": 108012.0,
+   "stable": 53
+  },
+  {
+   "t": 129985.9,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se",
+   "offsetMs": 108012.0,
+   "stable": 54
+  },
+  {
+   "t": 130507.4,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un",
+   "offsetMs": 108012.0,
+   "stable": 56
+  },
+  {
+   "t": 131064.4,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en",
+   "offsetMs": 108012.0,
+   "stable": 58
+  },
+  {
+   "t": 131793.6,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los arch",
+   "offsetMs": 108012.0,
+   "stable": 60
+  },
+  {
+   "t": 132414.1,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélag",
+   "offsetMs": 108012.0,
+   "stable": 60
+  },
+  {
+   "t": 132975.1,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lag",
+   "offsetMs": 108012.0,
+   "stable": 62
+  },
+  {
+   "t": 133477.7,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos.",
+   "offsetMs": 108012.0,
+   "stable": 62
+  },
+  {
+   "t": 133991.5,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello",
+   "offsetMs": 108012.0,
+   "stable": 64
+  },
+  {
+   "t": 134481.5,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se",
+   "offsetMs": 108012.0,
+   "stable": 65
+  },
+  {
+   "t": 135090.1,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la",
+   "offsetMs": 108012.0,
+   "stable": 68
+  },
+  {
+   "t": 135591.8,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional",
+   "offsetMs": 108012.0,
+   "stable": 70
+  },
+  {
+   "t": 136674.8,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este form",
+   "offsetMs": 108012.0,
+   "stable": 73
+  },
+  {
+   "t": 137128.2,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato",
+   "offsetMs": 108012.0,
+   "stable": 73
+  },
+  {
+   "t": 137708.4,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir",
+   "offsetMs": 108012.0,
+   "stable": 74
+  },
+  {
+   "t": 138272.9,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a",
+   "offsetMs": 108012.0,
+   "stable": 77
+  },
+  {
+   "t": 138786.5,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a fin de cal",
+   "offsetMs": 108012.0,
+   "stable": 80
+  },
+  {
+   "t": 139311.5,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a fin de calcular la razón",
+   "offsetMs": 108012.0,
+   "stable": 82
+  },
+  {
+   "t": 139833.0,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a fin de calcular la razón de números",
+   "offsetMs": 108012.0,
+   "stable": 84
+  },
+  {
+   "t": 140271.6,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a fin de calcular la razón de números enter",
+   "offsetMs": 108012.0,
+   "stable": 85
+  },
+  {
+   "t": 140856.2,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a fin de calcular la razón de números enteros más sen",
+   "offsetMs": 108012.0,
+   "stable": 87
+  },
+  {
+   "t": 141311.8,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a fin de calcular la razón de números enteros más sencilla",
+   "offsetMs": 108012.0,
+   "stable": 87
+  },
+  {
+   "t": 141798.5,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a fin de calcular la razón de números enteros más sencilla equiv",
+   "offsetMs": 108012.0,
+   "stable": 88
+  },
+  {
+   "t": 142398.0,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a fin de calcular la razón de números enteros más sencilla equivale a",
+   "offsetMs": 108012.0,
+   "stable": 89
+  },
+  {
+   "t": 142888.9,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a fin de calcular la razón de números enteros más sencilla equivale a 3.",
+   "offsetMs": 108012.0,
+   "stable": 90
+  },
+  {
+   "t": 143396.9,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a fin de calcular la razón de números enteros más sencilla equivale a 3.2",
+   "offsetMs": 108012.0,
+   "stable": 90
+  },
+  {
+   "t": 145013.4,
+   "text": "Su fama",
+   "offsetMs": 143692.0,
+   "stable": 2
+  },
+  {
+   "t": 145621.5,
+   "text": "Su fama de ser epic",
+   "offsetMs": 143692.0,
+   "stable": 5
+  },
+  {
+   "t": 145993.9,
+   "text": "Su fama de ser epicentro del",
+   "offsetMs": 143692.0,
+   "stable": 6
+  },
+  {
+   "t": 146549.1,
+   "text": "Su fama de ser epicentro del lujo comenz",
+   "offsetMs": 143692.0,
+   "stable": 8
+  },
+  {
+   "t": 147018.6,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente",
+   "offsetMs": 143692.0,
+   "stable": 9
+  },
+  {
+   "t": 148239.1,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en",
+   "offsetMs": 143692.0,
+   "stable": 10
+  },
+  {
+   "t": 148548.4,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400",
+   "offsetMs": 143692.0,
+   "stable": 12
+  },
+  {
+   "t": 149035.7,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a",
+   "offsetMs": 143692.0,
+   "stable": 13
+  },
+  {
+   "t": 149585.6,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C",
+   "offsetMs": 143692.0,
+   "stable": 13
+  },
+  {
+   "t": 150096.3,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y",
+   "offsetMs": 143692.0,
+   "stable": 14
+  },
+  {
+   "t": 150606.9,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extend",
+   "offsetMs": 143692.0,
+   "stable": 16
+  },
+  {
+   "t": 151117.9,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta",
+   "offsetMs": 143692.0,
+   "stable": 17
+  },
+  {
+   "t": 151603.5,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente",
+   "offsetMs": 143692.0,
+   "stable": 18
+  },
+  {
+   "t": 152127.6,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 11",
+   "offsetMs": 143692.0,
+   "stable": 19
+  },
+  {
+   "t": 152680.4,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d",
+   "offsetMs": 143692.0,
+   "stable": 20
+  },
+  {
+   "t": 153196.9,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C",
+   "offsetMs": 143692.0,
+   "stable": 20
+  },
+  {
+   "t": 153698.0,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C.",
+   "offsetMs": 143692.0,
+   "stable": 20
+  },
+  {
+   "t": 154184.9,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Ex",
+   "offsetMs": 143692.0,
+   "stable": 21
+  },
+  {
+   "t": 154739.9,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes",
+   "offsetMs": 143692.0,
+   "stable": 22
+  },
+  {
+   "t": 155258.0,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de",
+   "offsetMs": 143692.0,
+   "stable": 24
+  },
+  {
+   "t": 155826.4,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas",
+   "offsetMs": 143692.0,
+   "stable": 25
+  },
+  {
+   "t": 156329.0,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación",
+   "offsetMs": 143692.0,
+   "stable": 27
+  },
+  {
+   "t": 156806.0,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de via",
+   "offsetMs": 143692.0,
+   "stable": 29
+  },
+  {
+   "t": 157298.8,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes",
+   "offsetMs": 143692.0,
+   "stable": 29
+  },
+  {
+   "t": 157857.1,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero",
+   "offsetMs": 143692.0,
+   "stable": 30
+  },
+  {
+   "t": 158375.2,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde final",
+   "offsetMs": 143692.0,
+   "stable": 32
+  },
+  {
+   "t": 158919.1,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del mar",
+   "offsetMs": 143692.0,
+   "stable": 34
+  },
+  {
+   "t": 159397.8,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la",
+   "offsetMs": 143692.0,
+   "stable": 35
+  },
+  {
+   "t": 159944.7,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura",
+   "offsetMs": 143692.0,
+   "stable": 36
+  },
+  {
+   "t": 160451.1,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte",
+   "offsetMs": 143692.0,
+   "stable": 39
+  },
+  {
+   "t": 160931.6,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas",
+   "offsetMs": 143692.0,
+   "stable": 41
+  },
+  {
+   "t": 161531.9,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas bas",
+   "offsetMs": 143692.0,
+   "stable": 43
+  },
+  {
+   "t": 161972.6,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en",
+   "offsetMs": 143692.0,
+   "stable": 44
+  },
+  {
+   "t": 162494.0,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus",
+   "offsetMs": 143692.0,
+   "stable": 46
+  },
+  {
+   "t": 162990.2,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no",
+   "offsetMs": 143692.0,
+   "stable": 47
+  },
+  {
+   "t": 163532.5,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se",
+   "offsetMs": 143692.0,
+   "stable": 48
+  },
+  {
+   "t": 164226.6,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta",
+   "offsetMs": 143692.0,
+   "stable": 50
+  },
+  {
+   "t": 164805.3,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta jul",
+   "offsetMs": 143692.0,
+   "stable": 51
+  },
+  {
+   "t": 165401.0,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de 2020",
+   "offsetMs": 143692.0,
+   "stable": 53
+  },
+  {
+   "t": 165874.4,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de 2020,",
+   "offsetMs": 143692.0,
+   "stable": 53
+  },
+  {
+   "t": 166456.1,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de 2020, que es para",
+   "offsetMs": 143692.0,
+   "stable": 56
+  },
+  {
+   "t": 166967.5,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de 2020, que es para cuando están",
+   "offsetMs": 143692.0,
+   "stable": 58
+  },
+  {
+   "t": 167498.4,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de 2020, que es para cuando están programados",
+   "offsetMs": 143692.0,
+   "stable": 59
+  },
+  {
+   "t": 168121.6,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de 2020, que es para cuando están programados los Juegos Olí",
+   "offsetMs": 143692.0,
+   "stable": 62
+  },
+  {
+   "t": 169460.1,
+   "text": "Ag",
+   "offsetMs": 168508.0,
+   "stable": 1
+  },
+  {
+   "t": 169968.3,
+   "text": "Agite",
+   "offsetMs": 168508.0,
+   "stable": 1
+  },
+  {
+   "t": 170505.2,
+   "text": "Agite ambos pol",
+   "offsetMs": 168508.0,
+   "stable": 3
+  },
+  {
+   "t": 171029.3,
+   "text": "Agite ambos polvos sec",
+   "offsetMs": 168508.0,
+   "stable": 4
+  },
+  {
+   "t": 171548.2,
+   "text": "Agite ambos polvos secos juntos",
+   "offsetMs": 168508.0,
+   "stable": 5
+  },
+  {
+   "t": 172019.7,
+   "text": "Agite ambos polvos secos juntos y",
+   "offsetMs": 168508.0,
+   "stable": 6
+  },
+  {
+   "t": 172601.7,
+   "text": "Agite ambos polvos secos juntos y después de",
+   "offsetMs": 168508.0,
+   "stable": 8
+  },
+  {
+   "t": 173062.4,
+   "text": "Agite ambos polvos secos juntos y después de hacerlo con",
+   "offsetMs": 168508.0,
+   "stable": 10
+  },
+  {
+   "t": 173595.5,
+   "text": "Agite ambos polvos secos juntos y después de hacerlo con las manos",
+   "offsetMs": 168508.0,
+   "stable": 12
+  },
+  {
+   "t": 174157.8,
+   "text": "Agite ambos polvos secos juntos y después de hacerlo con las manos higieniz",
+   "offsetMs": 168508.0,
+   "stable": 13
+  },
+  {
+   "t": 174659.8,
+   "text": "Agite ambos polvos secos juntos y después de hacerlo con las manos higienizadas y h",
+   "offsetMs": 168508.0,
+   "stable": 15
+  },
+  {
+   "t": 175184.4,
+   "text": "Agite ambos polvos secos juntos y después de hacerlo con las manos higienizadas y húmedas,",
+   "offsetMs": 168508.0,
+   "stable": 15
+  },
+  {
+   "t": 175605.6,
+   "text": "Agite ambos polvos secos juntos y después de hacerlo con las manos higienizadas y húmedas, exp",
+   "offsetMs": 168508.0,
+   "stable": 16
+  },
+  {
+   "t": 176137.2,
+   "text": "Agite ambos polvos secos juntos y después de hacerlo con las manos higienizadas y húmedas, exprímalos",
+   "offsetMs": 168508.0,
+   "stable": 16
+  },
+  {
+   "t": 176634.9,
+   "text": "Agite ambos polvos secos juntos y después de hacerlo con las manos higienizadas y húmedas, exprímalos para formar",
+   "offsetMs": 168508.0,
+   "stable": 18
+  },
+  {
+   "t": 177168.0,
+   "text": "Agite ambos polvos secos juntos y después de hacerlo con las manos higienizadas y húmedas, exprímalos para formar una bola",
+   "offsetMs": 168508.0,
+   "stable": 20
+  },
+  {
+   "t": 178701.0,
+   "text": "Durante los",
+   "offsetMs": 177167.9,
+   "stable": 2
+  },
+  {
+   "t": 179240.7,
+   "text": "Durante los cruceros",
+   "offsetMs": 177167.9,
+   "stable": 3
+  },
+  {
+   "t": 179766.1,
+   "text": "Durante los cruceros por San Peters",
+   "offsetMs": 177167.9,
+   "stable": 6
+  },
+  {
+   "t": 180225.1,
+   "text": "Durante los cruceros por San Petersbur",
+   "offsetMs": 177167.9,
+   "stable": 6
+  },
+  {
+   "t": 180782.9,
+   "text": "Durante los cruceros por San Petersburgo también",
+   "offsetMs": 177167.9,
+   "stable": 7
+  },
+  {
+   "t": 181287.1,
+   "text": "Durante los cruceros por San Petersburgo también se pasa",
+   "offsetMs": 177167.9,
+   "stable": 9
+  },
+  {
+   "t": 181761.0,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la",
+   "offsetMs": 177167.9,
+   "stable": 12
+  },
+  {
+   "t": 182195.8,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad",
+   "offsetMs": 177167.9,
+   "stable": 13
+  },
+  {
+   "t": 182724.2,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad. Se exime",
+   "offsetMs": 177167.9,
+   "stable": 15
+  },
+  {
+   "t": 183219.5,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad. Se exime a quienes desem",
+   "offsetMs": 177167.9,
+   "stable": 18
+  },
+  {
+   "t": 183729.5,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad. Se exime a quienes desembarcan",
+   "offsetMs": 177167.9,
+   "stable": 18
+  },
+  {
+   "t": 184265.7,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad. Se exime a quienes desembarcan de los requ",
+   "offsetMs": 177167.9,
+   "stable": 21
+  },
+  {
+   "t": 184778.0,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad. Se exime a quienes desembarcan de los requerimientos",
+   "offsetMs": 177167.9,
+   "stable": 21
+  },
+  {
+   "t": 185315.8,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad. Se exime a quienes desembarcan de los requerimientos de visado",
+   "offsetMs": 177167.9,
+   "stable": 23
+  },
+  {
+   "t": 185827.0,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad. Se exime a quienes desembarcan de los requerimientos de visado. Consult",
+   "offsetMs": 177167.9,
+   "stable": 24
+  },
+  {
+   "t": 186343.2,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad. Se exime a quienes desembarcan de los requerimientos de visado. Consulte términ",
+   "offsetMs": 177167.9,
+   "stable": 25
+  }
+ ],
+ "finals": [
+  {
+   "t": 9604.0,
+   "text": "Los leones son los felinos que más socializan y su vida transcurre dentro de grupos de gran tamaño denominados manadas.",
+   "offsetMs": 1132.0,
+   "durationMs": 7600.0
+  },
+  {
+   "t": 15047.5,
+   "text": "En medio del cálido clima del Oriente Medio, la casa no era de mayor importancia.",
+   "offsetMs": 9632.0,
+   "durationMs": 4460.0
+  },
+  {
+   "t": 22066.3,
+   "text": "Las playas son casi todas de arena con lugares seguros para nadar y en su mayoría tienen árboles.",
+   "offsetMs": 15268.0,
+   "durationMs": 5900.0
+  },
+  {
+   "t": 25647.1,
+   "text": "Poutukawa. Que ofrecen lugares de sombra.",
+   "offsetMs": 21782.0,
+   "durationMs": 2920.0
+  },
+  {
+   "t": 43072.8,
+   "text": "las manadas están formadas por 1 a 3 machos adultos del mismo grupo familiar unidos con hasta 30 hembras y sus crías es posible que en los niños salvajes hayan sufrido situaciones traumáticas o abuso infantil grave antes de ser abandonados o de que huyeran",
+   "offsetMs": 25900.0,
+   "durationMs": 16080.0
+  },
+  {
+   "t": 50221.6,
+   "text": "Scottur, el autobús 413 se dirige con regularidad a Sintra y para en Cabo da Roca.",
+   "offsetMs": 42776.0,
+   "durationMs": 6520.0
+  },
+  {
+   "t": 58759.8,
+   "text": "La forma de disfrutar las mejores vistas de Hong Kong es salir de la isla y dirigirse a la ribera de Kowloon, ubicada enfrente.",
+   "offsetMs": 50140.0,
+   "durationMs": 7540.0
+  },
+  {
+   "t": 66037.4,
+   "text": "Los pensamientos de Aristóteles, en especial las cuestiones de la ciencia e incluso la psicología, fueron aceptadas.",
+   "offsetMs": 58524.0,
+   "durationMs": 6600.0
+  },
+  {
+   "t": 80997.3,
+   "text": "¿Mitchell Gurley, de Australia, obtuvo el undécimo puesto en la categoría masculina de pie del slalom supergigante? ¿El competidor checo, Aldrich Helinek, terminó decimosexto en el grupo masculino de sentados?",
+   "offsetMs": 66268.0,
+   "durationMs": 13840.0
+  },
+  {
+   "t": 88014.2,
+   "text": "La ciudad contrasta mucho con los restantes del país, ya que posee un estilo más árabe que africano. La ciudad es un lugar muy cercano a la ciudad de México, donde se encuentra",
+   "offsetMs": 81188.0,
+   "durationMs": 5640.0
+  },
+  {
+   "t": 99112.0,
+   "text": "Asimismo, luego la revolución, los puestos estuvieron abiertos a todos los candidatos masculinos, lo que permitió el exilio, el éxito de los más ambiciosos y prestigiosos.",
+   "offsetMs": 87564.0,
+   "durationMs": 10640.0
+  },
+  {
+   "t": 108234.3,
+   "text": "La bomba atómica opera en base al principio de que se requiere energía para conformar un núcleo con gran cantidad de protones y neutrones. ¿Qué es la bomba atómica?",
+   "offsetMs": 99068.0,
+   "durationMs": 920.0
+  },
+  {
+   "t": 143810.3,
+   "text": "no mencionó una cifra para los recortes y manifestó que se harán en base a la producción económica de China. No hay un criterio universal que determine cuándo un bien manufacturado puede ser considerado una antigüedad. Algunas agencias impositivas tienen establecido que los objetos de más de 100 años son antigüedades. No siempre se precisa un yate en los archipiélagos y lagos. Por ello se dice que la relación dimensional de este formato dividir por 12 a fin de calcular la razón de números enteros más sencilla equivale a 3.2.",
+   "offsetMs": 108012.0,
+   "durationMs": 34448.8
+  },
+  {
+   "t": 168675.5,
+   "text": "Su fama de ser epicentro del lujo comenzó aproximadamente en el 400 a.C. y se extendió hasta aproximadamente 1100 d.C. Existen diferentes tipos de pólizas de cancelación de viajes, pero desde finales del marzo la cobertura de gran parte de estas pólizas basadas en el coronavirus no se extiende hasta julio de 2020, que es para cuando están programados los Juegos Olímpicos.",
+   "offsetMs": 143692.0,
+   "durationMs": 23660.0
+  },
+  {
+   "t": 177682.1,
+   "text": "Agite ambos polvos secos juntos y después de hacerlo con las manos higienizadas y húmedas, exprímalos para formar una bola.",
+   "offsetMs": 168508.0,
+   "durationMs": 8000.0
+  },
+  {
+   "t": 186859.5,
+   "text": "Durante los cruceros por San Petersburgo también se pasa tiempo en la ciudad. Se exime a quienes desembarcan de los requerimientos de visado. Consulte términos.",
+   "offsetMs": 177167.9,
+   "durationMs": 8800.0
+  }
+ ]
+}

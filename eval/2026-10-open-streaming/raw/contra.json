@@ -1,0 +1,2743 @@
+{
+ "reg:en-es": {
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "guessed females, guessed next sentence"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeated previous guess, guessed next sentence"
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeated previous guess, guessed next sentence"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated previous guess"
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "guessed next sentence"
+   },
+   {
+    "i": 8,
+    "chunks": 7,
+    "wrong": 3,
+    "note": "repeated, corrected later, contradicts source"
+   },
+   {
+    "i": 9,
+    "chunks": 4,
+    "wrong": 3,
+    "note": "changes meaning, guessed next sentence"
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated previous guess"
+   },
+   {
+    "i": 11,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "guessed next sentence"
+   },
+   {
+    "i": 12,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "repeated previous guess, guessed next sentence"
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeated previous guess, changes meaning"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 17,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "guessed next sentence"
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeated previous guess, changes meaning"
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeated earlier chunk"
+   }
+  ],
+  "P8-ctc": [
+   {
+    "i": 0,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "changes meaning"
+   },
+   {
+    "i": 3,
+    "chunks": 2,
+    "wrong": 2,
+    "note": "changes meaning, guessed females"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated previous guess"
+   },
+   {
+    "i": 5,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "changes meaning"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 3,
+    "note": "changes meaning, guessed next sentence"
+   },
+   {
+    "i": 10,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "repeated previous guess"
+   },
+   {
+    "i": 11,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "guessed next sentence"
+   },
+   {
+    "i": 12,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "repeated previous guess"
+   },
+   {
+    "i": 13,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 17,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "changes meaning"
+   },
+   {
+    "i": 19,
+    "chunks": 0,
+    "wrong": 0
+   }
+  ],
+  "P8-simul": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "guessed next sentence"
+   },
+   {
+    "i": 3,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeated previous guess"
+   },
+   {
+    "i": 5,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "contradicts source"
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "guessed next sentence"
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "repeated previous guess, changes meaning"
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "contradicts source"
+   },
+   {
+    "i": 17,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated previous guess"
+   },
+   {
+    "i": 18,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 0,
+    "wrong": 0
+   }
+  ]
+ },
+ "reg:en-fr": {
+  "P8-ctc": [
+   {
+    "i": 0,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "changes meaning to sand-colored to be safe"
+   },
+   {
+    "i": 3,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "bled into next sentence"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated earlier chunk"
+   },
+   {
+    "i": 5,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "changes meaning to cable car station"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated earlier chunk"
+   },
+   {
+    "i": 7,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "later chunk had to correct it"
+   },
+   {
+    "i": 10,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "bled into next sentence"
+   },
+   {
+    "i": 12,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "repeated earlier chunk"
+   },
+   {
+    "i": 13,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "changes meaning to is twelve"
+   },
+   {
+    "i": 16,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "changes meaning to is therefore the epicenter"
+   },
+   {
+    "i": 17,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 0,
+    "wrong": 0
+   }
+  ],
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "bled into next sentence"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeated earlier chunk, bled into next sentence"
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeated earlier chunk, bled into next sentence"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated earlier chunk"
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "bled into next sentence"
+   },
+   {
+    "i": 8,
+    "chunks": 7,
+    "wrong": 3,
+    "note": "repeated, contradicts source, out of order"
+   },
+   {
+    "i": 9,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "bled into next sentence"
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated earlier chunk"
+   },
+   {
+    "i": 11,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "bled into next sentence"
+   },
+   {
+    "i": 12,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "repeated earlier chunk, bled into next sentence"
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated earlier chunk"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 17,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeated earlier chunk"
+   }
+  ],
+  "P8-simul": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeated earlier chunk"
+   },
+   {
+    "i": 5,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "contradicts source with except for"
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 9,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeated earlier chunk"
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 17,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated earlier chunk"
+   },
+   {
+    "i": 18,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 0,
+    "wrong": 0
+   }
+  ]
+ },
+ "reg:es-en": {
+  "P8-simul": [
+   {
+    "i": 0,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 6,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "'tenth' instead of 'sixteenth' changes meaning"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "hallucinated question at the end"
+   },
+   {
+    "i": 12,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "'manifest' changes meaning; hallucinated thanks"
+   },
+   {
+    "i": 13,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "'and' breaks grammar and changes meaning"
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "missed the ratio part ':2'"
+   },
+   {
+    "i": 16,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "'11 AD' instead of '1100 AD'"
+   },
+   {
+    "i": 17,
+    "chunks": 7,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "'policies' and 'expand' change meaning"
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "hallucinated thanks at the end"
+   }
+  ],
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "'in feral children there are' changes meaning"
+   },
+   {
+    "i": 5,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "chunks 5 and 6 are repetitions"
+   },
+   {
+    "i": 6,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "chunk 1 is a repetition from previous sentence"
+   },
+   {
+    "i": 7,
+    "chunks": 6,
+    "wrong": 3,
+    "note": "chunks 4, 5, 6 are repetitions and wrong guesses"
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "chunk 1 is a repetition from previous sentence"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "'then' instead of 'after' changes meaning"
+   },
+   {
+    "i": 11,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 6,
+    "wrong": 1,
+    "note": "'point' instead of ratio colon"
+   },
+   {
+    "i": 16,
+    "chunks": 6,
+    "wrong": 3,
+    "note": "hallucinated note and repeated chunks"
+   },
+   {
+    "i": 17,
+    "chunks": 7,
+    "wrong": 1,
+    "note": "'2000' corrected by later chunk"
+   },
+   {
+    "i": 18,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 0
+   }
+  ],
+  "P8-ctc": [
+   {
+    "i": 0,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "'plains' instead of 'beaches' changes meaning"
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "'in the children' changes meaning"
+   },
+   {
+    "i": 5,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "corrected later and repeated chunk"
+   },
+   {
+    "i": 7,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "'are the cue' changes meaning"
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 9,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "'movable asset' instead of 'manufactured good'"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "broken grammar changes meaning"
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "'is divided by' changes meaning; incomplete chunk"
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "'advance of Christ' changes meaning"
+   },
+   {
+    "i": 17,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "unintelligible wrong guess"
+   }
+  ]
+ },
+ "reg:fr-en": {
+  "P8-simul": [
+   {
+    "i": 0,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "hallucination and spillover"
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "hallucination"
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "stones instead of beaches, hallucination"
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "apparent instead of related, hallucination"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "my children instead of feral, hallucination"
+   },
+   {
+    "i": 5,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "bus 4 instead of 403"
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 9,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "open trades corrected by were open"
+   },
+   {
+    "i": 11,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "encryp instead of quantified, hallucination"
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "hallucination, changes meaning"
+   },
+   {
+    "i": 14,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "11 instead of 1100"
+   },
+   {
+    "i": 17,
+    "chunks": 6,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repetition of see"
+   }
+  ],
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "repetition and contradiction"
+   },
+   {
+    "i": 1,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "cashew trees instead of pohutukawa"
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 5,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repetition and spillover"
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "spillover from previous sentence"
+   },
+   {
+    "i": 7,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 8,
+    "chunks": 7,
+    "wrong": 3,
+    "note": "repetitions"
+   },
+   {
+    "i": 9,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "during instead of after, contradicted"
+   },
+   {
+    "i": 11,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "repetitions"
+   },
+   {
+    "i": 12,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "spillover to next sentence"
+   },
+   {
+    "i": 14,
+    "chunks": 7,
+    "wrong": 6,
+    "note": "spillover and repetitions"
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "spillover from previous sentence"
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "eleventh century instead of year 400"
+   },
+   {
+    "i": 17,
+    "chunks": 6,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 6,
+    "wrong": 3,
+    "note": "repetitions"
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "out of order, stutter"
+   }
+  ],
+  "P8-ctc": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "paths instead of most, palms"
+   },
+   {
+    "i": 3,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "walls instead of prides, very bad"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "school bus instead of Scotturb"
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "the island instead of Hong Kong"
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "girl instead of man"
+   },
+   {
+    "i": 9,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "missed Arabic, spillover"
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "spillover from previous sentence"
+   },
+   {
+    "i": 11,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "no way instead of no universal definition"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 17,
+    "chunks": 6,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "kings instead of cruises"
+   }
+  ]
+ },
+ "irr:en-es": {
+  "P8-ctc": [
+   {
+    "i": 0,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "'zona arenosa segura' changes meaning"
+   },
+   {
+    "i": 3,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 5,
+    "chunks": 2,
+    "wrong": 2,
+    "note": "'regulaciones' and 'del centro' change meaning"
+   },
+   {
+    "i": 6,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "'excepto donde' changes meaning"
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "'undécima hora en la posición' changes meaning"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "'se extiende' changes meaning"
+   },
+   {
+    "i": 10,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeats 'claridad árabe que'"
+   },
+   {
+    "i": 11,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "'flujo' and 'íntegros' change meaning"
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats 'o no hay una definición...'"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "'está surgiendo' contradicts, 'cuatrocientos mil' wrong"
+   },
+   {
+    "i": 17,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 0,
+    "wrong": 0
+   }
+  ],
+  "P8-simul": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "hallucinations in chunks 4 and 5"
+   },
+   {
+    "i": 3,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats 'o de huir...'"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "'Excepto que' changes meaning"
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 9,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "'11 d.C.' wrong number"
+   },
+   {
+    "i": 17,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats 'aproximadamente el año 11 d.C.'"
+   },
+   {
+    "i": 18,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "'paño' instead of hands"
+   },
+   {
+    "i": 19,
+    "chunks": 0,
+    "wrong": 0
+   }
+  ],
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "'hembras' changes meaning, 'sus crías' hallucinated"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats 'sus crías...'"
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats 'o huir...'"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats 'derok para obtener...'"
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "'aceptado donde' changes meaning"
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeats 'la ciencia...'"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "'contratos con' changes meaning"
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats 'que también después...'"
+   },
+   {
+    "i": 11,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeats 'la producción económica...'"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "'usted lo hace' contradicts"
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 17,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "'unan a las dos potencias' changes meaning"
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeats 'Juegos Olímpicos...', 'Reina' changes meaning"
+   },
+   {
+    "i": 19,
+    "chunks": 1,
+    "wrong": 0
+   }
+  ]
+ },
+ "irr:en-fr": {
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "females instead of males; hallucinated from next sentence"
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated from previous sentence"
+   },
+   {
+    "i": 5,
+    "chunks": 2,
+    "wrong": 2,
+    "note": "center instead of Sintra; hallucinated from next sentence"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated from previous sentence"
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 2,
+    "note": "where instead of were; hallucinated from next sentence"
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeated from previous sentence"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 3,
+    "note": "contracts instead of contrast; soil instead of flair; hallucinated"
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated from previous sentence"
+   },
+   {
+    "i": 11,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "hallucinated from next sentence"
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "repeated from previous sentence"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "guessed do as main verb"
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 17,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "hallucinated from next sentence"
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeated from previous sentence; queen instead of clean"
+   },
+   {
+    "i": 19,
+    "chunks": 1,
+    "wrong": 0
+   }
+  ],
+  "P8-simul": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "hallucinated last two chunks"
+   },
+   {
+    "i": 3,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "hallucinated from next sentence"
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "repeated from previous sentence; Decent instead of Sintra"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "except for instead of accepted were"
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "descending instead of standing"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 13,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "480 instead of 400; 11 instead of 1100"
+   },
+   {
+    "i": 17,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "guessed utensil corrected by hands; hallucinated sound"
+   },
+   {
+    "i": 19,
+    "chunks": 0,
+    "wrong": 0
+   }
+  ],
+  "P8-ctc": [
+   {
+    "i": 0,
+    "chunks": 1,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "gibberish changes meaning"
+   },
+   {
+    "i": 3,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "hallucinated from next sentence"
+   },
+   {
+    "i": 4,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "repeated from previous sentence"
+   },
+   {
+    "i": 5,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "side of road instead of Cabo da Roca"
+   },
+   {
+    "i": 6,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "except where instead of accepted were"
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "super-championship instead of Super-G; nth instead of sixteenth"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "attracts instead of contrast; center instead of flair"
+   },
+   {
+    "i": 10,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 11,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "flux instead of cuts; fabricated instead of made"
+   },
+   {
+    "i": 13,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "integrated instead of antiques"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "oceans instead of archipelagos"
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 16,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "becoming instead of renown for being; space instead of AD"
+   },
+   {
+    "i": 17,
+    "chunks": 1,
+    "wrong": 1,
+    "note": "coronary instead of coronavirus"
+   },
+   {
+    "i": 18,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "powers instead of powders"
+   },
+   {
+    "i": 19,
+    "chunks": 0,
+    "wrong": 0
+   }
+  ]
+ },
+ "irr:es-en": {
+  "P8-ctc": [
+   {
+    "i": 0,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "me is a cut-off"
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "marked as unintelligible"
+   },
+   {
+    "i": 3,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 4,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "changes meaning of feral children"
+   },
+   {
+    "i": 5,
+    "chunks": 2,
+    "wrong": 2,
+    "note": "au is cut-off, wrong guess for Cabo"
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "quest is a wrong guess for cuestiones"
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "cut-offs corrected later"
+   },
+   {
+    "i": 9,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "o is a cut-off"
+   },
+   {
+    "i": 11,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "eco-te is cut-off, maintenance is wrong guess"
+   },
+   {
+    "i": 13,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "this is a wrong guess or filler"
+   },
+   {
+    "i": 14,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "pre is cut-off, valent is wrong guess"
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "for di por is untranslated"
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "ep c is cut-off, approached is wrong guess"
+   },
+   {
+    "i": 17,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "ex- is a cut-off"
+   }
+  ],
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 6,
+    "wrong": 1,
+    "note": "hallucinates next sentence"
+   },
+   {
+    "i": 3,
+    "chunks": 7,
+    "wrong": 4,
+    "note": "repeats previous chunks and hallucination"
+   },
+   {
+    "i": 4,
+    "chunks": 0,
+    "wrong": 0
+   },
+   {
+    "i": 5,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "repeats and hallucinates next sentence"
+   },
+   {
+    "i": 6,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "repeats hallucination"
+   },
+   {
+    "i": 7,
+    "chunks": 6,
+    "wrong": 3,
+    "note": "repeats and hallucinates next sentence"
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeats hallucination"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "pre is a cut-off"
+   },
+   {
+    "i": 11,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "re is a cut-off"
+   },
+   {
+    "i": 13,
+    "chunks": 5,
+    "wrong": 0
+   },
+   {
+    "i": 14,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "repeats and hallucinates next sentence"
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "repeats hallucination"
+   },
+   {
+    "i": 16,
+    "chunks": 6,
+    "wrong": 3,
+    "note": "meta-commentary and repetitions"
+   },
+   {
+    "i": 17,
+    "chunks": 6,
+    "wrong": 0
+   },
+   {
+    "i": 18,
+    "chunks": 7,
+    "wrong": 3,
+    "note": "repeats and hallucinates next sentence"
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "repeats hallucination and out of order"
+   }
+  ],
+  "P8-simul": [
+   {
+    "i": 0,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 1,
+    "chunks": 3,
+    "wrong": 0
+   },
+   {
+    "i": 2,
+    "chunks": 6,
+    "wrong": 0
+   },
+   {
+    "i": 3,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "hallucinates next sentence"
+   },
+   {
+    "i": 4,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "repeats hallucination"
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 2,
+    "note": "cut-offs for Sintra and Cabo da Roca"
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 0
+   },
+   {
+    "i": 7,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "quest is a cut-off or wrong guess"
+   },
+   {
+    "i": 8,
+    "chunks": 5,
+    "wrong": 5,
+    "note": "turns statements into questions"
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "hallucinates Mexico City"
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "ports and exil are wrong guesses"
+   },
+   {
+    "i": 11,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "hallucinates question"
+   },
+   {
+    "i": 12,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "rec is cut-off, hallucinates next sentence"
+   },
+   {
+    "i": 13,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "repeats hallucination, hallucinates next sentence"
+   },
+   {
+    "i": 14,
+    "chunks": 2,
+    "wrong": 2,
+    "note": "repeats hallucination, archives is wrong guess"
+   },
+   {
+    "i": 15,
+    "chunks": 5,
+    "wrong": 3,
+    "note": "repeats hallucination, equiv a is cut-off"
+   },
+   {
+    "i": 16,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "11 AD is a wrong guess for 1100"
+   },
+   {
+    "i": 17,
+    "chunks": 7,
+    "wrong": 2,
+    "note": "Ex and je are cut-offs"
+   },
+   {
+    "i": 18,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "poles and expand are wrong guesses"
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "exempts those who are exempt is redundant"
+   }
+  ]
+ },
+ "irr:fr-en": {
+  "P8-nemo": [
+   {
+    "i": 0,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "Chunks 4 and 5 repeat earlier chunks"
+   },
+   {
+    "i": 1,
+    "chunks": 0,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 2,
+    "chunks": 6,
+    "wrong": 3,
+    "note": "Chunks 4, 5, and 6 repeat earlier chunks"
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "Chunk 3 attaches next sentence condition to offspring"
+   },
+   {
+    "i": 4,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "Chunk 1 repeats from the previous sentence"
+   },
+   {
+    "i": 5,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Chunk 4 repeats and contradicts"
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Chunk 1 repeats from the previous sentence"
+   },
+   {
+    "i": 7,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "Chunk 1 repeats from the previous sentence"
+   },
+   {
+    "i": 11,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "Chunks 5 and 6 repeat earlier chunks"
+   },
+   {
+    "i": 12,
+    "chunks": 0,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 13,
+    "chunks": 5,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 14,
+    "chunks": 8,
+    "wrong": 6,
+    "note": "Chunks 1, 3, 4, 5, 6, 7 repeat"
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "Chunk 1 repeats; chunk 4 changes meaning"
+   },
+   {
+    "i": 16,
+    "chunks": 5,
+    "wrong": 3,
+    "note": "Chunk 2 changes meaning; chunks 4, 5 repeat"
+   },
+   {
+    "i": 17,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Chunk 1 repeats from the previous sentence"
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 2,
+    "note": "Chunks 1 and 4 change the meaning"
+   }
+  ],
+  "P8-ctc": [
+   {
+    "i": 0,
+    "chunks": 2,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 1,
+    "chunks": 1,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 2,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 3,
+    "chunks": 2,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 4,
+    "chunks": 4,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 5,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "Chunk 2 is a guess contradicted later"
+   },
+   {
+    "i": 6,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 7,
+    "chunks": 2,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 9,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "Chunk 3 hallucinated connection changes meaning"
+   },
+   {
+    "i": 10,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Chunk 1 repeats from the previous sentence"
+   },
+   {
+    "i": 11,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "Chunk 2 changes meaning"
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 13,
+    "chunks": 4,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 14,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 15,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 16,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 17,
+    "chunks": 5,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 18,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "Chunk 1 is contradicted by chunk 2"
+   },
+   {
+    "i": 19,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Chunk 1 changes meaning completely"
+   }
+  ],
+  "P8-simul": [
+   {
+    "i": 0,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 1,
+    "chunks": 2,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 2,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Chunk 4 changes meaning"
+   },
+   {
+    "i": 3,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 4,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Chunk 1 repeats from the previous sentence"
+   },
+   {
+    "i": 5,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "Chunk 1 repeats from the previous sentence"
+   },
+   {
+    "i": 6,
+    "chunks": 4,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 7,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "Chunk 1 repeats from the previous sentence"
+   },
+   {
+    "i": 8,
+    "chunks": 4,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 9,
+    "chunks": 0,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 10,
+    "chunks": 5,
+    "wrong": 1,
+    "note": "Chunk 3 changes meaning"
+   },
+   {
+    "i": 11,
+    "chunks": 4,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 12,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "Chunk 1 changes meaning"
+   },
+   {
+    "i": 13,
+    "chunks": 2,
+    "wrong": 1,
+    "note": "Chunk 1 changes meaning"
+   },
+   {
+    "i": 14,
+    "chunks": 3,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 15,
+    "chunks": 4,
+    "wrong": 1,
+    "note": "Chunk 4 is a hallucination"
+   },
+   {
+    "i": 16,
+    "chunks": 4,
+    "wrong": 0,
+    "note": ""
+   },
+   {
+    "i": 17,
+    "chunks": 6,
+    "wrong": 2,
+    "note": "Chunk 1 repeats; chunk 3 changes grammar"
+   },
+   {
+    "i": 18,
+    "chunks": 3,
+    "wrong": 1,
+    "note": "Chunk 3 is a hallucination"
+   },
+   {
+    "i": 19,
+    "chunks": 5,
+    "wrong": 2,
+    "note": "Chunk 1 repeats; chunk 2 is a hallucination"
+   }
+  ]
+ }
+}

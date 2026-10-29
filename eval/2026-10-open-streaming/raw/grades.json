@@ -1,0 +1,8727 @@
+{
+ "WRITTEN:reg:en-es": {
+  "grades": {
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled 'pohutukawa' as 'pohkin'"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number 'uno de tres', missing females"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing subject 'children'"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong destination 'centro'"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'opposite'"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject 'fisiología' instead of psychology"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'Czech'"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled meaning"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'The fission bomb works'"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled 'entran en el té', missing end"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing 'es reconocido'"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'had been scheduled'"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong words 'potencias', 'la Reina'"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Missing '(check the terms)'"
+    }
+   ],
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Lions are the most social cats'"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning 'están a salvo'"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning, wrong subjects"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing subject 'Feral children'"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong destination, wrong stops"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject 'fisiología'"
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled names and categories"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled meaning"
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": true,
+     "note": "Missing most of the sentence"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'The fission bomb works'"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong word 'complejo'"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled word 'inte'"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'In the archipelagos and lakes'"
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Typo 'd por doce'"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Missing start date"
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing 'que viven'"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong verb 'estaba' and 'los Medio Oriente'"
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled 'pohutukawa' as 'Pohkin'"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong number, wrong subjects"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing subject 'Feral children'"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong destination 'centri'"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled 'Kowloon' as 'Koloon'"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Untranslated 'phy'"
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled text, repeated words"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled meaning"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong subject 'ocupantes'"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'The fission bomb works'"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing 'economía de China de producción'"
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled 'están en el té', missing end"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Grammar error 'lujo comenzó'"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'had been scheduled'"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong words 'potencias', 'de la Reina'"
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated text, missing '(check the terms)'"
+    }
+   ],
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Lions are the most'"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled 'pohutukawa' as 'pohican'"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong subjects, missing females and cubs"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'Feral'"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong numbers, wrong destination"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject 'fisiología'"
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled text, wrong placement"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled meaning"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Also after the Revolution'"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'The fission bomb works'"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong word 'complejo'"
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled word 'inte', missing end"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'epicenter'"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'Cancellation policies vary' and end"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'clean wet hands'"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation 'polígono'"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Typo 'El Los'"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled names and places"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject 'fisiología'"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'Soy', wrong names"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'as antiques' at the end"
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Singular 'archipiélago'"
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning 'En mostrar'"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date '488'"
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off 'prides'"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong verb 'estaba'"
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation 'polígono'"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'Feral', typo 'Los los'"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled names and places"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Untranslated 'K Waterfront'"
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning 'A excepción de', wrong subject"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'Yo', missing 'standing' and 'Czech'"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'as antiques' at the end"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong word 'arco'"
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning 'En muestre'"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong dates '48' and '11'"
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4202,
+   "candidatesTokenCount": 3556,
+   "totalTokenCount": 16984,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4202
+    }
+   ],
+   "thoughtsTokenCount": 9226,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "S-nemo",
+   "B": "P8-ctc",
+   "C": "P8-nemo",
+   "D": "S-ctc",
+   "E": "S-simul",
+   "F": "P8-simul"
+  }
+ },
+ "SAID:reg:en-es": {
+  "grades": {
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Lions are the most'"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "'trayectos' instead of prides"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'Feral'"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong numbers and locations"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong number 'décimo'"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'Also after revolution'"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'The fission bomb works'"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "'complejo' instead of cuts"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "'inte' instead of antiques"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'epicenter'"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing first part, cut off"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'clean wet'"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation"
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong article and verb"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "'hembras' instead of males"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral children'"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong locations"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off 'physiology'"
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, missing 16th"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "'ocupantes' is literal, missing 'Also'"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'The fission bomb works'"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing"
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": false,
+     "note": "'están en el té' is wrong"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "'es reconocido' instead of Its renown"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at end"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "'potencias', 'de la Reina' are wrong"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text but complete"
+    }
+   ],
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Lions are the most social cats'"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "'están a salvo' instead of safe swimming"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "'recorridos' instead of prides, 'hembras'"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral children'"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Missing number and locations"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "'Aris' instead of Aristotle"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'Chet's'"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing subject, awkward phrasing"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "'complejo' instead of cuts"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "'inte' instead of antiques"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'In the archipelagos and lakes'"
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "'d por doce' is garbled"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 400 A.D."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation"
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'crías', wrong number"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'children'"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong locations"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'opposite'"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'Chet's'"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "'puestos' for occupants"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing subject"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": false,
+     "note": "'entran en el té' is wrong"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "'es reconocido' instead of Its renown"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at end"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "'potencias', 'la Reina' are wrong"
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "'polígono' instead of pohikina"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled locations"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "'Soy' instead of Gallery"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Missing first half"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "'puestos' for occupants"
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half"
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "'artículos de fabricantes' is slightly awkward"
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "'archipiélago' is singular"
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "'En mostrar' is wrong"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date '488'"
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled, missing parts"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation"
+    }
+   ],
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off 'prides'"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong verb 'estaba'"
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "'polígono' instead of pohikina"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'Feral'"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled locations"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "'K Waterfront' instead of Kowloon"
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "'A excepción de' reverses meaning"
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "'Yo', missing 'standing'"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Missing first half"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "'ocupaciones' for occupants"
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "'arco' instead of archipelagos"
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "'En muestre' is wrong"
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong dates '48' and '11'"
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4172,
+   "candidatesTokenCount": 3505,
+   "totalTokenCount": 20475,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4172
+    }
+   ],
+   "thoughtsTokenCount": 12798,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "S-ctc",
+   "B": "P8-nemo",
+   "C": "P8-ctc",
+   "D": "S-nemo",
+   "E": "S-simul",
+   "F": "P8-simul"
+  }
+ },
+ "WRITTEN:reg:en-fr": {
+  "grades": {
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree type (palmiers)"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing females and cubs"
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Starts with d'"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong destination (centre instead of Sintra)"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Wrong person (quitte, se dirige)"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject (physiologie), changed meaning"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing/sitting, garbled names"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing main clause (The fission bomb works)"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word (thé), missing antiques at end"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses, slightly awkward"
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward grammar"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off, missing time"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong words (puissances, la Reine)"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Missing check the terms"
+    }
+   ],
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'Lions are the most'"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Phonetic spelling of pohutukawa"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing females and cubs"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Missing feral"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Missing bus number, wrong destination"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject (physiologie)"
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, wrong numbers"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Missing African, wrong city name"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missing time (after the Revolution)"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing main clause"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word (complexe instead of cuts)"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing antiques"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses"
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Missing epicenter"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off, missing start"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Missing swirl, clean wet hands"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end"
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Grammar error: de Moyen-Orient"
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree type (polygonaux)"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Missing feral, repeated word"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, English words"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Missing Kowloon"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning (Sauf pour), wrong subject"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing countries"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, missing parts"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward word choice (occupations)"
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing antiques at end"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong word (arches instead of archipelagos)"
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled start, missing aspect ratio"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong dates"
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, wrong word (isolation)"
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Extra noise at the end"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'Lions are the most social cats'"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning for sandy beaches"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong translation for females and cubs"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing feral children"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled island name"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject (physiologie), missing main subject"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing/sitting, garbled names"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, includes translator note"
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": true,
+     "note": "Missing most of the sentence"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing main clause"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word (complexes)"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled word, missing antiques definition"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Missing location"
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number meaning (est de douze)"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 400 A.D."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, English words"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong words (puissances, queenet)"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Grammar error: de la Moyen-Orient"
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Phonetic spelling of pohutukawa"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing thirty females"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing feral children"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong destination (Centri)"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Typo in Kowloon"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off word (phy)"
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, wrong numbers"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject (occupants)"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing main clause"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward phrasing, singular/plural mismatch"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing antiques"
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Grammar error (ne n'avez)"
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Missing subject"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong words (puissances, la Reine)"
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated text, garbled"
+    }
+   ],
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree type (palmiers)"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated word"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, English words"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject (physiologie)"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong country (de Chet)"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing antiques at end"
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Singular instead of plural (l'archipel)"
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Missing aspect ratio"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date (488)"
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, wrong word (isolement)"
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Extra noise at the end"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4494,
+   "candidatesTokenCount": 3501,
+   "totalTokenCount": 19279,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4494
+    }
+   ],
+   "thoughtsTokenCount": 11284,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "S-nemo",
+   "B": "S-ctc",
+   "C": "P8-simul",
+   "D": "P8-ctc",
+   "E": "P8-nemo",
+   "F": "S-simul"
+  }
+ },
+ "SAID:reg:en-fr": {
+  "grades": {
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong tree type (palmiers)."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'males'."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Starts with 'd''."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong locations (centre, Kabu derok)."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Wrong person (quitte, se dirige)."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Changed passive to active with 'Certains'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'Chet's'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'The fission bomb works'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word 'thé'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward grammar."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong words 'puissances', 'la Reine'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Lions are the most social cats'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning for sandy beaches."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Added extra incorrect information."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral children'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled text."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong name 'Aris', missing subject."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'Chet's'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missing most of the sentence."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'The fission bomb'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word 'complexes'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Added 'comme des antiquités', typo 'inte'."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'In the archipelagos and lakes'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'dividing'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Missing '400 A.D.'."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled text."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong words 'puissances', 'queenet'."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Grammar error: 'de Moyen-Orient'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong tree type (polygonaux)."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled English words."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Kowloon'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning 'Sauf pour'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'Je', missing 'standing'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "False friend 'occupations'."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word 'arches'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'aspect ratio'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong numbers (48, 11)."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word 'isolation', missing parts."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Grammar error: 'de la Moyen-Orient'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'jeunes félins'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral children'."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong locations (Centri, Kabu derok)."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Typo 'Koloon'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off 'physiology'."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, wrong numbers."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Literal translation 'occupants' is awkward."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'The fission bomb works'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong words 'coupe', 'économie de production'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word 'inclus'."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Grammar error 'ne n'avez'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward grammar."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong words 'puissances', 'la Reine'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Repetition and awkward phrasing."
+    }
+   ],
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Lions are the most'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject, missing 'males'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral'."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Missing bus number, wrong location."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number (deuxième)."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'stark contrast'."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Also after revolution'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'The fission bomb works'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word 'complexe'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word 'concernés'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Cancellation policies vary'."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'swirl', 'clean wet hands'."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong tree type (palmiers)."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Stutter 'Les Les'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled English words."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'Je suis', missing 'Australia's'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward 'articles de fabricants'."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Singular 'archipel'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'aspect ratio'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number (488)."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word 'isolement', cut off."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4464,
+   "candidatesTokenCount": 3468,
+   "totalTokenCount": 17067,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4464
+    }
+   ],
+   "thoughtsTokenCount": 9135,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "S-nemo",
+   "B": "P8-ctc",
+   "C": "P8-simul",
+   "D": "P8-nemo",
+   "E": "S-ctc",
+   "F": "S-simul"
+  }
+ },
+ "WRITTEN:reg:es-en": {
+  "grades": {
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "\"greater importance\" instead of \"so important\""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"pohutukawa\""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "\"wild young\", \"suffe red\", \"child abuse severe\""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong bus number and garbled names"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Typo \"quest ions\""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "\"tenth\" instead of \"sixteenth\""
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward \"more style Arabic\""
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Typos \"suc cess\", \"ambi tious\""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Typo \"prot ons\""
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "\"rec\", \"manifest\", \"production economic\""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"yacht\" and \"archipelagos\""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \":2\" and typo \"divid ed\""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"11 AD\" instead of \"1100 AD\""
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Typo \"schedul ed\""
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "\"policies\" instead of \"powders\", \"expand\""
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Typo \"ex- empts\""
+    }
+   ],
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "\"east\" instead of \"Middle East\""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "\"plains\", \"unintelligible\""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "\"in the children\", omitted \"feral\""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted bus number and Sintra"
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled, missing parts"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "\"cue of science\""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"standing super giant\""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Typos \"revolu\", \"positions a\""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Typo \"neut\""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "\"movable asset\", \"antiquity\""
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled"
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "\"three po\" instead of \"3:2\""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted numbers"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"2020\""
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing"
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled \"at the C S exime a\""
+    }
+   ],
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"pohutukawa\", \"unintelligible\""
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted bus number"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"super giant\""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error, \"success the\""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "\"three puodos\" instead of \"3:2\""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year and omitted year"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"2020\""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"Poutukawa\" misspelled, \"Most of\""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong terminology \"pods\", \"calves\""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong bus number"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled \"Aldrich Helinek\""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Typo \"suc...\""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": true,
+     "note": "\"3.2\" instead of \"3:2\""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "\"home was not of greater importance\""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"pohutukawa\", typo \"tre es\""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing"
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Repetition, \"Caboda\""
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": false,
+     "note": "Missing most of the sentence"
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Repetition"
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": false,
+     "note": "Missing first half"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "\"af\" instead of \"African\""
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "\"then the revolution\", \"candidates male\""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Typos \"anti-\", \"establi shed\", \"antiq\""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": true,
+     "note": "\"three point two\" instead of \"3:2\""
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Repetition, extra text"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "\"2000 twenty\", missing beginning"
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward \"requirements of visa\""
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation issue"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong terminology \"pods\", \"calves\""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled \"Helinek\""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": true,
+     "note": "\"3.2\" instead of \"3:2\""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4661,
+   "candidatesTokenCount": 3247,
+   "totalTokenCount": 17881,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4661
+    }
+   ],
+   "thoughtsTokenCount": 9973,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "P8-simul",
+   "B": "P8-ctc",
+   "C": "S-ctc",
+   "D": "S-simul",
+   "E": "P8-nemo",
+   "F": "S-nemo"
+  }
+ },
+ "WRITTEN:reg:fr-en": {
+  "grades": {
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition and garbled text."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree name (pa cashew)."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong bus name and destination."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Missing beginning of sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Repetition, missing standing and sitting."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time and cut off."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition and cut off."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled with previous sentence."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing words and slightly awkward."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date (eleventh century)."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Games Olympics is awkward."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Repetition and awkward phrasing."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled and missing parts."
+    }
+   ],
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Animals instead of cats."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Paths and palms trees."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Walls, very bad adult."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong bus type and missing destination."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Panoramas of the island instead of Hong Kong."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Questions scientific is awkward."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong gender and name."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning (African instead of Arabic)."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "No way instead of no universal definition."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Typo obt ain."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Games instead of Olympics."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Typo wi th."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": false,
+     "note": "Kings, as time passed."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Species instead of cats."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Not important enough changes meaning."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Cocoa pods instead of pohutukawa."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Two or three instead of one to three."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Scottbus, Cabo d'Aroca."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Standing for both events."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "But on the lakes changes meaning."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "One hundred instead of 400."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Or rather the conditions changes meaning."
+    }
+   ],
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Extra text at the end."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": true,
+     "note": "Is instead of was."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": false,
+     "note": "Stones, drinking cock."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "3 apparent adults, fem and lions."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "My children, missing end."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Bus 4, Sint."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Waterfront of K."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Typo psych ology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing and sitting."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Open trades were open, candidates male."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Missing myriad."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "Encryp, production economic ch."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": false,
+     "note": "Missing first sentence, garbled second."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Arch instead of archipelagos."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Typo num bers."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "11 instead of 1100."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Missing them."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Extra See at the end."
+    }
+   ],
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Extra text at the end."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Coconut trees instead of pohutukawa."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "One adult related male."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": true,
+     "note": "My feral children."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "430 instead of 403."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "His instead of these, extra text."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Extra See at the end."
+    }
+   ],
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Palm trees instead of pohutukawa."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Pods, calves."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Missing bus number and Sintra."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Questions scientific ones is awkward."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "10th instead of 11th."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Missing saying."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Tours, a glimpse of time."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4295,
+   "candidatesTokenCount": 3151,
+   "totalTokenCount": 17708,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4295
+    }
+   ],
+   "thoughtsTokenCount": 10262,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "P8-nemo",
+   "B": "P8-ctc",
+   "C": "S-nemo",
+   "D": "P8-simul",
+   "E": "S-simul",
+   "F": "S-ctc"
+  }
+ },
+ "WRITTEN:irr:en-es": {
+  "grades": {
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Pohkin instead of pohutukawa"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing thirty females and cubs"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing feral children"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning, ferry instead of bus"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing with gerunds"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, physiology instead of psychology"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing and Czech"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning, contratos instead of contrast"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Missing as antiques at the end"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing had been scheduled"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning, potencias and Reina"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing Lions are the most social cats"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end"
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Inaccurate translation of sandy beaches"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing males, females, and cubs"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing feral children"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning and garbled"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning, physiology instead of psychology"
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled and wrong meaning"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning, missing African"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missing occupations and revolution"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing fission bomb"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, flujo instead of cuts"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, íntegros instead of antiques"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Typo os instead of archipelagos"
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing, forma instead of format"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number, cuatrocientos mil"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing parts of the sentence"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, poderes instead of powders"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward use of estaba instead of era"
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Pohkin instead of pohutukawa"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning, hembras instead of males"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing feral children"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled and wrong meaning"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Typo opp at the end"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, physiology instead of psychology"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing and Czech"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning, contratos instead of contrast"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, ocupantes instead of occupations"
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Missing as antiques at the end"
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing, usted lo hace no"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing had been scheduled"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning, potencias and Reina"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end"
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward use of estaba instead of era"
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucination at the end"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled and wrong meaning"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing, K costanera"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, physiology instead of psychology"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, Galería instead of Gourley"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Missing beginning of the sentence"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing beginning of the sentence"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Missing as antiques at the end"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Untranslated words Arch y lakes"
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Typo a btener"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong numbers, 480 and 11"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucination and missing parts"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucination and awkward phrasing"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucination at the end"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled and wrong meaning"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, physiology instead of psychology"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, Galería and Chet"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Hallucination and missing parts"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing beginning of the sentence"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Missing as antiques at the end"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number, 480"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucination and missing parts"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucination at the end"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ],
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing beginning of the sentence"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "pohican instead of pohutukawa"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning, áreas instead of prides"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucination at the end"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, physiology instead of psychology"
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled and missing parts"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Missing African"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, ocupantes instead of occupations"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing fission bomb"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, flujo instead of cuts"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning, integrales instead of antiques"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong numbers, cuatro and una hora"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing parts of the sentence"
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Missing clean"
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4088,
+   "candidatesTokenCount": 3406,
+   "totalTokenCount": 16109,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4088
+    }
+   ],
+   "thoughtsTokenCount": 8615,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "S-nemo",
+   "B": "P8-ctc",
+   "C": "P8-nemo",
+   "D": "P8-simul",
+   "E": "S-simul",
+   "F": "S-ctc"
+  }
+ },
+ "SAID:irr:en-es": {
+  "grades": {
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing Lions are the most."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "áreas instead of prides, missing numbers."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Added AI refusal."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "excepto donde instead of accepted."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing sixteenth, garbled."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Missing stark, country's."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning for occupants."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "flujo instead of cuts."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "integrales instead of antiques."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong numbers and times."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first clause and had been scheduled."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Missing clean."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Added crías."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing Feral children."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong translation."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward use of gerunds."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "aceptando donde instead of accepted."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing, Chet's."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "contratos instead of contrast."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "puestos instead of occupants."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing had been scheduled."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "potencias instead of powders, added Reina."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Added hallucination."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Missing beginning, added AI text."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "puestos instead of occupants."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing aspect."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing parts, added Disparo."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Added BOOM."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "estaba instead of era."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "hembras instead of males."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing Feral children."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Left opp untranslated."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "aceptado donde instead of accepted."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing, Chet's."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "contratos instead of contrast."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "impue stos instead of tax agencies."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing usted lo hace no."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing had been scheduled."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "potencias instead of powders, garbled."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off prides."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "estaba instead of era."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Added hallucination."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "K costanera is awkward."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Excepto que instead of accepted."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing, Chet's."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Missing beginning."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "ocupaciones instead of occupants."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Left Arch y lakes untranslated."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Typo a btener, missing aspect."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong years."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing parts, added Disparo."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward phrasing, added BUM."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing Lions are the most social cats."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "zona arenosa segura instead of sandy beaches."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing males, prides."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing Feral children."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "excepto donde instead of accepted."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "se extiende instead of contrast."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missing revolution, occupants."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "flujo instead of cuts."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "íntegros instead of antiques."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "os instead of archipelagos."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "forma instead of format."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing parts."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "poderes instead of powders."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4058,
+   "candidatesTokenCount": 3248,
+   "totalTokenCount": 17463,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4058
+    }
+   ],
+   "thoughtsTokenCount": 10157,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "S-ctc",
+   "B": "S-nemo",
+   "C": "S-simul",
+   "D": "P8-nemo",
+   "E": "P8-simul",
+   "F": "P8-ctc"
+  }
+ },
+ "WRITTEN:irr:en-fr": {
+  "grades": {
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"Lions are the most social cats\"."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off \"importante\"."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing females and cubs."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"Feral children\"."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, missing names."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "\"physiologie\" instead of psychology."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "\"galerie\", missing Czech."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning, cut off."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"after the Revolution\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "\"flux\" instead of cuts."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "\"intégrés\", missing \"as antiques\"."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "\"océans\" instead of archipelagos."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing parentheses, slightly awkward."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong tense, garbled."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "\"coronaires\", cut off."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "\"puissances\" instead of powders."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Added hallucination."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Untranslated parts, garbled names."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "\"physiologie\" instead of psychology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "\"galerie\", \"Chet\"."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Cut off, hallucination."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"as antiques\" at the end."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "\"archipel\" is singular."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"480\" instead of 400."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing parts, cut off."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Added noise."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Cut off \"prides\"."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "\"de Moyen-Orient\" instead of \"du\"."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Added hallucination."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Missing Kowloon."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "\"physiologie\" instead of psychology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "\"galerie\", untranslated words."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Cut off, missing contrast."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "\"occupations\" is an anglicism."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Missing first half, garbled."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"as antiques\" at the end."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "\"Arch et lakes\"."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing \"said to be\"."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "\"480\" and \"11\"."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing parts, wrong tense."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled syntax."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"Lions are the most\"."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"pohican\" instead of pohutukawa."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "\"séries\", missing females and cubs."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"feral\" and \"severe\"."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Missing names, wrong meaning."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "\"physiologie\" instead of psychology."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "\"galerie\", \"n-ième\"."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "\"occupants\" instead of occupations."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "\"flux\" instead of cuts."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "\"intégrés\", missing \"as antiques\"."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"A.D.\", missing subject."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "\"confinement\" instead of cancellation, cut off."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"clean\"."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "\"palmiers\" instead of pohutukawa."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing females and thirty."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"Feral children\"."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "\"bateau\" instead of bus, wrong names."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Participle instead of imperative."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "\"physiologie\" instead of psychology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"standing\" and \"Czech\"."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Missing African, missing subject."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "\"réduction\" singular but \"elles\" plural."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"as antiques\" at the end."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Present tense instead of noun."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "\"puissances\", \"la reine\"."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"Pohkin\" instead of pohutukawa."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "\"femelles\" instead of males."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"Feral children\"."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Missing subject, wrong names."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "\"opp\" cut off."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "\"physiologie\" instead of psychology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"standing\" and \"Czech\"."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "\"contrats\", cut off."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "\"occupants\" instead of occupations."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "\"trimage\" instead of cuts."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"as antiques\" at the end."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "\"vous faites pas\" is grammatically incorrect."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Present tense instead of noun."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "\"puissances\", \"reine wet hand\"."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4364,
+   "candidatesTokenCount": 3503,
+   "totalTokenCount": 17960,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4364
+    }
+   ],
+   "thoughtsTokenCount": 10093,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "P8-ctc",
+   "B": "S-simul",
+   "C": "P8-simul",
+   "D": "S-ctc",
+   "E": "S-nemo",
+   "F": "P8-nemo"
+  }
+ },
+ "SAID:irr:en-fr": {
+  "grades": {
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Lions are the most'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "'séries' instead of prides, missing 'males'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral' and 'severe child'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Missing subject and locations."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "'Sauf là où' changes meaning to except."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "'n-ième' instead of sixteenth, missing competitor."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'stark', 'country's', 'flair'."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Meaning changed to 'occupants were all applicants'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "'flux' instead of cuts."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "'intégrés' instead of antiques."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Its renown', 'A.D.'."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Missing first half, 'confinement', cut off."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'clean'."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "'femelles' instead of males."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral children'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Missing subject, wrong names."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "'accepté où' is garbled."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'Chet's'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "'contrats' instead of contrast."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "'trimage' instead of cuts."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "'taxes agences' is awkward."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "'vous faites pas' is grammatically incorrect."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning slightly shifted but acceptable."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "'puissances' instead of powders, 'reine'."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "'de Moyen-Orient' is awkward."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Hallucination at the end."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled names."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "'K front de mer' missing Kowloon."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "'Sauf pour' changes meaning to except."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "'descendant' instead of standing, missing 'Chet's'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "'l'Arch et lakes' untranslated/garbled."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'aspect' and 'said to be'."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong numbers, hallucination."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half, wrong tense."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Hallucination at the end."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Hallucination at the end."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled names."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Hallucination at the end."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'aspect'."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong number, hallucination."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half, cut off."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Hallucination at the end."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Missing subject."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing subject, added 'longs'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral children'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "'sauf là où' changes meaning to except."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled, 'nième' instead of sixteenth."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "'attire' instead of contrast."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'after revolution occupants'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Missing first half of sentence."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "'flux' instead of cuts."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "'intégrés' instead of antiques."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "'océans' instead of archipelagos."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Missing first half, 'coronaires', cut off."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "'puissances' instead of powders, wrong person."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "'palmiers' instead of pohikina trees."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'males'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'Feral children'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "'bateau' instead of bus, wrong names."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Participle instead of imperative."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "'acceptant là où' changes meaning."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing' and 'Chet's'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "'sol' instead of flair, missing first part."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Meaning slightly shifted but acceptable."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Cut off at the end."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "'puissances' instead of powders, 'reine'."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4334,
+   "candidatesTokenCount": 3406,
+   "totalTokenCount": 19763,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4334
+    }
+   ],
+   "thoughtsTokenCount": 12023,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "S-ctc",
+   "B": "P8-nemo",
+   "C": "P8-simul",
+   "D": "S-simul",
+   "E": "P8-ctc",
+   "F": "S-nemo"
+  }
+ },
+ "WRITTEN:irr:es-en": {
+  "grades": {
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong bus number (413 instead of 403)."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Turned statements into questions."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Added hallucinated text."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Added 'exile'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Added a question at the end."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong ratio format (3.2 instead of 3:2)."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Added translator note, omitted word."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong location, missing bus number."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'super-G'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong ratio format (3.2 instead of 3:2)."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong century (8th century)."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing year 2020."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'pohutukawa'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong ratio format (3.2 instead of 3:2)."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'Middle', added 'me'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'pohutukawa'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled meaning."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning ('quest for science')."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong country (Austria instead of Australia)."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Missing words ('positions', 'male')."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled text ('eco-te')."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Run-on sentence, missing 'Some'."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": false,
+     "note": "Missing 'yacht', wrong meaning."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong ratio format ('three point two')."
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing year 2020."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled text."
+    }
+   ],
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing ('greater importance')."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'pohutukawa'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled text."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong bus number, truncated words."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'opposite'."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Typos ('quest ions')."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong placement (tenth), turned into questions."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong style (modern), added hallucinated text."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled text ('ports', 'exil le')."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Added question, typos."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong pronoun ('they'), garbled text."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Multiple typos."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong word ('archives' instead of archipelagos)."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong number (3 instead of 3:2)."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year (11 AD instead of 1100)."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled text ('Ex', 'je')."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong words ('poles', 'expand')."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled text."
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing ('greater importance')."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Misspelled 'pohutukawa', repeated text."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text."
+    },
+    {
+     "i": 4,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text."
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": false,
+     "note": "Missing most of the sentence."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated and truncated text."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": false,
+     "note": "Missing first half of the sentence."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated word ('pre')."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated word ('re')."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong ratio format, missing first half."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text, added translator note."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing first clause."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated text, awkward phrasing."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4748,
+   "candidatesTokenCount": 3180,
+   "totalTokenCount": 17623,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4748
+    }
+   ],
+   "thoughtsTokenCount": 9695,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "S-simul",
+   "B": "S-ctc",
+   "C": "S-nemo",
+   "D": "P8-ctc",
+   "E": "P8-simul",
+   "F": "P8-nemo"
+  }
+ },
+ "WRITTEN:irr:fr-en": {
+  "grades": {
+   "P8-ctc": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Uses animals instead of cats."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Uses palms instead of pohutukawa trees."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Uses pods and calves, missing context."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Missing bus number and destination."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Missing Hong Kong and misspelled Kowloon."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong placement number and misspelled names."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Added phrase and missing African."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong bomb type and meaning."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": true,
+     "note": "Missing the year 2020."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled beginning."
+    }
+   ],
+   "S-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled translation at the end."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number of males."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled Cabo da Roca."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Added under at the beginning."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Missing the first sentence."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation for yacht."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Added thank you at the end."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning at the beginning."
+    }
+   ],
+   "S-ctc": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Uses palms instead of pohutukawa trees."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error and awkward phrasing."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Missing bus number and destination."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Missing standing and sitting."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": true,
+     "note": "Missing the year 2020."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong meaning at the beginning."
+    }
+   ],
+   "P8-simul": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated words."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number of adults."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated names."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated Kowloon."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated Aristotle and missing scientific."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Missing standing and sitting, truncated names."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing and missing myriad."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Missing the first sentence."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation for yacht."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Added thank you at the end."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled translation."
+    }
+   ],
+   "S-nemo": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Uses species instead of cats."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Changes meaning slightly."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Uses palms instead of pohutukawa trees."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number of males."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled Cabo da Roca."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Missing standing and sitting."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Missing yacht."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing at the end."
+    }
+   ],
+   "P8-nemo": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated and garbled."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated and truncated."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number of males."
+    },
+    {
+     "i": 4,
+     "score": 0,
+     "critical": false,
+     "note": "Missing first half."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated names and repeated."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Missing standing and sitting."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Missing African."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated and truncated."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "Missing translation."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled and mixed with previous sentence."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Missing parts and wrong ratio format."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year and repeated."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing first half."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled translation."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4282,
+   "candidatesTokenCount": 3123,
+   "totalTokenCount": 16894,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4282
+    }
+   ],
+   "thoughtsTokenCount": 9489,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "P8-ctc",
+   "B": "S-simul",
+   "C": "S-ctc",
+   "D": "P8-simul",
+   "E": "S-nemo",
+   "F": "P8-nemo"
+  }
+ }
+}
