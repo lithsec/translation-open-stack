@@ -1,0 +1,52 @@
+# Khmer fine-tune of omniASR_LLM_300M on public, commercial-use data only:
+# Digital Divide Data Khmer ASR Cultural (CC BY-SA 4.0, ~110 h sampled) + FLEURS
+# km_kh train (CC BY 4.0), every FLEURS id/text our eval clips use excluded.
+# The recipe that worked for the earlier fine-tunes (lr 3e-6, one GPU,
+# <= 120 s of audio per batch x 2 accumulated), with:
+#   - two corpora in the mixture: beta_corpus 0.5 weights each by
+#     (hours share)^0.5, so the ~10 h of FLEURS (the eval domain: read
+#     Wikipedia sentences, many speakers) is sampled ~3x its share;
+#   - 3,000 steps (~1.7 passes over the DDD sample);
+#   - recipe validation off (its pooled WER means little for unspaced Khmer);
+#     every 500-step checkpoint kept and picked by dev CER (eval_km.py --dev).
+model:
+  name: "omniASR_LLM_300M"
+dataset:
+  name: "km_public"
+  train_split: "train"
+  valid_split: "dev"
+  storage_mode: "MIXTURE_PARQUET"
+  task_mode: "ASR"
+  mixture_parquet_storage_config:
+    dataset_summary_path: "/workspace/data/km_public/language_distribution_0.tsv"
+    beta_corpus: 0.5
+    beta_language: 1.0
+  asr_task_config:
+     min_audio_len: 16_000
+     max_audio_len: 480_000
+     max_num_elements: 1_920_000
+     batch_shuffle_window: 1
+     normalize_audio: true
+     example_shuffle_window: 1
+tokenizer:
+  name: "omniASR_tokenizer_v1"
+optimizer:
+  config:
+    lr: 3e-06
+trainer:
+  data_parallelism: "ddp"
+  freeze_encoder_for_n_steps: 0
+  mixed_precision:
+    dtype: "torch.bfloat16"
+  grad_accumulation:
+    num_batches: 2
+regime:
+  num_steps: 3_000
+  validate_at_start: false
+  validate_after_n_steps: 100_000
+  validate_every_n_steps: 100_000
+  checkpoint_after_n_steps: 500
+  checkpoint_every_n_steps: 500
+  save_model_only: "all_but_last"
+  keep_last_n_checkpoints: 6
+  publish_metrics_every_n_steps: 100
