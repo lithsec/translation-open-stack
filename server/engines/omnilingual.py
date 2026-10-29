@@ -15,7 +15,10 @@ with `omni = "large"`. It loads only with --omni-large (OMNI_LARGE=1, set by the
 profiles with room for it: ~20 GB more); without it those languages stay on
 [models.omnilingual]. Lao and Khmer ask for it: one sentence at a time Lao goes
 from 15.6% of characters wrong to 8.5%, Khmer from 14.1% to 12.6%; live, the
-stack's English from Lao went from 22% to 47% (eval/2026-10-lao-khmer-7b). Every text from this engine passes the
+stack's English from Lao went from 22% to 47% (eval/2026-10-lao-khmer-7b). `omni = "large-only"` asks for the
+large card or nothing: without it the language stays on Whisper, for a language Whisper hears
+better than the base card (Romanian: 3.8% of characters wrong for Whisper, 5.5% for the 300M,
+2.8% for the 7B, which also keeps every diacritic; eval/2026-10-de-ru-ro). Every text from this engine passes the
 repetition guard (engines/common.py), which the 7B needs most: its decoder
 loops on Lao fragments.
 
@@ -34,13 +37,13 @@ class Omnilingual(Recognizer):
     name = "omni"
     title = "Omnilingual ASR"
     arg = "required"          # asr = "omni:<code>"
-    lang_key = str            # omni = "large": this language uses [models.omnilingual_large]
+    lang_key = str            # omni = "large" | "large-only": this language uses [models.omnilingual_large]
     licence = "Apache-2.0"
 
     @classmethod
     def check_lang(cls, lang, value):
-        if value not in ("large", "base"):
-            return f'omni must be "large" or "base" (got {value!r})'
+        if value not in ("large", "large-only", "base"):
+            return f'omni must be "large", "large-only" or "base" (got {value!r})'
         return None
 
     @classmethod
@@ -55,11 +58,16 @@ class Omnilingual(Recognizer):
         # The languages that asked for the large card, and that card's pipeline
         # (None: not loaded, so they use self.omni).
         self.large_langs = {l for l, e in ctx.table.items()
-                            if e.get("omni") == "large" and l in self.codes
+                            if e.get("omni") in ("large", "large-only") and l in self.codes
                             and (not ctx.srcs or l in ctx.srcs)}   # only the sources this server takes
+        # Of those, the ones that use Whisper rather than the base card when the large one is not loaded.
+        self.large_only = {l for l in self.large_langs if ctx.table[l].get("omni") == "large-only"}
         self.large = None
 
     def supports(self, lang):
+        """False for a large-only language without the large card: the manager then gives it Whisper."""
+        if lang in self.large_only and self.large is None:
+            return False
         return self.available and lang in self.codes
 
     def load(self):
@@ -73,15 +81,17 @@ class Omnilingual(Recognizer):
         if not self.large_langs:
             return
         large = self.ctx.models.get("omnilingual_large", {}).get("card", "")
+        base = ", ".join(sorted(self.large_langs - self.large_only))
+        whisper = ", ".join(sorted(self.large_only))
+        without = "; ".join(x for x in (base and f"{base}: Omnilingual {card}", whisper and f"{whisper}: Whisper") if x)
         if not self.ctx.options.get("omni_large"):
-            print(f"[stack] {', '.join(sorted(self.large_langs))}: Omnilingual {card}, not {large or 'the large card'} "
+            print(f"[stack] {without}, not {large or 'the large card'} "
                   "(OMNI_LARGE=1, or a profile with room for it, loads that)")
             return
         try:
             self.large = self._pipeline(large)
         except Exception as e:
-            print(f"[stack] Omnilingual {large} unavailable ({e}) — "
-                  f"{', '.join(sorted(self.large_langs))} stay on {card}")
+            print(f"[stack] Omnilingual {large} unavailable ({e}) — {without}")
 
     def _pipeline(self, card):
         from omnilingual_asr.models.inference.pipeline import ASRInferencePipeline

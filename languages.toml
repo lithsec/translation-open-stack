@@ -91,7 +91,8 @@ revision = "edaa852ec7e145841d8ffdb056a99866b5f0a478"
 [models.omnilingual]
 card = "omniASR_LLM_300M"
 
-# The larger card, for languages with omni = "large" (Lao, Khmer). Loaded only
+# The larger card, for languages with omni = "large" (Lao, Khmer) or "large-only"
+# (Romanian, which stays on Whisper without it). Loaded only
 # with OMNI_LARGE=1, which needs ~20 GB beside the rest (profiles/cuda-80gb.toml).
 [models.omnilingual_large]
 card = "omniASR_LLM_7B"
@@ -198,9 +199,19 @@ translator = "hymt"
 madlad = "it"
 
 # thorsten is the one German voice at `high`; Kokoro has no German.
+#
+# German speakers get long turns (see [ja]), cut at 12 s rather than 15: the verb comes last, so a
+# turn cut at a short pause leaves it out. de->en live: default turns 86.7 / 88.3 (regular /
+# irregular pauses), cut at 15 s 93.3 / 96.7 but the slowest tenth waited 10.0 s with irregular
+# pauses, at 12 s 91.7 / 91.7 with 6.8 s, at 10 s 86.7 / 73.3 (eval/2026-10-agree-live).
 [de]
 piper = "de_DE-thorsten-high"
 asr = "whisper"
+endpoint_ms = 900
+long_utterance_s = 8
+long_endpoint_ms = 500
+max_utterance_s = 12
+min_speech_ms = 2500
 translator = ["llmmt", "hymt"]
 llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
 translator_to_en = "hymt"
@@ -210,12 +221,15 @@ madlad = "de"
 [de.commercial]
 piper = "de_DE-mls-medium"
 
+# Russian into English on Gemma too: live 85.8 against Hy-MT2's 81.7, and 94.2
+# against 84.2 from Whisper's output (eval/2026-10-de-ru-ro). German into English
+# tied (84.2 both), so it stays on Hy-MT2.
 [ru]
 piper = "ru_RU-irina-medium"
 asr = "whisper"
 translator = ["llmmt", "hymt"]
 llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
-translator_to_en = "hymt"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "ru"
 
 # Commercial: irina: unknown data licence, lessac-derived (❓); no clean Russian Piper voice. VoxCPM2
@@ -373,11 +387,14 @@ madlad = "sw"
 voxcpm = true
 
 # Romanian: Hy-MT2 does not support it either, so MADLAD 7B translates into it;
-# a Romanian speaker pivots through MADLAD <2en> (server.py). Whisper large-v3
-# recognises it (FLEURS, see docs/dev/model-evaluation.md).
+# a Romanian speaker pivots through MADLAD <2en> (server.py). Gemma tied MADLAD
+# both ways live (eval/2026-10-de-ru-ro). Hearing it: Omnilingual's 7B card where
+# it is loaded (2.8% of characters wrong, every diacritic kept), else Whisper
+# large-v3 (3.8%, 4.9% of diacritics lost); not the 300M card (5.5%).
 [ro]
 piper = "ro_RO-mihai-medium"
-asr = "whisper"
+asr = "omni:ron_Latn"
+omni = "large-only"
 translator = "madlad"
 madlad = "ro"
 

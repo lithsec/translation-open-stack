@@ -195,6 +195,22 @@ def test_short_turn_waits_for_the_rest_of_its_sentence():
     # A pause longer than the hold (Lao's 700 ms is not) still has to reach the endpoint.
     assert s.short_turn(2.5, 1600, 2000, 2000)
 
+def test_large_only_is_the_large_card_or_whisper():
+    table = {"ro": {"asr": "omni:ron_Latn", "omni": "large-only"}, "ht": {"asr": "omni:hat_Latn"}}
+    eng, made = engine(table=table)
+    assert eng.supports("ro") and eng.transcribe(second(), "ro") == "large-card:ron_Latn"
+    eng, made = engine(table=table, omni_large=False)
+    assert not eng.supports("ro") and eng.supports("ht")       # the manager gives Romanian Whisper
+    eng, made = engine(table=table, fail_large=True)
+    assert not eng.supports("ro") and eng.supports("ht")
+    assert Omnilingual.check_lang("ro", "large-only") is None and Omnilingual.check_lang("ro", "big")
+
+
+def test_shipped_config_puts_romanian_on_the_large_card_only():
+    table = c.load()[0]
+    assert table["ro"]["asr"] == "omni:ron_Latn" and table["ro"]["omni"] == "large-only"
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):

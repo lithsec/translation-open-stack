@@ -23,9 +23,11 @@ Per-language keys (all optional):
                                         (scripts/fetch-voices.sh downloads it)
     mms         "<hf repo>"             Meta MMS-TTS (CC-BY-NC)
     asr         "whisper" | "omni:<code>"   the recogniser for this SOURCE language
-    omni        "large" | "base"        with asr = "omni:...": the larger Omnilingual
+    omni        "large" | "large-only" | "base"
+                                        with asr = "omni:...": the larger Omnilingual
                                         card ([models.omnilingual_large]) when it is
                                         loaded (OMNI_LARGE=1); the base card otherwise
+                                        ("large-only": Whisper otherwise)
     endpoint_ms      <int>              when this language is SPOKEN: the pause that
                                         ends an utterance, always (no shorter clause
                                         gap on long ones, as --long-utterance-s allows)
@@ -111,6 +113,7 @@ HYMT_LANGS = {
 # a language without one keeps its own voices, minus any that licences.py does
 # not allow commercially (pt zh ja hi keep Kokoro; fa and ro get eSpeak NG only).
 # The longer turns Japanese, Haitian Creole, Khmer and Lao take when spoken (languages.toml, eval/2026-10-pauses).
+# German takes them cut at 12 s (eval/2026-10-agree-live).
 LONG_TURNS = {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500, "max_utterance_s": 15,
               "min_speech_ms": 2500}
 # Translators per direction, from the full stack live (eval/2026-10-full-stack): Gemma 4 (llmmt) out of
@@ -135,11 +138,11 @@ DEFAULTS = {
            "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": "hymt", "madlad": "pt"},
     "it": {"kokoro": "i:if_sara", "piper": "it_IT-serena-high", "asr": "whisper", "translator": "hymt",
            "madlad": "it"},
-    "de": {"piper": "de_DE-thorsten-high", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
-           "translator_to_en": "hymt", "madlad": "de",
+    "de": {"piper": "de_DE-thorsten-high", "asr": "whisper", **LONG_TURNS, "max_utterance_s": 12,
+           "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": "hymt", "madlad": "de",
            "commercial": {"piper": "de_DE-mls-medium"}},
     "ru": {"piper": "ru_RU-irina-medium", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
-           "translator_to_en": "hymt", "madlad": "ru",
+           "translator_to_en": ["llmmt", "hymt"], "madlad": "ru",
            "commercial": {"voxcpm": True}},
     "uk": {"piper": "uk_UA-ukrainian_tts-medium", "asr": "whisper", "translator": ["llmmt", "hymt"], "llmmt": GEMMA,
            "translator_to_en": "hymt", "madlad": "uk"},
@@ -169,7 +172,8 @@ DEFAULTS = {
     "sw": {"piper": "sw_CD-lanfrica-medium", "asr": "omni:swh_Latn", "translator": ["llmmt", "madlad"], "llmmt": GEMMA,
            "madlad": "sw",
            "commercial": {"voxcpm": True}},
-    "ro": {"piper": "ro_RO-mihai-medium", "asr": "whisper", "translator": "madlad", "madlad": "ro"},
+    "ro": {"piper": "ro_RO-mihai-medium", "asr": "omni:ron_Latn", "omni": "large-only", "translator": "madlad",
+           "madlad": "ro"},
     "ht": {"coqui": "multilingual-tts/VITS-OpenBible-Haitian-Creole", "mms": "facebook/mms-tts-hat",
            "asr": "omni:hat_Latn", "translator": ["llmmt", "madlad"], "llmmt": GEMMA,
            "translator_to_en": ["llmmt", "hymt"], "madlad": "ht", **LONG_TURNS},

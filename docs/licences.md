@@ -207,7 +207,7 @@ shows yours.
 | ur | Omnilingual | Hy-MT2 | Piper `aegis_female` ✅ › eSpeak NG ⚠️ | Piper `aegis_female` ✅ › eSpeak NG ⚠️ | ✅ unchanged |
 | hi | Omnilingual | Hy-MT2 | Kokoro `hf_alpha` ✅ › Piper `rohan` ❓ › eSpeak NG ⚠️ | Kokoro `hf_alpha` ✅ › eSpeak NG ⚠️ | not loaded: Piper `rohan` ❓ |
 | sw | Omnilingual | Gemma 4 (llmmt) › MADLAD | Piper `lanfrica` ❓ › eSpeak NG ⚠️ | VoxCPM2 ✅ › eSpeak NG ⚠️ | new: VoxCPM2 (shared GPU capacity, §2); replaced: Piper `lanfrica` ❓ |
-| ro | Whisper | MADLAD | Piper `mihai` ❓ › eSpeak NG ⚠️ | eSpeak NG ⚠️ | **eSpeak NG only** (robotic; was text only); not loaded: Piper `mihai` ❓ |
+| ro | Omnilingual | MADLAD | Piper `mihai` ❓ › eSpeak NG ⚠️ | eSpeak NG ⚠️ | **eSpeak NG only** (robotic; was text only); not loaded: Piper `mihai` ❓ |
 | ht | Omnilingual | Gemma 4 (llmmt) › MADLAD | MMS `mms-tts-hat` ⛔ › eSpeak NG ⚠️ | Coqui `VITS-OpenBible-Haitian-Creole` ⚠️ › eSpeak NG ⚠️ | ⚠️ CC-BY-SA 4.0: credit multilingual-tts / Open Bible; share adaptations of the model under CC-BY-SA; not loaded: MMS `mms-tts-hat` ⛔ |
 | km | Omnilingual | Gemma 4 (llmmt) › Hy-MT2 | VoxCPM2 ✅ › MMS `mms-tts-khm` ⛔ | VoxCPM2 ✅ | not loaded: MMS `mms-tts-khm` ⛔ |
 | lo | Omnilingual | MiLMMT (llmmt) › MADLAD | VoxCPM2 ✅ › MMS `mms-tts-lao` ⛔ | VoxCPM2 ✅ | not loaded: MMS `mms-tts-lao` ⛔ |
