@@ -1,0 +1,224 @@
+{
+ "omni300m": {
+  "de": {
+   "a": {
+    "cer": 2.7,
+    "wer": 11.5,
+    "n": 20,
+    "empty": 0,
+    "rtf": 1.6
+   },
+   "b": {
+    "cer": 5.0,
+    "wer": 11.6,
+    "n": 20,
+    "empty": 0,
+    "rtf": 1.75
+   },
+   "all": {
+    "cer": 3.8,
+    "wer": 11.5,
+    "n": 40,
+    "empty": 0,
+    "rtf": 1.674
+   }
+  },
+  "ru": {
+   "a": {
+    "cer": 5.1,
+    "wer": 17.7,
+    "n": 20,
+    "empty": 0,
+    "rtf": 1.697
+   },
+   "b": {
+    "cer": 4.6,
+    "wer": 15.5,
+    "n": 20,
+    "empty": 0,
+    "rtf": 1.671
+   },
+   "all": {
+    "cer": 4.9,
+    "wer": 16.6,
+    "n": 40,
+    "empty": 0,
+    "rtf": 1.684
+   }
+  },
+  "ro": {
+   "a": {
+    "cer": 5.4,
+    "wer": 18.0,
+    "n": 20,
+    "empty": 0,
+    "rtf": 2.202,
+    "diacritics_lost_pct": 0.7
+   },
+   "b": {
+    "cer": 5.7,
+    "wer": 16.0,
+    "n": 20,
+    "empty": 0,
+    "rtf": 1.773,
+    "diacritics_lost_pct": 0.9
+   },
+   "all": {
+    "cer": 5.5,
+    "wer": 17.0,
+    "n": 40,
+    "empty": 0,
+    "rtf": 1.993,
+    "diacritics_lost_pct": 0.8
+   }
+  }
+ },
+ "omni7b": {
+  "de": {
+   "a": {
+    "cer": 2.9,
+    "wer": 6.7,
+    "n": 20,
+    "empty": 0,
+    "rtf": 1.58
+   },
+   "b": {
+    "cer": 5.3,
+    "wer": 7.9,
+    "n": 20,
+    "empty": 0,
+    "rtf": 1.561
+   },
+   "all": {
+    "cer": 4.1,
+    "wer": 7.3,
+    "n": 40,
+    "empty": 0,
+    "rtf": 1.571
+   }
+  },
+  "ru": {
+   "a": {
+    "cer": 4.4,
+    "wer": 9.1,
+    "n": 20,
+    "empty": 0,
+    "rtf": 1.526
+   },
+   "b": {
+    "cer": 2.7,
+    "wer": 6.0,
+    "n": 20,
+    "empty": 0,
+    "rtf": 1.458
+   },
+   "all": {
+    "cer": 3.6,
+    "wer": 7.6,
+    "n": 40,
+    "empty": 0,
+    "rtf": 1.491
+   }
+  },
+  "ro": {
+   "a": {
+    "cer": 2.3,
+    "wer": 8.3,
+    "n": 20,
+    "empty": 0,
+    "rtf": 0.421,
+    "diacritics_lost_pct": 0.0
+   },
+   "b": {
+    "cer": 3.3,
+    "wer": 8.7,
+    "n": 20,
+    "empty": 0,
+    "rtf": 0.167,
+    "diacritics_lost_pct": 0.0
+   },
+   "all": {
+    "cer": 2.8,
+    "wer": 8.5,
+    "n": 40,
+    "empty": 0,
+    "rtf": 0.297,
+    "diacritics_lost_pct": 0.0
+   }
+  }
+ },
+ "whisper": {
+  "de": {
+   "a": {
+    "cer": 1.2,
+    "wer": 3.2,
+    "n": 20,
+    "empty": 0,
+    "rtf": 0.048
+   },
+   "b": {
+    "cer": 2.4,
+    "wer": 5.5,
+    "n": 20,
+    "empty": 0,
+    "rtf": 0.046
+   },
+   "all": {
+    "cer": 1.8,
+    "wer": 4.4,
+    "n": 40,
+    "empty": 0,
+    "rtf": 0.047
+   }
+  },
+  "ru": {
+   "a": {
+    "cer": 2.9,
+    "wer": 5.7,
+    "n": 20,
+    "empty": 0,
+    "rtf": 0.051
+   },
+   "b": {
+    "cer": 1.1,
+    "wer": 4.6,
+    "n": 20,
+    "empty": 0,
+    "rtf": 0.053
+   },
+   "all": {
+    "cer": 2.1,
+    "wer": 5.1,
+    "n": 40,
+    "empty": 0,
+    "rtf": 0.052
+   }
+  },
+  "ro": {
+   "a": {
+    "cer": 4.0,
+    "wer": 11.4,
+    "n": 20,
+    "empty": 0,
+    "rtf": 0.056,
+    "diacritics_lost_pct": 4.5
+   },
+   "b": {
+    "cer": 3.5,
+    "wer": 11.7,
+    "n": 20,
+    "empty": 0,
+    "rtf": 0.364,
+    "diacritics_lost_pct": 5.3
+   },
+   "all": {
+    "cer": 3.8,
+    "wer": 11.5,
+    "n": 40,
+    "empty": 0,
+    "rtf": 0.206,
+    "diacritics_lost_pct": 4.9
+   }
+  }
+ }
+}

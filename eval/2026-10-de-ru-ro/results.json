@@ -1,0 +1,723 @@
+{
+ "grader": "gemini-pro-latest, blind, all systems side by side, one call per direction and set",
+ "recognition": {
+  "omni300m": {
+   "de": {
+    "a": {
+     "cer": 2.7,
+     "wer": 11.5,
+     "n": 20,
+     "empty": 0,
+     "rtf": 1.6
+    },
+    "b": {
+     "cer": 5.0,
+     "wer": 11.6,
+     "n": 20,
+     "empty": 0,
+     "rtf": 1.75
+    },
+    "all": {
+     "cer": 3.8,
+     "wer": 11.5,
+     "n": 40,
+     "empty": 0,
+     "rtf": 1.674
+    }
+   },
+   "ru": {
+    "a": {
+     "cer": 5.1,
+     "wer": 17.7,
+     "n": 20,
+     "empty": 0,
+     "rtf": 1.697
+    },
+    "b": {
+     "cer": 4.6,
+     "wer": 15.5,
+     "n": 20,
+     "empty": 0,
+     "rtf": 1.671
+    },
+    "all": {
+     "cer": 4.9,
+     "wer": 16.6,
+     "n": 40,
+     "empty": 0,
+     "rtf": 1.684
+    }
+   },
+   "ro": {
+    "a": {
+     "cer": 5.4,
+     "wer": 18.0,
+     "n": 20,
+     "empty": 0,
+     "rtf": 2.202,
+     "diacritics_lost_pct": 0.7
+    },
+    "b": {
+     "cer": 5.7,
+     "wer": 16.0,
+     "n": 20,
+     "empty": 0,
+     "rtf": 1.773,
+     "diacritics_lost_pct": 0.9
+    },
+    "all": {
+     "cer": 5.5,
+     "wer": 17.0,
+     "n": 40,
+     "empty": 0,
+     "rtf": 1.993,
+     "diacritics_lost_pct": 0.8
+    }
+   }
+  },
+  "omni7b": {
+   "de": {
+    "a": {
+     "cer": 2.9,
+     "wer": 6.7,
+     "n": 20,
+     "empty": 0,
+     "rtf": 1.58
+    },
+    "b": {
+     "cer": 5.3,
+     "wer": 7.9,
+     "n": 20,
+     "empty": 0,
+     "rtf": 1.561
+    },
+    "all": {
+     "cer": 4.1,
+     "wer": 7.3,
+     "n": 40,
+     "empty": 0,
+     "rtf": 1.571
+    }
+   },
+   "ru": {
+    "a": {
+     "cer": 4.4,
+     "wer": 9.1,
+     "n": 20,
+     "empty": 0,
+     "rtf": 1.526
+    },
+    "b": {
+     "cer": 2.7,
+     "wer": 6.0,
+     "n": 20,
+     "empty": 0,
+     "rtf": 1.458
+    },
+    "all": {
+     "cer": 3.6,
+     "wer": 7.6,
+     "n": 40,
+     "empty": 0,
+     "rtf": 1.491
+    }
+   },
+   "ro": {
+    "a": {
+     "cer": 2.3,
+     "wer": 8.3,
+     "n": 20,
+     "empty": 0,
+     "rtf": 0.421,
+     "diacritics_lost_pct": 0.0
+    },
+    "b": {
+     "cer": 3.3,
+     "wer": 8.7,
+     "n": 20,
+     "empty": 0,
+     "rtf": 0.167,
+     "diacritics_lost_pct": 0.0
+    },
+    "all": {
+     "cer": 2.8,
+     "wer": 8.5,
+     "n": 40,
+     "empty": 0,
+     "rtf": 0.297,
+     "diacritics_lost_pct": 0.0
+    }
+   }
+  },
+  "whisper": {
+   "de": {
+    "a": {
+     "cer": 1.2,
+     "wer": 3.2,
+     "n": 20,
+     "empty": 0,
+     "rtf": 0.048
+    },
+    "b": {
+     "cer": 2.4,
+     "wer": 5.5,
+     "n": 20,
+     "empty": 0,
+     "rtf": 0.046
+    },
+    "all": {
+     "cer": 1.8,
+     "wer": 4.4,
+     "n": 40,
+     "empty": 0,
+     "rtf": 0.047
+    }
+   },
+   "ru": {
+    "a": {
+     "cer": 2.9,
+     "wer": 5.7,
+     "n": 20,
+     "empty": 0,
+     "rtf": 0.051
+    },
+    "b": {
+     "cer": 1.1,
+     "wer": 4.6,
+     "n": 20,
+     "empty": 0,
+     "rtf": 0.053
+    },
+    "all": {
+     "cer": 2.1,
+     "wer": 5.1,
+     "n": 40,
+     "empty": 0,
+     "rtf": 0.052
+    }
+   },
+   "ro": {
+    "a": {
+     "cer": 4.0,
+     "wer": 11.4,
+     "n": 20,
+     "empty": 0,
+     "rtf": 0.056,
+     "diacritics_lost_pct": 4.5
+    },
+    "b": {
+     "cer": 3.5,
+     "wer": 11.7,
+     "n": 20,
+     "empty": 0,
+     "rtf": 0.364,
+     "diacritics_lost_pct": 5.3
+    },
+    "all": {
+     "cer": 3.8,
+     "wer": 11.5,
+     "n": 40,
+     "empty": 0,
+     "rtf": 0.206,
+     "diacritics_lost_pct": 4.9
+    }
+   }
+  }
+ },
+ "typed_mt": {
+  "de-en": {
+   "gemma": {
+    "score": 99.2,
+    "crit": 0,
+    "n": 2
+   },
+   "hymt": {
+    "score": 94.2,
+    "crit": 1,
+    "n": 2
+   },
+   "madlad": {
+    "score": 90.8,
+    "crit": 1,
+    "n": 2
+   }
+  },
+  "de-en-asr": {
+   "hymt": {
+    "score": 85.0,
+    "crit": 6,
+    "n": 2
+   },
+   "madlad": {
+    "score": 83.3,
+    "crit": 5,
+    "n": 2
+   },
+   "gemma": {
+    "score": 87.5,
+    "crit": 5,
+    "n": 2
+   }
+  },
+  "en-de": {
+   "madlad": {
+    "score": 89.2,
+    "crit": 1,
+    "n": 2
+   },
+   "gemma": {
+    "score": 95.0,
+    "crit": 0,
+    "n": 2
+   },
+   "hymt": {
+    "score": 90.8,
+    "crit": 2,
+    "n": 2
+   }
+  },
+  "en-ro": {
+   "madlad": {
+    "score": 81.7,
+    "crit": 1,
+    "n": 2
+   },
+   "gemma": {
+    "score": 84.2,
+    "crit": 0,
+    "n": 2
+   }
+  },
+  "en-ru": {
+   "gemma": {
+    "score": 96.7,
+    "crit": 1,
+    "n": 2
+   },
+   "madlad": {
+    "score": 81.7,
+    "crit": 2,
+    "n": 2
+   },
+   "hymt": {
+    "score": 87.5,
+    "crit": 3,
+    "n": 2
+   }
+  },
+  "ro-en": {
+   "madlad": {
+    "score": 94.2,
+    "crit": 3,
+    "n": 2
+   },
+   "gemma": {
+    "score": 95.8,
+    "crit": 1,
+    "n": 2
+   }
+  },
+  "ro-en-asr": {
+   "gemma": {
+    "score": 76.7,
+    "crit": 11,
+    "n": 2
+   },
+   "madlad": {
+    "score": 75.0,
+    "crit": 12,
+    "n": 2
+   }
+  },
+  "ru-en": {
+   "gemma": {
+    "score": 98.3,
+    "crit": 0,
+    "n": 2
+   },
+   "madlad": {
+    "score": 92.5,
+    "crit": 2,
+    "n": 2
+   },
+   "hymt": {
+    "score": 93.3,
+    "crit": 3,
+    "n": 2
+   }
+  },
+  "ru-en-asr": {
+   "gemma": {
+    "score": 94.2,
+    "crit": 3,
+    "n": 2
+   },
+   "hymt": {
+    "score": 84.2,
+    "crit": 6,
+    "n": 2
+   },
+   "madlad": {
+    "score": 85.0,
+    "crit": 4,
+    "n": 2
+   }
+  }
+ },
+ "live": {
+  "scores": {
+   "en-de": {
+    "C1": {
+     "score": 70.8,
+     "crit": 9
+    },
+    "C2": {
+     "score": 72.5,
+     "crit": 9
+    }
+   },
+   "de-en": {
+    "C1": {
+     "score": 84.2,
+     "crit": 5
+    },
+    "C2": {
+     "score": 84.2,
+     "crit": 5
+    }
+   },
+   "en-ru": {
+    "C1": {
+     "score": 71.7,
+     "crit": 8
+    },
+    "C2": {
+     "score": 67.5,
+     "crit": 7
+    }
+   },
+   "ru-en": {
+    "C1": {
+     "score": 81.7,
+     "crit": 8
+    },
+    "C2": {
+     "score": 85.8,
+     "crit": 7
+    }
+   },
+   "en-ro": {
+    "C2": {
+     "score": 65.0,
+     "crit": 9
+    },
+    "C1": {
+     "score": 65.8,
+     "crit": 9
+    }
+   },
+   "ro-en": {
+    "C2": {
+     "score": 67.5,
+     "crit": 13
+    },
+    "C1": {
+     "score": 67.5,
+     "crit": 13
+    }
+   }
+  },
+  "latency": {
+   "C1": {
+    "en-de": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 1569,
+       "p90": 1954,
+       "n": 20
+      },
+      "cer": 0.063
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 1557,
+       "p90": 2037,
+       "n": 20
+      },
+      "cer": 0.097
+     },
+     "p50_mean_ms": 1563
+    },
+    "de-en": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 1406,
+       "p90": 1597,
+       "n": 20
+      },
+      "cer": 0.019
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 1438,
+       "p90": 1607,
+       "n": 20
+      },
+      "cer": 0.021
+     },
+     "p50_mean_ms": 1422
+    },
+    "en-ru": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 1162,
+       "p90": 1442,
+       "n": 20
+      },
+      "cer": 0.063
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 1118,
+       "p90": 1612,
+       "n": 20
+      },
+      "cer": 0.097
+     },
+     "p50_mean_ms": 1140
+    },
+    "ru-en": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 1480,
+       "p90": 1616,
+       "n": 20
+      },
+      "cer": 0.053
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 1324,
+       "p90": 1717,
+       "n": 20
+      },
+      "cer": 0.017
+     },
+     "p50_mean_ms": 1402
+    },
+    "en-ro": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 954,
+       "p90": 1155,
+       "n": 20
+      },
+      "cer": 0.063
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 957,
+       "p90": 1400,
+       "n": 20
+      },
+      "cer": 0.097
+     },
+     "p50_mean_ms": 956
+    },
+    "ro-en": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 1133,
+       "p90": 1815,
+       "n": 20
+      },
+      "cer": 0.056
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 1400,
+       "p90": 2041,
+       "n": 20
+      },
+      "cer": 0.038
+     },
+     "p50_mean_ms": 1266
+    }
+   },
+   "C2": {
+    "en-de": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 1584,
+       "p90": 1982,
+       "n": 20
+      },
+      "cer": 0.063
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 1628,
+       "p90": 2109,
+       "n": 20
+      },
+      "cer": 0.097
+     },
+     "p50_mean_ms": 1606
+    },
+    "de-en": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 1422,
+       "p90": 1670,
+       "n": 20
+      },
+      "cer": 0.019
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 1496,
+       "p90": 1693,
+       "n": 20
+      },
+      "cer": 0.021
+     },
+     "p50_mean_ms": 1459
+    },
+    "en-ru": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 1372,
+       "p90": 1808,
+       "n": 20
+      },
+      "cer": 0.063
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 1440,
+       "p90": 1887,
+       "n": 20
+      },
+      "cer": 0.097
+     },
+     "p50_mean_ms": 1406
+    },
+    "ru-en": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 1484,
+       "p90": 1685,
+       "n": 20
+      },
+      "cer": 0.053
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 1386,
+       "p90": 1783,
+       "n": 20
+      },
+      "cer": 0.017
+     },
+     "p50_mean_ms": 1435
+    },
+    "en-ro": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 1147,
+       "p90": 1440,
+       "n": 20
+      },
+      "cer": 0.063
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 1204,
+       "p90": 1608,
+       "n": 20
+      },
+      "cer": 0.097
+     },
+     "p50_mean_ms": 1176
+    },
+    "ro-en": {
+     "a": {
+      "stop_to_first_audio_ms": {
+       "p50": 992,
+       "p90": 1684,
+       "n": 20
+      },
+      "cer": 0.056
+     },
+     "b": {
+      "stop_to_first_audio_ms": {
+       "p50": 1329,
+       "p90": 1823,
+       "n": 20
+      },
+      "cer": 0.038
+     },
+     "p50_mean_ms": 1160
+    }
+   }
+  }
+ },
+ "german_turns": {
+  "scores": {
+   "de-en-turns:reg": {
+    "C1": {
+     "score": 85.0,
+     "crit": 3
+    },
+    "C3": {
+     "score": 93.3,
+     "crit": 1
+    }
+   },
+   "de-en-turns:irr": {
+    "C1": {
+     "score": 83.3,
+     "crit": 2
+    },
+    "C3": {
+     "score": 91.7,
+     "crit": 0
+    }
+   }
+  },
+  "latency": {
+   "C1_reg": {
+    "stop_to_first_audio_ms": {
+     "p50": 1406,
+     "p90": 1597,
+     "n": 20
+    },
+    "cer": 0.019
+   },
+   "C1_irr": {
+    "stop_to_first_audio_ms": {
+     "p50": 1404,
+     "p90": 1634,
+     "n": 20
+    },
+    "cer": 0.006
+   },
+   "C3_reg": {
+    "stop_to_first_audio_ms": {
+     "p50": 1929,
+     "p90": 2142,
+     "n": 20
+    },
+    "cer": 0.013
+   },
+   "C3_irr": {
+    "stop_to_first_audio_ms": {
+     "p50": 1986,
+     "p90": 9901,
+     "n": 20
+    },
+    "cer": 0.005
+   }
+  }
+ }
+}
