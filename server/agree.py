@@ -18,9 +18,11 @@ AGREE_TARGETS / AGREE_SOURCES_TO_EN: the others in the room keep the clause rule
 import os
 
 # Out of English: targets whose translation settles from the start before the sentence ends (lithos-server
-# src/agree.ts AGREE_TARGETS, which measured es, de, hi, tr on Gemma; fr measured here). Verb-final targets other
-# than de/hi/tr wait for whole clauses instead.
-AGREE_TARGETS = frozenset({"es", "fr", "pt", "it", "ro", "ru", "pl", "id", "vi", "zh", "de", "hi", "tr"})
+# src/agree.ts AGREE_TARGETS; es and fr measured live here, eval/2026-10-agree-live). Not the verb-late targets
+# Live Translation lets agree anyway (de, hi, tr): live on the stack en->de lost 6.6 points to whole utterances
+# (67.8 against 74.4, eval/2026-10-thought-live), and on Bedrock agree trailed sentences by 11.7 (de), 12.4 (hi)
+# and 9.6 (tr) (eval/2026-10-complete-thought-endpointing). Those wait for whole clauses instead.
+AGREE_TARGETS = frozenset({"es", "fr", "pt", "it", "ro", "ru", "pl", "id", "vi", "zh"})
 # Into English: the speakers measured (es, fr). Hindi and Turkish broke down into English (two prefixes agree on a
 # guessed verb: 60.5 and 66.7 against 90+ for whole sentences, eval/2026-10-llm-commit-policy-bedrock-de-hi-tr).
 AGREE_SOURCES_TO_EN = frozenset({"es", "fr"})

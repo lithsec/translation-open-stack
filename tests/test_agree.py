@@ -30,8 +30,9 @@ def scripted(*answers):
 
 
 def test_eligible_directions():
-    assert agree.eligible("en", "es") and agree.eligible("en", "de") and agree.eligible("fr", "en")
+    assert agree.eligible("en", "es") and agree.eligible("en", "fr") and agree.eligible("fr", "en")
     assert not agree.eligible("en", "ja")          # verb-final: whole clauses
+    assert not agree.eligible("en", "de")          # verb-late: 6.6 points below whole utterances live
     assert not agree.eligible("hi", "en")          # broke down into English (two prefixes agree on a guessed verb)
     assert not agree.eligible("es", "fr")          # neither side English
 
