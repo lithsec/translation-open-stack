@@ -159,7 +159,8 @@ class LlmMT(Translator):
         return None
 
     def load(self):
-        self.pool = ThreadPoolExecutor(max_workers=16)
+        # Calls in flight across every room (each room sends all its targets at once; vLLM batches them).
+        self.pool = ThreadPoolExecutor(max_workers=int(os.environ.get("LLMMT_WORKERS", "64")))
         self._up = {}
         self._servers = self._configured()
         self._checks = os.environ.get("LLMMT_HEALTH", "1") != "0"
@@ -243,14 +244,19 @@ class LlmMT(Translator):
             return answer(style, json.loads(r.read()))
 
     def translate(self, sentences, src, targets, text=None, context=None):
-        out, others = {}, []
+        out, others, jobs = {}, [], {}
+        # Every target's sentences go to the servers at once, not one target after another: vLLM batches requests
+        # that arrive together, so a room heard in nine Gemma languages costs about one call's time, not nine
+        # (one room in 12 languages took 5-8 s per utterance one target at a time, eval/2026-10-room-capacity).
         for tgt in targets:
             server = self.server_for(src, tgt)
             if server is None:
                 others.append(tgt)
                 continue
+            jobs[tgt] = (server, [self.pool.submit(self.call, server, s, src, tgt, context) for s in sentences])
+        for tgt, (server, futures) in jobs.items():
             try:
-                got = list(self.pool.map(lambda s: self.call(server, s, src, tgt, context), sentences))
+                got = [f.result() for f in futures]
             except Exception as e:   # this target only: MADLAD translates it whole
                 print(f"[stack] llmmt {src}->{tgt} failed ({e}) — MADLAD instead", flush=True)
                 if isinstance(e, urllib.error.URLError) and not isinstance(e, urllib.error.HTTPError):
