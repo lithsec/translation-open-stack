@@ -39,6 +39,7 @@ environment (RunPod).
 | `SRCS` | all 25 | Languages people may speak. |
 | `EDITION` | `nonprofit` | `nonprofit`, `commercial` or `both` ([licences.md §2](licences.md#2-editions-what-edition-changes); `both`: [user guide](user-guide.md#one-server-for-both-editions)). |
 | `COMMERCIAL_ALLOW_UNCLEAR` | unset | `1` = admit every ❓ item in commercial at once, with a loud warning at start-up and in `check`. Prefer `[licence_review]`. |
+| `LLMMT` | `auto` | RunPod start (`scripts/start-llmmt.sh`): `auto` = start Gemma 4 31B in vLLM on :8101 when a GPU has room beside the stack (one card of 80 GB+, or 96 GB+ with `OMNI_LARGE=1`; or the last of several cards); `gemma`, `milmmt` or `gemma,milmmt` = those without the check; `0` = none. Not in commercial. |
 | `MADLAD` | `7b` | `3b` = the smaller fallback translator, for a 32 GB card (`[models.madlad3b]`). |
 | `STACK_CONFIG` | `languages.toml` at the repository root | Another model file (languages and `[models]`). |
 | `STACK_PROFILE` | unset | A hardware profile: `profiles/<name>.toml`, or a path ([Profiles](#profiles-and-devices)). |
@@ -197,7 +198,8 @@ this stack's 4-bit build and recognisers.
 short check (`eval/2026-10-language-short-check`): uk 88 vs Hy-MT2 75, ar 90 vs 85, fa 90 vs 88;
 sw 87 vs MADLAD's 69 (September, round 8).
 
-The two LLMs run in vLLM beside the stack:
+The two LLMs run in vLLM beside the stack. On RunPod, `scripts/start-llmmt.sh` starts
+Gemma 4 by itself when the GPU has room (`LLMMT`, above); elsewhere, by hand:
 
 ```
 vllm serve google/gemma-4-31B-it-qat-w4a16-ct --port 8101 ...
