@@ -4,7 +4,7 @@
 #
 #   bash -c 'bash /workspace/translation-open-stack/scripts/runpod/runpod-start.sh > /workspace/stack.log 2>&1 & exec /start.sh'
 #
-# Pod: 48 GB GPU (32 GB with MADLAD=3b or fewer languages), 80 GB container
+# Pod: 48 GB GPU (32 GB with MADLAD=3b or fewer languages; 80 GB+ for Gemma 4, see start-llmmt.sh), 80 GB container
 # disk, network volume at /workspace, ports 22/tcp and 8790/http. Clients connect
 # through RunPod's HTTPS proxy, with the token in an Authorization header:
 #
@@ -91,5 +91,8 @@ report() {
   report false "The stack didn't load within 30 minutes."
 ) &
 
+# Gemma 4 (and MiLMMT) in vLLM for the llmmt directions, when the GPU has room: in the background, so the
+# stack serves at once on Hy-MT2 / MADLAD and moves those directions over when vLLM answers (LLMMT=0: none).
+bash "$SCRIPTS/start-llmmt.sh" || echo "== llmmt: start failed; its directions use Hy-MT2 or MADLAD"
 echo "== $(date -u) starting stack (edition ${EDITION:-nonprofit})"
 exec bash "$SCRIPTS/run.sh" "$LANGS" "$SRCS"

@@ -262,11 +262,17 @@ weights, which download on first start; the GPL programs inside ship with their
 licence and source in `/opt/stack/licences`).
 
 1. Open the template: **[Deploy on RunPod](https://console.runpod.io/deploy?template=dftcc24b6q)**.
-2. Pick a **48 GB GPU** (see [GPUs and capacity](#gpus-and-capacity)).
+2. Pick a **48 GB GPU** (see [GPUs and capacity](#gpus-and-capacity)), or an
+   **80 GB+** one (A100/H100 80 GB, RTX PRO 6000 96 GB) to also run Gemma 4 31B
+   for the directions it translates best (`languages.toml`, `llmmt`): the pod
+   starts it in vLLM beside the stack when the card has room (`LLMMT`,
+   [reference](reference.md)); until it answers, and on a 48 GB card, those
+   directions use Hy-MT2 or MADLAD.
    Optional, under **Edit template**: `EDITION` (`nonprofit` or `commercial`),
-   `STACK_IDLE_MIN`, and new variables such as `LANGS` / `SRCS` or your own
-   `STACK_TOKEN`. The pod's own 60 GB volume holds the models. Optional: attach a **network volume** of
-   60 GB+ instead of the pod's own volume, so the models outlive the pod and
+   `STACK_IDLE_MIN`, `LLMMT`, and new variables such as `LANGS` / `SRCS` or your own
+   `STACK_TOKEN`. The pod's own 100 GB volume holds the models (Gemma 4 and its
+   vLLM take about 30 GB of it). Optional: attach a **network volume** of
+   100 GB+ instead of the pod's own volume, so the models outlive the pod and
    any new pod in that data center starts in minutes.
 3. **Deploy.** Open the pod's **Logs**. Near the top:
 
@@ -280,7 +286,8 @@ licence and source in `/opt/stack/licences`).
    `cat /workspace/.stack-token` in the pod's terminal shows it again.
 4. **Wait** 30-60 minutes the first time (~60 GB of downloads and the
    translator build), a few minutes after that. It is ready at
-   `[stack] ready on :8790`.
+   `[stack] ready on :8790`. With Gemma 4, it joins about 20-30 minutes after
+   the first start (`[stack] llmmt: ... answering`; its log: `/workspace/llmmt.log`).
 5. Put the URL and the access key in your app ([Connect apps](#connect-apps)).
 
 The pod stops itself when idle, as in step 7 below. The rest of this section
