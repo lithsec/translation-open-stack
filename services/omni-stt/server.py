@@ -1137,7 +1137,11 @@ def load_vad():
         # Baked into the image: load from disk, no GitHub at cold start.
         vad, _ = torch.hub.load(local, "silero_vad", source="local", trust_repo=True)
     else:
-        vad, _ = torch.hub.load(f"{VAD_REPO}:{VAD_REF}", "silero_vad", trust_repo=True)
+        # skip_validation: torch.hub's not-a-fork check asks api.github.com
+        # without a token, and shared CI runners hit its rate limit (403). The
+        # ref is a full commit SHA pinned above, so the check adds nothing.
+        vad, _ = torch.hub.load(f"{VAD_REPO}:{VAD_REF}", "silero_vad", trust_repo=True,
+                                skip_validation=True)
     return vad
 
 
