@@ -61,6 +61,10 @@ export TORCH_HOME="${TORCH_HOME:-/workspace/torch-cache}"
 export FAIRSEQ2_CACHE_DIR="${FAIRSEQ2_CACHE_DIR:-/workspace/fairseq2-cache}"
 LANGS="${LANGS:-en,es,fr,pt,de,ru,uk,zh,ja,km,lo,ht,ar,hi,vi,ko,tl,fa,id,tr,bn,ur,it,sw,ro}"
 SRCS="${SRCS:-en,es,fr,pt,de,ru,uk,it,zh,ja,ko,sw,km,lo,ht,ar,hi,vi,tl,fa,id,tr,bn,ur,ro}"
+# Gemma 4 (and MiLMMT) in vLLM for the llmmt directions, when the GPU has room: in the background and first,
+# so its install, download and compile (~20-30 min the first time) overlap the stack's own first start; the stack
+# serves on Hy-MT2 / MADLAD until vLLM answers, then moves those directions over (LLMMT=0: none).
+bash "$SCRIPTS/start-llmmt.sh" || echo "== llmmt: start failed; its directions use Hy-MT2 or MADLAD"
 echo "== $(date -u) provisioning"
 python3 -c "import faster_whisper, kokoro, piper" 2>/dev/null || bash "$DIR/provision-runpod.sh" "$LANGS"
 # The idle stop runs whether or not the provisioner did (a prebuilt image skips it).
@@ -91,8 +95,5 @@ report() {
   report false "The stack didn't load within 30 minutes."
 ) &
 
-# Gemma 4 (and MiLMMT) in vLLM for the llmmt directions, when the GPU has room: in the background, so the
-# stack serves at once on Hy-MT2 / MADLAD and moves those directions over when vLLM answers (LLMMT=0: none).
-bash "$SCRIPTS/start-llmmt.sh" || echo "== llmmt: start failed; its directions use Hy-MT2 or MADLAD"
 echo "== $(date -u) starting stack (edition ${EDITION:-nonprofit})"
 exec bash "$SCRIPTS/run.sh" "$LANGS" "$SRCS"
