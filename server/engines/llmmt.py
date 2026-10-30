@@ -228,15 +228,16 @@ class LlmMT(Translator):
         with urllib.request.urlopen(req, timeout=TIMEOUT_S) as r:
             return answer(style, json.loads(r.read()))
 
-    def ask(self, src, tgt, prompt):
-        """One prompt, as is, to the chat server src -> tgt goes to (simultaneous mode's agree policy,
-        server/agree.py); its text. Raises when no chat server serves the pair or the call fails."""
+    def ask(self, src, tgt, prompt, max_tokens=600):
+        """One prompt, as is, to the chat server src -> tgt goes to (simultaneous mode's agree and thought
+        policies, server/agree.py, server/thought.py); its text. Raises when no chat server serves the pair or
+        the call fails."""
         server = self.server_for(src, tgt) if self.supports_pair(src, tgt) else None
         if server is None or server[0] != "chat":
             raise RuntimeError(f"no chat server for {src}->{tgt}")
         style, url, model = server
         body = {"model": model, "messages": [{"role": "user", "content": prompt}], "temperature": 0,
-                "max_tokens": 600, "chat_template_kwargs": {"enable_thinking": False}}
+                "max_tokens": max_tokens, "chat_template_kwargs": {"enable_thinking": False}}
         req = urllib.request.Request(url + "/chat/completions", data=json.dumps(body).encode(),
                                      headers={"content-type": "application/json"})
         with urllib.request.urlopen(req, timeout=TIMEOUT_S) as r:
