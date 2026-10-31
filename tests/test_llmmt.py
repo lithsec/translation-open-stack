@@ -8,6 +8,7 @@ import json
 import os
 import sys
 import threading
+import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,6 +24,8 @@ class Fake(BaseHTTPRequestHandler):
     def do_POST(self):
         body = json.loads(self.rfile.read(int(self.headers["content-length"])))
         SEEN.append((self.server.server_port, self.path, body))
+        if "SLOW" in json.dumps(body):
+            time.sleep(0.4)
         if "FAIL" in json.dumps(body):
             self.send_response(500)
             self.end_headers()
@@ -44,8 +47,12 @@ class Fake(BaseHTTPRequestHandler):
         pass
 
 
+class Server(ThreadingHTTPServer):
+    request_queue_size = 64   # llmmt sends every target at once; the default backlog of 5 refuses some
+
+
 def serve():
-    srv = ThreadingHTTPServer(("127.0.0.1", 0), Fake)
+    srv = Server(("127.0.0.1", 0), Fake)
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     return srv.server_port
 
@@ -101,6 +108,18 @@ def test_a_pair_no_server_names_stays_with_hymt():
     SEEN.clear()
     assert e.translate(["Hola."], "es", ["en"]) == {"en": "hymt:Hola."}
     assert SEEN == []
+
+
+def test_every_target_goes_to_the_server_at_once():
+    a = serve()
+    table = {t: {"translator": "llmmt", "llmmt": f"chat http://127.0.0.1:{a}/v1 g4"} for t in ("ht", "es", "fr", "de")}
+    e = llmmt.LlmMT(Context(table=table))
+    e.load()
+    t0 = time.monotonic()
+    got = e.translate(["SLOW one.", "SLOW two."], "en", ["ht", "es", "fr", "de"])
+    took = time.monotonic() - t0
+    assert set(got) == {"ht", "es", "fr", "de"}
+    assert took < 1.2, took      # 8 calls of 0.4 s: about 0.4 s at once, 3.2 s one after another
 
 
 def test_a_failed_sentence_leaves_the_target_to_madlad():

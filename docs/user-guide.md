@@ -685,6 +685,12 @@ included, 33.6 GB). The languages themselves cost little GPU memory (most
 voices run on the CPU); the large models are fixed. A 48 GB card leaves room
 for activations under load.
 
+**How many rooms.** On one RTX PRO 6000 (96 GB) with Gemma 4 beside the stack, about **8 rooms of 4 languages**
+(32 listeners) at once add at most a second to each translation, 12 rooms add about 4 s, and 16 fall behind. One room
+in 12 languages keeps up; four don't ([eval/2026-10-room-capacity](../eval/2026-10-room-capacity/)). Every room spoke
+continuously in that test, so real rooms, which pause, go further. The default connection limits come first: 30 per
+access token (`STACK_MAX_PER_CLIENT`, 7 rooms of 4 languages) and 60 in all (`STACK_MAX_CONNECTIONS`).
+
 **VoxCPM2 is the part that runs out.** It makes one voice at a time: one
 instance keeps about two to three listeners in real time (RTF 0.28 on an A100,
 0.46 on an RTX PRO 4500). The non-profit edition routes only Khmer, Lao and
