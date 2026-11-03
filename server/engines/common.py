@@ -67,6 +67,13 @@ def gpu_used_mb(device):
 
 # ---------------------------------------------------------------- audio
 
+def float_to_pcm16(x):
+    """float samples in [-1, 1] -> little-endian 16-bit PCM bytes (clipped,
+    scaled by 32767). No resampling, padding or ramps: that is to_pcm16."""
+    import numpy as np
+    return (np.clip(x, -1, 1) * 32767).astype("<i2").tobytes()
+
+
 def to_pcm16(pcm, native):
     """One synthesised segment -> 24kHz PCM16, joinable without a click.
 
@@ -98,7 +105,7 @@ def to_pcm16(pcm, native):
         pcm = pcm.copy()
         pcm[:n] *= np.linspace(0.0, 1.0, n, dtype=pcm.dtype)
         pcm[-n:] *= np.linspace(1.0, 0.0, n, dtype=pcm.dtype)
-    return (np.clip(pcm, -1, 1) * 32767).astype("<i2").tobytes()
+    return float_to_pcm16(pcm)
 
 
 def peak_normalise(pcm):
@@ -316,22 +323,13 @@ def is_nonspeech(text):
     return False
 
 
-# REMOVED 2026-08-29, live: a duration+word-count guard cannot tell a cough
-# from "Great." or "Thank you." Measured in a real session, it ate both -- a
-# congregation says short things and means them. What actually caught the
-# coughs that night was is_nonspeech() reading the CONTENT ("Cough, cough,
-# cough.") and SHORT_NOISE_P reading whisper's own no_speech_prob (0.82-0.92
-# on invented "Peace." / "Thank you.", against <=0.223 for real short
-# speech). Brevity alone is not evidence. Do not reintroduce this.
+# Brevity alone is not evidence of noise: a duration+word-count guard (removed
+# 2026-08-29) ate "Great." and "Thank you." live. Do not reintroduce it.
 #
-# no_speech_prob as a SECONDARY signal, on segments that are already only a
-# token or two. Measured over one run: every short genuine utterance came in
-# at p<=0.223 ("Yas." 0.223, "Hallelujah!" 0.084, "Amen." 0.048) and every
-# cough at p>=0.501 ("Oh" 0.650, "Coo-coo." 0.555, "Cough cough" 0.707).
-# It is NOT safe as a global gate -- real scripture reading through a room mic
-# measured 0.53-0.65, inside the cough band, and a p>0.5 gate ate it once
-# already. Capping it at two tokens is what makes it safe: it cannot swallow a
-# sentence, only a fragment that was already suspicious.
+# no_speech_prob as a SECONDARY signal, only on segments of a token or two:
+# short genuine utterances measured p<=0.223 ("Amen." 0.048), coughs p>=0.501.
+# NOT safe as a global gate: scripture read through a room mic measured
+# 0.53-0.65. Capped at two tokens it can only drop a suspicious fragment.
 SHORT_NOISE_P = 0.45
 SHORT_NOISE_UNITS = 2
 

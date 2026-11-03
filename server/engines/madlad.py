@@ -25,14 +25,10 @@ from engines import register
 from engines.base import Translator
 from engines.common import ct2_device, is_gpu, join_sentences
 
-# Beam width for MT. Greedy decoding took a local trap on short courtesies:
-# "Thank you." came out "Gracias por tu comentario." because after "Gracias"
-# the token "por" scored fractionally above ".", and "tu comentario" is glued
-# to it in MADLAD's web-scraped training data. Scored over the WHOLE sequence
-# the model prefers "Muchas gracias." -- greedy just never got to compare.
-# Measured on an L4-class GPU, batch of 9: 11ms/phrase greedy -> 15ms at
-# beam 4, and beam 8 changed no output. It also stopped "Yes." doubling into
-# "Si, si." A length penalty made no difference.
+# Beam width for MT. Greedy decoding falls into local traps on short
+# courtesies ("Thank you." -> "Gracias por tu comentario."; "Yes." -> "Si, si.")
+# that beam search scores its way out of. L4-class GPU, batch of 9: 11 ms/phrase
+# greedy, 15 ms at beam 4; beam 8 changed no output.
 MT_BEAM = int(os.environ.get("LITHOS_MT_BEAM", 4))
 
 
@@ -81,17 +77,9 @@ class Madlad(Translator):
                 mt_ct2, device=kind, device_index=index,
                 compute_type="int8_float16" if kind == "cuda" else "int8")
             print(f"[stack] MT via CTranslate2: {mt_ct2}", flush=True)
-        # Only when CTranslate2 is NOT carrying MT. The decode goes through
-        # CTranslate2 whenever it exists, so with --mt-ct2 set this bf16 copy
-        # was never once used -- it just sat in VRAM. Measured on the deployed
-        # config: ~6GB of a 20.1GB footprint, about 30%, for a model on no code
-        # path. run.sh passes --mt-ct2 whenever the converted model exists,
-        # which is every real deployment.
-        #
-        # bfloat16 (T5 was trained in bf16; fp16 risks overflow) — but the
-        # "ue ue ue" garbage first blamed on fp16 was actually a transformers
-        # 5.x regression in T5 weight loading, fixed by the pin in the
-        # provisioners. Keep bf16 anyway; it is the safe dtype here.
+        # Only when CTranslate2 is NOT carrying MT: with --mt-ct2 (every real
+        # deployment) the decode never touches a transformers copy, which would
+        # waste ~6 GB of VRAM. bfloat16: T5 was trained in it, fp16 risks overflow.
         if self.ct2 is None:
             import torch
             from transformers import T5ForConditionalGeneration

@@ -9,7 +9,8 @@ everything else, so this engine talks HTTP to a server started beside it:
 
     vllm serve google/gemma-4-31B-it-qat-w4a16-ct --port 8101 --gpu-memory-utilization 0.3 ...
 
-A language names its server in languages.toml as "<style> <base url> <model id>":
+A language names its server in languages.toml as "<style> <base url> <model id>",
+or several, a list in priority order (the first that answers serves):
 
     [ht]
     translator = "llmmt"
@@ -17,7 +18,8 @@ A language names its server in languages.toml as "<style> <base url> <model id>"
 
     [lo]
     translator = "llmmt"
-    llmmt = "milmmt http://127.0.0.1:8102/v1 xiaomi-research/MiLMMT-46-12B-v0.1"
+    llmmt = ["milmmt http://127.0.0.1:8102/v1 xiaomi-research/MiLMMT-46-12B-v0.1",
+             "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"]
 
 The stack picks a translator per direction: into a language, that language's
 translator; into English, the source's translator_to_en when it names one (else
@@ -25,11 +27,17 @@ translator; into English, the source's translator_to_en when it names one (else
 engine while its server answers and Hy-MT2 otherwise. A pair is sent to the
 server its non-English side names (the source's, else the target's), and any
 pair neither side names goes to Hy-MT2 as before (MADLAD if Hy-MT2 can't).
+With a list, the side that names servers decides (the source's, else the
+target's), and its first server that answers serves: Lao -> Spanish and
+Spanish -> Lao alike go to MiLMMT-46 while it answers, to Gemma 4 otherwise
+(Spanish -> Lao: Spanish's own line, Gemma, as with one line).
 
 Health: at load, and every HEALTH_EVERY_S after, each named server is asked for
 /models (HEALTH_TIMEOUT_S). Any HTTP answer counts as up; a refused or timed-out
-connection as down, and while a server is down supports_pair() says no for its
-pairs, so the stack uses the next translator in the list. Each change is logged.
+connection as down. A pair goes to the first of its servers that is up; while
+none is, supports_pair() says no, so the stack uses the next translator in the
+list. A call that cannot connect marks its server down and goes to the next
+server line at once (MADLAD when there is none). Each change is logged.
 LLMMT_HEALTH=0 skips the checks and treats every named server as up.
 
 Styles: "chat" (the shootout's prompt as one user message, temperature 0) and
@@ -43,9 +51,13 @@ last. MiLMMT's completion prompt takes the previous pair as one earlier
 "{source}: ... / {target}: ..." exchange instead, and only when there is a
 previous translation to pair with. No context: exactly the prompts above.
 
-Licence: the served model's, not this file's. Gemma 4 is Apache-2.0; MiLMMT-46
-is under the Gemma terms. The commercial edition refuses an engine it can't
-classify, so it needs the operator's review ([licence_review]).
+Licence: the served model's, not this file's. server/licences.py classifies
+each server by its model id: Gemma 4 is Apache-2.0 (✅, both editions);
+MiLMMT-46 is under Google's Gemma Terms of Use (restricted, ❓), so the
+commercial edition drops that server line and Lao uses its next one (Gemma 4),
+unless [licence_review] names the model id (or "llmmt", for every server). A
+model with no entry there is ❓ too. A language left with no server line drops
+llmmt from its translator lists (its next translator serves).
 """
 import json
 import os
@@ -80,6 +92,13 @@ def server_answers(url, timeout=HEALTH_TIMEOUT_S):
         return True
     except Exception:
         return False
+
+
+def server_lines(value):
+    """A language's llmmt value as its server lines, in priority order (a string is one line)."""
+    if not value:
+        return []
+    return [value] if isinstance(value, str) else list(value)
 
 
 def parse_server(value):
@@ -146,16 +165,24 @@ def answer(style, reply):
 class LlmMT(Translator):
     name = "llmmt"
     title = "LLM translator (OpenAI-compatible server)"
-    lang_key = str
+    lang_key = (str, list)   # one server line, or a list of them in priority order
     licence = "the served model's (see each language's llmmt = ...)"
     takes_context = True      # prompted LMs: see request() and the module docstring
 
     @classmethod
     def check_lang(cls, lang, value):
-        try:
-            parse_server(value)
-        except ValueError as e:
-            return str(e)
+        lines = server_lines(value)
+        if not lines:
+            return "llmmt: want a server line or a list of them, got an empty list"
+        for line in lines:
+            if not isinstance(line, str):
+                return f"llmmt: each server line must be a string, got {line!r}"
+            try:
+                parse_server(line)
+            except ValueError as e:
+                return str(e)
+        if len(set(lines)) != len(lines):
+            return "llmmt: the same server line is listed twice"
         return None
 
     def load(self):
@@ -175,9 +202,11 @@ class LlmMT(Translator):
         out = {}
         for lang, entry in self.ctx.table.items():
             value = entry.get(self.name) if isinstance(entry, dict) else None
-            if value and (not served or lang in served):
+            if not value or (served and lang not in served):
+                continue
+            for line in server_lines(value):
                 try:
-                    out.setdefault(parse_server(value), []).append(lang)
+                    out.setdefault(parse_server(line), []).append(lang)
                 except ValueError:
                     pass
         return out
@@ -192,8 +221,8 @@ class LlmMT(Translator):
         if up:
             print(f"[stack] llmmt: {url} ({model}) answering — {langs} use it", flush=True)
         else:
-            print(f"[stack] llmmt: {url} ({model}) not answering — {langs} use their next translator "
-                  f"(checking every {HEALTH_EVERY_S} s)", flush=True)
+            print(f"[stack] llmmt: {url} ({model}) not answering — {langs} use their next server line or "
+                  f"translator (checking every {HEALTH_EVERY_S} s)", flush=True)
 
     def check_servers(self):
         for server in self._servers:
@@ -204,22 +233,29 @@ class LlmMT(Translator):
             time.sleep(HEALTH_EVERY_S)
             self.check_servers()
 
+    def _is_up(self, server):
+        return getattr(self, "_up", {}).get(server, not getattr(self, "_checks", False))
+
     def supports_pair(self, src, tgt):
-        """Only while the server this pair goes to answers (and one is named)."""
+        """Only while a server this pair may go to answers (and one is named)."""
         server = self.server_for(src, tgt)
-        checks = getattr(self, "_checks", False)
-        return server is not None and getattr(self, "_up", {}).get(server, not checks)
+        return server is not None and self._is_up(server)
 
     def supports_source(self, lang):
         return True   # reads Haitian Creole and Lao itself: no English pivot
 
-    def server_for(self, src, tgt):
-        """The server the pair's non-English side names, or None."""
+    def servers_for(self, src, tgt):
+        """The servers the pair's non-English side names (the source's, else the target's), in order."""
         for lang in (src, tgt):
-            value = self.setting(lang)
-            if value:
-                return parse_server(value)
-        return None
+            lines = server_lines(self.setting(lang))
+            if lines:
+                return [parse_server(line) for line in lines]
+        return []
+
+    def server_for(self, src, tgt):
+        """The first of the pair's servers that answers; the first named when none does; None when none is named."""
+        servers = self.servers_for(src, tgt)
+        return next((s for s in servers if self._is_up(s)), servers[0] if servers else None)
 
     def call(self, server, sentence, src, tgt, context=None):
         style, url, model = server
@@ -254,19 +290,29 @@ class LlmMT(Translator):
                 others.append(tgt)
                 continue
             jobs[tgt] = (server, [self.pool.submit(self.call, server, s, src, tgt, context) for s in sentences])
-        for tgt, (server, futures) in jobs.items():
-            try:
-                got = [f.result() for f in futures]
-            except Exception as e:   # this target only: MADLAD translates it whole
-                print(f"[stack] llmmt {src}->{tgt} failed ({e}) — MADLAD instead", flush=True)
-                if isinstance(e, urllib.error.URLError) and not isinstance(e, urllib.error.HTTPError):
-                    self._set(server, False)   # unreachable: the next translator until it answers again
-                continue
-            if all(got):
-                prev = _context(context, tgt)[1]
-                if prev:   # a repeat of the previous translation is dropped, as for Hy-MT2 (exact prefix only)
-                    got = [g[len(prev):].strip() or g if g.startswith(prev) else g for g in got]
-                out[tgt] = join_sentences(got, tgt)
+        while jobs:
+            retry = {}
+            for tgt, (server, futures) in jobs.items():
+                try:
+                    got = [f.result() for f in futures]
+                except Exception as e:   # this target only: the next server line, else MADLAD, translates it whole
+                    nxt = None
+                    if isinstance(e, urllib.error.URLError) and not isinstance(e, urllib.error.HTTPError):
+                        self._set(server, False)   # unreachable: the next server or translator until it answers
+                        nxt = self.server_for(src, tgt)
+                    if nxt is not None and nxt != server and self._is_up(nxt):
+                        print(f"[stack] llmmt {src}->{tgt} failed ({e}) — {nxt[2]} instead", flush=True)
+                        retry[tgt] = (nxt, [self.pool.submit(self.call, nxt, s, src, tgt, context)
+                                            for s in sentences])
+                    else:
+                        print(f"[stack] llmmt {src}->{tgt} failed ({e}) — MADLAD instead", flush=True)
+                    continue
+                if all(got):
+                    prev = _context(context, tgt)[1]
+                    if prev:   # a repeat of the previous translation is dropped, as for Hy-MT2 (exact prefix only)
+                        got = [g[len(prev):].strip() or g if g.startswith(prev) else g for g in got]
+                    out[tgt] = join_sentences(got, tgt)
+            jobs = retry   # each round marks a server down, so this ends
         if others:   # pairs no server is named for: Hy-MT2, as without this engine
             hymt = self.ctx.engine("translator", "hymt")
             if hymt is not None and hymt.available and hymt.supports_source(src):

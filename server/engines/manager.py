@@ -1,6 +1,6 @@
 """The engines one server runs, and how a language is routed to them.
 
-Pipeline (server.py) owns one EngineSet. It decides, per language:
+Pipeline (server/pipeline.py) owns one EngineSet. It decides, per language:
 
   recognition   asr = "<name>[:<arg>]" for the SOURCE language, if that engine
                 is running and supports it; otherwise Whisper.
@@ -56,29 +56,22 @@ class EngineSet:
         """classes: {kind: {name: class}} to use instead of the registry (tests).
 
         share_from: another EngineSet, in the other edition, on the same server
-        (EDITION=both, server.py). This one then uses its recognisers and
-        translators (the same in both editions), the voices named in
+        (EDITION=both, pipeline.py). This one then uses its recognisers (the same
+        in both editions), every translator configured identically in both
+        tables (shareable_translators: Hy-MT2, MADLAD), the voices named in
         share_voices (those configured identically in both), and its voice
         locks, so a shared model is never called by both sets at once. Every
-        other voice is this set's own, built from this edition's table."""
+        other engine is this set's own, built from this edition's table: llmmt
+        when a server line differs (MiLMMT-46's Lao line is nonprofit only), so
+        this set's llmmt never sends a pair to a server its edition left out.
+        Routing (translator_for) always reads this set's own table."""
         self.ctx = ctx
-        # One lock PER MODEL, not one lock for the GPU.
-        #
-        # The single lock came from when MMS was the only GPU voice; it
-        # serialised every language and showed up as a staircase in the stage
-        # log. Removing it outright was wrong, and the reasoning was wrong with
-        # it: "the models are per-language objects, so there is no shared state"
-        # ignores that an utterance is split into SENTENCES, each submitted to
-        # the pool separately. Several threads then call the same Kokoro
-        # pipeline, or the same Coqui synthesiser, at once — and neither is
-        # thread-safe. The operator heard that as robotic tremors in Spanish
-        # and Haitian, the two languages served by exactly those engines.
-        #
-        # Per-model locks keep what the change was for (different languages
-        # overlap) and give back what it broke (one language's sentences are
-        # serialised through its own model). --serial-tts still forces the old
-        # single lock. (Keyed by language: each language has its own model or
-        # pipeline in every locked engine.)
+        # One lock PER MODEL (keyed by language: each language has its own model
+        # or pipeline in every locked engine). Different languages overlap, but
+        # one language's sentences, each submitted to the pool separately, are
+        # serialised through its model: Kokoro's pipeline and Coqui's synthesiser
+        # are not thread-safe (heard as robotic tremors when they were called
+        # concurrently). --serial-tts forces one lock for every voice.
         self._serial_tts = serial_tts
         if share_from is not None:
             self._tts_locks = share_from._tts_locks
@@ -94,12 +87,15 @@ class EngineSet:
         classes = classes or engines.registry()
         self._apply_edition(ctx)
         self.engines = {k: {} for k in engines.KINDS}
+        share = {"voice": set(share_voices)}
+        if share_from is not None:
+            share["translator"] = set(share_from.shareable_translators(ctx.table))
         for kind in engines.KINDS:
-            if share_from is not None and kind != "voice":
+            if share_from is not None and kind == "recognizer":
                 self.engines[kind] = share_from.engines[kind]
                 continue
             for name, cls in classes.get(kind, {}).items():
-                shared = share_from is not None and name in share_voices and name in share_from.engines["voice"]
+                shared = share_from is not None and name in share.get(kind, ()) and name in share_from.engines[kind]
                 if not shared and not cls.enabled(ctx):
                     continue
                 if name not in licences.PER_ITEM and not self._allowed(name, None, cls):
@@ -107,8 +103,8 @@ class EngineSet:
                     print(f"[licence] {self.edition}: NOT loading {kind} {name} "
                           f"({licences.SYMBOL[li.cls]} {li.licence}: {li.reason})", flush=True)
                     continue
-                # A shared voice passes the same licence check: share_voices can't smuggle one in.
-                self.engines[kind][name] = share_from.engines["voice"][name] if shared else cls(ctx)
+                # A shared engine passes the same licence check: sharing can't smuggle one in.
+                self.engines[kind][name] = share_from.engines[kind][name] if shared else cls(ctx)
         self._chains = {}
         self._assert_clean()
 
@@ -123,6 +119,18 @@ class EngineSet:
         return [n for n in self.engines["voice"] if n != "voxcpm"
                 and all(mine.get(l, {}).get(n) == table.get(l, {}).get(n)
                         and mine.get(l, {}).get("voice") == table.get(l, {}).get("voice") for l in langs)]
+
+    def shareable_translators(self, table):
+        """The translators of this set that a set for another edition, whose
+        effective table is `table`, can use as they are: the same per-language
+        setting everywhere in both (Hy-MT2 and MADLAD always; llmmt only when no
+        server line differs). Which translator serves a direction is each set's
+        own business (translator_for reads its table); this is only which model
+        objects both may call. The other set still licence-checks them."""
+        mine = self.ctx.table
+        langs = set(mine) | set(table)
+        return [n for n in self.engines["translator"]
+                if all(mine.get(l, {}).get(n) == table.get(l, {}).get(n) for l in langs)]
 
     # ------------------------------------------------------------ licences
 
@@ -144,7 +152,7 @@ class EngineSet:
 
     def _allowed(self, name, value, cls=None):
         li = licences.lookup(name, value if isinstance(value, str) else None, cls=cls)
-        return licences.allowed(li, self.edition, licences.item_id(name, value) in self.reviews, self.unclear_ok)
+        return licences.allowed(li, self.edition, licences.reviewed(self.reviews, name, value), self.unclear_ok)
 
     def _assert_clean(self):
         """Belt and braces: in commercial, no language may still name a voice
@@ -157,6 +165,11 @@ class EngineSet:
                 if not self._allowed(name, entry.get(name), type(self.engines["voice"].get(name))
                                      if name in self.engines["voice"] else None):
                     raise RuntimeError(f"licence: [{lang}] {name} {entry.get(name)!r} is not allowed in commercial")
+            # A served translator's server lines (llmmt): the model each names must be allowed.
+            for name in [k for k in entry if k in licences.SERVED]:
+                for line in licences.served_lines(entry[name]):
+                    if not self._allowed(name, line):
+                        raise RuntimeError(f"licence: [{lang}] {name} {line!r} is not allowed in commercial")
         for kind, es in self.engines.items():
             for name, eng in es.items():
                 if name not in licences.PER_ITEM and not self._allowed(name, None, type(eng)):
@@ -234,8 +247,23 @@ class EngineSet:
                     print(f"[licence] {lang} voice {eng.name} {value}: {li.obligation or li.licence}", flush=True)
                 elif li.cls == licences.UNCLEAR:
                     print(f"[licence] {lang} voice {eng.name} {value}: ❓ loaded after review "
-                          f"({self.reviews.get(licences.item_id(eng.name, value), 'COMMERCIAL_ALLOW_UNCLEAR=1')})",
+                          f"({licences.review_note(self.reviews, eng.name, value) or 'COMMERCIAL_ALLOW_UNCLEAR=1'})",
                           flush=True)
+            for name in sorted(licences.SERVED & set(self.ctx.table.get(lang, {}))):
+                lines = licences.served_lines(self.ctx.table[lang][name])
+                for i, value in enumerate(lines):
+                    li = licences.lookup(name, value)
+                    why = licences.review_note(self.reviews, name, value) or "COMMERCIAL_ALLOW_UNCLEAR=1"
+                    note = f": ❓ loaded after review ({why})" if li.cls == licences.UNCLEAR else ""
+                    order = f" (server {i + 1} of {len(lines)})" if len(lines) > 1 else ""
+                    print(f"[licence] {lang}: translator {name} {licences.served_model(value)}{order} "
+                          f"{licences.SYMBOL[li.cls]} {li.licence}{note}", flush=True)
+            for name, value, li in self.licence_report.get(lang, {}).get("translators_dropped", []):
+                kept = licences.served_lines(self.ctx.table.get(lang, {}).get(name))
+                nxt = (f"its directions use its next server line, {licences.served_model(kept[0])}" if kept
+                       else "its directions use the next translator")
+                print(f"[licence] {lang}: left out translator {name} {licences.served_model(value)} "
+                      f"({licences.SYMBOL[li.cls]} {li.licence}): {nxt}", flush=True)
             for name, value, li in self.licence_report.get(lang, {}).get("dropped", []):
                 print(f"[licence] {lang}: left out {name} ({licences.SYMBOL[li.cls]} {li.cls})", flush=True)
             if chain:

@@ -161,7 +161,7 @@ class VoxCPM(Voice):
         for inst in self.instances:
             try:
                 urllib.request.urlopen(f"{inst.url}/health", timeout=5).read()
-            except Exception as e:
+            except Exception:
                 print(f"[stack] VoxCPM2 instance {inst.name} not up yet — waited for after the other models",
                       flush=True)
                 inst.down_until = self._clock() + self.retry_s

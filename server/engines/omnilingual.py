@@ -29,7 +29,7 @@ import os
 
 from engines import register
 from engines.base import Recognizer, VAD_RATE
-from engines.common import is_nonspeech, on_device, repetition_guard
+from engines.common import float_to_pcm16, is_nonspeech, on_device, repetition_guard
 
 
 @register
@@ -124,13 +124,12 @@ class Omnilingual(Recognizer):
         # paths, not arrays — write a temp wav. Adapter guessed right on
         # everything else: model_card init, transcribe(inp, lang=[...]).
         import tempfile, wave as _wave
-        import numpy as _np
         fd, path = tempfile.mkstemp(suffix=".wav")
         try:
             with os.fdopen(fd, "wb") as fh:
                 with _wave.open(fh, "wb") as w:
                     w.setnchannels(1); w.setsampwidth(2); w.setframerate(VAD_RATE)
-                    w.writeframes((_np.clip(pcm16k, -1, 1) * 32767).astype("<i2").tobytes())
+                    w.writeframes(float_to_pcm16(pcm16k))
             with on_device(self.device):
                 out = self.pipeline_for(lang).transcribe([path], lang=[self.codes[lang]], batch_size=1)
         finally:
@@ -187,9 +186,8 @@ class Omnilingual(Recognizer):
 def wav_bytes(pcm16k):
     """float [-1, 1] at 16 kHz -> a mono 16-bit wav file's bytes (as transcribe() writes)."""
     import io, wave as _wave
-    import numpy as _np
     buf = io.BytesIO()
     with _wave.open(buf, "wb") as w:
         w.setnchannels(1); w.setsampwidth(2); w.setframerate(VAD_RATE)
-        w.writeframes((_np.clip(pcm16k, -1, 1) * 32767).astype("<i2").tobytes())
+        w.writeframes(float_to_pcm16(pcm16k))
     return buf.getvalue()

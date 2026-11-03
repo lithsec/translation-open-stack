@@ -89,13 +89,10 @@ class Whisper(Recognizer):
         # sign-off conditions the next utterance and the model keeps saying it.
         # no_speech_threshold drops segments the model itself rates as silence,
         # which is where the invented filler lives.
-        # vad_filter: whisper only sees the parts Silero calls speech. Trimming
-        # the pause before the endpoint was not enough, because a room is never
-        # digitally silent — mains hum and HVAC are audio, and whisper fills
-        # audio it cannot parse with the polite sign-offs it learned from
-        # captioned video ("Thank you", "gracias por su comentario"). Those come
-        # back CONFIDENT, so no_speech_threshold never catches them; the fix is
-        # to stop handing it the noise in the first place.
+        # vad_filter: whisper only sees the parts Silero calls speech. A room is
+        # never digitally silent, and whisper fills hum it cannot parse with
+        # CONFIDENT sign-offs from captioned video ("Thank you") that
+        # no_speech_threshold never catches.
         opts = dict(beam_size=1, condition_on_previous_text=False,
                     no_speech_threshold=0.6, temperature=0,
                     vad_filter=True,
@@ -108,11 +105,8 @@ class Whisper(Recognizer):
         for sg in segs:
             # Drop a segment only when BOTH signals agree it is not speech: the
             # model thinks there was silence AND it had low confidence in the
-            # words. Either alone is not enough — this gate was p>0.5 for one
-            # afternoon and ate real scripture reading at p=0.53-0.65, because
-            # a confident transcription of quiet speech looks "non-speech" by
-            # that measure. A hallucination is the case where the model is
-            # unsure AND heard nothing; that is what these two together catch.
+            # words. no_speech_prob alone (p>0.5) ate quiet scripture reading at
+            # p=0.53-0.65.
             no_speech = getattr(sg, "no_speech_prob", 0.0)
             logprob = getattr(sg, "avg_logprob", 0.0)
             if SEG_STATS:
