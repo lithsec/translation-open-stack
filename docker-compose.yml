@@ -48,7 +48,7 @@ services:
       # Hardware profiles (STACK_PROFILE); yours can go here too.
       - ./profiles:/opt/stack/profiles:ro
     # Every variable in .env reaches the container, so the other knobs in the
-    # README's table (STACK_MAX_*, VOXCPM_LANGS, ...) work too.
+    # docs/reference.md (STACK_MAX_*, VOXCPM_LANGS, ...) work too.
     env_file:
       - path: .env
         required: false

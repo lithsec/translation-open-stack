@@ -4,9 +4,12 @@ Status: a prototype behind a flag that is off by default (`STT_PARTIALS=0`).
 The stability rule and the scheduler are implemented and tested without a
 model (`services/omni-stt/partials.py`, `tests/test_omni_stt_partials.py`);
 the server hook runs the extra passes through the same batcher as the
-finals, with no priority of its own yet. Nothing here has run on a GPU;
-the cost figures below are a model of the work, and the section at the end
-says what a GPU run should measure before the flag is turned on anywhere.
+finals, with no priority of its own yet. The cost figures below are a model
+of the work. One GPU run so far, for Haitian Creole
+([eval/2026-10-complete-thought-ht-km-lo](../../eval/2026-10-complete-thought-ht-km-lo/README.md)),
+gave only 1.5-1.7 partials per piece (pieces are short) and did not help that
+eval's translator; the section at the end says what else a GPU run should
+measure before the flag is turned on anywhere.
 A second, unrelated helper lives beside it: energy dips as a secondary cue
 for where a piece should be cut (`dips.py`, last section).
 

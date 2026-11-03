@@ -16,66 +16,77 @@ any client that speaks [the protocol](docs/dev/protocol.md) can use it.
 > are **non-commercial**. Read [docs/licences.md](docs/licences.md) before you
 > deploy it commercially.
 
-## Three ways to run it
+## What you need
 
-Same code, same models, same protocol; what differs is where the GPU is and
-who starts it.
+- **An NVIDIA GPU with 48 GB** (L40, L40S, RTX 6000 Ada, A6000, RTX PRO
+  5000/6000). 32 GB works with a smaller translator; 80 GB+ also runs Gemma 4
+  for the directions it translates best.
+- **Linux or Windows WSL2**, Docker with the NVIDIA Container Toolkit.
+- **~150 GB free disk** and internet for the first start (~60 GB of downloads).
 
-1. **Your own GPU, with Docker.** A 48 GB NVIDIA card (32 GB with a smaller
-   translator), Linux or Windows WSL2, Docker with the NVIDIA Container
-   Toolkit. No per-hour bill, and audio never leaves your network.
-2. **Your own machine, without Docker.** NVIDIA or AMD (ROCm) on Linux, in a
-   Python virtualenv: for AMD cards, two smaller GPUs, or a machine where you'd
-   rather not run Docker. Steps:
-   [user guide](docs/user-guide.md#install-without-docker-linux-nvidia-or-amd).
-3. **Your own RunPod pod.** Rent a 48 GB GPU by the hour: one click on
-   **[Deploy on RunPod](https://console.runpod.io/deploy?template=dftcc24b6q)**
-   (the prebuilt image `ghcr.io/lithsec/translation-open-stack`), then connect to
-   `wss://<pod-id>-8790.proxy.runpod.net` with the access key the pod prints in
-   its log. The pod stops itself when idle. Steps:
-   [user guide](docs/user-guide.md#one-click-the-runpod-template).
-
-![Three ways to run it: your own GPU box with Docker, your own machine without Docker (NVIDIA or AMD), or your own RunPod pod](docs/images/deployment.png)
+No GPU? Rent one on RunPod (below). Full requirements:
+[user guide](docs/user-guide.md#before-you-start).
 
 ## Quick start (Docker)
 
 ```bash
 git clone https://github.com/lithsec/translation-open-stack.git && cd translation-open-stack
-cp .env.example .env            # set STACK_TOKEN (openssl rand -hex 32); LANGS, EDITION if needed
+cp .env.example .env            # set STACK_TOKEN=$(openssl rand -hex 32); LANGS, EDITION if needed
 docker compose up -d --build    # first start: 30-60 min to download and build the models
 docker compose logs -f          # ready at "[stack] ready on :8790"
-curl http://localhost:8790/health
+curl http://localhost:8790/health   # "ok"
+```
+
+**Try it.** Stream a test clip and get Spanish captions and speech back
+(saved to `out-es.wav`):
+
+```bash
+pip install websockets
+STACK_TOKEN=<your token> python3 tools/client.py --lang es --wav tests/audio/en.wav
 ```
 
 Then point your app at `ws://<gpu-box-ip>:8790` with the token as its access
-key. The token is the only lock: never expose port 8790 to the internet
-without one, and use TLS beyond your LAN. Requirements, RunPod, and every
-step in between: the [user guide](docs/user-guide.md).
+key ([connect apps](docs/user-guide.md#connect-apps)). The token is the only
+lock: never expose port 8790 to the internet without one, and use TLS beyond
+your LAN.
+
+## Other ways to run it
+
+- **RunPod, one click.** **[Deploy on RunPod](https://console.runpod.io/deploy?template=dftcc24b6q)**
+  (the prebuilt image `ghcr.io/lithsec/translation-open-stack`) on a 48 GB GPU,
+  or 80 GB+ to add Gemma 4. Connect to `wss://<pod-id>-8790.proxy.runpod.net`
+  with the access key the pod prints in its log. The pod stops itself when idle.
+  [Steps](docs/user-guide.md#one-click-the-runpod-template).
+- **Without Docker.** NVIDIA or AMD (ROCm) on Linux, in a Python virtualenv:
+  for AMD cards, two GPUs, or no Docker.
+  [Steps](docs/user-guide.md#install-without-docker-linux-nvidia-or-amd).
+
+![Three ways to run it: your own GPU box with Docker, your own machine without Docker (NVIDIA or AMD), or your own RunPod pod](docs/images/deployment.png)
 
 ## Where next
 
 | To | Read |
 |---|---|
-| Install, run on RunPod, connect apps, pick languages, swap voices and models, size GPUs, troubleshoot | [docs/user-guide.md](docs/user-guide.md) |
-| Put the Omnilingual hearing services (omni-stt, and its 7B service for Lao and Khmer) on Cloud Run in your own Google Cloud project, one click plus a guided script | [services/omni-stt/README.md](services/omni-stt/README.md#one-click-setup-open-in-cloud-shell) |
-| Look up an environment variable, a `languages.toml` key, a command, a pin, or a close code | [docs/reference.md](docs/reference.md) |
-| Check what each model and voice's licence allows, and what `EDITION=commercial` changes | [docs/licences.md](docs/licences.md) |
+| Install, connect apps, pick languages, swap voices and models, size GPUs, troubleshoot | [docs/user-guide.md](docs/user-guide.md) |
+| Look up a variable, a `languages.toml` key, a command or a close code | [docs/reference.md](docs/reference.md) |
+| Check each model's and voice's licence, and what `EDITION=commercial` changes | [docs/licences.md](docs/licences.md) |
 | Write a client | [docs/dev/protocol.md](docs/dev/protocol.md) |
 | Understand the server, or add a recogniser, translator or voice | [docs/dev/architecture.md](docs/dev/architecture.md), [docs/dev/adding-an-engine.md](docs/dev/adding-an-engine.md) |
-| See what was tested, what won, and why | [docs/dev/model-evaluation.md](docs/dev/model-evaluation.md) (raw data in [eval/](eval/README.md)) |
+| Run the Omnilingual hearing services on Google Cloud Run | [services/omni-stt/README.md](services/omni-stt/README.md#one-click-setup-open-in-cloud-shell) |
+| See what was tested and why it won | [docs/dev/model-evaluation.md](docs/dev/model-evaluation.md) (raw data in [eval/](eval/README.md)) |
 | Learn from what broke | [docs/dev/lessons-learned.md](docs/dev/lessons-learned.md) |
-| See the plan for the next translation test (Haitian Creole, Lao, Khmer with an open LLM and context) | [docs/dev/low-resource-translation-plan.md](docs/dev/low-resource-translation-plan.md) |
 
 ## Licence
 
 Copyright 2026 Vortas, LLC. Licensed under the [Apache License, Version 2.0](LICENSE);
-see [NOTICE](NOTICE). This code was developed for Lithos Live Translation (translate.lithos.community), extracted into this one, and is published here under Apache 2.0 by
-its copyright holder.
+see [NOTICE](NOTICE). This code was developed for Lithos Live Translation
+(translate.lithos.community) and is published here under Apache 2.0 by its
+copyright holder.
 
-The third-party models, voices and libraries it downloads are under their own
+The third-party models, voices and libraries it downloads keep their own
 licences, and some are non-commercial (Meta's MMS-TTS and several Piper
 voices). `EDITION=commercial` loads only what is classified as commercially
 usable, enforced by code; `python3 server/stack_config.py check --edition
-commercial` shows what you would get. Every component, its licence and
-source, and the checklist before commercial use:
-[docs/licences.md](docs/licences.md). Not legal advice.
+commercial` shows what you would get. Every component, its licence and the
+checklist before commercial use: [docs/licences.md](docs/licences.md). Not
+legal advice.

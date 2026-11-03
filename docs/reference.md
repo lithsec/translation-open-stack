@@ -37,9 +37,11 @@ environment (RunPod).
 |---|---|---|
 | `LANGS` | all 25 | Languages people listen in (voices are fetched for these). |
 | `SRCS` | all 25 | Languages people may speak. |
-| `EDITION` | `nonprofit` | `nonprofit`, `commercial` or `both` ([licences.md §2](licences.md#2-editions-what-edition-changes); `both`: [user guide](user-guide.md#one-server-for-both-editions)). |
+| `EDITION` | `nonprofit` | `nonprofit`, `commercial` or `both` ([licences.md §2](licences.md#2-editions-what-edition-changes); `both`: each connection is translated and voiced by its token's edition, [user guide](user-guide.md#one-server-for-both-editions)). |
 | `COMMERCIAL_ALLOW_UNCLEAR` | unset | `1` = admit every ❓ item in commercial at once, with a loud warning at start-up and in `check`. Prefer `[licence_review]`. |
-| `LLMMT` | `auto` | RunPod start (`scripts/start-llmmt.sh`): `auto` = start Gemma 4 31B in vLLM on :8101 when a GPU has room beside the stack (one card of 80 GB+, or 96 GB+ with `OMNI_LARGE=1`; or the last of several cards); `gemma`, `milmmt` or `gemma,milmmt` = those without the check; `0` = none. Not in commercial. |
+| `LLMMT` | `auto` | RunPod start (`scripts/start-llmmt.sh`): `auto` = start Gemma 4 31B in vLLM on :8101 when a GPU has room beside the stack (one card of 80 GB+, or 96 GB+ with `OMNI_LARGE=1`; or the last of several cards); `gemma`, `milmmt` or `gemma,milmmt` = those without the check; `0` = none. With `EDITION=commercial`, Gemma only: `milmmt` is skipped (MiLMMT-46 is under the Gemma terms, left out of commercial). Also `LLMMT_LOG` (`/workspace/llmmt.log`), `VLLM_VENV` (`/workspace/vllm-venv`), `GEMMA_GB` (`36`). |
+| `LLMMT_HEALTH` | `1` | `0` = don't check the `llmmt` servers; treat every one as up. |
+| `LLMMT_WORKERS` | `64` | Concurrent requests to the `llmmt` servers. |
 | `MADLAD` | `7b` | `3b` = the smaller fallback translator, for a 32 GB card (`[models.madlad3b]`). |
 | `STACK_CONFIG` | `languages.toml` at the repository root | Another model file (languages and `[models]`). |
 | `STACK_PROFILE` | unset | A hardware profile: `profiles/<name>.toml`, or a path ([Profiles](#profiles-and-devices)). |
@@ -122,12 +124,17 @@ package, and then every Hugging Face download fails.
 | `LITHOS_STREAM_MIN_WORDS` | `4` | Simultaneous mode: shortest clause spoken by itself, unless the turn is over. |
 | `LITHOS_STREAM_COMMA_WORDS` | `6` | Simultaneous mode: words before a comma is accepted as a boundary. |
 | `LITHOS_TRIM`, `LITHOS_TRIM_S` | off, `8` | Simultaneous mode: trim a turn's buffer past this many seconds. |
+| `LITHOS_STREAM_POLICY` | `clause` | Simultaneous mode's default commit policy for rooms that don't pass `?policy=`: `clause` or `agree` (`server/agree.py`). |
+| `LITHOS_AGREE_MAX_PENDING` | `10` | Agree: past this many untranslated words, the latest translation is spoken whole. |
+| `LITHOS_AGREE_MAX_CALLS` | `8` | Agree: translation calls per turn before it waits for the end. |
 | `LITHOS_MT_BEAM` | `4` | MADLAD beam size. |
 | `LITHOS_TTS_WORKERS` | `8` | Voice synthesis threads. |
 | `LITHOS_SEG_STATS` | unset | `1` = log every Whisper segment's confidence numbers. |
 | `LITHOS_ROOM_HEARTBEAT` | unset | `1` = a periodic per-room log line. |
 
-Each is explained where it is read, at the top of `server/server.py` and in
+Each is explained where it is read: `server/pipeline.py` (the `LITHOS_STREAM_*`,
+`LITHOS_TRIM*`, `LITHOS_SENTENCE_CUT` and `LITHOS_TTS_WORKERS` settings),
+`server/rooms.py` (`LITHOS_ROOM_HEARTBEAT`), `server/agree.py` and
 the engine files; the measurements behind them are in
 [lessons-learned §6](dev/lessons-learned.md#6-latency-and-throughput).
 
@@ -161,7 +168,7 @@ entirely. All keys are optional.
 | `min_speech_ms` | integer, 0–5000 | ... and a pause doesn't end an utterance holding less speech than this unless the quiet lasts 1.5 s: a short piece waits for the rest of its sentence. Japanese, Haitian Creole, Khmer, Lao, German: 2500 ([eval/2026-10-pauses](../eval/2026-10-pauses/)). Utterance mode only; simultaneous mode keeps its own rules. |
 | `translator` | `"hymt"` \| `"madlad"` \| `"llmmt"`, or a list | Translator **into** this language. Hy-MT2 covers the 36 languages in `stack_config.HYMT_LANGS`; anything else must be `"madlad"`. A list is tried in order per request: the first engine that is running and can do the pair serves it, so `["llmmt", "hymt"]` is the LLM server while it answers and Hy-MT2 otherwise. |
 | `translator_to_en` | as `translator` | Translator **from** this language **into English**. Without it, `[en]`'s `translator` serves every language into English. |
-| `llmmt` | `"<style> <url> <model>"` | The LLM server (`engines/llmmt.py`, OpenAI-compatible, e.g. vLLM) for this language's pairs; style `chat` or `milmmt`. |
+| `llmmt` | `"<style> <url> <model>"`, or a list of them | The LLM server (`engines/llmmt.py`, OpenAI-compatible, e.g. vLLM) for this language's pairs; style `chat` or `milmmt`. A list is in priority order: a pair goes to the first server that answers (and that the edition allows), e.g. Lao's `["milmmt ... MiLMMT-46 ...", "chat ... gemma-4 ..."]`. A pair uses the servers its source names, else its target's. |
 | `madlad` | `"<code>"` | MADLAD's language tag, when it differs from the code (Tagalog: `fil`). |
 | `voice` | `["<name>", ...]` | The voice chain in this order, instead of the default. |
 | `<engine>` | per engine | A plug-in engine's own per-language value, under its name. |
@@ -184,14 +191,14 @@ The shipped choices, from the full stack live on two clip sets
 | en → de, ru, zh, vi, tl ¹ | Gemma 4 31B | Hy-MT2 |
 | en → uk, ar, fa ² | Gemma 4 31B | Hy-MT2 |
 | en → sw ² | Gemma 4 31B | MADLAD |
-| ja → en | Gemma 4 31B | Hy-MT2 |
+| ja, ru → en | Gemma 4 31B | Hy-MT2 |
 | zh, vi, tl, ar, fa → en ¹ | Gemma 4 31B | Hy-MT2 |
 | en ↔ ht | Gemma 4 31B | MADLAD into ht, Hy-MT2 (after MADLAD's pivot) into en |
-| en ↔ lo | MiLMMT-46 12B (`llmmt`, port 8102) | MADLAD into lo, Hy-MT2 into en |
-| es, pt, fr, km → en | Hy-MT2 | — |
-| every other pair | as before (Hy-MT2, or MADLAD) | — |
+| en ↔ lo | MiLMMT-46 12B (`llmmt`, port 8102); Gemma 4 31B when MiLMMT doesn't answer, and in commercial | MADLAD into lo, Hy-MT2 into en |
+| es, pt, fr, de, km → en | Hy-MT2 | — |
+| every other pair | Hy-MT2, or MADLAD | — |
 
-¹ From Lithos Talk's route table (2026-10-27): Gemma 4 within 5 points of gpt-5.6-sol and
+¹ From Lithos Talk's route table: Gemma 4 within 5 points of gpt-5.6-sol and
 scoring at least 80, measured hosted in bf16 on Azure or MAI transcripts. Not yet measured on
 this stack's 4-bit build and recognisers.
 ² The router prefers gpt-5.6-sol here, but Gemma 4 beats the stack's own translator in the
@@ -207,11 +214,15 @@ vllm serve xiaomi-research/MiLMMT-46-12B-v0.1 --port 8102 ...
 ```
 
 The stack asks each named server for `/models` at start and every 30 s. While
-one doesn't answer, its pairs use the next translator in the list, and the log
-says so (`[stack] llmmt: <url> (<model>) not answering — ...`).
-`LLMMT_HEALTH=0` skips the checks. `EDITION=commercial` leaves `llmmt` out
-(its class is ❓ until `[licence_review]` names it), so commercial runs the
-next choice.
+one doesn't answer, its pairs use the language's next server line (Lao: Gemma 4
+after MiLMMT-46), else the next translator in the list, and the log says so (`[stack] llmmt: <url> (<model>) not answering — ...`).
+`LLMMT_HEALTH=0` skips the checks. `EDITION=commercial` classifies each server
+by the model it names (`server/licences.py`): Gemma 4 (Apache 2.0, ✅) serves
+its directions as in nonprofit; MiLMMT-46 (Google's Gemma Terms of Use,
+restricted, ❓) is left out until `[licence_review]` names
+`xiaomi-research/MiLMMT-46-12B-v0.1` (or `llmmt`, for every server), so Lao runs
+its next server line, Gemma 4, both ways (a language left with no server line
+runs its next translator); so is any model with no entry there ([licences, section 5](licences.md#5-translation)).
 
 ### `[<lang>.commercial]`
 
@@ -243,8 +254,8 @@ so give only the keys you change. A revision of `""` means unpinned.
 | `whisper` | `model` (`large-v3`), `revision` (of `model`'s repo, Systran/faster-whisper-large-v3), `multi_model` (`""` = same model, loaded once), `multi_revision` (the revision of `multi_model` when it differs; `""` = unpinned, avoid) | `scripts/run.sh` → `--asr-model`, `--asr-revision`, `--asr-multi-model`, `--asr-multi-revision` | downloads on the next start |
 | `omnilingual` | `card` (`omniASR_LLM_300M`; a fairseq2 card names one fixed checkpoint, no revision) | `server/engines/omnilingual.py` | downloads on the next start (fairseq2 cache) |
 | `omnilingual_large` | `card` (`omniASR_LLM_7B`), for the `omni = "large"` languages | `server/engines/omnilingual.py`, only with `OMNI_LARGE=1` | downloads on the next start (~16 GB) |
-| `lid` | `repo` (`speechbrain/lang-id-voxlingua107-ecapa`), `revision` | `server/server.py` | downloads on the next start |
-| `vad` | `repo` (`snakers4/silero-vad`), `ref` (a git tag, branch or commit; pinned to the commit of tag v6.2.3) | `server/server.py` (torch.hub) | downloads on the next start |
+| `lid` | `repo` (`speechbrain/lang-id-voxlingua107-ecapa`), `revision` | `server/pipeline.py` | downloads on the next start |
+| `vad` | `repo` (`snakers4/silero-vad`), `ref` (a git tag, branch or commit; pinned to the commit of tag v6.2.3) | `server/pipeline.py` (torch.hub) | downloads on the next start |
 | `hymt` | `repo` (`tencent/Hy-MT2-7B`), `revision` (required) | `scripts/prepare-mt.sh` | **rebuilt** (4-bit quantisation, needs the GPU) |
 | `madlad` | `repo` (`google/madlad400-7b-mt`), `revision` (required) | `scripts/prepare-mt.sh` | **rebuilt** (CTranslate2 int8 conversion) |
 | `madlad3b` | `repo` (`google/madlad400-3b-mt`), `revision` (required) | `scripts/prepare-mt.sh` with `MADLAD=3b`, `scripts/runpod/provision-runpod.sh` | **rebuilt** |
@@ -360,65 +371,45 @@ connect):
 ## Access, rooms and limits
 
 The stack has no accounts: a token is the only lock
-(`server/stack_auth.py`). The full wire contract is in
-[protocol.md](dev/protocol.md).
+(`server/stack_auth.py`). The wire contract (token format and audiences,
+rooms, close codes, message and audio-rate limits) is in
+[protocol.md](dev/protocol.md#authentication); this section is the operator's
+side.
 
 **Credentials.** Clients send `Authorization: Bearer <token>`. The URL forms
-(`wss://HOST/<token>/translate`, `?key=<token>`) still work for old clients,
-but a URL ends up in proxy and server logs. A bad or missing token closes with
-4401 and logs `refused: bad or missing token`. `GET /health` needs no token and
-answers `ok` once the models are loaded (and reveals nothing else). With
-neither `STACK_TOKEN` nor `STACK_SIGNING_KEY` the start scripts refuse to run
-(Docker allows `STACK_OPEN=1`).
+(`wss://HOST/<token>/translate`, `?key=<token>`) still work, but a URL ends up
+in proxy and server logs. A bad or missing token closes with 4401 and logs
+`refused: bad or missing token`. `GET /health` needs no token and answers
+`ok` once the models are loaded (and reveals nothing else). With neither
+`STACK_TOKEN` nor `STACK_SIGNING_KEY` the start scripts refuse to run (Docker
+allows `STACK_OPEN=1`).
 
 ### Signed tokens
 
 `<payload>.<signature>`, both base64url; the signature is
 HMAC-SHA256(`STACK_SIGNING_KEY`, payload); the payload is
-`{"sub", "iat", "exp", "aud"}`:
-
-- `sub`: the subject, e.g. `client:<name>` or `talk:<account>`; connection
-  limits and rooms are per subject.
-- `aud` must be `"stack"`. The pod's ready report is signed with the same key
-  but carries `"aud": "report"`, so it can never open a connection. A token
-  without `aud` is refused unless `STACK_ACCEPT_LEGACY_TOKENS=1`, and even then
-  a `pod:` subject is refused.
-- `exp` must be a finite number, and a token may live at most **24 hours**
-  (`exp - iat` and `exp - now`). A few hours, renewed by the client, is typical.
-
+`{"sub", "iat", "exp", "aud"}`. `sub` is the subject (`client:<name>`,
+`talk:<account>`): connection limits and rooms are per subject. `aud` must be
+`"stack"`, and a token may live at most **24 hours**
+([protocol.md](dev/protocol.md#authentication) has the rules).
 `stack_auth.sign(key, sub, ttl_s)` makes one (tests and tools). A static
 `STACK_TOKEN` has subject `static`; both credentials may be set at once.
 
-**Rooms.** `?room=<id>` shares one pipeline among connections. Room ids are
-1-64 characters of `[A-Za-z0-9_-]`. **A room belongs to the token subject that
-opened it**: rooms are keyed by subject and id together, so two clients with
-different tokens that both say `room=main` get separate rooms and never hear
-each other. Several connections may listen to the same language in one room;
-each receives the output (translated and synthesised once), and one leaving
-takes only itself out. If the primary connection leaves, another member is
-promoted.
+**Rooms** (`?room=<id>`) share one pipeline, and belong to the token subject
+that opened them: two clients with different tokens that both say `room=main`
+get separate rooms ([protocol.md, Rooms](dev/protocol.md#rooms)).
 
-**Limits and close codes.**
+**Limits.** `STACK_MAX_PER_CLIENT` (30) connections per subject,
+`STACK_MAX_CONNECTIONS` (60) in total, `STACK_MAX_SESSION_MIN` (360) minutes
+per connection; audio at most 2x real time; messages at most 256 KB
+([close codes](dev/protocol.md#limits-and-close-codes)). Clients may send
+audio in messages of any size: the server buffers it into 96 ms blocks
+(`server/audio_in.py`), and logs one line for a connection averaging under
+20 ms per message. About 100 ms (4,800 bytes) per message is best.
 
-| Code | When |
-|---|---|
-| 4401 | bad or missing token (including a token for another audience) |
-| 4429 | too many connections for this subject (`STACK_MAX_PER_CLIENT`, 30) or for the server (`STACK_MAX_CONNECTIONS`, 60) |
-| 4408 | the connection reached `STACK_MAX_SESSION_MIN` (360) |
-| 4400 | a query parameter the server does not accept (unknown `lang`, `src`, `route` or `cands` language, more than 8 `cands`, a malformed `room`); an `error` message naming it comes first |
-| 4413 | audio sent faster than 2x real time, beyond 60 s of audio in hand |
-| 1009 | a WebSocket message over 256 KB (a 100 ms frame is 4.8 KB) |
-
-**Message size.** Send 24 kHz mono PCM16 in messages of any size: the server
-buffers each connection's audio into 96 ms blocks and resamples it with a
-filter that carries across messages, so what it hears doesn't depend on how
-the audio was cut up (`server/audio_in.py`). About 100 ms (4,800 bytes) per
-message is still the best size; a connection averaging under 20 ms per message
-gets one line in the log saying so, since each message costs a WebSocket frame.
-
-**Long speech.** Every connection, in a room or solo, is cut at
-`--max-utterance-s` (12 s via `scripts/run.sh`) when the speaker never pauses,
-after the last sentence the recogniser heard.
+**Long speech.** Every connection is cut at `--max-utterance-s` (12 s via
+`scripts/run.sh`, or the language's `max_utterance_s`) when the speaker never
+pauses, after the last sentence the recogniser heard.
 
 **RunPod.** A pod URL is public, so `runpod-start.sh` refuses to start without
 a credential; the pod stops after `STACK_IDLE_MIN` idle minutes and after
@@ -462,17 +453,24 @@ Together they use under 0.2 GB of GPU memory.
 faster-whisper large-v3 for most sources; Meta's Omnilingual ASR 300M for
 Persian, Bengali, Urdu, Hindi, Swahili, Haitian Creole, Khmer and Lao
 (`asr = "omni:<code>"`), where Whisper is weak or produces fluent nonsense.
+With `OMNI_LARGE=1`, Khmer and Lao use Omnilingual's 7B card (`omni =
+"large"`), and Romanian uses it too (`omni = "large-only"`: Whisper when the
+7B is not loaded).
 
 **Long speeches: forced cuts land on sentence ends.** A speaker who never
-pauses for `--max-utterance-s` used to be cut at the quietest instant, usually
-mid-sentence. Now the server runs the recogniser with word timings on the
-buffer and cuts after the last sentence end (a clause comma past 4 s as the
-fallback), carrying the unfinished sentence into the next utterance. On a 78 s
-pause-free reading: es 90 -> 93%, de 89 -> 90%, ja 86 -> 90%. Omnilingual
-sources have no word timings and keep the quietest-point cut.
-`LITHOS_SENTENCE_CUT=0` restores the old behaviour.
+pauses for `--max-utterance-s` is cut after the last sentence end the
+recogniser heard (word timings; a clause comma past 4 s as the fallback), and
+the unfinished sentence carries into the next utterance. On a 78 s pause-free
+reading: es 90 -> 93%, de 89 -> 90%, ja 86 -> 90%, against a cut at the
+quietest instant. Omnilingual sources have no word timings and keep the
+quietest-point cut, as does `LITHOS_SENTENCE_CUT=0`.
 
-### Translation: Hy-MT2 where it can, MADLAD 7B for the rest
+### Translation: Hy-MT2, MADLAD 7B and the LLM servers
+
+Gemma 4 and MiLMMT (`llmmt`) serve the directions in
+[Translators per direction](#translators-per-direction) while their vLLM
+servers answer; Hy-MT2 and MADLAD serve everything else, and those
+directions whenever the LLMs are down.
 
 `scripts/prepare-mt.sh` builds both into `/workspace/mt/` from the **pinned**
 upstream revisions in `[models]` (full-precision downloads go to scratch; only
@@ -485,8 +483,8 @@ at runtime.
 | the 36 languages it supports (incl. en es fr de pt ru uk zh ja km) | Hy-MT2 7B (Tencent), 4-bit NF4 | 4.4 GB | Apache 2.0 |
 | everything else (ht sw lo ro) | MADLAD-400 7B, CTranslate2 int8 | 7.8 GB | Apache 2.0 |
 
-Measured 2026-09-27: 24 sentences x 19 directions, the same audio Gemini heard,
-through this stack's own ASR, graded blind. Hy-MT2 95% with 13 critical errors,
+In the September evaluation (24 sentences x 19 directions, the same audio
+Gemini heard, through this stack's own ASR, graded blind): Hy-MT2 95% with 13 critical errors,
 MADLAD 7B 87% / 23, MADLAD 3B 82% / 26, Gemini Live 79% / 38; the full stack
 beat Gemini in 16 of 19 directions. Hy-MT2 does not support Haitian Creole
 (10%): MADLAD 7B gets 78% there, Gemini 90%. A source Hy-MT2 does not know
@@ -501,17 +499,14 @@ for an 18-token English sentence, and a 3x cap truncated every Khmer line.
 [protocol.md](dev/protocol.md#context-from-the-previous-pieces)): a client
 may ask for the last two pieces and the last translation to be given to the
 translator as context only, bounded (600 characters of source, 300 per
-translation), forgotten on a language change and after 30 s idle. Hy-MT2
-takes it in its prompt; MADLAD cannot, so its languages are unaffected. Off
-by default, and nothing changes when it is off. Its effect on Hy-MT2's
-quality has not been measured.
+translation), forgotten on a language change and after 30 s idle. Hy-MT2 and
+`llmmt` take it in the prompt; MADLAD cannot. Off by default. Its effect on
+Hy-MT2's quality has not been measured.
 
-**TranslateGemma 12B** (Google, Gemma licence) was also tested and is the one
-alternative worth keeping in mind: 92% in the major languages, 77% in Haitian
-Creole, so a single model could replace both translators. It lost in Khmer (67%
-vs 94%) and into Lao, so it isn't the default. Its Gemma licence carries
-Google's usage policy ([licences.md §9](licences.md#9-evaluated-but-not-deployed)).
-Details: [model-evaluation.md](dev/model-evaluation.md).
+**TranslateGemma 12B** (Google, Gemma licence) was also tested: 92% in the
+major languages, 77% in Haitian Creole, but it lost in Khmer (67% vs 94%) and
+into Lao ([licences.md §9](licences.md#9-evaluated-but-not-deployed),
+[model-evaluation.md](dev/model-evaluation.md)).
 
 ### Voices
 
@@ -525,23 +520,18 @@ as the fallback, Coqui OpenBible (CC-BY-SA) or MMS (CC-BY-NC) for Haitian
 Creole depending on the edition, and eSpeak NG as the last resort.
 
 **Kokoro** (82M, Apache 2.0) was chosen by ear against Piper on identical
-sentences (Hindi too, since 2026-09-28). Beyond how it sounds: it emits
-**24 kHz, the pipeline's own rate**, so those languages skip the resample step
-and the edge-ringing that comes with resampling short segments; one 82M model
-covers several languages, against a 63-114 MB Piper file each; and it is
-Apache 2.0, unlike MMS. It is a GPU model and that is the point: ~98x real
-time on the GPU against Piper's ~30x on CPU, but only **2x on CPU**, so do not
-run it without one. Measured end to end it changed the pipeline by nothing
-(first audio 0.33-0.37 s either way), because TTS was never the bottleneck and
-the GPU work overlaps the CPU work instead of competing with it. Piper remains
-for every language Kokoro does not cover, and the router falls back to it
-automatically if Kokoro errors. Japanese and Mandarin need Kokoro's G2P extras,
+sentences. It emits **24 kHz, the pipeline's own rate**, so those languages
+skip the resample step; one 82M model covers several languages, against a
+63-114 MB Piper file each. It runs ~98x real time on the GPU but only **2x on
+CPU**, so do not run it without one. End to end it changed first audio by
+nothing (0.33-0.37 s either way). Piper covers every language Kokoro does not,
+and takes over if Kokoro errors. Japanese and Mandarin need Kokoro's G2P extras,
 `misaki[ja,zh]`, plus MeCab's dictionary (UniDic); without the dictionary both
 Kokoro Japanese and Coqui fail at load with "Failed initializing MeCab". The
 image and the provisioner install both.
 
-**Piper** runs on the CPU at roughly 20x real time after the onnxruntime
-thread fix, so a voice is a small share of the latency. The Japanese Piper
+**Piper** runs on the CPU at roughly 20x real time, so a voice is a small
+share of the latency. The Japanese Piper
 voice is phonemised by `pyopenjtalk`, not espeak-ng like every other Piper
 voice: without it the voice loads and then throws at synthesis time. It is
 installed in the image, and it is slow: **2.4x real time against Korean's
@@ -615,8 +605,7 @@ Each exists because of a specific failure ([lessons-learned §2](dev/lessons-lea
   `"ll ll ll…"`, and pulls `huggingface_hub` 1.x, which `fairseq2` rejects,
   taking Khmer, Lao, Haitian and Swahili with it. Anything in 4.x is fine:
   4.49.0 and 4.57.6 both generate MADLAD correctly and leave Omnilingual
-  importing and transcribing. The old 4.46.3 pin was too tight: the failure
-  had only ever been seen on v5 and was never bisected.
+  importing and transcribing.
 - **`torchaudio==2.8.0`**: must match torch minor for minor.
 - **`scipy==1.13.1`**: `fairseq2` downgrades numpy to 1.26, which strands
   newer scipy with `module 'numpy' has no attribute 'long'` at T5 import.
@@ -671,15 +660,14 @@ Ubuntu 24.04: the same image the RunPod pods run), `espeak-ng`, `lsof`,
 with `STRICT=1` (a missing optional extra fails the build); VoxCPM2's
 virtualenv at `/opt/venv_voxcpm`; and this repository at `/opt/stack`. The
 build fails if any import the server needs is missing, if spaCy's model
-doesn't load, or if transformers isn't 4.x. Using the pods' own install
-script keeps the image and the pods from drifting apart, and using the pods'
-base image means it can replace the stock one on RunPod
-(`runpod-start.sh` sees the packages and skips its ~3 minutes of installs).
+doesn't load, or if transformers isn't 4.x. The image and the pods share the
+install script and base image, so the image can replace the stock one on
+RunPod (`runpod-start.sh` sees the packages and skips its ~3 minutes of
+installs).
 
 **What's not in it: model weights.** They are ~38 GB, they change
 independently of this code, and a mounted `/workspace` lets several machines
-share one warm copy. This is also how vLLM and TGI ship. They go on the volume
-on the first start.
+share one warm copy. They go on the volume on the first start.
 
 **Users.** The image adds an unprivileged user `stack` (uid and gid 10001).
 `docker-compose.yml` runs the stack as that user, after a one-shot
@@ -728,28 +716,25 @@ don't hand it out ([licences.md §10](licences.md#10-before-you-deploy-commercia
 | `profiles/` | Hardware profiles: devices, smaller models and script defaults per setup ([Profiles](#profiles-and-devices)). |
 | `Dockerfile`, `docker-compose.yml`, `.env.example` | The Docker path. |
 | `constraints.txt`, `constraints-voxcpm.txt`, `voices.lock` | The pins ([Pins and the supply chain](#pins-and-the-supply-chain)). |
-| `server/server.py` | The server: the pipeline (VAD, language ID, rooms, streaming) and the WebSocket protocol. |
+| `server/` | The server (`server.py`, the entry point, with `pipeline.py`, `connection.py`, `rooms.py` and `handlers.py`), config (`stack_config.py`), tokens (`stack_auth.py`), licences as data (`licences.py`), the VoxCPM2 service, and the rest: every file in the [module map](dev/architecture.md#module-map). |
 | `server/engines/` | The recognisers, translators and voices, one file each, and the routing between them ([adding-an-engine.md](dev/adding-an-engine.md)). |
-| `server/stack_config.py` | Reads and validates `languages.toml`. |
-| `server/stack_auth.py` | Tokens and connection limits. |
-| `server/licences.py` | The licence of every model and voice, as data. |
-| `server/voxcpm_service.py` | The VoxCPM2 voice service (its own virtualenv). |
+| `services/omni-stt/` | A stand-alone Omnilingual recognition service ([its README](../services/omni-stt/README.md)). |
 | `scripts/`, `scripts/runpod/` | Start, install, download and build scripts ([Scripts](#scripts)). |
 | `tests/` | Unit tests (no GPU, no models, no server); `tests/test_protocol.py`, the real server on CPU with stand-in models; `tests/audio/`, short test clips. |
 | `tools/` | Tools against a running stack ([Tools](#tools)). |
 | `voices/voxcpm/` | The VoxCPM2 reference voices. |
-| `docs/`, `eval/` | Documentation (contributors' docs in `docs/dev/`), and the model evaluation's data. |
+| `docs/`, `eval/` | Documentation (contributors' docs in `docs/dev/`), and the evaluations' data ([eval/README.md](../eval/README.md)). |
 
-Tests that need no GPU (`test_capacity.py` needs numpy and scipy; its eSpeak
-NG case is skipped without `espeak-ng`):
+Every `tests/test_*.py` except `test_protocol.py` needs no GPU and runs under
+pytest, all in one process from the repository root (`pytest.ini`), as the
+`checks` job in `.github/workflows/checks.yml` runs them. The eSpeak NG case
+is skipped without `espeak-ng`, the batched-model cases without torch, and
+`test_protocol.py` without its packages (below):
 
 ```bash
-python3 tests/test_stack_auth.py && python3 tests/test_stack_config.py
-python3 tests/test_nonspeech.py && python3 tests/test_streaming.py
-python3 tests/test_engines.py && python3 tests/test_licences.py
-python3 tests/test_translation_context.py
-python3 tests/test_doc_links.py && python3 tests/test_capacity.py
-python3 tests/test_profiles.py
+pip install pytest numpy scipy websockets
+python -m pytest                                  # everything
+python -m pytest tests/test_engines.py -k chain   # one file, some tests
 python3 server/stack_config.py check
 ```
 
@@ -762,7 +747,7 @@ take about a minute once the models are cached:
 ```bash
 pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements-test.txt
-python3 -m pytest tests/test_protocol.py -v
+python -m pytest tests/test_protocol.py -v
 ```
 
 On a GPU, after any model or dependency change: `tools/smoke.py`

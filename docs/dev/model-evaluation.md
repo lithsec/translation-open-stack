@@ -61,11 +61,13 @@ Hy-MT2 scored 100% on the same direction from the stack's own transcripts
 (round 2), so that loss is not yet explained and Khmer stays on the stack.
 Confidential rooms stay on the stack and show a quality notice.
 
-**Next for Lao, Haitian Creole and Khmer.** The October rounds measured the
-gap to the cloud LLMs from real speakers (Haitian Creole into English: open
-translators 34–36%, cloud LLMs 90–93%). Whether an open-weight LLM of 8–12B
-with the previous pieces as context can close it, and the stop rule for that
-test, is set out in [low-resource-translation-plan.md](low-resource-translation-plan.md).
+**Since then.** This page records the September choice. The October rounds
+moved several directions to open LLMs served beside the stack (Gemma 4 31B,
+and MiLMMT-46 12B for Lao) through the `llmmt` engine
+([eval/2026-10-llm-translator-live](../../eval/2026-10-llm-translator-live/README.md),
+[eval/2026-10-full-stack](../../eval/2026-10-full-stack/README.md)). The
+current routes are in `languages.toml` and the
+[reference, "Translators per direction"](../reference.md#translators-per-direction).
 
 **In reserve: TranslateGemma 12B.** It could replace *both* translators with
 one model: 92% in the major languages, 77% in Haitian Creole. That makes it the
