@@ -386,5 +386,1921 @@
    "B": "gemma",
    "C": "milmmt"
   }
+ },
+ "SAID:a:en-lo": {
+  "grades": {
+   "madlad_hymt": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'prides' as generic 'groups'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward phrasing; 'Pohican' left in English."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'Prides' as 'Brides'."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'severe child'."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names: 'Scottport', 'Centra'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Kowloon translated phonetically as 'Colon'."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "'physiology' left in English."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'standing', 'sitting', and 'Chet's competitor'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated 'Arabic flair' instead of leaving incomplete."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward translation of 'occupants'."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing for 'put together'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Translated 'they' as referring to people."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'dividing by' as 'divided into'."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "'AD' left in English."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'had been scheduled'."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled: 'powers' instead of 'powders', 'clean dirty hands'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "'cruises' left in English."
+    }
+   ],
+   "milmmt": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'most social'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Sentence broken by a period before the tree name."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Translated 'Prides' as 'Brides'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Translated 'feral' as 'abandoned'."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names: 'Scottport', 'Centra'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'Kowloon' as 'Guangdong'."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'standing', 'sitting', and 'Chet's competitor'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated 'Arabic flair' instead of leaving incomplete."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'occupants' as 'those who live in buildings'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated 'until' and awkward 'After AD'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly inaccurate translation of 'had been scheduled'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "gemma": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "'pride' left in English."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'warm' as 'hot'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Typo in 'beaches' and omitted 'sandy'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Translated 'as m-' as 'us'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names: 'Scottport', 'Centra'."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled names and relationships."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated 'Arabic flair' instead of leaving incomplete."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward translation of 'occupants'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Added 'are old goods' at the end."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "'necessarily' left in English."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Included Vietnamese word 'khoảng' and repeated 'until'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'had been scheduled'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4695,
+   "candidatesTokenCount": 2569,
+   "totalTokenCount": 12932,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4695
+    }
+   ],
+   "thoughtsTokenCount": 5668,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "madlad_hymt",
+   "B": "milmmt",
+   "C": "gemma"
+  }
+ },
+ "WRITTEN:a:lo-en": {
+  "grades": {
+   "gemma": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "Translated 'house' as 'prides'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree name 'portugala'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Translated 'prides' as 'Long Phou group'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Translated 'feral' as 'naughty'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Added 'Prayut at the brokerage'."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Changed meaning to 'Acceptance is Aristotle's perspective'."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Names are completely garbled."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Used 'wit' instead of 'flair'."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation with 'male doctor'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'composite bombs' instead of 'fission bomb'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Misread 'yacht' as 'three million'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Used 'three-halves' instead of ratio 3:2."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year '1190 AD'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'dry powders'."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject for visa exemption."
+    }
+   ],
+   "madlad_hymt": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'lion's den' instead of 'prides'."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Used 'a shelter' instead of 'house'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree name 'portugala'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'proud herd' instead of 'prides'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Translated 'feral' as 'violent'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled location and added 'by taxi'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong location 'Nong Luang'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Changed meaning to 'Acceptance is Aristotle's view'."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Names are completely garbled."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'movements' instead of 'flair'."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation with 'male doctors'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'composite explosives' instead of 'fission bomb'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Misread 'yacht' as 'three million'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong ratio 'two-thirds'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year '1190 AD'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing at the end."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'batters' instead of 'dry powders'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "milmmt": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tree name 'Portuguese trees'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'males' and used 'a female'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Translated 'feral' as 'abused'."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong location 'Carroçoca'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong location 'Kwangtung side'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Changed meaning to 'Acceptance is Aristotle's view'."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Names are completely garbled."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Used 'Africa' instead of 'African'."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation with 'male doctors'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'composite bomb' instead of 'fission bomb'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Misread 'yacht' as 'three million'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong ratio 'three-quarters'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year '1190 AD'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Used 'ingredients' instead of 'dry powders'."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject for visa exemption."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3451,
+   "candidatesTokenCount": 2578,
+   "totalTokenCount": 11921,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3451
+    }
+   ],
+   "thoughtsTokenCount": 5892,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "gemma",
+   "B": "madlad_hymt",
+   "C": "milmmt"
+  }
+ },
+ "WRITTEN:b:en-lo": {
+  "grades": {
+   "madlad_hymt": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Contains untranslated English words."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Incomplete and contains untranslated English words."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missed caesium and iodine."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Incomplete translation, missed 'is widely used'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Missed cinematography, mistranslated editing."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 1800s as 18th century."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Merged sentences, altering the meaning."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'studying' as 'beautiful'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated lava as forest fire."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated tourists as terrorists."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated predominate as popular."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated telescopes as televisions."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated basic and alkaline."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'around the clock'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Translated spices as flavors."
+    }
+   ],
+   "milmmt": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'maria'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Missed Marian apparitions."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated caesium as casein."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning: 'but is Russian'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Missed Director."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 1800s as 18th century."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'studying'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated town centre as Goma town."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated tourists as terrorists."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated cabbage as carrot."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'around the clock'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "gemma": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Contains Vietnamese word."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": true,
+     "note": "Incomplete and contains Chinese character."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Contains Chinese/Japanese character."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Contains foreign script."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Incomplete translation."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Contains Chinese characters, missed Director."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 1800s as 18th century."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Merged sentences, altering the meaning."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'studying'."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Slight typo and awkward phrasing."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated tourists as terrorists."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated cabbage."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'around the clock', contains Thai word."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Contains garbled characters."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4773,
+   "candidatesTokenCount": 1777,
+   "totalTokenCount": 19403,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4773
+    }
+   ],
+   "thoughtsTokenCount": 12853,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "madlad_hymt",
+   "B": "milmmt",
+   "C": "gemma"
+  }
+ },
+ "SAID:b:en-lo": {
+  "grades": {
+   "milmmt": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Missing translation for maria."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly unnatural phrasing."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Completed truncated word to famous."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Translated caesium as casein."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrectly says local language is Russian."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Missing translation for Director."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 1800s as 18th century."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Missed studying, translated as smooth traffic."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated Goma town at the end."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Translated tourists as terrorists."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Translated telescopes as binoculars."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "Translated cabbage as pineapple."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Missed around the clock."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "madlad_hymt": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Untranslated word thinner."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly unnatural phrasing."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Untranslated words and garbled phrasing."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing caesium and iodine."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Incomplete sentence ending."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Missing translation for Cinematography."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 1800s as 18th century."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrectly merged sentences altering meaning."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Missed studying, translated as beautiful traffic."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated Goma town at the end."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Translated tourists as terrorists."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Translated predominate as popular."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Translated telescopes as televisions."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Translated alkaline as gas."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Missed around the clock."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Translated spices as flavors."
+    }
+   ],
+   "gemma": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Vietnamese word hơn."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Chinese character."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Chinese character."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Contains foreign character Tାଇ."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Chinese character and missing Director."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 1800s as 18th century."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrectly merged sentences altering meaning."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Missed studying, translated as excellent traffic."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated Goma town at the end."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Translated tourists as terrorists."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Typo in the word for cabbage."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Missed around the clock."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": false,
+     "note": "Contains weird foreign characters."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4751,
+   "candidatesTokenCount": 2456,
+   "totalTokenCount": 15102,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4751
+    }
+   ],
+   "thoughtsTokenCount": 7895,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "milmmt",
+   "B": "madlad_hymt",
+   "C": "gemma"
+  }
+ },
+ "WRITTEN:b:lo-en": {
+  "grades": {
+   "madlad_hymt": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "\"maria\" translated as lower slopes"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "added \"unreliable\", garbled ending"
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "missed \"visit\" and \"apparitions\""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"calcium\" instead of \"caesium\""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "added \"Best Actor\", missed \"Best Picture\""
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "\"these people\" instead of \"troops\""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "\"10th anniversary\" instead of \"two years\""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"2020\" instead of \"2002\""
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "\"16-gauge shotgun\" instead of \"M16 rifle\""
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "missed \"sharp curves\""
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "\"two-way radio\" instead of \"telescopes\""
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "completely wrong meaning"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"cloudy\" instead of \"dark\""
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "\"main sign\" instead of \"label\""
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "\"Paris\" instead of \"Parisians\""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "\"Kale soup\" instead of \"curry\""
+    }
+   ],
+   "gemma": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "slightly awkward phrasing"
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"they visited\" instead of \"visit\""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"calcium\" instead of \"caesium\""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "added \"Visual Effects\", missed \"Best Picture\""
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "\"1800\" instead of \"1800s\""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "added \"10\""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"2020\" instead of \"2002\""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "\"above\" is awkward"
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "completely garbled meaning"
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "completely wrong meaning"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"darker or lighter\" instead of \"dark\""
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "\"main sign\" instead of \"label\""
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "\"Sao Pari\" instead of \"Parisians\""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "milmmt": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "slightly awkward phrasing"
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "\"the north also visits\", missed apparitions"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"calcium\" instead of \"caesium\""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "missed \"Best Picture\""
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "\"1800\" instead of \"1800s\""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "\"Second World War\" instead of \"two years\""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "\"1000 percent\" instead of \"100 percent\""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"2020\" instead of \"2002\""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "missed \"predominate\""
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "\"expeditions\" instead of \"telescopes\""
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "completely wrong meaning"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"clearer or less cloudy\" instead of \"dark\""
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "\"main symbol format\" instead of \"label\""
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "\"Parisian woman\" instead of \"Parisians\""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3483,
+   "candidatesTokenCount": 1792,
+   "totalTokenCount": 12301,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3483
+    }
+   ],
+   "thoughtsTokenCount": 7026,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "madlad_hymt",
+   "B": "gemma",
+   "C": "milmmt"
+  }
  }
 }
