@@ -97,6 +97,18 @@ INPUTS = {
     "o_conv": "eval/2026-10-concise-conversational/results.json",
     "conv_readme": "eval/2026-10-concise-conversational/README.md",
     "o_ctc": "eval/2026-10-ctc-stream/results.json",
+    # Late October and November (Languages, Latency)
+    "o_drr": "eval/2026-10-de-ru-ro/results.json",
+    "drr_readme": "eval/2026-10-de-ru-ro/README.md",
+    "o_agree": "eval/2026-10-agree-live/results.json",
+    "agree_readme": "eval/2026-10-agree-live/README.md",
+    "cap_before": "eval/2026-10-room-capacity/results/before/summary.json",
+    "cap_after": "eval/2026-10-room-capacity/results/targets-at-once/summary.json",
+    "cap_readme": "eval/2026-10-room-capacity/README.md",
+    "o_com": "eval/2026-11-commercial-edition/results.json",
+    # The Lao-on-Gemma re-run: its grades fill in as the grading finishes (see com_lao_graded).
+    "o_comlao": "eval/2026-11-commercial-edition/results/lao-gemma/out/results.json",
+    "com_readme": "eval/2026-11-commercial-edition/README.md",
 }
 OCT_INPUTS = [k for k in INPUTS if k.startswith("o_")]
 OPTIONAL_INPUTS = {"latency", "lat_readme"}
@@ -477,7 +489,7 @@ def page(fname, title, body, description, extra_head="", scripts=""):
 <main id="main">
 {body}
 </main>
-<footer class="site"><div class="in"><span>Results measured September–October 2026. Code: <a href="{REPO_URL}">lithsec/translation-open-stack</a> (Apache 2.0). {anon}</span><span>by <a href="https://vortas.io">Vortas</a></span></div></footer>
+<footer class="site"><div class="in"><span>Results measured September–November 2026. Code: <a href="{REPO_URL}">lithsec/translation-open-stack</a> (Apache 2.0). {anon}</span><span>by <a href="https://vortas.io">Vortas</a></span></div></footer>
 {scripts}</body>
 </html>
 """
@@ -569,7 +581,8 @@ KIND_LEGEND = [("Cloud service", "c1"), ("Open weights", "c3")]
 # that the page builders splice into the existing pages.
 
 OCT_LANG = {"en": "English", "es": "Spanish", "pt": "Portuguese", "fr": "French", "ja": "Japanese",
-            "km": "Khmer", "lo": "Lao", "ht": "Haitian Creole", "zh": "Mandarin"}
+            "km": "Khmer", "lo": "Lao", "ht": "Haitian Creole", "zh": "Mandarin", "de": "German", "ru": "Russian",
+            "ro": "Romanian"}
 
 
 def dname(d):
@@ -742,6 +755,182 @@ def streaming_check(D):
 {ch}
 {tbl}
 <div class="prose"><p class="note">One clip per language, one run, October 2026. "Final" is measured from the end of the FLEURS recording, which carries trailing silence, so negative values are normal; compare the two systems, not the absolute values. Source: {src_link('eval/2026-10-mai-streaming-more-languages/README.md')}.</p></div>
+"""
+
+
+DRR_LANGS = [("de", "German"), ("ru", "Russian"), ("ro", "Romanian")]
+DRR_REC = [("whisper", "Whisper large-v3"), ("omni7b", "Omnilingual 7B"), ("omni300m", "Omnilingual 300M")]
+DRR_MT = [("gemma", "Gemma 4 31B", "c2"), ("hymt", "Hy-MT2 7B", "c3"), ("madlad", "MADLAD-400 7B", "c4")]
+# The translator each live configuration ran, as the README's setup table states it (cite() checks it).
+DRR_CFG = {"C1": {"out": "gemma", "in": "hymt", "ro": "madlad"}, "C2": {"out": "hymt", "in": "gemma", "ro": "gemma"}}
+DRR_LIVE = ["en-de", "de-en", "en-ru", "ru-en", "en-ro", "ro-en"]
+
+
+def drr_translator(cfg, d):
+    a, b = d.split("-")
+    return DRR_CFG[cfg]["ro" if "ro" in (a, b) else "out" if a == "en" else "in"]
+
+
+def de_ru_ro(D):
+    """Languages page: German, Russian and Romanian, recognition, typed translation and live (eval/2026-10-de-ru-ro)."""
+    R = D["o_drr"]
+    cite(D, "drr_readme", "| **C1** (PR #74 as it is) | Gemma | Hy-MT2 | MADLAD | default |")
+    cite(D, "drr_readme", "| **C2** (swapped) | Hy-MT2 | Gemma | Gemma | default |")
+    cite(D, "drr_readme", "one RTX PRO 6000 Blackwell 96 GB pod")
+    rec, mt, live = R["recognition"], R["typed_mt"], R["live"]
+    mtname = {k: n for k, n, _ in DRR_MT}
+    n_rec = rec["whisper"]["de"]["all"]["n"]
+    # recognition
+    rrows = []
+    for k, name in DRR_REC:
+        cells = []
+        for l, _ in DRR_LANGS:
+            a = rec[k][l]["all"]
+            c = f'{a["cer"]:.1f} / {a["wer"]:.1f}'
+            if "diacritics_lost_pct" in a:
+                c += f' ({a["diacritics_lost_pct"]:.1f}% of diacritics lost)'
+            cells.append(c)
+        rrows.append([name] + cells)
+    best = {l: min(DRR_REC, key=lambda kn: rec[kn[0]][l]["all"]["cer"])[1] for l, _ in DRR_LANGS}
+    # typed translation
+    typed = [d for d in ("de-en", "en-de", "ru-en", "en-ru", "ro-en", "en-ro")]
+    asr = [d + "-asr" for d in ("de-en", "ru-en", "ro-en")]
+    def tlabel(d):
+        return dname(d[:5]) + (", from Whisper's output" if d.endswith("-asr") else "")
+    trows = [[tlabel(d)] + [f'{mt[d][k]["score"]:.1f} ({mt[d][k]["crit"]})' if k in mt[d] else "–" for k, _, _ in DRR_MT] for d in typed + asr]
+    gbest = sum(1 for d in typed + asr if max(mt[d], key=lambda k: mt[d][k]["score"]) == "gemma")
+    lead = [mt[d]["gemma"]["score"] - mt[d]["hymt"]["score"] for d in typed if "hymt" in mt[d]]
+    ch = grouped("German, Russian, Romanian: typed translation",
+                 f"{n_rec} FLEURS sentences per direction, one sentence per call, all translators graded blind side by side. Higher is better.",
+                 [(dname(d), [q(mt[d][k]["score"]) if k in mt[d] else None for k, _, _ in DRR_MT], False) for d in typed],
+                 [(n, c) for _, n, c in DRR_MT], maxv=1, nav="no Romanian")
+    # live
+    S, T = live["scores"], live["latency"]
+    lrows = [[dname(d)] + [x for c in ("C1", "C2") for x in (mtname[drr_translator(c, d)], f'{S[d][c]["score"]:.1f} ({S[d][c]["crit"]})')]
+             + [f'{T["C1"][d]["p50_mean_ms"] / 1000:.2f} / {T["C2"][d]["p50_mean_ms"] / 1000:.2f} s'] for d in DRR_LIVE]
+    gap = max(abs(S[d]["C1"]["score"] - S[d]["C2"]["score"]) for d in DRR_LIVE)
+    lv = [S[d][c]["score"] for d in DRR_LIVE for c in ("C1", "C2")]
+    tv = [mt[d][k]["score"] for d in typed for k in mt[d]]
+    fa = [T[c][d]["p50_mean_ms"] / 1000 for d in DRR_LIVE for c in ("C1", "C2")]
+    o7, wh = rec["omni7b"]["ro"]["all"], rec["whisper"]["ro"]["all"]
+    return f"""<div class="prose">
+<h2 id="de-ru-ro">German, Russian and Romanian (October 2026)</h2>
+<p class="lede">German, Russian and Romanian: recognition one sentence at a time, translation of typed text, and the whole stack live.</p>
+<ul>
+<li><strong>Recognition:</strong> {esc(best['de'])} is best for German, {esc(best['ru'])} for Russian; for Romanian, {esc(best['ro'])} ({o7['cer']:.1f}% of characters wrong against {wh['cer']:.1f}% for Whisper), and it keeps every diacritic ({o7['diacritics_lost_pct']:.1f}% lost against {wh['diacritics_lost_pct']:.1f}%).</li>
+<li><strong>Typed text:</strong> Gemma 4 31B scored highest in {gbest} of {len(typed + asr)} rows, {min(lead):.1f}–{max(lead):.1f} points over Hy-MT2 where Hy-MT2 has the language.</li>
+<li><strong>Live, the translator matters much less:</strong> two configurations that swap the translators score within {gap:.1f} points of each other in every direction, {min(lv):.0f}–{max(lv):.0f} against {min(tv):.0f}–{max(tv):.0f} on typed text; first translated audio {min(fa):.1f}–{max(fa):.1f} s after the speaker stops in both.</li>
+</ul>
+<p>Recognition, {n_rec} sentences per language (characters / words wrong, %):</p>
+</div>
+{_table(["Recogniser"] + [n for _, n in DRR_LANGS], rrows)}
+{ch}
+{_table(["Direction"] + [n for _, n, _ in DRR_MT], trows)}
+<div class="prose"><p>Live, the whole stack serving English, German, Russian and Romanian, two clip sets with regular pauses (score, critical errors):</p></div>
+{_table(["Direction", "Translator, configuration 1", "Quality", "Translator, configuration 2", "Quality", "Speech ends → first audio, 1 / 2 (median)"], lrows)}
+<div class="prose"><p class="note">FLEURS read sentences, joined with artificial pauses; one grading call per direction and set, so a few points either way is noise. Typed translation is one sentence per call without context; live uses the stack's own context. One 96 GB GPU with Gemma 4 (4-bit) beside the stack. German turn lengths from the same round: <a href="latency.html#german-turns">Latency</a>. Source: {src_link('eval/2026-10-de-ru-ro/README.md')}.</p></div>
+"""
+
+
+# The commercial edition live (eval/2026-11-commercial-edition). Lao: commercial Lao now runs on Gemma 4
+# both ways; its re-run (results/lao-gemma/out/results.json) has latency but, when this was written, not
+# its grades. com_lao_graded() shows a Lao quality only once both sets are graded, so rebuilding after
+# round_lao.py has written the finished grades shows them with no change here.
+COM_LAO = ("en-lo", "lo-en")
+
+
+def com_lao_graded(r):
+    return all(x is not None for x in r["said_per_set"]) and r["said"] is not None
+
+
+def com_rows(D):
+    C = D["o_com"]
+    lao = D["o_comlao"]["summary"]
+    rows = []
+    for d, tr in C["translator"].items():
+        if d in COM_LAO:
+            g = lao[d]["gemma"]
+            ok = com_lao_graded(g)
+            rows.append({"d": d, "tr": "Gemma 4", "fa50": g["first_audio_p50"], "fa90": g["first_audio_p90"],
+                         "la50": g["last_audio_p50"], "la90": g["last_audio_p90"], "miss": sum(g["missing_audio"]),
+                         "drop": sum(g["dropped_utterances"]), "cer": g["cer_said"], "said": g["said"] if ok else None,
+                         "crit": g["crit_said"] if ok else None, "how": "lao" if ok else "pending"})
+        else:
+            r = C["commercial"][d]
+            c1 = C["de_ru_ro_C1"].get(d)
+            rows.append({"d": d, "tr": tr, "fa50": r["first_audio_p50"], "fa90": r["first_audio_p90"],
+                         "la50": r["last_audio_p50"], "la90": r["last_audio_p90"], "miss": r["missing_audio"],
+                         "drop": r["dropped_utterances"], "cer": r["cer_said"], "said": r["said"], "crit": r["crit_said"],
+                         "how": "c1" if c1 else "alone", "c1": c1["said"] if c1 else None})
+    return rows
+
+
+def com_summary(D):
+    rows = com_rows(D)
+    out = [x / 1000 for r in rows if r["d"].startswith("en-") for x in r["fa50"]]
+    into = [x / 1000 for r in rows if r["d"].endswith("-en") for x in r["fa50"]]
+    return {"rows": rows, "out": (min(out), max(out)), "into": (min(into), max(into)),
+            "la90": max(x for r in rows for x in r["la90"]) / 1000,
+            "drop": sum(r["drop"] for r in rows), "miss": sum(r["miss"] for r in rows),
+            "pending": [r["d"] for r in rows if r["how"] == "pending"]}
+
+
+def commercial_section(D):
+    """Languages page: the commercial edition live, every direction (eval/2026-11-commercial-edition)."""
+    m = com_summary(D)
+    rows = m["rows"]
+    cite(D, "com_readme", "**Commercial graded alone**: one system per call")
+    cite(D, "com_readme", "**Haitian Creole English references (`meaning_ht.json`) regenerated for both sets**")
+    cite(D, "com_readme", "**Romanian's recogniser changed** (Omnilingual 7B here, Whisper in C1)")
+    cite(D, "com_readme", "One RTX PRO 6000 Blackwell Server Edition 96 GB (RunPod secure cloud, host CUDA 13.2,\n  32 vCPUs), not the A100 80 GB of `../2026-10-full-stack`.")
+    s = lambda v: " / ".join(f"{x / 1000:.1f}" for x in v)  # noqa: E731
+
+    def graded(r):
+        if r["how"] == "pending":
+            return "pending: not graded yet"
+        if r["how"] == "lao":
+            return "beside the round's earlier Lao routes, one call per set"
+        if r["how"] == "c1":
+            return f'beside the October configuration 1 in one call (it scored {r["c1"]:.1f})'
+        return "alone: not comparable with earlier rounds" + ("; model-made English references, regenerated" if r["d"] == "ht-en" else "")
+
+    def quality(r):
+        return "pending" if r["said"] is None else f'{r["said"]:.1f} ({r["crit"]})'
+
+    def recog(r):
+        return f'{r["cer"]:.1f}%' + (" (Omnilingual 7B)" if r["d"] == "ro-en" else "")
+    trows = [[dname(r["d"]), r["tr"] + (" (re-run)" if r["d"] in COM_LAO else ""), s(r["fa50"]), s(r["fa90"]), s(r["la50"]), s(r["la90"]),
+              f'{r["miss"]} / {r["drop"]}', recog(r), quality(r), graded(r)] for r in rows]
+    table = _table(["Direction", "Translator", "Speech ends → first audio p50, set a / b (s)", "p90", "Speech ends → last audio starts p50", "p90",
+                    "Sentences without audio / utterances dropped", "Recognition (characters wrong)", "Quality, against what was said (critical)", "Graded"],
+                   trows, numeric_from=2)
+    ch = grouped("Commercial edition live: speech ends → first translated audio",
+                 "Median seconds per clip set, each direction live at real time, one at a time. Lower is better.",
+                 [(dname(r["d"]), [r["fa50"][0] / 1000, r["fa50"][1] / 1000], False) for r in rows],
+                 [("Set a", "c2"), ("Set b", "c4")], fmt=lambda v: f"{v:.1f} s",
+                 note="Lao: the re-run on Gemma 4, on a second pod with the same 96 GB GPU.")
+    pend = [r for r in rows if r["how"] == "pending"]
+    n_alone = sum(1 for r in rows if r["how"] == "alone")
+    cite(D, "com_readme", "| de→en | Hy-MT2, long turns | Hy-MT2 |")
+    cite(D, "com_readme", "Regular pauses only (1.0-1.95 s), 20 read sentences per clip.")
+    drr = {r["d"]: r for r in rows if r["how"] == "c1"}
+    de = drr.get("de-en")
+    lao_note = ("<li><strong>Lao:</strong> commercial Lao now goes to Gemma 4 both ways; the rows are its re-run. "
+                + ("Its quality is pending: the grading is not finished, so no Lao quality is shown." if pend else
+                   "Graded beside the round's earlier Lao routes in one call per set.") + "</li>")
+    return f"""<div class="prose">
+<h2 id="commercial">The commercial edition live, every direction (November 2026)</h2>
+<p class="lede">The stack with <code>EDITION=commercial</code>: only models and voices whose licences allow commercial use. {len(rows)} directions live at real time, one direction at a time, on two clip sets each.</p>
+<ul>
+<li><strong>It keeps up in every direction:</strong> {"no utterance dropped" if not m["drop"] else f'{m["drop"]} utterances dropped'}, {m["miss"]} sentence{"" if m["miss"] == 1 else "s"} without audio. First translated audio {m["out"][0]:.1f}–{m["out"][1]:.1f} s after the speaker stops out of English and {m["into"][0]:.1f}–{m["into"][1]:.1f} s into English (medians per set); the last audio of a sentence starts at most {m["la90"]:.1f} s after it at p90.</li>
+{f'<li><strong>German into English</strong>, now with longer turns, scored {de["said"] - de["c1"]:+.1f} over the October route in the same grading call.</li>' if de else ""}
+</ul>
+<p class="caveat">Read the quality column with care. {n_alone} directions were graded alone, one system per grading call, so their scores are not comparable with earlier rounds; German, Russian and Romanian were graded beside the October route in the same call. Haitian Creole into English is graded against English references regenerated by a model, not those of earlier rounds. Romanian is now heard by Omnilingual 7B instead of Whisper. The GPU is a 96 GB RTX PRO 6000, not the 80 GB A100 of the <a href="#october">October full-stack round</a>, so latencies are not a like-for-like comparison either.</p>
+<ul>{lao_note}</ul>
+</div>
+{ch}
+{table}
+<div class="prose"><p class="note">Clips: the October full-stack sets (FLEURS; CMU recordings for Haitian Creole) and the German, Russian and Romanian sets, 20 read sentences each, regular pauses. "Last audio starts": from the end of a sentence's speech to the start of its last translated audio. Recognition against what was said, except in the German, Russian and Romanian directions (against the FLEURS text). Source: {src_link('eval/2026-11-commercial-edition/README.md')}.</p></div>
 """
 
 
@@ -1194,6 +1383,11 @@ def home_results(D, S1):
     R = {r["run"]: r for r in D["cont"]["runs"]}
     b, br = R["ht-solo-15"], R["ht-breath"]
     rate = D["o_rate"]["averages"]
+    CM = com_summary(D)
+    AG = {g: {a: agree_group(D, dirs, a) for a in ("U", "A")} for g, dirs in AG_GROUPS}
+    AGq = [AG[g]["U"]["q"] - AG[g]["A"]["q"] for g, _ in AG_GROUPS]
+    AGs = [AG[g]["U"]["start"] - AG[g]["A"]["start"] for g, _ in AG_GROUPS]
+    CP = capacity_summary(D)
     rate_cut = 1 - rate["V2-P8"]["all_audio_done_after_speaker_stops_ms"] / rate["V0-P8"]["all_audio_done_after_speaker_stops_ms"]
     return f"""
 <h2 id="results">Results</h2>
@@ -1215,12 +1409,16 @@ def home_results(D, S1):
 <ul>
 <li>The current stack live in {len(rows)} directions: above 80% against what was said, {esc(", ".join(above))}; weakest {esc(dname(low["d"]))} ({pct(q(low["said"]), 0)}). <a href="languages.html#october">Languages</a></li>
 <li>Eleven more languages in a short check: {good} tested-good, two experimental, one untestable. Streamed, {esc(L('oct:mai-stream'))} makes fewer character errors than {esc(L('azure-speech'))} in all seven tested ({m7['ratio_lo'] * 100:.0f}–{m7['ratio_hi'] * 100:.0f}% as many). <a href="languages.html#short-check">Short check</a>, <a href="languages.html#streaming-check">streaming</a></li>
+<li>The commercial edition live in {len(CM["rows"])} directions: {"no utterance dropped" if not CM["drop"] else f'{CM["drop"]} utterances dropped'}, first translated audio {min(CM["out"][0], CM["into"][0]):.1f}–{max(CM["out"][1], CM["into"][1]):.1f} s after the speaker stops{"; Lao quality pending" if CM["pending"] else ""}. <a href="languages.html#commercial">Commercial edition</a></li>
+<li>German, Russian and Romanian: Omnilingual 7B hears Romanian with fewer errors than Whisper ({D["o_drr"]["recognition"]["omni7b"]["ro"]["all"]["cer"]:.1f}% against {D["o_drr"]["recognition"]["whisper"]["ro"]["all"]["cer"]:.1f}%); live, swapping the translators moved scores by at most {max(abs(D["o_drr"]["live"]["scores"][d]["C1"]["score"] - D["o_drr"]["live"]["scores"][d]["C2"]["score"]) for d in DRR_LIVE):.1f} points. <a href="languages.html#de-ru-ro">German, Russian, Romanian</a></li>
 <li>September, all 25 languages: the open stack beat {esc(L('sept:gemini-live'))} end to end in {E['wins']} of {E['n']} directions ({pct(E['stack'], 0)} against {pct(E['gl'], 0)}). <a href="languages.html#september">September evaluation</a></li>
 </ul>
 <h3>Latency</h3>
 <ul>
 <li>The open stack's first translated audio about 0.8 s after the speaker stops (September); a cloud recogniser feeding a cloud voice about 1.3 s after each sentence ends. Every other delay, labelled with what it measures. <a href="latency.html">Latency</a></li>
 <li>Phrase-by-phrase translation starts speaking about {ps[0]:.1f} s sooner than whole sentences for English with Spanish, Portuguese and French, for about {ps[1]:.0f} points of accuracy; Japanese needs whole sentences. A voice at +20% speaking rate finishes a monologue's audio {rate_cut * 100:.0f}% sooner. <a href="latency.html#phrases">Phrases</a>, <a href="latency.html#voice-rate">voice rate</a></li>
+<li>Simultaneous mode on the stack: the agree policy scores within {max(AGq):.1f} points of whole turns and starts speaking {min(AGs):.1f}–{max(AGs):.1f} s sooner. <a href="latency.html#simultaneous">Simultaneous mode</a></li>
+<li>One 96 GB GPU with Gemma 4 beside the stack serves {CP["fit"]["rooms"]} rooms of {len(CP["fit"]["langs"])} languages ({CP["fit"]["listeners"]} listeners) with at most {CP["fit"]["added_delay_vs_one_room_s"]["p90"]:.1f} s added delay at p90. <a href="latency.html#rooms">Rooms per GPU</a></li>
 <li>Continuous speech: cutting at breaths instead of 0.7 s pauses brought the first translated audio from {b["start_to_first_audio_s"]:g} s to {br["start_to_first_audio_s"]:g} s; context for the translator recovered the quality that shorter pieces lost. <a href="latency.html#continuous">Continuous speech</a></li>
 <li>Degraded audio: in hall reverb and on a Bluetooth headset, which route holds up depends on the speaker's language; noise and a room mic hurt every route. <a href="latency.html#degraded">Degraded audio</a></li>
 </ul>
@@ -1255,7 +1453,7 @@ def build_home(D, S1):
     body = f"""
 <div class="prose">
 <h1>Live speech translation on hardware you control</h1>
-<p class="lede">Translation Open Stack is an open-source server: a client streams microphone audio in and gets back captions and spoken translation for every language its listeners need, in 25 languages, from open-weight models on one GPU. This site publishes the measurements behind it, September–October 2026: how well open and cloud systems hear, translate and voice live speech, in which languages, at what delay, and where the open models fall short.</p>
+<p class="lede">Translation Open Stack is an open-source server: a client streams microphone audio in and gets back captions and spoken translation for every language its listeners need, in 25 languages, from open-weight models on one GPU. This site publishes the measurements behind it, September–November 2026: how well open and cloud systems hear, translate and voice live speech, in which languages, at what delay, and where the open models fall short.</p>
 </div>
 <section class="stats" aria-label="Headline numbers">
 <div class="stat"><div class="n">{min(r["said"] for r in live_rows):.0f}–{max(r["said"] for r in live_rows):.0f}%</div><div class="t">translation quality of the current open stack live, over {len(live_rows)} directions, graded against what the speaker said (October)</div></div>
@@ -1279,7 +1477,7 @@ curl http://localhost:8790/health</code></pre>
 </div>
 """
     page("index.html", "Translation Open Stack Research",
-         body, "Measurements behind an open live speech translation stack: recognition, translation, latency, languages and cost, September–October 2026.")
+         body, "Measurements behind an open live speech translation stack: recognition, translation, latency, languages and cost, September–November 2026.")
 
 
 def degrade_means(D):
@@ -1824,10 +2022,12 @@ def cite(D, key, needle):
 def load_more(D):
     D["text"] = {}
     for k in ("sept_doc", "oct_doc", "htv_readme", "azg_readme", "omni_readme", "degr_readme", "cont_readme", "caz_readme", "fcost_readme", "sc_readme",
-              "mai7_readme", "lkc_readme", "solor_readme", "rate_readme", "conv_readme"):
+              "mai7_readme", "lkc_readme", "solor_readme", "rate_readme", "conv_readme", "drr_readme", "agree_readme", "cap_readme",
+              "com_readme"):
         with open(os.path.join(ROOT, INPUTS[k]), encoding="utf-8") as f:
             D["text"][k] = f.read()
-    for k in ("derived", "r6lao", "asr300", "nat", "voxspeed", "r8asr", "r8mt", "r8nat", "degr", "cont", "caz", "fcost", "prices"):
+    for k in ("derived", "r6lao", "asr300", "nat", "voxspeed", "r8asr", "r8mt", "r8nat", "degr", "cont", "caz", "fcost", "prices",
+              "cap_before", "cap_after"):
         D[k] = J(INPUTS[k])
     p = os.path.join(ROOT, INPUTS["latency"])
     D["latency"] = J(INPUTS["latency"]) if os.path.isfile(p) else None
@@ -2078,9 +2278,11 @@ def build_languages(D):
     cite(D, "sept_doc", "Khmer's voice starts ~0.1 s after its text instead of 1.5 s")
     body_html = f"""<div class="prose">
 <h1>Languages</h1>
-<p class="lede">What the stack does per language: the current open stack live in {len(full_rows(D))} directions, a short check of eleven more languages, and the September evaluation of all {len(rows)}.</p>
+<p class="lede">What the stack does per language: the current open stack live in {len(full_rows(D))} directions, the commercial edition live in {len(com_rows(D))}, German, Russian and Romanian, a short check of eleven more languages, and the September evaluation of all {len(rows)}.</p>
 </div>
 {oct_languages(D)}
+{commercial_section(D)}
+{de_ru_ro(D)}
 {short_check(D)}
 {streaming_check(D)}
 <div class="prose">
@@ -2125,7 +2327,7 @@ def build_languages(D):
 </ul>
 </div>"""
     page("languages.html", "Languages", body_html,
-         "Per-language recognition, translation and voice results: the current open stack live (October 2026), a short check of eleven more languages, and the September evaluation of all 25.")
+         "Per-language recognition, translation and voice results: the current open stack live (October 2026), the commercial edition live (November 2026), German, Russian and Romanian, a short check of eleven more languages, and the September evaluation of all 25.")
     return {"wins": wins}
 
 
@@ -2829,6 +3031,138 @@ def ctc_stream_section(D):
 <div class="prose"><p class="note">Capacity: about {cap} always-talking streams per L4 ({util}% GPU) before commits slip; load does not change the text. The 3B does not fit beside the 7B on an L4, so it runs as its own service. One run, {esc(D['o_ctc']['date'])}. Source: {src_link('eval/2026-10-ctc-stream/README.md')}.</p></div>"""
 
 
+AG_ARMS = [("U", "Whole turns (the default)"), ("C", "Simultaneous, clause rule"), ("A", "Simultaneous, agree")]
+AG_GROUPS = [("Out of English (en→es, en→fr)", ("en-es", "en-fr")), ("Into English (es→en, fr→en)", ("es-en", "fr-en"))]
+
+
+def agree_group(D, dirs, arm):
+    """One arm over a group's clips (two directions × two pause patterns): mean quality and critical errors
+    per clip, latencies as the median of the per-clip medians (s)."""
+    S, T = D["o_agree"]["stream"]["scores"], D["o_agree"]["stream"]["latency"]
+    ks = [f"{d}:{p}" for d in dirs for p in ("reg", "irr")]
+    med = lambda m, f: st.median(T[k][arm][m][f] for k in ks) / 1000  # noqa: E731
+    return {"q": st.mean(S[k][arm]["score"] for k in ks), "crit": st.mean(S[k][arm]["crit"] for k in ks),
+            "start": med("start_to_first_audio_ms", "p50"), "stop": med("stop_to_first_audio_ms", "p50"),
+            "end50": med("stop_to_audio_end_ms", "p50"), "end90": med("stop_to_audio_end_ms", "p90")}
+
+
+def agree_section(D):
+    """Latency: simultaneous mode on the stack, three arms (eval/2026-10-agree-live), and German turn lengths."""
+    A = D["o_agree"]
+    cite(D, "agree_readme", "opt-in (`?stream=1&policy=agree`)")
+    cite(D, "agree_readme", "8 of the 20 English recordings say something other")
+    cite(D, "agree_readme", "(20 FLEURS sentences, regular *reg* 1.0–1.95 s and")
+    cite(D, "agree_readme", "**G3** long turns as ja/ht/km/lo (900 ms pause, 500 ms after 8 s, at least 2.5 s of speech) cut at 15 s")
+    cite(D, "agree_readme", "**G5** the same cut at 12 s; **G4** cut at 10 s.")
+    G = {g: {a: agree_group(D, dirs, a) for a, _ in AG_ARMS} for g, dirs in AG_GROUPS}
+    rows = [[g if i == 0 else "", lab, f'{G[g][a]["q"]:.1f}', f'{G[g][a]["crit"]:.1f}', f'{G[g][a]["start"]:.1f}', f'{G[g][a]["stop"]:+.1f}',
+             f'{G[g][a]["end50"]:.1f} / {G[g][a]["end90"]:.1f}'] for g, _ in AG_GROUPS for i, (a, lab) in enumerate(AG_ARMS)]
+    tbl = _table(["Group", "Arm", "Quality", "Critical per clip", "Speech starts → first audio", "Speech ends → first audio",
+                  "Speech ends → audio ends, p50 / p90"], rows, numeric_from=2)
+    ch = grouped("Simultaneous mode on the stack: quality by arm",
+                 "Gemma 4 (4-bit) beside the stack, Whisper hearing; mean of two directions and two pause patterns, all arms graded blind side by side. Higher is better.",
+                 [(g.split(" (")[0], [q(G[g][a]["q"]) for a, _ in AG_ARMS], False) for g, _ in AG_GROUPS],
+                 [(lab, c) for (_, lab), c in zip(AG_ARMS, ("c3", "c1", "c2"))], maxv=1)
+    S = A["stream"]["scores"]
+    clips = [[dname(k.split(":")[0]) + (" (irregular pauses)" if k.endswith(":irr") else "")]
+             + [f'{S[k][a]["score"]:.1f} ({S[k][a]["crit"]})' for a, _ in AG_ARMS] for k in S]
+    gu = [G[g]["U"]["q"] - G[g]["A"]["q"] for g, _ in AG_GROUPS]
+    gc = [G[g]["U"]["q"] - G[g]["C"]["q"] for g, _ in AG_GROUPS]
+    so = [G[g]["U"]["start"] - G[g]["A"]["start"] for g, _ in AG_GROUPS]
+    before = [-G[g]["A"]["stop"] for g, _ in AG_GROUPS]
+    a_crit_ok = all(G[g]["A"]["crit"] <= G[g]["U"]["crit"] for g, _ in AG_GROUPS)
+    c_crit_more = all(G[g]["C"]["crit"] > G[g]["U"]["crit"] for g, _ in AG_GROUPS)
+    c_not_sooner = all(G[g]["C"]["start"] >= G[g]["A"]["start"] for g, _ in AG_GROUPS)
+    # German turns
+    GT = A["german"]
+    order = ["G1", "G3", "G5", "G4"]
+    gs, gl = GT["scores"], GT["latency"]
+    pl = lambda k, p: f'{gl[f"de-en:{p}"][k]["stop_to_first_audio_ms"]["p50"] / 1000:.1f} / {gl[f"de-en:{p}"][k]["stop_to_first_audio_ms"]["p90"] / 1000:.1f}'  # noqa: E731
+    grows = [[GT["systems"][k], f'{gs["de-en:reg"][k]["score"]:.1f} ({gs["de-en:reg"][k]["crit"]})', f'{gs["de-en:irr"][k]["score"]:.1f} ({gs["de-en:irr"][k]["crit"]})',
+              pl(k, "reg"), pl(k, "irr")] for k in order]
+    gm = lambda k: st.mean(gs[f"de-en:{p}"][k]["score"] for p in ("reg", "irr"))  # noqa: E731
+    p90 = lambda k: gl["de-en:irr"][k]["stop_to_first_audio_ms"]["p90"] / 1000  # noqa: E731
+    dt = D["o_drr"]["german_turns"]
+    d_gain = st.mean(dt["scores"][f"de-en-turns:{p}"]["C3"]["score"] - dt["scores"][f"de-en-turns:{p}"]["C1"]["score"] for p in ("reg", "irr"))
+    cap = D["table"]["de"].get("max_utterance_s")
+    return f"""<div class="prose"><h2 id="simultaneous">Simultaneous mode on the stack: whole turns, clause rule, agree (October)</h2>
+<p>Three ways for the stack to decide when to speak, live on one GPU with the same recogniser and translator. <strong>Whole turns</strong> translate each turn once the speaker pauses. In simultaneous mode (<code>?stream=1</code>) Whisper re-reads the turn every second and words two passes agree on are committed; the <strong>clause rule</strong> speaks committed words a clause at a time, while <strong>agree</strong> (<code>?stream=1&amp;policy=agree</code>, opt-in) has the translator translate the turn so far at each pass and speaks the words two successive translations agree on.</p>
+<ul>
+<li><strong>Agree scores within {min(gu):.1f}–{max(gu):.1f} points of whole turns</strong>{" with no more critical errors" if a_crit_ok else ""}, and starts speaking {min(so):.1f}–{max(so):.1f} s sooner, usually {min(before):.1f}–{max(before):.1f} s before the speaker has finished the sentence (median).</li>
+<li><strong>The clause rule is {min(gc):.0f}–{max(gc):.0f} points below whole turns</strong>{", with more critical errors" if c_crit_more else ""}{", and does not start sooner than agree" if c_not_sooner else ""}.</li>
+</ul></div>
+{ch}
+{tbl}
+<details class="data"><summary>Per clip: quality (critical errors)</summary>{_table(["Clip"] + [lab for _, lab in AG_ARMS], clips)}</details>
+<div class="prose"><p class="note">Latencies in seconds, medians of the per-clip medians; negative: before the speaker stops. Out-of-English scores are low for every arm because some English recordings say something other than the FLEURS text they are graded against; compare arms, not absolute values. One clip of 20 read sentences per direction and pause pattern, one grading call per clip. Source: {src_link('eval/2026-10-agree-live/README.md')}.</p>
+<h3 id="german-turns">German: how long a turn may run</h3>
+<p>Longer turns (a 900 ms pause, 500 ms after 8 s, at least 2.5 s of speech) gained {d_gain:.1f} points in the {src_link('eval/2026-10-de-ru-ro/README.md', 'German, Russian and Romanian round')} with a 15 s cap, but the slowest tenth waited {dt["latency"]["C3_irr"]["stop_to_first_audio_ms"]["p90"] / 1000:.1f} s with irregular pauses. Re-run with lower caps (German into English, Hy-MT2, whole turns): cut at 12 s, long turns score {gm("G5"):.1f} against {gm("G1"):.1f} for the default turns, and the slowest tenth waits {p90("G5"):.1f} s instead of {p90("G3"):.1f} s; cut at 10 s the gain is gone. {f"German now takes long turns cut at {cap:g} s (<code>languages.toml</code>)." if cap else ""}</p></div>
+{_table(["Turns", "Quality, regular pauses", "Irregular pauses", "Speech ends → first audio p50 / p90, regular (s)", "Irregular"], grows)}
+<div class="prose"><p class="note">One clip of 20 sentences per cell, one grading call each. Source: {src_link('eval/2026-10-agree-live/README.md')}.</p></div>
+"""
+
+
+# A load level "keeps up" on the capacity page when it drops nothing and adds at most this much delay at p90 (s).
+CAP_MAX_ADDED = 1.0
+
+
+def _sgn(v):
+    """+1.2, −0.3, ±0.0 (seconds)."""
+    return "±0.0" if round(v, 1) == 0 else f"{v:+.1f}".replace("-", "−")
+
+
+def capacity_rows(D):
+    b = {x["level"]: x for x in D["cap_before"]}
+    a = {x["level"]: x for x in D["cap_after"]}
+    return [(k, b[k], a[k]) for k in a if k in b]
+
+
+def capacity_summary(D):
+    rows = capacity_rows(D)
+    four = [x for _, _, x in rows if len(x["langs"]) == 4]
+    ok = [x for x in four if not x["dropped_utterances"] and x["added_delay_vs_one_room_s"]["p90"] is not None
+          and x["added_delay_vs_one_room_s"]["p90"] <= CAP_MAX_ADDED]
+    fit = max(ok, key=lambda x: x["rooms"])
+    behind = min((x for x in four if x["dropped_utterances"]), key=lambda x: x["rooms"], default=None)
+    wide = next((b, a) for _, b, a in rows if len(a["langs"]) > 4 and a["rooms"] == 1)
+    mem = [x["gpu_mem_peak_mb"] / 1000 for _, b, a in rows for x in (b, a)]
+    return {"rows": rows, "fit": fit, "behind": behind, "wide": wide, "mem": (min(mem), max(mem))}
+
+
+def capacity_section(D):
+    """Latency: how many rooms one 96 GB card serves, before and after Gemma's targets went out at once (eval/2026-10-room-capacity)."""
+    cite(D, "cap_readme", "the stack's defaults are 30 connections per access token and 60 in total")
+    cite(D, "cap_readme", "One clip, read speech with regular pauses, every room speaking at the same time from start to end")
+    cite(D, "cap_readme", "on one\nRTX PRO 6000 Blackwell 96 GB")
+    cite(D, "cap_readme", "the same 20-sentence clip")
+    cite(D, "cap_readme", "Compute is the limit.")
+    m = capacity_summary(D)
+
+    def added(x):
+        v = x["added_delay_vs_one_room_s"]
+        return "–" if x["rooms"] == 1 or v["p50"] is None else f'{_sgn(v["p50"])} / {_sgn(v["p90"])}'
+    rows = [[f'{a["rooms"]} × {len(a["langs"])}', str(a["listeners"]), added(b), added(a),
+             f'{b["backlog_after_clip_end_s"]["max"]:.1f}', f'{a["backlog_after_clip_end_s"]["max"]:.1f}',
+             str(b["dropped_utterances"]), str(a["dropped_utterances"])] for _, b, a in m["rows"]]
+    tbl = _table(["Rooms × languages", "Listeners", "Added delay p50 / p90 (s), before", "After", "Backlog when the clip ends (s), before",
+                  "After", "Dropped, before", "After"], rows)
+    f, wb, wa = m["fit"], m["wide"][0], m["wide"][1]
+    four = ", ".join(LANG_NAMES.get(l, l) for l in f["langs"])
+    many = ", ".join(LANG_NAMES.get(l, l) for l in wa["langs"])
+    bh = m["behind"]
+    return f"""<div class="prose"><h2 id="rooms">The whole stack under load: rooms per GPU (October)</h2>
+<p>Rooms connected at once to one stack on a 96 GB RTX PRO 6000 with Gemma 4 (4-bit) beside it, each room one English speaker streaming the same 20-sentence clip in real time, with one listener per language: {len(f["langs"])} ({esc(four)}) or {len(wa["langs"])} ({esc(many)}). <em>Added delay</em> is how much later each turn's first audio arrives than with one room; <em>backlog</em> is how long after the clip ends the last audio arrives; <em>dropped</em> counts utterances the stack dropped because it fell behind. "Before" is the stack as shipped, "after" has a room's translations into every target sent to Gemma at once.</p>
+<ul>
+<li><strong>After the change, one card serves {f["rooms"]} rooms of {len(f["langs"])} languages ({f["listeners"]} listeners)</strong> with at most {f["added_delay_vs_one_room_s"]["p90"]:.1f} s added at p90{f'; at {bh["rooms"]} rooms it falls behind and drops utterances' if bh else ""}.</li>
+<li><strong>One room in {len(wa["langs"])} languages</strong> fell {wb["backlog_after_clip_end_s"]["max"]:.1f} s behind as shipped and {wa["backlog_after_clip_end_s"]["max"]:.1f} s after the change; a room in many languages costs more than its count of listeners.</li>
+<li><strong>Memory is not the limit:</strong> peak GPU memory {m["mem"][0]:.0f}–{m["mem"][1]:.0f} GB at every level; compute is.</li>
+<li>The stack's default connection limits (30 per access token, 60 in total) bind before the card does when one token opens every room.</li>
+</ul></div>
+{tbl}
+<div class="prose"><p class="note">"–": no comparison (one room is the baseline) or no turn timed because utterances were dropped. One read clip with regular pauses, every room speaking at once from start to end: a harder load than real rooms. Whole turns only; nonprofit voices on the CPU. Source: {src_link('eval/2026-10-room-capacity/README.md')}.</p></div>
+"""
+
+
 def build_latency(D, S1):
     oct_doc = src_link("docs/dev/route-findings-2026-10.md", "route-findings-2026-10.md")
     sept_doc = src_link("docs/dev/model-evaluation.md", "model-evaluation.md")
@@ -2961,8 +3295,12 @@ def build_latency(D, S1):
     ctc_ok = [l for l, v in CS.items() if v["ok"]]
     lk = " and ".join(OCT_LANG[l] for l in ctc_ok)
     fp = [x["la2"]["first_partial"]["p50"] for l in ctc_ok for x in CS[l]["sets"]]
+    CM = com_summary(D)
+    AGs = [agree_group(D, dirs, "A")["start"] for _, dirs in AG_GROUPS]
     summary = [
         ["Open stack, end to end (Sept)", "~0.8 s", "speaker stops → first translated audio", "end to end", "synthetic", "model-evaluation.md §3.1"],
+        [f"Open stack, commercial edition, {len(CM['rows'])} directions (Nov)", f"{min(CM['out'][0], CM['into'][0]):.1f}–{max(CM['out'][1], CM['into'][1]):.1f} s", "speaker stops → first translated audio (median per clip set)", "end to end", "real", "eval/2026-11-commercial-edition"],
+        ["Open stack, simultaneous agree (Oct)", f"{min(AGs):.1f}–{max(AGs):.1f} s", "speaker <em>starts</em> → first translated audio (median)", "end to end", "real", "eval/2026-10-agree-live"],
     ] + ([[f"Open stack streaming, {lk} (Oct)", f"{min(fp):.1f}–{max(fp):.1f} s", "speaker starts → first live text (partial)", "recognition only", "real", "eval/2026-10-ctc-stream"]] if ctc_ok else []) + [
         [f"{gl}, end to end (Sept)", "~2.8 s", "speaker <em>starts</em> → first translated audio (it talks mid-sentence)", "end to end", "synthetic", "model-evaluation.md §3.1"],
         [f"{az} STT → {gem} (Oct)", "~1.3 s", "sentence ends → translated audio starts", "end to end", "synthetic", "route-findings §3; " + azg(link=False)],
@@ -2980,7 +3318,7 @@ def build_latency(D, S1):
     body = f"""<div class="prose">
 <h1>Latency</h1>
 <p class="lede">Every delay measured, labelled with what it measures: from when the speaker <em>stops</em> or from when they <em>start</em>; one stage or end to end; synthetic speech or real speakers. Numbers from different rows are not interchangeable.</p>
-<p class="caveat">Measured September–October 2026; cloud timings are from a client in the US and change with load and region. Where a figure is quoted from a write-up rather than a result file, the source says so.</p>
+<p class="caveat">Measured September–November 2026; cloud timings are from a client in the US and change with load and region. Where a figure is quoted from a write-up rather than a result file, the source says so.</p>
 </div>
 <h2 id="summary">At a glance</h2>
 {sum_tbl}
@@ -2997,6 +3335,7 @@ def build_latency(D, S1):
 {ep_chart}
 <details class="data"><summary>Waits, decode time and error per setting</summary>{ep_tbl}<p class="note">GPU: {esc(sw['gpu'])}. Per-sentence p90 is long because a sentence that never pauses waits for the forced cut.</p></details>
 {ctc_stream_section(D)}
+{agree_section(D)}
 <div class="prose"><h2 id="translation">Translation</h2></div>
 {tr_chart}
 <div class="prose"><h2 id="voices">Voices: time to first audio</h2>
@@ -3005,6 +3344,7 @@ def build_latency(D, S1):
 <div class="prose"><h2 id="load">omni-stt under load</h2>
 <p>Batching decodes the waiting utterances of every connection in one GPU call, with prompts left-padded so they finish together (<a href="{PR18}">PR #18</a>).</p></div>
 {load_tbl}
+{capacity_section(D)}
 {latency_results_section(D)}
 {degraded_section(D)}
 {continuous_section(D)}
@@ -3014,7 +3354,7 @@ def build_latency(D, S1):
 <h2>Sources</h2>
 <ul>
 <li>{sept_doc}, {oct_doc}, {src_link('eval/2026-10-ht-voices/README.md')}, {src_link('services/omni-stt/README.md')}, <a href="{PR18}">PR #18</a>.</li>
-<li>Result files: {src_link('eval/2026-10-real-voices')}, {src_link('eval/2026-10-translator-shootout')}, {src_link('eval/2026-10-omni-sizes/results.json')}, {src_link('eval/2026-10-ctc-stream/results.json')}, {azg('eval/2026-10-azure-stt-gemini/results.json')} (delays copied by <code>site/extract_derived.py</code>), {src_link('eval/2026-09-model-eval/results/voxcpm_speed.json')}, {src_link('eval/2026-10-latency/degraded')}, {src_link('eval/2026-10-continuous-ht')}, {src_link('eval/2026-10-continuous-azure')}, {src_link('eval/2026-10-simultaneous-phrases')}, {src_link('eval/2026-10-voice-rate-compact')}, {src_link('eval/2026-10-concise-conversational')}.</li>
+<li>Result files: {src_link('eval/2026-10-real-voices')}, {src_link('eval/2026-10-translator-shootout')}, {src_link('eval/2026-10-omni-sizes/results.json')}, {src_link('eval/2026-10-ctc-stream/results.json')}, {azg('eval/2026-10-azure-stt-gemini/results.json')} (delays copied by <code>site/extract_derived.py</code>), {src_link('eval/2026-09-model-eval/results/voxcpm_speed.json')}, {src_link('eval/2026-10-latency/degraded')}, {src_link('eval/2026-10-continuous-ht')}, {src_link('eval/2026-10-continuous-azure')}, {src_link('eval/2026-10-simultaneous-phrases')}, {src_link('eval/2026-10-voice-rate-compact')}, {src_link('eval/2026-10-concise-conversational')}, {src_link('eval/2026-10-agree-live')}, {src_link('eval/2026-10-de-ru-ro')}, {src_link('eval/2026-10-room-capacity')}, {src_link('eval/2026-11-commercial-edition')}.</li>
 </ul>
 </div>"""
     page("latency.html", "Latency", body, "Every latency measured for live speech translation, open and cloud, each labelled with what it measures.")
