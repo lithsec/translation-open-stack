@@ -1,0 +1,6413 @@
+{
+ "WRITTEN:a:en-es": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "\"que viven\" changes meaning slightly to restrictive clause."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "\"pohutukawa\" incorrectly translated as \"pohican\"."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "\"Prides\" translated as \"novias\", missing females/cubs."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Misrecognized proper names Scotturb and Sintra."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "\"psychology\" incorrectly translated as \"fisiología\"."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"standing\", garbled names and nationalities."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "\"African\" incorrectly translated as \"árabe\"."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Missing \"as antiques\" at the end."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "\"archipelagos\" translated as singular \"archipiélago\"."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Stutter \"hasta u hasta\", slightly altered meaning."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"had been scheduled\" at the end."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"(check the terms)\"."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1819,
+   "candidatesTokenCount": 799,
+   "totalTokenCount": 5297,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1819
+    }
+   ],
+   "thoughtsTokenCount": 2679,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:a:en-es": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Relative clause changes meaning slightly; participle preferred."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "'Natación segura' is awkward for 'safe swimming'."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "'Prides' mistranslated as 'novias'; garbled ending."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Named entities 'Scotturb' and 'Sintra' are garbled."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'standing'; misplaced 'competitor of Chet'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Added 'un aire árabe' at the end."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Translated plural 'archipelagos' as singular."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Stutter 'hasta u hasta'; awkward sentence structure."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'had been scheduled' at the end."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1789,
+   "candidatesTokenCount": 749,
+   "totalTokenCount": 4475,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1789
+    }
+   ],
+   "thoughtsTokenCount": 1937,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:en-fr": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "pohutukawa translated as pohican"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing thirty females and cubs"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong names for Scotturb and Sintra"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "psychology translated as physiologie"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Multiple names and nationalities mistranslated"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "African translated as arabe"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'as antiques' at the end"
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "archipelagos translated as singular archipel"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly alters the subject of began"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'had been scheduled'"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Missing '(check the terms)'"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1861,
+   "candidatesTokenCount": 743,
+   "totalTokenCount": 4435,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1861
+    }
+   ],
+   "thoughtsTokenCount": 1831,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:a:en-fr": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Pohikina misspelled as pohican."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Added 'nous' incorrectly for 'as m-'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity names (Scottport, Centra)."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names (Gowrie, Joklin)."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Added 'qu'un style arabe' incorrectly."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'occupants' as 'postes' (occupations)."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Archipelagos translated as singular."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing changes subject of 'began'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'had been scheduled'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1831,
+   "candidatesTokenCount": 734,
+   "totalTokenCount": 4387,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1831
+    }
+   ],
+   "thoughtsTokenCount": 1822,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:en-ht": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "\"sosyo\" is slightly awkward, \"sosyal\" is better."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "\"pohutukawa\" mistranslated as \"Pohican\"."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Missing females and cubs, translated as \"us\"."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "\"feral\" and \"trauma\" left in English/unidiomatic."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Proper nouns Scotturb and Sintra misspelled."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Uses French word \"vue\" instead of \"vi\"."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "\"psychology\" mistranslated as \"fizyoloji\" (physiology)."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Names misspelled, missing \"standing\", \"Czech\" mistranslated."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "\"African\" mistranslated as \"Arab\"."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "\"nucleus\" should be \"nwayo\", not \"nikleyo\"."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"as antiques\" at the end."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing for the ratio."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled text \"jiska u jiska vè\"."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Sentence is cut off at the end."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Misspellings and awkward word choices (eskize/egzante)."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1951,
+   "candidatesTokenCount": 908,
+   "totalTokenCount": 5121,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1951
+    }
+   ],
+   "thoughtsTokenCount": 2262,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:a:en-ht": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"Brid\" and \"machbèl\" are incorrect; added \"nou\"."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Names misspelled due to ASR errors."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing and ASR name errors."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinates \"style Arab\" at the end."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "\"nikleyo\" is not standard for nucleus."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Contains a stutter/repetition \"jiska u jiska\"."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing translation for \"had been scheduled\"."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "\"kwiz\" is a typo; \"eskize\" is awkward."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1921,
+   "candidatesTokenCount": 743,
+   "totalTokenCount": 4659,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1921
+    }
+   ],
+   "thoughtsTokenCount": 1995,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:en-ja": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward structure, 'pohutukawa' mistranslated as 'ポヒカン'."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "'Prides' mistranslated as 'brides', missing females/cubs."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Names 'Scotturb' and 'Sintra' are transliterated incorrectly."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "'Psychology' mistranslated as 'physiology' (生理学)."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled names, 'Czech competitor' mistranslated."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "'African' omitted, says 'Arabic rather than Arabic'."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "'Occupations' mistranslated as 'tenants' (入居者)."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "'As antiques' omitted in the second sentence."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward sentence splitting."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Tense issue: 'had been scheduled' translated as future."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "'(check the terms)' is completely omitted."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1850,
+   "candidatesTokenCount": 802,
+   "totalTokenCount": 4440,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1850
+    }
+   ],
+   "thoughtsTokenCount": 1788,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:a:en-ja": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence structure at the end."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "'Prides' mistranslated as 'brides' (花嫁)."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Proper nouns Scotturb and Sintra are garbled."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Competitor relation attached to wrong person."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Contradictory translation of the cut-off phrase."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "'Occupants' translated literally, making no sense."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing for the cut-off sentence."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkwardly split into two sentences."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missed past perfect tense for Olympics schedule."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1820,
+   "candidatesTokenCount": 739,
+   "totalTokenCount": 4454,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1820
+    }
+   ],
+   "thoughtsTokenCount": 1895,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:en-km": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "cats translated as សត្វអំបែង (wrong word)"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "prides translated as bride, Bengali word used"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Names transliterated incorrectly"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "psychology translated as physiology"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Czech competitor mistranslated, standing omitted"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Thai word used, African mistranslated as Arabic"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "occupations mistranslated as invasions/taking over"
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Foreign characters used, missing 'as antiques'"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Typo and Vietnamese word used"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'had been scheduled' at the end"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Missing '(check the terms)'"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2303,
+   "candidatesTokenCount": 822,
+   "totalTokenCount": 5694,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2303
+    }
+   ],
+   "thoughtsTokenCount": 2569,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:a:en-km": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong word used for cats (អំបែង instead of អម្បូរឆ្មា)."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Translated 'prides' as 'brides'; contains Bengali word."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Transliteration errors for Scotturb and Sintra."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Misattributed 'Chet's competitor' to Mitchell instead of Ulrich."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Contains a Thai word and repetitive phrasing."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward translation of 'occupants'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Telugu and Thai characters."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Typo in Khmer word and contains a Vietnamese word."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'had been scheduled' at the end."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2273,
+   "candidatesTokenCount": 825,
+   "totalTokenCount": 5739,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2273
+    }
+   ],
+   "thoughtsTokenCount": 2641,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:en-pt": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "'Alcateias' is typically for wolves, not lions."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "'pohutukawa' incorrectly translated as 'pohican'."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled meaning ('noivas', 'conosco')."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names ('Scottport', 'Centra')."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "'psychology' incorrectly translated as 'fisiologia'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Names garbled, 'standing' omitted."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "'African' incorrectly translated as 'árabe'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'as antiques' in the second sentence."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "'archipelagos' translated as singular."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Typo ('até u até') and slightly awkward phrasing."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Sentence is cut off at the end."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted '(check the terms)'."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1837,
+   "candidatesTokenCount": 849,
+   "totalTokenCount": 4653,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1837
+    }
+   ],
+   "thoughtsTokenCount": 1967,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:a:en-pt": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Translated 'prides' as 'brides' and garbled meaning."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names for Scotturb and Sintra."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'standing' and garbled competitor relationship."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated 'Arabic flair' at the end."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'occupants' as 'vacancies' (vagas)."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Translated plural 'archipelagos' as singular."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward phrasing and contains a typo 'u'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'had been scheduled' at the end."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1807,
+   "candidatesTokenCount": 812,
+   "totalTokenCount": 4594,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1807
+    }
+   ],
+   "thoughtsTokenCount": 1975,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:es-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splitting the sentence."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Uses 'herds' instead of 'prides' for lions."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Misspells 'Scotturb' as 'Skoturb'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splitting the sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Misspells names 'Gourley' and 'Oldrich'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splitting the sentence."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Incorrectly uses '3.2' instead of '3:2'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Says 'BC' instead of 'A.D.' per reference."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splitting the sentence."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1944,
+   "candidatesTokenCount": 747,
+   "totalTokenCount": 5697,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1944
+    }
+   ],
+   "thoughtsTokenCount": 3006,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:fr-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Pohutukawa mistranslated as drinking cock thorns."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Wild children is less idiomatic than feral children."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Proper nouns Scotturb and Cabo da Roca misspelled."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Super-G assis homme mistranslated as Super JAC Home."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Transforms energy instead of takes energy."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Did not extend until is slightly awkward."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Voir les conditions mistranslated as well as related conditions."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1914,
+   "candidatesTokenCount": 716,
+   "totalTokenCount": 4908,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1914
+    }
+   ],
+   "thoughtsTokenCount": 2278,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:ht-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'your people' as 'people of God'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Translated 'mouths' as 'pockets'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'Here is the land'."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Translated '11 days' as 'one day'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'large basin', added 'two', 'round doors'."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Fragmented sentence structure."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'festivals' as 'parties'."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled translation."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'giving my own opinion'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted the number '250'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Run-on with the next sentence."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Merged with previous sentence, missing first part."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": true,
+     "note": "Mistranslated 'Canaanites' as 'people of Garan'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2001,
+   "candidatesTokenCount": 798,
+   "totalTokenCount": 5376,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2001
+    }
+   ],
+   "thoughtsTokenCount": 2577,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:ja-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated pohutukawa as Poftsu River; sunburn instead of shade."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'severe' and added 'during their early years'."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong named entities (Shintounai, scooter, Kabodaroka)."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong name (Oldřich Eliáš) and omitted category."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong name (Ko instead of Hu)."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated archipelagos as military islands."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled meaning regarding the mathematical operation."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward and omits 'into a ball'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Incorrectly added 'in parentheses'."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1855,
+   "candidatesTokenCount": 747,
+   "totalTokenCount": 5103,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1855
+    }
+   ],
+   "thoughtsTokenCount": 2501,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:km-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Tense differs from reference."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong tree type (palm vs pohutukawa)."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": true,
+     "note": "Incorrectly states 'totaling thirty animals'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'Feral children' as 'Child Anna'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong destinations (Santa Cruz, Cabo Rojo)."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong names, wrong events, garbled numbers."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing ('revolutionary positions')."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Says 'generating energy' instead of 'takes energy'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'tax agencies' as 'Ponda agents'."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Missing the number '2' at the end."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong era (BC instead of A.D.)."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split at the end."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'dry powders' as 'dough balls'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2490,
+   "candidatesTokenCount": 817,
+   "totalTokenCount": 6176,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2490
+    }
+   ],
+   "thoughtsTokenCount": 2869,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:pt-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "\"a casa\" means house, not hunting."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"shadows\" is awkward for shade; misspelled tree."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "\"com parada\" means stopping, not passing by."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missed \"standing\" category; awkward \"sitting down\"."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence fragmentation."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1852,
+   "candidatesTokenCount": 666,
+   "totalTokenCount": 4809,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1852
+    }
+   ],
+   "thoughtsTokenCount": 2291,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:en-es": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "\"maria\" refers to lunar seas, not a name."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"famous Marian apparitions\"."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"caesium\" mistranslated as \"caseína\" (casein)."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"is widely used\"."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"Director\"."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "\"1800s\" mistranslated as \"siglo XVIII\" (1700s)."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward and inaccurate phrasing."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "\"studying\" mistranslated as \"impresionante\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "\"town centre\" mistranslated as \"ciudad de Goma\"."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "\"tourists\" mistranslated as \"terrorista\"."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"around the clock\" mistranslated as \"a esa hora\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1764,
+   "candidatesTokenCount": 792,
+   "totalTokenCount": 4458,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1764
+    }
+   ],
+   "thoughtsTokenCount": 1902,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:b:en-es": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "\"maria\" translated as proper name \"María\"."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"f-\" translated as \"alcance mundial\"."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"caesium\" mistranslated as \"caseína\"."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Missing verb at the end."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"Director\"."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "\"1800s\" mistranslated as \"siglo XVIII\"."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "\"Once\" mistranslated as \"alguna vez\"."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "\"studying\" mistranslated as \"impresionante\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Added \"la ciudad de Goma\" at the end."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "\"tourists\" mistranslated as \"terrorista\"."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"around the clock\" mistranslated as \"a esa hora\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1742,
+   "candidatesTokenCount": 784,
+   "totalTokenCount": 4496,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1742
+    }
+   ],
+   "thoughtsTokenCount": 1970,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:en-fr": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "\"maria\" translated as proper noun \"le Maria\"."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"Marian apparitions\"."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"caesium\" mistranslated as \"caséine\" (casein)."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"is widely used\"."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"Director\"."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "\"1800s\" mistranslated as 18th century."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "\"À deux ans de\" slightly alters meaning."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Added \"autrefois\" changing the meaning."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": false,
+     "note": "Mistranslated \"studying traffic flow is difficult\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "\"town centre\" mistranslated as \"ville de Goma\"."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "\"tourists\" mistranslated as \"terroriste\"."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Loses the degree implied by \"how\"."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"around the clock\" mistranslated as \"à ce moment-là\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1832,
+   "candidatesTokenCount": 822,
+   "totalTokenCount": 4723,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1832
+    }
+   ],
+   "thoughtsTokenCount": 2069,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:b:en-fr": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "\"maria\" refers to lunar seas, not \"le Maria\"."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"caesium\" translated as \"caséine\" instead of \"césium\"."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Missing verb at the end."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"Director\" (Réalisateur)."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "\"1800s\" is 19th century, not 18th."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "\"À deux ans de\" slightly alters meaning."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Added \"autrefois\" changing the meaning."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated \"studying traffic flow\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Added \"la ville de Goma\" at the end."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "\"tourists\" translated as \"terroriste\"."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"around the clock\" mistranslated as \"à ce moment-là\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1810,
+   "candidatesTokenCount": 792,
+   "totalTokenCount": 4493,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1810
+    }
+   ],
+   "thoughtsTokenCount": 1891,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:en-ht": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "\"maria\" treated as a proper name."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted Marian apparitions."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong translation for caesium and iodine."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "\"diskit\" is a typo for \"dispit\"."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"widely used\", changing meaning."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted Director, combined with Cinematography."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 1800s as 18th century."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Translated as two years before war ended."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Run-on sentence, missing punctuation."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated \"studying traffic flow is difficult\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated \"town centre\" as \"city of Goma\"."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated \"tourists\" as \"terrorist\"."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "\"mòn ki raide\" is slightly awkward."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "\"chou foul\" is an odd translation."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated \"around the clock\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1916,
+   "candidatesTokenCount": 874,
+   "totalTokenCount": 5098,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1916
+    }
+   ],
+   "thoughtsTokenCount": 2308,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:b:en-ht": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Caesium mistranslated as kazein; iodine merged into akyodinn."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Cutoff phrase altered to 'men se Ris'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Missed 'Director' as a separate category."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "1800s mistranslated as 18th century."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time relation (before instead of within)."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Missing punctuation causes a run-on sentence."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'studying traffic flow'."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Added extra words at the cutoff."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "'Tourists' mistranslated as 'terrorist'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "'Chou foul' is an awkward translation for cabbage."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "'Around the clock' mistranslated as 'at that time'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1894,
+   "candidatesTokenCount": 783,
+   "totalTokenCount": 4797,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1894
+    }
+   ],
+   "thoughtsTokenCount": 2120,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:en-ja": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Broken structure and 'maria' mistranslated as name."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'Marian apparitions'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'widely used', making the sentence contradictory."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'Director'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "'1800s' mistranslated as 18th century."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'within two years' as 'two years left'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Sentences are garbled and combined incorrectly."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'studying traffic flow'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'particularly the town centre'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "'tourists' mistranslated as 'terrorists'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'around the clock'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1771,
+   "candidatesTokenCount": 833,
+   "totalTokenCount": 5047,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1771
+    }
+   ],
+   "thoughtsTokenCount": 2443,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:b:en-ja": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'maria' (lunar maria) as a name."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward ending due to truncated source."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'Director' from the list of nominations."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated '1800s' as 18th century."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated time relation as 'two years left'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled the meaning of both sentences."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'studying' as 'realizing a splendid'."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing for the truncated ending."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated 'tourists' as 'terrorists'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "'Narrow lanes' translated awkwardly as narrow alleys."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'around the clock'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1749,
+   "candidatesTokenCount": 848,
+   "totalTokenCount": 5229,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1749
+    }
+   ],
+   "thoughtsTokenCount": 2632,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:en-km": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Chinese character \"亚\"."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation with ellipsis."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"Marian apparitions\"."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Vietnamese word \"đề cập\"."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"widely used\"."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated Director and Cinematography, split sentence."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date (18th century instead of 1800s)."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Malayalam word \"ഗുហា\"."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning and garbled text."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Thai word \"ถนน\", mistranslated town centre."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated tourists as terrorists."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Bengali word \"দেখা\"."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated \"around the clock\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Uses unclear/non-standard word \"ច្រឡេះ\"."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2224,
+   "candidatesTokenCount": 811,
+   "totalTokenCount": 5508,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2224
+    }
+   ],
+   "thoughtsTokenCount": 2473,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:b:en-km": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Chinese character instead of Khmer."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing with 'នោះ...'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Left 'radioactive cesium' and 'iodine' in English."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Vietnamese word 'đề cập'."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Literal translation of the cut-off ending."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Merged Director and Cinematography."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong century (18th instead of 1800s)."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Malayalam script instead of Khmer."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": false,
+     "note": "Wrong meaning and contains Greek script."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Thai word and added extra text."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Translated 'tourists' as 'terrorists'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Contains Bengali script instead of Khmer."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'around the clock'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Uses non-standard word 'ច្រឡេះ' for rude."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2202,
+   "candidatesTokenCount": 809,
+   "totalTokenCount": 5460,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2202
+    }
+   ],
+   "thoughtsTokenCount": 2449,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:en-pt": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "'maria' refers to lunar maria, not a name."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'famous Marian apparitions'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'is widely used'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'Director'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "1800s is 19th century, not 18th."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning for 'With two years of'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'studying' as 'impressionante'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'town centre' as 'cidade de Goma'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'tourists' as 'terrorista'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "'Vielas' is awkward for 'lanes' (faixas/pistas)."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'around the clock' as 'nessa época'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1793,
+   "candidatesTokenCount": 852,
+   "totalTokenCount": 4546,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1793
+    }
+   ],
+   "thoughtsTokenCount": 1901,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "SAID:b:en-pt": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "\"maria\" translated as proper name instead of seas."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Cutoff \"f-\" translated as \"alcance mundial\"."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"Director\" from the list."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "\"1800s\" mistranslated as \"século XVIII\" (18th century)."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "\"A dois anos\" means two years before."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "\"existiu\" is slightly awkward for \"existed\"."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": false,
+     "note": "\"studying\" mistranslated as \"impressionante\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Added \"a cidade de Goma\" at the end."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "\"tourists\" mistranslated as \"terrorista\"."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "\"narrow lanes\" translated as \"vielas estreitas\" (alleys)."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"around the clock\" mistranslated as \"nessa época\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1771,
+   "candidatesTokenCount": 799,
+   "totalTokenCount": 4680,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1771
+    }
+   ],
+   "thoughtsTokenCount": 2110,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:es-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation with a period mid-sentence."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled translation of the borders' timeframe."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation with a period mid-list."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time relation ('before' instead of 'after')."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Capitalization error mid-sentence ('The')."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Misses 'how' acidic/basic, changing to 'whether'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1863,
+   "candidatesTokenCount": 691,
+   "totalTokenCount": 4848,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1863
+    }
+   ],
+   "thoughtsTokenCount": 2294,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:fr-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Misses lunar context, translates literally."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Missing iodine, added other radioactive substances."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Truncated the year 1967."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the list."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled the volcano name."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong rifle model (MCS instead of M16)."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Stay open-minded is the wrong meaning here."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Awkwardly split into two sentences."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Translated cabbage as kale."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Rating is incorrect for notation."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1885,
+   "candidatesTokenCount": 734,
+   "totalTokenCount": 5208,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1885
+    }
+   ],
+   "thoughtsTokenCount": 2589,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:ht-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "\"orders God\" mistranslated as \"other gods yesterday\"."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"Men ki jan\" translated as \"but how\"."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "\"langaj\" here means \"tongues\", not \"language\"."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "\"seeks\" mistranslated as \"holds\"."
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": false,
+     "note": "Completely garbled and missing most of the sentence."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "\"jij\" (Judge) and \"atoufè\" (thugs) omitted."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "\"mouri tifi\" means \"die a virgin\"."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "\"lidè a\" (the leader) omitted."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"Mouche estime\" mistranslated as \"Mouche believes\"."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "\"sou bò solèy leve\" mistranslated as \"slopes at dawn\"."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "\"lame\" (army) mistranslated as \"love\"."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "\"above him\" instead of \"above it\"."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "\"Orite Lajistis\" and \"manfouben\" mistranslated."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "\"Dariyis\" and \"120 prefè\" mistranslated or omitted."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "\"demanti\" (denied) mistranslated as \"asked... for\"."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1879,
+   "candidatesTokenCount": 918,
+   "totalTokenCount": 5253,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1879
+    }
+   ],
+   "thoughtsTokenCount": 2456,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:ja-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Translated 'maria' as 'ocean' missing astronomical context."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Incomplete sentence ending with a comma."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing with 'let's visit'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'iodine' from the translation."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'capital' as 'apostle' and misspelled Chişinău."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Redundant phrasing with 'alkaline, or basic'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1832,
+   "candidatesTokenCount": 695,
+   "totalTokenCount": 4969,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1832
+    }
+   ],
+   "thoughtsTokenCount": 2442,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:km-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "\"thicker\" translated as \"even thinner\"."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "\"apparitions\" mistranslated as \"relics\"."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong date (1937 instead of 1967)."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Fragmented sentence and slight mistranslations."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong timeline (left until the end)."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "\"total isolation\" mistranslated as \"completely separated\"."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong year, wrong city name, wrong substance."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong name and wrong weapon/amount."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "\"cabbage\" mistranslated as \"kale\"."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Misinterprets \"around the clock\" and \"more or less\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "\"egocentric\" mistranslated as \"mysterious\"."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "\"curry\" is transliterated instead of translated."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2594,
+   "candidatesTokenCount": 801,
+   "totalTokenCount": 6931,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2594
+    }
+   ],
+   "thoughtsTokenCount": 3536,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:b:pt-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation and Relicary instead of Shrine."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong element (calcium instead of caesium)."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence unnaturally."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation with periods instead of commas."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date (1800 instead of 1800s)."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation and misspelled volcano name."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong name (Mendonça instead of Mendoza)."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward grammar with repeated subject."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong vegetable (kale instead of cabbage)."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time meaning (right time vs around clock)."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted the subject notation."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence unnaturally."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1804,
+   "candidatesTokenCount": 785,
+   "totalTokenCount": 5243,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1804
+    }
+   ],
+   "thoughtsTokenCount": 2654,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial"
+  }
+ },
+ "WRITTEN:a:en-lo": {
+  "grades": {
+   "nonprofit": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'most social'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split and transliteration."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning for prides, missing females and cubs."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Feral children translated as abandoned children."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Names transliterated incorrectly."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Kowloon translated as Guangdong."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Psychology translated as anatomy/physiology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing, sitting, and Czech competitor."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "African translated as Arabic."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Occupations translated as building occupants."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'as antiques' in second sentence."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Missing '(check the terms)'."
+    }
+   ],
+   "commercial": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing and transliteration."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong meaning, missing females and cubs."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'child' in child abuse."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Incorrect transliterations and awkward grammar."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Psychology translated as physiology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing standing, sitting, and Czech competitor."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "African translated as Arabic."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Occupations translated as incumbents."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Inappropriate pronoun for cuts."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'as antiques' in second sentence."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Missing 'had been scheduled'."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Powders translated as powers, wet as dirty."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Missing '(check the terms)'."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3536,
+   "candidatesTokenCount": 1522,
+   "totalTokenCount": 10417,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3536
+    }
+   ],
+   "thoughtsTokenCount": 5359,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "nonprofit",
+   "B": "commercial"
+  }
+ },
+ "SAID:a:en-lo": {
+  "grades": {
+   "nonprofit": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Misses 'most social'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Split into two sentences, slightly awkward."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Translated 'Prides' as 'Brides'."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Misses 'child' in child abuse."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names: Scottport, Centra."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Translated Kowloon as Guangdong."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing', 'sitting', and 'Chet's competitor'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated 'than an Arabic flair' at end."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled translation of 'occupants'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Repeated 'until' (ຈົນເຖິງ)."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "commercial": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward translation for 'prides'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Redundant 'sandy beaches' and awkward pronoun."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Left 'Brides' untranslated, wrong meaning."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Missing 'severe child'."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names and awkward grammar."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Left 'physiology' untranslated."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'standing', 'sitting', and 'Chet's competitor'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated 'than an Arabic flair' at end."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'occupants' as 'incumbents'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong pronoun ('You' instead of 'He')."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly changes meaning of first sentence."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Math error: 'divided into' instead of 'by'."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Redundant 'until'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Incomplete sentence at the end."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Translated 'powders' as 'powers', 'wet' as 'dirty'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Left 'cruises' untranslated in first sentence."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3506,
+   "candidatesTokenCount": 1697,
+   "totalTokenCount": 10651,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3506
+    }
+   ],
+   "thoughtsTokenCount": 5448,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "nonprofit",
+   "B": "commercial"
+  }
+ },
+ "WRITTEN:a:lo-en": {
+  "grades": {
+   "commercial": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "\"lion's den\" instead of \"pride\"."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "\"shelter\" instead of \"house\"."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"portugala trees\" instead of \"pohutukawa trees\"."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "\"proud herd\" instead of \"pride\"."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "\"violent child\" instead of \"feral children\"."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong bus name and stop, added taxi."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "\"Nong Luang\" instead of \"Kowloon\"."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "\"Acceptance is\" changes the meaning slightly."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names and events."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "\"movements\" instead of \"flair\"."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "\"Asian revolution\", \"male doctors\", \"say goodbye\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"Composite explosives\", \"fusion\" instead of \"fission\"."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "\"ancient\" instead of \"antiques\", slightly awkward."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "\"two-thirds\" instead of \"3:2\"."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"1190 AD\" instead of \"1100 A.D.\"."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing at the end."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "\"batters\" instead of \"dry powders\"."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "nonprofit": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"Portuguese trees\" instead of \"pohutukawa trees\"."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"individuals\" instead of \"males\", wrong female count."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "\"Abused children\" instead of \"Feral children\"."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Missing \"Scotturb\", wrong stop name."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "\"Kwangtung side\" instead of \"waterfront opposite\"."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "\"Acceptance is\" changes the meaning slightly."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names and events."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "\"Africa\" instead of \"African\"."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "\"Ashi revolution\", \"male doctors\", \"claim credit\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"composite bomb\", \"combination\" instead of \"fission\"."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Missing translation."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "\"three-quarters\" instead of \"3:2\"."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"1190 AD\" instead of \"1100 A.D.\"."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing at the end."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "\"ingredients\" instead of \"dry powders\"."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Misses \"include time in town\"."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2946,
+   "candidatesTokenCount": 1792,
+   "totalTokenCount": 11513,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2946
+    }
+   ],
+   "thoughtsTokenCount": 6775,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "commercial",
+   "B": "nonprofit"
+  }
+ },
+ "WRITTEN:b:en-lo": {
+  "grades": {
+   "nonprofit": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Missing translation for 'maria'."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'Catholic Church' as 'Catholic religion'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'Marian apparitions'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'caesium' as 'casein'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'widely used', changing the meaning."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'Director'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated '1800s' as '18th century'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'studying traffic flow'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'town centre' as 'Goma town'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated 'tourists' as 'terrorists'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'research'."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "Mistranslated 'cabbage' and 'alkaline'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'around the clock'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "commercial": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Untranslated 'thinner' and mistranslated 'maria'."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'Catholic Church' as 'Catholic religion'."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled, untranslated words, and missing information."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Omitted 'radioactive caesium and iodine'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'widely used'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'Cinematography'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated '1800s' as '18th century'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled meaning and incorrect sentence structure."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'studying traffic flow' as 'beautiful traffic'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'lava' and 'town centre'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated 'tourists' as 'terrorists'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'predominate' as 'popular'."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": false,
+     "note": "Mistranslated 'telescopes' as 'televisions'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'basic' and 'alkaline'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'around the clock'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'rude' as 'stubborn'."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'curry' as 'cream'."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3607,
+   "candidatesTokenCount": 1686,
+   "totalTokenCount": 12954,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3607
+    }
+   ],
+   "thoughtsTokenCount": 7661,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "nonprofit",
+   "B": "commercial"
+  }
+ },
+ "SAID:b:en-lo": {
+  "grades": {
+   "nonprofit": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Missing translation for 'maria'."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly inaccurate term for Catholic Church."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong translation for caesium (translated as casein)."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward handling of incomplete sentence."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'Director' from the list."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date: 18th century instead of 1800s."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'studying traffic flow'."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Added extra words at the end."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Translated 'tourists' as 'terrorists'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'research'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation for cabbage."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'around the clock'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ],
+   "commercial": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "Untranslated words 'thinner' and 'Maria'."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled and untranslated words."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Completely mistranslated the chemical names."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward handling of incomplete sentence."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'Cinematography' and mistranslated 'Film-editing'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date: 18th century instead of 1800s."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled meaning in the middle."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": false,
+     "note": "Mistranslated 'studying traffic flow' as 'beautiful traffic'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'lava' as 'mountain fire'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Translated 'tourists' as 'terrorists'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'predominate' and 'grades'."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated 'telescopes' as 'televisions'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'basic' and 'alkaline'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'around the clock'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'curry' and 'spices'."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3585,
+   "candidatesTokenCount": 1719,
+   "totalTokenCount": 11120,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3585
+    }
+   ],
+   "thoughtsTokenCount": 5816,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "nonprofit",
+   "B": "commercial"
+  }
+ },
+ "WRITTEN:b:lo-en": {
+  "grades": {
+   "nonprofit": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Literal translation of 'maria' as low-lying areas."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Split into two sentences; 'reviewed' instead of 'scrutiny'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject: 'the north also visits'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong substance: 'calcium' instead of 'caesium'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'Best Picture' from the list."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong date format: '1800' instead of '1800s'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time: 'Second World War' instead of 'two years'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong number: '1000 percent' instead of '100'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date: '2020' instead of '2002'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'predominate'."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning and entities."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong condition: 'clearer' instead of 'dark'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing: 'main symbol format'."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject: 'Parisian woman' instead of 'Parisians'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "commercial": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Used 'slopes' instead of 'maria' and 'highlands'."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled ending: 'unreliable. is checked'."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'apparitions'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong substance: 'calcium' instead of 'caesium'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'Best Picture', added 'Best Actor'."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time: '10th anniversary' instead of 'two years'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date: '2020' instead of '2002'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong weapon: '16-gauge shotgun' instead of 'M16'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Used 'rougher roads' instead of 'sharp curves'."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning and entities."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong condition: 'cloudy' instead of 'dark'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing: 'main sign' instead of 'label'."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject: 'Paris' instead of 'Parisians'."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong food: 'Kale soup' instead of 'curry'."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2969,
+   "candidatesTokenCount": 1736,
+   "totalTokenCount": 9770,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2969
+    }
+   ],
+   "thoughtsTokenCount": 5065,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "nonprofit",
+   "B": "commercial"
+  }
+ }
+}

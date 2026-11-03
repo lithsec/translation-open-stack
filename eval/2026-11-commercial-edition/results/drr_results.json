@@ -1,0 +1,638 @@
+{
+ "en-de": {
+  "a": {
+   "C1": {
+    "quality": {
+     "q": 75.0,
+     "crit": 4,
+     "n": 20
+    },
+    "cer": 0.063,
+    "cer_analyzer": 0.063,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1569,
+     "p90": 1954,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1636,
+     "p90": 1954,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   },
+   "commercial": {
+    "quality": {
+     "q": 75.0,
+     "crit": 4,
+     "n": 20
+    },
+    "cer": 0.062,
+    "cer_analyzer": 0.062,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1114,
+     "p90": 1357,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1236,
+     "p90": 1583,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 1
+   }
+  },
+  "b": {
+   "commercial": {
+    "quality": {
+     "q": 68.3,
+     "crit": 3,
+     "n": 20
+    },
+    "cer": 0.097,
+    "cer_analyzer": 0.097,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1190,
+     "p90": 1711,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1356,
+     "p90": 1711,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 4
+   },
+   "C1": {
+    "quality": {
+     "q": 68.3,
+     "crit": 3,
+     "n": 20
+    },
+    "cer": 0.097,
+    "cer_analyzer": 0.097,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1557,
+     "p90": 2037,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1708,
+     "p90": 2037,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   }
+  },
+  "both": {
+   "C1": {
+    "q": 71.7,
+    "crit": 7
+   },
+   "commercial": {
+    "q": 71.7,
+    "crit": 7
+   }
+  }
+ },
+ "de-en": {
+  "a": {
+   "C1": {
+    "quality": {
+     "q": 85.0,
+     "crit": 1,
+     "n": 20
+    },
+    "cer": 0.019,
+    "cer_analyzer": 0.019,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1406,
+     "p90": 1597,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1534,
+     "p90": 1857,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   },
+   "commercial": {
+    "quality": {
+     "q": 91.7,
+     "crit": 0,
+     "n": 20
+    },
+    "cer": 0.016,
+    "cer_analyzer": 0.016,
+    "missing_audio": 0,
+    "utterances": 21,
+    "stop_to_first_audio_ms": {
+     "p50": 1932,
+     "p90": 2081,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1942,
+     "p90": 2081,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 8
+   }
+  },
+  "b": {
+   "C1": {
+    "quality": {
+     "q": 80.0,
+     "crit": 1,
+     "n": 20
+    },
+    "cer": 0.021,
+    "cer_analyzer": 0.021,
+    "missing_audio": 0,
+    "utterances": 27,
+    "stop_to_first_audio_ms": {
+     "p50": 1438,
+     "p90": 1607,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1561,
+     "p90": 1961,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   },
+   "commercial": {
+    "quality": {
+     "q": 85.0,
+     "crit": 2,
+     "n": 20
+    },
+    "cer": 0.022,
+    "cer_analyzer": 0.022,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1914,
+     "p90": 2108,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1936,
+     "p90": 2108,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 9
+   }
+  },
+  "both": {
+   "C1": {
+    "q": 82.5,
+    "crit": 2
+   },
+   "commercial": {
+    "q": 88.3,
+    "crit": 2
+   }
+  }
+ },
+ "en-ru": {
+  "a": {
+   "C1": {
+    "quality": {
+     "q": 75.0,
+     "crit": 4,
+     "n": 20
+    },
+    "cer": 0.063,
+    "cer_analyzer": 0.063,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1162,
+     "p90": 1442,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1220,
+     "p90": 1587,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   },
+   "commercial": {
+    "quality": {
+     "q": 73.3,
+     "crit": 4,
+     "n": 20
+    },
+    "cer": 0.062,
+    "cer_analyzer": 0.062,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1056,
+     "p90": 1265,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1138,
+     "p90": 1497,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 3
+   }
+  },
+  "b": {
+   "commercial": {
+    "quality": {
+     "q": 68.3,
+     "crit": 6,
+     "n": 20
+    },
+    "cer": 0.097,
+    "cer_analyzer": 0.097,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 996,
+     "p90": 1652,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1196,
+     "p90": 1658,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 3
+   },
+   "C1": {
+    "quality": {
+     "q": 68.3,
+     "crit": 6,
+     "n": 20
+    },
+    "cer": 0.097,
+    "cer_analyzer": 0.097,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1118,
+     "p90": 1612,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1322,
+     "p90": 1638,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   }
+  },
+  "both": {
+   "C1": {
+    "q": 71.7,
+    "crit": 10
+   },
+   "commercial": {
+    "q": 70.8,
+    "crit": 10
+   }
+  }
+ },
+ "ru-en": {
+  "a": {
+   "C1": {
+    "quality": {
+     "q": 83.3,
+     "crit": 5,
+     "n": 20
+    },
+    "cer": 0.053,
+    "cer_analyzer": 0.053,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1480,
+     "p90": 1616,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1498,
+     "p90": 1815,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   },
+   "commercial": {
+    "quality": {
+     "q": 83.3,
+     "crit": 4,
+     "n": 20
+    },
+    "cer": 0.055,
+    "cer_analyzer": 0.055,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1509,
+     "p90": 1699,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1552,
+     "p90": 1899,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 19
+   }
+  },
+  "b": {
+   "C1": {
+    "quality": {
+     "q": 78.3,
+     "crit": 3,
+     "n": 20
+    },
+    "cer": 0.017,
+    "cer_analyzer": 0.017,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1324,
+     "p90": 1717,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1518,
+     "p90": 1872,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   },
+   "commercial": {
+    "quality": {
+     "q": 85.0,
+     "crit": 4,
+     "n": 20
+    },
+    "cer": 0.017,
+    "cer_analyzer": 0.017,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1388,
+     "p90": 1791,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1579,
+     "p90": 1924,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 18
+   }
+  },
+  "both": {
+   "C1": {
+    "q": 80.8,
+    "crit": 8
+   },
+   "commercial": {
+    "q": 84.2,
+    "crit": 8
+   }
+  }
+ },
+ "en-ro": {
+  "a": {
+   "commercial": {
+    "quality": {
+     "q": 71.7,
+     "crit": 3,
+     "n": 20
+    },
+    "cer": 0.062,
+    "cer_analyzer": 0.062,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 862,
+     "p90": 1061,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 956,
+     "p90": 1356,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 1
+   },
+   "C1": {
+    "quality": {
+     "q": 70.0,
+     "crit": 3,
+     "n": 20
+    },
+    "cer": 0.063,
+    "cer_analyzer": 0.063,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 954,
+     "p90": 1155,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1054,
+     "p90": 1428,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   }
+  },
+  "b": {
+   "commercial": {
+    "quality": {
+     "q": 58.3,
+     "crit": 6,
+     "n": 20
+    },
+    "cer": 0.097,
+    "cer_analyzer": 0.097,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 881,
+     "p90": 1252,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1000,
+     "p90": 1434,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 2
+   },
+   "C1": {
+    "quality": {
+     "q": 58.3,
+     "crit": 6,
+     "n": 20
+    },
+    "cer": 0.097,
+    "cer_analyzer": 0.097,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 957,
+     "p90": 1400,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1116,
+     "p90": 1438,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   }
+  },
+  "both": {
+   "C1": {
+    "q": 64.2,
+    "crit": 9
+   },
+   "commercial": {
+    "q": 65.0,
+    "crit": 9
+   }
+  }
+ },
+ "ro-en": {
+  "a": {
+   "commercial": {
+    "quality": {
+     "q": 65.0,
+     "crit": 10,
+     "n": 20
+    },
+    "cer": 0.034,
+    "cer_analyzer": 0.034,
+    "missing_audio": 0,
+    "utterances": 26,
+    "stop_to_first_audio_ms": {
+     "p50": 1462,
+     "p90": 2305,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1961,
+     "p90": 2305,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 18
+   },
+   "C1": {
+    "quality": {
+     "q": 65.0,
+     "crit": 8,
+     "n": 20
+    },
+    "cer": 0.056,
+    "cer_analyzer": 0.056,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1133,
+     "p90": 1815,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1650,
+     "p90": 1985,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   }
+  },
+  "b": {
+   "commercial": {
+    "quality": {
+     "q": 73.3,
+     "crit": 2,
+     "n": 20
+    },
+    "cer": 0.049,
+    "cer_analyzer": 0.049,
+    "missing_audio": 0,
+    "utterances": 27,
+    "stop_to_first_audio_ms": {
+     "p50": 1588,
+     "p90": 2296,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1877,
+     "p90": 2316,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "sentences_differing_from_C1": 19
+   },
+   "C1": {
+    "quality": {
+     "q": 75.0,
+     "crit": 1,
+     "n": 20
+    },
+    "cer": 0.038,
+    "cer_analyzer": 0.038,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1400,
+     "p90": 2041,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1634,
+     "p90": 2041,
+     "n": 20
+    },
+    "dropped_utterances": 0
+   }
+  },
+  "both": {
+   "C1": {
+    "q": 70.0,
+    "crit": 9
+   },
+   "commercial": {
+    "q": 69.2,
+    "crit": 12
+   }
+  }
+ }
+}

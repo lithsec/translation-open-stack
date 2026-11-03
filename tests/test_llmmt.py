@@ -2,20 +2,15 @@
 pairs go to which server, the two prompt styles, and what a failure leaves for
 MADLAD. Standard library only.
 
-    python3 tests/test_llmmt.py
+    python -m pytest tests/test_llmmt.py
 """
 import json
-import os
-import sys
 import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, "server"))
-
-from engines.base import Context  # noqa: E402
-from engines import llmmt  # noqa: E402
+from engines import llmmt
+from engines.base import Context
 
 SEEN = []
 
@@ -187,7 +182,7 @@ def test_pairs_left_to_hymt_get_the_context_too():
     assert FakeHyMT.got_context == CTX
 
 
-def test_a_server_that_does_not_answer_is_not_offered():
+def test_a_server_that_does_not_answer_is_not_offered(monkeypatch):
     """Health: a refused connection marks the server down, so the stack's
     translator list moves on; any HTTP answer (even 501 to GET) counts as up."""
     import socket
@@ -204,17 +199,66 @@ def test_a_server_that_does_not_answer_is_not_offered():
     assert not e.supports_pair("en", "ht") and not e.supports_pair("ht", "en")
     assert e.supports_pair("en", "lo") and e.supports_pair("lo", "en")
     assert not e.supports_pair("en", "es")         # no server named for the pair
-    os.environ["LLMMT_HEALTH"] = "0"               # checks off: every named server counts as up
-    try:
-        e2 = llmmt.LlmMT(ctx)
-        e2.load()
-        assert e2.supports_pair("en", "ht")
-    finally:
-        del os.environ["LLMMT_HEALTH"]
+    monkeypatch.setenv("LLMMT_HEALTH", "0")       # checks off: every named server counts as up
+    e2 = llmmt.LlmMT(ctx)
+    e2.load()
+    assert e2.supports_pair("en", "ht")
 
 
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)
+
+def _dead_port():
+    import socket
+    sock = socket.socket()
+    sock.bind(("127.0.0.1", 0))
+    port = sock.getsockname()[1]
+    sock.close()                                   # nothing listens there now
+    return port
+
+
+def test_a_list_of_server_lines_is_checked_line_by_line():
+    ok = ["milmmt http://127.0.0.1:8102/v1 mi", "chat http://127.0.0.1:8101/v1 g4"]
+    assert llmmt.LlmMT.check_lang("lo", ok) is None
+    assert llmmt.LlmMT.check_lang("lo", [ok[0], "chat not-a-url m"])
+    assert llmmt.LlmMT.check_lang("lo", [])
+    assert llmmt.LlmMT.check_lang("lo", [ok[0], ok[0]])
+    assert llmmt.server_lines(ok[0]) == [ok[0]] and llmmt.server_lines(ok) == ok and llmmt.server_lines(None) == []
+
+
+def test_the_first_server_line_that_answers_serves():
+    """Lao names MiLMMT then Gemma: MiLMMT while it answers; Gemma while it doesn't (a pod that runs Gemma
+    only); the next translator when neither does. The side that names servers decides, as with one line."""
+    dead, up = _dead_port(), serve()
+    mi, g4 = f"milmmt http://127.0.0.1:{up}/v1 mi", f"chat http://127.0.0.1:{up}/v1 g4"
+    table = {"lo": {"translator": ["llmmt", "madlad"], "llmmt": [mi, g4]},
+             "es": {"translator": ["llmmt", "hymt"], "llmmt": g4}}
+    e = llmmt.LlmMT(Context(table=table))
+    e.load()
+    assert e.server_for("en", "lo")[2] == "mi" and e.server_for("lo", "es")[2] == "mi"
+    assert e.server_for("es", "lo")[2] == "g4"           # the source's own line, as with one Lao line
+    assert len(e._servers) == 2
+    table["lo"]["llmmt"] = [f"milmmt http://127.0.0.1:{dead}/v1 mi", g4]
+    e = llmmt.LlmMT(Context(table=table))
+    e.load()
+    for src, tgt in (("en", "lo"), ("lo", "en"), ("lo", "es")):
+        assert e.supports_pair(src, tgt) and e.server_for(src, tgt)[2] == "g4", (src, tgt)
+    SEEN.clear()
+    assert e.translate(["Hello."], "en", ["lo"]) == {"lo": "[Hello.]"} and {p for p, _, _ in SEEN} == {up}
+    table["lo"]["llmmt"] = [f"milmmt http://127.0.0.1:{dead}/v1 mi", f"chat http://127.0.0.1:{dead}/v1 g4"]
+    e = llmmt.LlmMT(Context(table=table))
+    e.load()
+    assert not e.supports_pair("en", "lo") and e.server_for("en", "lo")[2] == "mi"
+
+
+def test_a_server_that_stops_answering_hands_the_call_to_the_next_line():
+    """A call that cannot connect marks its server down and goes to the next server line at once."""
+    dead, up = _dead_port(), serve()
+    table = {"lo": {"translator": ["llmmt", "madlad"],
+                    "llmmt": [f"milmmt http://127.0.0.1:{dead}/v1 mi", f"chat http://127.0.0.1:{up}/v1 g4"]}}
+    e = llmmt.LlmMT(Context(table=table))
+    e.load()
+    first = e.servers_for("en", "lo")[0]
+    e._up[first] = True                                  # it answered the last health check, then went away
+    SEEN.clear()
+    assert e.translate(["Hello."], "en", ["lo"]) == {"lo": "[Hello.]"}
+    assert {p for p, _, _ in SEEN} == {up} and e._up[first] is False
+    assert e.server_for("en", "lo")[2] == "g4"

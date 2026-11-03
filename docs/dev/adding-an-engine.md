@@ -3,9 +3,9 @@
 A speech recogniser, a translator or a voice is an **engine**: one Python file
 in `server/engines/` (or in a directory of your own, see
 [Out of tree](#8-out-of-tree)), named in `languages.toml`. You do not edit
-`server/server.py`. The pipeline around the engines (speech detection,
-endpointing, language ID, rooms, streaming, the protocol) is unchanged by an
-engine and does not need to know about it.
+`server/server.py` or the modules beside it. The pipeline around the engines (speech detection,
+endpointing, language ID, rooms, streaming, the protocol) does not need to
+know about it.
 
 How the pieces fit: [architecture.md](architecture.md). The interfaces, with
 their full contracts: [`server/engines/base.py`](../../server/engines/base.py).
@@ -36,7 +36,7 @@ digits and `_`, unique across all three kinds, and not one of the table keys
 | Kind | Named by | You implement | Returns |
 |---|---|---|---|
 | `Recognizer` | `asr = "<name>"` or `"<name>:<arg>"` for a **source** language | `transcribe(pcm16k, lang, want_segments=False)`; optionally `words(pcm16k, lang)` | text (`""` for non-speech); with `want_segments`, `(text, [(segment_text, end_s), ...])`; `words` gives `[(word, end_s), ...]` or `None` |
-| `Translator` | `translator = "<name>"` for a **target** language | `translate(sentences, src, targets, text=None)`; optionally `supports_source(lang)`; with `takes_context = True`, `translate(..., context=None)` | `{lang: translation}` |
+| `Translator` | `translator = "<name>"` (or a list) for a **target** language, `translator_to_en` for a source into English | `translate(sentences, src, targets, text=None)`; optionally `supports_source(lang)`; with `takes_context = True`, `translate(..., context=None)` | `{lang: translation}` |
 | `Voice` | `<name> = <value>` in a language, and/or `voice = ["<name>", ...]` | `synthesise(text, lang)`; optionally `stream(text, lang, fallback)` | 24 kHz mono PCM16 `bytes`, or `None` to let the next voice try |
 
 Every engine may also set or override:
@@ -45,7 +45,7 @@ Every engine may also set or override:
 |---|---|---|
 | `title` | `None` | human name for log lines |
 | `licence` | `""` | shown by `stack_config.py engines`; see [§10](#10-licences) |
-| `lang_key` | `None` | the type (`str`, `bool`, ...) of the engine's per-language value `<name> = ...`; `None` = the engine takes none |
+| `lang_key` | `None` | the type (`str`, `bool`, ...) of the engine's per-language value `<name> = ...`, or a tuple of types (llmmt's `(str, list)`: one server line or a list of them); `None` = the engine takes none |
 | `check_lang(lang, value)` (classmethod) | accepts | return an error string to reject a per-language value at `stack_config.py check` |
 | `models` | `{}` | keys and defaults accepted under `[models.<name>]` |
 | `enabled(ctx)` (classmethod) | a served language names the engine | whether to load it at all |
@@ -70,22 +70,22 @@ Kind-specific:
   and there is some, `{"pieces": [earlier source text, oldest first],
   "translations": {lang: its newest translation}}`, at most two pieces and
   a bounded number of characters. It is context only: the answer is still the
-  translation of `sentences`. A model that can read text without translating
-  it (a prompted LM such as Hy-MT2, `engines/hymt.py`) can use it; one that
-  takes a single tagged sentence (MADLAD) leaves the attribute off and is
-  called exactly as before.
+  translation of `sentences`. A prompted LM (Hy-MT2, `engines/hymt.py`; llmmt,
+  `engines/llmmt.py`) can use it; one that takes a single tagged sentence
+  (MADLAD) leaves the attribute off.
 - **Voice** `priority` (place in the default chain, lowest first; the built-ins
-  are kokoro 10, voxcpm 20, coqui 30, piper 40, mms 50; a new voice defaults
-  to 0, first), `lock_policy` ([§5](#5-threads-and-locks)), `streaming`
+  are kokoro 10, voxcpm 20, coqui 30, piper 40, mms 50, espeak 90; a new
+  voice defaults to 0, first), `lock_policy` ([§5](#5-threads-and-locks)), `streaming`
   (`stream()` implemented; see VoxCPM2).
 
 What the pipeline does around them (`server/engines/manager.py`):
 
 - **Recognition**: the source language's `asr` engine if it is running and
   `supports(lang)`, else Whisper.
-- **Translation**: targets are grouped by their `translator` (default `hymt`);
-  each engine gets **one batched call** with all its targets. A target whose
-  engine is not running or does not support it goes to MADLAD. A target the
+- **Translation**: targets are grouped by their `translator` (default `hymt`;
+  a list is tried in order, the first running engine that can do the pair
+  wins); each engine gets **one batched call** with all its targets. A target
+  no listed engine can serve goes to MADLAD. A target the
   engine leaves out of its answer, or maps to `""`, is translated by MADLAD
   (whole utterance); an exception does that for every target of that call
   (logged). Sentences are pre-split (`engines.common.split_sentences`:
@@ -171,12 +171,10 @@ read in a minute.
 
 ## 3. Naming it in languages.toml
 
-The existing keys keep working exactly as before. What is new:
-
 ```toml
 [de]
-translator = "nllb"             # any registered translator (was: hymt | madlad)
-asr = "qwen3"                   # any registered recogniser (was: whisper | omni:<code>)
+translator = "nllb"             # any registered translator, or a list: ["nllb", "hymt"]
+asr = "qwen3"                   # any registered recogniser
 myvoice = "speaker-3"           # a voice's per-language value, under its own name
 voice = ["myvoice", "piper"]    # optional: the chain, in this order
 piper = "de_DE-thorsten-high"
@@ -187,20 +185,20 @@ piper = "de_DE-thorsten-high"
   serves that language, and the server says so once at start
   (`[stack] translator nllb not running — madlad serves de`).
 - A **voice** joins a language's chain when the language names it, either with
-  its key (`myvoice = "..."`, which is how `kokoro`, `piper`, `coqui`, `mms` and
-  `voxcpm` always worked) or in `voice = [...]`. Without `voice`, the chain is
-  every running voice that supports the language, by `priority`: the built-ins
-  in their old order (kokoro, voxcpm, coqui, piper, mms), a new voice first.
-  With `voice`, exactly that order (CosyVoice cloning, `--clone`, still goes in
-  front of it). A streaming voice in the chain takes the sentence in streaming
-  mode, with the rest of the chain as its fallback: that is how VoxCPM2 has
-  always behaved.
+  its key (`myvoice = "..."`, as `kokoro`, `piper`, `coqui`, `mms` and
+  `voxcpm` do) or in `voice = [...]`. Without `voice`, the chain is every
+  running voice that supports the language, by `priority`: the built-ins in
+  order (kokoro, voxcpm, coqui, piper, mms), a new voice first. With `voice`,
+  exactly that order (CosyVoice cloning, `--clone`, still goes in front of
+  it). eSpeak NG is appended to every chain it supports. A streaming voice in
+  the chain takes the sentence in streaming mode, with the rest of the chain
+  as its fallback (as VoxCPM2 does).
 - Unknown names are errors at `stack_config.py check` (and at every start),
   never a silently text-only language:
   `[de] translator: unknown translator 'nlb' (registered: echo, hymt, madlad, nllb)`.
 
-A language section **replaces** that language's defaults, as before, so keep
-every key you still want.
+A language section **replaces** that language's defaults, so keep every key
+you still want.
 
 ## 4. Lifecycle
 
@@ -218,9 +216,9 @@ every key you still want.
    their flags instead (`--kokoro`, `--hymt DIR`, `--omni`, ...), so
    `scripts/run.sh` still decides what a deployment runs.
 3. **Load.** `load()` runs once, before the server says "ready", in a fixed
-   order: the built-ins as they always loaded (Whisper, then language ID, then
-   Omnilingual, CosyVoice, Coqui, VoxCPM2, Hy-MT2, Kokoro, MADLAD, Piper, MMS),
-   then new engines by name. Load onto `self.device` (`"cuda"`, `"cuda:1"`,
+   order: the built-ins (Whisper, then language ID, then Omnilingual,
+   CosyVoice, Coqui, VoxCPM2, Hy-MT2, Kokoro, MADLAD, Piper, MMS, eSpeak NG;
+   `LOAD_ORDER` in `engines/manager.py`), then the others by name. Load onto `self.device` (`"cuda"`, `"cuda:1"`,
    `"mps"` or `"cpu"`: its `[devices]` entry, else the default; see
    [Profiles and devices](../reference.md#profiles-and-devices)), not a fixed
    `"cuda"`. It gets `self.ctx`: `models` (the merged `[models]`), `table` (the language tables),
@@ -228,8 +226,8 @@ every key you still want.
    (another loaded engine). Set `self.available = True` when ready. Raise to
    stop the server when the engine is essential; for an optional one, catch,
    print why (`[stack] X unavailable (...) — Y instead`), and leave `available`
-   False: the pipeline then falls back. *Loud beats silent*: a fallback nobody
-   hears about served degraded audio for days more than once
+   False: the pipeline then falls back. *Loud beats silent*: a silent
+   fallback has served degraded audio for days
    ([lessons-learned §10](lessons-learned.md#10-how-problems-were-found)).
 4. **Warm-up.** Before "ready" the server transcribes a second of silence and
    translates and speaks one sentence in every language, so CUDA compilation is
@@ -252,10 +250,9 @@ connections run at once. So:
 - **Voices**: `lock_policy = "language"` (the default) gives each language one
   lock; hold it around the model call only, with `with self.lock(lang):`
   (not around downloads or resampling). Use it unless you *know* your model is
-  thread-safe: removing the old global lock made Kokoro Spanish and Coqui
-  Haitian sound like "robotic tremors" because two sentences went through the
-  same model at once; it *measured faster* and only a listener caught it
-  ([lessons-learned §5](lessons-learned.md#5-voices)). `"none"` is for engines
+  thread-safe: without it, Kokoro Spanish and Coqui Haitian Creole sounded
+  like "robotic tremors" (two sentences in one model at once), and only a
+  listener caught it ([lessons-learned §5](lessons-learned.md#5-voices)). `"none"` is for engines
   that are safe as they are (Piper's ONNX sessions, VoxCPM2's HTTP client).
   `--serial-tts` turns every `"language"` lock into one global lock.
 - **Translators and recognisers** are called concurrently too (a room's
@@ -335,10 +332,15 @@ not exist is an error. Docker: mount the directory and set the variable in
 2. **Unit tests** without models: `tests/test_engines.py` shows how. Build an
    `EngineSet` with your class plus fakes for the rest, and check routing and
    fallbacks; `tests/engines_fixture/` is loaded through `STACK_ENGINES_PATH`
-   in a subprocess. Run all of them:
+   in a subprocess. Run all of them (from the repository root):
    ```bash
-   python3 tests/test_engines.py && python3 tests/test_stack_config.py
+   pip install pytest numpy scipy websockets
+   python -m pytest                       # or one file: python -m pytest tests/test_engines.py
    ```
+   The test files share one process, so a test that changes a module's state
+   or the environment does it through pytest's `monkeypatch` fixture
+   (`tests/conftest.py` and `tests/support.py` hold the shared setup; a test
+   that registers an engine takes the `engine_registry` fixture).
 3. **CPU plumbing**: `tests/test_protocol.py` and `tools/dev-cpu.sh` start the
    real server with stand-in models; a CPU-capable engine can be configured in
    through `STACK_CONFIG` and `STACK_ENGINES_PATH`.

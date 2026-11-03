@@ -4,28 +4,27 @@ corrected per-piece lag (offsets against arrival, on a hand-built event log
 with a backlogged voice), the Segmenter simulator against omni-stt's own
 source, the pause statistics and the energy dips, on synthetic data.
 
-    python3 tests/test_eval_tools.py      (or python3 -m pytest tests/test_eval_tools.py)
+    python -m pytest tests/test_eval_tools.py
 
 Needs numpy; no network, no websockets, no torch.
 """
 import asyncio
 import json
 import os
-import sys
 import tempfile
 import time
 import wave
 
 import numpy as np
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "eval", "tools"))
-import cutsim  # noqa: E402
-import dips  # noqa: E402
-import lag  # noqa: E402
-import pace  # noqa: E402
-import pauses  # noqa: E402
+import support
+
+# Loaded by path: eval/tools/dips.py and services/omni-stt/dips.py share a name.
+cutsim = support.eval_tool("cutsim")
+dips = support.eval_tool("dips")
+lag = support.eval_tool("lag")
+pace = support.eval_tool("pace")
+pauses = support.eval_tool("pauses")
 
 
 # ---------------------------------------------------------------- pace.py
@@ -327,10 +326,3 @@ def test_energy_dips():
         assert dips.near_share(found, [2050.0, 3000.0]) == 0.5
         assert dips.times_from("1.5,2") == [1500.0, 2000.0]
 
-
-if __name__ == "__main__":
-    tests = [(k, v) for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]
-    for name, fn in tests:
-        fn()
-        print("ok", name)
-    print(f"{len(tests)} tests passed")

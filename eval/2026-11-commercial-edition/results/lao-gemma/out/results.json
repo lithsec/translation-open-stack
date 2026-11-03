@@ -1,0 +1,534 @@
+{
+ "note": "Lao re-run on Gemma 4 (commercial), graded side by side with the November round's saved Lao outputs: one blind call per (set, direction, reference), gemini-pro-latest. Latency ms per set [a, b]; cer_said in %.",
+ "summary": {
+  "en-lo": {
+   "gemma": {
+    "system": "commercial, Gemma 4 (this re-run)",
+    "said": null,
+    "written": 60.0,
+    "said_per_set": [
+     null,
+     null
+    ],
+    "written_per_set": [
+     60.0,
+     null
+    ],
+    "crit_said": 0,
+    "crit_written": 6,
+    "first_audio_p50": [
+     1624,
+     1448
+    ],
+    "first_audio_p90": [
+     2005,
+     2054
+    ],
+    "last_audio_p50": [
+     1666,
+     1457
+    ],
+    "last_audio_p90": [
+     2005,
+     2054
+    ],
+    "missing_audio": [
+     0,
+     0
+    ],
+    "dropped_utterances": [
+     0,
+     0
+    ],
+    "cer_said": 5.1,
+    "differs_from": [
+     {
+      "madlad_hymt": 20,
+      "milmmt": 20
+     },
+     {
+      "madlad_hymt": 20,
+      "milmmt": 20
+     }
+    ]
+   },
+   "madlad_hymt": {
+    "system": "commercial, MADLAD 7B / Hy-MT2 (Nov round)",
+    "said": null,
+    "written": 46.7,
+    "said_per_set": [
+     null,
+     null
+    ],
+    "written_per_set": [
+     46.7,
+     null
+    ],
+    "crit_said": 0,
+    "crit_written": 8,
+    "first_audio_p50": [
+     1163,
+     1096
+    ],
+    "first_audio_p90": [
+     1483,
+     1405
+    ],
+    "last_audio_p50": [
+     1218,
+     1170
+    ],
+    "last_audio_p90": [
+     1569,
+     1597
+    ],
+    "missing_audio": [
+     0,
+     0
+    ],
+    "dropped_utterances": [
+     0,
+     0
+    ],
+    "cer_said": 5.1,
+    "differs_from": [
+     null,
+     null
+    ]
+   },
+   "milmmt": {
+    "system": "nonprofit, MiLMMT-46 12B (Nov round)",
+    "said": null,
+    "written": 55.0,
+    "said_per_set": [
+     null,
+     null
+    ],
+    "written_per_set": [
+     55.0,
+     null
+    ],
+    "crit_said": 0,
+    "crit_written": 7,
+    "first_audio_p50": [
+     1652,
+     1503
+    ],
+    "first_audio_p90": [
+     2073,
+     2090
+    ],
+    "last_audio_p50": [
+     1756,
+     1534
+    ],
+    "last_audio_p90": [
+     2291,
+     2240
+    ],
+    "missing_audio": [
+     0,
+     0
+    ],
+    "dropped_utterances": [
+     0,
+     0
+    ],
+    "cer_said": 5.1,
+    "differs_from": [
+     null,
+     null
+    ]
+   }
+  },
+  "lo-en": {
+   "gemma": {
+    "system": "commercial, Gemma 4 (this re-run)",
+    "said": null,
+    "written": null,
+    "said_per_set": [
+     null,
+     null
+    ],
+    "written_per_set": [
+     null,
+     null
+    ],
+    "crit_said": 0,
+    "crit_written": 0,
+    "first_audio_p50": [
+     1663,
+     1626
+    ],
+    "first_audio_p90": [
+     2572,
+     2259
+    ],
+    "last_audio_p50": [
+     1863,
+     1938
+    ],
+    "last_audio_p90": [
+     2572,
+     2259
+    ],
+    "missing_audio": [
+     1,
+     0
+    ],
+    "dropped_utterances": [
+     0,
+     0
+    ],
+    "cer_said": 15.4,
+    "differs_from": [
+     {
+      "madlad_hymt": 19,
+      "milmmt": 19
+     },
+     {
+      "madlad_hymt": 20,
+      "milmmt": 19
+     }
+    ]
+   },
+   "madlad_hymt": {
+    "system": "commercial, MADLAD 7B / Hy-MT2 (Nov round)",
+    "said": null,
+    "written": null,
+    "said_per_set": [
+     null,
+     null
+    ],
+    "written_per_set": [
+     null,
+     null
+    ],
+    "crit_said": 0,
+    "crit_written": 0,
+    "first_audio_p50": [
+     1829,
+     1780
+    ],
+    "first_audio_p90": [
+     2630,
+     2428
+    ],
+    "last_audio_p50": [
+     2102,
+     2000
+    ],
+    "last_audio_p90": [
+     2630,
+     2428
+    ],
+    "missing_audio": [
+     1,
+     0
+    ],
+    "dropped_utterances": [
+     0,
+     0
+    ],
+    "cer_said": 15.2,
+    "differs_from": [
+     null,
+     null
+    ]
+   },
+   "milmmt": {
+    "system": "nonprofit, MiLMMT-46 12B (Nov round)",
+    "said": null,
+    "written": null,
+    "said_per_set": [
+     null,
+     null
+    ],
+    "written_per_set": [
+     null,
+     null
+    ],
+    "crit_said": 0,
+    "crit_written": 0,
+    "first_audio_p50": [
+     1666,
+     1664
+    ],
+    "first_audio_p90": [
+     2470,
+     2269
+    ],
+    "last_audio_p50": [
+     1863,
+     1945
+    ],
+    "last_audio_p90": [
+     2470,
+     2269
+    ],
+    "missing_audio": [
+     1,
+     0
+    ],
+    "dropped_utterances": [
+     0,
+     0
+    ],
+    "cer_said": 15.2,
+    "differs_from": [
+     null,
+     null
+    ]
+   }
+  }
+ },
+ "per_set": {
+  "a": {
+   "en-lo": {
+    "madlad_hymt": {
+     "written": {
+      "q": 46.7,
+      "crit": 8,
+      "n": 20
+     },
+     "cer_said": 0.061,
+     "cer_written": 0.084,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1163,
+      "p90": 1483,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1218,
+      "p90": 1569,
+      "n": 20
+     },
+     "dropped_utterances": 0
+    },
+    "gemma": {
+     "written": {
+      "q": 60.0,
+      "crit": 6,
+      "n": 20
+     },
+     "cer_said": 0.06,
+     "cer_written": 0.084,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1624,
+      "p90": 2005,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1666,
+      "p90": 2005,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "differs_from": {
+      "madlad_hymt": 20,
+      "milmmt": 20
+     }
+    },
+    "milmmt": {
+     "written": {
+      "q": 55.0,
+      "crit": 7,
+      "n": 20
+     },
+     "cer_said": 0.061,
+     "cer_written": 0.084,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1652,
+      "p90": 2073,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1756,
+      "p90": 2291,
+      "n": 20
+     },
+     "dropped_utterances": 0
+    }
+   },
+   "lo-en": {
+    "gemma": {
+     "cer_said": 0.19,
+     "cer_written": 0.182,
+     "missing_audio": 1,
+     "utterances": 27,
+     "stop_to_first_audio_ms": {
+      "p50": 1663,
+      "p90": 2572,
+      "n": 19
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1863,
+      "p90": 2572,
+      "n": 19
+     },
+     "dropped_utterances": 0,
+     "differs_from": {
+      "madlad_hymt": 19,
+      "milmmt": 19
+     }
+    },
+    "madlad_hymt": {
+     "cer_said": 0.19,
+     "cer_written": 0.182,
+     "missing_audio": 1,
+     "utterances": 27,
+     "stop_to_first_audio_ms": {
+      "p50": 1829,
+      "p90": 2630,
+      "n": 19
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2102,
+      "p90": 2630,
+      "n": 19
+     },
+     "dropped_utterances": 0
+    },
+    "milmmt": {
+     "cer_said": 0.19,
+     "cer_written": 0.182,
+     "missing_audio": 1,
+     "utterances": 27,
+     "stop_to_first_audio_ms": {
+      "p50": 1666,
+      "p90": 2470,
+      "n": 19
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1863,
+      "p90": 2470,
+      "n": 19
+     },
+     "dropped_utterances": 0
+    }
+   }
+  },
+  "b": {
+   "en-lo": {
+    "gemma": {
+     "cer_said": 0.042,
+     "cer_written": 0.05,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1448,
+      "p90": 2054,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1457,
+      "p90": 2054,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "differs_from": {
+      "madlad_hymt": 20,
+      "milmmt": 20
+     }
+    },
+    "madlad_hymt": {
+     "cer_said": 0.041,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1096,
+      "p90": 1405,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1170,
+      "p90": 1597,
+      "n": 20
+     },
+     "dropped_utterances": 0
+    },
+    "milmmt": {
+     "cer_said": 0.041,
+     "cer_written": 0.053,
+     "missing_audio": 0,
+     "utterances": 23,
+     "stop_to_first_audio_ms": {
+      "p50": 1503,
+      "p90": 2090,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1534,
+      "p90": 2240,
+      "n": 20
+     },
+     "dropped_utterances": 0
+    }
+   },
+   "lo-en": {
+    "gemma": {
+     "cer_said": 0.118,
+     "cer_written": 0.122,
+     "missing_audio": 0,
+     "utterances": 26,
+     "stop_to_first_audio_ms": {
+      "p50": 1626,
+      "p90": 2259,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1938,
+      "p90": 2259,
+      "n": 20
+     },
+     "dropped_utterances": 0,
+     "differs_from": {
+      "madlad_hymt": 20,
+      "milmmt": 19
+     }
+    },
+    "madlad_hymt": {
+     "cer_said": 0.114,
+     "cer_written": 0.119,
+     "missing_audio": 0,
+     "utterances": 26,
+     "stop_to_first_audio_ms": {
+      "p50": 1780,
+      "p90": 2428,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 2000,
+      "p90": 2428,
+      "n": 20
+     },
+     "dropped_utterances": 0
+    },
+    "milmmt": {
+     "cer_said": 0.114,
+     "cer_written": 0.119,
+     "missing_audio": 0,
+     "utterances": 26,
+     "stop_to_first_audio_ms": {
+      "p50": 1664,
+      "p90": 2269,
+      "n": 20
+     },
+     "stop_to_tail_audio_ms": {
+      "p50": 1945,
+      "p90": 2269,
+      "n": 20
+     },
+     "dropped_utterances": 0
+    }
+   }
+  }
+ }
+}

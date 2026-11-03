@@ -1,0 +1,390 @@
+{
+ "WRITTEN:a:en-lo": {
+  "grades": {
+   "madlad_hymt": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing for social cats."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong pronoun, wrong tree name."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Translated as brides and us."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong names Scottport and Centra."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "English word left in brackets."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Psychology translated as physiology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missed standing/sitting and Czech."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Says Arabic than Arabic."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Occupations translated as incumbents."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong pronoun for cuts."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'as antiques'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Redundant words."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'had been scheduled'."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Powders as powers, wet as dirty."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'check the terms'."
+    }
+   ],
+   "gemma": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Left pride in English."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Typo, wrong tree name."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Translated females and cubs as us."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong names Scottport and Centra."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Psychology translated as physiology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Chet instead of Czech."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Says Arabic than Arabic."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Occupations translated as occupiers."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Added budget, but acceptable."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Translated as old goods."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Left 'necessarily' in English."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Contains a Vietnamese word."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'had been scheduled'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'check the terms'."
+    }
+   ],
+   "milmmt": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Transliterated pride."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Sentence split abruptly, wrong tree name."
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "Translated as brides and us."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Feral children translated as abandoned children."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong names Scottport and Centra."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Kowloon translated as Guangdong."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Psychology translated as physiology."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Missed standing/sitting and Czech."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Says Arabic than Arabic."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": false,
+     "note": "Occupations translated as occupants."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'as antiques'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Repeated words, awkward phrasing."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Missed 'had been scheduled'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Missed 'check the terms'."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 4725,
+   "candidatesTokenCount": 1759,
+   "totalTokenCount": 15675,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 4725
+    }
+   ],
+   "thoughtsTokenCount": 9191,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "madlad_hymt",
+   "B": "gemma",
+   "C": "milmmt"
+  }
+ }
+}

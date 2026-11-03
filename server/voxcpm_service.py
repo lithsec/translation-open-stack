@@ -32,10 +32,14 @@ switch voice, even from a man to a woman, halfway through.
 
     python server/voxcpm_service.py --port 8791
 """
-import argparse, io, json, select, socket, threading, time
+import argparse, json, select, socket, threading, time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import numpy as np
+
+# server/ is on sys.path (this script's directory); engines.common imports only
+# the standard library at load time, so it is safe in VoxCPM2's own virtualenv.
+from engines.common import float_to_pcm16
 
 MODEL_ID = "openbmb/VoxCPM2"
 
@@ -144,7 +148,7 @@ class Handler(BaseHTTPRequestHandler):
             peak = float(np.abs(wav).max()) if wav.size else 0.0
             if peak > 1e-4:
                 wav = wav * min(0.891 / peak, 4.0)   # same level as the stack's other voices
-            pcm = (np.clip(wav, -1, 1) * 32767).astype("<i2").tobytes()
+            pcm = float_to_pcm16(wav)
             self.send_response(200)
             self.send_header("Content-Type", "application/octet-stream")
             self.send_header("X-Sample-Rate", str(RATE))

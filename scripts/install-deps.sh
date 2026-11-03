@@ -75,26 +75,12 @@ if [ "$ROCM" = 1 ]; then
   echo "PyTorch $TORCH_VER (ROCm): kept; NVIDIA-only steps skipped (Hy-MT2 runs at full precision: HYMT_QUANT=bf16)"
 fi
 pipi() { pip "${PIP_Q[@]}" install --break-system-packages -c "$CONSTRAINTS" "$@"; }
-# transformers is PINNED below 5. Reproduced on 2026-08-28 against 5.16.1:
-# MADLAD generates degenerate output — "ll ll ll ll…", "ty u u e je je ij…" —
-# the same failure first seen as "ue ue ue".
-#
-# v5 warns that it will not tie shared.weight to decoder.embed_tokens.weight
-# because the checkpoint holds both with different values (they differ by up to
-# 253). That warning is a symptom, not the whole cause: tying them by hand does
-# NOT fix generation, it only changes which garbage comes out. Something deeper
-# in v5's T5 load of this checkpoint is wrong.
-#
-# Two earlier explanations recorded here were WRONG and are corrected: it is
-# not an fp16 overflow (bf16 is identical), and it is not the tokenizer —
-# "<2es>" tokenizes identically on 4.46.3 and 4.57.6, slow and fast.
-#
-# Upgrading would also break Omnilingual: transformers 5 pulls
-# huggingface_hub 1.x, and fairseq2 0.6 requires ~=0.32. That is Khmer, Lao,
-# Haitian and Swahili as source languages.
-#
-# The upside is now small anyway — MADLAD's decode runs through CTranslate2
-# (--mt-ct2), so transformers is off the hot path entirely.
+# transformers is PINNED below 5: on 5.16.1 (2026-08-28) MADLAD generates
+# degenerate output ("ll ll ll…"), from v5's T5 loading of this checkpoint (not
+# fp16, not the tokenizer; tying the embeddings by hand does not fix it).
+# transformers 5 would also pull huggingface_hub 1.x, which fairseq2 0.6
+# (Omnilingual) does not accept. MADLAD's decode runs through CTranslate2
+# (--mt-ct2) anyway, so the pin costs little.
 #
 # accelerate + bitsandbytes: the 4-bit Hy-MT2 translator (prepare-mt.sh).
 step "core: speech recognition, translation runtime, Piper, language ID"
@@ -127,32 +113,24 @@ echo "$UNIDIC_SHA256  $unidic_zip" | sha256sum -c --quiet - ||
 python3 -c 'import sys, unidic.download as d; d.download_and_clean("3.1.0+2021-08-31", "file://" + sys.argv[1])' "$unidic_zip"
 rm -f "$unidic_zip"
 # Its English G2P pulls a spaCy model AT FIRST USE, via pip, inside the server
-# process — which dies on PEP 668 and takes startup with it. Fetch it now: a
-# service must not be installing packages while someone is speaking.
-# The model is installed straight from its release wheel, pinned by sha256
-# (pip checks the #sha256= fragment), not through `spacy download`, which
-# picks a version at install time and shells out to a pip that hits PEP 668 on
-# this image (that failed on a real pod, caught only because the warning below
-# is loud).
+# process, which dies on PEP 668. Fetch it now, straight from its release wheel
+# pinned by sha256 (pip checks the #sha256= fragment), not with `spacy
+# download`, which picks a version at install time and hits PEP 668 too.
 SPACY_EN=https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl
 SPACY_EN_SHA256=1932429db727d4bff3deed6b34cfc05df17794f4a52eeb26cf8928f7c1a0fb85
 step "spaCy English model (Kokoro English)"
-pipi spacy && pipi "en_core_web_sm @ $SPACY_EN#sha256=$SPACY_EN_SHA256" || {
+if ! pipi spacy || ! pipi "en_core_web_sm @ $SPACY_EN#sha256=$SPACY_EN_SHA256"; then
   warn "spaCy model missing — Kokoro English will fail at synthesis"
-}
+fi
 
 # ---- Coqui, for the Haitian Creole OpenBible VITS -----------------------------
 # CC-BY-SA, which is what takes Haitian off MMS's non-commercial licence. Needs
 # transformers >=4.49, satisfied since the pin moved to 4.57.6.
 #
 # It raises numpy 1.26 -> 2.5 and scipy 1.13 -> 1.18, contradicting fairseq2's
-# declared numpy~=1.23. The old Dockerfile installed it LAST for that reason
-# (verified on a live box that Omnilingual still TRANSCRIBES on that
-# combination); the RunPod provisioner has always installed it BEFORE
-# Omnilingual, whose pins then win. The pods are the measured deployment, so
-# this keeps their order. Without Coqui the server starts, says "Coqui unavailable",
-# and serves Haitian from MMS — which works, but is the licence we were trying
-# to leave.
+# declared numpy~=1.23, so it is installed BEFORE Omnilingual, whose pins then
+# win (the order the measured pods always used). Without Coqui the server
+# starts, says "Coqui unavailable", and serves Haitian from MMS (CC-BY-NC).
 #
 # Pinned, that order needs one exception: Coqui's librosa 1.0 and contourpy 1.4
 # require numpy 2, so this step drops the numpy/scipy lines of constraints.txt
@@ -179,10 +157,13 @@ rm -f "$coqui_c"
 step "Omnilingual (rare languages' recogniser)"
 # ROCm: fairseq2 is built for CUDA torch 2.8 only, so Omnilingual can't run; its languages use Whisper. Its
 # scipy pin still matters (Coqui above brought scipy 1.18 for numpy 2).
-[ "$ROCM" = 1 ] && echo "ROCm: skipping Omnilingual (no ROCm build of fairseq2); its languages use Whisper" &&
-  pipi 'scipy==1.13.1' ||
-pipi omnilingual-asr 'torchaudio==2.8.0' 'scipy==1.13.1' ||
-  warn "omnilingual-asr failed to install — ht/km/lo/sw will fall back to whisper, which produces fluent nonsense for them."
+if [ "$ROCM" = 1 ]; then
+  echo "ROCm: skipping Omnilingual (no ROCm build of fairseq2); its languages use Whisper"
+  pipi 'scipy==1.13.1' || warn "scipy==1.13.1 failed to install — scipy stays at Coqui's 1.18 (see the check below)"
+else
+  pipi omnilingual-asr 'torchaudio==2.8.0' 'scipy==1.13.1' ||
+    warn "omnilingual-asr failed to install — ht/km/lo/sw will fall back to whisper, which produces fluent nonsense for them."
+fi
 
 # ---- Japanese Piper voice -----------------------------------------------------
 # Japanese is phonemised by pyopenjtalk, not espeak-ng like every other Piper

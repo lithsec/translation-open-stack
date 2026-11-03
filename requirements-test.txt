@@ -4,6 +4,10 @@
 #
 #   pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cpu
 #   pip install -r requirements-test.txt
+#   python -m pytest tests/test_protocol.py -v
+#
+# The unit tests need less: pip install pytest numpy scipy websockets, then
+# python -m pytest (every tests/test_*.py; test_protocol.py skips without torch).
 #
 # transformers stays below 5, as in scripts/install-deps.sh.
 faster-whisper

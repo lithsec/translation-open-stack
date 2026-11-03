@@ -25,44 +25,20 @@ jobs:
         with:
           python-version: '3.12'
 
-      # numpy/scipy: the voices' audio helpers (tests/test_capacity.py);
-      # websockets: omni-stt's subprotocol handshake, through a real server
-      # (tests/test_omni_stt.py); espeak-ng: the last-resort voice, tested for
-      # real, on the same Ubuntu package the pods use.
+      # pytest runs them; numpy/scipy: the voices' audio helpers
+      # (tests/test_capacity.py); websockets: omni-stt's subprotocol handshake,
+      # through a real server (tests/test_omni_stt.py); espeak-ng: the
+      # last-resort voice, tested for real, on the same Ubuntu package the pods use.
       - name: Test dependencies
         run: |
-          pip install numpy scipy websockets
+          pip install pytest numpy scipy websockets
           sudo apt-get install -y --no-install-recommends espeak-ng
           espeak-ng --version
 
+      # Every tests/test_*.py, in one process (pytest.ini). test_protocol.py
+      # needs torch and the CPU models: it skips here and runs in protocol.yml.
       - name: Unit tests
-        run: |
-          python tests/test_stack_auth.py
-          python tests/test_stack_config.py
-          python tests/test_nonspeech.py
-          python tests/test_streaming.py
-          python tests/test_agree.py
-          python tests/test_start_llmmt.py
-          python tests/test_engines.py
-          python tests/test_translation_context.py
-          python tests/test_llmmt.py
-          python tests/test_licences.py
-          python tests/test_capacity.py
-          python tests/test_voice_trim.py
-          python tests/test_doc_links.py
-          python tests/test_cost.py
-          python tests/test_profiles.py
-          python tests/test_editions.py
-          python tests/test_audio_in.py
-          python tests/test_omni_stt.py
-          python tests/test_omni_stt_voices.py
-          python tests/test_eval_tools.py
-          python tests/test_omni_stt_denoise.py
-          python tests/test_omni_stt_partials.py
-          python tests/test_omni_stt_ctc_stream.py
-          python tests/test_omni_large.py
-          python tests/test_omni_stt_duo.py
-          python tests/test_omni_stt_cloudrun.py
+        run: python -m pytest -q
 
       - name: Language config (both editions)
         run: |

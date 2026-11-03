@@ -1,0 +1,1246 @@
+{
+ "a": {
+  "en-es": {
+   "commercial": {
+    "written": {
+     "q": 61.7,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 73.3,
+     "crit": 4,
+     "n": 20
+    },
+    "cer_said": 0.061,
+    "cer_written": 0.084,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1232,
+     "p90": 1554,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1362,
+     "p90": 1608,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95107,
+     "mem_used_mb_min": 94983,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 10.2,
+     "util_pct_max": 100,
+     "samples": 87
+    },
+    "run": "C"
+   }
+  },
+  "en-fr": {
+   "commercial": {
+    "written": {
+     "q": 65.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 76.7,
+     "crit": 3,
+     "n": 20
+    },
+    "cer_said": 0.061,
+    "cer_written": 0.084,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1444,
+     "p90": 1710,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1576,
+     "p90": 1767,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95191,
+     "mem_used_mb_min": 95191,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 10.1,
+     "util_pct_max": 100,
+     "samples": 87
+    },
+    "run": "C"
+   }
+  },
+  "en-ht": {
+   "commercial": {
+    "written": {
+     "q": 58.3,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 80.0,
+     "crit": 1,
+     "n": 20
+    },
+    "cer_said": 0.061,
+    "cer_written": 0.084,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1152,
+     "p90": 1500,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1262,
+     "p90": 1500,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95269,
+     "mem_used_mb_min": 95079,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 13.2,
+     "util_pct_max": 100,
+     "samples": 87
+    },
+    "run": "C"
+   }
+  },
+  "en-ja": {
+   "commercial": {
+    "written": {
+     "q": 66.7,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 73.3,
+     "crit": 3,
+     "n": 20
+    },
+    "cer_said": 0.061,
+    "cer_written": 0.084,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1352,
+     "p90": 1582,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1426,
+     "p90": 1670,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95731,
+     "mem_used_mb_min": 95171,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 7.9,
+     "util_pct_max": 100,
+     "samples": 86
+    },
+    "run": "C"
+   }
+  },
+  "en-km": {
+   "commercial": {
+    "written": {
+     "q": 63.3,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 71.7,
+     "crit": 2,
+     "n": 20
+    },
+    "cer_said": 0.061,
+    "cer_written": 0.084,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1433,
+     "p90": 1835,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1486,
+     "p90": 1835,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95811,
+     "mem_used_mb_min": 95243,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 34.4,
+     "util_pct_max": 100,
+     "samples": 88
+    },
+    "run": "C"
+   }
+  },
+  "en-pt": {
+   "commercial": {
+    "written": {
+     "q": 63.3,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 75.0,
+     "crit": 4,
+     "n": 20
+    },
+    "cer_said": 0.061,
+    "cer_written": 0.084,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1241,
+     "p90": 1542,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1397,
+     "p90": 1598,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95169,
+     "mem_used_mb_min": 95143,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 11.0,
+     "util_pct_max": 100,
+     "samples": 87
+    },
+    "run": "C"
+   }
+  },
+  "es-en": {
+   "commercial": {
+    "written": {
+     "q": 81.7,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 84.2,
+     "crit": 1,
+     "n": 19
+    },
+    "cer_said": 0.009,
+    "cer_written": 0.01,
+    "missing_audio": 0,
+    "utterances": 26,
+    "stop_to_first_audio_ms": {
+     "p50": 1516,
+     "p90": 1694,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1548,
+     "p90": 1834,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95171,
+     "mem_used_mb_min": 95107,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 4.7,
+     "util_pct_max": 96,
+     "samples": 106
+    },
+    "run": "C"
+   }
+  },
+  "fr-en": {
+   "commercial": {
+    "written": {
+     "q": 78.3,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 78.3,
+     "crit": 4,
+     "n": 20
+    },
+    "cer_said": 0.028,
+    "cer_written": 0.028,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1508,
+     "p90": 1710,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1512,
+     "p90": 1793,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95243,
+     "mem_used_mb_min": 95191,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 4.4,
+     "util_pct_max": 95,
+     "samples": 93
+    },
+    "run": "C"
+   }
+  },
+  "ht-en": {
+   "commercial": {
+    "written": {
+     "q": 60.0,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 60.8,
+     "crit": 6,
+     "n": 17
+    },
+    "cer_said": 0.022,
+    "cer_written": 0.045,
+    "missing_audio": 0,
+    "utterances": 21,
+    "stop_to_first_audio_ms": {
+     "p50": 2160,
+     "p90": 2331,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 2174,
+     "p90": 2471,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95241,
+     "mem_used_mb_min": 94939,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 6.9,
+     "util_pct_max": 100,
+     "samples": 113
+    },
+    "run": "C"
+   }
+  },
+  "ja-en": {
+   "commercial": {
+    "written": {
+     "q": 75.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 75.9,
+     "crit": 4,
+     "n": 18
+    },
+    "cer_said": 0.051,
+    "cer_written": 0.05,
+    "missing_audio": 0,
+    "utterances": 21,
+    "stop_to_first_audio_ms": {
+     "p50": 1903,
+     "p90": 2196,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1938,
+     "p90": 2196,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95191,
+     "mem_used_mb_min": 95171,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 7.4,
+     "util_pct_max": 100,
+     "samples": 128
+    },
+    "run": "C"
+   }
+  },
+  "km-en": {
+   "commercial": {
+    "written": {
+     "q": 55.0,
+     "crit": 11,
+     "n": 20
+    },
+    "said": {
+     "q": 59.3,
+     "crit": 9,
+     "n": 18
+    },
+    "cer_said": 0.084,
+    "cer_written": 0.111,
+    "missing_audio": 0,
+    "utterances": 24,
+    "stop_to_first_audio_ms": {
+     "p50": 2111,
+     "p90": 2376,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 2134,
+     "p90": 2376,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95259,
+     "mem_used_mb_min": 95091,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 6.6,
+     "util_pct_max": 97,
+     "samples": 124
+    },
+    "run": "C"
+   }
+  },
+  "pt-en": {
+   "commercial": {
+    "written": {
+     "q": 86.7,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 86.7,
+     "crit": 3,
+     "n": 20
+    },
+    "cer_said": 0.012,
+    "cer_written": 0.012,
+    "missing_audio": 0,
+    "utterances": 28,
+    "stop_to_first_audio_ms": {
+     "p50": 1400,
+     "p90": 1569,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1532,
+     "p90": 1991,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95319,
+     "mem_used_mb_min": 95169,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 5.6,
+     "util_pct_max": 90,
+     "samples": 109
+    },
+    "run": "C"
+   }
+  },
+  "en-lo": {
+   "nonprofit": {
+    "written": {
+     "q": 68.3,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 70.0,
+     "crit": 4,
+     "n": 20
+    },
+    "cer_said": 0.061,
+    "cer_written": 0.084,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1652,
+     "p90": 2073,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1756,
+     "p90": 2291,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 84399,
+     "mem_used_mb_min": 84263,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 39.7,
+     "util_pct_max": 100,
+     "samples": 88
+    },
+    "run": "N"
+   },
+   "commercial": {
+    "written": {
+     "q": 68.3,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 55.0,
+     "crit": 6,
+     "n": 20
+    },
+    "cer_said": 0.061,
+    "cer_written": 0.084,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1163,
+     "p90": 1483,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1218,
+     "p90": 1569,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95143,
+     "mem_used_mb_min": 95141,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 31.1,
+     "util_pct_max": 97,
+     "samples": 87
+    },
+    "run": "C"
+   }
+  },
+  "lo-en": {
+   "commercial": {
+    "written": {
+     "q": 50.0,
+     "crit": 9,
+     "n": 20
+    },
+    "said": {
+     "q": 50.9,
+     "crit": 8,
+     "n": 19
+    },
+    "cer_said": 0.19,
+    "cer_written": 0.182,
+    "missing_audio": 1,
+    "utterances": 27,
+    "stop_to_first_audio_ms": {
+     "p50": 1829,
+     "p90": 2630,
+     "n": 19
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 2102,
+     "p90": 2630,
+     "n": 19
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95685,
+     "mem_used_mb_min": 94941,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 6.6,
+     "util_pct_max": 98,
+     "samples": 126
+    },
+    "run": "C"
+   },
+   "nonprofit": {
+    "written": {
+     "q": 50.0,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 50.9,
+     "crit": 9,
+     "n": 19
+    },
+    "cer_said": 0.19,
+    "cer_written": 0.182,
+    "missing_audio": 1,
+    "utterances": 27,
+    "stop_to_first_audio_ms": {
+     "p50": 1666,
+     "p90": 2470,
+     "n": 19
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1863,
+     "p90": 2470,
+     "n": 19
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 84543,
+     "mem_used_mb_min": 84235,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 6.8,
+     "util_pct_max": 100,
+     "samples": 126
+    },
+    "run": "N"
+   }
+  }
+ },
+ "b": {
+  "en-es": {
+   "commercial": {
+    "written": {
+     "q": 65.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 65.0,
+     "crit": 4,
+     "n": 20
+    },
+    "cer_said": 0.041,
+    "cer_written": 0.053,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1164,
+     "p90": 1437,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1204,
+     "p90": 1636,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95235,
+     "mem_used_mb_min": 95235,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 10.1,
+     "util_pct_max": 100,
+     "samples": 88
+    },
+    "run": "C"
+   }
+  },
+  "en-fr": {
+   "commercial": {
+    "written": {
+     "q": 56.7,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 66.7,
+     "crit": 6,
+     "n": 20
+    },
+    "cer_said": 0.041,
+    "cer_written": 0.053,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1386,
+     "p90": 1658,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1438,
+     "p90": 1824,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95315,
+     "mem_used_mb_min": 95315,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 11.4,
+     "util_pct_max": 100,
+     "samples": 88
+    },
+    "run": "C"
+   }
+  },
+  "en-ht": {
+   "commercial": {
+    "written": {
+     "q": 55.0,
+     "crit": 10,
+     "n": 20
+    },
+    "said": {
+     "q": 68.3,
+     "crit": 4,
+     "n": 20
+    },
+    "cer_said": 0.041,
+    "cer_written": 0.053,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1096,
+     "p90": 1390,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1143,
+     "p90": 1579,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95253,
+     "mem_used_mb_min": 95147,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 10.9,
+     "util_pct_max": 100,
+     "samples": 88
+    },
+    "run": "C"
+   }
+  },
+  "en-ja": {
+   "commercial": {
+    "written": {
+     "q": 60.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 65.0,
+     "crit": 8,
+     "n": 20
+    },
+    "cer_said": 0.041,
+    "cer_written": 0.053,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1194,
+     "p90": 1499,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1286,
+     "p90": 1708,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95255,
+     "mem_used_mb_min": 95235,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 8.0,
+     "util_pct_max": 100,
+     "samples": 88
+    },
+    "run": "C"
+   }
+  },
+  "en-km": {
+   "commercial": {
+    "written": {
+     "q": 53.3,
+     "crit": 6,
+     "n": 20
+    },
+    "said": {
+     "q": 56.7,
+     "crit": 4,
+     "n": 20
+    },
+    "cer_said": 0.041,
+    "cer_written": 0.053,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1318,
+     "p90": 1696,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1418,
+     "p90": 1765,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95315,
+     "mem_used_mb_min": 95315,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 32.8,
+     "util_pct_max": 100,
+     "samples": 88
+    },
+    "run": "C"
+   }
+  },
+  "en-pt": {
+   "commercial": {
+    "written": {
+     "q": 65.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 65.0,
+     "crit": 5,
+     "n": 20
+    },
+    "cer_said": 0.041,
+    "cer_written": 0.053,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1172,
+     "p90": 1431,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1255,
+     "p90": 1622,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95243,
+     "mem_used_mb_min": 95085,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 9.9,
+     "util_pct_max": 100,
+     "samples": 88
+    },
+    "run": "C"
+   }
+  },
+  "es-en": {
+   "commercial": {
+    "written": {
+     "q": 85.0,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 85.0,
+     "crit": 2,
+     "n": 20
+    },
+    "cer_said": 0.007,
+    "cer_written": 0.007,
+    "missing_audio": 0,
+    "utterances": 24,
+    "stop_to_first_audio_ms": {
+     "p50": 1462,
+     "p90": 1613,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1510,
+     "p90": 1731,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95795,
+     "mem_used_mb_min": 95235,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 4.4,
+     "util_pct_max": 92,
+     "samples": 101
+    },
+    "run": "C"
+   }
+  },
+  "fr-en": {
+   "commercial": {
+    "written": {
+     "q": 71.7,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 73.7,
+     "crit": 3,
+     "n": 19
+    },
+    "cer_said": 0.02,
+    "cer_written": 0.019,
+    "missing_audio": 0,
+    "utterances": 25,
+    "stop_to_first_audio_ms": {
+     "p50": 1576,
+     "p90": 1941,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1642,
+     "p90": 1941,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95875,
+     "mem_used_mb_min": 95315,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 6.5,
+     "util_pct_max": 93,
+     "samples": 90
+    },
+    "run": "C"
+   }
+  },
+  "ht-en": {
+   "commercial": {
+    "written": {
+     "q": 38.3,
+     "crit": 12,
+     "n": 20
+    },
+    "said": {
+     "q": 43.1,
+     "crit": 11,
+     "n": 17
+    },
+    "cer_said": 0.035,
+    "cer_written": 0.104,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1611,
+     "p90": 2221,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1979,
+     "p90": 2221,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95209,
+     "mem_used_mb_min": 94983,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 5.8,
+     "util_pct_max": 100,
+     "samples": 124
+    },
+    "run": "C"
+   }
+  },
+  "ja-en": {
+   "commercial": {
+    "written": {
+     "q": 83.3,
+     "crit": 2,
+     "n": 20
+    },
+    "said": {
+     "q": 86.0,
+     "crit": 2,
+     "n": 19
+    },
+    "cer_said": 0.022,
+    "cer_written": 0.029,
+    "missing_audio": 0,
+    "utterances": 20,
+    "stop_to_first_audio_ms": {
+     "p50": 2145,
+     "p90": 2384,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 2145,
+     "p90": 2384,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95315,
+     "mem_used_mb_min": 95255,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 5.9,
+     "util_pct_max": 100,
+     "samples": 113
+    },
+    "run": "C"
+   }
+  },
+  "km-en": {
+   "commercial": {
+    "written": {
+     "q": 60.0,
+     "crit": 5,
+     "n": 20
+    },
+    "said": {
+     "q": 61.4,
+     "crit": 5,
+     "n": 19
+    },
+    "cer_said": 0.094,
+    "cer_written": 0.102,
+    "missing_audio": 0,
+    "utterances": 24,
+    "stop_to_first_audio_ms": {
+     "p50": 2114,
+     "p90": 2506,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 2177,
+     "p90": 2506,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95325,
+     "mem_used_mb_min": 95003,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 7.8,
+     "util_pct_max": 94,
+     "samples": 134
+    },
+    "run": "C"
+   }
+  },
+  "pt-en": {
+   "commercial": {
+    "written": {
+     "q": 70.0,
+     "crit": 4,
+     "n": 20
+    },
+    "said": {
+     "q": 70.0,
+     "crit": 4,
+     "n": 20
+    },
+    "cer_said": 0.013,
+    "cer_written": 0.013,
+    "missing_audio": 0,
+    "utterances": 27,
+    "stop_to_first_audio_ms": {
+     "p50": 1371,
+     "p90": 1612,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1470,
+     "p90": 1644,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95185,
+     "mem_used_mb_min": 95149,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 4.2,
+     "util_pct_max": 100,
+     "samples": 107
+    },
+    "run": "C"
+   }
+  },
+  "en-lo": {
+   "nonprofit": {
+    "written": {
+     "q": 56.7,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 65.0,
+     "crit": 5,
+     "n": 20
+    },
+    "cer_said": 0.041,
+    "cer_written": 0.053,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1503,
+     "p90": 2090,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1534,
+     "p90": 2240,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 84595,
+     "mem_used_mb_min": 84499,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 36.7,
+     "util_pct_max": 100,
+     "samples": 88
+    },
+    "run": "N"
+   },
+   "commercial": {
+    "written": {
+     "q": 40.0,
+     "crit": 3,
+     "n": 20
+    },
+    "said": {
+     "q": 40.0,
+     "crit": 7,
+     "n": 20
+    },
+    "cer_said": 0.041,
+    "cer_written": 0.053,
+    "missing_audio": 0,
+    "utterances": 23,
+    "stop_to_first_audio_ms": {
+     "p50": 1096,
+     "p90": 1405,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1170,
+     "p90": 1597,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95085,
+     "mem_used_mb_min": 95085,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 29.6,
+     "util_pct_max": 99,
+     "samples": 88
+    },
+    "run": "C"
+   }
+  },
+  "lo-en": {
+   "nonprofit": {
+    "written": {
+     "q": 56.7,
+     "crit": 8,
+     "n": 20
+    },
+    "said": {
+     "q": 61.1,
+     "crit": 7,
+     "n": 18
+    },
+    "cer_said": 0.114,
+    "cer_written": 0.119,
+    "missing_audio": 0,
+    "utterances": 26,
+    "stop_to_first_audio_ms": {
+     "p50": 1664,
+     "p90": 2269,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 1945,
+     "p90": 2269,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 85041,
+     "mem_used_mb_min": 84377,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 10.6,
+     "util_pct_max": 100,
+     "samples": 123
+    },
+    "run": "N"
+   },
+   "commercial": {
+    "written": {
+     "q": 55.0,
+     "crit": 7,
+     "n": 20
+    },
+    "said": {
+     "q": 55.6,
+     "crit": 7,
+     "n": 18
+    },
+    "cer_said": 0.114,
+    "cer_written": 0.119,
+    "missing_audio": 0,
+    "utterances": 26,
+    "stop_to_first_audio_ms": {
+     "p50": 1780,
+     "p90": 2428,
+     "n": 20
+    },
+    "stop_to_tail_audio_ms": {
+     "p50": 2000,
+     "p90": 2428,
+     "n": 20
+    },
+    "dropped_utterances": 0,
+    "gpu": {
+     "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+     "mem_used_mb_max": 95813,
+     "mem_used_mb_min": 94963,
+     "mem_total_mb": 97887,
+     "util_pct_mean": 9.6,
+     "util_pct_max": 99,
+     "samples": 123
+    },
+    "run": "C"
+   }
+  }
+ }
+}

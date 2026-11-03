@@ -57,7 +57,8 @@ everything configured. commercial loads only what server/licences.py classifies
 as permissive, attribution or share-alike: a non-commercial (⛔) voice or model
 never loads, and an unclear (❓) one only when [licence_review] names it (or
 COMMERCIAL_ALLOW_UNCLEAR=1). A language left without a voice is served as text.
-apply_edition() does this for `check`; engines/manager.py applies the same
+An llmmt server line is judged by the model it serves (Gemma 4 ✅; MiLMMT-46 ❓, so
+commercial Lao uses its next line, Gemma 4). apply_edition() does this for `check`; engines/manager.py applies the same
 function again at runtime, so neither can be skipped.
 
     [licence_review]
@@ -118,7 +119,9 @@ LONG_TURNS = {"endpoint_ms": 900, "long_utterance_s": 8, "long_endpoint_ms": 500
               "min_speech_ms": 2500}
 # Translators per direction, from the full stack live (eval/2026-10-full-stack): Gemma 4 (llmmt) out of
 # English into es pt fr ja km, ja -> en, and both ways for ht; MiLMMT both ways for Lao; Hy-MT2 into
-# English from es pt fr km. From Lithos Talk's route table (2026-10-27; Gemma within 5 points of
+# English from es pt fr km. Lao lists Gemma 4 after MiLMMT, for when MiLMMT is not running or not allowed
+# (commercial): en->lo 90.0 on Gemma (eval/2026-10-es-pt-live-compare), 47.5 on MADLAD
+# (eval/2026-11-commercial-edition). From Lithos Talk's route table (2026-10-27; Gemma within 5 points of
 # gpt-5.6-sol and at least 80; not yet measured on this stack): Gemma 4 into de ru zh vi tl, and into
 # English from zh vi tl ar fa; also into uk ar fa sw, where Gemma beats the stack's own translator in the
 # short check (eval/2026-10-language-short-check). llmmt is tried first and only while its server answers (engines/llmmt.py):
@@ -181,7 +184,7 @@ DEFAULTS = {
            **LONG_TURNS, "translator": ["llmmt", "hymt"], "llmmt": GEMMA, "translator_to_en": "hymt",
            "madlad": "km"},
     "lo": {"voxcpm": True, "mms": "facebook/mms-tts-lao", "asr": "omni:lao_Laoo", "omni": "large",
-           **LONG_TURNS, "translator": ["llmmt", "madlad"], "llmmt": MILMMT,
+           **LONG_TURNS, "translator": ["llmmt", "madlad"], "llmmt": [MILMMT, GEMMA],
            "translator_to_en": ["llmmt", "hymt"], "madlad": "lo"},
     # MADLAD's code for Tagalog is fil (<2tl> is not in its vocabulary).
     "tl": {"voxcpm": True, "mms": "facebook/mms-tts-tgl", "asr": "whisper", "translator": ["llmmt", "hymt"],
@@ -225,17 +228,14 @@ MODEL_DEFAULTS = {
 # model under a build stamped with it.
 MODELS_PINNED = {"hymt", "madlad", "madlad3b", "voxcpm"}
 
-# The keys a language table may use: these, plus every registered engine that
-# takes a per-language value (keys()). The built-in engines give exactly the
-# set this file always had: kokoro voxcpm coqui piper mms madlad.
 # Per-language turn rules (server.endpointing) and their allowed range: outside
 # these is a typo, not a setting.
 TURN_KEYS = {"endpoint_ms": (100, 3000), "max_utterance_s": (3, 30), "long_utterance_s": (2, 30),
              "long_endpoint_ms": (100, 3000), "min_speech_ms": (0, 5000)}
-ENDPOINT_MS_RANGE = TURN_KEYS["endpoint_ms"]
-MAX_UTTERANCE_S_RANGE = TURN_KEYS["max_utterance_s"]
 # A translator is one engine name or a list tried in order (translator_choices()).
 TRANSLATOR_KEYS = ("translator", "translator_to_en")
+# The keys a language table may use: these, plus every registered engine that
+# takes a per-language value (keys()).
 BASE_KEYS = {"asr": str, "translator": (str, list), "translator_to_en": (str, list), "voice": list, "commercial": dict, **{k: int for k in TURN_KEYS}}
 
 
@@ -252,11 +252,6 @@ def translator_choices(entry, key="translator"):
     if v is None:
         return []
     return [v] if isinstance(v, str) else list(v)
-
-
-def first_translator(entry, default="hymt"):
-    """The first engine a language's `translator` names (Hy-MT2 when none)."""
-    return (translator_choices(entry) or [default])[0]
 
 
 def base_translator(entry):
@@ -377,9 +372,11 @@ def _validate_commercial(lang, comm, known):
 
 EDITIONS = ("nonprofit", "commercial", "both")
 # "both": one server for both kinds of client (Lithos Talk, commercial, and Live
-# Translation, non-profit, on one GPU). The server builds a voice set per edition
-# and each connection gets the one its token names (claim "ed"; none: commercial,
-# the strict one). Recognisers and translators are the same in both editions.
+# Translation, non-profit, on one GPU). The server builds an engine set per
+# edition and each connection gets the one its token names (claim "ed"; none:
+# commercial, the strict one): its voices and its translation routing (Lao's
+# MiLMMT-46 is non-profit only). Recognisers are the same in both editions; a
+# translator or voice configured the same in both is one model.
 BOTH = "both"
 # Voice engines scripts/run.sh does NOT start in an edition (--mms is nonprofit
 # only, --coqui commercial only). Licence enforcement is separate and stricter.
@@ -410,7 +407,7 @@ def allow_unclear():
 
 
 def validate_reviews(reviews):
-    """[licence_review]: "<voice, repo or engine>" = "<who reviewed it, when, why>".
+    """[licence_review]: "<voice, repo, engine or served model id>" = "<who reviewed it, when, why>".
     A review can never admit a non-commercial item."""
     lic = _licences()
     if not isinstance(reviews, dict):
@@ -461,9 +458,13 @@ def apply_edition(table, ed, reviews=None, unclear_ok=None):
     voice, recogniser and translator is looked up in licences.py and only what
     licences.allowed() admits stays. A ⛔ item named in a [<lang>.commercial]
     table is a configuration error; one inherited from [<lang>] is dropped and
-    reported. report = {lang: {"voices": [(engine, value, Lic)], "dropped":
-    [(engine, value, Lic)], "text_only": bool}} where voices are the ones the
-    edition runs (EDITION_OFF), in chain order."""
+    reported. A served translator (llmmt) is judged by the model each of its
+    server lines names: a line that may not load is dropped (the language's
+    next line serves), and a language left with none drops the engine out of
+    its translator lists. report = {lang: {"voices": [(engine, value, Lic)],
+    "dropped": [(engine, value, Lic)], "translators_dropped": [(engine, server
+    line, Lic)] (one per dropped line), "text_only": bool}} where voices are
+    the ones the edition runs (EDITION_OFF), in chain order."""
     lic = _licences()
     reviews = reviews or {}
     unclear_ok = allow_unclear() if unclear_ok is None else unclear_ok
@@ -473,7 +474,7 @@ def apply_edition(table, ed, reviews=None, unclear_ok=None):
     for lang, entry in table.items():
         e = copy.deepcopy(entry)
         comm = e.pop("commercial", None)
-        dropped = []
+        dropped, tdropped = [], []
         if ed == "commercial":
             if comm is not None:
                 for k in [k for k in e if k in voice_names or k == "voice"]:
@@ -484,14 +485,39 @@ def apply_edition(table, ed, reviews=None, unclear_ok=None):
             if not lic.allowed(li, ed, name in reviews, unclear_ok):
                 raise ValueError(f"[{lang}] recognizer {name} is {lic.SYMBOL[li.cls]} {li.cls} ({li.reason}): "
                                  "not allowed with EDITION=commercial")
-            # A translator list keeps the choices commercial may load (llmmt is ❓ until reviewed, so
-            # it drops out and the next choice serves); a list with none left, or one name, refuses.
+            # A served translator (llmmt) is classified by the model each server line names: Gemma 4
+            # (✅) stays; a line commercial may not load (MiLMMT-46, an unknown model: ❓ until reviewed)
+            # is dropped, so no pair is ever sent to it (not even one whose other side this language
+            # is), and the language's next line serves. A language left with no line drops the engine
+            # out of the lists below.
+            served_ok = {}
+            for name in [k for k in e if k in reg["translator"] and k in lic.SERVED]:
+                lines = lic.served_lines(e[name])
+                kept = []
+                for line in lines:
+                    li = lic.lookup(name, line, cls=reg["translator"].get(name))
+                    if lic.allowed(li, ed, lic.reviewed(reviews, name, line), unclear_ok):
+                        kept.append(line)
+                    else:
+                        tdropped.append((name, line, li))
+                served_ok[name] = bool(kept)
+                if kept and kept != lines:
+                    e[name] = kept[0] if len(kept) == 1 else kept
+            # A translator list keeps the choices commercial may load (the next choice serves for the
+            # ones that drop out); a list with none left, or one name, refuses.
             for key in TRANSLATOR_KEYS:
                 names = translator_choices(e, key) or (["hymt"] if key == "translator" else [])
                 keep = []
                 for name in names:
-                    li = lic.lookup(name, cls=reg["translator"].get(name))
-                    if lic.allowed(li, ed, name in reviews, unclear_ok):
+                    if name in lic.SERVED:
+                        # No server line here: it only reaches servers other languages name (checked there).
+                        li = (lic.lookup(name, lic.served_lines(e[name])[0], cls=reg["translator"].get(name))
+                              if name in e else lic.ENGINES[name])
+                        ok = served_ok.get(name, True)
+                    else:
+                        li = lic.lookup(name, cls=reg["translator"].get(name))
+                        ok = lic.allowed(li, ed, name in reviews, unclear_ok)
+                    if ok:
                         keep.append(name)
                     elif len(names) == 1:
                         raise ValueError(f"[{lang}] translator {name} is {lic.SYMBOL[li.cls]} {li.cls} "
@@ -501,9 +527,11 @@ def apply_edition(table, ed, reviews=None, unclear_ok=None):
                                      "EDITION=commercial")
                 if key in e and keep != names:
                     e[key] = keep[0] if len(keep) == 1 else keep
+            for name in [n for n, ok in served_ok.items() if not ok]:
+                e.pop(name, None)
             for name, value in voice_order(e, lang):
                 li = lic.lookup(name, value if isinstance(value, str) else None, cls=reg["voice"].get(name))
-                if lic.allowed(li, ed, lic.item_id(name, value) in reviews, unclear_ok):
+                if lic.allowed(li, ed, lic.reviewed(reviews, name, value), unclear_ok):
                     continue
                 if comm is not None and (name in comm or name in comm.get("voice", [])) \
                         and li.cls == lic.NONCOMMERCIAL:
@@ -516,7 +544,8 @@ def apply_edition(table, ed, reviews=None, unclear_ok=None):
         voices = [(n, v, lic.lookup(n, v if isinstance(v, str) else None, cls=reg["voice"].get(n)))
                   for n, v in voice_order(e, lang) if n not in EDITION_OFF[ed]]
         out[lang] = e
-        report[lang] = {"voices": voices, "dropped": dropped, "text_only": not voices}
+        report[lang] = {"voices": voices, "dropped": dropped, "translators_dropped": tdropped,
+                        "text_only": not voices}
     return out, report
 
 
@@ -933,7 +962,7 @@ def get(models, dotted):
 
 
 def tables(table):
-    """The lookup tables server.py uses, derived from a loaded table."""
+    """The lookup tables the server (pipeline.py) uses, derived from a loaded table."""
     return {
         "KOKORO_VOICES": {l: tuple(e["kokoro"].split(":")) for l, e in table.items() if "kokoro" in e},
         "VOXCPM_LANGS": {l for l, e in table.items() if e.get("voxcpm")},
@@ -998,7 +1027,9 @@ def check_lines(table, ed, reviews, models, unclear_ok=None):
         asr = e.get("asr", "whisper")
         a = lic.lookup(asr.split(":", 1)[0], cls=reg["recognizer"].get(asr.split(":", 1)[0]))
         names = translator_choices(e) or ["hymt"]
-        t = lic.lookup(names[0], cls=reg["translator"].get(names[0]))
+        first = e.get(names[0]) if names[0] in lic.PER_ITEM else None
+        t = lic.lookup(names[0], lic.served_lines(first)[0] if names[0] in lic.SERVED and first else first,
+                       cls=reg["translator"].get(names[0]))
         tr = ">".join(names) + (f" (to en: {'>'.join(translator_choices(e, 'translator_to_en'))})"
                                 if "translator_to_en" in e else "")
         chain = " > ".join(f"{_item(n, v)} {lic.SYMBOL[li.cls]}" + (" (last resort)" if _last(n) and len(r["voices"]) > 1
@@ -1014,9 +1045,28 @@ def check_lines(table, ed, reviews, models, unclear_ok=None):
                 lines.append(f"        {lic.SYMBOL[li.cls]} {lang} voice {_item(n, v)}: {ob}")
                 obligations.append(f"{lang} {_item(n, v)}: {ob}")
             elif li.cls == lic.UNCLEAR and ed == "commercial":
-                why = f"reviewed: {reviews[lic.item_id(n, v)]}" if lic.item_id(n, v) in reviews \
+                why = f"reviewed: {lic.review_note(reviews, n, v)}" if lic.reviewed(reviews, n, v) \
                     else "COMMERCIAL_ALLOW_UNCLEAR=1"
                 lines.append(f"        ❓ {lang} voice {_item(n, v)} ({li.reason}) — loaded because {why}")
+        for n in sorted({n for key in TRANSLATOR_KEYS for n in translator_choices(e, key)
+                         if n in lic.SERVED and n in e}):
+            served = [(v, lic.lookup(n, v, cls=reg["translator"].get(n))) for v in lic.served_lines(e[n])]
+            if len(served) > 1 or any(x == n for x, _, _ in r.get("translators_dropped", [])):
+                lines.append(f"        {lang} translator {n}: " + " > ".join(
+                    f"{lic.served_model(v)} {lic.SYMBOL[li.cls]}" for v, li in served)
+                    + (" (the first that answers serves)" if len(served) > 1 else ""))
+            for v, li in served:
+                if li.cls == lic.UNCLEAR and ed == "commercial":
+                    why = lic.review_note(reviews, n, v)
+                    lines.append(f"        ❓ {lang} translator {n} {lic.served_model(v)} ({li.reason}) — loaded "
+                                 f"because {'reviewed: ' + why if why else 'COMMERCIAL_ALLOW_UNCLEAR=1'}")
+        for n, v, li in r.get("translators_dropped", []):
+            nxt = (f"{lang} uses its next server line, {lic.served_model(lic.served_lines(e[n])[0])}" if n in e
+                   else "its directions use the next translator")
+            lines.append(f"        not loaded in commercial: translator {n} {lic.served_model(v)} "
+                         f"{lic.SYMBOL[li.cls]} {li.licence} ({nxt}); "
+                         f"to allow it after your own review: [licence_review] \"{lic.item_id(n, v)}\" = "
+                         "\"reviewed <date> by <org>: <why>\"")
         for n, v, li in r["dropped"]:
             hint = "" if li.cls == lic.NONCOMMERCIAL else (
                 f"; to allow it after your own review: [licence_review] \"{lic.item_id(n, v)}\" = "
@@ -1059,10 +1109,12 @@ def check_lines(table, ed, reviews, models, unclear_ok=None):
 
 
 def _translator_title(name, entry):
-    """Hy-MT2, MADLAD, or for llmmt the model its server line names."""
+    """Hy-MT2, MADLAD, or for llmmt the model each of its server lines names, in order."""
     if name == "llmmt" and entry.get("llmmt"):
-        model = str(entry["llmmt"]).split()[-1].lower()
-        return ("Gemma 4" if "gemma-4" in model else "MiLMMT" if "milmmt" in model else model) + " (llmmt)"
+        def title(line):
+            model = str(line).split()[-1].lower()
+            return ("Gemma 4" if "gemma-4" in model else "MiLMMT" if "milmmt" in model else model) + " (llmmt)"
+        return " › ".join(title(line) for line in _licences().served_lines(entry["llmmt"]))
     return TITLES.get(name, name)
 
 
@@ -1077,7 +1129,7 @@ def docs_blocks(table=None):
     lic = _licences()
     table = DEFAULTS if table is None else table
     non, rn = apply_edition(table, "nonprofit", {}, False)
-    _, rc = apply_edition(table, "commercial", {}, False)
+    c_eff, rc = apply_edition(table, "commercial", {}, False)
 
     def chain(r):
         return " › ".join(f"{_short(n, v)} {lic.SYMBOL[li.cls]}" for n, v, li in r["voices"])
@@ -1096,6 +1148,11 @@ def docs_blocks(table=None):
                 notes.append("new: VoxCPM2 (shared GPU capacity, §2)")
             if n == "piper" and (n, v) not in [(x, y) for x, y, _ in rn[lang]["voices"]]:
                 notes.append(f"new: Piper `{v}` ({li.reason})")
+        for n, v, li in rc[lang]["translators_dropped"]:
+            ce = c_eff[lang]
+            ctr = " › ".join(_translator_title(x, ce) for x in (translator_choices(ce) or ["hymt"]))
+            notes.append(f"translation: {ctr}, not {_translator_title(n, {n: v}).split(' (')[0]} "
+                         f"{lic.SYMBOL[li.cls]} {li.licence}")
         for n, v, li in rc[lang]["dropped"]:
             notes.append(f"not loaded: {_short(n, v)} {lic.SYMBOL[li.cls]}")
         replaced = [(n, v, li) for n, v, li in rn[lang]["voices"]

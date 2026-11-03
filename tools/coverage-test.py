@@ -12,7 +12,7 @@ heard against what was said — so a dropped clause is a number, not a feeling.
 Ground truth comes from synthesising the passage locally, which means the
 words are known EXACTLY rather than approximately as with a corpus clip.
 """
-import argparse, asyncio, json, re, sys, time, wave, io
+import argparse, asyncio, json, re, sys, time
 import numpy as np
 
 PASSAGE = [

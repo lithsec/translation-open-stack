@@ -1,31 +1,27 @@
-"""python3 tests/test_profiles.py  (needs Python 3.11+; no GPU, no torch)
+"""python -m pytest tests/test_profiles.py  (needs Python 3.11+; no GPU, no torch)
 
 Hardware profiles (profiles/*.toml, STACK_PROFILE) and [devices]: what they
 change, in what order they win, and that every mistake in one is loud."""
-import os, subprocess, sys, tempfile
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-sys.path.insert(0, os.path.join(ROOT, "server"))
-import stack_config as c  # noqa: E402
-from engines.base import Context, Engine  # noqa: E402
-from engines.common import ct2_device, is_gpu  # noqa: E402
+import os
+import subprocess
+import sys
+
+import stack_config as c
+from engines.base import Context, Engine
+from engines.common import ct2_device, is_gpu
+from support import ROOT, write_temp as _write
 
 CFG = os.path.join(ROOT, "server", "stack_config.py")
 
 
-def _write(text, suffix=".toml"):
-    fd, path = tempfile.mkstemp(suffix=suffix)
-    with os.fdopen(fd, "w") as f:
-        f.write(text)
-    return path
-
-
-def _clean_env():
+def _clean_env(monkeypatch):
+    """None of the settings a profile yields to (monkeypatch puts them back)."""
     for k in ("STACK_PROFILE", "STACK_DEVICES", "STACK_CONFIG", "MADLAD", "VOXCPM_GPUS"):
-        os.environ.pop(k, None)
+        monkeypatch.delenv(k, raising=False)
 
 
-def test_every_shipped_profile_loads():
-    _clean_env()
+def test_every_shipped_profile_loads(monkeypatch):
+    _clean_env(monkeypatch)
     names = [n for n, _ in c.list_profiles()]
     assert {"cuda-48gb", "cuda-32gb", "cuda-2gpu", "radeon-32+16"} <= set(names), names
     for name, desc in c.list_profiles():
@@ -38,8 +34,8 @@ def test_every_shipped_profile_loads():
         assert prof["name"] == name
 
 
-def test_no_profile_changes_nothing():
-    _clean_env()
+def test_no_profile_changes_nothing(monkeypatch):
+    _clean_env(monkeypatch)
     assert c.load_profile() == {}
     assert c.load_devices() == {"default": "auto"}
     assert c.load(profile="cuda-48gb")[0] == c.load()[0]
@@ -47,38 +43,33 @@ def test_no_profile_changes_nothing():
     assert c.profile_env_lines() == []
 
 
-def test_profile_env_yields_to_the_environment():
-    _clean_env()
+def test_profile_env_yields_to_the_environment(monkeypatch):
+    _clean_env(monkeypatch)
     assert c.profile_env_lines("cuda-32gb") == ["export MADLAD=3b"]
-    os.environ["MADLAD"] = "7b"
-    try:
+    with monkeypatch.context() as m:
+        m.setenv("MADLAD", "7b")
         assert c.profile_env_lines("cuda-32gb") == []
-    finally:
-        del os.environ["MADLAD"]
     # Quoted for eval: a value can't break out of its assignment.
     p = _write('[env]\nX_Y = "a b; rm -rf /"\nFLAG = true\n')
     assert c.profile_env_lines(p) == ["export X_Y='a b; rm -rf /'", "export FLAG=1"]
 
 
-def test_devices_order_file_then_profile_then_environment():
-    _clean_env()
+def test_devices_order_file_then_profile_then_environment(monkeypatch):
+    _clean_env(monkeypatch)
     cfg = _write('[devices]\ndefault = "cuda:0"\nwhisper = "cpu"\nkokoro = "cuda:0"\n')
     prof = _write('[devices]\nwhisper = "cuda:1"\n')
-    os.environ["STACK_CONFIG"] = cfg
-    try:
-        assert c.load_devices() == {"default": "cuda:0", "whisper": "cpu", "kokoro": "cuda:0"}
-        assert c.load_devices(profile=prof)["whisper"] == "cuda:1"
-        os.environ["STACK_DEVICES"] = "whisper=mps, lid=cuda:1"
-        d = c.load_devices(profile=prof)
-        assert d["whisper"] == "mps" and d["lid"] == "cuda:1" and d["kokoro"] == "cuda:0"
-        # [devices] is not a language
-        assert "devices" not in c.load()[0]
-    finally:
-        _clean_env()
+    monkeypatch.setenv("STACK_CONFIG", cfg)
+    assert c.load_devices() == {"default": "cuda:0", "whisper": "cpu", "kokoro": "cuda:0"}
+    assert c.load_devices(profile=prof)["whisper"] == "cuda:1"
+    monkeypatch.setenv("STACK_DEVICES", "whisper=mps, lid=cuda:1")
+    d = c.load_devices(profile=prof)
+    assert d["whisper"] == "mps" and d["lid"] == "cuda:1" and d["kokoro"] == "cuda:0"
+    # [devices] is not a language
+    assert "devices" not in c.load()[0]
 
 
-def test_profile_models_and_languages_win_over_the_file():
-    _clean_env()
+def test_profile_models_and_languages_win_over_the_file(monkeypatch):
+    _clean_env(monkeypatch)
     prof = _write('[models.whisper]\nmodel = "large-v3-turbo"\nrevision = ""\n'
                   '[languages.km]\nasr = "whisper"\n')
     models, src = c.load_models(profile=prof)
@@ -91,8 +82,8 @@ def test_profile_models_and_languages_win_over_the_file():
     assert c.tables(table)["OMNI_LANGS"].get("km") is None
 
 
-def test_bad_profiles_fail_loudly():
-    _clean_env()
+def test_bad_profiles_fail_loudly(monkeypatch):
+    _clean_env(monkeypatch)
     bad = ['[devicez]\nwhisper = "cpu"\n',                 # unknown table
            '[devices]\nwhisperr = "cpu"\n',                # unknown engine
            '[devices]\nwhisper = "gpu1"\n',                # bad device
@@ -116,14 +107,12 @@ def test_bad_profiles_fail_loudly():
             assert False, name
         except (ValueError, FileNotFoundError):
             pass
-    os.environ["STACK_DEVICES"] = "whisper"
+    monkeypatch.setenv("STACK_DEVICES", "whisper")
     try:
         c.load_devices()
         assert False
     except ValueError:
         pass
-    finally:
-        _clean_env()
 
 
 def test_cli():
@@ -148,7 +137,7 @@ def test_cli():
     assert r.returncode != 0 and "reached" not in r.stdout
 
 
-def test_the_user_guide_example_profile_is_valid():
+def test_the_user_guide_example_profile_is_valid(monkeypatch):
     """docs/user-guide.md "Create a profile" shows a complete profile; it must load."""
     import re
     guide = open(os.path.join(ROOT, "docs", "user-guide.md"), encoding="utf-8").read()
@@ -156,7 +145,7 @@ def test_the_user_guide_example_profile_is_valid():
     blocks = [b for b in re.findall(r"```toml\n(.*?)```", sec, re.S) if "[devices]" in b]
     assert len(blocks) == 1, "expected one example profile in the section"
     p = _write("\n".join(line[3:] if line.startswith("   ") else line for line in blocks[0].splitlines()))
-    _clean_env()
+    _clean_env(monkeypatch)
     prof = c.load_profile(p)
     assert prof["devices"]["whisper"] == "cuda:1" and prof["env"]["MADLAD"] == "3b"
     assert c.load(profile=p)[0]["km"]["asr"] == "whisper"
@@ -184,9 +173,3 @@ def test_ct2_device():
     assert ct2_device("mps") == ("cpu", 0)   # CTranslate2 has no Apple GPU backend
     assert is_gpu("cuda:1") and not is_gpu("mps") and not is_gpu("cpu")
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)

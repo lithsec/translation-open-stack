@@ -1,0 +1,126 @@
+{
+ "lo-en": {
+  "src": "lo",
+  "tgt": "en",
+  "err": "",
+  "utterances": 26,
+  "missing_audio": 0,
+  "cer": 0.122,
+  "voiced_before_stop": 0.25,
+  "stop_to_first_audio_ms": {
+   "p50": 1626,
+   "p90": 2259,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 1938,
+   "p90": 2259,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 9771,
+   "p90": 13861,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1160,
+   "p90": 1814,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 7531,
+   "p90": 11752,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 1918,
+   "p90": 7886,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 26,
+   "speech_s": 200.6,
+   "asr_s": 10.69,
+   "asr_rtf": 0.053,
+   "mt_s": 9.5,
+   "mt_rtf": 0.047,
+   "done_s": 21.79,
+   "pipeline_rtf": 0.109,
+   "asr_median_s": 0.36,
+   "mt_median_s": 0.34,
+   "first_tts_median_s": 0.05
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 78005,
+   "mem_used_mb_min": 77645,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 9.4,
+   "util_pct_max": 100,
+   "samples": 123
+  }
+ },
+ "en-lo": {
+  "src": "en",
+  "tgt": "lo",
+  "err": "",
+  "utterances": 23,
+  "missing_audio": 0,
+  "cer": 0.05,
+  "voiced_before_stop": 0.15,
+  "stop_to_first_audio_ms": {
+   "p50": 1448,
+   "p90": 2054,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 1457,
+   "p90": 2054,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 7232,
+   "p90": 9218,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1168,
+   "p90": 1816,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 9150,
+   "p90": 10960,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 15373,
+   "p90": 20830,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 23,
+   "speech_s": 138.6,
+   "asr_s": 2.95,
+   "asr_rtf": 0.021,
+   "mt_s": 18.39,
+   "mt_rtf": 0.133,
+   "done_s": 68.07,
+   "pipeline_rtf": 0.491,
+   "asr_median_s": 0.13,
+   "mt_median_s": 0.78,
+   "first_tts_median_s": 0.0
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 77769,
+   "mem_used_mb_min": 77769,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 37.3,
+   "util_pct_max": 100,
+   "samples": 88
+  }
+ }
+}

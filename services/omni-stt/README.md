@@ -178,16 +178,11 @@ server    {"type":"error","id":"7","detail":"..."}   a refused or failed request
   audio is peak-normalised to -1 dBFS first) and above -45 dBFS; the sentence
   keeps 60 ms before the first voiced frame and 80 ms after the last, nothing is
   padded when there was less, and audio with no voiced frame is sent as it is.
-  The 3 ms edge ramps are applied after the trim. Measured on the stored samples
-  of `eval/2026-10-ht-voices` (six sentences per voice, `silence.py`): MMS
-  padded 10-300 ms in front (median 280) and 50-380 ms behind (median 266),
-  7% of its audio and up to 17% of a short sentence, so the trim takes 5% off;
-  Coqui had already been cut by its earlier rule (a second of dead air at each
-  end, trimmed to 50 ms) and showed 40-50 ms in front and 35-51 ms behind, 1%,
-  which the new rule leaves alone. Thresholds from 35 to 50 dB below the peak
-  moved the edges by at most 30 ms on these samples, so the rule is nowhere
-  near the speech. Not yet measured: the live voices on the GPU with the trim
-  in place (the samples here went through an MP3 round trip).
+  The 3 ms edge ramps are applied after the trim. On the stored samples of
+  `eval/2026-10-ht-voices` (`silence.py`), MMS padded a median 280 ms in front
+  and 266 ms behind, and the trim takes 5% off its audio; Coqui's padding was
+  already cut to about 50 ms, which the rule leaves alone. Not yet measured:
+  the live voices on the GPU with the trim in place.
 - The voices load after the recogniser is built and warm, while the port is
   already open (Coqui's import took ~30 s on a cold instance). Not at the same
   time as the recogniser: transformers builds a voice under `init_empty_weights`,
@@ -215,9 +210,10 @@ An utterance's `language` message can only go out once the utterance ends, and
 Live Translation holds its other recogniser's sentences until then, so turns
 are cut short:
 
-- `ENDPOINT_MS` (default 200): this much quiet ends a turn. The stack uses 700.
+- `ENDPOINT_MS` (default 200): this much quiet ends a turn. The stack uses 900
+  (`scripts/run.sh`; 700 bare).
 - `MAX_UTTERANCE_S` (default 10.0): a speaker who never pauses is cut by then. The
-  stack uses 9. The cut goes at the best pause of the last `CUT_WINDOW_S` (3.5 s,
+  stack uses 12 (`scripts/run.sh`; 9 bare). The cut goes at the best pause of the last `CUT_WINDOW_S` (3.5 s,
   at most a third of the cap: 3.33 s with the default): a run of Silero's 32 ms
   windows under `CUT_DIP_PROB` (0.5) lasting `CUT_DIP_MS` (96) or more, the
   longest (then the lowest, then the latest), at its quietest 20 ms. The audio
@@ -241,10 +237,9 @@ are cut short:
   in the client; a sub-second fragment is also a poor piece to translate. A word
   that really stands alone still goes out, 700 ms after it ends.
 
-The defaults were 300 ms / 6 s / 400 ms, and the Haitian Creole service ran at
-700 ms / 15 s until 2026-10-21. Five minutes of continuous news speech
-(`eval/2026-10-continuous-ht`, one presenter) showed what each setting does.
-The presenter's pauses, from Silero's probability per 32 ms window (threshold 0.5):
+Where the defaults come from: five minutes of continuous news speech
+(`eval/2026-10-continuous-ht`, one presenter). The presenter's pauses, from
+Silero's probability per 32 ms window (threshold 0.5):
 
 | Gaps of at least | Per minute | Speech between them, p50 / p90 / max |
 |---|---|---|
@@ -258,10 +253,10 @@ VAD probabilities) on the same clip:
 
 | Pause / cap / min. speech | Pieces | Length p50 / p90 | Cut at the cap | Cut mid-speech | Within 1 s of a sentence end | First piece out |
 |---|---|---|---|---|---|---|
-| 700 ms / 15 s / 0.4 s (the service before) | 27 | 12.7 / 14.2 s | 2 | 0 | 10 | 13.0 s |
-| 300 ms / 6 s / 0.4 s (the old defaults) | 75 | 4.1 / 5.6 s | 20 | 4 | 25 | 5.4 s |
+| 700 ms / 15 s / 0.4 s | 27 | 12.7 / 14.2 s | 2 | 0 | 10 | 13.0 s |
+| 300 ms / 6 s / 0.4 s | 75 | 4.1 / 5.6 s | 20 | 4 | 25 | 5.4 s |
 | 300 ms / 10 s / 1 s | 54 | 5.4 / 8.7 s | 2 | 0 | 16 | 5.5 s |
-| **200 ms / 10 s / 1 s (now)** | 70 | 3.8 / 7.2 s | 1 | 0 | 19 | 5.4 s |
+| **200 ms / 10 s / 1 s (the defaults)** | 70 | 3.8 / 7.2 s | 1 | 0 | 19 | 5.4 s |
 | 700 ms / 15 s / 0.4 s, progressive from 4 s | 32 | 8.9 / 13.8 s | 0 | 0 | 11 | 5.8 s |
 
 Live, through the whole route (recogniser, translator, voice), 700 ms / 15 s
@@ -270,7 +265,7 @@ speaker; 200 ms / 10 s / 1 s gave 8.4 s and 9.1 s. The trade-off is translation
 quality: a 3.8 s piece gives the translator less to work out a misheard name or
 phrase from (2.52 to 2.21 on the eval's 0-3 scale), unless it is sent the
 previous pieces and the last translation as context, which restores it
-(2.52-2.67) and which the companion apps now do. A client whose translator
+(2.52-2.67). A client whose translator
 gets no context may prefer `ENDPOINT_MS=300` or more, with `CUT_EARLY_S` to keep
 the cap from doing the cutting.
 

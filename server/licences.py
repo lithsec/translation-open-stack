@@ -17,7 +17,10 @@ What is classified, and how an item is looked up (lookup()):
             `licence_class` (one of CLASSES) and `licence` on the class
             (engines/base.py). An engine that declares nothing is unclear.
   ITEMS     engines whose licence depends on the per-language value: Piper
-            (one entry per voice) and Coqui (per checkpoint). An item not
+            (one entry per voice), Coqui (per checkpoint) and llmmt (per
+            served model id, the last word of a language's server line: Gemma
+            4 is Apache-2.0, MiLMMT-46 is under the Gemma terms; a language
+            may list several lines, each judged on its own). An item not
             listed is unclear.
   MODELS    the [models.<name>] values (repos, model names): what
             stack_config.load_models() resolves. `revision`, where given, is
@@ -84,10 +87,11 @@ ENGINES = {
     "madlad": Lic(PERMISSIVE, "Apache-2.0", "model card: apache-2.0",
                   "https://huggingface.co/google/madlad400-7b-mt"),
     "echo": Lic(PERMISSIVE, "none (no model)", "a test engine with no weights", ""),
-    # The served model's licence, not the engine's: Gemma 4 is Apache-2.0, MiLMMT-46 the Gemma
-    # terms. Unclear until the operator reviews the servers named under [models.llmmt].
+    # The served model's licence, not the engine's: llmmt is PER_ITEM, looked up by the model id
+    # of each language's server line in ITEMS["llmmt"]. This entry is the engine itself: what a
+    # [licence_review] "llmmt" (every server, whatever it serves) admits.
     "llmmt": Lic(UNCLEAR, "the served model's", "an HTTP client for a model served beside the stack; "
-                 "classify the model it is pointed at ([licence_review])",
+                 "classified by the model each server serves (ITEMS[\"llmmt\"])",
                  "https://github.com/lithsec/translation-open-stack/blob/main/server/engines/llmmt.py"),
     # Voices
     "kokoro": Lic(PERMISSIVE, "Apache-2.0", "\"trained exclusively on permissive/non-copyrighted audio data\"; "
@@ -121,11 +125,41 @@ ENGINES = {
 GLOBAL_OBLIGATION = {"espeak"}
 
 # Engines whose licence is per item (the per-language value): looked up in ITEMS.
-PER_ITEM = {"piper", "coqui"}
+PER_ITEM = {"piper", "coqui", "llmmt"}
+# Per-item engines whose per-language value is a server line, "<style> <base url> <model id>"
+# (engines/llmmt.py): the item is the model id it serves. A [licence_review] may name the model
+# id (that model only) or the engine (every server it is pointed at, as before per-model lookup).
+# A language may name several server lines (a list, in priority order); each is one item.
+SERVED = {"llmmt"}
+
+
+def served_lines(value):
+    """A SERVED engine's per-language value as its server lines: a string is one, a list several."""
+    if not value:
+        return []
+    return [value] if isinstance(value, str) else list(value)
 
 # ------------------------------------------------------------------ per-item
 
+_GEMMA4 = Lic(PERMISSIVE, "Apache-2.0", "model card: license apache-2.0 (\"License: Apache 2.0\"); its base, "
+              "google/gemma-4-31B-it, is apache-2.0 too (read 2026-11-02)",
+              "https://huggingface.co/google/gemma-4-31B-it-qat-w4a16-ct")
+
 ITEMS = {
+    # llmmt: the model id a language's server line names (engines/llmmt.py), as served by vLLM.
+    "llmmt": {
+        "google/gemma-4-31B-it-qat-w4a16-ct": _GEMMA4,
+        "google/gemma-4-31B-it": _GEMMA4._replace(url="https://huggingface.co/google/gemma-4-31B-it",
+                                                  reason="model card: license apache-2.0 (read 2026-11-02)"),
+        # Restricted (docs/licences.md §1): a usage policy, not a licence class of its own here.
+        # Kept out of commercial like ❓ until the operator's own review names it.
+        "xiaomi-research/MiLMMT-46-12B-v0.1": Lic(
+            UNCLEAR, "Gemma Terms of Use (restricted)",
+            "model card: license gemma; a fine-tune of Google's Gemma 3 12B (google/gemma-3-12b-pt), so "
+            "Google's Gemma Terms of Use and Prohibited Use Policy apply and pass on downstream: restricted, "
+            "commercial only after your own review",
+            "https://huggingface.co/xiaomi-research/MiLMMT-46-12B-v0.1"),
+    },
     "coqui": {
         "multilingual-tts/VITS-OpenBible-Haitian-Creole": Lic(
             SHARE_ALIKE, "CC-BY-SA-4.0", "model card: cc-by-sa-4.0; trained on the Open Bible corpus",
@@ -320,13 +354,24 @@ def _unclear(reason, url=""):
     return Lic(UNCLEAR, "unknown", reason, url)
 
 
+def served_model(item):
+    """The model id of a server line "<style> <base url> <model id>" (its last word), or None."""
+    parts = item.split() if isinstance(item, str) else []
+    return parts[-1] if parts else None
+
+
 def lookup(engine, item=None, cls=None):
     """The Lic of one voice/recogniser/translator (`item` = its per-language
-    value, e.g. a Piper voice name) — unclear when nothing classifies it.
-    `cls` is the engine class, for engines that declare their own licence."""
+    value, e.g. a Piper voice name, or llmmt's server line) — unclear when
+    nothing classifies it. `cls` is the engine class, for engines that declare
+    their own licence."""
     if engine in PER_ITEM:
-        if isinstance(item, str) and item in ITEMS.get(engine, {}):
-            return ITEMS[engine][item]
+        key = item_id(engine, item) if isinstance(item, str) and item else None
+        if key is not None and key in ITEMS.get(engine, {}):
+            return ITEMS[engine][key]
+        if engine in SERVED:
+            return _unclear(f"{engine}: the served model {key!r} has no entry in server/licences.py "
+                            f"ITEMS[{engine!r}]", ENGINES[engine].url if engine in ENGINES else "")
         return _unclear(f"{engine} {item!r} has no entry in server/licences.py")
     if engine in ENGINES:
         return ENGINES[engine]
@@ -350,8 +395,24 @@ def model_lookup(name, entry):
 
 
 def item_id(engine, item=None):
-    """What a [licence_review] key names: the item (a voice, a repo), or the engine."""
+    """What a [licence_review] key names: the item (a voice, a repo, a served
+    model id), or the engine."""
+    if engine in SERVED:
+        return served_model(item) or engine
     return item if isinstance(item, str) and item else engine
+
+
+def reviewed(reviews, engine, item=None):
+    """Does [licence_review] name this item? For a SERVED engine, naming the
+    engine itself also counts (every server it is pointed at)."""
+    reviews = reviews or {}
+    return item_id(engine, item) in reviews or (engine in SERVED and engine in reviews)
+
+
+def review_note(reviews, engine, item=None):
+    """The [licence_review] note that admitted this item, or None."""
+    reviews = reviews or {}
+    return reviews.get(item_id(engine, item)) or (reviews.get(engine) if engine in SERVED else None)
 
 
 def allowed(lic, edition, reviewed=False, allow_unclear=False):

@@ -159,7 +159,7 @@ This took four rounds; the order matters, because each fix was partial.
    silence alone, so ever-growing silence buffers were transcribed in a loop,
    hallucinated subtitle credits were translated, and real speech queued behind
    them. *Now:* an utterance requires Silero to have fired since the last cut; an
-   idle mic keeps only a 0.5 s pre-roll (`server/server.py`).
+   idle mic keeps only a 0.5 s pre-roll (`server/rooms.py`, `server/handlers.py`).
 2. **Trailing silence.** *Symptom:* Spanish ending in "gracias por su comentario".
    *Now:* the pause that ended the utterance is trimmed to 250 ms;
    `condition_on_previous_text=False` (one invented sign-off could otherwise
@@ -236,7 +236,7 @@ comment at the constant.
   limits it to the conversation's languages.
 - **Short speech doesn't carry the language, and it fails toward English.**
   Measured on Spanish: 1.5 s fragments → "en" at 0.45-0.52 confidence (wrong every
-  time); 3 s → "es" at 0.99-1.00. *Now* (`server/server.py`): relaying the
+  time); 3 s → "es" at 0.99-1.00. *Now* (`server/rooms.py`): relaying the
   microphone untranslated needs ≥ 0.75 of the constrained mass **and** ≥ 2 s
   (`PASSTHROUGH_MIN_CONF`, `PASSTHROUGH_MIN_S`); a room remembers its last
   confident language instead of falling back to "en"; a language *switch* on a
@@ -472,12 +472,12 @@ languages done in 0.72 s.
 
 | Fix | Before → after | Where |
 |---|---|---|
-| **Shared room pipeline**: VAD, ASR once, one batched MT, parallel TTS (`?room=`) | 7 languages, one 10.6 s clip, RTX 4090, 2026-08-27: median **9.45 s → 0.10 s** first audio after end of speech (worst 19.61 s); all 7 within ~90 ms | `server/server.py` (`Room`) |
+| **Shared room pipeline**: VAD, ASR once, one batched MT, parallel TTS (`?room=`) | 7 languages, one 10.6 s clip, RTX 4090, 2026-08-27: median **9.45 s → 0.10 s** first audio after end of speech (worst 19.61 s); all 7 within ~90 ms | `server/rooms.py` (`Room`) |
 | **Warm-up before "ready"** | the first listener's first utterance paid ~3 s of CUDA compilation | server start |
 | **onnxruntime thread pool bounded** | the host showed 96 cores, the container's quota was ~10: Piper at 0.7× real time, audio falling further behind the longer someone spoke. Threads 1/2/4/8: 10.1×/14.3×/19.8×/23.7×. One utterance: TTS 4.71 s → 0.17 s, first audio 3.96 s → 0.25 s | `intra_op_num_threads` in `server/engines/piper.py` |
-| **Per-sentence synthesis and a worker queue** | the room used to await the whole pipeline inline, so the socket wasn't read during synthesis; the queue sheds the oldest past depth 3, and says so | `server/server.py`, `server/engines/manager.py` (`synthesise_futures`) |
+| **Per-sentence synthesis and a worker queue** | the room used to await the whole pipeline inline, so the socket wasn't read during synthesis; the queue sheds the oldest past depth 3, and says so | `server/rooms.py`, `server/engines/manager.py` (`synthesise_futures`) |
 | **MADLAD through CTranslate2 int8** | MT was 60-75% of the pipeline (1.25-1.97 s of 2.0-2.6 s) | `--mt-ct2`, `scripts/prepare-mt.sh` |
-| **Priority decode for the room's language** (`?priority=1`) | a batched decode waits for the *longest* output (Khmer, Haitian); the PA language now gets its own small decode first and leaves at ~0.28 s | `server/server.py` |
+| **Priority decode for the room's language** (`?priority=1`) | a batched decode waits for the *longest* output (Khmer, Haitian); the PA language now gets its own small decode first and leaves at ~0.28 s | `server/rooms.py` |
 | **Same-language passthrough** | 2.07 s → 0.70 s, and the real voice | §4 |
 
 **Trading latency for accuracy** (RTX 4090, three FLEURS clips, August 2026).

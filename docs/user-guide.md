@@ -29,8 +29,8 @@ the [reference](reference.md); licences are in [licences.md](licences.md).
 
 | | |
 |---|---|
-| GPU | **NVIDIA, 48 GB** (RTX 6000 Ada, RTX PRO 5000/6000, L40, L40S, A6000) for all 25 languages: the stack holds ~33 GB before anyone speaks. **32 GB** (RTX 5090, RTX PRO 4500) works with `MADLAD=3b` or without VoxCPM2; see [Fitting a 32 GB card](#fitting-a-32-gb-card). Smaller cards aren't supported. |
-| OS | Linux with the NVIDIA driver (570 or newer, for CUDA 12.8), or Windows 11 with **WSL2** and the NVIDIA driver for WSL. **Macs can't run it** (no NVIDIA GPU; Apple GPUs don't run these models' CUDA code). |
+| GPU | **NVIDIA, 48 GB** (RTX 6000 Ada, RTX PRO 5000/6000, L40, L40S, A6000) for all 25 languages: the stack holds ~33 GB before anyone speaks. **32 GB** (RTX 5090, RTX PRO 4500) works with `MADLAD=3b` or without VoxCPM2; see [Fitting a 32 GB card](#fitting-a-32-gb-card). **80 GB+** also runs Gemma 4 for the directions it translates best. Smaller cards aren't supported. |
+| OS | Linux with the NVIDIA driver (570 or newer, for CUDA 12.8), or Windows 11 with **WSL2** and the NVIDIA driver for WSL. **Macs can't run it** ([AMD and Mac](#amd-and-mac)). |
 | Software | Docker Engine with the Compose plugin (or Docker Desktop on Windows) and the **NVIDIA Container Toolkit**. |
 | Disk | ~23 GB for the image, **~38 GB** for the models (kept), and ~48 GB more *during the first start only*, while the translators are built. ~150 GB free is comfortable. |
 | CPU / RAM | 8+ cores (Piper voices run on the CPU), 32 GB+ RAM. |
@@ -38,23 +38,16 @@ the [reference](reference.md); licences are in [licences.md](licences.md).
 
 No GPU of your own? Rent one by the hour: [Run on your own RunPod pod](#run-on-your-own-runpod-pod).
 
-**The token is the only lock.** The stack has no user accounts. Anyone with
-the token can use it, within the connection limits. Both start paths refuse to
-run without `STACK_TOKEN` (or `STACK_SIGNING_KEY`, for short-lived tokens from
-a launcher); Docker also accepts `STACK_OPEN=1`, which is only for a private
-network where you trust every device. Never forward port 8790 from the
-internet without a token, and put the stack behind TLS (a reverse proxy or a
-tunnel; RunPod's proxy does this for you) so the token isn't sent in clear
-text. More: [reference, "Access, rooms and limits"](reference.md#access-rooms-and-limits).
+**The token is the only lock.** The stack has no user accounts: anyone with
+the token can use it, within the connection limits. It refuses to start
+without `STACK_TOKEN` (or `STACK_SIGNING_KEY`, for short-lived tokens from a
+launcher). Docker also accepts `STACK_OPEN=1`, only for a private network
+where you trust every device. Never forward port 8790 from the internet
+without a token, and put the stack behind TLS (a reverse proxy or a tunnel;
+RunPod's proxy does this for you). More:
+[reference, "Access, rooms and limits"](reference.md#access-rooms-and-limits).
 
 ## Install on your own GPU (Docker)
-
-> **Status (2026-09-29):** the image (`Dockerfile`) builds and passes a CPU
-> smoke test in CI, and its exact install steps and entrypoint served all voice
-> engines, both translators and Omnilingual on an L40 (2026-09-28).
-> `docker compose up` itself has not yet been run on a physical GPU machine:
-> treat the first one as a test and report what breaks. The image is not
-> published to any registry: build it with Compose.
 
 1. **Check the GPU is visible to containers:**
 
@@ -71,9 +64,9 @@ text. More: [reference, "Access, rooms and limits"](reference.md#access-rooms-an
    ```
 
    In `.env`, set `STACK_TOKEN` to a long random string (`openssl rand -hex 32`),
-   and `LANGS` / `SRCS` / `EDITION` if you want fewer languages or the
-   commercial edition. Every other variable in the
-   [reference](reference.md#environment-variables) works in `.env` too.
+   and `LANGS` / `SRCS` / `EDITION` / `STACK_PROFILE` if you want fewer
+   languages, the commercial edition or other hardware. Every variable in the
+   [reference](reference.md#environment-variables) works in `.env`.
 
 3. **Build and start:**
 
@@ -82,18 +75,11 @@ text. More: [reference, "Access, rooms and limits"](reference.md#access-rooms-an
    docker compose logs -f
    ```
 
-   Building the image takes about 10 minutes on a fast connection. The **first
-   start then takes 30-60 minutes**: it downloads the Piper voices, builds the
-   two translators from pinned upstream releases (Hy-MT2 7B quantised to 4
-   bits, MADLAD-400 7B converted to CTranslate2), and fetches VoxCPM2 and the
-   recognition models, all into the `lithos-models` volume. It is ready when
-   the log shows:
-
-   ```
-   [stack] ready on :8790 for ['en', 'es', ...]
-   ```
-
-   Every later start skips what's on the volume and takes a few minutes.
+   The build takes about 10 minutes. The **first start then takes 30-60
+   minutes**: it downloads the voices and recognition models and builds the
+   two translators, all into the `lithos-models` volume. It is ready when the
+   log shows `[stack] ready on :8790 for ['en', 'es', ...]`. Later starts take
+   a few minutes.
 
 4. **Check it from another machine:**
 
@@ -104,23 +90,17 @@ text. More: [reference, "Access, rooms and limits"](reference.md#access-rooms-an
 5. **Connect your apps**: [Connect apps](#connect-apps). On your LAN the URL is
    `ws://<gpu-box-ip>:8790`; from outside, `wss://…` behind your TLS proxy.
 
-Compose runs two services. `volume-init` runs once as root and hands the model
-volume to the image's unprivileged user `stack` (uid 10001): a fresh volume
-needs nothing, and one filled by an older root container has its files
-re-owned once. The `stack` service then runs as uid 10001, never root. It
-mounts `languages.toml` read-only, so you edit it on the host (see
-[Pick languages](#pick-languages)). Compose reserves one GPU; to give the stack
-two (see [GPUs and capacity](#gpus-and-capacity)), change `count: 1` to
-`count: all` in `docker-compose.yml`.
-
-`docker compose down -v` deletes the model volume: the next start downloads
-and builds everything again.
+The `stack` service runs as the unprivileged user `stack` (uid 10001); the
+one-shot `volume-init` service hands it the model volume first. Compose
+mounts `languages.toml` and `profiles/` read-only, so you edit them on the
+host. It reserves one GPU; for two, change `count: 1` to `count: all` in
+`docker-compose.yml`. `docker compose down -v` deletes the model volume, and
+the next start downloads and builds everything again.
 
 ## Install without Docker (Linux: NVIDIA or AMD)
 
-For a machine where Docker doesn't fit: an AMD card (the image is NVIDIA-only),
-or you'd rather run it directly. The same scripts the image and the pods use,
-in order: **packages, voices, translators, start, smoke test.**
+For an AMD card (the image is NVIDIA-only), or if you'd rather not use
+Docker. The steps: **packages, voices, translators, start, smoke test.**
 
 **0. A folder for the models**, about 60 GB; `STACK_HOME` (default `/workspace`):
 
@@ -130,10 +110,8 @@ export STACK_HOME=$HOME/tos-data && mkdir -p $STACK_HOME
 ```
 
 **1. A Python 3.12 virtualenv, with PyTorch for your GPU first.** Python
-3.10-3.12 only: the Kokoro voice's packages don't install on 3.13 or later,
-and `install-deps.sh` stops with a message if it finds another version. If
-your system ships a newer Python (Ubuntu 26.04 has 3.14), [uv](https://docs.astral.sh/uv/)
-fetches 3.12 for you: `uv venv --python 3.12 ~/tos-venv`.
+3.10-3.12 only (Kokoro doesn't install on 3.13+). If your system ships a newer
+Python, [uv](https://docs.astral.sh/uv/) fetches 3.12: `uv venv --python 3.12 ~/tos-venv`.
 
 ```bash
 python3.12 -m venv ~/tos-venv && . ~/tos-venv/bin/activate
@@ -144,136 +122,95 @@ pip install torch==2.8.0 torchaudio==2.8.0 --index-url https://download.pytorch.
 python -c "import torch; print(torch.cuda.is_available(), [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())])"
 ```
 
-It must print `True` and your cards (under ROCm, PyTorch still calls them
-`cuda`). On AMD, PyTorch's ROCm builds bring their own ROCm runtime, so the
-build's ROCm version needn't match your system's: `2.8.0` exists only for
-`rocm6.4`, and it runs on a ROCm 7.x system. A newer ROCm build (e.g. from the
-`rocm7.2` index, without a version) works too: `install-deps.sh` keeps whatever
-ROCm PyTorch it finds instead of replacing it.
+It must print `True` and your cards (ROCm cards are called `cuda` too). The
+`rocm6.4` build brings its own runtime and runs on a ROCm 7.x system; a newer
+ROCm build works too (`install-deps.sh` keeps the one it finds).
 
-**2. The stack's packages:** `bash scripts/install-deps.sh`. It needs
-`espeak-ng` (`sudo apt install espeak-ng`); with Python 3.12 everything else
-comes as ready-built wheels, so no compilers or `-dev` packages. Run the script,
-not `pip install -r constraints.txt`: that file is the Docker image's complete
-lock, Ubuntu's and NVIDIA's packages included, and the script only uses it to
-pin versions (`-c`), in steps that settle a few known conflicts.
+**2. The stack's packages:** `sudo apt install espeak-ng`, then
+`bash scripts/install-deps.sh` (not `pip install -r constraints.txt`). pip
+prints three expected `ERROR:` lines about `numpy` and `scipy` versions
+(librosa, contourpy); they are harmless. The script ends with `every required
+import works` and `Done.`, or lists what is wrong. `VERBOSE=1` shows pip's
+full output.
 
-pip prints three of those conflicts on the way, as `ERROR:` lines (it means
-warnings): `librosa ... requires numpy>=2.1.0` (and `scipy>=1.15.0`) and
-`contourpy ... requires numpy>=2.0`. They are expected: the stack runs numpy
-1.26.4 for Omnilingual, and both packages work with it. The script ends with a
-check of every import the server needs and says `every required import works`
-and `Done.`; anything else wrong is listed there. `VERBOSE=1 bash
-scripts/install-deps.sh` shows pip's full output and every command, for
-troubleshooting.
-
-**AMD only, 3. CTranslate2's ROCm build** (Whisper and MADLAD run on it), in
-place of the NVIDIA one from PyPI: download `rocm-python-wheels-Linux.zip` from
+**AMD only, 3. CTranslate2's ROCm build** (Whisper and MADLAD run on it):
+download `rocm-python-wheels-Linux.zip` from
 [CTranslate2 v4.8.2](https://github.com/OpenNMT/CTranslate2/releases/tag/v4.8.2),
 then `pip install --force-reinstall --no-deps <the cp312 wheel in it>`. It is
-built against ROCm 7.2 for RDNA 2-4 cards (the R9700 is gfx1201, the RX 9060 XT
-gfx1200), not Instinct cards, and loads the ROCm 7 libraries from `/opt/rocm`.
-Check it sees your cards:
+built against ROCm 7.2 for RDNA 2-4 cards (not Instinct) and loads ROCm 7 from
+`/opt/rocm`. Check it sees your cards:
 
 ```bash
 python -c "import ctranslate2; print(ctranslate2.get_cuda_device_count())"
 ```
 
-It should print `2`. With another ROCm major version installed system-wide, it
-may fail to load (a missing `libamdhip64.so.7`): install the ROCm 7.2 runtime
-alongside (ROCm installs side by side under `/opt/rocm-<version>`) and point
-`LD_LIBRARY_PATH` at its `lib`, or build CTranslate2 from source against your
-ROCm ([its install guide](https://opennmt.net/CTranslate2/installation.html)).
+If it fails to load (a missing `libamdhip64.so.7`), install the ROCm 7.2
+runtime alongside yours and point `LD_LIBRARY_PATH` at its `lib`, or
+[build CTranslate2 from source](https://opennmt.net/CTranslate2/installation.html).
 
-**One copy of ROCm per process.** PyTorch's ROCm wheels bring their own ROCm
-libraries, and CTranslate2 loads the system's. Two copies in one process crash:
-`Option '...' registered more than once!` and `LLVM ERROR` (converting MADLAD in
-`prepare-mt.sh`), or a segmentation fault at start. Put PyTorch's copy first so
-both use it, in every shell that runs the scripts. With AMD's wheels (as used in
-[issue #8](https://github.com/lithsec/translation-open-stack/issues/8), ROCm 10):
+**One copy of ROCm per process.** PyTorch's wheels bring their own ROCm and
+CTranslate2 loads the system's; two copies crash (`registered more than
+once!`, `LLVM ERROR`, or a segmentation fault). Put PyTorch's copy first, in
+every shell that runs the scripts. With AMD's wheels
+([issue #8](https://github.com/lithsec/translation-open-stack/issues/8)):
 
 ```bash
 export LD_LIBRARY_PATH=$VIRTUAL_ENV/lib/python3.12/site-packages/_rocm_sdk_core/lib:$LD_LIBRARY_PATH
 ```
 
-**4. Choose your profile**, so every script below uses its defaults:
+**4. Profile, voices, translators, start.** The voice and translator steps
+run once (about an hour). A new terminal needs the virtualenv, `STACK_HOME`
+and `STACK_PROFILE` again.
 
 ```bash
 export STACK_PROFILE=radeon-32+16     # or cuda-48gb, cuda-32gb, cuda-2gpu, your own
 python3 server/stack_config.py profile
-```
-
-**5. Voices and translators** (the first time only; about an hour, mostly
-downloads):
-
-```bash
-bash scripts/fetch-voices.sh       # Piper voices, for run.sh's default languages
-bash scripts/prepare-voices.sh     # VoxCPM2: its own virtualenv and ~5 GB of weights
-bash scripts/prepare-mt.sh         # MADLAD, and Hy-MT2 (4-bit, or bf16 with HYMT_QUANT=bf16)
-```
-
-On AMD, `radeon-32+16` sets `HYMT_QUANT=bf16`: Hy-MT2 at full precision, which
-needs no bitsandbytes (its 4-bit build may not run on RDNA4).
-
-**6. Start**, in a shell with the virtualenv active and `STACK_HOME` and
-`STACK_PROFILE` exported (a new terminal needs all three again):
-
-```bash
-. ~/tos-venv/bin/activate && export STACK_HOME=$HOME/tos-data STACK_PROFILE=radeon-32+16
+bash scripts/fetch-voices.sh          # Piper voices
+bash scripts/prepare-voices.sh        # VoxCPM2: its own virtualenv and ~5 GB of weights
+bash scripts/prepare-mt.sh            # MADLAD, and Hy-MT2 (4-bit, or bf16 with HYMT_QUANT=bf16)
 export STACK_TOKEN=$(openssl rand -hex 32)    # keep it: your apps need it
 bash scripts/run.sh
 ```
 
-Near the top, `run.sh` prints `profile: radeon-32+16` and the devices it
-chose. `devices: default=auto` means no profile reached it; with a profile,
-a card PyTorch can't see stops the start with a message, and with none,
-`[stack] WARNING: PyTorch sees no GPU` says every model is on the CPU.
+`radeon-32+16` sets `HYMT_QUANT=bf16`, which needs no bitsandbytes. `run.sh`
+prints the profile and devices, where each model landed
+(`[stack] hymt on cuda:0: +15.5 GB`), and `[stack] ready on :8790`.
+`WARNING: PyTorch sees no GPU` means everything is on the CPU. If your cards
+come up the other way round, `HIP_VISIBLE_DEVICES=1,0` (AMD) or
+`CUDA_VISIBLE_DEVICES=1,0` swaps them.
 
-The log shows where each model landed (`[stack] hymt on cuda:0: +15.5 GB`) and
-says `[stack] ready on :8790` when it is. If your cards come up the other way
-round, `HIP_VISIBLE_DEVICES=1,0` (AMD) or `CUDA_VISIBLE_DEVICES=1,0` swaps them.
+**5. Smoke test**, from another terminal in the same virtualenv:
+`STACK_TOKEN=<the token> python tools/smoke.py`.
 
-**7. Smoke test**, from another terminal in the same virtualenv:
-
-```bash
-STACK_TOKEN=<the token> python tools/smoke.py --url ws://127.0.0.1:8790
-```
-
-**On AMD, expect** Omnilingual not to load (fairseq2 publishes no ROCm builds):
-its languages (ht km lo sw hi fa bn ur) are heard by Whisper instead, weaker for
-ht km lo sw. If anything fails, the last ~50 lines of `run.sh`'s output say
-which step. This path has not yet been run end to end on AMD; please report what
+**On AMD, expect** Omnilingual not to load (fairseq2 has no ROCm builds): its
+languages (ht km lo sw hi fa bn ur) fall back to Whisper, weaker for ht km lo
+sw. This path is a preview, not yet run end to end on AMD; please report what
 happens.
 
 ## Run on your own RunPod pod
 
-[RunPod](https://www.runpod.io) rents GPUs by the hour: a 48 GB card (L40,
-L40S, RTX 6000 Ada, A6000, RTX PRO 5000); check RunPod for current prices. You pay
-only while a pod runs. The models live on a **network volume** that outlives
-the pods, so after the first start a pod is serving in about 5-8 minutes.
-Everything here is in RunPod's web console; nothing depends on Lithos servers.
+[RunPod](https://www.runpod.io) rents GPUs by the hour; you pay only while a
+pod runs. Everything here is in RunPod's web console; nothing depends on
+Lithos servers.
 
 ### One click: the RunPod template
 
-The quickest way (tested 2026-09-30 on an RTX A6000: first start to ready in
-14 minutes, smoke test all passed). The template runs the published image
-`ghcr.io/lithsec/translation-open-stack` (every package installed; no model
-weights, which download on first start; the GPL programs inside ship with their
-licence and source in `/opt/stack/licences`).
+The public template runs the published image
+`ghcr.io/lithsec/translation-open-stack` (every package installed; model
+weights download on first start; GPL programs ship with licence and source in
+`/opt/stack/licences`).
 
-1. Open the template: **[Deploy on RunPod](https://console.runpod.io/deploy?template=dftcc24b6q)**.
-2. Pick a **48 GB GPU** (see [GPUs and capacity](#gpus-and-capacity)), or an
-   **80 GB+** one (A100/H100 80 GB, RTX PRO 6000 96 GB) to also run Gemma 4 31B
-   for the directions it translates best (`languages.toml`, `llmmt`): the pod
-   starts it in vLLM beside the stack when the card has room (`LLMMT`,
-   [reference](reference.md)); until it answers, and on a 48 GB card, those
-   directions use Hy-MT2 or MADLAD.
-   Optional, under **Edit template**: `EDITION` (`nonprofit` or `commercial`),
-   `STACK_IDLE_MIN`, `LLMMT`, and new variables such as `LANGS` / `SRCS` or your own
-   `STACK_TOKEN`. The pod's own 100 GB volume holds the models (Gemma 4 and its
-   vLLM take about 30 GB of it). Optional: attach a **network volume** of
-   100 GB+ instead of the pod's own volume, so the models outlive the pod and
-   any new pod in that data center starts in minutes.
+1. Open **[Deploy on RunPod](https://console.runpod.io/deploy?template=dftcc24b6q)**.
+2. Pick a **48 GB GPU**, or an **80 GB+** one (A100/H100 80 GB, RTX PRO 6000
+   96 GB) to also run Gemma 4 31B: on those, `scripts/start-llmmt.sh` starts
+   it in vLLM beside the stack (`LLMMT`, see
+   [reference](reference.md#translators-per-direction)). Until it answers, and
+   on a 48 GB card, its directions use Hy-MT2 or MADLAD. The pod's own 100 GB
+   volume holds the models (Gemma 4 and vLLM take about 30 GB of it).
+   Optional, under **Edit template**: `EDITION`, `STACK_IDLE_MIN`, `LLMMT`,
+   `LANGS` / `SRCS`, or your own `STACK_TOKEN`. Or attach a **network volume**
+   of 100 GB+ instead, so the models outlive the pod and a new pod in that
+   data center starts in minutes.
 3. **Deploy.** Open the pod's **Logs**. Near the top:
 
    ```
@@ -281,95 +218,67 @@ licence and source in `/opt/stack/licences`).
    == access key: <64 hex characters>
    ```
 
-   With no `STACK_TOKEN` set, the pod makes a random one, saves it in
-   `/workspace/.stack-token` and prints it once; later,
-   `cat /workspace/.stack-token` in the pod's terminal shows it again.
-4. **Wait** 30-60 minutes the first time (~60 GB of downloads and the
-   translator build), a few minutes after that. It is ready at
-   `[stack] ready on :8790`. With Gemma 4, it joins about 20-30 minutes after
-   the first start (`[stack] llmmt: ... answering`; its log: `/workspace/llmmt.log`).
+   With no `STACK_TOKEN` set, the pod makes one, saves it in
+   `/workspace/.stack-token` and prints it once; `cat /workspace/.stack-token`
+   in the pod's terminal shows it again.
+4. **Wait** 30-60 minutes the first time, a few minutes after that. It is
+   ready at `[stack] ready on :8790`. Gemma 4 joins about 20-30 minutes after
+   the first start (`[stack] llmmt: ... answering`; log: `/workspace/llmmt.log`).
 5. Put the URL and the access key in your app ([Connect apps](#connect-apps)).
 
-The pod stops itself when idle, as in step 7 below. The rest of this section
-is the same setup by hand, on the stock image.
+The pod stops itself when idle (step 7 below).
 
 ### By hand
 
-1. **Create a network volume**, 60 GB, in a data center that has 48 GB GPUs
-   (Storage -> Network Volumes; billed monthly by size). The models take ~38 GB. A
-   volume can only be attached when a pod is created, and only to a pod in its
-   own data center.
-2. **Put the repository on it.** Deploy any cheap pod with the volume attached
-   (a CPU pod if that data center offers them), open its web terminal and run:
+The same setup on the stock image.
+
+1. **Create a network volume**, 60 GB (100 GB+ for Gemma 4), in a data center
+   that has the GPU you want (Storage -> Network Volumes; billed monthly). A
+   volume attaches only when a pod is created, and only in its own data center.
+2. **Put the repository on it.** Deploy any cheap pod with the volume
+   attached, open its web terminal, run the line below, then terminate it:
 
    ```bash
    git clone https://github.com/lithsec/translation-open-stack.git /workspace/translation-open-stack
    ```
 
-   (Or copy a clone from your machine with
-   `scp -P <port> -r translation-open-stack root@<pod-ip>:/workspace/translation-open-stack`.)
-   `/workspace/translation-open-stack` is the conventional folder: the start
-   command below uses it. Terminate that pod.
-3. **Make a token.** A pod gets a public HTTPS address, so the stack refuses
-   to start without a credential. Make a long random string
-   (`openssl rand -hex 32`) and either set it as the pod's environment
-   variable `STACK_TOKEN` (step 4), or write it to the volume once: in a pod's
-   terminal, `cat > /workspace/.stack-token`, paste, Enter, Ctrl-D, then
-   `chmod 600 /workspace/.stack-token`. Keep it somewhere safe.
+3. **Token (optional).** Set `STACK_TOKEN` in the pod's environment (step 4),
+   or write it to `/workspace/.stack-token` (`chmod 600`). With neither, the
+   pod makes one and prints it in its log, as with the template.
 4. **Deploy the stack pod** with the volume attached:
-   - GPU: 48 GB (see [Fitting a 32 GB card](#fitting-a-32-gb-card) for less)
-   - Image: `runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404` (or your own
-     build of this repository's `Dockerfile`, which skips the ~3 minutes of
-     package installs on every boot)
+   - GPU: 48 GB (see [Fitting a 32 GB card](#fitting-a-32-gb-card) for less; 80 GB+ for Gemma 4)
+   - Image: `runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404` (or the published
+     image above, which skips ~3 minutes of package installs on every boot)
    - Container disk: **80 GB** (the first start builds the translators there)
    - Volume mount path: `/workspace`
-   - Expose ports: **HTTP `8790`** (this is what gives the pod its public
-     `https://<pod-id>-8790.proxy.runpod.net` address), TCP `22`
+   - Expose ports: **HTTP `8790`**, TCP `22`
    - Start command:
      `bash -c 'bash /workspace/translation-open-stack/scripts/runpod/runpod-start.sh > /workspace/stack.log 2>&1 & exec /start.sh'`
-   - Environment (optional): `STACK_TOKEN`; `LANGS` / `SRCS` / `EDITION` /
+   - Environment (optional): `STACK_TOKEN`, `LANGS` / `SRCS` / `EDITION` /
      `MADLAD` and the rest of the [reference](reference.md#environment-variables).
-5. **Wait for it.** The first start downloads ~60 GB and builds the
-   translators: 30-60 minutes. Later starts: ~3 minutes of package installs on
-   the stock image, then 2-5 minutes loading models. In the pod's terminal,
+5. **Wait for it.** First start: 30-60 minutes. Later: ~3 minutes of package
+   installs on the stock image, then 2-5 minutes loading models.
    `tail -f /workspace/stack.log` shows progress; it is ready at
-   `[stack] ready on :8790`, and `curl localhost:8790/health` answers 200.
-6. **Type the URL into your app.** The address is
-
-   ```
-   wss://<pod-id>-8790.proxy.runpod.net
-   ```
-
-   - **The pod ID** is the short code on the pod's card in the RunPod console
-     (Pods list), also in its URL. The pod's **Connect** panel lists the HTTP
-     service on port 8790 as `https://<pod-id>-8790.proxy.runpod.net`; use the
-     same host with `wss://`. RunPod's HTTP proxy passes WebSockets through and
-     provides the TLS, so there is nothing else to set up.
-   - **The token** goes in the app's **Access key** field (it is sent as
-     `Authorization: Bearer <token>`), not in the URL.
-   - Check it first: `curl https://<pod-id>-8790.proxy.runpod.net/health`
-     answers `ok` once the models are loaded (no token needed for `/health`).
-   - Then [Connect apps](#connect-apps).
+   `[stack] ready on :8790`.
+6. **Connect.** The address is `wss://<pod-id>-8790.proxy.runpod.net`. The pod
+   ID is on the pod's card in the console; its **Connect** panel lists the
+   same host as `https://`. RunPod's proxy provides TLS and passes WebSockets
+   through. The token goes in the app's **Access key** field, not the URL.
+   Check it first: `curl https://<pod-id>-8790.proxy.runpod.net/health`
+   answers `ok`. Then [Connect apps](#connect-apps).
 7. **Stopping.** With no one connected for 15 minutes (`STACK_IDLE_MIN`,
    counted from ready) or after 8 hours regardless (`STACK_MAX_UPTIME_H`), the
-   pod stops itself through RunPod's API (`scripts/idle-stop.sh`, with the
-   pod's own scoped key from its environment). Compute billing stops; the
-   volume keeps the models. **Start** it again from the console before the next
-   service. A stopped pod can fail to start if its host's GPU has been rented
-   out meanwhile ("not enough free GPUs"): terminate it and deploy a new one
-   with the same settings (step 4). Nothing is lost; the volume has everything.
+   pod stops itself (`scripts/idle-stop.sh`). Billing for compute stops; the
+   volume keeps the models. **Start** it again from the console. If it fails
+   with "not enough free GPUs", terminate it and deploy a new one with the
+   same settings; the volume has everything.
 
-**The ready report.** A pod can POST "ready" or "failed" to a URL once the
-models are loaded, so whoever started it gets a notification. It does so only
-when `STACK_REPORT_URL` (or the file `/workspace/.stack-report-url`) names a
-URL and a `STACK_SIGNING_KEY` is set; there is no default, and unset means no
-report and nothing leaves the pod. The report is signed with audience
-`report`, which the stack refuses as a connection credential.
+**The ready report.** With `STACK_REPORT_URL` (or `/workspace/.stack-report-url`)
+and `STACK_SIGNING_KEY` both set, the pod POSTs a signed "ready" or "failed"
+to that URL once the models are loaded. Unset, nothing leaves the pod.
 
-**Why the pod runs as root.** RunPod's start command replaces the image's
-command and must `exec /start.sh`, whose SSH server needs root, and RunPod
-mounts the network volume at `/workspace` owned by root. The Docker path runs
-as uid 10001; the RunPod path stays root.
+**The pod runs as root**, because RunPod's `/start.sh` (its SSH server) and
+volume mount need it. The Docker path runs as uid 10001.
 
 ## Connect apps
 
@@ -378,8 +287,7 @@ settings -> Local stack setup**:
 
 - **Local stack URL**: `ws://<gpu-box-ip>:8790` on your LAN, `wss://…` behind
   TLS, or `wss://<pod-id>-8790.proxy.runpod.net` on RunPod.
-- **Access key**: your `STACK_TOKEN`. The app sends it as an
-  `Authorization: Bearer` header.
+- **Access key**: your `STACK_TOKEN` (sent as `Authorization: Bearer`).
 - **Launcher**: leave it empty.
 - Press **Test**: it should report the server's hello. Then, under
   **Languages**, set each language's provider to **Local stack**.
@@ -392,80 +300,72 @@ minimal Python client: [the protocol](dev/protocol.md).
 wss://HOST/translate?lang=es&src=auto&room=main      Authorization: Bearer <token>
 ```
 
-To try a stack from a terminal, `tools/client.py` streams a WAV file (24 kHz
-mono) and saves what comes back:
+**From a terminal**, `tools/client.py` streams a 24 kHz mono WAV, prints the
+captions and saves the speech to `out-<lang>.wav` (needs `pip install websockets`):
 
 ```bash
-STACK_TOKEN=... python3 tools/client.py --url wss://<pod-id>-8790.proxy.runpod.net --lang es --wav talk.wav
+STACK_TOKEN=... python3 tools/client.py --url wss://<pod-id>-8790.proxy.runpod.net --lang es --wav tests/audio/en.wav
 ```
 
 ## Choose the edition
 
 `EDITION` decides which voices may load. Recognition and translation are the
-same in both; only the voices differ.
+same in both.
 
 | | `EDITION=nonprofit` (default) | `EDITION=commercial` |
 |---|---|---|
 | What may load | everything configured | only voices and models licensed for commercial use ([`server/licences.py`](../server/licences.py)); unclear (❓) ones after your own review |
-| Haitian Creole | MMS (clearest tested: 10% vs 21% recognition error) | Coqui VITS OpenBible (CC-BY-SA) |
-| Khmer, Lao, Tagalog | VoxCPM2, else MMS | VoxCPM2 (waits up to 15 s for a free instance), else text only |
-| Korean, Turkish, Russian, Arabic, Indonesian, Swahili, Vietnamese | Piper | VoxCPM2 (GPU); eSpeak NG when every instance is busy past 2 s or VoxCPM2 is not running |
-| German; en/es/fr fallbacks | Piper `thorsten`; `lessac`, `davefx`, `siwis` | Piper `mls`; `norman`, `carlfm`, `mls` |
-| Persian, Romanian | Piper | **eSpeak NG only** (robotic; no commercially licensed voice) |
-
-### One server for both editions
-
-`EDITION=both` serves commercial and non-profit clients from one GPU, for
-example a paid app and a non-profit's event app. The server keeps a set of
-voices per edition and gives each connection the set its token names:
-
-- A signed token's `ed` claim (`"commercial"` or `"nonprofit"`) picks the
-  edition. With no claim (the static `STACK_TOKEN`, or an issuer that doesn't
-  set one), a connection gets **commercial**, the stricter set.
-- Recognition and translation are shared. A voice configured the same in both
-  editions (Kokoro, eSpeak NG) is one model; Piper loads each edition's voices;
-  MMS serves only non-profit connections and Coqui only commercial ones.
-  VoxCPM2's services are shared, with one slot count across both.
-- Rooms are per edition: two editions never share a room's voices.
-- A commercial client is refused (close code 4403) by a stack running
-  `EDITION=nonprofit`, so it can't be served voices it may not use. A
-  non-profit client on a commercial stack simply gets commercial voices.
-- The `hello` message names the edition each connection got.
-
-Whether running non-commercial models on a server that also serves paying
-clients is acceptable for your organisation is a licensing question: the
-non-commercial voices only ever speak for non-profit connections, but read
-the licences ([licences.md](licences.md)) with that set-up in mind.
 | Non-commercial weights loaded | yes (MMS, several Piper voices) | none |
+| Haitian Creole | MMS | Coqui VITS OpenBible (CC-BY-SA) |
+| Khmer, Lao, Tagalog | VoxCPM2, else MMS | VoxCPM2 (waits up to 15 s for a free instance), else text only |
+| Korean, Turkish, Russian, Arabic, Indonesian, Swahili, Vietnamese | Piper | VoxCPM2; eSpeak NG when every instance is busy past 2 s or VoxCPM2 is not running |
+| German; en/es/fr fallbacks | Piper `thorsten`; `lessac`, `davefx`, `siwis` | Piper `mls`; `norman`, `carlfm`, `mls` |
+| Persian, Romanian | Piper | **eSpeak NG only** (no commercially licensed voice) |
 | VoxCPM2 instances | one | one per GPU with room ([GPUs and capacity](#gpus-and-capacity)) |
 
-Set it in `.env` or the pod's environment (`EDITION=commercial`). Before you
-start, see what your `languages.toml` would get:
+Set it in `.env` or the pod's environment. Before you start, see what your
+`languages.toml` would get:
 
 ```bash
 python3 server/stack_config.py check --edition commercial
 ```
 
-`scripts/run.sh` prints the same at every start. For each language it shows
-the recogniser, the translator and the voice chain, each with its licence
-class (✅ permissive, ⚠️ attribution or share-alike, ❓ unclear, ⛔
-non-commercial), and under it what was **not loaded** and why, with the exact
-`[licence_review]` line that would admit a ❓ item. Then the `[models]`
-entries with their licences, what VoxCPM2 serves and how many instances it
-will run, and a summary: which languages are **text only**, which are
-**eSpeak NG only**, and the **credits you must show** (for example on an About
-screen). It exits non-zero when a `[models]` entry may not load in that
-edition, and the server refuses to start on it too.
+`scripts/run.sh` prints the same at every start: each language's engines and
+licence class (✅ permissive, ⚠️ attribution or share-alike, ❓ unclear, ⛔
+non-commercial), what was not loaded and why, and the **credits you must
+show**. A `[models]` entry the edition may not load stops the start.
 
-What the commercial edition guarantees and what stays yours, and the checklist
-before commercial use: [licences.md §2](licences.md#2-editions-what-edition-changes)
-and [§10](licences.md#10-before-you-deploy-commercially).
+What the commercial edition guarantees, and the checklist before commercial
+use: [licences.md §2](licences.md#2-editions-what-edition-changes) and
+[§10](licences.md#10-before-you-deploy-commercially).
+
+### One server for both editions
+
+`EDITION=both` serves commercial and non-profit clients from one GPU:
+
+- A signed token's `ed` claim (`"commercial"` or `"nonprofit"`) picks the
+  edition. With no claim (the static `STACK_TOKEN`), a connection gets
+  **commercial**, the stricter set.
+- Recognition is shared. Translation and voices follow the connection's
+  edition: a commercial connection translates by the commercial table (Lao
+  with Gemma 4, never MiLMMT-46), a non-profit one by
+  the non-profit table. The models are still loaded once: Hy-MT2, MADLAD and
+  Gemma 4's server serve both. MMS serves only non-profit connections, Coqui
+  only commercial ones. VoxCPM2's instances are shared.
+- Rooms are per edition, and the `hello` message names the edition a
+  connection got.
+- A commercial client is refused (close code 4403) by a stack running
+  `EDITION=nonprofit`. A non-profit client on a commercial stack gets
+  commercial voices.
+
+Whether running non-commercial models on a server that also serves paying
+clients is acceptable is a licensing question for your organisation: read
+[licences.md](licences.md) with that set-up in mind.
 
 ## Pick languages
 
 `LANGS` are the languages people **listen** in, `SRCS` the languages people
-may **speak** (the stack detects which one, per sentence). Both default to all
-25:
+may **speak** (detected per sentence). Both default to all 25:
 
 | | |
 |---|---|
@@ -479,19 +379,18 @@ LANGS=en,es,fr,ko
 SRCS=en,es
 ```
 
-Fewer languages start faster and use less CPU, but save little GPU memory: the
-big models are shared and load whatever the language list. What frees GPU
-memory is `VOXCPM=0` (~7 GB; Khmer, Lao and Tagalog then fall back) and the
-smaller translator, `MADLAD=3b` (~5 GB). Which engine serves each language:
-[licences.md §3](licences.md#3-every-language-per-edition), or
-`python3 server/stack_config.py check`.
+Fewer languages start faster and use less CPU, but save little GPU memory:
+the big models are shared. What frees GPU memory is `VOXCPM=0` (~7 GB) and
+`MADLAD=3b` (~5 GB); see [Fitting a 32 GB card](#fitting-a-32-gb-card). Which
+engine serves each language: [licences.md §3](licences.md#3-every-language-per-edition),
+or `python3 server/stack_config.py check`.
 
 ### Add a language
 
 `languages.toml` (at the repository root) says which model serves each
 language. A new language is one section with at least a voice, and
 `madlad = "<code>"` if MADLAD's tag differs from the code (Tagalog is `fil`).
-Hy-MT2 translates into the 36 languages in `stack_config.HYMT_LANGS`; for any
+Hy-MT2 translates into the languages in `stack_config.HYMT_LANGS`; for any
 other, set `translator = "madlad"`.
 
 ```toml
@@ -505,8 +404,7 @@ madlad = "pl"
 
 Then:
 
-1. Lock the new Piper voice (the stack downloads only voices in `voices.lock`,
-   checked by sha256):
+1. Lock the new Piper voice (only voices in `voices.lock` are downloaded):
 
    ```bash
    python3 scripts/lock-voices.py pl_PL-gosia-medium
@@ -516,113 +414,93 @@ Then:
 3. Check and restart:
 
    ```bash
-   python3 server/stack_config.py check       # validates the file (Python 3.11+; also run at every start)
+   python3 server/stack_config.py check       # validates the file (also run at every start)
    docker compose up -d --force-recreate      # Docker: picks up the edited file and .env
    ```
 
-   On RunPod, edit `/workspace/translation-open-stack/languages.toml` and restart
-   the pod. `scripts/fetch-voices.sh` downloads the voice on the next start.
+   On RunPod, edit `/workspace/translation-open-stack/languages.toml` and
+   restart the pod.
 
 For `EDITION=commercial`, a voice with no entry in `server/licences.py` is ❓
-(unclear) and is left out until you add its licence there (the tests then
-check it) or record your own review in `[licence_review]`
-([Swap a voice](#swap-a-voice)).
+and left out until you add its licence there or record your own review in
+`[licence_review]` ([Swap a voice](#swap-a-voice)).
 [licences.md §7](licences.md#7-piper-voices-one-by-one) lists every voice
 already checked.
 
 ## Swap a voice
 
 A language's voice is a **fallback chain**, tried in this order: Kokoro,
-VoxCPM2, Coqui, Piper, MMS, then eSpeak NG as the last resort. The first one
-that is running and succeeds speaks. `voice = ["piper", "kokoro"]` sets another
-order. A `[<lang>]` section **replaces** that language's defaults entirely, so
-keep every key you still want.
+VoxCPM2, Coqui, Piper, MMS, then eSpeak NG. The first one that is running and
+succeeds speaks. `voice = ["piper", "kokoro"]` sets another order.
 
-```toml
-# German in a different Piper voice
-[de]
-piper = "de_DE-mls-medium"
-asr = "whisper"
-translator = "hymt"
-madlad = "de"
-```
+To change a voice, edit that language's line in `languages.toml`, for
+example `piper = "de_DE-mls-medium"` under `[de]`. Edit in place: a `[<lang>]`
+section **replaces** that language's built-in defaults, so a section you
+write from scratch must keep every key you still want (translator, timing
+and the rest).
 
 Then lock the voice and restart, as in [Add a language](#add-a-language).
 
-**Choosing a Piper voice.** The catalogue, with every voice and quality tier:
-`https://huggingface.co/rhasspy/piper-voices/resolve/main/voices.json`.
-Tiers are `x_low`, `low`, `medium`, `high`. **Not every language has every
-tier**: as of writing, English, Spanish, Italian, Ukrainian, German and Polish
-have `high`; French, Portuguese, Chinese, Vietnamese, Korean and Japanese top
-out at `medium`; Swahili has exactly one voice. Higher tiers are larger and
-slower, but Piper runs at roughly 20x real time, so a tier upgrade is usually
-affordable. Listen before deciding: quality differences between speakers
-within a tier are often larger than between tiers. **Accent is a real
-choice**: Spanish has no `es_ES` voice at `high` (the high voices are Mexican
-and Argentine), and an audience will notice which one you pick. Check the
-voice's licence ([licences.md §7](licences.md#7-piper-voices-one-by-one))
-before a commercial deployment.
+**Piper voices**: the catalogue is
+`https://huggingface.co/rhasspy/piper-voices/resolve/main/voices.json`
+(tiers `x_low` to `high`; not every language has every tier). Listen before
+deciding, and mind the accent. Check the licence
+([licences.md §7](licences.md#7-piper-voices-one-by-one)) before commercial use.
 
-**Kokoro** voices are the `kokoro = "<lang_code>:<voice>"` entries
-(catalogue: `hexgrad/Kokoro-82M` on Hugging Face), for the languages Kokoro
-speaks (en es fr it pt ja zh hi).
+**Kokoro** voices are `kokoro = "<lang_code>:<voice>"` (catalogue:
+`hexgrad/Kokoro-82M`), for en es fr it pt ja zh hi.
 
-**VoxCPM2** speaks each of its languages in a fixed reference voice,
+**VoxCPM2** speaks each language in a reference voice,
 `voices/voxcpm/<lang>.wav` ([how they were chosen](../voices/voxcpm/README.md)).
 To change one, replace the file and delete its copy in
-`/workspace/voices/voxcpm/` so the next start copies it (the copy on the volume
-is never overwritten). To give a language to VoxCPM2, set `voxcpm = true` in
-its section (or `[<lang>.commercial]`); VoxCPM2's languages are listed in
+`/workspace/voices/voxcpm/` (the copy on the volume is never overwritten). To
+give a language to VoxCPM2, set `voxcpm = true` in its section (or
+`[<lang>.commercial]`); its languages are in
 [licences.md §11.2](licences.md#112-candidates).
 
 **The commercial edition's voices** are in `[<lang>.commercial]`: the voice
-keys (and `voice`) to use instead when `EDITION=commercial`; `asr`,
-`translator` and `madlad` still come from `[<lang>]`.
+keys to use instead when `EDITION=commercial` (`asr`, `translator` and
+`madlad` still come from `[<lang>]`).
 
 ```toml
 [ko.commercial]
 voxcpm = true
 ```
 
-A ❓ (unclear) voice loads in commercial only after you have reviewed its
-licence yourself and recorded it:
+A ❓ voice loads in commercial only after you record your own review of its
+licence. There is no override for ⛔ (non-commercial) items.
 
 ```toml
 [licence_review]
 "ro_RO-mihai-medium" = "reviewed 2026-10-01 by Example Org: CC0 data; we accept the lessac fine-tune"
 ```
 
-There is no override for ⛔ (non-commercial) items.
-
 ## Route a language to another recogniser or translator
 
 In a language's section:
 
 - `asr = "whisper"` or `asr = "omni:<code>"` picks the recogniser used when
-  that language is **spoken**. Omnilingual takes Meta's language codes
+  that language is **spoken**. Omnilingual takes Meta's codes
   (`omni:khm_Khmr`, `omni:hat_Latn`); it serves fa bn ur hi sw ht km lo by
-  default because Whisper is weak there.
-- `translator = "hymt"` or `translator = "madlad"` picks the translator
-  **into** that language. Hy-MT2 only covers its 36 languages; a source
-  language it doesn't know reaches the others through MADLAD via English.
+  default.
+- `translator` picks the translator **into** that language: `"hymt"`,
+  `"madlad"`, or a list tried in order, such as `["llmmt", "hymt"]` (Gemma 4
+  while its server answers, Hy-MT2 otherwise). The shipped choices per
+  direction: [reference, "Translators per direction"](reference.md#translators-per-direction).
 
 For no Tencent model at all, set `translator = "madlad"` for every language
-and don't build Hy-MT2 (or delete `/workspace/mt/hymt2-7b-nf4`, so
-`scripts/run.sh` doesn't load it). MADLAD 7B scored 87% against Hy-MT2's 95%
-in the [evaluation](dev/model-evaluation.md).
+and don't build Hy-MT2 (or delete `/workspace/mt/hymt2-7b-nf4`). MADLAD is
+weaker ([evaluation](dev/model-evaluation.md)).
 
 `python3 server/stack_config.py check` validates the names; an unknown one is
-an error, not a silent fallback. A new *kind* of recogniser, translator or
-voice is an engine: one Python file, named here the same way
+an error. A new *kind* of recogniser, translator or voice is an engine
 ([adding-an-engine.md](dev/adding-an-engine.md)).
 
 ## Replace a model or a revision
 
-The models every language shares are pinned in `languages.toml` under
-`[models]`: Whisper, Omnilingual, language ID, Silero VAD, Hy-MT2, MADLAD 7B
-and 3B, Kokoro and VoxCPM2, each with its repository and exact revision. A
-`[models.<name>]` table is **merged key by key** over the default (unlike a
-language table), so give only what you change:
+The shared models are pinned in `languages.toml` under `[models]`, each with
+its repository and exact revision. A `[models.<name>]` table is **merged key
+by key** over the default, so give only what you change:
 
 ```toml
 [models.whisper]
@@ -630,11 +508,8 @@ model = "large-v3-turbo"
 revision = ""        # the old revision belongs to large-v3's repo; "" = unpinned
 ```
 
-A Whisper `revision` belongs to `model`'s repository: change both together.
-If you set `multi_model` (a second model for non-English sources), pin it
-with `multi_revision`. A revision of `""` means unpinned (whatever the
-repository serves now); the translators and VoxCPM2 must have one, because
-their builds are stamped with it. Every key:
+Change a Whisper `model` and `revision` together. `""` means unpinned; the
+translators and VoxCPM2 must have a revision. Every key:
 [reference, "[models.<name>]"](reference.md#modelsname).
 
 Check, restart, then [verify](#verify-with-the-smoke-test):
@@ -644,112 +519,82 @@ python3 server/stack_config.py check
 python3 server/stack_config.py get models.hymt.revision   # one value, as the scripts read it
 ```
 
-In `EDITION=commercial` a changed model must still be classified as allowed in
-`server/licences.py`: another Hy-MT2 revision is ❓ until someone reads its
-licence, and the server will not start on it.
+In `EDITION=commercial` a changed model must still be allowed in
+`server/licences.py`, or the server will not start.
 
 ### What must be rebuilt
 
-The translators are the only models converted on the volume:
+Only the translators (Hy-MT2 and MADLAD, under `/workspace/mt` and
+`/workspace/madlad-ct2`) are built on the volume. Each build records
+`<repo> @ <revision>` in `PROVENANCE.txt`, and `scripts/prepare-mt.sh` rebuilds
+when that differs from `languages.toml`, swapping the new build in only when it
+has finished. The Docker entrypoint and `scripts/runpod/runpod-start.sh` run it
+before every start, so a restart picks up a new revision; `scripts/run.sh` on
+its own only warns. A build with no `PROVENANCE.txt` is kept; delete the
+directory to rebuild it. A rebuild needs a GPU and ~45 GB of scratch
+(`MT_SCRATCH`).
 
-| Build | Directory | Built from |
-|---|---|---|
-| Hy-MT2 7B, 4-bit NF4 | `/workspace/mt/hymt2-7b-nf4` | `[models.hymt]` |
-| MADLAD 7B, CTranslate2 int8 | `/workspace/mt/madlad7b-ct2` | `[models.madlad]` |
-| MADLAD 3B, CTranslate2 int8 (`MADLAD=3b`) | `/workspace/madlad-ct2` | `[models.madlad3b]` |
-
-Each build writes `PROVENANCE.txt`, whose first line is `<repo> @ <revision>`.
-`scripts/prepare-mt.sh` compares it with `languages.toml`: when they differ it
-rebuilds into `<dir>.tmp` and swaps it in only when the build has finished, so
-the old build keeps serving until then (and a failed build leaves it in
-place). `scripts/runpod/runpod-start.sh` and the Docker entrypoint run
-`prepare-mt.sh` before every start, so on those paths a new revision is picked
-up by restarting; `scripts/run.sh` on its own only warns
-(`WARNING: ... was built from ...`). A build with no `PROVENANCE.txt` (MADLAD 3B
-converted by older provisioners) is kept as it is; delete the directory to
-rebuild it at the pinned revision. A rebuild needs the same as the first
-build: a GPU and ~45 GB of scratch (`MT_SCRATCH`).
-
-Everything else (Whisper, language ID, Silero, Omnilingual, Kokoro, VoxCPM2)
-is fetched into the caches on the volume by revision on the next start, so an
-old revision stays cached beside the new one and switching back costs nothing.
-`VOXCPM_REV` in the environment wins over `[models.voxcpm]`.
+Everything else is fetched by revision into caches on the volume on the next
+start, so switching back costs nothing. `VOXCPM_REV` wins over `[models.voxcpm]`.
 
 ## GPUs and capacity
 
 **What one GPU holds.** With all 25 languages the stack holds **about 33 GB
-at idle**: 25.7 GB for the server and 7.1 GB for the VoxCPM2 voice service
-(measured 2026-09-28 on an L40 with `expandable_segments`; the server measured
-26.0 GB with Romanian on an RTX 6000 Ada; the commercial stack, VoxCPM2
-included, 33.6 GB). The languages themselves cost little GPU memory (most
-voices run on the CPU); the large models are fixed. A 48 GB card leaves room
-for activations under load.
+at idle** (about 26 GB for the server, 7 GB for the VoxCPM2 voice service).
+The languages themselves cost little; the large models are fixed. A 48 GB
+card leaves room for activations under load. On 80 GB+, Gemma 4 31B takes
+about 36 GB more.
 
-**How many rooms.** On one RTX PRO 6000 (96 GB) with Gemma 4 beside the stack, about **8 rooms of 4 languages**
-(32 listeners) at once add at most a second to each translation, 12 rooms add about 4 s, and 16 fall behind. One room
-in 12 languages keeps up; four don't ([eval/2026-10-room-capacity](../eval/2026-10-room-capacity/)). Every room spoke
-continuously in that test, so real rooms, which pause, go further. The default connection limits come first: 30 per
-access token (`STACK_MAX_PER_CLIENT`, 7 rooms of 4 languages) and 60 in all (`STACK_MAX_CONNECTIONS`).
+**How many rooms.** One RTX PRO 6000 (96 GB) with Gemma 4 serves about
+**8 rooms of 4 languages** (32 listeners) at once, adding at most a second
+per translation. 12 rooms add about 4 s; 16 fall behind. One 12-language room
+keeps up; four don't ([eval/2026-10-room-capacity](../eval/2026-10-room-capacity/)).
+That test spoke continuously, so real rooms go further. The connection limits
+apply first: 30 per access token (`STACK_MAX_PER_CLIENT`, about 7 rooms of 4
+languages) and 60 in all (`STACK_MAX_CONNECTIONS`).
 
-**VoxCPM2 is the part that runs out.** It makes one voice at a time: one
-instance keeps about two to three listeners in real time (RTF 0.28 on an A100,
-0.46 on an RTX PRO 4500). The non-profit edition routes only Khmer, Lao and
-Tagalog to it; the commercial edition routes ten languages (ko tr ru ar id sw
-vi km lo tl). Each connection's audio is made separately: two connections
-listening in Korean are two voices.
+**VoxCPM2 is the part that runs out.** One instance makes one voice at a time
+and keeps about two to three listeners in real time. Non-profit routes only
+Khmer, Lao and Tagalog to it; commercial routes ten languages (ko tr ru ar id
+sw vi km lo tl). Each connection's audio is made separately.
 
-| | Setting | Default |
-|---|---|---|
-| How many instances | `VOXCPM_INSTANCES`: `auto` = one on the main GPU plus one on each other GPU with at least 10 GB, up to `VOXCPM_MAX_INSTANCES` (4); a number; or `0` = none | `auto` in commercial, `1` in nonprofit |
-| Exactly which GPUs | `VOXCPM_GPUS=0,1,1` (here two instances share GPU 1) | unset |
-| Sentences one instance takes at once | `VOXCPM_MAX_INFLIGHT`; a service makes one voice at a time, so more only hides a queue | `1` |
-| Wait for a free instance, then the next voice (eSpeak NG) | `VOXCPM_QUEUE_S` | 2 s |
-| Wait for a language with no voice after VoxCPM2 (km lo tl in commercial), then text only | `VOXCPM_WAIT_S` | 15 s |
+`VOXCPM_INSTANCES` sets how many instances run (`auto`, the commercial
+default: one on the main GPU plus one on each other GPU with 10 GB+; `1` in
+nonprofit), and `VOXCPM_GPUS=0,1,1` places them exactly. The queue and wait
+times are in the [reference](reference.md#voxcpm2-and-espeak-ng).
 
-When every instance is busy, the server queues a sentence for the first free
-instance on any GPU. After 2 s it is spoken by eSpeak NG instead, so a busy
-room hears some sentences in the robotic voice rather than audio falling
-behind the captions. Watch the `VoxCPM2 busy` and `VoxCPM2 stats` lines in the
-log under load. `python3 server/stack_config.py voxcpm-plan --edition
-commercial` prints where the instances would run on this machine.
+When every instance is busy, a sentence waits 2 s for one, then eSpeak NG
+speaks it, so a busy room hears some sentences in the robotic voice instead of
+falling behind. Watch the `VoxCPM2 busy` and `VoxCPM2 stats` log lines.
+`python3 server/stack_config.py voxcpm-plan --edition commercial` prints where
+the instances would run.
 
-**One GPU or two.** On one GPU everything shares the card, with one VoxCPM2
-instance. With a second GPU (10 GB or more), the commercial edition starts a
-second instance there automatically, doubling VoxCPM2's capacity; or put the
-only instance on the second card (`VOXCPM_GPUS=1`) to free ~7 GB on the first.
-Under Docker, give the container both GPUs first (`count: all` in
-`docker-compose.yml`). Other options: accept overflow for rooms that rarely mix
-many VoxCPM2 languages, or serve some of them as eSpeak NG or text (drop
-`voxcpm = true` from their `[<lang>.commercial]`).
-
-`ESPEAK=0` turns the last-resort voice off: overflow is then silent, and fa
-and ro are text only in commercial.
+**Two GPUs.** With a second GPU (10 GB+), commercial starts a second instance
+there automatically; or move the only one there (`VOXCPM_GPUS=1`) to free
+~7 GB on the first. Under Docker, set `count: all` in `docker-compose.yml`
+first.
 
 ### Fitting a 32 GB card
 
-The ~33 GB idle footprint is past a 32 GB card (RTX PRO 4500, RTX 5090) before
-anyone speaks. `STACK_PROFILE=cuda-32gb` makes the usual choice (`MADLAD=3b`)
-for you. The options:
+The ~33 GB idle footprint is past a 32 GB card (RTX PRO 4500, RTX 5090).
+`STACK_PROFILE=cuda-32gb` sets `MADLAD=3b` for you. The options:
 
 | Option | Saves | Costs |
 |---|---|---|
-| `MADLAD=3b` (the smaller fallback translator) | ~5 GB | Swahili, Haitian Creole, Lao and Romanian, the languages only MADLAD translates, get worse (MADLAD 3B scored 82% overall against 87% for 7B), and so does translating Haitian Creole or Romanian speech, which goes through MADLAD to English first. Swahili is already the weakest language (69% into Swahili). |
-| VoxCPM2 on another GPU (`VOXCPM_GPUS`, or the server's `--voxcpm http://<other-host>:8791`) | 7.1 GB | No quality loss, but a second card. |
-| `VOXCPM=0` | ~7 GB | Khmer, Lao and Tagalog speak through MMS in the non-profit edition, or are text only in commercial, where Korean, Turkish, Russian, Arabic, Indonesian, Swahili and Vietnamese fall to eSpeak NG. |
-| Drop languages | little | Piper and Kokoro voices are CPU or shared; only removing VoxCPM2 or Omnilingual languages frees GPU memory. |
+| `MADLAD=3b` | ~5 GB | Weaker Swahili, Haitian Creole, Lao and Romanian (the languages only MADLAD translates), and weaker Haitian Creole or Romanian speech, which goes through MADLAD to English. |
+| VoxCPM2 on another GPU (`VOXCPM_GPUS`, or the server's `--voxcpm http://<other-host>:8791`) | 7.1 GB | A second card. |
+| `VOXCPM=0` | ~7 GB | Khmer, Lao and Tagalog speak through MMS (non-profit) or are text only (commercial, where ko tr ru ar id sw vi fall to eSpeak NG). |
+| Drop languages | little | Only dropping VoxCPM2 or Omnilingual languages frees GPU memory. |
 
-With `MADLAD=3b` the start builds MADLAD 3B into `/workspace/madlad-ct2`
-(`prepare-mt.sh` honours `MADLAD`). A 32 GB card usually costs somewhat less
-per hour than a 48 GB card of the same generation; check RunPod's current
-prices. Measurements behind these numbers:
-[model-evaluation.md §5](dev/model-evaluation.md#5-fitting-on-a-24-gb-card).
+With `MADLAD=3b` the start builds MADLAD 3B into `/workspace/madlad-ct2`.
+Measurements: [model-evaluation.md §5](dev/model-evaluation.md#5-fitting-on-a-24-gb-card).
 
 ## Hardware profiles: other GPUs, two GPUs, AMD, Mac
 
 The languages and the edition say *what* is served; a **profile** says *on
-what*. One variable picks it, and it can move each model to a chosen card,
-swap a model for a smaller one, set the scripts' defaults, and reroute a
-language whose recogniser can't run on that hardware:
+what*. It can move each model to a chosen card, swap in a smaller model, set
+the scripts' defaults, and reroute a language whose recogniser can't run on
+that hardware:
 
 ```bash
 python3 server/stack_config.py profiles             # what ships
@@ -763,22 +608,19 @@ STACK_PROFILE=cuda-2gpu                             # in .env, or the pod's envi
 | `cuda-32gb` | one 32 GB NVIDIA GPU | `MADLAD=3b` ([above](#fitting-a-32-gb-card)) |
 | `cuda-2gpu` | two NVIDIA GPUs, 24 GB+ each | translators on GPU 0, recognition and voices on GPU 1 |
 | `cuda-80gb` | one NVIDIA GPU, 80 GB+ | the reference plus Omnilingual 7B for Lao and Khmer (`OMNI_LARGE=1`) |
-| `radeon-32+16` | AMD R9700 32 GB + RX 9060 XT 16 GB | **preview, not yet run**; [install without Docker](#install-without-docker-linux-nvidia-or-amd) |
+| `radeon-32+16` | AMD R9700 32 GB + RX 9060 XT 16 GB | **preview**; [install without Docker](#install-without-docker-linux-nvidia-or-amd) |
 
 ### Create a profile
 
-A profile is one small TOML file. Every table in it is optional; leave out
-what you don't change.
+A profile is one small TOML file; every table is optional.
 
-1. **Start from the closest one.** Profiles live in `profiles/` (Docker mounts
-   that folder, so a new file there is seen without a rebuild):
+1. **Start from the closest one** in `profiles/` (Docker mounts that folder,
+   so no rebuild is needed). The name is the file name without `.toml`.
+   `STACK_PROFILE` also takes a path.
 
    ```bash
    cp profiles/cuda-2gpu.toml profiles/my-box.toml
    ```
-
-   The name is the file name without `.toml`: letters, digits and `. _ + -`.
-   `STACK_PROFILE` also takes a path, for a profile kept elsewhere.
 
 2. **Edit it.** A complete example, for two cards where the second is small:
 
@@ -813,59 +655,42 @@ what you don't change.
    asr = "whisper"
    ```
 
-   The keys `[devices]` accepts: `default`, `lid` (language ID) and every
-   engine name (`python3 server/stack_config.py engines` lists them). The
-   `[models.<name>]` keys are in the
-   [reference](reference.md#modelsname), the language keys in
-   [Route a language](#route-a-language-to-another-recogniser-or-translator).
+   `[devices]` accepts `default`, `lid` (language ID) and every engine name
+   (`python3 server/stack_config.py engines`).
 
-3. **Check it** before starting anything. Both commands stop with a message
-   naming the mistake (an unknown engine, a device like `gpu1`, a typo in a
-   table name):
+3. **Check it.** Both commands stop with a message naming any mistake:
 
    ```bash
    python3 server/stack_config.py profile my-box   # exactly what it changes
    STACK_PROFILE=my-box python3 server/stack_config.py check
    ```
 
-4. **Use it:** `STACK_PROFILE=my-box` in `.env` (Docker) or the pod's
-   environment (RunPod), then restart. The start log begins with
-   `profile: my-box`, and `[stack] device=cuda:0, whisper=cuda:1, ...`.
+4. **Use it:** `STACK_PROFILE=my-box` in `.env` or the pod's environment, then
+   restart. The start log begins with `profile: my-box`.
 
-5. **Measure, then adjust.** While loading, the log prints each model's share
-   of its card:
+5. **Measure, then adjust.** The log prints each model's share of its card
+   (`[stack] whisper on cuda:1: +3.3 GB (3.6 GB in use there)`). Keep a few GB
+   free on each card, then run the [smoke test](#verify-with-the-smoke-test).
+   `STACK_DEVICES=kokoro=cuda:0` overrides the profile for one start.
 
-   ```
-   [stack] whisper on cuda:1: +3.3 GB (3.6 GB in use there)
-   [stack] hymt on cuda:0: +5.6 GB (12.0 GB in use there)
-   ```
-
-   Keep a few GB free on each card for activations under load, then run the
-   [smoke test](#verify-with-the-smoke-test). To try a change without editing
-   the file, `STACK_DEVICES=kokoro=cuda:0` wins over the profile for that
-   start. A card that isn't there (`cuda:2` on a two-GPU machine) stops the
-   start with a message.
-
-A model that isn't a PyTorch or CTranslate2 model the stack already runs
-needs an engine, not a profile: [adding-an-engine.md](dev/adding-an-engine.md).
-The full format: [reference, "Profiles and devices"](reference.md#profiles-and-devices).
+A model the stack doesn't already run needs an engine, not a profile
+([adding-an-engine.md](dev/adding-an-engine.md)). The full format:
+[reference, "Profiles and devices"](reference.md#profiles-and-devices).
 
 ### AMD and Mac
 
-**AMD (ROCm).** A native install with the `radeon-32+16` profile (or your own):
-[Install without Docker](#install-without-docker-linux-nvidia-or-amd). Preview:
-not yet run end to end on AMD.
+**AMD (ROCm).** A native install with `radeon-32+16` (or your own profile):
+[Install without Docker](#install-without-docker-linux-nvidia-or-amd). Preview.
 
-**Mac.** Not yet: Docker on a Mac cannot reach the GPU, and CTranslate2 and
-Omnilingual have no Apple GPU support. A native Apple Silicon setup (Whisper
-and Hy-MT2 through MLX, fewer languages) is planned.
+**Mac.** Not supported: Docker on a Mac cannot reach the GPU, and CTranslate2
+and Omnilingual have no Apple GPU support.
 
 ## Verify with the smoke test
 
 After any model, voice or dependency change, run the end-to-end smoke test
-against the running stack on its GPU. It covers every voice engine, both
-translators, Omnilingual, concurrent connections, the Lithos Talk pair
-(`route=to`) and auth, prints a table and must end with `ALL PASSED`:
+against the running stack. It covers every voice engine, both translators,
+Omnilingual, concurrent connections, the Lithos Talk pair (`route=to`) and
+auth, and must end with `ALL PASSED`:
 
 ```bash
 ssh -L 8790:127.0.0.1:8790 root@<pod-ip> -p <ssh-port>   # RunPod: tunnel the port first
@@ -873,84 +698,65 @@ STACK_TOKEN=... python3 tools/smoke.py                   # --quick, --langs es,k
 STACK_TOKEN=... python3 tools/smoke.py --edition commercial
 ```
 
-`--url` points it at another address (default `ws://127.0.0.1:8790`), and
-`--token` passes the token instead of `$STACK_TOKEN`. `--load N` runs a
-capacity test instead: N simultaneous connections into the VoxCPM2 languages
-(`--load-langs`), failing any whose first audio comes more than 4 s after the
-clip.
+`--url` points it elsewhere (default `ws://127.0.0.1:8790`); `--token` passes
+the token. `--load N` runs a capacity test instead: N simultaneous
+connections into the VoxCPM2 languages, failing any whose first audio comes
+more than 4 s after the clip.
 
-The CPU protocol tests (`tests/test_protocol.py`) check the plumbing, not the
-models; they are no substitute. Quality changes need the evaluation
-([model-evaluation.md](dev/model-evaluation.md)): the smoke test only proves
-each path produces sensible speech.
+The smoke test proves each path works. The CPU tests (`tests/test_protocol.py`)
+check only the plumbing; quality changes need the
+[evaluation](dev/model-evaluation.md).
 
 ## Update
 
-**Docker:** `git pull && docker compose up -d --build`. The volume is kept, so
-nothing is downloaded again unless a model changed.
+**Docker:** `git pull && docker compose up -d --build`. The volume is kept.
 
-**RunPod:** `git -C /workspace/translation-open-stack pull` from a pod's terminal
-(or copy a new clone over it) and restart the pod. Replace every file together;
-the scripts depend on each other. A copy made before the September 2026
-reorganisation has the scripts at the repository root; the current ones are in
-`scripts/`, `scripts/runpod/` and `server/`, and the old root copies can go.
+**RunPod (template):** the code ships in the image, so it updates when the
+template's image is republished; deploy a new pod to get it.
+**RunPod (by hand):** `git -C /workspace/translation-open-stack pull` in a
+pod's terminal, then restart the pod.
 
-After updating, the next start re-checks every Piper voice against
-`voices.lock` and rebuilds a translator whose pinned revision changed. Run the
+The next start re-checks every Piper voice against `voices.lock` and rebuilds
+a translator whose pinned revision changed. Run the
 [smoke test](#verify-with-the-smoke-test) if models or dependencies moved.
 
 ## Troubleshooting
 
 - **`could not select device driver "nvidia"`** or **"No NVIDIA GPU visible"**:
-  the NVIDIA Container Toolkit isn't installed or Docker wasn't restarted after
-  installing it. The `nvidia-smi` check in
-  [Install](#install-on-your-own-gpu-docker) must work first. On WSL2, install
-  the Windows NVIDIA driver only (not a Linux driver inside WSL).
+  install the NVIDIA Container Toolkit and restart Docker. The `nvidia-smi`
+  check in [Install](#install-on-your-own-gpu-docker) must work first. On
+  WSL2, install only the Windows NVIDIA driver.
 - **Refuses to start, asks for `STACK_TOKEN`**: set it in `.env` (next to
-  `docker-compose.yml`), or `STACK_OPEN=1` on a private LAN. On RunPod: the
-  pod's environment or `/workspace/.stack-token`.
+  `docker-compose.yml`), or `STACK_OPEN=1` on a private LAN.
 - **First start stops with "No space left on device"**: the translator build
-  needs ~48 GB of scratch on top of the models. Free space and
-  `docker compose up -d` again: finished models are kept, the build resumes.
-- **Start stops with "Piper voices failed verification against voices.lock"**:
-  a voice is `not in voices.lock` (one you added: `python3
-  scripts/lock-voices.py <voice>`), or a download's sha256 differs from the
-  lock (`... voices.lock expects ... Refused.`): the upstream file changed, so
-  review it before re-locking; see
-  [reference, "Piper voices"](reference.md#piper-voices-voiceslock). A file
-  already on the volume that doesn't match is simply fetched again.
-- **CUDA out of memory at start or under load**: the card is too small for the
-  configuration; see [Fitting a 32 GB card](#fitting-a-32-gb-card).
-- **A language is text only / silent**: look for its line in the log
+  needs ~48 GB of scratch. Free space and `docker compose up -d` again;
+  finished models are kept.
+- **"Piper voices failed verification against voices.lock"**: a voice you
+  added is `not in voices.lock` (`python3 scripts/lock-voices.py <voice>`), or
+  the upstream file changed (`... Refused.`): review it before re-locking
+  ([reference](reference.md#piper-voices-voiceslock)).
+- **CUDA out of memory**: see [Fitting a 32 GB card](#fitting-a-32-gb-card).
+- **A language is text only or silent**: grep the log for it
   (`docker compose logs stack | grep -i "<lang>"`). "no Piper voice mapped",
-  "Piper voice unavailable" or a `FAILED` download means the voice in
-  `languages.toml` is wrong or unreachable. In commercial, `check --edition
-  commercial` says which languages are text only and why.
-- **Khmer/Lao/Tagalog use a different voice each sentence**: the VoxCPM2
-  reference voices are missing from `/workspace/voices/voxcpm/`. They ship in
-  `voices/voxcpm/` and `scripts/prepare-voices.sh` copies them onto the volume;
-  it never overwrites one already there.
-- **Some sentences in a robotic voice**: VoxCPM2 was busy for more than 2 s and
-  eSpeak NG spoke instead; see [GPUs and capacity](#gpus-and-capacity).
+  "Piper voice unavailable" or `FAILED` means the voice in `languages.toml` is
+  wrong or unreachable. In commercial, `check --edition commercial` says why.
+- **Khmer/Lao/Tagalog change voice each sentence**: the VoxCPM2 reference
+  voices are missing from `/workspace/voices/voxcpm/`;
+  `scripts/prepare-voices.sh` copies them there.
+- **Some sentences in a robotic voice**: VoxCPM2 was busy; see
+  [GPUs and capacity](#gpus-and-capacity).
 - **The app's Test fails**: `curl http://<box>:8790/health` from the app's
-  machine. No answer: firewall or wrong address. `ok` but Test fails: check the
-  token; the stack's log says `refused: bad or missing token` when it's wrong.
-- **A client is disconnected with a code**: 4401 bad or missing token, 4429
-  too many connections, 4408 session time limit, 4400 a query parameter the
-  server doesn't accept (the preceding `error` message names it), 4413 audio
-  faster than 2x real time, 1009 a message over 256 KB
+  machine. No answer: firewall or wrong address. `ok`: check the token (the
+  log says `refused: bad or missing token`).
+- **A client is disconnected with a code**: 4401 bad token, 4429 too many
+  connections, 4408 session time limit, 4400 a bad query parameter, 4413
+  audio faster than 2x real time, 1009 a message over 256 KB
   ([reference](reference.md#access-rooms-and-limits)).
 - **Two apps with different tokens don't hear each other in `room=main`**: by
   design. A room belongs to one token subject.
-- **Port 8790 already in use**: `scripts/run.sh` refuses to start beside a
-  stale server (which would keep serving old code); stop the old one first.
-- **Slow or robotic audio on phones**: usually the venue's WiFi, not the
-  stack. On a real deployment a phone on 2.4 GHz while the host was on 5 GHz
-  lost 16-39% of its packets, which a UDP (WebRTC) listener hears as robotic,
-  stretched audio; putting both on 5 GHz fixed it completely. Loss above a few
-  percent is a network problem that no pacing, buffering or codec setting
-  fixes. How to diagnose it in a particular app (for example Lithos Live
-  Translation's `?rtc=0` and `LITHOS_RTC_STATS=1`) is in that app's
-  documentation.
-- **Starting over**: `docker compose down -v` deletes the model volume (the
-  next start downloads everything again).
+- **Port 8790 already in use**: `scripts/run.sh` refuses to start beside an
+  old server; stop it first.
+- **Choppy or robotic audio on phones**: usually the venue's WiFi (for
+  example a phone on 2.4 GHz while the host is on 5 GHz). Packet loss above a
+  few percent is a network problem no stack setting fixes.
+- **Starting over**: `docker compose down -v` deletes the model volume.

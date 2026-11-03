@@ -1,0 +1,2926 @@
+{
+ "note": "Commercial edition (EDITION=commercial), live at real time, one direction at a time, one RTX PRO 6000 Blackwell 96 GB. Quality = share of the possible 3 per sentence (gemini-pro-latest, blind; Lao: commercial and nonprofit in one call; de/ru/ro: commercial and the saved nonprofit C1 of eval/2026-10-de-ru-ro in one call, 0-3 against the FLEURS text; the other 12: commercial graded alone). Latency in ms from the speaker stopping, per set [a, b]. cer_said in %.",
+ "translator": {
+  "en-es": "Gemma 4",
+  "es-en": "Hy-MT2",
+  "en-pt": "Gemma 4",
+  "pt-en": "Hy-MT2",
+  "en-fr": "Gemma 4",
+  "fr-en": "Hy-MT2",
+  "en-ja": "Gemma 4",
+  "ja-en": "Gemma 4",
+  "en-km": "Gemma 4",
+  "km-en": "Hy-MT2",
+  "en-lo": "MADLAD 7B",
+  "lo-en": "Hy-MT2",
+  "en-ht": "Gemma 4",
+  "ht-en": "Gemma 4",
+  "en-de": "Gemma 4",
+  "de-en": "Hy-MT2",
+  "en-ru": "Gemma 4",
+  "ru-en": "Gemma 4",
+  "en-ro": "MADLAD 7B",
+  "ro-en": "MADLAD 7B"
+ },
+ "commercial": {
+  "en-es": {
+   "sets": 2,
+   "said": 69.2,
+   "written": 63.4,
+   "crit_said": 8,
+   "crit_written": 9,
+   "first_audio_p50": [
+    1232,
+    1164
+   ],
+   "first_audio_p90": [
+    1554,
+    1437
+   ],
+   "last_audio_p50": [
+    1362,
+    1204
+   ],
+   "last_audio_p90": [
+    1608,
+    1636
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 5.1,
+   "per_set": {
+    "a": {
+     "said": 73.3,
+     "written": 61.7
+    },
+    "b": {
+     "said": 65.0,
+     "written": 65.0
+    }
+   }
+  },
+  "es-en": {
+   "sets": 2,
+   "said": 84.6,
+   "written": 83.3,
+   "crit_said": 3,
+   "crit_written": 4,
+   "first_audio_p50": [
+    1516,
+    1462
+   ],
+   "first_audio_p90": [
+    1694,
+    1613
+   ],
+   "last_audio_p50": [
+    1548,
+    1510
+   ],
+   "last_audio_p90": [
+    1834,
+    1731
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 0.8,
+   "per_set": {
+    "a": {
+     "said": 84.2,
+     "written": 81.7
+    },
+    "b": {
+     "said": 85.0,
+     "written": 85.0
+    }
+   }
+  },
+  "en-pt": {
+   "sets": 2,
+   "said": 70.0,
+   "written": 64.2,
+   "crit_said": 9,
+   "crit_written": 12,
+   "first_audio_p50": [
+    1241,
+    1172
+   ],
+   "first_audio_p90": [
+    1542,
+    1431
+   ],
+   "last_audio_p50": [
+    1397,
+    1255
+   ],
+   "last_audio_p90": [
+    1598,
+    1622
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 5.1,
+   "per_set": {
+    "a": {
+     "said": 75.0,
+     "written": 63.3
+    },
+    "b": {
+     "said": 65.0,
+     "written": 65.0
+    }
+   }
+  },
+  "pt-en": {
+   "sets": 2,
+   "said": 78.3,
+   "written": 78.3,
+   "crit_said": 7,
+   "crit_written": 7,
+   "first_audio_p50": [
+    1400,
+    1371
+   ],
+   "first_audio_p90": [
+    1569,
+    1612
+   ],
+   "last_audio_p50": [
+    1532,
+    1470
+   ],
+   "last_audio_p90": [
+    1991,
+    1644
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 1.2,
+   "per_set": {
+    "a": {
+     "said": 86.7,
+     "written": 86.7
+    },
+    "b": {
+     "said": 70.0,
+     "written": 70.0
+    }
+   }
+  },
+  "en-fr": {
+   "sets": 2,
+   "said": 71.7,
+   "written": 60.9,
+   "crit_said": 9,
+   "crit_written": 6,
+   "first_audio_p50": [
+    1444,
+    1386
+   ],
+   "first_audio_p90": [
+    1710,
+    1658
+   ],
+   "last_audio_p50": [
+    1576,
+    1438
+   ],
+   "last_audio_p90": [
+    1767,
+    1824
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 5.1,
+   "per_set": {
+    "a": {
+     "said": 76.7,
+     "written": 65.0
+    },
+    "b": {
+     "said": 66.7,
+     "written": 56.7
+    }
+   }
+  },
+  "fr-en": {
+   "sets": 2,
+   "said": 76.0,
+   "written": 75.0,
+   "crit_said": 7,
+   "crit_written": 7,
+   "first_audio_p50": [
+    1508,
+    1576
+   ],
+   "first_audio_p90": [
+    1710,
+    1941
+   ],
+   "last_audio_p50": [
+    1512,
+    1642
+   ],
+   "last_audio_p90": [
+    1793,
+    1941
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 2.4,
+   "per_set": {
+    "a": {
+     "said": 78.3,
+     "written": 78.3
+    },
+    "b": {
+     "said": 73.7,
+     "written": 71.7
+    }
+   }
+  },
+  "en-ja": {
+   "sets": 2,
+   "said": 69.2,
+   "written": 63.4,
+   "crit_said": 11,
+   "crit_written": 8,
+   "first_audio_p50": [
+    1352,
+    1194
+   ],
+   "first_audio_p90": [
+    1582,
+    1499
+   ],
+   "last_audio_p50": [
+    1426,
+    1286
+   ],
+   "last_audio_p90": [
+    1670,
+    1708
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 5.1,
+   "per_set": {
+    "a": {
+     "said": 73.3,
+     "written": 66.7
+    },
+    "b": {
+     "said": 65.0,
+     "written": 60.0
+    }
+   }
+  },
+  "ja-en": {
+   "sets": 2,
+   "said": 81.0,
+   "written": 79.2,
+   "crit_said": 6,
+   "crit_written": 6,
+   "first_audio_p50": [
+    1903,
+    2145
+   ],
+   "first_audio_p90": [
+    2196,
+    2384
+   ],
+   "last_audio_p50": [
+    1938,
+    2145
+   ],
+   "last_audio_p90": [
+    2196,
+    2384
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 3.6,
+   "per_set": {
+    "a": {
+     "said": 75.9,
+     "written": 75.0
+    },
+    "b": {
+     "said": 86.0,
+     "written": 83.3
+    }
+   }
+  },
+  "en-km": {
+   "sets": 2,
+   "said": 64.2,
+   "written": 58.3,
+   "crit_said": 6,
+   "crit_written": 9,
+   "first_audio_p50": [
+    1433,
+    1318
+   ],
+   "first_audio_p90": [
+    1835,
+    1696
+   ],
+   "last_audio_p50": [
+    1486,
+    1418
+   ],
+   "last_audio_p90": [
+    1835,
+    1765
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 5.1,
+   "per_set": {
+    "a": {
+     "said": 71.7,
+     "written": 63.3
+    },
+    "b": {
+     "said": 56.7,
+     "written": 53.3
+    }
+   }
+  },
+  "km-en": {
+   "sets": 2,
+   "said": 60.3,
+   "written": 57.5,
+   "crit_said": 14,
+   "crit_written": 16,
+   "first_audio_p50": [
+    2111,
+    2114
+   ],
+   "first_audio_p90": [
+    2376,
+    2506
+   ],
+   "last_audio_p50": [
+    2134,
+    2177
+   ],
+   "last_audio_p90": [
+    2376,
+    2506
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 8.9,
+   "per_set": {
+    "a": {
+     "said": 59.3,
+     "written": 55.0
+    },
+    "b": {
+     "said": 61.4,
+     "written": 60.0
+    }
+   }
+  },
+  "en-lo": {
+   "sets": 2,
+   "said": 47.5,
+   "written": 54.1,
+   "crit_said": 13,
+   "crit_written": 8,
+   "first_audio_p50": [
+    1163,
+    1096
+   ],
+   "first_audio_p90": [
+    1483,
+    1405
+   ],
+   "last_audio_p50": [
+    1218,
+    1170
+   ],
+   "last_audio_p90": [
+    1569,
+    1597
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 5.1,
+   "per_set": {
+    "a": {
+     "said": 55.0,
+     "written": 68.3
+    },
+    "b": {
+     "said": 40.0,
+     "written": 40.0
+    }
+   }
+  },
+  "lo-en": {
+   "sets": 2,
+   "said": 53.2,
+   "written": 52.5,
+   "crit_said": 15,
+   "crit_written": 16,
+   "first_audio_p50": [
+    1829,
+    1780
+   ],
+   "first_audio_p90": [
+    2630,
+    2428
+   ],
+   "last_audio_p50": [
+    2102,
+    2000
+   ],
+   "last_audio_p90": [
+    2630,
+    2428
+   ],
+   "missing_audio": 1,
+   "dropped_utterances": 0,
+   "cer_said": 15.2,
+   "per_set": {
+    "a": {
+     "said": 50.9,
+     "written": 50.0
+    },
+    "b": {
+     "said": 55.6,
+     "written": 55.0
+    }
+   }
+  },
+  "en-ht": {
+   "sets": 2,
+   "said": 74.2,
+   "written": 56.6,
+   "crit_said": 5,
+   "crit_written": 16,
+   "first_audio_p50": [
+    1152,
+    1096
+   ],
+   "first_audio_p90": [
+    1500,
+    1390
+   ],
+   "last_audio_p50": [
+    1262,
+    1143
+   ],
+   "last_audio_p90": [
+    1500,
+    1579
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 5.1,
+   "per_set": {
+    "a": {
+     "said": 80.0,
+     "written": 58.3
+    },
+    "b": {
+     "said": 68.3,
+     "written": 55.0
+    }
+   }
+  },
+  "ht-en": {
+   "sets": 2,
+   "said": 52.0,
+   "written": 49.1,
+   "crit_said": 17,
+   "crit_written": 19,
+   "first_audio_p50": [
+    2160,
+    1611
+   ],
+   "first_audio_p90": [
+    2331,
+    2221
+   ],
+   "last_audio_p50": [
+    2174,
+    1979
+   ],
+   "last_audio_p90": [
+    2471,
+    2221
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 2.9,
+   "per_set": {
+    "a": {
+     "said": 60.8,
+     "written": 60.0
+    },
+    "b": {
+     "said": 43.1,
+     "written": 38.3
+    }
+   }
+  },
+  "en-de": {
+   "sets": 2,
+   "said": 71.7,
+   "written": 71.7,
+   "crit_said": 7,
+   "crit_written": 7,
+   "first_audio_p50": [
+    1114,
+    1190
+   ],
+   "first_audio_p90": [
+    1357,
+    1711
+   ],
+   "last_audio_p50": [
+    1236,
+    1356
+   ],
+   "last_audio_p90": [
+    1583,
+    1711
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 8.0,
+   "per_set": {
+    "a": {
+     "said": 75.0,
+     "written": 75.0
+    },
+    "b": {
+     "said": 68.3,
+     "written": 68.3
+    }
+   }
+  },
+  "de-en": {
+   "sets": 2,
+   "said": 88.3,
+   "written": 88.3,
+   "crit_said": 2,
+   "crit_written": 2,
+   "first_audio_p50": [
+    1932,
+    1914
+   ],
+   "first_audio_p90": [
+    2081,
+    2108
+   ],
+   "last_audio_p50": [
+    1942,
+    1936
+   ],
+   "last_audio_p90": [
+    2081,
+    2108
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 1.9,
+   "per_set": {
+    "a": {
+     "said": 91.7,
+     "written": 91.7
+    },
+    "b": {
+     "said": 85.0,
+     "written": 85.0
+    }
+   }
+  },
+  "en-ru": {
+   "sets": 2,
+   "said": 70.8,
+   "written": 70.8,
+   "crit_said": 10,
+   "crit_written": 10,
+   "first_audio_p50": [
+    1056,
+    996
+   ],
+   "first_audio_p90": [
+    1265,
+    1652
+   ],
+   "last_audio_p50": [
+    1138,
+    1196
+   ],
+   "last_audio_p90": [
+    1497,
+    1658
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 8.0,
+   "per_set": {
+    "a": {
+     "said": 73.3,
+     "written": 73.3
+    },
+    "b": {
+     "said": 68.3,
+     "written": 68.3
+    }
+   }
+  },
+  "ru-en": {
+   "sets": 2,
+   "said": 84.2,
+   "written": 84.2,
+   "crit_said": 8,
+   "crit_written": 8,
+   "first_audio_p50": [
+    1509,
+    1388
+   ],
+   "first_audio_p90": [
+    1699,
+    1791
+   ],
+   "last_audio_p50": [
+    1552,
+    1579
+   ],
+   "last_audio_p90": [
+    1899,
+    1924
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 3.6,
+   "per_set": {
+    "a": {
+     "said": 83.3,
+     "written": 83.3
+    },
+    "b": {
+     "said": 85.0,
+     "written": 85.0
+    }
+   }
+  },
+  "en-ro": {
+   "sets": 2,
+   "said": 65.0,
+   "written": 65.0,
+   "crit_said": 9,
+   "crit_written": 9,
+   "first_audio_p50": [
+    862,
+    881
+   ],
+   "first_audio_p90": [
+    1061,
+    1252
+   ],
+   "last_audio_p50": [
+    956,
+    1000
+   ],
+   "last_audio_p90": [
+    1356,
+    1434
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 8.0,
+   "per_set": {
+    "a": {
+     "said": 71.7,
+     "written": 71.7
+    },
+    "b": {
+     "said": 58.3,
+     "written": 58.3
+    }
+   }
+  },
+  "ro-en": {
+   "sets": 2,
+   "said": 69.2,
+   "written": 69.2,
+   "crit_said": 12,
+   "crit_written": 12,
+   "first_audio_p50": [
+    1462,
+    1588
+   ],
+   "first_audio_p90": [
+    2305,
+    2296
+   ],
+   "last_audio_p50": [
+    1961,
+    1877
+   ],
+   "last_audio_p90": [
+    2305,
+    2316
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 4.2,
+   "per_set": {
+    "a": {
+     "said": 65.0,
+     "written": 65.0
+    },
+    "b": {
+     "said": 73.3,
+     "written": 73.3
+    }
+   }
+  }
+ },
+ "lao_nonprofit": {
+  "en-lo": {
+   "sets": 2,
+   "said": 67.5,
+   "written": 62.5,
+   "crit_said": 9,
+   "crit_written": 9,
+   "first_audio_p50": [
+    1652,
+    1503
+   ],
+   "first_audio_p90": [
+    2073,
+    2090
+   ],
+   "last_audio_p50": [
+    1756,
+    1534
+   ],
+   "last_audio_p90": [
+    2291,
+    2240
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 5.1,
+   "per_set": {
+    "a": {
+     "said": 70.0,
+     "written": 68.3
+    },
+    "b": {
+     "said": 65.0,
+     "written": 56.7
+    }
+   }
+  },
+  "lo-en": {
+   "sets": 2,
+   "said": 56.0,
+   "written": 53.4,
+   "crit_said": 16,
+   "crit_written": 18,
+   "first_audio_p50": [
+    1666,
+    1664
+   ],
+   "first_audio_p90": [
+    2470,
+    2269
+   ],
+   "last_audio_p50": [
+    1863,
+    1945
+   ],
+   "last_audio_p90": [
+    2470,
+    2269
+   ],
+   "missing_audio": 1,
+   "dropped_utterances": 0,
+   "cer_said": 15.2,
+   "per_set": {
+    "a": {
+     "said": 50.9,
+     "written": 50.0
+    },
+    "b": {
+     "said": 61.1,
+     "written": 56.7
+    }
+   }
+  }
+ },
+ "de_ru_ro_C1": {
+  "en-de": {
+   "sets": 2,
+   "said": 71.7,
+   "written": 71.7,
+   "crit_said": 7,
+   "crit_written": 7,
+   "first_audio_p50": [
+    1569,
+    1557
+   ],
+   "first_audio_p90": [
+    1954,
+    2037
+   ],
+   "last_audio_p50": [
+    1636,
+    1708
+   ],
+   "last_audio_p90": [
+    1954,
+    2037
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 8.0,
+   "per_set": {
+    "a": {
+     "said": 75.0,
+     "written": 75.0
+    },
+    "b": {
+     "said": 68.3,
+     "written": 68.3
+    }
+   }
+  },
+  "de-en": {
+   "sets": 2,
+   "said": 82.5,
+   "written": 82.5,
+   "crit_said": 2,
+   "crit_written": 2,
+   "first_audio_p50": [
+    1406,
+    1438
+   ],
+   "first_audio_p90": [
+    1597,
+    1607
+   ],
+   "last_audio_p50": [
+    1534,
+    1561
+   ],
+   "last_audio_p90": [
+    1857,
+    1961
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 2.0,
+   "per_set": {
+    "a": {
+     "said": 85.0,
+     "written": 85.0
+    },
+    "b": {
+     "said": 80.0,
+     "written": 80.0
+    }
+   }
+  },
+  "en-ru": {
+   "sets": 2,
+   "said": 71.7,
+   "written": 71.7,
+   "crit_said": 10,
+   "crit_written": 10,
+   "first_audio_p50": [
+    1162,
+    1118
+   ],
+   "first_audio_p90": [
+    1442,
+    1612
+   ],
+   "last_audio_p50": [
+    1220,
+    1322
+   ],
+   "last_audio_p90": [
+    1587,
+    1638
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 8.0,
+   "per_set": {
+    "a": {
+     "said": 75.0,
+     "written": 75.0
+    },
+    "b": {
+     "said": 68.3,
+     "written": 68.3
+    }
+   }
+  },
+  "ru-en": {
+   "sets": 2,
+   "said": 80.8,
+   "written": 80.8,
+   "crit_said": 8,
+   "crit_written": 8,
+   "first_audio_p50": [
+    1480,
+    1324
+   ],
+   "first_audio_p90": [
+    1616,
+    1717
+   ],
+   "last_audio_p50": [
+    1498,
+    1518
+   ],
+   "last_audio_p90": [
+    1815,
+    1872
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 3.5,
+   "per_set": {
+    "a": {
+     "said": 83.3,
+     "written": 83.3
+    },
+    "b": {
+     "said": 78.3,
+     "written": 78.3
+    }
+   }
+  },
+  "en-ro": {
+   "sets": 2,
+   "said": 64.2,
+   "written": 64.2,
+   "crit_said": 9,
+   "crit_written": 9,
+   "first_audio_p50": [
+    954,
+    957
+   ],
+   "first_audio_p90": [
+    1155,
+    1400
+   ],
+   "last_audio_p50": [
+    1054,
+    1116
+   ],
+   "last_audio_p90": [
+    1428,
+    1438
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 8.0,
+   "per_set": {
+    "a": {
+     "said": 70.0,
+     "written": 70.0
+    },
+    "b": {
+     "said": 58.3,
+     "written": 58.3
+    }
+   }
+  },
+  "ro-en": {
+   "sets": 2,
+   "said": 70.0,
+   "written": 70.0,
+   "crit_said": 9,
+   "crit_written": 9,
+   "first_audio_p50": [
+    1133,
+    1400
+   ],
+   "first_audio_p90": [
+    1815,
+    2041
+   ],
+   "last_audio_p50": [
+    1650,
+    1634
+   ],
+   "last_audio_p90": [
+    1985,
+    2041
+   ],
+   "missing_audio": 0,
+   "dropped_utterances": 0,
+   "cer_said": 4.7,
+   "per_set": {
+    "a": {
+     "said": 65.0,
+     "written": 65.0
+    },
+    "b": {
+     "said": 75.0,
+     "written": 75.0
+    }
+   }
+  }
+ },
+ "full_stack_2026_10": {},
+ "raw": {
+  "full": {
+   "a": {
+    "en-es": {
+     "commercial": {
+      "written": {
+       "q": 61.7,
+       "crit": 5,
+       "n": 20
+      },
+      "said": {
+       "q": 73.3,
+       "crit": 4,
+       "n": 20
+      },
+      "cer_said": 0.061,
+      "cer_written": 0.084,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1232,
+       "p90": 1554,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1362,
+       "p90": 1608,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95107,
+       "mem_used_mb_min": 94983,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 10.2,
+       "util_pct_max": 100,
+       "samples": 87
+      },
+      "run": "C"
+     }
+    },
+    "en-fr": {
+     "commercial": {
+      "written": {
+       "q": 65.0,
+       "crit": 2,
+       "n": 20
+      },
+      "said": {
+       "q": 76.7,
+       "crit": 3,
+       "n": 20
+      },
+      "cer_said": 0.061,
+      "cer_written": 0.084,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1444,
+       "p90": 1710,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1576,
+       "p90": 1767,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95191,
+       "mem_used_mb_min": 95191,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 10.1,
+       "util_pct_max": 100,
+       "samples": 87
+      },
+      "run": "C"
+     }
+    },
+    "en-ht": {
+     "commercial": {
+      "written": {
+       "q": 58.3,
+       "crit": 6,
+       "n": 20
+      },
+      "said": {
+       "q": 80.0,
+       "crit": 1,
+       "n": 20
+      },
+      "cer_said": 0.061,
+      "cer_written": 0.084,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1152,
+       "p90": 1500,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1262,
+       "p90": 1500,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95269,
+       "mem_used_mb_min": 95079,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 13.2,
+       "util_pct_max": 100,
+       "samples": 87
+      },
+      "run": "C"
+     }
+    },
+    "en-ja": {
+     "commercial": {
+      "written": {
+       "q": 66.7,
+       "crit": 4,
+       "n": 20
+      },
+      "said": {
+       "q": 73.3,
+       "crit": 3,
+       "n": 20
+      },
+      "cer_said": 0.061,
+      "cer_written": 0.084,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1352,
+       "p90": 1582,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1426,
+       "p90": 1670,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95731,
+       "mem_used_mb_min": 95171,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 7.9,
+       "util_pct_max": 100,
+       "samples": 86
+      },
+      "run": "C"
+     }
+    },
+    "en-km": {
+     "commercial": {
+      "written": {
+       "q": 63.3,
+       "crit": 3,
+       "n": 20
+      },
+      "said": {
+       "q": 71.7,
+       "crit": 2,
+       "n": 20
+      },
+      "cer_said": 0.061,
+      "cer_written": 0.084,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1433,
+       "p90": 1835,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1486,
+       "p90": 1835,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95811,
+       "mem_used_mb_min": 95243,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 34.4,
+       "util_pct_max": 100,
+       "samples": 88
+      },
+      "run": "C"
+     }
+    },
+    "en-pt": {
+     "commercial": {
+      "written": {
+       "q": 63.3,
+       "crit": 8,
+       "n": 20
+      },
+      "said": {
+       "q": 75.0,
+       "crit": 4,
+       "n": 20
+      },
+      "cer_said": 0.061,
+      "cer_written": 0.084,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1241,
+       "p90": 1542,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1397,
+       "p90": 1598,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95169,
+       "mem_used_mb_min": 95143,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 11.0,
+       "util_pct_max": 100,
+       "samples": 87
+      },
+      "run": "C"
+     }
+    },
+    "es-en": {
+     "commercial": {
+      "written": {
+       "q": 81.7,
+       "crit": 2,
+       "n": 20
+      },
+      "said": {
+       "q": 84.2,
+       "crit": 1,
+       "n": 19
+      },
+      "cer_said": 0.009,
+      "cer_written": 0.01,
+      "missing_audio": 0,
+      "utterances": 26,
+      "stop_to_first_audio_ms": {
+       "p50": 1516,
+       "p90": 1694,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1548,
+       "p90": 1834,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95171,
+       "mem_used_mb_min": 95107,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 4.7,
+       "util_pct_max": 96,
+       "samples": 106
+      },
+      "run": "C"
+     }
+    },
+    "fr-en": {
+     "commercial": {
+      "written": {
+       "q": 78.3,
+       "crit": 4,
+       "n": 20
+      },
+      "said": {
+       "q": 78.3,
+       "crit": 4,
+       "n": 20
+      },
+      "cer_said": 0.028,
+      "cer_written": 0.028,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1508,
+       "p90": 1710,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1512,
+       "p90": 1793,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95243,
+       "mem_used_mb_min": 95191,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 4.4,
+       "util_pct_max": 95,
+       "samples": 93
+      },
+      "run": "C"
+     }
+    },
+    "ht-en": {
+     "commercial": {
+      "written": {
+       "q": 60.0,
+       "crit": 7,
+       "n": 20
+      },
+      "said": {
+       "q": 60.8,
+       "crit": 6,
+       "n": 17
+      },
+      "cer_said": 0.022,
+      "cer_written": 0.045,
+      "missing_audio": 0,
+      "utterances": 21,
+      "stop_to_first_audio_ms": {
+       "p50": 2160,
+       "p90": 2331,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 2174,
+       "p90": 2471,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95241,
+       "mem_used_mb_min": 94939,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 6.9,
+       "util_pct_max": 100,
+       "samples": 113
+      },
+      "run": "C"
+     }
+    },
+    "ja-en": {
+     "commercial": {
+      "written": {
+       "q": 75.0,
+       "crit": 4,
+       "n": 20
+      },
+      "said": {
+       "q": 75.9,
+       "crit": 4,
+       "n": 18
+      },
+      "cer_said": 0.051,
+      "cer_written": 0.05,
+      "missing_audio": 0,
+      "utterances": 21,
+      "stop_to_first_audio_ms": {
+       "p50": 1903,
+       "p90": 2196,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1938,
+       "p90": 2196,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95191,
+       "mem_used_mb_min": 95171,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 7.4,
+       "util_pct_max": 100,
+       "samples": 128
+      },
+      "run": "C"
+     }
+    },
+    "km-en": {
+     "commercial": {
+      "written": {
+       "q": 55.0,
+       "crit": 11,
+       "n": 20
+      },
+      "said": {
+       "q": 59.3,
+       "crit": 9,
+       "n": 18
+      },
+      "cer_said": 0.084,
+      "cer_written": 0.111,
+      "missing_audio": 0,
+      "utterances": 24,
+      "stop_to_first_audio_ms": {
+       "p50": 2111,
+       "p90": 2376,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 2134,
+       "p90": 2376,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95259,
+       "mem_used_mb_min": 95091,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 6.6,
+       "util_pct_max": 97,
+       "samples": 124
+      },
+      "run": "C"
+     }
+    },
+    "pt-en": {
+     "commercial": {
+      "written": {
+       "q": 86.7,
+       "crit": 3,
+       "n": 20
+      },
+      "said": {
+       "q": 86.7,
+       "crit": 3,
+       "n": 20
+      },
+      "cer_said": 0.012,
+      "cer_written": 0.012,
+      "missing_audio": 0,
+      "utterances": 28,
+      "stop_to_first_audio_ms": {
+       "p50": 1400,
+       "p90": 1569,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1532,
+       "p90": 1991,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95319,
+       "mem_used_mb_min": 95169,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 5.6,
+       "util_pct_max": 90,
+       "samples": 109
+      },
+      "run": "C"
+     }
+    },
+    "en-lo": {
+     "nonprofit": {
+      "written": {
+       "q": 68.3,
+       "crit": 6,
+       "n": 20
+      },
+      "said": {
+       "q": 70.0,
+       "crit": 4,
+       "n": 20
+      },
+      "cer_said": 0.061,
+      "cer_written": 0.084,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1652,
+       "p90": 2073,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1756,
+       "p90": 2291,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 84399,
+       "mem_used_mb_min": 84263,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 39.7,
+       "util_pct_max": 100,
+       "samples": 88
+      },
+      "run": "N"
+     },
+     "commercial": {
+      "written": {
+       "q": 68.3,
+       "crit": 5,
+       "n": 20
+      },
+      "said": {
+       "q": 55.0,
+       "crit": 6,
+       "n": 20
+      },
+      "cer_said": 0.061,
+      "cer_written": 0.084,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1163,
+       "p90": 1483,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1218,
+       "p90": 1569,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95143,
+       "mem_used_mb_min": 95141,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 31.1,
+       "util_pct_max": 97,
+       "samples": 87
+      },
+      "run": "C"
+     }
+    },
+    "lo-en": {
+     "commercial": {
+      "written": {
+       "q": 50.0,
+       "crit": 9,
+       "n": 20
+      },
+      "said": {
+       "q": 50.9,
+       "crit": 8,
+       "n": 19
+      },
+      "cer_said": 0.19,
+      "cer_written": 0.182,
+      "missing_audio": 1,
+      "utterances": 27,
+      "stop_to_first_audio_ms": {
+       "p50": 1829,
+       "p90": 2630,
+       "n": 19
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 2102,
+       "p90": 2630,
+       "n": 19
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95685,
+       "mem_used_mb_min": 94941,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 6.6,
+       "util_pct_max": 98,
+       "samples": 126
+      },
+      "run": "C"
+     },
+     "nonprofit": {
+      "written": {
+       "q": 50.0,
+       "crit": 10,
+       "n": 20
+      },
+      "said": {
+       "q": 50.9,
+       "crit": 9,
+       "n": 19
+      },
+      "cer_said": 0.19,
+      "cer_written": 0.182,
+      "missing_audio": 1,
+      "utterances": 27,
+      "stop_to_first_audio_ms": {
+       "p50": 1666,
+       "p90": 2470,
+       "n": 19
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1863,
+       "p90": 2470,
+       "n": 19
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 84543,
+       "mem_used_mb_min": 84235,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 6.8,
+       "util_pct_max": 100,
+       "samples": 126
+      },
+      "run": "N"
+     }
+    }
+   },
+   "b": {
+    "en-es": {
+     "commercial": {
+      "written": {
+       "q": 65.0,
+       "crit": 4,
+       "n": 20
+      },
+      "said": {
+       "q": 65.0,
+       "crit": 4,
+       "n": 20
+      },
+      "cer_said": 0.041,
+      "cer_written": 0.053,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1164,
+       "p90": 1437,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1204,
+       "p90": 1636,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95235,
+       "mem_used_mb_min": 95235,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 10.1,
+       "util_pct_max": 100,
+       "samples": 88
+      },
+      "run": "C"
+     }
+    },
+    "en-fr": {
+     "commercial": {
+      "written": {
+       "q": 56.7,
+       "crit": 4,
+       "n": 20
+      },
+      "said": {
+       "q": 66.7,
+       "crit": 6,
+       "n": 20
+      },
+      "cer_said": 0.041,
+      "cer_written": 0.053,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1386,
+       "p90": 1658,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1438,
+       "p90": 1824,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95315,
+       "mem_used_mb_min": 95315,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 11.4,
+       "util_pct_max": 100,
+       "samples": 88
+      },
+      "run": "C"
+     }
+    },
+    "en-ht": {
+     "commercial": {
+      "written": {
+       "q": 55.0,
+       "crit": 10,
+       "n": 20
+      },
+      "said": {
+       "q": 68.3,
+       "crit": 4,
+       "n": 20
+      },
+      "cer_said": 0.041,
+      "cer_written": 0.053,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1096,
+       "p90": 1390,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1143,
+       "p90": 1579,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95253,
+       "mem_used_mb_min": 95147,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 10.9,
+       "util_pct_max": 100,
+       "samples": 88
+      },
+      "run": "C"
+     }
+    },
+    "en-ja": {
+     "commercial": {
+      "written": {
+       "q": 60.0,
+       "crit": 4,
+       "n": 20
+      },
+      "said": {
+       "q": 65.0,
+       "crit": 8,
+       "n": 20
+      },
+      "cer_said": 0.041,
+      "cer_written": 0.053,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1194,
+       "p90": 1499,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1286,
+       "p90": 1708,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95255,
+       "mem_used_mb_min": 95235,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 8.0,
+       "util_pct_max": 100,
+       "samples": 88
+      },
+      "run": "C"
+     }
+    },
+    "en-km": {
+     "commercial": {
+      "written": {
+       "q": 53.3,
+       "crit": 6,
+       "n": 20
+      },
+      "said": {
+       "q": 56.7,
+       "crit": 4,
+       "n": 20
+      },
+      "cer_said": 0.041,
+      "cer_written": 0.053,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1318,
+       "p90": 1696,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1418,
+       "p90": 1765,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95315,
+       "mem_used_mb_min": 95315,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 32.8,
+       "util_pct_max": 100,
+       "samples": 88
+      },
+      "run": "C"
+     }
+    },
+    "en-pt": {
+     "commercial": {
+      "written": {
+       "q": 65.0,
+       "crit": 4,
+       "n": 20
+      },
+      "said": {
+       "q": 65.0,
+       "crit": 5,
+       "n": 20
+      },
+      "cer_said": 0.041,
+      "cer_written": 0.053,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1172,
+       "p90": 1431,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1255,
+       "p90": 1622,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95243,
+       "mem_used_mb_min": 95085,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 9.9,
+       "util_pct_max": 100,
+       "samples": 88
+      },
+      "run": "C"
+     }
+    },
+    "es-en": {
+     "commercial": {
+      "written": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      },
+      "said": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      },
+      "cer_said": 0.007,
+      "cer_written": 0.007,
+      "missing_audio": 0,
+      "utterances": 24,
+      "stop_to_first_audio_ms": {
+       "p50": 1462,
+       "p90": 1613,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1510,
+       "p90": 1731,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95795,
+       "mem_used_mb_min": 95235,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 4.4,
+       "util_pct_max": 92,
+       "samples": 101
+      },
+      "run": "C"
+     }
+    },
+    "fr-en": {
+     "commercial": {
+      "written": {
+       "q": 71.7,
+       "crit": 3,
+       "n": 20
+      },
+      "said": {
+       "q": 73.7,
+       "crit": 3,
+       "n": 19
+      },
+      "cer_said": 0.02,
+      "cer_written": 0.019,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1576,
+       "p90": 1941,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1642,
+       "p90": 1941,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95875,
+       "mem_used_mb_min": 95315,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 6.5,
+       "util_pct_max": 93,
+       "samples": 90
+      },
+      "run": "C"
+     }
+    },
+    "ht-en": {
+     "commercial": {
+      "written": {
+       "q": 38.3,
+       "crit": 12,
+       "n": 20
+      },
+      "said": {
+       "q": 43.1,
+       "crit": 11,
+       "n": 17
+      },
+      "cer_said": 0.035,
+      "cer_written": 0.104,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1611,
+       "p90": 2221,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1979,
+       "p90": 2221,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95209,
+       "mem_used_mb_min": 94983,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 5.8,
+       "util_pct_max": 100,
+       "samples": 124
+      },
+      "run": "C"
+     }
+    },
+    "ja-en": {
+     "commercial": {
+      "written": {
+       "q": 83.3,
+       "crit": 2,
+       "n": 20
+      },
+      "said": {
+       "q": 86.0,
+       "crit": 2,
+       "n": 19
+      },
+      "cer_said": 0.022,
+      "cer_written": 0.029,
+      "missing_audio": 0,
+      "utterances": 20,
+      "stop_to_first_audio_ms": {
+       "p50": 2145,
+       "p90": 2384,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 2145,
+       "p90": 2384,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95315,
+       "mem_used_mb_min": 95255,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 5.9,
+       "util_pct_max": 100,
+       "samples": 113
+      },
+      "run": "C"
+     }
+    },
+    "km-en": {
+     "commercial": {
+      "written": {
+       "q": 60.0,
+       "crit": 5,
+       "n": 20
+      },
+      "said": {
+       "q": 61.4,
+       "crit": 5,
+       "n": 19
+      },
+      "cer_said": 0.094,
+      "cer_written": 0.102,
+      "missing_audio": 0,
+      "utterances": 24,
+      "stop_to_first_audio_ms": {
+       "p50": 2114,
+       "p90": 2506,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 2177,
+       "p90": 2506,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95325,
+       "mem_used_mb_min": 95003,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 7.8,
+       "util_pct_max": 94,
+       "samples": 134
+      },
+      "run": "C"
+     }
+    },
+    "pt-en": {
+     "commercial": {
+      "written": {
+       "q": 70.0,
+       "crit": 4,
+       "n": 20
+      },
+      "said": {
+       "q": 70.0,
+       "crit": 4,
+       "n": 20
+      },
+      "cer_said": 0.013,
+      "cer_written": 0.013,
+      "missing_audio": 0,
+      "utterances": 27,
+      "stop_to_first_audio_ms": {
+       "p50": 1371,
+       "p90": 1612,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1470,
+       "p90": 1644,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95185,
+       "mem_used_mb_min": 95149,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 4.2,
+       "util_pct_max": 100,
+       "samples": 107
+      },
+      "run": "C"
+     }
+    },
+    "en-lo": {
+     "nonprofit": {
+      "written": {
+       "q": 56.7,
+       "crit": 3,
+       "n": 20
+      },
+      "said": {
+       "q": 65.0,
+       "crit": 5,
+       "n": 20
+      },
+      "cer_said": 0.041,
+      "cer_written": 0.053,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1503,
+       "p90": 2090,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1534,
+       "p90": 2240,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 84595,
+       "mem_used_mb_min": 84499,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 36.7,
+       "util_pct_max": 100,
+       "samples": 88
+      },
+      "run": "N"
+     },
+     "commercial": {
+      "written": {
+       "q": 40.0,
+       "crit": 3,
+       "n": 20
+      },
+      "said": {
+       "q": 40.0,
+       "crit": 7,
+       "n": 20
+      },
+      "cer_said": 0.041,
+      "cer_written": 0.053,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1096,
+       "p90": 1405,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1170,
+       "p90": 1597,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95085,
+       "mem_used_mb_min": 95085,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 29.6,
+       "util_pct_max": 99,
+       "samples": 88
+      },
+      "run": "C"
+     }
+    },
+    "lo-en": {
+     "nonprofit": {
+      "written": {
+       "q": 56.7,
+       "crit": 8,
+       "n": 20
+      },
+      "said": {
+       "q": 61.1,
+       "crit": 7,
+       "n": 18
+      },
+      "cer_said": 0.114,
+      "cer_written": 0.119,
+      "missing_audio": 0,
+      "utterances": 26,
+      "stop_to_first_audio_ms": {
+       "p50": 1664,
+       "p90": 2269,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1945,
+       "p90": 2269,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 85041,
+       "mem_used_mb_min": 84377,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 10.6,
+       "util_pct_max": 100,
+       "samples": 123
+      },
+      "run": "N"
+     },
+     "commercial": {
+      "written": {
+       "q": 55.0,
+       "crit": 7,
+       "n": 20
+      },
+      "said": {
+       "q": 55.6,
+       "crit": 7,
+       "n": 18
+      },
+      "cer_said": 0.114,
+      "cer_written": 0.119,
+      "missing_audio": 0,
+      "utterances": 26,
+      "stop_to_first_audio_ms": {
+       "p50": 1780,
+       "p90": 2428,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 2000,
+       "p90": 2428,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "gpu": {
+       "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+       "mem_used_mb_max": 95813,
+       "mem_used_mb_min": 94963,
+       "mem_total_mb": 97887,
+       "util_pct_mean": 9.6,
+       "util_pct_max": 99,
+       "samples": 123
+      },
+      "run": "C"
+     }
+    }
+   }
+  },
+  "drr": {
+   "en-de": {
+    "a": {
+     "C1": {
+      "quality": {
+       "q": 75.0,
+       "crit": 4,
+       "n": 20
+      },
+      "cer": 0.063,
+      "cer_analyzer": 0.063,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1569,
+       "p90": 1954,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1636,
+       "p90": 1954,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     },
+     "commercial": {
+      "quality": {
+       "q": 75.0,
+       "crit": 4,
+       "n": 20
+      },
+      "cer": 0.062,
+      "cer_analyzer": 0.062,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1114,
+       "p90": 1357,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1236,
+       "p90": 1583,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 1
+     }
+    },
+    "b": {
+     "commercial": {
+      "quality": {
+       "q": 68.3,
+       "crit": 3,
+       "n": 20
+      },
+      "cer": 0.097,
+      "cer_analyzer": 0.097,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1190,
+       "p90": 1711,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1356,
+       "p90": 1711,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 4
+     },
+     "C1": {
+      "quality": {
+       "q": 68.3,
+       "crit": 3,
+       "n": 20
+      },
+      "cer": 0.097,
+      "cer_analyzer": 0.097,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1557,
+       "p90": 2037,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1708,
+       "p90": 2037,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     }
+    },
+    "both": {
+     "C1": {
+      "q": 71.7,
+      "crit": 7
+     },
+     "commercial": {
+      "q": 71.7,
+      "crit": 7
+     }
+    }
+   },
+   "de-en": {
+    "a": {
+     "C1": {
+      "quality": {
+       "q": 85.0,
+       "crit": 1,
+       "n": 20
+      },
+      "cer": 0.019,
+      "cer_analyzer": 0.019,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1406,
+       "p90": 1597,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1534,
+       "p90": 1857,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     },
+     "commercial": {
+      "quality": {
+       "q": 91.7,
+       "crit": 0,
+       "n": 20
+      },
+      "cer": 0.016,
+      "cer_analyzer": 0.016,
+      "missing_audio": 0,
+      "utterances": 21,
+      "stop_to_first_audio_ms": {
+       "p50": 1932,
+       "p90": 2081,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1942,
+       "p90": 2081,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 8
+     }
+    },
+    "b": {
+     "C1": {
+      "quality": {
+       "q": 80.0,
+       "crit": 1,
+       "n": 20
+      },
+      "cer": 0.021,
+      "cer_analyzer": 0.021,
+      "missing_audio": 0,
+      "utterances": 27,
+      "stop_to_first_audio_ms": {
+       "p50": 1438,
+       "p90": 1607,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1561,
+       "p90": 1961,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     },
+     "commercial": {
+      "quality": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      },
+      "cer": 0.022,
+      "cer_analyzer": 0.022,
+      "missing_audio": 0,
+      "utterances": 23,
+      "stop_to_first_audio_ms": {
+       "p50": 1914,
+       "p90": 2108,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1936,
+       "p90": 2108,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 9
+     }
+    },
+    "both": {
+     "C1": {
+      "q": 82.5,
+      "crit": 2
+     },
+     "commercial": {
+      "q": 88.3,
+      "crit": 2
+     }
+    }
+   },
+   "en-ru": {
+    "a": {
+     "C1": {
+      "quality": {
+       "q": 75.0,
+       "crit": 4,
+       "n": 20
+      },
+      "cer": 0.063,
+      "cer_analyzer": 0.063,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1162,
+       "p90": 1442,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1220,
+       "p90": 1587,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     },
+     "commercial": {
+      "quality": {
+       "q": 73.3,
+       "crit": 4,
+       "n": 20
+      },
+      "cer": 0.062,
+      "cer_analyzer": 0.062,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1056,
+       "p90": 1265,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1138,
+       "p90": 1497,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 3
+     }
+    },
+    "b": {
+     "commercial": {
+      "quality": {
+       "q": 68.3,
+       "crit": 6,
+       "n": 20
+      },
+      "cer": 0.097,
+      "cer_analyzer": 0.097,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 996,
+       "p90": 1652,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1196,
+       "p90": 1658,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 3
+     },
+     "C1": {
+      "quality": {
+       "q": 68.3,
+       "crit": 6,
+       "n": 20
+      },
+      "cer": 0.097,
+      "cer_analyzer": 0.097,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1118,
+       "p90": 1612,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1322,
+       "p90": 1638,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     }
+    },
+    "both": {
+     "C1": {
+      "q": 71.7,
+      "crit": 10
+     },
+     "commercial": {
+      "q": 70.8,
+      "crit": 10
+     }
+    }
+   },
+   "ru-en": {
+    "a": {
+     "C1": {
+      "quality": {
+       "q": 83.3,
+       "crit": 5,
+       "n": 20
+      },
+      "cer": 0.053,
+      "cer_analyzer": 0.053,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1480,
+       "p90": 1616,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1498,
+       "p90": 1815,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     },
+     "commercial": {
+      "quality": {
+       "q": 83.3,
+       "crit": 4,
+       "n": 20
+      },
+      "cer": 0.055,
+      "cer_analyzer": 0.055,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1509,
+       "p90": 1699,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1552,
+       "p90": 1899,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 19
+     }
+    },
+    "b": {
+     "C1": {
+      "quality": {
+       "q": 78.3,
+       "crit": 3,
+       "n": 20
+      },
+      "cer": 0.017,
+      "cer_analyzer": 0.017,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1324,
+       "p90": 1717,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1518,
+       "p90": 1872,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     },
+     "commercial": {
+      "quality": {
+       "q": 85.0,
+       "crit": 4,
+       "n": 20
+      },
+      "cer": 0.017,
+      "cer_analyzer": 0.017,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1388,
+       "p90": 1791,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1579,
+       "p90": 1924,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 18
+     }
+    },
+    "both": {
+     "C1": {
+      "q": 80.8,
+      "crit": 8
+     },
+     "commercial": {
+      "q": 84.2,
+      "crit": 8
+     }
+    }
+   },
+   "en-ro": {
+    "a": {
+     "commercial": {
+      "quality": {
+       "q": 71.7,
+       "crit": 3,
+       "n": 20
+      },
+      "cer": 0.062,
+      "cer_analyzer": 0.062,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 862,
+       "p90": 1061,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 956,
+       "p90": 1356,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 1
+     },
+     "C1": {
+      "quality": {
+       "q": 70.0,
+       "crit": 3,
+       "n": 20
+      },
+      "cer": 0.063,
+      "cer_analyzer": 0.063,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 954,
+       "p90": 1155,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1054,
+       "p90": 1428,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     }
+    },
+    "b": {
+     "commercial": {
+      "quality": {
+       "q": 58.3,
+       "crit": 6,
+       "n": 20
+      },
+      "cer": 0.097,
+      "cer_analyzer": 0.097,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 881,
+       "p90": 1252,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1000,
+       "p90": 1434,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 2
+     },
+     "C1": {
+      "quality": {
+       "q": 58.3,
+       "crit": 6,
+       "n": 20
+      },
+      "cer": 0.097,
+      "cer_analyzer": 0.097,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 957,
+       "p90": 1400,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1116,
+       "p90": 1438,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     }
+    },
+    "both": {
+     "C1": {
+      "q": 64.2,
+      "crit": 9
+     },
+     "commercial": {
+      "q": 65.0,
+      "crit": 9
+     }
+    }
+   },
+   "ro-en": {
+    "a": {
+     "commercial": {
+      "quality": {
+       "q": 65.0,
+       "crit": 10,
+       "n": 20
+      },
+      "cer": 0.034,
+      "cer_analyzer": 0.034,
+      "missing_audio": 0,
+      "utterances": 26,
+      "stop_to_first_audio_ms": {
+       "p50": 1462,
+       "p90": 2305,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1961,
+       "p90": 2305,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 18
+     },
+     "C1": {
+      "quality": {
+       "q": 65.0,
+       "crit": 8,
+       "n": 20
+      },
+      "cer": 0.056,
+      "cer_analyzer": 0.056,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1133,
+       "p90": 1815,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1650,
+       "p90": 1985,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     }
+    },
+    "b": {
+     "commercial": {
+      "quality": {
+       "q": 73.3,
+       "crit": 2,
+       "n": 20
+      },
+      "cer": 0.049,
+      "cer_analyzer": 0.049,
+      "missing_audio": 0,
+      "utterances": 27,
+      "stop_to_first_audio_ms": {
+       "p50": 1588,
+       "p90": 2296,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1877,
+       "p90": 2316,
+       "n": 20
+      },
+      "dropped_utterances": 0,
+      "sentences_differing_from_C1": 19
+     },
+     "C1": {
+      "quality": {
+       "q": 75.0,
+       "crit": 1,
+       "n": 20
+      },
+      "cer": 0.038,
+      "cer_analyzer": 0.038,
+      "missing_audio": 0,
+      "utterances": 25,
+      "stop_to_first_audio_ms": {
+       "p50": 1400,
+       "p90": 2041,
+       "n": 20
+      },
+      "stop_to_tail_audio_ms": {
+       "p50": 1634,
+       "p90": 2041,
+       "n": 20
+      },
+      "dropped_utterances": 0
+     }
+    },
+    "both": {
+     "C1": {
+      "q": 70.0,
+      "crit": 9
+     },
+     "commercial": {
+      "q": 69.2,
+      "crit": 12
+     }
+    }
+   }
+  }
+ }
+}

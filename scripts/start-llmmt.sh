@@ -8,12 +8,22 @@
 #
 # LLMMT     auto (default): Gemma when one GPU has room for it beside the stack (below); gemma, milmmt or
 #           gemma,milmmt: those, without the check; 0: none.
-# EDITION=commercial starts none: commercial leaves llmmt out until [licence_review] names it.
+# EDITION=commercial: Gemma only (auto or gemma as above). Gemma 4 is Apache-2.0 (✅ in server/licences.py);
+#           MiLMMT-46 is under Google's Gemma Terms of Use (restricted), which commercial leaves out unless
+#           [licence_review] names it (Lao then uses Gemma 4, its second server line in languages.toml), so
+#           milmmt is skipped here, with a log line, even when LLMMT names it. In nonprofit, auto starts Gemma
+#           only too: Lao uses it until a MiLMMT server answers.
 #
 # Room, for auto: the stack holds about 33 GB with all 25 languages (docs/user-guide.md, "GPUs and capacity"),
 # 20 GB more with Omnilingual's 7B card (OMNI_LARGE=1), and Gemma 4 31B 4-bit takes GEMMA_GB (36) with an
-# 8192-token context; 8 GB more stays free for activations. One GPU: total >= stack + Gemma + 8 (96 GB cards
-# with the 7B, 80 GB cards without it). Several GPUs: Gemma goes on the last one, if it has GEMMA_GB + 4 (+ 16 with
+# 8192-token context, as vLLM's share GEMMA_GB / total; SPARE_GB (4) more stays free. Sizes are nvidia-smi's
+# MiB / 1024, rounded down: a 96 GB card reports 97887 MiB, so 95 here; an 80 GB card 81920, so 80.
+# One GPU: total >= stack + Gemma + 4, so 80 GB cards without the 7B (69 + 4 <= 80) and 96 GB cards with it
+# (89 + 4 <= 95, vLLM share 36 / 95 = 0.38); not 80 GB cards with it (93 > 80). Why 4 is enough there: both
+# stack sizes are upper bounds. On the 96 GB card with the 7B, MADLAD 7B and VoxCPM2 the stack held 46 GB, not
+# 53, and with Gemma at share 0.41 (GEMMA_GB=39) the card peaked at 95.9 of 97.9 GB (eval/2026-11-commercial-
+# edition); auto's 0.38 leaves about 3 GB more than that. Without the 7B, a 96 GB card sat at ~69 GB with Gemma
+# (eval/2026-10-room-capacity). Several GPUs: Gemma goes on the last one, if it has GEMMA_GB + 4 (+ 16 with
 # STACK_PROFILE=cuda-2gpu, which puts recognition and the voices there).
 #
 # First start: vLLM in its own venv on the volume (VLLM_VENV, ~10 GB, ~5 min), Gemma's weights (~20 GB to
@@ -25,15 +35,13 @@ LLMMT_LOG="${LLMMT_LOG:-/workspace/llmmt.log}"
 VLLM_VENV="${VLLM_VENV:-/workspace/vllm-venv}"
 VLLM_VERSION="${VLLM_VERSION:-0.31.0}"
 GEMMA_GB="${GEMMA_GB:-36}"
+SPARE_GB=4
 GEMMA_MODEL="google/gemma-4-31B-it-qat-w4a16-ct"
 MILMMT_MODEL="xiaomi-research/MiLMMT-46-12B-v0.1"
 STACK_GB=33
 [ "${OMNI_LARGE:-0}" = 1 ] && STACK_GB=53
 
 if [ "$LLMMT" = 0 ]; then echo "== llmmt: off (LLMMT=0)"; exit 0; fi
-if [ "${EDITION:-nonprofit}" = commercial ]; then
-  echo "== llmmt: not started (EDITION=commercial leaves llmmt out; its directions use Hy-MT2 or MADLAD)"; exit 0
-fi
 
 # GPU totals in GB, one per line (LLMMT_GPUS_GB="96" or "48 48" stands in for nvidia-smi, for tests).
 gpus=${LLMMT_GPUS_GB:-$(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits 2>/dev/null | awk '{printf "%d ", $1/1024}')}
@@ -45,17 +53,30 @@ if [ "$LLMMT" = auto ]; then
   shared=0; [ "${STACK_PROFILE:-}" = cuda-2gpu ] && shared=16
   if [ "$n" -ge 2 ] && [ "${GB[$((n - 1))]}" -ge $((GEMMA_GB + 4 + shared)) ]; then
     gpu=$((n - 1))
-  elif [ "$n" -ge 1 ] && [ "${GB[0]}" -ge $((STACK_GB + GEMMA_GB + 8)) ]; then
+  elif [ "$n" -ge 1 ] && [ "${GB[0]}" -ge $((STACK_GB + GEMMA_GB + SPARE_GB)) ]; then
     gpu=0
   else
     echo "== llmmt: no room for Gemma 4 31B (GPUs: ${gpus:-none} GB; it needs ${GEMMA_GB} GB beside the stack's" \
-         "${STACK_GB} GB + 8): its directions use Hy-MT2 or MADLAD. LLMMT=gemma starts it anyway."
+         "${STACK_GB} GB + ${SPARE_GB}): its directions use Hy-MT2 or MADLAD. LLMMT=gemma starts it anyway."
     exit 0
   fi
   models=(gemma)
 else
   IFS=, read -r -a models <<< "$LLMMT"
   gpu=$(( ${#GB[@]} >= 2 ? ${#GB[@]} - 1 : 0 ))
+fi
+if [ "${EDITION:-nonprofit}" = commercial ]; then
+  kept=()
+  for m in "${models[@]}"; do
+    if [ "$m" = milmmt ]; then
+      echo "== llmmt: not starting milmmt ($MILMMT_MODEL): EDITION=commercial leaves it out (Gemma Terms of" \
+           "Use, restricted; Lao uses Gemma 4). After your own [licence_review], start it yourself."
+    else
+      kept+=("$m")
+    fi
+  done
+  models=(${kept[@]+"${kept[@]}"})
+  if [ "${#models[@]}" -eq 0 ]; then echo "== llmmt: nothing to start in commercial"; exit 0; fi
 fi
 total=${GB[$gpu]:-96}
 # vLLM's share of the card: GEMMA_GB of it, or most of a card of its own.

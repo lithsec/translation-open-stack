@@ -5,7 +5,7 @@ connection's passes over a fake CTC model, and the /listen protocol with the
 track off, asked for and on, through the fake socket of test_omni_stt.py and
 a real websocket.
 
-    python3 tests/test_omni_stt_ctc_stream.py   (or python3 -m pytest tests/test_omni_stt_ctc_stream.py)
+    python -m pytest tests/test_omni_stt_ctc_stream.py
 
 Needs numpy and scipy (server.py's imports) and websockets.
 """
@@ -13,16 +13,14 @@ import asyncio
 import json
 import os
 import random
-import sys
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "services", "omni-stt"))
-sys.path.insert(0, HERE)
-import numpy as np  # noqa: E402
-import ctc_stream as cs  # noqa: E402
-import server as stt  # noqa: E402
-from test_omni_stt import FakeModels, FakeWS, _fake_vad, _pcm  # noqa: E402
+import numpy as np
+
+import ctc_stream as cs
+import support
+from test_omni_stt import FakeModels, FakeWS
+
+stt = support.omni_stt()
 
 RATE = 16000
 
@@ -356,7 +354,7 @@ def test_stream_close_cancels_a_pass():
 # ---------------------------------------------------------------- the protocol
 
 def _listen(path, models, x, flush=True):
-    _fake_vad()
+    """(The caller asks for the fake_vad fixture.)"""
     msgs = as_messages(x) + ([json.dumps({"type": "flush"})] if flush else [])
     ws = FakeWS(path, msgs)
     asyncio.run(stt.handle(ws, models))
@@ -369,7 +367,7 @@ def _turns():
                            words_audio(LEVELS[6:]), np.zeros(int(1.2 * RATE), np.float32)])
 
 
-def test_listen_without_the_track_is_unchanged():
+def test_listen_without_the_track_is_unchanged(fake_vad):
     x = _turns()
     plain = _listen("/listen?langs=km", FakeModels(), x)
     on_server = _listen("/listen?langs=km", CTCModels(), x)        # the track loaded, not asked for
@@ -378,7 +376,7 @@ def test_listen_without_the_track_is_unchanged():
     assert {m["type"] for m in plain.sent} == {"hello", "language", "inputTranscript", "flushed"}
 
 
-def test_listen_with_the_track():
+def test_listen_with_the_track(fake_vad):
     x = _turns()
     models = CTCModels()
     plain = _listen("/listen?langs=km", FakeModels(), x)
@@ -401,10 +399,9 @@ def test_listen_with_the_track():
     assert all(models.ctc.calls[i][1] == "km" for i in range(len(models.ctc.calls)))
 
 
-def test_listen_track_refused_or_unavailable():
+def test_listen_track_refused_or_unavailable(fake_vad):
     x = np.concatenate([np.zeros(RATE // 2, np.float32), words_audio(LEVELS[:3]), np.zeros(RATE, np.float32)])
     # Malformed: refused at connect.
-    _fake_vad()
     ws = FakeWS("/listen?langs=km&stream=ctc&lookahead=5", [])
     asyncio.run(stt.handle(ws, CTCModels()))
     assert ws.closed[0] == stt.CLOSE_BAD_REQUEST and ws.sent[0]["type"] == "error"
@@ -415,9 +412,8 @@ def test_listen_track_refused_or_unavailable():
         assert not {m["type"] for m in got.sent} & {"partial", "committed"}
 
 
-def test_listen_track_through_a_real_socket():
+def test_listen_track_through_a_real_socket(fake_vad):
     import websockets
-    _fake_vad()
     models = CTCModels()
     msgs = as_messages(_turns()) + [json.dumps({"type": "flush"})]
 
@@ -440,9 +436,3 @@ def test_listen_track_through_a_real_socket():
     assert "".join(m["text"] for m in got if m["type"] == "committed") == TRUTH
     assert got[-1]["type"] == "flushed" and sum(1 for m in got if m["type"] == "inputTranscript") == 2
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_") and callable(fn):
-            fn()
-            print(f"ok  {name}")

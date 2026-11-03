@@ -4,7 +4,7 @@ stub gcloud on PATH answers the read-only calls and records every other one.
 With DRY_RUN=1 the scripts must call nothing that changes anything; without it,
 the stub plays a project (and, when asked, a GPU quota refusal).
 
-    python3 tests/test_omni_stt_cloudrun.py   (or python3 -m pytest tests/test_omni_stt_cloudrun.py)
+    python -m pytest tests/test_omni_stt_cloudrun.py
 
 Needs bash, git and openssl; nothing is built, deployed or deleted.
 """
@@ -13,8 +13,8 @@ import re
 import subprocess
 import tempfile
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
+from support import ROOT
+
 CR = os.path.join(ROOT, "services", "omni-stt", "cloudrun")
 SETUP = os.path.join(CR, "setup.sh")
 TEARDOWN = os.path.join(CR, "teardown.sh")
@@ -273,10 +273,3 @@ def test_teardown_deletes_only_what_setup_made():
     code, out, made = _run(TEARDOWN, {"STUB_LABELS": "owner=someone-else"})
     assert "Leaving alone" in out and "delete" not in out.replace("to delete", ""), out
 
-
-if __name__ == "__main__":
-    tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
-    for t in tests:
-        t()
-        print("ok", t.__name__)
-    print(f"{len(tests)} passed")

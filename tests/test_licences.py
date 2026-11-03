@@ -3,7 +3,7 @@
 (stack_config.apply_edition for `check`, EngineSet at runtime). No models, no
 GPU: engines are built but never loaded.
 
-    python3 tests/test_licences.py        (or python3 -m pytest tests/test_licences.py)
+    python -m pytest tests/test_licences.py
 """
 import contextlib
 import io
@@ -11,26 +11,15 @@ import os
 import re
 import subprocess
 import sys
-import tempfile
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "server"))
-
-import engines  # noqa: E402
-import licences as L  # noqa: E402
-import stack_config as c  # noqa: E402
-from engines.base import Context, Voice  # noqa: E402
-from engines.manager import EngineSet  # noqa: E402
+import engines
+import licences as L
+import stack_config as c
+from engines.base import Context, Voice
+from engines.manager import EngineSet
+from support import ROOT, write_temp as _write
 
 VOICE_ENGINES = set(engines.registry("voice"))
-
-
-def _write(text):
-    fd, path = tempfile.mkstemp(suffix=".toml")
-    with os.fdopen(fd, "w") as f:
-        f.write(text)
-    return path
 
 
 def _items(entry):
@@ -71,7 +60,10 @@ def test_every_configured_item_is_classified():
             assert "has no entry" not in L.lookup(asr).reason, asr
             for key in c.TRANSLATOR_KEYS:
                 for name in c.translator_choices(entry, key):
-                    assert "has no entry" not in L.lookup(name).reason, name
+                    # A served translator (llmmt) is classified by the model each server line names.
+                    items = L.served_lines(entry.get(name)) if name in L.SERVED else [None]
+                    for item in items:
+                        assert "has no entry" not in L.lookup(name, item).reason, (lang, name, item)
     for models in (c.MODEL_DEFAULTS, c.load_models(c.DEFAULT_FILE)[0]):
         for name, entry in models.items():
             li = L.model_lookup(name, entry)
@@ -154,6 +146,101 @@ def test_the_audit_verdicts():
     for repo in ("speechbrain/lang-id-voxlingua107-ecapa", "snakers4/silero-vad", "tencent/Hy-MT2-7B",
                  "google/madlad400-7b-mt", "google/madlad400-3b-mt"):
         assert L.MODELS[repo].cls == L.PERMISSIVE, repo
+
+
+GEMMA, MILMMT = "google/gemma-4-31B-it-qat-w4a16-ct", "xiaomi-research/MiLMMT-46-12B-v0.1"
+
+
+def test_llmmt_is_classified_per_served_model():
+    """llmmt's licence is the model its server line names: Gemma 4 Apache-2.0 (✅), MiLMMT-46 the
+    Gemma terms (restricted: ❓ until reviewed), anything else ❓."""
+    assert L.lookup("llmmt", c.GEMMA).cls == L.PERMISSIVE and L.lookup("llmmt", c.GEMMA).licence == "Apache-2.0"
+    assert L.lookup("llmmt", c.GEMMA).url == "https://huggingface.co/" + GEMMA
+    assert L.lookup("llmmt", c.MILMMT).cls == L.UNCLEAR and "Gemma" in L.lookup("llmmt", c.MILMMT).licence
+    other = "chat http://127.0.0.1:8103/v1 someone/some-llm"
+    assert L.lookup("llmmt", other).cls == L.UNCLEAR and "someone/some-llm" in L.lookup("llmmt", other).reason
+    assert L.lookup("llmmt").cls == L.UNCLEAR
+    # A review names the model id (that model only) or the engine (every server, as before).
+    assert L.item_id("llmmt", c.MILMMT) == MILMMT and L.item_id("llmmt", None) == "llmmt"
+    assert L.reviewed({MILMMT: "x"}, "llmmt", c.MILMMT) and not L.reviewed({MILMMT: "x"}, "llmmt", other)
+    assert L.reviewed({"llmmt": "x"}, "llmmt", other) and L.review_note({"llmmt": "x"}, "llmmt", other) == "x"
+    assert not L.reviewed({"piper": "x"}, "piper", "ro_RO-mihai-medium")   # only a served engine's name counts
+    assert c.validate_reviews({MILMMT: "reviewed 2026-11-01 by Example Org: Gemma terms accepted"})
+
+
+def test_commercial_keeps_gemma_and_leaves_milmmt_out():
+    eff, rep = c.apply_edition(c.DEFAULTS, "commercial", {}, False)
+    gemma = [l for l, e in c.DEFAULTS.items() if e.get("llmmt") == c.GEMMA]
+    assert len(gemma) >= 15, gemma
+    for lang in gemma:
+        assert eff[lang]["llmmt"] == c.GEMMA and eff[lang]["translator"] == c.DEFAULTS[lang]["translator"], lang
+        assert eff[lang].get("translator_to_en") == c.DEFAULTS[lang].get("translator_to_en"), lang
+        assert rep[lang]["translators_dropped"] == [], lang
+    # Lao lists MiLMMT then Gemma: MiLMMT's line is gone (no pair can reach it, not even lo -> es), and its
+    # next line, Gemma 4, serves; llmmt stays first in both of Lao's translator lists.
+    assert c.DEFAULTS["lo"]["llmmt"] == [c.MILMMT, c.GEMMA]
+    assert eff["lo"]["llmmt"] == c.GEMMA and eff["lo"]["translator"] == ["llmmt", "madlad"]
+    assert eff["lo"]["translator_to_en"] == ["llmmt", "hymt"]
+    assert [(n, L.served_model(v)) for n, v, _ in rep["lo"]["translators_dropped"]] == [("llmmt", MILMMT)]
+    # Reviewed (by model id, or the engine as a whole): Lao keeps MiLMMT first.
+    for reviews in ({MILMMT: "reviewed 2026-11-01 by Example Org: Gemma terms accepted"},
+                    {"llmmt": "reviewed 2026-11-01 by Example Org: every served model read"}):
+        eff, rep = c.apply_edition(c.DEFAULTS, "commercial", reviews, False)
+        assert eff["lo"]["llmmt"] == [c.MILMMT, c.GEMMA] and eff["lo"]["translator"] == ["llmmt", "madlad"]
+        assert rep["lo"]["translators_dropped"] == []
+    eff, _ = c.apply_edition(c.DEFAULTS, "commercial", {}, True)        # COMMERCIAL_ALLOW_UNCLEAR=1
+    assert eff["lo"]["llmmt"] == [c.MILMMT, c.GEMMA]
+    # Nonprofit: as configured.
+    eff, _ = c.apply_edition(c.DEFAULTS, "nonprofit", {}, False)
+    assert eff["lo"]["llmmt"] == [c.MILMMT, c.GEMMA] and eff["es"]["llmmt"] == c.GEMMA
+
+
+def test_each_server_line_is_judged_on_its_own():
+    """A list of server lines keeps the allowed ones in order; none left drops llmmt from the lists."""
+    other = "chat http://127.0.0.1:8103/v1 someone/some-llm"
+    table = {"sw": {"asr": "omni:swh_Latn", "translator": ["llmmt", "madlad"], "llmmt": [other, c.MILMMT, c.GEMMA]}}
+    eff, rep = c.apply_edition(table, "commercial", {}, False)
+    assert eff["sw"]["llmmt"] == c.GEMMA and eff["sw"]["translator"] == ["llmmt", "madlad"]
+    assert [L.served_model(v) for _, v, _ in rep["sw"]["translators_dropped"]] == ["someone/some-llm", MILMMT]
+    eff, _ = c.apply_edition(table, "commercial", {"someone/some-llm": "reviewed 2026-11-01 by us: read it"}, False)
+    assert eff["sw"]["llmmt"] == [other, c.GEMMA]
+    table["sw"]["llmmt"] = [other, c.MILMMT]
+    eff, rep = c.apply_edition(table, "commercial", {}, False)
+    assert "llmmt" not in eff["sw"] and eff["sw"]["translator"] == "madlad" and len(rep["sw"]["translators_dropped"]) == 2
+
+
+def test_commercial_leaves_an_unknown_served_model_out():
+    table, _ = c.load(_write('[sw]\nasr = "omni:swh_Latn"\ntranslator = ["llmmt", "madlad"]\n'
+                             'llmmt = "chat http://127.0.0.1:8103/v1 someone/some-llm"\n'
+                             '[ht]\nasr = "omni:hat_Latn"\ntranslator = "llmmt"\n'
+                             'llmmt = "chat http://127.0.0.1:8103/v1 someone/some-llm"\n'))
+    try:
+        c.apply_edition(table, "commercial", {}, False)
+        assert False, "a lone unclassified translator must refuse"
+    except ValueError as e:
+        assert "llmmt" in str(e)
+    del table["ht"]
+    eff, rep = c.apply_edition(table, "commercial", {}, False)
+    assert "llmmt" not in eff["sw"] and eff["sw"]["translator"] == "madlad"
+    eff, _ = c.apply_edition(table, "commercial", {"someone/some-llm": "reviewed 2026-11-01 by us: read it"}, False)
+    assert eff["sw"]["translator"] == ["llmmt", "madlad"]
+
+
+def test_check_lines_show_the_served_model():
+    text = "\n".join(c.check_lines(c.DEFAULTS, "commercial", {}, c.MODEL_DEFAULTS, False))
+    assert f'not loaded in commercial: translator llmmt {MILMMT} ❓' in text
+    assert f'[licence_review] "{MILMMT}"' in text
+    es = next(l for l in text.splitlines() if l.startswith("  es "))
+    assert "mt=llmmt>hymt" in es and "✅" in es
+    lo = next(l for l in text.splitlines() if l.startswith("  lo "))
+    assert "mt=llmmt>madlad (to en: llmmt>hymt) ✅" in lo        # Gemma 4, Lao's second server line
+    assert f"lo translator llmmt: {GEMMA} ✅" in text
+    assert f"(lo uses its next server line, {GEMMA})" in text
+    text_np = "\n".join(c.check_lines(c.DEFAULTS, "nonprofit", {}, c.MODEL_DEFAULTS, False))
+    assert f"lo translator llmmt: {MILMMT} ❓ > {GEMMA} ✅ (the first that answers serves)" in text_np
+    note = "reviewed 2026-11-01 by Example Org: Gemma terms accepted"
+    text = "\n".join(c.check_lines(c.DEFAULTS, "commercial", {MILMMT: note}, c.MODEL_DEFAULTS, False))
+    assert f"❓ lo translator llmmt {MILMMT}" in text and note in text and "not loaded in commercial: translator" not in text
 
 
 def test_hymt_licence_is_tied_to_its_revision():
@@ -370,16 +457,14 @@ def test_engineset_commercial_never_loads_noncommercial():
         assert [e.name for e in es.chain("km")] == ["voxcpm"]
 
 
-def test_engineset_env_and_option_tricks():
+def test_engineset_env_and_option_tricks(monkeypatch):
     """VOXCPM_LANGS-style overrides, COMMERCIAL_ALLOW_UNCLEAR and a hostile
     `voice = [...]` still never reach a ⛔ item."""
     hostile, _ = c.load(_write('[ko]\npiper = "ko_KR-kss-medium"\nmms = "facebook/mms-tts-kor"\n'
                                'voice = ["mms", "piper"]\n[tr]\npiper = "tr_TR-dfki-medium"\n'))
-    os.environ["COMMERCIAL_ALLOW_UNCLEAR"] = "1"
-    try:
+    with monkeypatch.context() as m:              # while the set is built, not after
+        m.setenv("COMMERCIAL_ALLOW_UNCLEAR", "1")
         es, log = _commercial_set(hostile, options={"voxcpm_langs": ["ko", "tr", "ro"]})
-    finally:
-        del os.environ["COMMERCIAL_ALLOW_UNCLEAR"]
     _pretend_loaded(es)
     assert "ko" not in es.engines["voice"]["piper"].names and "tr" not in es.engines["voice"]["piper"].names
     assert [e.name for e in es.chain("ko")] == ["voxcpm", "espeak"]   # VoxCPM2 (Apache) may speak it
@@ -436,6 +521,44 @@ def test_engineset_logs_text_only_and_obligations():
         assert name not in log, name   # replaced or left out, never named as loaded
 
 
+def test_engineset_commercial_serves_gemma_not_milmmt():
+    """At runtime: llmmt is constructed in commercial, sends Gemma's directions to Gemma, and never names
+    MiLMMT's server; the [licence] lines say which model each language's translator serves."""
+    es, log = _commercial_set()
+    assert "llmmt" in es.engines["translator"] and "NOT loading translator llmmt" not in log
+    llmmt = es.engines["translator"]["llmmt"]
+    assert llmmt.server_for("en", "es")[2] == GEMMA and llmmt.server_for("es", "en")[2] == GEMMA
+    assert llmmt.server_for("en", "lo")[2] == GEMMA and llmmt.server_for("lo", "en")[2] == GEMMA
+    assert not any(s[2] == MILMMT for a in c.DEFAULTS for b in c.DEFAULTS for s in llmmt.servers_for(a, b))
+    assert es.translator_choices("lo") == ["llmmt", "madlad"] and es.translator_choices("en", "lo") == ["llmmt", "hymt"]
+    assert es.translator_choices("es") == ["llmmt", "hymt"]
+    _pretend_loaded(es)
+    out = io.StringIO()
+    with contextlib.redirect_stdout(out):
+        es._licence_log()
+    log = out.getvalue()
+    assert f"[licence] es: translator llmmt {GEMMA} ✅ Apache-2.0" in log
+    assert f"[licence] lo: translator llmmt {GEMMA} ✅ Apache-2.0" in log
+    assert f"[licence] lo: left out translator llmmt {MILMMT} (❓" in log
+    assert f"its directions use its next server line, {GEMMA}" in log
+    # A MiLMMT line smuggled back in after construction (alone or in a list) is caught.
+    es.ctx.table["lo"]["llmmt"] = [c.GEMMA, c.MILMMT]
+    try:
+        es._assert_clean()
+        assert False
+    except RuntimeError as e:
+        assert "not allowed" in str(e)
+    es.ctx.table["lo"]["llmmt"] = c.MILMMT
+    try:
+        es._assert_clean()
+        assert False
+    except RuntimeError as e:
+        assert "not allowed" in str(e)
+    # Reviewed: MiLMMT serves Lao in commercial too.
+    es, log = _commercial_set(options={"licence_review": {MILMMT: "reviewed 2026-11-01 by Example Org: accepted"}})
+    assert es.engines["translator"]["llmmt"].server_for("en", "lo")[2] == MILMMT
+
+
 def test_engineset_nonprofit_is_unchanged():
     es, _ = _commercial_set(options={"edition": "nonprofit"})
     assert "mms" in es.engines["voice"]
@@ -485,9 +608,3 @@ def test_docs_tables_are_generated_from_the_data():
         assert m.group(1) == md, (f"docs/licences.md's {name} table is stale: run "
                                   "python3 server/stack_config.py docs and paste the block")
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)

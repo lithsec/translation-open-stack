@@ -1,0 +1,15 @@
+7765 MiB
+== llmmt: milmmt on GPU 0 (95 GB, vLLM share 0.41); log /workspace/llmmt.log
+22:04:02 MiLMMT answering after ~295 s
+22:04:37 stack up after ~40 s (nonprofit)
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) not answering — de,es,fr,ht,ja,km,pt,ru use their next translator (checking every 30 s)
+[stack] llmmt: http://127.0.0.1:8102/v1 (xiaomi-research/MiLMMT-46-12B-v0.1) answering — lo use it
+22:04:42 a lo-en
+lo-en: 27 utterances, 137 audio msgs, err=-
+22:09:00 a en-lo
+en-lo: 23 utterances, 1101 audio msgs, err=-
+22:12:01 b lo-en
+lo-en: 26 utterances, 132 audio msgs, err=-
+22:16:13 b en-lo
+en-lo: 23 utterances, 1047 audio msgs, err=-
+22:19:19 done N

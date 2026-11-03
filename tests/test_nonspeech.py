@@ -11,15 +11,13 @@ so the filter reads the content instead.
 Every KEEP case is something a congregation actually says. "Holy, holy, holy."
 is here because an earlier version of the repetition rule dropped it.
 
-    python3 tests/test_nonspeech.py
+    python -m pytest tests/test_nonspeech.py
 """
-import importlib.util, pathlib, sys
+import pytest
 
-SERVER = pathlib.Path(__file__).resolve().parent.parent / "server"
-sys.path.insert(0, str(SERVER))  # server.py imports stack_config from beside it
-spec = importlib.util.spec_from_file_location("stack_server", SERVER / "server.py")
-mod = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(mod)
+import support
+
+mod = support.stack_server()        # the filter, as server.py re-exports it
 is_nonspeech = mod.is_nonspeech
 
 DROP = [
@@ -70,22 +68,17 @@ def drops(text, no_speech):
                 and no_speech > mod.SHORT_NOISE_P))
 
 
-def main():
-    bad = 0
-    for t in DROP:
-        if not is_nonspeech(t):
-            print(f"  MISS (should drop): {t!r}"); bad += 1
-    for t in KEEP:
-        if is_nonspeech(t):
-            print(f"  FALSE POSITIVE (should keep): {t!r}"); bad += 1
-    for text, p, want in MEASURED:
-        if drops(text, p) != want:
-            print(f"  WRONG (measured): {text!r} p={p} -> "
-                  f"drop={drops(text, p)}, expected {want}"); bad += 1
-    print(f"{len(DROP)} drop-cases, {len(KEEP)} keep-cases, "
-          f"{len(MEASURED)} measured segments, {bad} wrong")
-    return 1 if bad else 0
+@pytest.mark.parametrize("text", DROP)
+def test_drops(text):
+    assert is_nonspeech(text), f"MISS (should drop): {text!r}"
 
 
-if __name__ == "__main__":
-    sys.exit(main())
+@pytest.mark.parametrize("text", KEEP)
+def test_keeps(text):
+    assert not is_nonspeech(text), f"FALSE POSITIVE (should keep): {text!r}"
+
+
+@pytest.mark.parametrize("text, no_speech, want", MEASURED)
+def test_measured_segments(text, no_speech, want):
+    assert drops(text, no_speech) == want, f"WRONG (measured): {text!r} p={no_speech} -> drop={not want}"
+

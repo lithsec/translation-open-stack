@@ -1,7 +1,6 @@
-"""python3 -m pytest tests/test_stack_auth.py  (or just python3 tests/test_stack_auth.py)"""
-import os, sys, time
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "server"))
-import stack_auth as a  # noqa: E402
+"""python -m pytest tests/test_stack_auth.py"""
+
+import stack_auth as a
 
 def test_signed_tokens():
     t = a.sign("k1", "talk:acct", 60, now=1000)
@@ -19,7 +18,7 @@ def _forge(key, claims):
     sig = base64.urlsafe_b64encode(hmac.new(key.encode(), payload.encode(), hashlib.sha256).digest()).rstrip(b"=").decode()
     return f"{payload}.{sig}"
 
-def test_audience():
+def test_audience(monkeypatch):
     assert a.verify(a.sign("k1", "talk:acct", 60, now=1000), "k1", now=1030, legacy=False) == "talk:acct"
     # The pod's ready report is signed with the same key but is not a connection token.
     report = a.sign("k1", "pod:abc", 300, now=1000, aud=a.AUD_REPORT)
@@ -33,13 +32,10 @@ def test_audience():
     assert a.verify(legacy, "k1", now=1030, legacy=True) == "talk:acct"
     old_report = a.sign("k1", "pod:abc", 300, now=1000, aud=None)
     assert a.verify(old_report, "k1", now=1030, legacy=True) is None   # never a pod's report
-    os.environ.pop("STACK_ACCEPT_LEGACY_TOKENS", None)
+    monkeypatch.delenv("STACK_ACCEPT_LEGACY_TOKENS", raising=False)
     assert a.verify(legacy, "k1", now=1030) is None                     # default: off
-    os.environ["STACK_ACCEPT_LEGACY_TOKENS"] = "1"
-    try:
-        assert a.verify(legacy, "k1", now=1030) == "talk:acct"
-    finally:
-        os.environ.pop("STACK_ACCEPT_LEGACY_TOKENS", None)
+    monkeypatch.setenv("STACK_ACCEPT_LEGACY_TOKENS", "1")
+    assert a.verify(legacy, "k1", now=1030) == "talk:acct"
 
 def test_expiry_must_be_finite_and_bounded():
     for exp in (float("inf"), float("nan"), "9999999999", True, None):
@@ -62,10 +58,11 @@ def test_static_token_with_a_dot_and_a_signing_key():
     t = a.sign("k1", "x", 60, now=1000)
     assert a.verify(t, "k1", t, now=5000) is None
 
-def test_static_token_and_open():
+def test_static_token_and_open(monkeypatch):
     assert a.verify("secret", "", "secret") == "static"
     assert a.verify("nope", "", "secret") is None
-    os.environ.pop("STACK_SIGNING_KEY", None); os.environ.pop("STACK_TOKEN", None)
+    monkeypatch.delenv("STACK_SIGNING_KEY", raising=False)
+    monkeypatch.delenv("STACK_TOKEN", raising=False)
     assert a.subject_for({}, "/translate", {}) == ("open", "none")
 
 def test_where_the_token_comes_from():
@@ -82,6 +79,3 @@ def test_limits():
     assert "limit" in L.admit("c")                          # total reached
     L.release("a"); assert L.admit("c") is None
 
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"): fn(); print("ok", name)

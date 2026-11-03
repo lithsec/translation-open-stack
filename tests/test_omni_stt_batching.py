@@ -2,25 +2,25 @@
 """services/omni-stt's repetition guard and GPU micro-batcher, without models:
 fake batch models stand in for Omnilingual and VoxLingua107.
 
-    python3 tests/test_omni_stt_batching.py   (or python3 -m pytest tests/test_omni_stt_batching.py)
+    python -m pytest tests/test_omni_stt_batching.py
 
-Needs numpy and scipy (server.py's imports), nothing else.
+Needs numpy and scipy (server.py's imports), nothing else; the tests of the
+batched model code skip without torch, fairseq2 or omnilingual-asr.
 """
 import asyncio
 import contextlib
 import io
 import json
-import os
-import sys
 import threading
 import time
 import wave
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "services", "omni-stt"))
-import server as stt  # noqa: E402
-import numpy as np  # noqa: E402
+import numpy as np
+import pytest
+
+import support
+
+stt = support.omni_stt()
 
 LID = {"en", "fr", "ht", "km", "lo", "es"}
 
@@ -395,11 +395,7 @@ def test_batcher_falls_back_to_one_at_a_time_models():
 # ---------------------------------------------------------------- the models' batch methods
 
 def test_identify_batch_pads_and_passes_lengths():
-    try:
-        import torch
-    except ImportError:  # requirements-test.txt installs it; a bare numpy env skips this one
-        print("skip: no torch")
-        return
+    torch = pytest.importorskip("torch")   # requirements-test.txt installs it; a bare numpy env skips this one
 
     class Lid:
         def __init__(self):
@@ -429,17 +425,13 @@ def test_identify_batch_pads_and_passes_lengths():
     assert m.lid.calls == [((1, 8000), None)]
 
 
-def test_identify_batch_matches_identify_on_padded_inputs():
+def test_identify_batch_matches_identify_on_padded_inputs(monkeypatch):
     """Batched language ID (zero-padded to the longest, with wav_lens) gives
     each utterance what identify() gives it alone, whatever its length. The
     fake classifier scores only the true samples, as SpeechBrain's pooling
     does with wav_lens; ignoring the lengths would let the padding dilute the
     shorter ones' scores and the test would see it."""
-    try:
-        import torch
-    except ImportError:
-        print("skip: no torch")
-        return
+    torch = pytest.importorskip("torch")
 
     class Lid:
         def classify_batch(self, wavs, wav_lens=None):
@@ -462,19 +454,15 @@ def test_identify_batch_matches_identify_on_padded_inputs():
         pcm = (rng.uniform(0.5, 1.5, n) * level).astype(np.float32)
         items.append((pcm, ["ht", "en", "fr"] if i % 2 == 0 else ["ht", "en"]))
     alone = [m.identify(*it) for it in items]
-    saved = stt.LID_BATCH
-    try:
-        stt.LID_BATCH = True
+    with monkeypatch.context() as mp:
+        mp.setattr(stt, "LID_BATCH", True)
         batched = m.identify_batch(items)
-    finally:
-        stt.LID_BATCH = saved
     assert [b[0] for b in batched] == [a[0] for a in alone], (batched, alone)
     assert all(abs(b[1] - a[1]) < 1e-5 for a, b in zip(alone, batched)), (batched, alone)
     assert len({a[0] for a in alone}) > 1          # the levels really chose different languages
 
 
 def test_engine_transcribe_batch():
-    sys.path.insert(0, os.path.join(ROOT, "server"))
     from engines.base import Context
     from engines.omnilingual import Omnilingual, wav_bytes
 
@@ -507,12 +495,9 @@ def test_engine_transcribe_batch():
 
 
 def test_identity_reorder_is_skipped():
-    try:
-        import torch
-        from fairseq2.nn import IncrementalStateBag
-    except ImportError:  # fairseq2 comes with omnilingual-asr (the image), not requirements-test.txt
-        print("skip: no fairseq2")
-        return
+    torch = pytest.importorskip("torch")
+    # fairseq2 comes with omnilingual-asr (the image), not requirements-test.txt
+    IncrementalStateBag = pytest.importorskip("fairseq2.nn").IncrementalStateBag
     calls = []
 
     class State:
@@ -561,15 +546,14 @@ def _tiny_llm(vocab=24, dim=32, max_len=1200, seed=0, dtype=None):
 
 
 def test_aligned_generate_matches_one_at_a_time():
-    try:
-        import torch
-        import omni_batch
-        from fairseq2.nn import BatchLayout
-        from omnilingual_asr.models.wav2vec2_llama.beamsearch import Wav2Vec2LlamaBeamSearchSeq2SeqGenerator
-        from omnilingual_asr.models.wav2vec2_llama.config import Wav2Vec2LlamaBeamSearchConfig
-    except ImportError:  # omnilingual-asr is in the image, not requirements-test.txt
-        print("skip: no omnilingual_asr")
-        return
+    torch = pytest.importorskip("torch")
+    # omnilingual-asr (and fairseq2 with it) is in the image, not requirements-test.txt
+    pytest.importorskip("fairseq2")
+    pytest.importorskip("omnilingual_asr")
+    import omni_batch
+    from fairseq2.nn import BatchLayout
+    from omnilingual_asr.models.wav2vec2_llama.beamsearch import Wav2Vec2LlamaBeamSearchSeq2SeqGenerator
+    from omnilingual_asr.models.wav2vec2_llama.config import Wav2Vec2LlamaBeamSearchConfig
     model = _tiny_llm()
     assert omni_batch.install(model) == 2 and omni_batch.install(model) == 2
     config = Wav2Vec2LlamaBeamSearchConfig(nbest=1, length_norm=False)
@@ -604,12 +588,8 @@ def test_aligned_generate_matches_one_at_a_time():
 
 
 def test_key_mask_sdpa_masks_padding():
-    try:
-        import torch
-        import omni_batch
-    except ImportError:
-        print("skip: no torch")
-        return
+    torch = pytest.importorskip("torch")
+    import omni_batch
 
     class Inner(torch.nn.Module):
         def forward(self, *a, **k):
@@ -681,8 +661,7 @@ class ProtoModels(BatchModels):
         return object()
 
 
-def test_many_streams_batched_and_unmixed():
-    stt.vad_windows = lambda vad, block: [1.0 if np.abs(block).max() > 0.05 else 0.0] * 3
+def test_many_streams_batched_and_unmixed(fake_vad):
     models = ProtoModels()
     flush = json.dumps({"type": "flush"})
     levels = [0.11, 0.62, 0.23, 0.74, 0.35, 0.86, 0.17, 0.98]
@@ -703,9 +682,3 @@ def test_many_streams_batched_and_unmixed():
     assert sum(asr) == 16 and max(asr) > 1, models.calls       # batched, and nothing lost
     assert stt.batcher_for(models).streams == 0                # every stream let go
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_") and callable(fn):
-            fn()
-            print(f"ok  {name}")

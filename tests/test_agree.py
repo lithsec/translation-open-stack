@@ -1,18 +1,12 @@
-"""Simultaneous mode's agree policy (server/agree.py, and room_flush in server/server.py): what is spoken from
+"""Simultaneous mode's agree policy (server/agree.py, and room_flush in server/rooms.py): what is spoken from
 successive translations of the turn so far, the pending cap, the end of the turn, and a room that mixes agree and
 clause-rule listeners. Gemma is a stand-in; no GPU, no server.
 
-    python3 tests/test_agree.py
+    python -m pytest tests/test_agree.py
 """
 import asyncio
-import importlib.util
-import os
-import sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, "server"))
-
-import agree  # noqa: E402
+import agree
 
 
 def scripted(*answers):
@@ -103,35 +97,30 @@ def test_context_head_goes_first():
 
 # ------------------------------------------------------------------ the room
 
-def load_server():
-    spec = importlib.util.spec_from_file_location("stack_server", os.path.join(ROOT, "server", "server.py"))
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
 class FakePipe:
     """es agrees (a scripted Gemma), ja keeps the clause rule (translate_batch tags the text)."""
 
     def __init__(self, gemma):
-        self.gemma, self.batches = gemma, []
+        self.gemma, self.batches, self.editions = gemma, [], set()
 
-    def agree_turn(self, src, lang, context=None):
+    def agree_turn(self, src, lang, context=None, edition=None):
+        self.editions.add(edition)
         return agree.AgreeTurn(self.gemma, "English", "Spanish") if lang == "es" else None
 
-    def translate_batch(self, text, langs, src=None, context=None):
+    def translate_batch(self, text, langs, src=None, context=None, edition=None):
+        self.editions.add(edition)
         self.batches.append((text, tuple(langs)))
         return [f"[{lg}] {text}" for lg in langs]
 
 
-def test_room_mixes_agree_and_clause_members():
-    srv = load_server()
+def test_room_mixes_agree_and_clause_members(srv, monkeypatch):
     said = []
 
     async def fake_speak(pipe, room, lg, w, tr):
         said.append((lg, tr))
-    srv.room_speak = fake_speak
-    room = srv.Room()
+    # On rooms.py, where room_agree_flush and room_clause_flush look it up (srv.room_speak is a re-export).
+    monkeypatch.setattr(srv.rooms, "room_speak", fake_speak)
+    room = srv.Room("commercial")
     room.policy, room.turn_src = "agree", "en"
     room.members = {"ws-es": "es", "ws-ja": "ja", "ws-en": "en"}
     pipe = FakePipe(scripted("Hola a", "Hola a todos", "y bienvenidos."))
@@ -147,15 +136,9 @@ def test_room_mixes_agree_and_clause_members():
     assert ja == ["[ja] Hello everyone and welcome."], ja        # the clause rule, alone
     assert all(lg != "en" for lg, _ in said)                      # the speaker's own language: the relay, not this
     assert all(langs == ("ja",) for _, langs in pipe.batches)
+    assert pipe.editions == {"commercial"}                        # translated in the room's edition
 
 
-def test_policy_default_is_clause():
-    srv = load_server()
+def test_policy_default_is_clause(srv):
     assert srv.Room().policy == "clause" and srv.STREAM_POLICY == "clause"
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)

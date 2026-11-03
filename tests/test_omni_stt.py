@@ -3,21 +3,22 @@
 constrained language choice, endpointing, and the /listen protocol driven by a
 fake socket and fake models (several connections at once included).
 
-    python3 tests/test_omni_stt.py      (or python3 -m pytest tests/test_omni_stt.py)
+    python -m pytest tests/test_omni_stt.py
 
 Needs numpy and scipy (the stack's AudioIn), and websockets for the handshake test.
 """
 import asyncio
 import json
 import os
-import sys
 import tomllib
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "services", "omni-stt"))
-import server as stt  # noqa: E402
-import numpy as np  # noqa: E402
+import numpy as np
+import pytest
+
+import support
+from support import ROOT
+
+stt = support.omni_stt()
 
 LID = {"en", "fr", "ht", "km", "lo", "es"}
 
@@ -78,7 +79,6 @@ def test_auth():
     assert stt.subject_for({}, {}, {}) is None                                 # no credential, not open
     assert stt.subject_for({}, {}, {"STT_OPEN": "1"}) == "open"
     # The stack's signed tokens, with STT_SIGNING_KEY.
-    sys.path.insert(0, os.path.join(ROOT, "server"))
     import stack_auth
     tok = stack_auth.sign("k", "talk:acct", 60)
     assert stt.subject_for({"Authorization": f"Bearer {tok}"}, {}, {"STT_SIGNING_KEY": "k"}) == "talk:acct"
@@ -89,7 +89,6 @@ def test_auth():
 def test_token_in_a_subprotocol():
     """A browser cannot set Authorization on a WebSocket: mic.html offers
     "omni-stt" and "bearer.<token>" instead of putting the token in the URL."""
-    sys.path.insert(0, os.path.join(ROOT, "server"))
     import stack_auth
     env = {"STT_TOKEN": "s3cret", "STT_SIGNING_KEY": "k"}
     proto = {"Sec-WebSocket-Protocol": "omni-stt, bearer.s3cret"}
@@ -422,7 +421,7 @@ def test_segmenter_cut_window_zero_is_the_old_rule():
     probs = _probs(16.0, dips=[(13.9, 160, 0.05)])
     for window, lo, hi in ((0, 220000, 221000), (3.5, 13.8 * 16000, 14.2 * 16000)):
         seg = stt.Segmenter(endpoint_ms=700, max_s=15.0, min_speech_ms=400, cut_window_s=window, cut_endpoint_ms=0)
-        blocks, utts = [], []
+        utts = []
         for b in range(len(probs) // 3):
             ps = probs[b * 3:b * 3 + 3]
             block = np.full(1536, 0.3, dtype=np.float32)
@@ -566,13 +565,11 @@ def _speech(level, rate=16000):
     return [audio[i:i + step] for i in range(0, len(audio), step)]
 
 
-def _fake_vad():
-    # The server's per-window probabilities (vad_windows): three 32 ms windows a block.
-    stt.vad_windows = lambda vad, block: [1.0 if np.abs(block).max() > 0.05 else 0.0] * 3
+# The server's per-window probabilities (vad_windows) come from the `fake_vad`
+# fixture (conftest.py): three 32 ms windows a block, from the level alone.
 
 
-def test_listen_protocol():
-    _fake_vad()
+def test_listen_protocol(fake_vad):
     models = FakeModels()
     ws = FakeWS("/listen?langs=ht,en", _speech(0.3) + _speech(0.6) + [json.dumps({"type": "flush"})])
     asyncio.run(stt.handle(ws, models))
@@ -586,8 +583,7 @@ def test_listen_protocol():
     assert 0 <= a["start_ms"] < a["end_ms"] < b["start_ms"] < b["end_ms"]
 
 
-def test_listen_transcribes_only_what_is_asked():
-    _fake_vad()
+def test_listen_transcribes_only_what_is_asked(fake_vad):
     ws = FakeWS("/listen?langs=ht,en&transcribe=ht", _speech(0.6) + _speech(0.3) + [json.dumps({"type": "flush"})])
     asyncio.run(stt.handle(ws, FakeModels()))
     kinds = [m["type"] for m in ws.sent]
@@ -601,10 +597,9 @@ def test_listen_transcribes_only_what_is_asked():
     assert stt.parse_transcribe(" None ", ["ht"]) == set()
 
 
-def test_listen_language_id_only():
+def test_listen_language_id_only(fake_vad):
     # ?transcribe=none: every utterance gets its language and nothing else (a
     # client that hands Haitian Creole to another recogniser on detection).
-    _fake_vad()
     ws = FakeWS("/listen?langs=ht,en&transcribe=none", _speech(0.6) + _speech(0.3) + [json.dumps({"type": "flush"})])
     asyncio.run(stt.handle(ws, FakeModels()))
     kinds = [m["type"] for m in ws.sent]
@@ -612,8 +607,7 @@ def test_listen_language_id_only():
     assert [m["lang"] for m in ws.sent[1:3]] == ["en", "ht"]
 
 
-def test_listen_24k_and_one_language():
-    _fake_vad()
+def test_listen_24k_and_one_language(fake_vad):
     ws = FakeWS("/listen?langs=ht&rate=24000", _speech(0.3, 24000) + [json.dumps({"type": "flush"})])
     asyncio.run(stt.handle(ws, FakeModels()))
     assert ws.sent[0]["rate"] == 24000
@@ -634,32 +628,25 @@ def test_listen_bad_requests():
     assert [m["type"] for m in ws.sent] == ["hello", "error", "flushed"]
 
 
-def test_guarded_auth_and_path():
-    sys.path.insert(0, os.path.join(ROOT, "server"))
+def test_guarded_auth_and_path(monkeypatch):
     import stack_auth
-    stt.LIMITS = stack_auth.Limits(per_client=1, total=1)
-    old = dict(os.environ)
-    try:
-        os.environ.pop("STT_OPEN", None)
-        os.environ["STT_TOKEN"] = "s3cret"
-        ws = FakeWS("/listen?langs=ht", [])
-        asyncio.run(stt.guarded(ws, FakeModels()))
-        assert ws.closed[0] == stt.CLOSE_UNAUTHORIZED and not ws.sent
-        ws = FakeWS("/other?langs=ht", [], {"Authorization": "Bearer s3cret"})
-        asyncio.run(stt.guarded(ws, FakeModels()))
-        assert ws.closed[0] == stt.CLOSE_BAD_REQUEST
-        ws = FakeWS("/listen?langs=ht", [], {"Authorization": "Bearer s3cret"})
-        asyncio.run(stt.guarded(ws, FakeModels()))
-        assert ws.sent[0]["type"] == "hello" and stt.LIMITS.live == {}     # admitted, then released
-    finally:
-        os.environ.clear()
-        os.environ.update(old)
+    monkeypatch.setattr(stt, "LIMITS", stack_auth.Limits(per_client=1, total=1))
+    monkeypatch.delenv("STT_OPEN", raising=False)
+    monkeypatch.setenv("STT_TOKEN", "s3cret")
+    ws = FakeWS("/listen?langs=ht", [])
+    asyncio.run(stt.guarded(ws, FakeModels()))
+    assert ws.closed[0] == stt.CLOSE_UNAUTHORIZED and not ws.sent
+    ws = FakeWS("/other?langs=ht", [], {"Authorization": "Bearer s3cret"})
+    asyncio.run(stt.guarded(ws, FakeModels()))
+    assert ws.closed[0] == stt.CLOSE_BAD_REQUEST
+    ws = FakeWS("/listen?langs=ht", [], {"Authorization": "Bearer s3cret"})
+    asyncio.run(stt.guarded(ws, FakeModels()))
+    assert ws.sent[0]["type"] == "hello" and stt.LIMITS.live == {}     # admitted, then released
 
 
-def test_streams_do_not_mix():
+def test_streams_do_not_mix(fake_vad):
     # Three connections at once on one set of models: each has its own VAD and
     # hears only its own audio, in order.
-    _fake_vad()
     models = FakeModels()
     flush = json.dumps({"type": "flush"})
     wss = [FakeWS("/listen?langs=ht,en", _speech(0.3) + _speech(0.6) + [flush]),
@@ -675,20 +662,14 @@ def test_streams_do_not_mix():
 
 
 
-def test_vad_loads_before_any_loader_thread():
+def test_vad_loads_before_any_loader_thread(monkeypatch):
     """torch.hub's local load edits sys.path for a moment; an import on another
     thread meanwhile could miss site-packages (ModuleNotFoundError: fairseq2 on
     the 7B service). So no loader thread may be running while VAD loads, with
     STT_PARALLEL_LOAD on (the default) or off."""
-    try:
-        import torch  # noqa: F401  (Models() imports it)
-    except ImportError:
-        print("skip: no torch")
-        return
+    pytest.importorskip("torch", reason="no torch (Models() imports it)")
     import threading
     seen = []
-    saved = {k: getattr(stt, k) for k in ("load_vad", "load_lid", "load_omni")}
-    saved_voices = stt.Models._load_voices
 
     def vad():
         seen.append(("vad", sorted(t.name for t in threading.enumerate() if t.name.endswith("-load"))))
@@ -705,43 +686,29 @@ def test_vad_loads_before_any_loader_thread():
     def voices(self, names):
         seen.append(("voices", None))
         self.voices_ready.set()
-    old = os.environ.get("STT_PARALLEL_LOAD")
-    try:
-        stt.load_vad, stt.load_lid, stt.load_omni = vad, lid, omni
-        stt.Models._load_voices = voices
-        for parallel in ("1", "0"):
-            seen.clear()
-            os.environ["STT_PARALLEL_LOAD"] = parallel
-            m = stt.Models(device="cpu", card="c", serve={"listen", "speak"}, voice_names=[])
-            assert seen[0] == ("vad", []), seen                    # first, and alone
-            assert (m.vad, m.lid, m.omni) == ("vad", "lid", "omni")
-            assert ("omni", "omni-load" if parallel == "1" else "MainThread") in seen, seen
-            m.voices_ready.wait(5)
-    finally:
-        for k, v in saved.items():
-            setattr(stt, k, v)
-        stt.Models._load_voices = saved_voices
-        if old is None:
-            os.environ.pop("STT_PARALLEL_LOAD", None)
-        else:
-            os.environ["STT_PARALLEL_LOAD"] = old
+    monkeypatch.setattr(stt, "load_vad", vad)
+    monkeypatch.setattr(stt, "load_lid", lid)
+    monkeypatch.setattr(stt, "load_omni", omni)
+    monkeypatch.setattr(stt.Models, "_load_voices", voices)
+    for parallel in ("1", "0"):
+        seen.clear()
+        monkeypatch.setenv("STT_PARALLEL_LOAD", parallel)
+        m = stt.Models(device="cpu", card="c", serve={"listen", "speak"}, voice_names=[])
+        assert seen[0] == ("vad", []), seen                    # first, and alone
+        assert (m.vad, m.lid, m.omni) == ("vad", "lid", "omni")
+        assert ("omni", "omni-load" if parallel == "1" else "MainThread") in seen, seen
+        m.voices_ready.wait(5)
 
 
-def test_voices_load_only_after_the_recogniser_is_built():
+def test_voices_load_only_after_the_recogniser_is_built(monkeypatch):
     """transformers builds a voice under init_empty_weights, which patches
     torch.nn.Module.register_parameter for every thread: a recogniser built at
     the same time came up with meta-device weights and the warm-up crashed
     (2026-10-21). So the voices thread starts only after the recogniser and
     language ID are built (and, with defer_voices, when main says: after warm-up)."""
-    try:
-        import torch  # noqa: F401  (Models() imports it)
-    except ImportError:
-        print("skip: no torch")
-        return
+    pytest.importorskip("torch", reason="no torch (Models() imports it)")
     import threading
     import time
-    saved = {k: getattr(stt, k) for k in ("load_vad", "load_lid", "load_omni")}
-    saved_voices = stt.Models._load_voices
     done, at_voices = set(), []
 
     def lid(device):
@@ -757,39 +724,31 @@ def test_voices_load_only_after_the_recogniser_is_built():
     def voices(self, names):
         at_voices.append((set(done), sorted(t.name for t in threading.enumerate() if t.name == "omni-load")))
         self.voices_ready.set()
-    old = os.environ.get("STT_PARALLEL_LOAD")
-    try:
-        stt.load_vad, stt.load_lid, stt.load_omni = (lambda: "vad"), lid, omni
-        stt.Models._load_voices = voices
-        for parallel in ("1", "0"):
-            os.environ["STT_PARALLEL_LOAD"] = parallel
-            done.clear(); at_voices.clear()
-            m = stt.Models(device="cpu", card="c", serve={"listen", "speak"}, voice_names=[])
-            assert m.voices_ready.wait(5)
-            assert at_voices == [({"lid", "omni"}, [])], at_voices
-            # Deferred (main: Models, warm-up, then start_voices): nothing until asked, once.
-            done.clear(); at_voices.clear()
-            m = stt.Models(device="cpu", card="c", serve={"listen", "speak"}, voice_names=[], defer_voices=True)
-            time.sleep(0.05)
-            assert at_voices == [] and not m.voices_ready.is_set()
-            m.start_voices().join(5)
-            assert at_voices == [({"lid", "omni"}, [])] and m.start_voices() is None
-        # /speak only: no recogniser, the voices load at once (and Models waits for them).
-        at_voices.clear()
-        m = stt.Models(device="cpu", card="c", serve={"speak"}, voice_names=[])
-        assert m.voices_ready.is_set() and len(at_voices) == 1
-        # /listen only: no voices thread at all.
-        at_voices.clear()
-        m = stt.Models(device="cpu", card="c", serve={"listen"}, voice_names=[])
-        assert m.voices_ready.is_set() and m.start_voices() is None and at_voices == []
-    finally:
-        for k, v in saved.items():
-            setattr(stt, k, v)
-        stt.Models._load_voices = saved_voices
-        if old is None:
-            os.environ.pop("STT_PARALLEL_LOAD", None)
-        else:
-            os.environ["STT_PARALLEL_LOAD"] = old
+    monkeypatch.setattr(stt, "load_vad", lambda: "vad")
+    monkeypatch.setattr(stt, "load_lid", lid)
+    monkeypatch.setattr(stt, "load_omni", omni)
+    monkeypatch.setattr(stt.Models, "_load_voices", voices)
+    for parallel in ("1", "0"):
+        monkeypatch.setenv("STT_PARALLEL_LOAD", parallel)
+        done.clear(); at_voices.clear()
+        m = stt.Models(device="cpu", card="c", serve={"listen", "speak"}, voice_names=[])
+        assert m.voices_ready.wait(5)
+        assert at_voices == [({"lid", "omni"}, [])], at_voices
+        # Deferred (main: Models, warm-up, then start_voices): nothing until asked, once.
+        done.clear(); at_voices.clear()
+        m = stt.Models(device="cpu", card="c", serve={"listen", "speak"}, voice_names=[], defer_voices=True)
+        time.sleep(0.05)
+        assert at_voices == [] and not m.voices_ready.is_set()
+        m.start_voices().join(5)
+        assert at_voices == [({"lid", "omni"}, [])] and m.start_voices() is None
+    # /speak only: no recogniser, the voices load at once (and Models waits for them).
+    at_voices.clear()
+    m = stt.Models(device="cpu", card="c", serve={"speak"}, voice_names=[])
+    assert m.voices_ready.is_set() and len(at_voices) == 1
+    # /listen only: no voices thread at all.
+    at_voices.clear()
+    m = stt.Models(device="cpu", card="c", serve={"listen"}, voice_names=[])
+    assert m.voices_ready.is_set() and m.start_voices() is None and at_voices == []
 
 
 def test_backlog_drops_the_oldest_utterance_never_a_flush():
@@ -818,8 +777,3 @@ def test_backlog_drops_the_oldest_utterance_never_a_flush():
     # Nothing but flushes: nothing to drop.
     assert asyncio.run(run(["flush"] * 3)) == (None, ["flush"] * 3 + ["new"])
 
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_") and callable(fn):
-            fn()
-            print(f"ok  {name}")

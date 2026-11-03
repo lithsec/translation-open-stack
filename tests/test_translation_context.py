@@ -15,24 +15,17 @@ What it proves:
     Hy-MT2 on the English pivot (the earlier pieces are in a language it does
     not read).
 
-    python3 tests/test_translation_context.py
+    python -m pytest tests/test_translation_context.py
 """
 import inspect
-import os
-import sys
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "server"))
-sys.path.insert(0, HERE)
-
-import stack_config as c  # noqa: E402
-from engines import hymt  # noqa: E402
-from engines.base import Translator  # noqa: E402
-from engines.hymt import HyMT  # noqa: E402
-from engines.madlad import Madlad  # noqa: E402
-from translation_context import TranslationMemory, tail  # noqa: E402
-from test_engines import FakeMadlad, make_set, TEXTS, LANG_SETS  # noqa: E402
+import stack_config as c
+from engines import hymt
+from engines.base import Translator
+from engines.hymt import HyMT
+from engines.madlad import Madlad
+from translation_context import TranslationMemory, tail
+from test_engines import FakeMadlad, make_set, TEXTS, LANG_SETS
 
 
 class ContextHyMT(HyMT):
@@ -289,9 +282,3 @@ def test_only_new_drops_a_repeated_previous_translation():
     assert hymt.only_new("Abre a las nueve.", "es", None) == "Abre a las nueve."
     assert hymt.only_new("Abre a las nueve.", "ja", ctx) == "Abre a las nueve."
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)

@@ -1,14 +1,13 @@
-"""python3 tests/test_audio_in.py  (numpy + scipy; no torch, no models)
+"""python -m pytest tests/test_audio_in.py  (numpy + scipy; no torch, no models)
 
 Client audio is processed the same whatever size of message it arrives in
 (issue #13): ~5 ms messages used to be resampled one by one, with a filter edge
 at both ends of each, and the stack heard noise."""
-import os, sys
 import numpy as np
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "server"))
-from audio_in import AudioIn, StreamResampler, QuietBoost, BLOCK, IN_RATE, OUT_RATE  # noqa: E402
-import audio_in  # noqa: E402
-from scipy.signal import resample_poly  # noqa: E402
+from scipy.signal import resample_poly
+
+import audio_in
+from audio_in import AudioIn, StreamResampler, QuietBoost, BLOCK, IN_RATE, OUT_RATE
 
 
 def signal(seconds=2.0, seed=1):
@@ -68,7 +67,7 @@ def test_an_odd_byte_is_carried_to_the_next_message():
     assert np.max(np.abs(got - whole[:len(got)])) < 1e-6
 
 
-def test_small_messages_are_reported_once(capsys=None):
+def test_small_messages_are_reported_once():
     import io, contextlib
     a = AudioIn("t")
     buf = io.StringIO()
@@ -155,9 +154,3 @@ def test_word_gaps_inside_loud_speech_keep_the_slow_half_life():
         b(gap)
     assert b.gain(np.full(BLOCK, 0.05, dtype=np.float32)) < 2   # the next, softer word is not pumped
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)

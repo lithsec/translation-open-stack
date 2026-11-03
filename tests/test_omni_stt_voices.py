@@ -3,22 +3,18 @@
 words (ht_numbers.py), the text cut for synthesis (voices.py), and the /speak
 protocol driven by a fake socket and a fake voice.
 
-    python3 tests/test_omni_stt_voices.py   (or python3 -m pytest tests/test_omni_stt_voices.py)
+    python -m pytest tests/test_omni_stt_voices.py
 
 Needs numpy and scipy (server.py's imports), nothing else.
 """
 import asyncio
 import json
-import os
-import sys
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "services", "omni-stt"))
-import ht_numbers as hn  # noqa: E402
-import server as stt  # noqa: E402
-import voices as vc  # noqa: E402
-# (server.py has put the stack's server/ on the path, behind omni-stt's own server.py.)
+import ht_numbers as hn
+import support
+import voices as vc
+
+stt = support.omni_stt()
 
 
 # ---------------------------------------------------------------- numbers
@@ -263,7 +259,7 @@ def test_speak_bad_requests_keep_the_socket():
     assert ws.closed is None
 
 
-def test_guarded_routes_speak():
+def test_guarded_routes_speak(monkeypatch):
     import stack_auth
 
     class M:
@@ -271,31 +267,26 @@ def test_guarded_routes_speak():
         voices = FakeVoices()
         lid_index = {}
 
-    stt.LIMITS = stack_auth.Limits(per_client=1, total=1)
-    stt.SPEAK_LIMITS = stack_auth.Limits(per_client=1, total=1)
-    old = dict(os.environ)
-    try:
-        os.environ.pop("STT_OPEN", None)
-        os.environ["STT_TOKEN"] = "s3cret"
-        os.environ.pop("HT_VOICE", None)
-        ws = FakeWS("/speak", [])
-        asyncio.run(stt.guarded(ws, M()))
-        assert ws.closed[0] == stt.CLOSE_UNAUTHORIZED and not ws.sent
-        ws = FakeWS("/speak", [_speak(text="Wi.")], {"Authorization": "Bearer s3cret"})
-        asyncio.run(stt.guarded(ws, M()))
-        assert ws.sent[0]["type"] == "hello" and _json(ws)[-1]["type"] == "done"
-        assert stt.SPEAK_LIMITS.live == {} and stt.LIMITS.live == {}
-        # Not served: refused like an unknown path.
-        M.serve = {"listen"}
-        ws = FakeWS("/speak", [], {"Authorization": "Bearer s3cret"})
-        asyncio.run(stt.guarded(ws, M()))
-        assert ws.closed[0] == stt.CLOSE_BAD_REQUEST
-    finally:
-        os.environ.clear()
-        os.environ.update(old)
+    monkeypatch.setattr(stt, "LIMITS", stack_auth.Limits(per_client=1, total=1))
+    monkeypatch.setattr(stt, "SPEAK_LIMITS", stack_auth.Limits(per_client=1, total=1))
+    monkeypatch.delenv("STT_OPEN", raising=False)
+    monkeypatch.setenv("STT_TOKEN", "s3cret")
+    monkeypatch.delenv("HT_VOICE", raising=False)
+    ws = FakeWS("/speak", [])
+    asyncio.run(stt.guarded(ws, M()))
+    assert ws.closed[0] == stt.CLOSE_UNAUTHORIZED and not ws.sent
+    ws = FakeWS("/speak", [_speak(text="Wi.")], {"Authorization": "Bearer s3cret"})
+    asyncio.run(stt.guarded(ws, M()))
+    assert ws.sent[0]["type"] == "hello" and _json(ws)[-1]["type"] == "done"
+    assert stt.SPEAK_LIMITS.live == {} and stt.LIMITS.live == {}
+    # Not served: refused like an unknown path.
+    M.serve = {"listen"}
+    ws = FakeWS("/speak", [], {"Authorization": "Bearer s3cret"})
+    asyncio.run(stt.guarded(ws, M()))
+    assert ws.closed[0] == stt.CLOSE_BAD_REQUEST
 
 
-def test_speak_waits_for_the_voices_and_refuses_without_them():
+def test_speak_waits_for_the_voices_and_refuses_without_them(monkeypatch):
     import threading
     import stack_auth
 
@@ -307,30 +298,25 @@ def test_speak_waits_for_the_voices_and_refuses_without_them():
         def __init__(self):
             self.voices_ready = threading.Event()
 
-    stt.SPEAK_LIMITS = stack_auth.Limits(per_client=1, total=1)
-    old = dict(os.environ)
-    try:
-        os.environ.pop("STT_TOKEN", None)
-        os.environ["STT_OPEN"] = "1"
-        os.environ.pop("HT_VOICE", None)
-        m = M()
+    monkeypatch.setattr(stt, "SPEAK_LIMITS", stack_auth.Limits(per_client=1, total=1))
+    monkeypatch.delenv("STT_TOKEN", raising=False)
+    monkeypatch.setenv("STT_OPEN", "1")
+    monkeypatch.delenv("HT_VOICE", raising=False)
+    m = M()
 
-        def loaded():
-            m.voices = FakeVoices()
-            m.voices_ready.set()
-        threading.Timer(0.2, loaded).start()
-        ws = FakeWS("/speak", [_speak(text="Wi.")])
-        asyncio.run(stt.guarded(ws, m))
-        assert ws.sent[0]["type"] == "hello" and _json(ws)[-1]["type"] == "done"
-        m = M()
-        m.voices_ready.set()          # loaded, and failed
-        ws = FakeWS("/speak", [])
-        asyncio.run(stt.guarded(ws, m))
-        assert ws.sent[0]["type"] == "error" and ws.closed[0] == stt.CLOSE_UNAVAILABLE
-        assert stt.SPEAK_LIMITS.live == {}
-    finally:
-        os.environ.clear()
-        os.environ.update(old)
+    def loaded():
+        m.voices = FakeVoices()
+        m.voices_ready.set()
+    threading.Timer(0.2, loaded).start()
+    ws = FakeWS("/speak", [_speak(text="Wi.")])
+    asyncio.run(stt.guarded(ws, m))
+    assert ws.sent[0]["type"] == "hello" and _json(ws)[-1]["type"] == "done"
+    m = M()
+    m.voices_ready.set()          # loaded, and failed
+    ws = FakeWS("/speak", [])
+    asyncio.run(stt.guarded(ws, m))
+    assert ws.sent[0]["type"] == "error" and ws.closed[0] == stt.CLOSE_UNAVAILABLE
+    assert stt.SPEAK_LIMITS.live == {}
 
 
 # ---------------------------------------------------------------- editions
@@ -473,8 +459,9 @@ def test_nonprofit_static_token():
         raise AssertionError("the same static token for both editions was accepted")
 
 
-def _hello(edition_env, token):
-    """guarded() on /speak with FakeVoices (both loaded): the first message, and the close."""
+def _hello(monkeypatch, edition_env, token):
+    """guarded() on /speak with FakeVoices (both loaded): the first message, and the close.
+    The environment and SPEAK_LIMITS are put back on return."""
     import stack_auth
 
     class M:
@@ -482,43 +469,40 @@ def _hello(edition_env, token):
         voices = FakeVoices()
         lid_index = {}
 
-    stt.SPEAK_LIMITS = stack_auth.Limits(per_client=2, total=2)
-    old = dict(os.environ)
-    try:
+    with monkeypatch.context() as mp:
+        mp.setattr(stt, "SPEAK_LIMITS", stack_auth.Limits(per_client=2, total=2))
         for k in ("STT_OPEN", "HT_VOICE", "STT_VOICES", "EDITION"):
-            os.environ.pop(k, None)
-        os.environ.update({"STT_SIGNING_KEY": KEY, "STT_TOKEN": "s3cret"})
+            mp.delenv(k, raising=False)
+        mp.setenv("STT_SIGNING_KEY", KEY)
+        mp.setenv("STT_TOKEN", "s3cret")
         if edition_env:
-            os.environ["EDITION"] = edition_env
+            mp.setenv("EDITION", edition_env)
         ws = FakeWS("/speak", [], {"Authorization": f"Bearer {token}"})
         asyncio.run(stt.guarded(ws, M()))
         assert stt.SPEAK_LIMITS.live == {}
         return (ws.sent[0] if ws.sent else None), ws.closed
-    finally:
-        os.environ.clear()
-        os.environ.update(old)
 
 
-def test_guarded_serves_each_token_in_its_edition():
+def test_guarded_serves_each_token_in_its_edition(monkeypatch):
     import stack_auth
     tok = lambda ed: stack_auth.sign(KEY, "talk:acct", 600, ed=ed)       # noqa: E731
     # EDITION=both: the claim decides; none (or the static token): commercial.
-    assert _hello("both", tok("nonprofit"))[0]["voices"] == ["mms", "coqui"]
-    assert _hello("both", tok("commercial"))[0]["voices"] == ["coqui"]
-    assert _hello("both", tok(None))[0]["voices"] == ["coqui"]
-    assert _hello("both", "s3cret")[0]["voices"] == ["coqui"]
+    assert _hello(monkeypatch, "both", tok("nonprofit"))[0]["voices"] == ["mms", "coqui"]
+    assert _hello(monkeypatch, "both", tok("commercial"))[0]["voices"] == ["coqui"]
+    assert _hello(monkeypatch, "both", tok(None))[0]["voices"] == ["coqui"]
+    assert _hello(monkeypatch, "both", "s3cret")[0]["voices"] == ["coqui"]
     # Unset EDITION is commercial: a non-profit token gets the stricter voices.
-    hello, _ = _hello(None, tok("nonprofit"))
+    hello, _ = _hello(monkeypatch, None, tok("nonprofit"))
     assert hello["voices"] == ["coqui"] and hello["edition"] == "commercial"
     # A non-profit-only server: a commercial token is refused, and so is one
     # without a claim (the static STT_TOKEN, a signed token naming none): those
     # are commercial, never upgraded to MMS.
-    hello, closed = _hello("nonprofit", tok("commercial"))
+    hello, closed = _hello(monkeypatch, "nonprofit", tok("commercial"))
     assert hello is None and closed[0] == stt.CLOSE_EDITION
     for claimless in ("s3cret", tok(None)):
-        hello, closed = _hello("nonprofit", claimless)
+        hello, closed = _hello(monkeypatch, "nonprofit", claimless)
         assert hello is None and closed[0] == stt.CLOSE_EDITION, claimless
-    assert _hello("nonprofit", tok("nonprofit"))[0]["voices"] == ["mms", "coqui"]
+    assert _hello(monkeypatch, "nonprofit", tok("nonprofit"))[0]["voices"] == ["mms", "coqui"]
 
 
 def test_speak_edition():
@@ -536,46 +520,36 @@ def test_speak_edition():
     assert se(both, None, open_server=True) == "commercial"
 
 
-def test_open_nonprofit_server_still_speaks_mms():
+def test_open_nonprofit_server_still_speaks_mms(monkeypatch):
     import stack_auth
 
     class M:
         serve = {"listen", "speak"}
         voices = FakeVoices()
         lid_index = {}
-    stt.SPEAK_LIMITS = stack_auth.Limits(per_client=1, total=1)
-    old = dict(os.environ)
-    try:
-        for k in ("STT_TOKEN", "STT_TOKEN_NONPROFIT", "STT_SIGNING_KEY", "HT_VOICE", "STT_VOICES"):
-            os.environ.pop(k, None)
-        os.environ.update({"STT_OPEN": "1", "EDITION": "nonprofit"})
-        ws = FakeWS("/speak", [])
-        asyncio.run(stt.guarded(ws, M()))
-        assert ws.sent[0]["voices"] == ["mms", "coqui"] and ws.sent[0]["edition"] == "nonprofit"
-    finally:
-        os.environ.clear()
-        os.environ.update(old)
+    monkeypatch.setattr(stt, "SPEAK_LIMITS", stack_auth.Limits(per_client=1, total=1))
+    for k in ("STT_TOKEN", "STT_TOKEN_NONPROFIT", "STT_SIGNING_KEY", "HT_VOICE", "STT_VOICES"):
+        monkeypatch.delenv(k, raising=False)
+    monkeypatch.setenv("STT_OPEN", "1")
+    monkeypatch.setenv("EDITION", "nonprofit")
+    ws = FakeWS("/speak", [])
+    asyncio.run(stt.guarded(ws, M()))
+    assert ws.sent[0]["voices"] == ["mms", "coqui"] and ws.sent[0]["edition"] == "nonprofit"
 
 
 
-def test_guarded_serves_the_nonprofit_token_as_nonprofit():
-    old = os.environ.get("STT_TOKEN_NONPROFIT")
-    os.environ["STT_TOKEN_NONPROFIT"] = "np-s3cret"
-    try:
-        hello, _ = _hello("both", "np-s3cret")
-        assert hello["voices"] == ["mms", "coqui"] and hello["edition"] == "nonprofit"
-        # The old static token beside it stays commercial.
-        hello, _ = _hello("both", "s3cret")
-        assert hello["voices"] == ["coqui"] and hello["edition"] == "commercial"
-        # A commercial-only server gives it the stricter voices, as for a signed non-profit token.
-        hello, _ = _hello(None, "np-s3cret")
-        assert hello["voices"] == ["coqui"] and hello["edition"] == "commercial"
-        # A non-profit-only server serves it.
-        assert _hello("nonprofit", "np-s3cret")[0]["edition"] == "nonprofit"
-    finally:
-        os.environ.pop("STT_TOKEN_NONPROFIT", None)
-        if old is not None:
-            os.environ["STT_TOKEN_NONPROFIT"] = old
+def test_guarded_serves_the_nonprofit_token_as_nonprofit(monkeypatch):
+    monkeypatch.setenv("STT_TOKEN_NONPROFIT", "np-s3cret")
+    hello, _ = _hello(monkeypatch, "both", "np-s3cret")
+    assert hello["voices"] == ["mms", "coqui"] and hello["edition"] == "nonprofit"
+    # The old static token beside it stays commercial.
+    hello, _ = _hello(monkeypatch, "both", "s3cret")
+    assert hello["voices"] == ["coqui"] and hello["edition"] == "commercial"
+    # A commercial-only server gives it the stricter voices, as for a signed non-profit token.
+    hello, _ = _hello(monkeypatch, None, "np-s3cret")
+    assert hello["voices"] == ["coqui"] and hello["edition"] == "commercial"
+    # A non-profit-only server serves it.
+    assert _hello(monkeypatch, "nonprofit", "np-s3cret")[0]["edition"] == "nonprofit"
 
 
 def test_model_size_names_the_size_only():
@@ -647,9 +621,3 @@ def test_service_info():
         card = "omniASR_LLM_300M"
     assert stt.service_info(Small(), {}, {}, env)["models"] == ["300m"]
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_") and callable(fn):
-            fn()
-            print(f"ok  {name}")

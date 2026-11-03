@@ -39,13 +39,17 @@ this, and re-check whenever you change a pinned revision.
 | ✅ | **Permissive** | MIT, Apache 2.0, BSD, CC0. Commercial use is allowed; keep the licence and notices. |
 | ⚠️ | **Attribution or share-alike** | CC-BY, CC-BY-SA, MPL-2.0, GPL-3.0. Commercial use is allowed, with duties: credit the source, and for share-alike or copyleft, pass the same licence on when you distribute. |
 | ⛔ | **Non-commercial** | CC-BY-NC, CC-BY-NC-SA, or a research-only dataset licence. Not for commercial use. |
-| ⚠️ | **Restricted** | Territory exclusions, user caps or usage policies (for example Tencent's Hunyuan Community Licence, Google's Gemma terms). None of these is in the default stack. |
+| ⚠️ | **Restricted** | Territory exclusions, user caps or usage policies (for example Tencent's Hunyuan Community Licence, or Google's Gemma Terms of Use, which cover Gemma 3 and the models fine-tuned from it). In the default stack only MiLMMT-46 (a Gemma 3 fine-tune, for Lao, served beside the stack through `llmmt`), which the commercial edition leaves out unless your `[licence_review]` names it. Gemma 4 is not under these terms: it is Apache 2.0 (✅). |
 | ❓ | **Unclear** | No licence declared, a dead link, or a voice fine-tuned from a dataset whose licence may carry over. Treat as "ask first". |
 
 - **Recognition and translation are clean in both editions.** Whisper large-v3
   (MIT), Omnilingual ASR (Apache 2.0), VoxLingua107 (Apache 2.0), Silero VAD
   (MIT), Hy-MT2 7B (Apache 2.0, at the pinned revision) and MADLAD-400
-  (Apache 2.0).
+  (Apache 2.0). Of the LLM translators served beside the stack (`llmmt`),
+  Gemma 4 31B is Apache 2.0 (✅) and serves its directions in both editions;
+  MiLMMT-46 (Lao) is under Google's Gemma Terms of Use (⚠️ restricted), so
+  commercial leaves it out until your own review and translates Lao with
+  Gemma 4, Lao's second server line, both ways ([section 5](#5-translation)).
 - **Hy-MT2 7B is not under the Hunyuan Community Licence.** Its pinned
   revision's `LICENSE.txt` is the plain Apache 2.0 text, with no territory or
   user-count clause. The older **Hunyuan-MT-7B** *is* under that licence (it
@@ -85,8 +89,13 @@ this, and re-check whenever you change a pinned revision.
 
 `EDITION` is read by `scripts/run.sh` (and so by `scripts/docker-entrypoint.sh`
 and `scripts/runpod/runpod-start.sh`), which passes it to the server as
-`--edition`. Recognition and translation are identical in both editions (all
-✅); only the voices differ.
+`--edition`. Recognition and translation are the same in both editions, except
+that commercial leaves out MiLMMT-46, the restricted `llmmt` model for Lao
+(Lao then uses Gemma 4, the next server line it lists, both ways; Gemma 4,
+Apache 2.0, serves its directions in both); otherwise only the voices differ. With `EDITION=both`
+each connection gets its own edition's translation as well as its voices: a
+commercial connection's Lao never reaches MiLMMT-46, on a server whose
+non-profit connections use it (the models themselves are loaded once).
 
 | | `EDITION=nonprofit` (default) | `EDITION=commercial` |
 |---|---|---|
@@ -149,22 +158,15 @@ every ❓ item at once and says so loudly at startup and in `check`.
 
 **Capacity.** VoxCPM2 is one model per GPU that makes one voice at a time,
 and commercial routes ten languages to it (section 3; why VoxCPM2:
-[section 11](#11-replacing-the-non-commercial-voices)). At the A100's RTF of
-0.28 a five-second sentence takes ~1.4 s, so one GPU keeps about three
-listeners in real time (about two on an RTX PRO 4500, RTF 0.46). A commercial
-stack starts one instance per GPU with room (`VOXCPM_INSTANCES=auto`); each
-takes one sentence at a time (`VOXCPM_MAX_INFLIGHT=1`), and the server queues
-the rest for the first free instance on any GPU. A sentence that waits more
-than `VOXCPM_QUEUE_S` (2 s, about one long sentence's generation, hidden
-behind the previous sentence still playing) is spoken by eSpeak NG instead, so
-a busy room hears some sentences in the robotic voice rather than audio falling
-behind the captions. Khmer, Lao and Tagalog have nothing after VoxCPM2 and wait
-up to `VOXCPM_WAIT_S` (15 s). Other languages are unaffected. Each connection's
-audio is made separately: two connections in Korean are two voices. Options:
-more GPUs, accept it for rooms that rarely mix many of these languages, serve
-some as eSpeak NG or text (drop `voxcpm = true` from `[<lang>.commercial]`),
-or train Piper voices ([section 11.6](#116-the-long-term-path-our-own-voices))
-to move them onto the CPU. How to size it:
+[section 11](#11-replacing-the-non-commercial-voices)). One GPU keeps about
+three listeners in real time on an A100 (RTF 0.28), about two on an RTX PRO
+4500 (RTF 0.46). A commercial stack starts one instance per GPU with room
+(`VOXCPM_INSTANCES=auto`), and a sentence that waits more than
+`VOXCPM_QUEUE_S` (2 s) for a free one is spoken by eSpeak NG instead. Khmer,
+Lao and Tagalog have nothing after VoxCPM2 and wait up to `VOXCPM_WAIT_S`
+(15 s). Options: more GPUs, serve some languages as eSpeak NG or text (drop
+`voxcpm = true` from `[<lang>.commercial]`), or train Piper voices
+([section 11.6](#116-the-long-term-path-our-own-voices)). How to size it:
 [the user guide, "GPUs and capacity"](user-guide.md#gpus-and-capacity).
 
 **What the commercial edition guarantees, and what stays yours.** It
@@ -178,7 +180,8 @@ stay with the operator.
 
 ## 3. Every language, per edition
 
-Recognition and translation are the same in both editions. The voice columns
+Recognition and translation are the same in both editions (apart from Lao's
+MiLMMT-46, which commercial leaves out for Gemma 4: see its notes). The voice columns
 list the chain in order; the first is what listeners normally hear. Generated
 from `server/licences.py` and the defaults (`python3 server/stack_config.py
 docs`); your own `languages.toml` may differ, and `check --edition commercial`
@@ -210,14 +213,14 @@ shows yours.
 | ro | Omnilingual | MADLAD | Piper `mihai` ❓ › eSpeak NG ⚠️ | eSpeak NG ⚠️ | **eSpeak NG only** (robotic; was text only); not loaded: Piper `mihai` ❓ |
 | ht | Omnilingual | Gemma 4 (llmmt) › MADLAD | MMS `mms-tts-hat` ⛔ › eSpeak NG ⚠️ | Coqui `VITS-OpenBible-Haitian-Creole` ⚠️ › eSpeak NG ⚠️ | ⚠️ CC-BY-SA 4.0: credit multilingual-tts / Open Bible; share adaptations of the model under CC-BY-SA; not loaded: MMS `mms-tts-hat` ⛔ |
 | km | Omnilingual | Gemma 4 (llmmt) › Hy-MT2 | VoxCPM2 ✅ › MMS `mms-tts-khm` ⛔ | VoxCPM2 ✅ | not loaded: MMS `mms-tts-khm` ⛔ |
-| lo | Omnilingual | MiLMMT (llmmt) › MADLAD | VoxCPM2 ✅ › MMS `mms-tts-lao` ⛔ | VoxCPM2 ✅ | not loaded: MMS `mms-tts-lao` ⛔ |
+| lo | Omnilingual | MiLMMT (llmmt) › Gemma 4 (llmmt) › MADLAD | VoxCPM2 ✅ › MMS `mms-tts-lao` ⛔ | VoxCPM2 ✅ | translation: Gemma 4 (llmmt) › MADLAD, not MiLMMT ❓ Gemma Terms of Use (restricted); not loaded: MMS `mms-tts-lao` ⛔ |
 | tl | Whisper | Gemma 4 (llmmt) › Hy-MT2 | VoxCPM2 ✅ › MMS `mms-tts-tgl` ⛔ | VoxCPM2 ✅ | not loaded: MMS `mms-tts-tgl` ⛔ |
 <!-- end generated: languages -->
 
 "Translation into it" is the model used when this is the *target*. A source
 language outside Hy-MT2's 36 (Swahili, Romanian, Haitian Creole, Lao) reaches
-the other languages through MADLAD. Every recogniser, both translators, Silero
-VAD and VoxLingua107 are ✅ in both editions.
+the other languages through MADLAD. Every recogniser, Hy-MT2, MADLAD, Gemma 4,
+Silero VAD and VoxLingua107 are ✅ in both editions.
 
 ## 4. Speech: detection and recognition
 
@@ -229,6 +232,7 @@ VAD and VoxLingua107 are ✅ in both editions.
 | **faster-whisper large-v3** (CTranslate2 conversion, what the stack actually downloads) | same | MIT | ✅ | [Systran/faster-whisper-large-v3](https://huggingface.co/Systran/faster-whisper-large-v3) |
 | distil-large-v3 (`server/server.py`'s default `--asr-model`; `scripts/run.sh` overrides it with large-v3) | not used by `scripts/run.sh` | MIT | ✅ | [distil-whisper/distil-large-v3](https://huggingface.co/distil-whisper/distil-large-v3), [Systran/faster-distil-whisper-large-v3](https://huggingface.co/Systran/faster-distil-whisper-large-v3) |
 | **Omnilingual ASR 300M** (`omniASR_LLM_300M`, Meta) | recognition for fa, bn, ur, hi, sw, ht, km, lo | Apache 2.0 (code and models) | ✅ | [facebookresearch/omnilingual-asr](https://github.com/facebookresearch/omnilingual-asr): "Omnilingual ASR code and models are released under the Apache 2.0." Weights: [facebook/omniASR-LLM-300M](https://huggingface.co/facebook/omniASR-LLM-300M) (`apache-2.0`). |
+| **Omnilingual ASR 7B** (`omniASR_LLM_7B`, Meta) | km, lo and ro with `OMNI_LARGE=1` | Apache 2.0 (code and models) | ✅ | The same repository and statement as the 300M. |
 
 ## 5. Translation
 
@@ -237,6 +241,23 @@ VAD and VoxLingua107 are ✅ in both editions.
 | **Hy-MT2 7B** (Tencent), pinned `9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223`, quantised to 4-bit NF4 by `scripts/prepare-mt.sh` | translation into its 36 languages | Apache 2.0 | ✅ | [tencent/Hy-MT2-7B `LICENSE.txt` at that revision](https://huggingface.co/tencent/Hy-MT2-7B/blob/9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223/LICENSE.txt) |
 | **MADLAD-400 7B MT** (Google), pinned `1ff63ce7ddd571a69d45cad9672c553428419671`, converted to CTranslate2 int8 | everything Hy-MT2 doesn't cover (sw, ro, ht, lo) | Apache 2.0 | ✅ | [google/madlad400-7b-mt](https://huggingface.co/google/madlad400-7b-mt) |
 | **MADLAD-400 3B MT**, pinned `fa184c675da0b5c9e1c8694fccd4e12e2d422094` (`MADLAD=3b`, and the source of `server/server.py`'s default tokenizer) | the smaller fallback | Apache 2.0 | ✅ | [google/madlad400-3b-mt](https://huggingface.co/google/madlad400-3b-mt) |
+| **Gemma 4 31B** (Google), `google/gemma-4-31B-it-qat-w4a16-ct`, served by vLLM beside the stack (`llmmt`) | the Gemma directions in [reference, "Translators per direction"](reference.md#translators-per-direction) | Apache 2.0 | ✅ | [google/gemma-4-31B-it-qat-w4a16-ct](https://huggingface.co/google/gemma-4-31B-it-qat-w4a16-ct) (`license: apache-2.0`; its base [google/gemma-4-31B-it](https://huggingface.co/google/gemma-4-31B-it) too, read 2026-11-02). Both editions; `scripts/start-llmmt.sh` starts it in commercial too. |
+| **MiLMMT-46 12B** (Xiaomi), `xiaomi-research/MiLMMT-46-12B-v0.1`, served the same way | en ↔ lo | Google's Gemma Terms of Use (`license: gemma`; a fine-tune of Gemma 3 12B) | ⚠️ restricted; ❓ in `server/licences.py`, so commercial only after your `[licence_review]` | [xiaomi-research/MiLMMT-46-12B-v0.1](https://huggingface.co/xiaomi-research/MiLMMT-46-12B-v0.1). Nonprofit only by default: commercial translates Lao with Gemma 4 (Lao's second server line), and `scripts/start-llmmt.sh` does not start it. |
+
+`server/licences.py` classifies `llmmt` by the model each language's server
+line names (`llmmt = "<style> <url> <model id>"`, its last word), not as one
+engine: Gemma 4's model ids are ✅, MiLMMT-46's is ❓, and any other served model
+is ❓ until it gets an entry. A language may list several server lines (Lao:
+MiLMMT-46, then Gemma 4), each judged on its own. In commercial, a server line
+that is not allowed is dropped (no pair is sent to it) and the language's next
+line serves; a language left with none drops `llmmt` and its directions use the
+next translator in its list; `check --edition commercial` and the startup
+`[licence]` lines name the model left out. To admit one after your own review,
+name its model id in `[licence_review]` (e.g.
+`"xiaomi-research/MiLMMT-46-12B-v0.1" = "reviewed <date> by <org>: <why>"`);
+naming `"llmmt"` admits every server, whatever it serves. These two rows were
+not part of the 2026-09-29 audit (the cards were read 2026-11-02): read them
+again if you change the model.
 
 **Hy-MT2 and the Hunyuan Community Licence.** Tencent's earlier Hunyuan models
 use the *Tencent Hunyuan Community License Agreement*, which is not an
@@ -430,7 +451,7 @@ download. If you plan to swap one in, its licence is the first thing to check.
 | [NLLB-200 3.3B](https://huggingface.co/facebook/nllb-200-3.3B) | CC-BY-NC 4.0 | ⛔ |
 | MMS-1B-all (recognition) | CC-BY-NC 4.0 | ⛔ |
 | [Phonepadith/whisper-large-lao-finetuned-v1](https://huggingface.co/Phonepadith/whisper-large-lao-finetuned-v1) | "other", unclear | ❓ |
-| Omnilingual ASR v2, 1B/3B/7B | Apache 2.0 | ✅ |
+| Omnilingual ASR v2, 1B/3B (the 7B is deployed: [section 4](#4-speech-detection-and-recognition)) | Apache 2.0 | ✅ |
 | [Chatterbox Multilingual](https://huggingface.co/ResembleAI/chatterbox) (voices; trialled for commercial, 2026-09-29) | MIT; watermarks every clip | ✅ |
 | MeloTTS, CosyVoice2/3, Parler-TTS, Indic Parler-TTS (voices; not tested) | MIT / Apache 2.0 | ✅ |
 | Coqui XTTS-v2 | Coqui Public Model License (non-commercial use only) | ⛔ |
@@ -568,31 +589,20 @@ The price is GPU capacity: ten languages share a model that makes one voice
 at a time ([section 2, "Capacity"](#2-editions-what-edition-changes)).
 
 **Smoke test, both editions on one pod** (2026-09-29, `tools/smoke.py
---edition ...`): nonprofit ALL PASSED as before; commercial ALL PASSED, with
-fa and ro returning a translation and no audio, and ko tr ru ar id vi de fr pt
-zh hi each speaking. (Since then fa and ro speak through eSpeak NG.) The commercial server log showed no non-commercial model
-loaded: 8 Piper voices (norman carlfm mls×2 ukrainian_tts google aegis_female
-serena), no MMS, and kss, dfki, hi_fi_captain and lessac only in "left out"
-lines. The commercial stack used 33.6 GB of GPU memory, VoxCPM2 included.
+--edition ...`): both passed. The commercial server log showed no
+non-commercial model loaded (no MMS; kss, dfki, hi_fi_captain and lessac only
+in "left out" lines), and the commercial stack used 33.6 GB of GPU memory,
+VoxCPM2 included.
 
 ### 11.5 Haitian Creole, Khmer and Lao: the MMS languages
 
-MMS was the first non-commercial component found (it was thought to be the
-only one until the Piper voices were checked one by one), and it served Khmer,
-Lao and Haitian Creole, which have no Piper voice and no Kokoro voice. The
-options weighed before the commercial edition existed:
+Khmer, Lao and Haitian Creole have no Piper or Kokoro voice. MMS (⛔) serves
+them in the non-profit edition (`--mms`); the commercial edition never
+constructs it and uses VoxCPM2 for km and lo (and tl) and Coqui VITS
+OpenBible for ht.
 
-1. **Keep MMS, off by default.** `--mms` is a flag; `EDITION=nonprofit` turns
-   it on and `EDITION=commercial` never constructs it. A redistributed image or
-   volume must not ship it on.
-2. **Serve those languages as captions only.** Without a voice they degrade to
-   text: a Khmer speaker reads rather than hears. A real product decision, not
-   a failure mode, and licence-clean.
-3. **Source a voice per language.** What the commercial edition does now:
-   VoxCPM2 for km and lo (and tl), Coqui VITS OpenBible for ht.
-
-The candidates checked then, for existence and licence only (none of these
-was listened to except the ones the stack now runs):
+The candidates checked, for existence and licence only (none of these was
+listened to except the ones the stack now runs):
 
 | Language | Model | Licence | Note |
 |---|---|---|---|
@@ -630,10 +640,8 @@ engines for a licence-clean set: Kokoro, VoxCPM2 and OpenBible VITS. Its Khmer
 and Lao were the clearest tested ([model evaluation](dev/model-evaluation.md)),
 about two simultaneous voices per GPU at 6.2 GB.
 
-**Recognition** was never the gap: Omnilingual (Apache 2.0) already covers
-these languages as sources. Possible quality upgrades, none tested, and km, lo
-and ht have never been evaluated as sources against a real corpus (the missing
-piece is audio, not models):
+**Recognition** was never the licence gap: Omnilingual (Apache 2.0) covers
+these languages as sources. Other permissive models, none tested:
 
 | Language | Model | Licence |
 |---|---|---|

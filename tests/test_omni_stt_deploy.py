@@ -5,7 +5,7 @@ fail the test if anything calls them anyway. Checks the private-registry guard
 on fine-tuned builds, private.env (read, never run; the environment wins), and
 that no private default is left in the committed script.
 
-    python3 tests/test_omni_stt_deploy.py   (or python3 -m pytest tests/test_omni_stt_deploy.py)
+    python -m pytest tests/test_omni_stt_deploy.py
 
 Needs bash and git; nothing is built or pushed.
 """
@@ -14,8 +14,8 @@ import re
 import subprocess
 import tempfile
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
+from support import ROOT
+
 SVC = os.path.join(ROOT, "services", "omni-stt")
 DEPLOY = os.path.join(SVC, "deploy.sh")
 KEEP = ("HOME", "LANG", "LC_ALL", "TMPDIR")
@@ -188,9 +188,3 @@ def test_7b_deploy_with_the_voices():
     code, out, _ = _run("7b-deploy", {"TAG": "abc123", "VOICES_7B": "yes"})
     assert code == 2 and "VOICES_7B" in out, out
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_") and callable(fn):
-            fn()
-            print(f"ok  {name}")

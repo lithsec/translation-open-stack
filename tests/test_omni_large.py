@@ -1,14 +1,14 @@
 """Lao and Khmer on Omnilingual's larger card, the repetition guard on the
 stack's Omnilingual text, and per-language endpointing. No GPU, no models:
-the pipelines are stand-ins.  python3 tests/test_omni_large.py"""
-import importlib.util, os, pathlib, sys, tempfile
+the pipelines are stand-ins.  python -m pytest tests/test_omni_large.py"""
+import os
 
-SERVER = pathlib.Path(__file__).resolve().parent.parent / "server"
-sys.path.insert(0, str(SERVER))
-import numpy as np  # noqa: E402
-import stack_config as c  # noqa: E402
-from engines.base import Context, VAD_RATE  # noqa: E402
-from engines.omnilingual import Omnilingual  # noqa: E402
+import numpy as np
+
+import stack_config as c
+from engines.base import Context, VAD_RATE
+from engines.omnilingual import Omnilingual
+from support import write_temp
 
 MODELS = {"omnilingual": {"card": "base-card"}, "omnilingual_large": {"card": "large-card"}}
 
@@ -108,9 +108,7 @@ def test_omni_key_values():
 
 
 def _bad(text):
-    fd, path = tempfile.mkstemp(suffix=".toml")
-    with os.fdopen(fd, "w") as f:
-        f.write(text)
+    path = write_temp(text)
     try:
         c.load(path)
     except ValueError as e:
@@ -129,15 +127,8 @@ def test_endpointing_keys_are_checked():
     assert "omni must be" in _bad('[lo]\nasr = "omni:lao_Laoo"\nomni = "huge"\n')
 
 
-def _server():
-    spec = importlib.util.spec_from_file_location("stack_server_omni_large", SERVER / "server.py")
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-def test_endpointing_per_spoken_language():
-    s = _server()
+def test_endpointing_per_spoken_language(srv, monkeypatch):
+    s = srv
     flags = (s.ENDPOINT_MS, s.LONG_UTTERANCE_S, s.LONG_ENDPOINT_MS, s.MAX_UTTERANCE_S)
     assert s.endpointing("en") == flags
     assert s.endpointing("es") == flags
@@ -147,14 +138,19 @@ def test_endpointing_per_spoken_language():
         assert s.endpointing(lang) == (900, 8, 500, 15)
         assert s.min_speech_ms(lang) == 2500
     assert s.min_speech_ms("en") == 0
-    s.ENDPOINT_MS, s.MAX_UTTERANCE_S = 600, 12     # an operator's flags: these languages keep their own
+    # An operator's flags: these languages keep their own. Set where main() sets them, on
+    # pipeline.py (endpointing() reads its own module's globals); monkeypatch puts them back.
+    monkeypatch.setattr(s.pipeline, "ENDPOINT_MS", 600)
+    monkeypatch.setattr(s.pipeline, "MAX_UTTERANCE_S", 12)
     assert s.endpointing("lo") == (900, 8, 500, 15)
     assert s.endpointing("es")[0] == 600 and s.endpointing("es")[3] == 12
+    assert (s.ENDPOINT_MS, s.MAX_UTTERANCE_S) == (600, 12)     # server.py reads them live
 
 
-def test_endpointing_one_key_keeps_the_flag_for_the_other():
-    s = _server()
-    s._T = dict(s._T, ENDPOINTING={"xx": {"max_utterance_s": 20}})
+def test_endpointing_one_key_keeps_the_flag_for_the_other(srv, monkeypatch):
+    s = srv
+    p = s.pipeline      # endpointing() reads pipeline._T
+    monkeypatch.setattr(p, "_T", dict(p._T, ENDPOINTING={"xx": {"max_utterance_s": 20}}))
     assert s.endpointing("xx") == (s.ENDPOINT_MS, 20, s.ENDPOINT_MS, 20)
 
 
@@ -168,22 +164,25 @@ def test_turn_keys_are_checked():
     assert "must be a int" in _bad('[ht]\nmin_speech_ms = 1.5\n')
 
 
-def test_clause_gap_per_language():
-    s = _server()
+def test_clause_gap_per_language(srv, monkeypatch):
+    s = srv
+    p = s.pipeline      # endpointing() and min_speech_ms() read pipeline._T
+    saved = p._T
     # Both long keys: the clause gap at the language's own length and pause.
-    s._T = dict(s._T, ENDPOINTING={"xx": {"long_utterance_s": 8, "long_endpoint_ms": 400, "max_utterance_s": 15}})
+    monkeypatch.setattr(p, "_T", dict(saved, ENDPOINTING={"xx": {"long_utterance_s": 8, "long_endpoint_ms": 400,
+                                                                 "max_utterance_s": 15}}))
     assert s.endpointing("xx") == (s.ENDPOINT_MS, 8, 400, 15)
     # One of them: the flag for the other.
-    s._T = dict(s._T, ENDPOINTING={"xx": {"long_utterance_s": 8}})
+    monkeypatch.setattr(p, "_T", dict(saved, ENDPOINTING={"xx": {"long_utterance_s": 8}}))
     assert s.endpointing("xx") == (s.ENDPOINT_MS, 8, s.LONG_ENDPOINT_MS, s.MAX_UTTERANCE_S)
     # Only min_speech_ms: the flags for the rest.
-    s._T = dict(s._T, ENDPOINTING={"xx": {"min_speech_ms": 2000}})
+    monkeypatch.setattr(p, "_T", dict(saved, ENDPOINTING={"xx": {"min_speech_ms": 2000}}))
     assert s.endpointing("xx") == (s.ENDPOINT_MS, s.LONG_UTTERANCE_S, s.LONG_ENDPOINT_MS, s.MAX_UTTERANCE_S)
     assert s.min_speech_ms("xx") == 2000 and s.min_speech_ms("en") == 0
 
 
-def test_short_turn_waits_for_the_rest_of_its_sentence():
-    s = _server()
+def test_short_turn_waits_for_the_rest_of_its_sentence(srv):
+    s = srv
     # 1.2 s of speech then 0.9 s quiet: under 2 s of speech, quiet under the 1.5 s hold -> wait.
     assert s.short_turn(2.1, 900, 900, 2000)
     # The quiet reaches the hold: a speaker who stopped is answered.
@@ -210,9 +209,3 @@ def test_shipped_config_puts_romanian_on_the_large_card_only():
     table = c.load()[0]
     assert table["ro"]["asr"] == "omni:ron_Latn" and table["ro"]["omni"] == "large-only"
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)
