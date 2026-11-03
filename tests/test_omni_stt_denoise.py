@@ -4,18 +4,12 @@ does to a voice-like tone in white noise, to a clean tone, to silence; that the
 stream of blocks equals the whole signal; that a connection starts fresh; and
 that with STT_DENOISE off nothing touches the audio.
 
-    python3 tests/test_omni_stt_denoise.py      (numpy; scipy for the AudioIn test)
+    python -m pytest tests/test_omni_stt_denoise.py      (numpy; scipy for the AudioIn test)
 """
-import os
-import sys
-
 import numpy as np
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "server"))                  # audio_in
-sys.path.insert(0, os.path.join(ROOT, "services", "omni-stt"))    # denoise, server (the service's)
-import denoise as dn  # noqa: E402
+import denoise as dn
+import support
 
 R = dn.RATE
 SETTLED = int(1.6 * R)       # the floor has had TRACK_S to settle by here
@@ -128,36 +122,25 @@ def test_each_connection_starts_fresh():
     assert dn.from_env({"STT_DENOISE": "1", "STT_DENOISE_TRACK_S": "3"}).subs == round(3 * R / dn.HOP / dn.SUB_FRAMES)
 
 
-def test_off_is_a_no_op():
+def test_off_is_a_no_op(monkeypatch):
     from audio_in import AudioIn
     assert dn.from_env({}) is None and dn.from_env({"STT_DENOISE": "0"}) is None
     plain = AudioIn("t")
     assert dn.wrap(plain, {}) is plain and dn.wrap(plain, {"STT_DENOISE": "0"}) is plain
     assert isinstance(dn.wrap(AudioIn("t"), {"STT_DENOISE": "1"}), dn.DenoisedInput)
     # Through the service's audio_input: the flag off gives AudioIn's own blocks.
-    import server as stt
-    old = os.environ.pop("STT_DENOISE", None)
-    try:
-        data = (np.clip(voice(0.5), -1, 1) * 32767).astype("<i2").tobytes()
-        off = stt.audio_input(16000, "t")
-        assert isinstance(off, AudioIn)
-        got = np.concatenate(off.feed(data))
-        want = np.frombuffer(data, "<i2").astype(np.float32) / 32768
-        assert np.array_equal(got, want[:len(got)]) and len(got) == len(want) // 1536 * 1536
-        os.environ["STT_DENOISE"] = "1"
-        on = stt.audio_input(16000, "t")
-        assert isinstance(on, dn.DenoisedInput)
-        blocks = on.feed(data)
-        assert [len(b) for b in blocks] == [1536] * (len(want) // 1536)
-        assert not np.array_equal(np.concatenate(blocks), got)
-    finally:
-        os.environ.pop("STT_DENOISE", None)
-        if old is not None:
-            os.environ["STT_DENOISE"] = old
+    stt = support.omni_stt()
+    monkeypatch.delenv("STT_DENOISE", raising=False)
+    data = (np.clip(voice(0.5), -1, 1) * 32767).astype("<i2").tobytes()
+    off = stt.audio_input(16000, "t")
+    assert isinstance(off, AudioIn)
+    got = np.concatenate(off.feed(data))
+    want = np.frombuffer(data, "<i2").astype(np.float32) / 32768
+    assert np.array_equal(got, want[:len(got)]) and len(got) == len(want) // 1536 * 1536
+    monkeypatch.setenv("STT_DENOISE", "1")
+    on = stt.audio_input(16000, "t")
+    assert isinstance(on, dn.DenoisedInput)
+    blocks = on.feed(data)
+    assert [len(b) for b in blocks] == [1536] * (len(want) // 1536)
+    assert not np.array_equal(np.concatenate(blocks), got)
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)

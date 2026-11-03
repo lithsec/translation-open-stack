@@ -6,16 +6,16 @@ file: the target file (or directory) exists, and a #anchor names a heading in
 the target Markdown file (GitHub's heading slugs). External links (http:,
 https:, mailto:) are not fetched. Standard library only.
 
-    python3 tests/test_doc_links.py
+    python -m pytest tests/test_doc_links.py
 """
 import os
 import re
 import subprocess
-import sys
 import unicodedata
 from urllib.parse import unquote
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from support import ROOT
+
 LINK = re.compile(r"!?\[(?:[^\[\]]|\[[^\]]*\])*\]\(\s*<?([^)\s>]+)>?(?:\s+\"[^\"]*\")?\s*\)")
 FENCE = re.compile(r"^\s*(```|~~~)")
 
@@ -108,13 +108,6 @@ def check():
 
 def test_links():
     count, problems = check()
-    assert not problems, "broken links:\n  " + "\n  ".join(problems)
-    return count
+    assert count, "no relative links found"
+    assert not problems, f"{len(problems)} of {count} relative links broken:\n  " + "\n  ".join(problems)
 
-
-if __name__ == "__main__":
-    count, problems = check()
-    for p in problems:
-        print(p)
-    print(f"{count} relative links checked, {len(problems)} broken")
-    sys.exit(1 if problems else 0)

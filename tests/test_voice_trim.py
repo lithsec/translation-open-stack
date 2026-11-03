@@ -4,20 +4,14 @@ trim_silence), on synthetic audio: dead air around a tone is cut to the kept
 lead and tail, speech is never cut into, silence and a quiet hiss are left
 alone, and to_pcm16's edge ramps still sit on the trimmed ends.
 
-    python3 tests/test_voice_trim.py   (or python3 -m pytest tests/test_voice_trim.py)
+    python -m pytest tests/test_voice_trim.py
 
 Needs numpy and scipy, nothing else.
 """
-import os
-import sys
-
 import numpy as np
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "server"))
-from engines.common import (RATE, TRIM_LEAD_MS, TRIM_TAIL_MS, peak_normalise,  # noqa: E402
-                            to_pcm16, trim_silence, voiced_span)
+from engines.common import (RATE, TRIM_LEAD_MS, TRIM_TAIL_MS, float_to_pcm16,
+                            peak_normalise, to_pcm16, trim_silence, voiced_span)
 
 SR = 22050      # Coqui's and MMS's native rate for the Haitian voices (16 kHz for MMS; either works)
 
@@ -151,8 +145,12 @@ def test_ramps_sit_on_the_trimmed_ends():
     assert np.abs(y[:n // 3]).max() < 0.4 < np.abs(y[n:4 * n]).max()
 
 
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_") and callable(fn):
-            fn()
-            print(f"ok  {name}")
+def test_float_to_pcm16():
+    """Clipped to [-1, 1], scaled by 32767 (truncating), little-endian int16 bytes."""
+    for dtype in ("float32", "float64"):
+        x = np.array([0.0, 0.5, -0.5, 1.0, -1.0, 1.7, -2.0, 1e-5], dtype=dtype)
+        b = float_to_pcm16(x)
+        assert isinstance(b, bytes) and len(b) == 2 * len(x)
+        assert np.frombuffer(b, "<i2").tolist() == [0, 16383, -16383, 32767, -32767, 32767, -32767, 0]
+    assert float_to_pcm16(np.zeros(0, dtype="float32")) == b""
+

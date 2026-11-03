@@ -53,11 +53,9 @@ jobs:
           python-version: '3.12'
       - name: Unit tests (host)
         run: |
-          python tests/test_stack_auth.py
-          python tests/test_stack_config.py
-          python tests/test_nonspeech.py
-          python tests/test_streaming.py
-          python tests/test_engines.py
+          pip install pytest
+          python -m pytest -q tests/test_stack_auth.py tests/test_stack_config.py tests/test_nonspeech.py \
+              tests/test_streaming.py tests/test_engines.py
           python server/stack_config.py check
 
       # The base image is ~10 GB compressed (~25 GB unpacked) and the packages
@@ -123,12 +121,10 @@ jobs:
         run: |
           docker run --rm lithos-stack:ci bash -euo pipefail -c '
             python3 server/server.py --help >/dev/null && echo "server.py --help ok"
-            python3 tests/test_stack_auth.py
-            python3 tests/test_stack_config.py
-            python3 tests/test_nonspeech.py
-            python3 tests/test_streaming.py
-            python3 tests/test_engines.py
-            python3 tests/test_capacity.py
+            # pytest only for this run (--rm): the image does not ship it.
+            python3 -m pip install -q pytest
+            python3 -m pytest -q -p no:cacheprovider tests/test_stack_auth.py tests/test_stack_config.py \
+                tests/test_nonspeech.py tests/test_streaming.py tests/test_engines.py tests/test_capacity.py
             python3 server/stack_config.py check
             # What a published image owes: the GPL licence and source, and the licence page.
             test -s licences/GPL-3.0.txt && test -s licences/README.txt && test -s docs/licences.md

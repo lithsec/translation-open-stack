@@ -3,21 +3,19 @@
 connection reaches, that the token and subprotocols reach it unchanged, that
 its close codes come back, /health only while both are up, and the idle stop.
 
-    python3 tests/test_omni_stt_duo.py   (or python3 -m pytest tests/test_omni_stt_duo.py)
+    python -m pytest tests/test_omni_stt_duo.py
 
 Needs websockets; no models, no GPU.
 """
 import asyncio
 import json
 import os
-import sys
 import urllib.request
 from http import HTTPStatus
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "services", "omni-stt", "duo"))
-import router  # noqa: E402
+import support
+
+router = support.load("omni_stt_duo_router", os.path.join(support.OMNI_STT, "duo", "router.py"))
 
 
 def test_backend_for():
@@ -204,14 +202,8 @@ async def _one_watch(r):
         router.asyncio.sleep = real
 
 
-def test_no_runpod_env_no_stop_call():
+def test_no_runpod_env_no_stop_call(monkeypatch):
     for k in ("RUNPOD_POD_ID", "RUNPOD_API_KEY"):
-        os.environ.pop(k, None)
+        monkeypatch.delenv(k, raising=False)
     router.runpod_stop()          # says it cannot, and makes no request
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_") and callable(fn):
-            fn()
-            print(f"ok  {name}")

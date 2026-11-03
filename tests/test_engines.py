@@ -9,33 +9,22 @@ replaced (Pipeline.translate_batch and Pipeline.synthesise in server.py before
 the engines refactor, 2026-09-29), so a change of behaviour shows up here, not
 on a GPU.
 
-    python3 tests/test_engines.py        (or python3 -m pytest tests/test_engines.py)
+    python -m pytest tests/test_engines.py
 """
 import os
 import subprocess
 import sys
-import tempfile
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "server"))
-
-import engines  # noqa: E402
-import stack_config as c  # noqa: E402
-from engines.base import Context, Recognizer, Translator, Voice, AudioStream  # noqa: E402
-from engines.common import split_sentences, NO_SPACE_JOIN  # noqa: E402
-from engines.hymt import HyMT, HYMT_NAMES  # noqa: E402
-from engines.madlad import Madlad  # noqa: E402
-from engines.manager import EngineSet  # noqa: E402
+import engines
+import stack_config as c
+from engines.base import Context, Recognizer, Translator, Voice, AudioStream
+from engines.common import split_sentences, NO_SPACE_JOIN
+from engines.hymt import HyMT, HYMT_NAMES
+from engines.madlad import Madlad
+from engines.manager import EngineSet
+from support import HERE, ROOT, write_temp as _write
 
 FIXTURE = os.path.join(HERE, "engines_fixture")
-
-
-def _write(text):
-    fd, path = tempfile.mkstemp(suffix=".toml")
-    with os.fdopen(fd, "w") as f:
-        f.write(text)
-    return path
 
 
 # ---------------------------------------------------------------- registry
@@ -62,7 +51,7 @@ def test_builtin_keys_are_the_old_keys():
     assert c.keys() == {"kokoro": str, "voxcpm": bool, "coqui": str, "piper": str, "mms": str, "asr": str,
                         "translator": (str, list), "translator_to_en": (str, list), "madlad": str, "voice": list, "commercial": dict, "espeak": bool,
                         "omni": str, "endpoint_ms": int, "max_utterance_s": int, "long_utterance_s": int,
-                        "long_endpoint_ms": int, "min_speech_ms": int, "llmmt": str}
+                        "long_endpoint_ms": int, "min_speech_ms": int, "llmmt": (str, list)}
 
 
 def test_default_voice_order():
@@ -360,9 +349,10 @@ def test_a_configured_translator_is_used():
         "Where is the station?", "Hes(Where is the station?)"]
 
 
-def test_the_template_works():
+def test_the_template_works(engine_registry):
     """server/engines/_template.py, copied in as docs/dev/adding-an-engine.md says,
-    registers, validates and translates (on the fake MADLAD)."""
+    registers, validates and translates (on the fake MADLAD). (engine_registry:
+    madlad_whole is unregistered again afterwards.)"""
     import importlib.util
     spec = importlib.util.spec_from_file_location("madlad_whole", os.path.join(ROOT, "server", "engines",
                                                                                "_template.py"))
@@ -463,12 +453,18 @@ def test_translator_lists_validate():
 
 
 def test_commercial_drops_an_unreviewed_llm_from_a_list():
-    """llmmt is ❓ until reviewed: a list keeps the rest, a lone llmmt refuses."""
+    """llmmt is classified by its served model: Gemma 4 (✅) stays; MiLMMT-46 and an unknown model are ❓
+    until reviewed: a list of server lines keeps the rest, a language left with none drops llmmt from its
+    translator lists, and a lone llmmt refuses."""
     eff, _ = c.apply_edition(c.DEFAULTS, "commercial", {}, False)
-    assert eff["es"]["translator"] == "hymt" and eff["lo"]["translator"] == "madlad"
-    assert eff["ja"]["translator_to_en"] == "hymt"
+    assert eff["es"]["translator"] == ["llmmt", "hymt"] and eff["lo"]["translator"] == ["llmmt", "madlad"]
+    assert eff["ja"]["translator_to_en"] == ["llmmt", "hymt"] and eff["lo"]["translator_to_en"] == ["llmmt", "hymt"]
+    assert eff["lo"]["llmmt"] == c.GEMMA                     # Lao's MiLMMT line dropped, its Gemma line kept
+    table = {"lo": dict(c.DEFAULTS["lo"], llmmt=c.MILMMT)}  # MiLMMT alone: llmmt drops out of the lists
+    eff, _ = c.apply_edition(table, "commercial", {}, False)
+    assert eff["lo"]["translator"] == "madlad" and eff["lo"]["translator_to_en"] == "hymt" and "llmmt" not in eff["lo"]
     eff, _ = c.apply_edition(c.DEFAULTS, "commercial", {"llmmt": "reviewed"}, False)
-    assert eff["es"]["translator"] == ["llmmt", "hymt"]
+    assert eff["lo"]["translator"] == ["llmmt", "madlad"] and eff["lo"]["llmmt"] == [c.MILMMT, c.GEMMA]
     try:
         c.apply_edition({"de": {"translator": "llmmt", "llmmt": "chat http://x/v1 m"}}, "commercial", {}, False)
         assert False
@@ -485,18 +481,15 @@ def test_unavailable_translator_falls_back_to_madlad():
 
 # ---------------------------------------------------------------- recognition
 
-def test_recogniser_routing():
+def test_recogniser_routing(monkeypatch):
     es = make_set(srcs=("en", "km", "ht", "es"))
     assert es.transcribe(None, "km") == "omni:khm_Khmr"
     assert es.transcribe(None, "ht") == "omni:hat_Latn"
     assert es.transcribe(None, "es") == "whisper:es"
     assert es.transcribe(None, "en") == "whisper:en"
-    FakeOmni.ok = False
-    try:
-        es = make_set(srcs=("km",))
-        assert es.transcribe(None, "km") == "whisper:km"   # Omnilingual missing: Whisper, as before
-    finally:
-        FakeOmni.ok = True
+    monkeypatch.setattr(FakeOmni, "ok", False)
+    es = make_set(srcs=("km",))
+    assert es.transcribe(None, "km") == "whisper:km"   # Omnilingual missing: Whisper, as before
 
 
 # ---------------------------------------------------------------- voices
@@ -609,9 +602,3 @@ def test_abbreviations_do_not_end_sentences():
     assert split_sentences("The bridge is 15 meters. It opened in March 2017. Nobody came.") == \
         ["The bridge is 15 meters.", "It opened in March 2017. Nobody came."]
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)

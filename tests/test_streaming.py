@@ -12,15 +12,13 @@ and the final pass hands room_flush the whole re-transcription. Slicing that
 by a count from an earlier, differently-worded pass re-speaks words already
 said or skips words never said -- reported as "it's adding lines".
 
-    python3 tests/test_streaming.py
+    python -m pytest tests/test_streaming.py
 """
-import importlib.util, pathlib, sys
+import pytest
 
-SERVER = pathlib.Path(__file__).resolve().parent.parent / "server"
-sys.path.insert(0, str(SERVER))  # server.py imports stack_config from beside it
-spec = importlib.util.spec_from_file_location("stack_server", SERVER / "server.py")
-mod = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(mod)
+import support
+
+mod = support.stack_server()        # as server.py re-exports them
 resume_point = mod.resume_point
 trim_point = mod.trim_point
 common_prefix_words = mod.common_prefix_words
@@ -92,29 +90,19 @@ def simulate_trimmed_turn():
     return ok, committed_log
 
 
-def main():
-    bad = 0
-    for spoken, new, want in CASES:
-        sp, nw = spoken.split() if spoken else [], new.split()
-        got = " ".join(nw[resume_point(sp, nw):])
-        if got != want:
-            print(f"  WRONG after {spoken!r}")
-            print(f"    new  : {new}")
-            print(f"    got  : {got!r}")
-            print(f"    want : {want!r}")
-            bad += 1
-    for ends, buf_s, trim_s, want in TRIM_CASES:
-        got = trim_point(ends, buf_s, trim_s)
-        if got != want:
-            print(f"  WRONG trim_point({ends}, {buf_s}, {trim_s}) "
-                  f"= {got}, want {want}"); bad += 1
+@pytest.mark.parametrize("spoken, new, want", CASES)
+def test_resume_point(spoken, new, want):
+    sp, nw = spoken.split() if spoken else [], new.split()
+    got = " ".join(nw[resume_point(sp, nw):])
+    assert got == want, f"after {spoken!r}, new {new!r}"
+
+
+@pytest.mark.parametrize("ends, buf_s, trim_s, want", TRIM_CASES)
+def test_trim_point(ends, buf_s, trim_s, want):
+    assert trim_point(ends, buf_s, trim_s) == want
+
+
+def test_trimmed_turn_agreement():
     ok, log = simulate_trimmed_turn()
-    if not ok:
-        print(f"  WRONG trimmed-turn agreement, commits were: {log}"); bad += 1
-    print(f"{len(CASES)} alignment cases, {len(TRIM_CASES)} trim cases, "
-          f"1 simulated turn, {bad} wrong")
-    return 1 if bad else 0
+    assert ok, f"trimmed-turn agreement, commits were: {log}"
 
-
-if __name__ == "__main__":
-    sys.exit(main())

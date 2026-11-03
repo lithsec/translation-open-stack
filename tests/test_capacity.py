@@ -6,7 +6,7 @@ stream (its own thread: waiting streams must not starve the TTS pool),
 voxcpm_service.py itself with a stand-in model (busy -> 503, abandoned
 requests skipped), and the eSpeak NG last-resort voice.
 
-    python3 tests/test_capacity.py        (or python3 -m pytest tests/test_capacity.py)
+    python -m pytest tests/test_capacity.py
 
 The eSpeak NG test is skipped when `espeak-ng` is not installed
 (apt-get install espeak-ng; brew install espeak-ng).
@@ -21,15 +21,14 @@ import threading
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "server"))
+import pytest
 
-import stack_config as c  # noqa: E402
-from engines.base import Context, AudioStream, RATE  # noqa: E402
-from engines.espeak import ESpeak, ESPEAK_VOICES  # noqa: E402
-from engines.manager import EngineSet  # noqa: E402
-from engines.voxcpm import VoxCPM  # noqa: E402
+import stack_config as c
+from engines.base import Context, AudioStream, RATE
+from engines.espeak import ESpeak, ESPEAK_VOICES
+from engines.manager import EngineSet
+from engines.voxcpm import VoxCPM
+from support import ROOT
 
 
 # ---------------------------------------------------------------- fake services
@@ -131,15 +130,6 @@ def make_vox(urls, cap=3, clock=None, queue_s=0.0):
     with contextlib.redirect_stdout(io.StringIO()):
         v.load()
     return v
-
-
-def _server():
-    """server.py as a module (as tests/test_streaming.py loads it)."""
-    import importlib.util
-    spec = importlib.util.spec_from_file_location("stack_server_cap", os.path.join(ROOT, "server", "server.py"))
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
 
 
 class _WS:
@@ -351,30 +341,24 @@ def test_server_waits_for_a_service_that_starts_after_it():
     assert vx.START <= time.time()
 
 
-def test_server_gives_up_on_a_service_whose_process_has_gone():
+def test_server_gives_up_on_a_service_whose_process_has_gone(monkeypatch):
     import engines.voxcpm as vx
     v = make_vox([_dead_url()])
-    saved, vx.START = vx.START, time.time() - 120     # past the 60 s grace; no such process
-    try:
-        t0 = time.time()
-        with contextlib.redirect_stdout(io.StringIO()) as out:
-            v.wait_ready()
-    finally:
-        vx.START = saved
+    monkeypatch.setattr(vx, "START", time.time() - 120)     # past the 60 s grace; no such process
+    t0 = time.time()
+    with contextlib.redirect_stdout(io.StringIO()) as out:
+        v.wait_ready()
     assert time.time() - t0 < 10 and v.instances[0].down_until > 0
     assert "process has exited" in out.getvalue() and "0 of 1 instance up" in out.getvalue()
 
 
-def test_server_stops_waiting_at_the_deadline():
+def test_server_stops_waiting_at_the_deadline(monkeypatch):
     import engines.voxcpm as vx
     v = make_vox(["http://192.0.2.1:8791"])            # remote (TEST-NET): never given up on by process
-    os.environ["VOXCPM_START_WAIT_S"] = "0"
-    try:
-        t0 = time.time()
-        with contextlib.redirect_stdout(io.StringIO()):
-            v.wait_ready()
-    finally:
-        del os.environ["VOXCPM_START_WAIT_S"]
+    monkeypatch.setenv("VOXCPM_START_WAIT_S", "0")
+    t0 = time.time()
+    with contextlib.redirect_stdout(io.StringIO()):
+        v.wait_ready()
     assert time.time() - t0 < 2 and v.instances[0].down_until > 0
     assert vx.START > 0
 
@@ -440,7 +424,7 @@ def test_fallback_language_waits_briefly():
         assert time.monotonic() - t0 < 0.2                      # down, not busy: waiting can't help
 
 
-def test_waiting_streams_do_not_starve_the_tts_pool():
+def test_waiting_streams_do_not_starve_the_tts_pool(srv, monkeypatch):
     """Regression (2026-09-30 audit, scratchpad poc/starve.py): streams that wait for a
     VoxCPM2 slot must not take the shared TTS pool's workers. They did (send_speech ran
     next() in TTS_POOL): 1 instance, cap 3, 8 workers, 11 Khmer listeners -> the
@@ -448,11 +432,10 @@ def test_waiting_streams_do_not_starve_the_tts_pool():
     listeners got silence, and a Piper sentence for another language waited as long."""
     import asyncio
     from concurrent.futures import ThreadPoolExecutor
-    srv = _server()
     a = FakeService(chunks=10, delay=0.05)                      # a 0.5 s sentence, 10 chunks
     pool = ThreadPoolExecutor(max_workers=8)                    # TTS_POOL's default
-    saved = srv.TTS_POOL
-    srv.TTS_POOL = pool
+    # TTS_POOL lives on pipeline.py (srv.TTS_POOL is a re-export): patch the one the server uses.
+    monkeypatch.setattr(srv.pipeline, "TTS_POOL", pool)
     try:
         v = make_vox([a.url], cap=3)
         v.wait_s = 4.0
@@ -467,7 +450,7 @@ def test_waiting_streams_do_not_starve_the_tts_pool():
         async def other_language():                             # Piper for Spanish, meanwhile
             await asyncio.sleep(0.3)
             t0 = time.monotonic()
-            await asyncio.get_running_loop().run_in_executor(srv.TTS_POOL, time.sleep, 0.05)
+            await asyncio.get_running_loop().run_in_executor(srv.pipeline.TTS_POOL, time.sleep, 0.05)
             return time.monotonic() - t0
 
         async def main():
@@ -484,12 +467,11 @@ def test_waiting_streams_do_not_starve_the_tts_pool():
         assert wall < 3.5, wall                                 # 4 turns of 0.5 s, not VOXCPM_WAIT_S
         assert v.stats()["overflow"] == 0 and _settle(v)
     finally:
-        srv.TTS_POOL = saved
         pool.shutdown(wait=False)
         a.close()
 
 
-def test_stream_releases_its_slot_on_every_exit():
+def test_stream_releases_its_slot_on_every_exit(srv):
     """However a stream ends, its slot is released and its connection closed."""
     closed = []
 
@@ -559,7 +541,6 @@ def test_stream_releases_its_slot_on_every_exit():
         # Through send_speech: the socket fails mid-stream; the sender is cancelled
         # while its stream waits for a slot.
         import asyncio
-        srv = _server()
         asyncio.run(_send_then_fail(srv, v))
         check(v, [0], 1)
         held = v.acquire("ko")
@@ -752,10 +733,8 @@ def test_instance_plan_cli():
 
 # ---------------------------------------------------------------- eSpeak NG and the chains
 
+@pytest.mark.skipif(not shutil.which("espeak-ng"), reason="espeak-ng not installed")
 def test_espeak_output_format():
-    if not shutil.which("espeak-ng"):
-        print("skip test_espeak_output_format: espeak-ng not installed")
-        return
     import numpy as np
     ctx = Context(langs=["fa", "ro", "ko", "km"], options={"espeak": True})
     e = ESpeak(ctx)
@@ -838,9 +817,3 @@ def test_commercial_chains_overflow_to_espeak():
     finally:
         a.close()
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)

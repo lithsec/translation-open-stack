@@ -1,7 +1,9 @@
-"""python3 -m pytest tests/test_stack_config.py  (or just python3 tests/test_stack_config.py; needs Python 3.11+)"""
-import os, sys, tempfile
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "server"))
-import stack_config as c  # noqa: E402
+"""python -m pytest tests/test_stack_config.py  (needs Python 3.11+)"""
+import os
+import sys
+
+import stack_config as c
+from support import ROOT, write_temp as _write
 
 # The tables server.py held inline before languages.toml (2026-09-28). The
 # defaults must reproduce them exactly: that is what the deployed stack runs.
@@ -59,16 +61,6 @@ MODELS_BEFORE = {
     "kokoro": {"repo": "hexgrad/Kokoro-82M", "revision": "f3ff3571791e39611d31c381e3a41a3af07b4987"},
     "voxcpm": {"repo": "openbmb/VoxCPM2", "revision": "32279effe8c19989596f05d353d1447f51d9e915"},
 }
-ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-
-
-def _write(text):
-    fd, path = tempfile.mkstemp(suffix=".toml")
-    with os.fdopen(fd, "w") as f:
-        f.write(text)
-    return path
-
-
 def test_defaults_are_the_deployed_tables():
     assert c.tables(c.DEFAULTS) == BEFORE
 
@@ -79,28 +71,23 @@ def test_shipped_file_equals_defaults():
     assert table == c.DEFAULTS
 
 
-def test_hymt_langs_match_server():
-    import server
-    assert c.HYMT_LANGS == set(server.HYMT_NAMES)
-    assert not (BEFORE["MADLAD_ONLY"] & set(server.HYMT_NAMES))
+def test_hymt_langs_match_server(srv):
+    assert c.HYMT_LANGS == set(srv.HYMT_NAMES)
+    assert not (BEFORE["MADLAD_ONLY"] & set(srv.HYMT_NAMES))
 
 
-def test_absent_file_means_defaults():
-    os.environ.pop("STACK_CONFIG", None)
-    shipped, c.DEFAULT_FILE = c.DEFAULT_FILE, "/nonexistent/languages.toml"
-    try:
+def test_absent_file_means_defaults(monkeypatch):
+    monkeypatch.delenv("STACK_CONFIG", raising=False)
+    with monkeypatch.context() as m:
+        m.setattr(c, "DEFAULT_FILE", "/nonexistent/languages.toml")
         table, src = c.load()
-    finally:
-        c.DEFAULT_FILE = shipped
     assert src == "built-in defaults" and c.tables(table) == BEFORE
+    monkeypatch.setenv("STACK_CONFIG", "/nonexistent/languages.toml")
     try:
-        os.environ["STACK_CONFIG"] = "/nonexistent/languages.toml"
         c.load()
         assert False, "an explicit missing file must fail"
     except FileNotFoundError:
         pass
-    finally:
-        os.environ.pop("STACK_CONFIG", None)
 
 
 def test_override_replaces_one_language():
@@ -139,13 +126,11 @@ def test_shipped_models_equal_defaults():
     assert models == c.MODEL_DEFAULTS
 
 
-def test_models_absent_file_means_defaults():
-    os.environ.pop("STACK_CONFIG", None)
-    shipped, c.DEFAULT_FILE = c.DEFAULT_FILE, "/nonexistent/languages.toml"
-    try:
+def test_models_absent_file_means_defaults(monkeypatch):
+    monkeypatch.delenv("STACK_CONFIG", raising=False)
+    with monkeypatch.context() as m:
+        m.setattr(c, "DEFAULT_FILE", "/nonexistent/languages.toml")
         models, src = c.load_models()
-    finally:
-        c.DEFAULT_FILE = shipped
     assert src == "built-in defaults" and models == MODELS_BEFORE
 
 
@@ -206,7 +191,3 @@ def test_piper_path():
     assert c.piper_path("en_US-lessac-medium") == "en/en_US/lessac/medium/en_US-lessac-medium"
     assert c.piper_path("ja_JP-hi_fi_captain-medium") == "ja/ja_JP/hi_fi_captain/medium/ja_JP-hi_fi_captain-medium"
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"): fn(); print("ok", name)

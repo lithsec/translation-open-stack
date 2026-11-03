@@ -5,30 +5,22 @@ translation step, a price change propagates (in the module and through
 --prices), --json round-trips, and site/build.py uses the same functions.
 Standard library only; no site build.
 
-    python3 tests/test_cost.py        (or python3 -m pytest tests/test_cost.py)
+    python -m pytest tests/test_cost.py
 """
 import copy
-import importlib.util
 import json
 import os
 import subprocess
 import sys
 import tempfile
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
+import support
+from support import ROOT
+
 COST_PY = os.path.join(ROOT, "eval", "tools", "cost.py")
 BUILD_PY = os.path.join(ROOT, "site", "build.py")
 
-
-def _load(path, name):
-    spec = importlib.util.spec_from_file_location(name, path)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-cost = _load(COST_PY, "cost_tool_under_test")
+cost = support.eval_tool("cost")
 
 
 def _close(x, y):
@@ -135,7 +127,7 @@ def test_build_uses_the_same_functions():
     """site/build.py loads eval/tools/cost.py and takes its numbers from
     estimate(), so the page and the script cannot drift; the script is one of
     the build's inputs, so site/check_private.sh scans it."""
-    build = _load(BUILD_PY, "site_build_under_test")
+    build = support.load("site_build_under_test", BUILD_PY)
     assert os.path.samefile(build.COST.__file__, COST_PY)
     assert build.money is build.COST.money
     assert build.INPUTS["cost_tool"] == os.path.relpath(COST_PY, ROOT)
@@ -145,9 +137,3 @@ def test_build_uses_the_same_functions():
     assert "COST.estimate(" in src
     assert 'src_link(INPUTS["cost_tool"])' in src
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)

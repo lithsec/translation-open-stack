@@ -1,20 +1,23 @@
-"""python3 tests/test_editions.py  (needs Python 3.11+; no GPU, no models)
+"""python -m pytest tests/test_editions.py  (needs Python 3.11+; no GPU, no models)
 
 EDITION=both: one server for Lithos Talk (commercial) and Live Translation
-(non-profit). Each connection gets the voice set of the edition its token
-names; recognisers and translators are shared; a voice configured identically
-in both editions is one engine; and a commercial connection can never reach a
-non-commercial voice."""
-import os, sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "server"))
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import engines  # noqa: E402
-import licences  # noqa: E402
-import stack_auth  # noqa: E402
-import stack_config as c  # noqa: E402
-from engines.base import Context  # noqa: E402
-from engines.manager import EngineSet  # noqa: E402
-from test_engines import FakeHyMT, FakeMadlad, FakeOmni, FakeWhisper  # noqa: E402
+(non-profit). Each connection gets the engine set of the edition its token
+names: its voices and its translation routing. Recognisers are shared; a
+translator or voice configured identically in both editions is one engine; and
+a commercial connection can never reach a non-commercial voice or a served
+model its edition left out (MiLMMT-46 for Lao)."""
+import os
+from concurrent.futures import ThreadPoolExecutor
+
+import engines
+import licences
+import stack_auth
+import stack_config as c
+from engines import llmmt
+from engines.base import Context
+from engines.manager import EngineSet
+import support
+from test_engines import FakeHyMT, FakeMadlad, FakeOmni, FakeWhisper
 
 KEY = "k" * 32
 LANGS = ["en", "es", "ko", "ht", "km"]
@@ -91,7 +94,8 @@ def _check_connection_edition(ce):
 def test_both_sets_share_recognisers_translators_and_identical_voices():
     np_set, c_set, names = _sets()
     assert c_set.engines["recognizer"] is np_set.engines["recognizer"]
-    assert c_set.engines["translator"] is np_set.engines["translator"]
+    for name, eng in np_set.engines["translator"].items():   # no llmmt here: every translator is shared
+        assert c_set.engines["translator"][name] is eng, name
     assert "kokoro" in names and "espeak" in names
     assert "piper" not in names and "voxcpm" not in names and "mms" not in names
     assert c_set.engines["voice"]["kokoro"] is np_set.engines["voice"]["kokoro"]
@@ -136,6 +140,181 @@ def test_share_voices_cannot_smuggle_in_a_noncommercial_engine():
     assert "mms" not in c_set.engines["voice"]
 
 
+# ---------------------------------------------------------------- translation per edition
+
+GEMMA = "google/gemma-4-31B-it-qat-w4a16-ct"
+MILMMT = "xiaomi-research/MiLMMT-46-12B-v0.1"
+T_LANGS = ["en", "es", "ht", "lo"]
+
+
+class Loads:
+    """Counts each translator's loads across both sets: a shared model loads once."""
+    n = {}
+
+
+def _counted(cls):
+    class Counted(cls):
+        def load(self):
+            Loads.n[self.name] = Loads.n.get(self.name, 0) + 1
+            super().load()
+    Counted.__name__ = "Counted" + cls.__name__
+    return Counted
+
+
+class ServedLlm(llmmt.LlmMT):
+    """The real llmmt engine (routing, server_for, the per-target batching) with every server up and the
+    HTTP call replaced by a record of the model it went to."""
+    sent = []
+
+    def load(self):
+        Loads.n[self.name] = Loads.n.get(self.name, 0) + 1
+        self.pool = ThreadPoolExecutor(max_workers=4)
+        self._servers = self._configured()
+        self._checks = False
+        self._up = {s: True for s in self._servers}
+        self.available = True
+
+    def call(self, server, sentence, src, tgt, context=None):
+        ServedLlm.sent.append((self.ctx.options["edition"], server[2], src, tgt))
+        return f"{server[2].split('/')[0]}({sentence})"
+
+    def ask(self, src, tgt, prompt):
+        server = self.server_for(src, tgt)
+        ServedLlm.sent.append((self.ctx.options["edition"], server[2], src, tgt))
+        return "agreed"
+
+
+def _translation_sets(reviews=None):
+    """(nonprofit set, commercial set) as server.py builds them for EDITION=both, with fake decodes and
+    the real llmmt routing; translators loaded the way Pipeline loads them (first set, then the second)."""
+    import copy
+    Loads.n, ServedLlm.sent = {}, []
+
+    def ctx(ed):
+        table = copy.deepcopy(c.DEFAULTS)
+        return Context(device="cpu", models=c.MODEL_DEFAULTS, table=table, tables=c.tables(table),
+                       langs=T_LANGS, srcs=T_LANGS, options={"edition": ed, "licence_review": reviews or {}})
+    classes = {"recognizer": {"whisper": _counted(FakeWhisper), "omni": _counted(FakeOmni)},
+               "translator": {"madlad": _counted(FakeMadlad), "hymt": _counted(FakeHyMT), "llmmt": ServedLlm},
+               "voice": {}}
+    np_set = EngineSet(ctx("nonprofit"), classes=classes)
+    np_set.load(["whisper", "omni", "madlad", "hymt", "llmmt"])
+    c_set = EngineSet(ctx("commercial"), classes=classes, share_from=np_set, share_voices=[])
+    c_set.load(["whisper", "omni", "madlad", "hymt", "llmmt"])
+    return np_set, c_set
+
+
+def _served(vs, text, tgt, src):
+    """(translation, [models the llmmt calls went to]) for src -> tgt in this set."""
+    ServedLlm.sent = []
+    out = vs.translate_batch(text, [tgt], src)[0]
+    return out, [m for _, m, _, _ in ServedLlm.sent]
+
+
+def test_each_edition_translates_by_its_own_table():
+    np_set, c_set = _translation_sets()
+    # Lao names two servers, MiLMMT-46 (❓) then Gemma 4 (✅). Nonprofit: MiLMMT both ways. Commercial leaves
+    # MiLMMT's line out, so Lao's next line, Gemma, serves both ways (not MADLAD into Lao, Hy-MT2 into English).
+    for ed_set in (np_set, c_set):
+        assert ed_set.translator_for("lo", "en").name == "llmmt", ed_set.edition
+        assert ed_set.translator_for("en", "lo").name == "llmmt", ed_set.edition
+    assert _served(np_set, "Hello.", "lo", "en")[1] == [MILMMT]
+    assert _served(np_set, "ສະບາຍດີ.", "en", "lo")[1] == [MILMMT]
+    out, sent = _served(c_set, "Hello.", "lo", "en")
+    assert sent == [GEMMA] and out.startswith("google("), out
+    assert _served(c_set, "ສະບາຍດີ.", "en", "lo")[1] == [GEMMA]
+    # A Lao speaker heard in a Gemma language: the pair goes to Lao's servers (the source side's), the first
+    # its edition has and that answers: MiLMMT in nonprofit, Gemma in commercial.
+    for tgt in ("es", "ht"):
+        assert np_set.translator_for(tgt, "lo").name == "llmmt" and c_set.translator_for(tgt, "lo").name == "llmmt"
+        assert _served(np_set, "ສະບາຍດີ.", tgt, "lo")[1] == [MILMMT], tgt
+        assert _served(c_set, "ສະບາຍດີ.", tgt, "lo")[1] == [GEMMA], tgt
+    # Into Lao from a Gemma language: the source's own line (Gemma) in both, as with one Lao line.
+    for ed_set in (np_set, c_set):
+        assert _served(ed_set, "Hola.", "lo", "es")[1] == [GEMMA], ed_set.edition
+    # Gemma directions: llmmt in both editions.
+    for ed_set in (np_set, c_set):
+        for src, tgt in (("en", "es"), ("en", "ht"), ("ht", "en"), ("es", "ht")):
+            assert ed_set.translator_for(tgt, src).name == "llmmt", (ed_set.edition, src, tgt)
+            assert _served(ed_set, "Hello.", tgt, src)[1] == [GEMMA], (ed_set.edition, src, tgt)
+    # Nothing commercial ever reached MiLMMT, through any path: its client does not even know the server.
+    c_llm = c_set.engines["translator"]["llmmt"]
+    assert not any(s[2] == MILMMT for a in T_LANGS for b in T_LANGS for s in c_llm.servers_for(a, b))
+    assert c_llm.servers_for("lo", "en") == [llmmt.parse_server(c.GEMMA)]
+
+
+def test_nonprofit_lao_uses_gemma_while_milmmt_is_down():
+    """A nonprofit pod with Gemma only (start-llmmt.sh's auto): Lao's second server line serves, not MADLAD."""
+    np_set, _ = _translation_sets()
+    llm = np_set.engines["translator"]["llmmt"]
+    llm._up[llmmt.parse_server(c.MILMMT)] = False
+    for src, tgt in (("en", "lo"), ("lo", "en"), ("lo", "es")):
+        assert np_set.translator_for(tgt, src).name == "llmmt", (src, tgt)
+        assert _served(np_set, "Hello.", tgt, src)[1] == [GEMMA], (src, tgt)
+    llm._up[llmmt.parse_server(c.GEMMA)] = False          # neither answers: the next translator
+    assert np_set.translator_for("lo", "en").name == "madlad"
+    assert np_set.translator_for("en", "lo").name == "hymt"
+
+
+def test_translators_and_recognisers_are_shared_not_loaded_twice():
+    np_set, c_set = _translation_sets()
+    assert c_set.engines["recognizer"] is np_set.engines["recognizer"]
+    for name in ("madlad", "hymt"):
+        assert c_set.engines["translator"][name] is np_set.engines["translator"][name], name
+    # llmmt holds per-language server lines and the editions' differ (Lao's): its own client (no weights).
+    assert c_set.engines["translator"]["llmmt"] is not np_set.engines["translator"]["llmmt"]
+    assert Loads.n == {"whisper": 1, "omni": 1, "madlad": 1, "hymt": 1, "llmmt": 2}, Loads.n
+    # The commercial client knows only the servers its table names.
+    assert {s[2] for s in c_set.engines["translator"]["llmmt"]._servers} == {GEMMA}
+    assert {s[2] for s in np_set.engines["translator"]["llmmt"]._servers} == {GEMMA, MILMMT}
+    # A reviewed MiLMMT-46 makes the tables agree: one llmmt for both, and Lao on it in both.
+    np_set, c_set = _translation_sets({"llmmt": "reviewed"})
+    assert c_set.engines["translator"]["llmmt"] is np_set.engines["translator"]["llmmt"]
+    assert Loads.n["llmmt"] == 1
+    assert _served(c_set, "Hello.", "lo", "en")[1] == [MILMMT]
+
+
+def test_recognition_is_the_same_in_both_editions():
+    """What makes sharing the recognisers correct: no language's recognition differs by edition."""
+    nonprofit = c.apply_edition(c.DEFAULTS, "nonprofit")[0]
+    commercial = c.apply_edition(c.DEFAULTS, "commercial")[0]
+    for lang in set(nonprofit) | set(commercial):
+        a, b = nonprofit.get(lang, {}), commercial.get(lang, {})
+        for key in ["asr"] + list(engines.registry()["recognizer"]):
+            assert a.get(key) == b.get(key), (lang, key)
+
+
+def _pipeline(np_set, c_set):
+    """A Pipeline as EDITION=both builds it, without loading anything."""
+    server = support.stack_server()
+    pipe = server.Pipeline.__new__(server.Pipeline)
+    pipe.edition, pipe.editions, pipe.default_edition = "both", ["nonprofit", "commercial"], "commercial"
+    pipe.engines = np_set
+    pipe.voice_sets = {"nonprofit": np_set, "commercial": c_set}
+    return pipe
+
+
+def test_the_pipeline_translates_in_the_connections_edition():
+    pipe = _pipeline(*_translation_sets())
+    ServedLlm.sent = []
+    pipe.translate_batch("Hello.", ["lo", "es"], "en", None, "nonprofit")
+    assert sorted(m for _, m, _, _ in ServedLlm.sent) == sorted([MILMMT, GEMMA])
+    for edition in ("commercial", None):   # None: a token naming no edition, served as commercial
+        ServedLlm.sent = []
+        out = pipe.translate_batch("Hello.", ["lo", "es"], "en", None, edition)
+        assert [m for _, m, _, _ in ServedLlm.sent] == [GEMMA, GEMMA] and out[0].startswith("google("), out
+        ServedLlm.sent = []
+        pipe.translate("ສະບາຍດີ.", "es", "lo", None, edition)
+        assert [m for _, m, _, _ in ServedLlm.sent] == [GEMMA]
+    # Simultaneous mode's agree policy asks the llmmt client of the connection's edition (en->es: Gemma,
+    # a chat server, in both).
+    for edition in ("nonprofit", "commercial"):
+        ServedLlm.sent = []
+        turn = pipe.agree_turn("en", "es", None, edition)
+        assert turn is not None
+        assert turn.ask("prompt") == "agreed" and ServedLlm.sent == [(edition, GEMMA, "en", "es")], edition
+
+
 def test_both_edition_in_the_cli_and_plan():
     assert c.editions_of("both") == ["nonprofit", "commercial"]
     assert c.editions_of("commercial") == ["commercial"]
@@ -143,9 +322,3 @@ def test_both_edition_in_the_cli_and_plan():
     plan = c.voxcpm_plan("both", [("0", 49000), ("1", 24000)])
     assert len(plan["instances"]) == 2                 # sized as commercial: auto
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_"):
-            fn()
-            print("ok", name)

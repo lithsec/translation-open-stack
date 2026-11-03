@@ -4,24 +4,22 @@ without models: the stability rule, the pass scheduler, dips on synthetic
 audio, and the /listen protocol with the flag off and on, driven by the fake
 socket and fake models of test_omni_stt.py and through a real websocket.
 
-    python3 tests/test_omni_stt_partials.py   (or python3 -m pytest tests/test_omni_stt_partials.py)
+    python -m pytest tests/test_omni_stt_partials.py
 
 Needs numpy and scipy (server.py's imports) and websockets.
 """
 import asyncio
 import json
 import os
-import sys
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.dirname(HERE)
-sys.path.insert(0, os.path.join(ROOT, "services", "omni-stt"))
-sys.path.insert(0, HERE)
-import numpy as np  # noqa: E402
-import dips  # noqa: E402
-import partials  # noqa: E402
-import server as stt  # noqa: E402
-from test_omni_stt import FakeModels, FakeWS, _fake_vad, _speech  # noqa: E402
+import numpy as np
+
+import partials
+import support
+from test_omni_stt import FakeModels, FakeWS, _speech
+
+stt = support.omni_stt()
+dips = support.omni_stt_module("dips")      # by path: eval/tools has a dips.py too
 
 
 # ---------------------------------------------------------------- the stability rule
@@ -203,20 +201,20 @@ def _with_flag(enabled, interval_ms, fn):
 
 
 def _run_fake(enabled, interval_ms=800):
-    _fake_vad()
+    """(The caller asks for the fake_vad fixture.)"""
     models = FakeModels()
     ws = FakeWS("/listen?langs=ht,en", _speech(0.3) + _speech(0.6) + [json.dumps({"type": "flush"})])
     _with_flag(enabled, interval_ms, lambda: asyncio.run(stt.handle(ws, models)))
     return ws.sent
 
 
-def test_flag_off_sends_no_partials():
+def test_flag_off_sends_no_partials(fake_vad):
     sent = _run_fake(False)
     kinds = [m["type"] for m in sent]
     assert kinds == ["hello", "language", "inputTranscript", "language", "inputTranscript", "flushed"], kinds
 
 
-def test_flag_on_sends_partials_then_stable_before_the_final():
+def test_flag_on_sends_partials_then_stable_before_the_final(fake_vad):
     off = _run_fake(False)
     sent = _run_fake(True, 800)
     kinds = [m["type"] for m in sent]
@@ -255,9 +253,8 @@ def _pieces(sent):
     return out
 
 
-def test_flag_on_transcribe_subset_and_one_language():
+def test_flag_on_transcribe_subset_and_one_language(fake_vad):
     # The language the pass guesses is not one this connection transcribes: no partial for it.
-    _fake_vad()
     ws = FakeWS("/listen?langs=ht,en&transcribe=ht", _speech(0.6) + _speech(0.3) + [json.dumps({"type": "flush"})])
     _with_flag(True, 800, lambda: asyncio.run(stt.handle(ws, FakeModels())))
     kinds = [m["type"] for m in ws.sent]
@@ -274,10 +271,9 @@ def test_flag_on_transcribe_subset_and_one_language():
     assert ps and all(m["confidence"] == 1.0 and m["lang"] == "ht" for m in ps)
 
 
-def test_flag_on_through_a_real_socket():
+def test_flag_on_through_a_real_socket(fake_vad):
     """The same through websockets: messages arrive in order on the wire."""
     import websockets
-    _fake_vad()
     models = FakeModels()
     msgs = _speech(0.3) + [json.dumps({"type": "flush"})]
 
@@ -344,9 +340,3 @@ def test_a_pass_in_flight_is_dropped_when_the_piece_ends():
         ps.close()
     asyncio.run(run())
 
-
-if __name__ == "__main__":
-    for name, fn in list(globals().items()):
-        if name.startswith("test_") and callable(fn):
-            fn()
-            print(f"ok  {name}")
