@@ -1,0 +1,27 @@
+== 23:57:19 start-llmmt (LLMMT=auto, as runpod-start.sh: profile-env first)
+profile: cuda-80gb
+OMNI_LARGE=1
+== llmmt: gemma on GPU 0 (95 GB, vLLM share 0.38); log /workspace/llmmt.log
+== 23:57:20 apt
+W: https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
+debconf: delaying package configuration, since apt-utils is not installed
+== 23:57:27 clips
+== 23:57:27 fetch-voices
+  ro: fetching ro_RO-mihai-medium.onnx (@ c10ece1aade4)
+  ro: fetching ro_RO-mihai-medium.onnx.json (@ c10ece1aade4)
+voices in /workspace/voices: 8
+== 23:57:38 prepare-mt (MADLAD=3b)
+`torch_dtype` is deprecated! Use `dtype` instead!
+== Hy-MT2 7B -> 4-bit NF4
+The tokenizer you are loading from '/root/mt-build/hf/hub/models--tencent--Hy-MT2-7B/snapshots/9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+4.4G	/workspace/mt/hymt2-7b-nf4
+Done.
+== 23:59:12 prepare-voices
+  reference voice ru.wav
+  reference voice sw.wav
+  reference voice tl.wav
+  reference voice tr.wav
+  reference voice vi.wav
+set a build exit 0
+set b build exit 0
+== 00:06:44 setup done

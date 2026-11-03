@@ -1,0 +1,83 @@
+19:40:24 stack up after ~960 s (commercial)
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) answering — de,es,fr,ht,ja,km,pt,ru use it
+19:40:29 drr_a en-de
+en-de: 25 utterances, 215 audio msgs, err=-
+19:43:53 drr_a de-en
+de-en: 21 utterances, 144 audio msgs, err=-
+19:47:43 drr_a en-ru
+en-ru: 25 utterances, 982 audio msgs, err=-
+19:51:09 drr_a ru-en
+ru-en: 25 utterances, 156 audio msgs, err=-
+19:54:58 drr_a en-ro
+en-ro: 25 utterances, 149 audio msgs, err=-
+19:58:23 drr_a ro-en
+ro-en: 26 utterances, 146 audio msgs, err=-
+20:02:15 drr_b en-de
+en-de: 25 utterances, 198 audio msgs, err=-
+20:05:14 drr_b de-en
+de-en: 23 utterances, 139 audio msgs, err=-
+20:08:57 drr_b en-ru
+en-ru: 25 utterances, 914 audio msgs, err=-
+20:11:56 drr_b ru-en
+ru-en: 25 utterances, 143 audio msgs, err=-
+20:15:51 drr_b en-ro
+en-ro: 25 utterances, 132 audio msgs, err=-
+20:18:50 drr_b ro-en
+ro-en: 27 utterances, 138 audio msgs, err=-
+20:22:33 a en-es
+en-es: 23 utterances, 122 audio msgs, err=-
+20:25:32 a es-en
+es-en: 26 utterances, 148 audio msgs, err=-
+20:29:10 a en-ja
+en-ja: 23 utterances, 147 audio msgs, err=-
+20:32:08 a ja-en
+ja-en: 21 utterances, 140 audio msgs, err=-
+20:36:30 a en-fr
+en-fr: 23 utterances, 128 audio msgs, err=-
+20:39:29 a fr-en
+fr-en: 23 utterances, 135 audio msgs, err=-
+20:42:39 a en-km
+en-km: 23 utterances, 966 audio msgs, err=-
+20:45:39 a km-en
+km-en: 24 utterances, 145 audio msgs, err=-
+20:49:54 a ht-en
+ht-en: 21 utterances, 122 audio msgs, err=-
+20:53:46 a en-ht
+en-ht: 23 utterances, 148 audio msgs, err=-
+20:56:45 a lo-en
+lo-en: 27 utterances, 134 audio msgs, err=-
+21:01:03 a en-lo
+en-lo: 23 utterances, 1091 audio msgs, err=-
+21:04:03 a en-pt
+en-pt: 23 utterances, 117 audio msgs, err=-
+21:07:02 a pt-en
+pt-en: 28 utterances, 136 audio msgs, err=-
+21:10:45 b en-es
+en-es: 23 utterances, 117 audio msgs, err=-
+21:13:46 b es-en
+es-en: 24 utterances, 141 audio msgs, err=-
+21:17:14 b en-ja
+en-ja: 23 utterances, 130 audio msgs, err=-
+21:20:14 b ja-en
+ja-en: 20 utterances, 140 audio msgs, err=-
+21:24:06 b en-fr
+en-fr: 23 utterances, 124 audio msgs, err=-
+21:27:07 b fr-en
+fr-en: 25 utterances, 134 audio msgs, err=-
+21:30:12 b en-km
+en-km: 23 utterances, 884 audio msgs, err=-
+21:33:14 b km-en
+km-en: 24 utterances, 143 audio msgs, err=-
+21:37:49 b ht-en
+ht-en: 23 utterances, 121 audio msgs, err=-
+21:42:03 b en-ht
+en-ht: 23 utterances, 142 audio msgs, err=-
+21:45:04 b lo-en
+lo-en: 26 utterances, 135 audio msgs, err=-
+21:49:15 b en-lo
+en-lo: 23 utterances, 1072 audio msgs, err=-
+21:52:17 b en-pt
+en-pt: 23 utterances, 115 audio msgs, err=-
+21:55:18 b pt-en
+pt-en: 27 utterances, 130 audio msgs, err=-
+21:59:03 done C

@@ -1,0 +1,71 @@
+config: /Users/sstone/dev/translation-open-stack/languages.toml
+devices: default=auto
+edition: commercial
+  ar  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: voxcpm ✅ > espeak ⚠️ (last resort)
+  bn  asr=omni:ben_Beng  ✅  mt=hymt   ✅  voice: piper bn_BD-google-medium ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ bn voice piper bn_BD-google-medium: CC-BY-SA 4.0: credit Google's OpenSLR 37 Bengali corpus and keep the CMU notice
+  de  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: piper de_DE-mls-medium ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ de voice piper de_DE-mls-medium: CC-BY 4.0: credit Multilingual LibriSpeech (Pratap et al., 2020)
+  en  asr=whisper        ✅  mt=hymt   ✅  voice: kokoro a:am_michael ✅ > piper en_US-norman-medium ✅ > espeak ⚠️ (last resort)
+  es  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: kokoro e:ef_dora ✅ > piper es_ES-carlfm-x_low ✅ > espeak ⚠️ (last resort)
+  fa  asr=omni:pes_Arab  ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: espeak ⚠️
+        not loaded in commercial: piper fa_IR-gyro-medium ❓ "See URL" (a GitHub profile); to allow it after your own review: [licence_review] "fa_IR-gyro-medium" = "reviewed <date> by <org>: <why>"
+  fr  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: kokoro f:ff_siwis ✅ > piper fr_FR-mls-medium ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ fr voice piper fr_FR-mls-medium: CC-BY 4.0: credit Multilingual LibriSpeech (Pratap et al., 2020)
+  hi  asr=omni:hin_Deva  ✅  mt=hymt   ✅  voice: kokoro h:hf_alpha ✅ > espeak ⚠️ (last resort)
+        not loaded in commercial: piper hi_IN-rohan-medium ❓ IIT Madras Indic TTS licence (unverified); to allow it after your own review: [licence_review] "hi_IN-rohan-medium" = "reviewed <date> by <org>: <why>"
+  ht  asr=omni:hat_Latn  ✅  mt=llmmt>madlad (to en: llmmt>hymt) ✅  voice: coqui multilingual-tts/VITS-OpenBible-Haitian-Creole ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ ht voice coqui multilingual-tts/VITS-OpenBible-Haitian-Creole: CC-BY-SA 4.0: credit multilingual-tts / Open Bible; share adaptations of the model under CC-BY-SA
+        not loaded in commercial: mms facebook/mms-tts-hat ⛔ CC-BY-NC-4.0
+  id  asr=whisper        ✅  mt=hymt   ✅  voice: voxcpm ✅ > espeak ⚠️ (last resort)
+  it  asr=whisper        ✅  mt=hymt   ✅  voice: kokoro i:if_sara ✅ > piper it_IT-serena-high ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ it voice piper it_IT-serena-high: CC-BY 4.0: credit the serena-synthetic-it-27h dataset (committa)
+  ja  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: kokoro j:jf_alpha ✅
+        not loaded in commercial: piper ja_JP-hi_fi_captain-medium ⛔ CC-BY-NC-SA 4.0 (Hi-Fi-CAPTAIN)
+  km  asr=omni:khm_Khmr  ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: voxcpm ✅
+        not loaded in commercial: mms facebook/mms-tts-khm ⛔ CC-BY-NC-4.0
+  ko  asr=whisper        ✅  mt=hymt   ✅  voice: voxcpm ✅ > espeak ⚠️ (last resort)
+  lo  asr=omni:lao_Laoo  ✅  mt=madlad (to en: hymt) ✅  voice: voxcpm ✅
+        not loaded in commercial: translator llmmt xiaomi-research/MiLMMT-46-12B-v0.1 ❓ Gemma Terms of Use (restricted) (its directions use the next translator); to allow it after your own review: [licence_review] "xiaomi-research/MiLMMT-46-12B-v0.1" = "reviewed <date> by <org>: <why>"
+        not loaded in commercial: mms facebook/mms-tts-lao ⛔ CC-BY-NC-4.0
+  pt  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: kokoro p:pf_dora ✅ > espeak ⚠️ (last resort)
+        not loaded in commercial: piper pt_BR-faber-medium ❓ CC0; to allow it after your own review: [licence_review] "pt_BR-faber-medium" = "reviewed <date> by <org>: <why>"
+  ro  asr=omni:ron_Latn  ✅  mt=madlad ✅  voice: espeak ⚠️
+        not loaded in commercial: piper ro_RO-mihai-medium ❓ CC0; to allow it after your own review: [licence_review] "ro_RO-mihai-medium" = "reviewed <date> by <org>: <why>"
+  ru  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: voxcpm ✅ > espeak ⚠️ (last resort)
+  sw  asr=omni:swh_Latn  ✅  mt=llmmt>madlad ✅  voice: voxcpm ✅ > espeak ⚠️ (last resort)
+  tl  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: voxcpm ✅
+        not loaded in commercial: mms facebook/mms-tts-tgl ⛔ CC-BY-NC-4.0
+  tr  asr=whisper        ✅  mt=hymt   ✅  voice: voxcpm ✅ > espeak ⚠️ (last resort)
+  uk  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: piper uk_UA-ukrainian_tts-medium ✅ > espeak ⚠️ (last resort)
+  ur  asr=omni:urd_Arab  ✅  mt=hymt   ✅  voice: piper ur_PK-aegis_female-medium ✅ > espeak ⚠️ (last resort)
+  vi  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: voxcpm ✅ > espeak ⚠️ (last resort)
+  zh  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: kokoro z:zf_xiaobei ✅ > espeak ⚠️ (last resort)
+        not loaded in commercial: piper zh_CN-huayan-medium ❓ "Unknown" (HuaYan_TTS, repository gone); to allow it after your own review: [licence_review] "zh_CN-huayan-medium" = "reviewed <date> by <org>: <why>"
+models:
+  whisper     ✅ MIT            model=large-v3  multi_model=(same as model)  multi_revision=(none)  revision=edaa852ec7e145841d8ffdb056a99866b5f0a478
+  omnilingual ✅ Apache-2.0     card=omniASR_LLM_300M
+  omnilingual_large ✅ Apache-2.0     card=omniASR_LLM_7B
+  lid         ✅ Apache-2.0     repo=speechbrain/lang-id-voxlingua107-ecapa  revision=0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9
+  vad         ✅ MIT            repo=snakers4/silero-vad  ref=5cd7945676eb32225748052e2e6a0580e4686a08
+  hymt        ✅ Apache-2.0     repo=tencent/Hy-MT2-7B  revision=9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223
+  madlad      ✅ Apache-2.0     repo=google/madlad400-7b-mt  revision=1ff63ce7ddd571a69d45cad9672c553428419671
+  madlad3b    ✅ Apache-2.0     repo=google/madlad400-3b-mt  revision=fa184c675da0b5c9e1c8694fccd4e12e2d422094
+  kokoro      ✅ Apache-2.0     repo=hexgrad/Kokoro-82M  revision=f3ff3571791e39611d31c381e3a41a3af07b4987
+  voxcpm      ✅ Apache-2.0     repo=openbmb/VoxCPM2  revision=32279effe8c19989596f05d353d1447f51d9e915
+voices at capacity:
+  a chain is tried in order: when VoxCPM2 is at capacity (every instance at its limit) or down, the sentence waits briefly (VOXCPM_QUEUE_S, 2 s) for a free instance, then goes to the next voice (languages with no voice after VoxCPM2 wait up to VOXCPM_WAIT_S, 15 s); eSpeak NG (last resort) ends every chain it speaks, if espeak-ng is installed
+  VoxCPM2 speaks 10 languages (ar, id, km, ko, lo, ru, sw, tl, tr, vi); one instance makes ~2-3 real-time voices, and takes up to 1 sentences at once (VOXCPM_MAX_INFLIGHT)
+  VoxCPM2 instances: auto (the commercial default): one on the main GPU plus one on each other GPU with ≥ 10 GB, up to 4 — depends on the GPUs at start (VOXCPM_INSTANCES, VOXCPM_GPUS)
+summary (commercial):
+  text only: none
+  eSpeak NG only (robotic, better than text): fa, ro
+  attribution / share-alike you must honour (e.g. on an About screen):
+    - bn piper bn_BD-google-medium: CC-BY-SA 4.0: credit Google's OpenSLR 37 Bengali corpus and keep the CMU notice
+    - de piper de_DE-mls-medium: CC-BY 4.0: credit Multilingual LibriSpeech (Pratap et al., 2020)
+    - fr piper fr_FR-mls-medium: CC-BY 4.0: credit Multilingual LibriSpeech (Pratap et al., 2020)
+    - ht coqui multilingual-tts/VITS-OpenBible-Haitian-Creole: CC-BY-SA 4.0: credit multilingual-tts / Open Bible; share adaptations of the model under CC-BY-SA
+    - it piper it_IT-serena-high: CC-BY 4.0: credit the serena-synthetic-it-27h dataset (committa)
+  deployment-wide, 21 languages: espeak: GPL-3.0: nothing to do for running the stack or for the audio; if you distribute the image or a volume, include espeak-ng's licence and its source (docs/licences.md §8)
+  libraries: espeak-ng, piper-tts and phonemizer-fork are GPL-3.0, coqui-tts MPL-2.0 — no duty for running the stack as a service; if you distribute the image or a volume, follow GPL-3.0 for them (docs/licences.md §8)
+engines: recognizer omni, whisper; translator echo, hymt, llmmt, madlad; voice coqui, cosyvoice, espeak, kokoro, mms, piper, voxcpm

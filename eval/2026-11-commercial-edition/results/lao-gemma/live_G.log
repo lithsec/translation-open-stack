@@ -1,0 +1,22 @@
+00:18:48 stack up after ~130 s (commercial)
+        lo translator llmmt: google/gemma-4-31B-it-qat-w4a16-ct ✅
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) not answering — de,es,fr,ht,ja,km,lo,pt,ru use their next server line or translator (checking every 30 s)
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) answering — de,es,fr,ht,ja,km,lo,pt,ru use it
+00:24:48 a lo-en
+lo-en: 27 utterances, 141 audio msgs, err=-
+00:29:07 a en-lo
+en-lo: 23 utterances, 1182 audio msgs, err=-
+00:32:08 b lo-en
+lo-en: 26 utterances, 141 audio msgs, err=-
+00:36:19 b en-lo
+en-lo: 23 utterances, 1123 audio msgs, err=-
+00:39:26 done G
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) not answering — de,es,fr,ht,ja,km,lo,pt,ru use their next server line or translator (checking every 30 s)
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) answering — de,es,fr,ht,ja,km,lo,pt,ru use it
+[stack] dropped short noise (p=0.95): Thank you.
+trimmed 4
+lo-en: utt 27 CER 0.182 stop->first {'p50': 1663, 'p90': 2572, 'n': 19} tail 1863 start->first 9364 missing 1 stage 0.058/0.34 gpu 77557
+en-lo: utt 23 CER 0.084 stop->first {'p50': 1624, 'p90': 2005, 'n': 20} tail 1666 start->first 7134 missing 0 stage 0.022/0.8 gpu 78239
+lo-en: utt 26 CER 0.122 stop->first {'p50': 1626, 'p90': 2259, 'n': 20} tail 1938 start->first 9771 missing 0 stage 0.053/0.34 gpu 78005
+en-lo: utt 23 CER 0.05 stop->first {'p50': 1448, 'p90': 2054, 'n': 20} tail 1457 start->first 7232 missing 0 stage 0.021/0.78 gpu 77769
+00:39:28 all done

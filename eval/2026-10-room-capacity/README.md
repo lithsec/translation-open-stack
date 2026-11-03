@@ -18,7 +18,7 @@ speaker?
 - **What is measured** (`analyze.py`):
   - **Added delay:** how much later each turn's first audio arrives than with one room. The same audio cuts into the
     same turns at every load (23 turns for 20 sentences), so this compares like with like. With one room the stack
-    speaks about 1.4–1.9 s after the speaker stops (`../2026-10-agree-live`, `../2026-10-thought-live`).
+    speaks about 1.4–1.9 s after the speaker stops (`../2026-10-agree-live`).
   - **Backlog:** how long after the clip ends the last audio arrives. It stays near a sentence's length when the stack
     keeps up and grows when it falls behind.
   - **Dropped:** the stack's `pipeline behind, dropped` lines. A room holds at most a few utterances in its queue and

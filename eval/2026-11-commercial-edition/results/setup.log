@@ -1,0 +1,46 @@
+== 19:19:30 apt
+== 19:19:48 fetch-voices
+  pt: no Piper voice configured — Kokoro, VoxCPM2, Coqui, MMS or text
+  ja: no Piper voice configured — Kokoro, VoxCPM2, Coqui, MMS or text
+  km: no Piper voice configured — Kokoro, VoxCPM2, Coqui, MMS or text
+  lo: no Piper voice configured — Kokoro, VoxCPM2, Coqui, MMS or text
+  ht: no Piper voice configured — Kokoro, VoxCPM2, Coqui, MMS or text
+  ru: no Piper voice configured — Kokoro, VoxCPM2, Coqui, MMS or text
+  ro: no Piper voice configured — Kokoro, VoxCPM2, Coqui, MMS or text
+  en: fetching en_US-norman-medium.onnx (@ c10ece1aade4)
+  en: fetching en_US-norman-medium.onnx.json (@ c10ece1aade4)
+  es: fetching es_ES-carlfm-x_low.onnx (@ c10ece1aade4)
+  es: fetching es_ES-carlfm-x_low.onnx.json (@ c10ece1aade4)
+  fr: fetching fr_FR-mls-medium.onnx (@ c10ece1aade4)
+  fr: fetching fr_FR-mls-medium.onnx.json (@ c10ece1aade4)
+  de: fetching de_DE-mls-medium.onnx (@ c10ece1aade4)
+  de: fetching de_DE-mls-medium.onnx.json (@ c10ece1aade4)
+voices in /workspace/voices: 4
+== 19:19:56 prepare-mt (MADLAD=3b)
+profile: cuda-80gb
+== MADLAD-400 3B -> CTranslate2 int8
+Fetching 8 files:   0%|          | 0/8 [00:00<?, ?it/s]Fetching 8 files:  12%|█▎        | 1/8 [00:00<00:02,  3.20it/s]Fetching 8 files:  75%|███████▌  | 6/8 [00:00<00:00,  6.94it/s]Fetching 8 files: 100%|██████████| 8/8 [00:19<00:00,  2.42s/it]
+`torch_dtype` is deprecated! Use `dtype` instead!
+== Hy-MT2 7B -> 4-bit NF4
+Fetching 55 files:   0%|          | 0/55 [00:00<?, ?it/s]Fetching 55 files:  15%|█▍        | 8/55 [00:00<00:02, 20.05it/s]Fetching 55 files:  29%|██▉       | 16/55 [00:00<00:01, 23.46it/s]Fetching 55 files:  44%|████▎     | 24/55 [00:00<00:01, 25.23it/s]Fetching 55 files:  58%|█████▊    | 32/55 [00:01<00:00, 28.61it/s]Fetching 55 files:  73%|███████▎  | 40/55 [00:01<00:00, 30.97it/s]Fetching 55 files:  87%|████████▋ | 48/55 [00:01<00:00, 31.84it/s]Fetching 55 files:  95%|█████████▍| 52/55 [00:20<00:01,  2.60it/s]Fetching 55 files:  96%|█████████▋| 53/55 [00:25<00:00,  2.06it/s]Fetching 55 files:  98%|█████████▊| 54/55 [00:25<00:00,  2.08it/s]Fetching 55 files: 100%|██████████| 55/55 [00:28<00:00,  1.95it/s]Fetching 55 files: 100%|██████████| 55/55 [00:28<00:00,  1.95it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:03<00:11,  3.92s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:07<00:06,  3.43s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:09<00:03,  3.15s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:10<00:00,  2.25s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:10<00:00,  2.68s/it]
+The tokenizer you are loading from '/root/mt-build/hf/hub/models--tencent--Hy-MT2-7B/snapshots/9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+4.4G	/workspace/mt/hymt2-7b-nf4
+Done.
+== 19:21:52 prepare-voices
+== VoxCPM2 weights (openbmb/VoxCPM2 @ 32279effe8c19989596f05d353d1447f51d9e915)
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Fetching 9 files:  78%|███████▊  | 7/9 [00:00<00:00, 44.76it/s]Fetching 9 files: 100%|██████████| 9/9 [00:10<00:00,  1.16s/it]
+/workspace/hf-cache/hub/models--openbmb--VoxCPM2/snapshots/32279effe8c19989596f05d353d1447f51d9e915
+voxcpm ok, cuda True
+  reference voice ar.wav
+  reference voice id.wav
+  reference voice km.wav
+  reference voice ko.wav
+  reference voice lo.wav
+  reference voice ru.wav
+  reference voice sw.wav
+  reference voice tl.wav
+  reference voice tr.wav
+  reference voice vi.wav
+== 19:22:08 setup done
