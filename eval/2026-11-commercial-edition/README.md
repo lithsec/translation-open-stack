@@ -8,9 +8,10 @@ time, on the clips of `../2026-10-full-stack` and `../2026-10-de-ru-ro`.
 
 **Since then commercial Lao uses Gemma 4 in both directions** (`languages.toml` lo `llmmt` is MiLMMT's line,
 then Gemma's; commercial drops the first). The Lao rows below are the round's MADLAD 7B / Hy-MT2 routes; the
-re-run on Gemma is in "Lao on Gemma 4 (re-run, 2026-11-03)": live it keeps up, ~0.3-0.4 s later first audio
-out of English than MADLAD, and **its quality grades are still pending** (the grader's daily quota ran out
-after 1 of 6 calls).
+re-run on Gemma is in "Lao on Gemma 4 (re-run, 2026-11-03)": live it keeps up (~0.3-0.4 s later first audio
+out of English than MADLAD), and graded beside both saved routes it is **+8.4 out of English and +7.3 into
+English over the MADLAD / Hy-MT2 route, within 2 points of nonprofit MiLMMT** (59.2 and 49.9 against 61.6
+and 51.6).
 
 ## Results
 
@@ -88,7 +89,8 @@ against what was said); the outputs differ in 19-20 of 20 sentences in every pai
    (47.5 against 67.5), lower on both sets (-15, -25) with more critical errors (13 against 9). It is
    0.4-0.6 s faster. Into English, Hy-MT2 is 2.8 points below MiLMMT (a tie on set a, -5.5 on set b), within
    about one round's noise; Lao recognition (15% wrong) holds both back. *These are the routes this round
-   measured; commercial Lao is now Gemma 4 both ways (re-run below: live it keeps up, quality pending).*
+   measured; commercial Lao is now Gemma 4 both ways, which closes most of the gap (re-run below: 59.2
+   against MiLMMT 61.6 out of English, 49.9 against 51.6 into English).*
 3. **Every other route repeats the earlier rounds' findings.** de→en is +5.8 with the long German turns
    that are now in `languages.toml` (the de-ru-ro C3 result, about +8 there) for +0.5 s to first audio; ru→en
    on Gemma is +3.4 over Hy-MT2 (C2 was +4.1); en→de, en→ru and en→ro are the same translator on the same
@@ -123,21 +125,23 @@ direction, reference).
 
 | Direction | System | Quality, said (written) | Critical, said | First audio p50 | First audio p90 | Last audio p50 | Last audio p90 | Drops | Recognition |
 |---|---|---|---|---|---|---|---|---|---|
-| en→lo | **commercial, Gemma 4** (re-run) | pending (set a written: **60.0**) | pending (set a written: 6) | 1.6 / 1.4 | 2.0 / 2.1 | 1.7 / 1.5 | 2.0 / 2.1 | 0 / 0 | 5.1% |
-| en→lo | commercial, MADLAD 7B (Nov round) | pending (set a written: 46.7) | pending (set a written: 8) | 1.2 / 1.1 | 1.5 / 1.4 | 1.2 / 1.2 | 1.6 / 1.6 | 0 / 0 | 5.1% |
-| en→lo | nonprofit, MiLMMT-46 12B (Nov round) | pending (set a written: 55.0) | pending (set a written: 7) | 1.7 / 1.5 | 2.1 / 2.1 | 1.8 / 1.5 | 2.3 / 2.2 | 0 / 0 | 5.1% |
-| lo→en | **commercial, Gemma 4** (re-run) | pending | pending | 1.7 / 1.6 | 2.6 / 2.3 | 1.9 / 1.9 | 2.6 / 2.3 | 1 / 0 | 15.4% |
-| lo→en | commercial, Hy-MT2 (Nov round) | pending | pending | 1.8 / 1.8 | 2.6 / 2.4 | 2.1 / 2.0 | 2.6 / 2.4 | 1 / 0 | 15.2% |
-| lo→en | nonprofit, MiLMMT-46 12B (Nov round) | pending | pending | 1.7 / 1.7 | 2.5 / 2.3 | 1.9 / 1.9 | 2.5 / 2.3 | 1 / 0 | 15.2% |
+| en→lo | **commercial, Gemma 4** (re-run) | **59.2** (54.1); 66.7 (60.0) / 51.7 (48.3) | 4 | 1.6 / 1.4 | 2.0 / 2.1 | 1.7 / 1.5 | 2.0 / 2.1 | 0 / 0 | 5.1% |
+| en→lo | commercial, MADLAD 7B (Nov round) | 50.8 (47.5); 53.3 (46.7) / 48.3 (48.3) | 9 | 1.2 / 1.1 | 1.5 / 1.4 | 1.2 / 1.2 | 1.6 / 1.6 | 0 / 0 | 5.1% |
+| en→lo | nonprofit, MiLMMT-46 12B (Nov round) | 61.6 (58.4); 65.0 (55.0) / 58.3 (61.7) | 7 | 1.7 / 1.5 | 2.1 / 2.1 | 1.8 / 1.5 | 2.3 / 2.2 | 0 / 0 | 5.1% |
+| lo→en | **commercial, Gemma 4** (re-run) | **49.9** (49.1); 38.6 (38.3) / 61.1 (60.0) | 17 | 1.7 / 1.6 | 2.6 / 2.3 | 1.9 / 1.9 | 2.6 / 2.3 | 1 / 0 | 15.4% |
+| lo→en | commercial, Hy-MT2 (Nov round) | 42.6 (42.5); 33.3 (33.3) / 51.9 (51.7) | 16 | 1.8 / 1.8 | 2.6 / 2.4 | 2.1 / 2.0 | 2.6 / 2.4 | 1 / 0 | 15.2% |
+| lo→en | nonprofit, MiLMMT-46 12B (Nov round) | 51.6 (49.2); 42.1 (41.7) / 61.1 (56.7) | 16 | 1.7 / 1.7 | 2.5 / 2.3 | 1.9 / 1.9 | 2.5 / 2.3 | 1 / 0 | 15.2% |
 
-- **Quality is not graded yet.** gemini-pro-latest's daily request quota (250, Tier 1) was used up after the
-  first of the six calls (`WRITTEN:a:en-lo`, the only numbers above: Gemma 60.0, MiLMMT 55.0, MADLAD 46.7 of
-  20 sentences against the written text, one call: indicative only). To finish, once the quota resets (local,
-  resumes from `out/grades.json`):
-  `cd results/lao-gemma && GEMINI_API_KEY=... python3 -I ../../../2026-10-unseen/grade.py out/jobs.json out/grades.json && python3 -I round_lao.py table`
-  (`grade.py` runs four calls at once and keeps nothing until they are all back; one call at a time is gentler
-  on the quota). These calls grade three systems, not two, so their numbers for MADLAD / Hy-MT2 / MiLMMT will
-  not be exactly the round's two-system numbers above.
+Quality column: mean of the two sets, said (written); then set a / set b.
+
+- **Gemma 4 closes most of commercial Lao's gap.** Out of English it is +8.4 over MADLAD (59.2 against 50.8)
+  with 4 critical errors against 9, and 2.4 below MiLMMT; into English +7.3 over Hy-MT2 (49.9 against 42.6)
+  and 1.7 below MiLMMT. Gemma is ahead of the old commercial route on all four set-and-direction pairs; the
+  gaps to MiLMMT go both ways per set (en→lo set a +1.7, set b -6.6; lo→en set a -3.5, set b level), inside one
+  round's noise.
+- **Graded 2026-11-03** (gemini-pro-latest, the six calls in `out/grades.json`). These calls grade three systems,
+  so their MADLAD / Hy-MT2 / MiLMMT numbers differ from the round's two-system numbers above (en→lo MiLMMT
+  61.6 here against 67.5 there): compare within one table only.
 - **Live, Gemma keeps up both ways**: no utterance dropped, one sentence without audio (lo→en set a, as in
   both saved runs), no failover. Out of English it is 0.3-0.4 s later to first audio than
   MADLAD (1.6 / 1.4 s against 1.2 / 1.1) and level with MiLMMT; into English level with both (1.7 / 1.6 s).
