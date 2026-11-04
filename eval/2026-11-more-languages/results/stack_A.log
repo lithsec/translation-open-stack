@@ -1,0 +1,1698 @@
+profile: cuda-80gb
+edition: nonprofit
+config: /workspace/tos/eval/2026-11-more-languages/configs/A.toml
+profile: cuda-80gb (One 80 GB+ NVIDIA GPU: the reference, plus Omnilingual 7B for Lao and Khmer); details: stack_config.py profile
+devices: default=auto
+edition: nonprofit
+  ar  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: piper ar_JO-kareem-medium ❓ > espeak ⚠️ (last resort)
+  bn  asr=omni:ben_Beng  ✅  mt=hymt   ✅  voice: piper bn_BD-google-medium ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ bn voice piper bn_BD-google-medium: CC-BY-SA 4.0: credit Google's OpenSLR 37 Bengali corpus and keep the CMU notice
+  de  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: piper de_DE-thorsten-high ❓ > espeak ⚠️ (last resort)
+  en  asr=whisper        ✅  mt=hymt   ✅  voice: kokoro a:am_michael ✅ > piper en_US-lessac-medium ⛔ > espeak ⚠️ (last resort)
+  es  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: kokoro e:ef_dora ✅ > piper es_ES-davefx-medium ❓ > espeak ⚠️ (last resort)
+  fa  asr=omni:pes_Arab  ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: piper fa_IR-gyro-medium ❓ > espeak ⚠️ (last resort)
+  fr  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: kokoro f:ff_siwis ✅ > piper fr_FR-siwis-medium ❓ > espeak ⚠️ (last resort)
+  hi  asr=omni:hin_Deva  ✅  mt=hymt   ✅  voice: kokoro h:hf_alpha ✅ > piper hi_IN-rohan-medium ❓ > espeak ⚠️ (last resort)
+  ht  asr=omni:hat_Latn  ✅  mt=llmmt>madlad (to en: llmmt>hymt) ✅  voice: mms facebook/mms-tts-hat ⛔ > espeak ⚠️ (last resort)
+  id  asr=whisper        ✅  mt=hymt   ✅  voice: piper id_ID-news_tts-medium ❓ > espeak ⚠️ (last resort)
+  it  asr=whisper        ✅  mt=hymt   ✅  voice: kokoro i:if_sara ✅ > piper it_IT-serena-high ⚠️ > espeak ⚠️ (last resort)
+        ⚠️ it voice piper it_IT-serena-high: CC-BY 4.0: credit the serena-synthetic-it-27h dataset (committa)
+  ja  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: kokoro j:jf_alpha ✅ > piper ja_JP-hi_fi_captain-medium ⛔
+  km  asr=omni:khm_Khmr  ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: voxcpm ✅ > mms facebook/mms-tts-khm ⛔
+  ko  asr=whisper        ✅  mt=hymt   ✅  voice: piper ko_KR-kss-medium ⛔ > espeak ⚠️ (last resort)
+  lo  asr=omni:lao_Laoo  ✅  mt=llmmt>madlad (to en: llmmt>hymt) ❓  voice: voxcpm ✅ > mms facebook/mms-tts-lao ⛔
+        lo translator llmmt: xiaomi-research/MiLMMT-46-12B-v0.1 ❓ > google/gemma-4-31B-it-qat-w4a16-ct ✅ (the first that answers serves)
+  pt  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: kokoro p:pf_dora ✅ > piper pt_BR-faber-medium ❓ > espeak ⚠️ (last resort)
+  ro  asr=omni:ron_Latn  ✅  mt=madlad ✅  voice: piper ro_RO-mihai-medium ❓ > espeak ⚠️ (last resort)
+  ru  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: piper ru_RU-irina-medium ❓ > espeak ⚠️ (last resort)
+  sw  asr=omni:swh_Latn  ✅  mt=llmmt>madlad ✅  voice: piper sw_CD-lanfrica-medium ❓ > espeak ⚠️ (last resort)
+  tl  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: voxcpm ✅ > mms facebook/mms-tts-tgl ⛔
+  tr  asr=whisper        ✅  mt=hymt   ✅  voice: piper tr_TR-dfki-medium ⛔ > espeak ⚠️ (last resort)
+  uk  asr=whisper        ✅  mt=llmmt>hymt (to en: hymt) ✅  voice: piper uk_UA-ukrainian_tts-medium ✅ > espeak ⚠️ (last resort)
+  ur  asr=omni:urd_Arab  ✅  mt=hymt   ✅  voice: piper ur_PK-aegis_female-medium ✅ > espeak ⚠️ (last resort)
+  vi  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: piper vi_VN-vais1000-medium ❓ > espeak ⚠️ (last resort)
+  zh  asr=whisper        ✅  mt=llmmt>hymt (to en: llmmt>hymt) ✅  voice: kokoro z:zf_xiaobei ✅ > piper zh_CN-huayan-medium ❓ > espeak ⚠️ (last resort)
+  nonprofit loads 21 ⛔/❓ voices: non-commercial use only (`check --edition commercial` for what a commercial deployment gets)
+models:
+  whisper     ✅ MIT            model=large-v3  multi_model=(same as model)  multi_revision=(none)  revision=edaa852ec7e145841d8ffdb056a99866b5f0a478
+  omnilingual ✅ Apache-2.0     card=omniASR_LLM_300M
+  omnilingual_large ✅ Apache-2.0     card=omniASR_LLM_7B
+  lid         ✅ Apache-2.0     repo=speechbrain/lang-id-voxlingua107-ecapa  revision=0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9
+  vad         ✅ MIT            repo=snakers4/silero-vad  ref=5cd7945676eb32225748052e2e6a0580e4686a08
+  hymt        ✅ Apache-2.0     repo=tencent/Hy-MT2-7B  revision=9b0eb4e8f001def3e5ff6469a0ac96fdb39ec223
+  madlad      ✅ Apache-2.0     repo=google/madlad400-7b-mt  revision=1ff63ce7ddd571a69d45cad9672c553428419671
+  madlad3b    ✅ Apache-2.0     repo=google/madlad400-3b-mt  revision=fa184c675da0b5c9e1c8694fccd4e12e2d422094
+  kokoro      ✅ Apache-2.0     repo=hexgrad/Kokoro-82M  revision=f3ff3571791e39611d31c381e3a41a3af07b4987
+  voxcpm      ✅ Apache-2.0     repo=openbmb/VoxCPM2  revision=32279effe8c19989596f05d353d1447f51d9e915
+voices at capacity:
+  a chain is tried in order: when VoxCPM2 is at capacity (every instance at its limit) or down, the sentence waits briefly (VOXCPM_QUEUE_S, 2 s) for a free instance, then goes to the next voice (languages with no voice after VoxCPM2 wait up to VOXCPM_WAIT_S, 15 s); eSpeak NG (last resort) ends every chain it speaks, if espeak-ng is installed
+  VoxCPM2 speaks 3 languages (km, lo, tl); one instance makes ~2-3 real-time voices, and takes up to 1 sentences at once (VOXCPM_MAX_INFLIGHT)
+  VoxCPM2 instances: 1 (the nonprofit default) (VOXCPM_INSTANCES=auto|<n>, VOXCPM_GPUS)
+  on this machine now: VoxCPM2: 1 instance (one GPU); overflow → fallback voices
+engines: recognizer omni, whisper; translator echo, hymt, llmmt, madlad; voice coqui, cosyvoice, espeak, kokoro, mms, piper, voxcpm
+VoxCPM2: 1 instance (one GPU); overflow → fallback voices
+starting VoxCPM2 on :8791, GPU 0 (log: /workspace/voxcpm.log)
+[stack] language config: /workspace/tos/eval/2026-11-more-languages/configs/A.toml
+[stack] edition: nonprofit
+[stack] device=cuda
+[stack] loading Silero VAD (snakers4/silero-vad:5cd7945676eb32225748052e2e6a0580e4686a08)…
+Downloading: "https://github.com/snakers4/silero-vad/zipball/5cd7945676eb32225748052e2e6a0580e4686a08" to /workspace/torch-cache/hub/5cd7945676eb32225748052e2e6a0580e4686a08.zip
+[stack] loading faster-whisper large-v3 @ edaa852ec7e145841d8ffdb056a99866b5f0a478 on cuda…
+[stack] sharing large-v3 for English and --xeng sources
+[stack] whisper on cuda: +9.1 GB (46.0 GB in use there)
+/usr/local/lib/python3.12/dist-packages/speechbrain/utils/torch_audio_backend.py:64: UserWarning: torchaudio._backend.list_audio_backends has been deprecated. This deprecation is part of a large refactoring effort to transition TorchAudio into a maintenance phase. The decoding and encoding capabilities of PyTorch for both audio and video are being consolidated into TorchCodec. Please see https://github.com/pytorch/audio/issues/3902 for more information. It will be removed from the 2.9 release. 
+  available_backends = torchaudio.list_audio_backends()
+[stack] loading speechbrain/lang-id-voxlingua107-ecapa @ 0253049ae131d6a4be1c4f0d8b0ff483a0f8c8e9 for src=auto…
+Could not parse CUDA device string 'cuda': not enough values to unpack (expected 2, got 1). Falling back to device 0.
+[stack] auto-routing among: ['en', 'zh', 'uk', 'vi', 'ar', 'fa', 'tl', 'sw', 'it', 'ko', 'id', 'tr', 'bn', 'ur', 'hi']
+[stack] loading Omnilingual ASR (omniASR_LLM_300M) on cuda…
+  0%|          | 0.00/6.06G [00:00<?, ?B/s]  0%|          | 6.63M/6.06G [00:00<01:33, 69.5MB/s]  0%|          | 13.3M/6.06G [00:00<01:39, 65.4MB/s]  0%|          | 29.8M/6.06G [00:00<00:57, 113MB/s]   1%|          | 48.0M/6.06G [00:00<00:45, 143MB/s]  1%|          | 73.3M/6.06G [00:00<00:34, 186MB/s]  2%|▏         | 101M/6.06G [00:00<00:28, 221MB/s]   2%|▏         | 133M/6.06G [00:00<00:24, 257MB/s]  3%|▎         | 168M/6.06G [00:00<00:21, 293MB/s]  3%|▎         | 201M/6.06G [00:00<00:20, 310MB/s]  4%|▎         | 231M/6.06G [00:01<00:20, 310MB/s]  4%|▍         | 260M/6.06G [00:01<00:20, 308MB/s]  5%|▍         | 290M/6.06G [00:01<00:20, 303MB/s]  5%|▌         | 324M/6.06G [00:01<00:19, 320MB/s]  6%|▌         | 359M/6.06G [00:01<00:18, 334MB/s]  6%|▋         | 396M/6.06G [00:01<00:17, 351MB/s]  7%|▋         | 432M/6.06G [00:01<00:16, 356MB/s]  8%|▊         | 466M/6.06G [00:01<00:17, 351MB/s]  8%|▊         | 500M/6.06G [00:01<00:18, 327MB/s]  9%|▊         | 531M/6.06G [00:01<00:18, 314MB/s]  9%|▉         | 561M/6.06G [00:02<00:18, 313MB/s] 10%|▉         | 591M/6.06G [00:02<00:19, 301MB/s] 10%|█         | 623M/6.06G [00:02<00:18, 311MB/s] 11%|█         | 655M/6.06G [00:02<00:18, 316MB/s] 11%|█         | 685M/6.06G [00:02<00:18, 309MB/s] 12%|█▏        | 715M/6.06G [00:02<00:18, 306MB/s] 12%|█▏        | 745M/6.06G [00:02<00:18, 309MB/s] 13%|█▎        | 777M/6.06G [00:02<00:18, 315MB/s] 13%|█▎        | 807M/6.06G [00:02<00:17, 318MB/s] 13%|█▎        | 838M/6.06G [00:03<00:18, 307MB/s] 14%|█▍        | 868M/6.06G [00:03<00:18, 311MB/s] 15%|█▍        | 901M/6.06G [00:03<00:17, 321MB/s] 15%|█▌        | 938M/6.06G [00:03<00:16, 339MB/s] 16%|█▌        | 970M/6.06G [00:03<00:16, 332MB/s] 16%|█▌        | 0.98G/6.06G [00:03<00:17, 317MB/s] 17%|█▋        | 1.01G/6.06G [00:03<00:17, 316MB/s] 17%|█▋        | 1.04G/6.06G [00:03<00:16, 330MB/s] 18%|█▊        | 1.08G/6.06G [00:03<00:15, 340MB/s] 18%|█▊        | 1.11G/6.06G [00:03<00:15, 345MB/s] 19%|█▉        | 1.14G/6.06G [00:04<00:15, 348MB/s] 19%|█▉        | 1.18G/6.06G [00:04<00:15, 341MB/s] 20%|█▉        | 1.21G/6.06G [00:04<00:15, 343MB/s] 20%|██        | 1.24G/6.06G [00:04<00:15, 336MB/s] 21%|██        | 1.27G/6.06G [00:04<00:15, 334MB/s] 21%|██▏       | 1.30G/6.06G [00:04<00:15, 330MB/s] 22%|██▏       | 1.33G/6.06G [00:04<00:15, 322MB/s] 22%|██▏       | 1.36G/6.06G [00:04<00:15, 320MB/s] 23%|██▎       | 1.39G/6.06G [00:04<00:16, 306MB/s] 23%|██▎       | 1.42G/6.06G [00:04<00:15, 312MB/s] 24%|██▍       | 1.45G/6.06G [00:05<00:15, 320MB/s] 24%|██▍       | 1.48G/6.06G [00:05<00:15, 314MB/s] 25%|██▍       | 1.51G/6.06G [00:05<00:15, 316MB/s] 25%|██▌       | 1.54G/6.06G [00:05<00:15, 313MB/s] 26%|██▌       | 1.58G/6.06G [00:05<00:15, 321MB/s] 27%|██▋       | 1.61G/6.06G [00:05<00:14, 334MB/s] 27%|██▋       | 1.64G/6.06G [00:05<00:14, 338MB/s] 28%|██▊       | 1.67G/6.06G [00:05<00:14, 321MB/s] 28%|██▊       | 1.70G/6.06G [00:05<00:15, 307MB/s] 29%|██▊       | 1.73G/6.06G [00:06<00:15, 291MB/s] 29%|██▉       | 1.76G/6.06G [00:06<00:15, 293MB/s] 30%|██▉       | 1.79G/6.06G [00:06<00:14, 312MB/s] 30%|███       | 1.82G/6.06G [00:06<00:14, 312MB/s] 31%|███       | 1.85G/6.06G [00:06<00:22, 203MB/s] 31%|███       | 1.88G/6.06G [00:06<00:20, 221MB/s] 31%|███▏      | 1.91G/6.06G [00:06<00:18, 239MB/s] 32%|███▏      | 1.94G/6.06G [00:06<00:16, 265MB/s] 32%|███▏      | 1.97G/6.06G [00:07<00:16, 273MB/s] 33%|███▎      | 2.00G/6.06G [00:07<00:14, 291MB/s] 33%|███▎      | 2.03G/6.06G [00:07<00:14, 291MB/s] 34%|███▍      | 2.06G/6.06G [00:07<00:14, 295MB/s] 34%|███▍      | 2.09G/6.06G [00:07<00:14, 298MB/s] 35%|███▍      | 2.11G/6.06G [00:07<00:14, 297MB/s] 35%|███▌      | 2.15G/6.06G [00:07<00:13, 320MB/s] 36%|███▌      | 2.18G/6.06G [00:07<00:12, 324MB/s] 36%|███▋      | 2.21G/6.06G [00:07<00:13, 314MB/s] 37%|███▋      | 2.24G/6.06G [00:07<00:13, 307MB/s] 37%|███▋      | 2.27G/6.06G [00:08<00:13, 309MB/s] 38%|███▊      | 2.30G/6.06G [00:08<00:12, 319MB/s] 38%|███▊      | 2.33G/6.06G [00:08<00:12, 325MB/s] 39%|███▉      | 2.36G/6.06G [00:08<00:12, 325MB/s] 40%|███▉      | 2.40G/6.06G [00:08<00:11, 338MB/s] 40%|████      | 2.43G/6.06G [00:08<00:12, 323MB/s] 41%|████      | 2.46G/6.06G [00:08<00:12, 320MB/s] 41%|████      | 2.49G/6.06G [00:08<00:11, 332MB/s] 42%|████▏     | 2.53G/6.06G [00:08<00:11, 335MB/s] 42%|████▏     | 2.56G/6.06G [00:08<00:10, 343MB/s] 43%|████▎     | 2.59G/6.06G [00:09<00:10, 339MB/s] 43%|████▎     | 2.62G/6.06G [00:09<00:11, 327MB/s] 44%|████▍     | 2.65G/6.06G [00:09<00:11, 319MB/s] 44%|████▍     | 2.68G/6.06G [00:09<00:11, 323MB/s] 45%|████▍     | 2.71G/6.06G [00:09<00:11, 308MB/s] 45%|████▌     | 2.75G/6.06G [00:09<00:11, 321MB/s] 46%|████▌     | 2.78G/6.06G [00:09<00:11, 319MB/s] 46%|████▋     | 2.81G/6.06G [00:09<00:11, 313MB/s] 47%|████▋     | 2.84G/6.06G [00:09<00:10, 327MB/s] 47%|████▋     | 2.87G/6.06G [00:10<00:10, 327MB/s] 48%|████▊     | 2.90G/6.06G [00:10<00:11, 307MB/s] 48%|████▊     | 2.93G/6.06G [00:10<00:16, 208MB/s] 49%|████▊     | 2.95G/6.06G [00:10<00:17, 191MB/s] 49%|████▉     | 2.98G/6.06G [00:10<00:15, 208MB/s] 50%|████▉     | 3.01G/6.06G [00:10<00:13, 235MB/s] 50%|█████     | 3.05G/6.06G [00:10<00:11, 274MB/s] 51%|█████     | 3.08G/6.06G [00:11<00:10, 304MB/s] 51%|█████▏    | 3.11G/6.06G [00:11<00:10, 312MB/s] 52%|█████▏    | 3.14G/6.06G [00:11<00:09, 314MB/s] 52%|█████▏    | 3.17G/6.06G [00:11<00:09, 315MB/s] 53%|█████▎    | 3.20G/6.06G [00:11<00:09, 318MB/s] 53%|█████▎    | 3.23G/6.06G [00:11<00:09, 316MB/s] 54%|█████▍    | 3.27G/6.06G [00:11<00:08, 334MB/s] 54%|█████▍    | 3.30G/6.06G [00:11<00:09, 326MB/s] 55%|█████▍    | 3.33G/6.06G [00:11<00:08, 328MB/s] 56%|█████▌    | 3.37G/6.06G [00:11<00:08, 342MB/s] 56%|█████▌    | 3.40G/6.06G [00:12<00:08, 357MB/s] 57%|█████▋    | 3.44G/6.06G [00:12<00:07, 362MB/s] 57%|█████▋    | 3.47G/6.06G [00:12<00:07, 361MB/s] 58%|█████▊    | 3.51G/6.06G [00:12<00:07, 350MB/s] 58%|█████▊    | 3.54G/6.06G [00:12<00:08, 326MB/s] 59%|█████▉    | 3.57G/6.06G [00:12<00:07, 336MB/s] 59%|█████▉    | 3.61G/6.06G [00:12<00:07, 344MB/s] 60%|██████    | 3.64G/6.06G [00:12<00:07, 350MB/s] 61%|██████    | 3.68G/6.06G [00:12<00:07, 356MB/s] 61%|██████    | 3.71G/6.06G [00:12<00:07, 342MB/s] 62%|██████▏   | 3.74G/6.06G [00:13<00:07, 329MB/s] 62%|██████▏   | 3.77G/6.06G [00:13<00:07, 332MB/s] 63%|██████▎   | 3.80G/6.06G [00:13<00:07, 331MB/s] 63%|██████▎   | 3.83G/6.06G [00:13<00:07, 323MB/s] 64%|██████▎   | 3.86G/6.06G [00:13<00:07, 320MB/s] 64%|██████▍   | 3.89G/6.06G [00:13<00:07, 319MB/s] 65%|██████▍   | 3.92G/6.06G [00:13<00:07, 302MB/s] 65%|██████▌   | 3.96G/6.06G [00:13<00:06, 323MB/s] 66%|██████▌   | 3.99G/6.06G [00:13<00:06, 340MB/s] 66%|██████▋   | 4.03G/6.06G [00:14<00:06, 347MB/s] 67%|██████▋   | 4.06G/6.06G [00:14<00:06, 334MB/s] 68%|██████▊   | 4.09G/6.06G [00:14<00:06, 335MB/s] 68%|██████▊   | 4.12G/6.06G [00:14<00:06, 331MB/s] 69%|██████▊   | 4.16G/6.06G [00:14<00:06, 322MB/s] 69%|██████▉   | 4.19G/6.06G [00:14<00:06, 326MB/s] 70%|██████▉   | 4.22G/6.06G [00:14<00:06, 326MB/s] 70%|███████   | 4.25G/6.06G [00:14<00:05, 327MB/s] 71%|███████   | 4.28G/6.06G [00:14<00:05, 325MB/s] 71%|███████   | 4.31G/6.06G [00:14<00:05, 330MB/s] 72%|███████▏  | 4.34G/6.06G [00:15<00:05, 336MB/s] 72%|███████▏  | 4.37G/6.06G [00:15<00:05, 335MB/s] 73%|███████▎  | 4.41G/6.06G [00:15<00:05, 340MB/s] 73%|███████▎  | 4.44G/6.06G [00:15<00:05, 339MB/s] 74%|███████▎  | 4.47G/6.06G [00:15<00:05, 322MB/s] 74%|███████▍  | 4.50G/6.06G [00:15<00:05, 322MB/s] 75%|███████▍  | 4.53G/6.06G [00:15<00:04, 332MB/s] 75%|███████▌  | 4.57G/6.06G [00:15<00:04, 347MB/s] 76%|███████▌  | 4.61G/6.06G [00:15<00:04, 359MB/s] 77%|███████▋  | 4.64G/6.06G [00:15<00:04, 352MB/s] 77%|███████▋  | 4.67G/6.06G [00:16<00:04, 355MB/s] 78%|███████▊  | 4.71G/6.06G [00:16<00:04, 359MB/s] 78%|███████▊  | 4.74G/6.06G [00:16<00:04, 352MB/s] 79%|███████▊  | 4.77G/6.06G [00:16<00:04, 344MB/s] 79%|███████▉  | 4.81G/6.06G [00:16<00:04, 335MB/s] 80%|███████▉  | 4.84G/6.06G [00:16<00:04, 317MB/s] 80%|████████  | 4.87G/6.06G [00:16<00:03, 325MB/s] 81%|████████  | 4.90G/6.06G [00:16<00:03, 325MB/s] 81%|████████▏ | 4.93G/6.06G [00:16<00:03, 325MB/s] 82%|████████▏ | 4.96G/6.06G [00:17<00:03, 332MB/s] 82%|████████▏ | 4.99G/6.06G [00:17<00:03, 318MB/s] 83%|████████▎ | 5.02G/6.06G [00:17<00:03, 322MB/s] 83%|████████▎ | 5.05G/6.06G [00:17<00:03, 319MB/s] 84%|████████▍ | 5.08G/6.06G [00:17<00:03, 313MB/s] 84%|████████▍ | 5.11G/6.06G [00:17<00:05, 195MB/s] 85%|████████▍ | 5.14G/6.06G [00:17<00:04, 221MB/s] 85%|████████▌ | 5.18G/6.06G [00:17<00:03, 250MB/s] 86%|████████▌ | 5.21G/6.06G [00:18<00:03, 274MB/s] 86%|████████▋ | 5.24G/6.06G [00:18<00:02, 296MB/s] 87%|████████▋ | 5.28G/6.06G [00:18<00:02, 316MB/s] 88%|████████▊ | 5.31G/6.06G [00:18<00:02, 313MB/s] 88%|████████▊ | 5.34G/6.06G [00:18<00:02, 307MB/s] 89%|████████▊ | 5.37G/6.06G [00:18<00:02, 310MB/s] 89%|████████▉ | 5.40G/6.06G [00:18<00:02, 323MB/s] 90%|████████▉ | 5.43G/6.06G [00:18<00:02, 326MB/s] 90%|█████████ | 5.46G/6.06G [00:18<00:02, 308MB/s] 91%|█████████ | 5.49G/6.06G [00:19<00:01, 315MB/s] 91%|█████████ | 5.53G/6.06G [00:19<00:01, 321MB/s] 92%|█████████▏| 5.56G/6.06G [00:19<00:01, 321MB/s] 92%|█████████▏| 5.59G/6.06G [00:19<00:01, 323MB/s] 93%|█████████▎| 5.62G/6.06G [00:19<00:01, 314MB/s] 93%|█████████▎| 5.65G/6.06G [00:19<00:01, 308MB/s] 94%|█████████▎| 5.68G/6.06G [00:19<00:01, 312MB/s] 94%|█████████▍| 5.71G/6.06G [00:19<00:01, 308MB/s] 95%|█████████▍| 5.74G/6.06G [00:19<00:01, 315MB/s] 95%|█████████▌| 5.77G/6.06G [00:19<00:00, 324MB/s] 96%|█████████▌| 5.80G/6.06G [00:20<00:00, 335MB/s] 96%|█████████▌| 5.83G/6.06G [00:20<00:00, 318MB/s] 97%|█████████▋| 5.86G/6.06G [00:20<00:01, 196MB/s] 97%|█████████▋| 5.89G/6.06G [00:20<00:01, 164MB/s] 97%|█████████▋| 5.91G/6.06G [00:20<00:01, 164MB/s] 98%|█████████▊| 5.94G/6.06G [00:20<00:00, 197MB/s] 98%|█████████▊| 5.97G/6.06G [00:21<00:00, 225MB/s] 99%|█████████▉| 6.00G/6.06G [00:21<00:00, 244MB/s] 99%|█████████▉| 6.03G/6.06G [00:21<00:00, 265MB/s]100%|█████████▉| 6.05G/6.06G [00:21<00:00, 275MB/s]100%|██████████| 6.06G/6.06G [00:21<00:00, 305MB/s]
+
+  0%|          | 0.00/85.5k [00:00<?, ?B/s] 75%|███████▍  | 64.0k/85.5k [00:00<00:00, 501kB/s]100%|██████████| 85.5k/85.5k [00:00<00:00, 663kB/s]
+[stack] omni on cuda: +4.2 GB (50.5 GB in use there)
+[stack] VoxCPM2 instance 127.0.0.1:8791 not up yet — waited for after the other models
+[stack] VoxCPM2 voices for ['km', 'lo', 'tl'] via 1 instance (127.0.0.1:8791), 1 sentence each at once; when all are busy a sentence waits up to 2s for a slot (15s with no voice after VoxCPM2), then goes to the next voice in its chain
+[stack] loading Hy-MT2 from /workspace/mt/hymt2-7b-nf4…
+The tokenizer you are loading from '/workspace/mt/hymt2-7b-nf4' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[stack] hymt on cuda: +7.0 GB (57.5 GB in use there)
+[stack] Kokoro TTS enabled (24kHz native, GPU)
+[stack] loading MADLAD tokenizer from /workspace/madlad-ct2…
+[stack] MT via CTranslate2: /workspace/madlad-ct2
+[stack] MT is CTranslate2 only — bf16 copy not loaded
+[stack] madlad on cuda: +3.1 GB (60.6 GB in use there)
+[stack] en: en_US-lessac-medium (intra_op=4)
+[stack] zh: zh_CN-huayan-medium (intra_op=4)
+[stack] uk: uk_UA-ukrainian_tts-medium (intra_op=4)
+[stack] vi: vi_VN-vais1000-medium (intra_op=4)
+[stack] ar: ar_JO-kareem-medium (intra_op=4)
+[stack] fa: fa_IR-gyro-medium (intra_op=4)
+[stack] tl: no Piper voice mapped — text only
+[stack] sw: sw_CD-lanfrica-medium (intra_op=4)
+[stack] it: it_IT-serena-high (intra_op=4)
+[stack] ko: ko_KR-kss-medium (intra_op=4)
+[stack] id: id_ID-news_tts-medium (intra_op=4)
+[stack] tr: tr_TR-dfki-medium (intra_op=4)
+[stack] bn: bn_BD-google-medium (intra_op=4)
+[stack] ur: ur_PK-aegis_female-medium (intra_op=4)
+[stack] hi: hi_IN-rohan-medium (intra_op=4)
+[stack] piper on cuda: +0.1 GB (60.7 GB in use there)
+[stack] eSpeak NG last-resort voice for ar,bn,en,fa,hi,id,it,ko,sw,tr,uk,ur,vi,zh
+[stack] loading translator llmmt (engines.llmmt)…
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) answering — ar,fa,sw,tl,uk,vi,zh use it
+[stack] waiting for VoxCPM2 (127.0.0.1:8791)…
+[stack] VoxCPM2: 1 of 1 instance up (10s waited)
+[licence] edition nonprofit: every configured voice may load (non-commercial use only; EDITION=commercial filters by licence)
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/rnn.py:123: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+/usr/local/lib/python3.12/dist-packages/jieba/_compat.py:18: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Building prefix dict from the default dictionary ...
+Dumping model to file cache /tmp/jieba.cache
+Loading model cost 0.256 seconds.
+Prefix dict has been built successfully.
+/usr/local/lib/python3.12/dist-packages/torch/nn/modules/rnn.py:123: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+[stack] warm in 15.1s (15 languages, 3 voice engines in parallel) — first utterance pays nothing
+[stack] access: OPEN (LAN only); limits 30/client, 60 total, 360 min/session
+[stack] ready on :8790 for ['en', 'zh', 'uk', 'vi', 'ar', 'fa', 'tl', 'sw', 'it', 'ko', 'id', 'tr', 'bn', 'ur', 'hi']
+[stack] client: zh -> en (context)
+[stack] room open/e2e_zh_en_yuamh5: +en (primary, utterance)
+[stack] utterance 8.3s speech | lid 0.00s asr 5.69s mt 6.76s tts1[en] 6.88s done 6.91s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.62s mt 1.35s tts1[en] 1.45s done 1.56s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.71s mt 1.73s tts1[en] 1.83s done 1.95s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.67s mt 1.55s tts1[en] 1.66s done 1.70s
+[stack] utterance 5.9s speech | lid 0.00s asr 0.58s mt 1.35s tts1[en] 1.46s done 1.49s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.82s mt 1.80s tts1[en] 1.93s done 1.95s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.56s mt 1.33s tts1[en] 1.44s done 1.47s
+[stack] utterance 5.3s speech | lid 0.00s asr 0.56s mt 1.32s tts1[en] 1.43s done 1.46s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.38s mt 0.76s tts1[en] 0.86s done 0.87s
+[stack] utterance 3.4s speech | lid 0.00s asr 0.37s mt 0.80s tts1[en] 0.90s done 0.92s
+[stack] utterance 8.1s speech | lid 0.00s asr 0.67s mt 1.56s tts1[en] 1.68s done 1.69s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.44s mt 1.13s tts1[en] 1.24s done 1.24s
+[stack] utterance 7.7s speech | lid 0.00s asr 0.78s mt 1.65s tts1[en] 1.76s done 1.87s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.53s mt 1.22s tts1[en] 1.33s done 1.35s
+[stack] utterance 6.9s speech | lid 0.00s asr 0.63s mt 1.61s tts1[en] 1.73s done 1.76s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.52s mt 1.29s tts1[en] 1.40s done 1.49s
+[stack] dropped short noise (p=0.63): 地 跳
+[stack] utterance 7.8s speech | lid 0.00s asr 0.74s mt 1.68s tts1[en] 1.80s done 1.83s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.65s mt 1.45s tts1[en] 1.57s done 1.60s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.55s mt 1.18s tts1[en] 1.29s done 1.31s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.70s mt 1.68s tts1[en] 1.79s done 1.82s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.59s mt 1.46s tts1[en] 1.57s done 1.67s
+[stack] client: en -> zh (context)
+[stack] room open/e2e_en_zh_7qd63l: +zh (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.52s mt 1.41s tts1[zh] 1.52s done 1.55s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.58s mt 1.32s tts1[zh] 1.43s done 1.47s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.52s mt 1.18s tts1[zh] 1.30s done 1.33s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 1.44s tts1[zh] 1.56s done 1.59s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.49s mt 1.24s tts1[zh] 1.35s done 1.38s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.50s mt 1.52s tts1[zh] 1.64s done 1.67s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.39s mt 1.09s tts1[zh] 1.20s done 1.22s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.18s mt 0.38s tts1[zh] 0.48s done 0.48s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.41s mt 1.47s tts1[zh] 1.59s done 1.60s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.39s mt 1.26s tts1[zh] 1.37s done 1.40s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.41s mt 1.35s tts1[zh] 1.47s done 1.50s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.34s mt 1.03s tts1[zh] 1.14s done 1.17s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.37s mt 1.06s tts1[zh] 1.17s done 1.19s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 0.53s tts1[zh] 0.63s done 0.64s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 0.87s tts1[zh] 0.98s done 1.00s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.42s mt 1.28s tts1[zh] 1.39s done 1.42s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.66s tts1[zh] 0.75s done 0.75s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.47s mt 0.99s tts1[zh] 1.10s done 1.11s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.41s mt 1.24s tts1[zh] 1.36s done 1.36s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 1.29s tts1[zh] 1.41s done 1.44s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.33s mt 1.06s tts1[zh] 1.18s done 1.20s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.57s mt 1.55s tts1[zh] 1.67s done 1.69s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.41s mt 1.18s tts1[zh] 1.30s done 1.32s
+[stack] client: uk -> en (context)
+[stack] room open/e2e_uk_en_32n3pk: +en (primary, utterance)
+[stack] utterance 10.9s speech | lid 0.00s asr 0.93s mt 1.77s tts1[en] 1.86s done 1.90s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.53s mt 0.82s tts1[en] 0.90s done 0.92s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.50s mt 0.97s tts1[en] 1.06s done 1.07s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.78s mt 1.54s tts1[en] 1.62s done 1.74s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.47s mt 0.89s tts1[en] 0.98s done 0.99s
+[stack] utterance 4.4s speech | lid 0.00s asr 0.40s mt 0.79s tts1[en] 0.87s done 0.88s
+[stack] utterance 7.8s speech | lid 0.00s asr 0.82s mt 1.55s tts1[en] 1.66s done 1.69s
+[stack] utterance 10.1s speech | lid 0.00s asr 1.01s mt 1.82s tts1[en] 1.93s done 1.97s
+[stack] utterance 5.8s speech | lid 0.00s asr 1.12s mt 1.66s tts1[en] 1.76s done 1.79s
+[stack] utterance 6.4s speech | lid 0.00s asr 0.54s mt 1.06s tts1[en] 1.14s done 1.15s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.85s mt 1.40s tts1[en] 1.49s done 1.51s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.68s mt 1.31s tts1[en] 1.41s done 1.44s
+[stack] utterance 5.3s speech | lid 0.00s asr 0.53s mt 1.13s tts1[en] 1.22s done 1.24s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.62s mt 1.02s tts1[en] 1.11s done 1.12s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.59s mt 0.95s tts1[en] 1.04s done 1.06s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.52s mt 0.94s tts1[en] 1.03s done 1.04s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.63s mt 1.20s tts1[en] 1.30s done 1.30s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.54s mt 1.10s tts1[en] 1.19s done 1.21s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.66s mt 1.20s tts1[en] 1.29s done 1.39s
+[stack] utterance 9.4s speech | lid 0.00s asr 0.78s mt 1.46s tts1[en] 1.56s done 1.59s
+[stack] utterance 8.2s speech | lid 0.00s asr 0.78s mt 1.56s tts1[en] 1.65s done 1.69s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.51s mt 1.01s tts1[en] 1.10s done 1.12s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.62s mt 1.43s tts1[en] 1.51s done 1.61s
+[stack] utterance 9.6s speech | lid 0.00s asr 0.86s mt 1.66s tts1[en] 1.76s done 1.79s
+[stack] client: en -> uk (context)
+[stack] room open/e2e_en_uk_ux8rt7: +uk (primary, utterance)
+Missing phoneme from id map: «
+Missing phoneme from id map: »
+[stack] utterance 6.5s speech | lid 0.00s asr 0.50s mt 1.91s tts1[uk] 2.07s done 2.10s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.57s mt 1.43s tts1[uk] 1.53s done 1.56s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.52s mt 1.25s tts1[uk] 1.31s done 1.36s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 1.65s tts1[uk] 1.78s done 1.81s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.49s mt 1.62s tts1[uk] 1.74s done 1.77s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.50s mt 2.13s tts1[uk] 2.27s done 2.30s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.39s mt 1.49s tts1[uk] 1.58s done 1.60s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.18s mt 0.54s tts1[uk] 0.57s done 0.58s
+Missing phoneme from id map: «
+Missing phoneme from id map: »
+[stack] utterance 5.1s speech | lid 0.00s asr 0.40s mt 1.35s tts1[uk] 1.44s done 1.46s
+Missing phoneme from id map: r
+Missing phoneme from id map: i
+Missing phoneme from id map: d
+Missing phoneme from id map: i
+Missing phoneme from id map: n
+Missing phoneme from id map: g
+[stack] utterance 5.6s speech | lid 0.00s asr 0.39s mt 1.77s tts1[uk] 1.88s done 1.90s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.41s mt 1.51s tts1[uk] 1.61s done 1.62s
+Missing phoneme from id map: 2
+Missing phoneme from id map: 3
+Missing phoneme from id map: 3
+Missing phoneme from id map: 5
+[stack] utterance 6.1s speech | lid 0.00s asr 0.33s mt 1.22s tts1[uk] 1.27s done 1.28s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.36s mt 1.39s tts1[uk] 1.47s done 1.49s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 0.75s tts1[uk] 0.80s done 0.81s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 1.08s tts1[uk] 1.16s done 1.18s
+Missing phoneme from id map: 4
+Missing phoneme from id map: 0
+Missing phoneme from id map: 0
+[stack] utterance 7.5s speech | lid 0.00s asr 0.42s mt 1.69s tts1[uk] 1.79s done 1.81s
+Missing phoneme from id map: 1
+Missing phoneme from id map: 1
+Missing phoneme from id map: 0
+Missing phoneme from id map: 0
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.78s tts1[uk] 0.83s done 0.83s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.46s mt 1.20s tts1[uk] 1.29s done 1.30s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.41s mt 1.65s tts1[uk] 1.77s done 1.80s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 1.84s tts1[uk] 1.95s done 1.97s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.33s mt 1.26s tts1[uk] 1.35s done 1.37s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.58s mt 1.85s tts1[uk] 1.95s done 1.97s
+Missing phoneme from id map: x
+Missing phoneme from id map: x
+[stack] utterance 6.1s speech | lid 0.00s asr 0.41s mt 1.65s tts1[uk] 1.77s done 1.80s
+[stack] client: vi -> en (context)
+[stack] room open/e2e_vi_en_mvkgsx: +en (primary, utterance)
+[stack] utterance 7.8s speech | lid 0.00s asr 0.84s mt 1.82s tts1[en] 1.93s done 1.97s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.70s mt 1.30s tts1[en] 1.42s done 1.44s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.78s mt 1.80s tts1[en] 1.90s done 2.01s
+[stack] utterance 5.3s speech | lid 0.00s asr 0.45s mt 1.02s tts1[en] 1.13s done 1.13s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.49s mt 1.09s tts1[en] 1.19s done 1.21s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.71s mt 1.68s tts1[en] 1.80s done 1.83s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.60s mt 1.26s tts1[en] 1.37s done 1.39s
+[stack] utterance 2.2s speech | lid 0.00s asr 0.25s mt 0.53s tts1[en] 0.63s done 0.64s
+[stack] utterance 2.4s speech | lid 0.00s asr 0.24s mt 0.43s tts1[en] 0.54s done 0.54s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.60s mt 1.21s tts1[en] 1.33s done 1.35s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.42s mt 0.90s tts1[en] 1.00s done 1.02s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.37s mt 0.78s tts1[en] 0.89s done 0.90s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.50s mt 0.98s tts1[en] 1.08s done 1.10s
+[stack] utterance 2.4s speech | lid 0.00s asr 0.28s mt 0.57s tts1[en] 0.67s done 0.68s
+[stack] utterance 7.9s speech | lid 0.00s asr 0.67s mt 1.49s tts1[en] 1.61s done 1.63s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.56s mt 1.53s tts1[en] 1.65s done 1.68s
+[stack] utterance 5.9s speech | lid 0.00s asr 0.43s mt 0.99s tts1[en] 1.10s done 1.13s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.45s mt 0.94s tts1[en] 1.04s done 1.06s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.54s mt 1.13s tts1[en] 1.23s done 1.25s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.61s mt 1.52s tts1[en] 1.63s done 1.66s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.42s mt 0.91s tts1[en] 1.01s done 1.02s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.76s mt 1.33s tts1[en] 1.44s done 1.55s
+[stack] utterance 3.7s speech | lid 0.00s asr 0.45s mt 0.97s tts1[en] 1.07s done 1.09s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.45s mt 0.90s tts1[en] 1.00s done 1.01s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.45s mt 1.08s tts1[en] 1.18s done 1.20s
+[stack] utterance 3.7s speech | lid 0.00s asr 0.39s mt 0.74s tts1[en] 0.84s done 0.86s
+[stack] utterance 5.4s speech | lid 0.00s asr 0.43s mt 1.02s tts1[en] 1.12s done 1.13s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.86s mt 1.86s tts1[en] 1.98s done 2.01s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.57s mt 1.28s tts1[en] 1.39s done 1.41s
+[stack] utterance 1.2s speech | lid 0.00s asr 0.21s mt 0.45s tts1[en] 0.55s done 0.56s
+[stack] client: en -> vi (context)
+[stack] room open/e2e_en_vi_xiwtif: +vi (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.50s mt 1.78s tts1[vi] 1.93s done 1.96s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.57s mt 1.44s tts1[vi] 1.51s done 1.56s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.52s mt 1.63s tts1[vi] 1.69s done 1.77s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 1.88s tts1[vi] 2.01s done 2.04s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.49s mt 1.62s tts1[vi] 1.72s done 1.74s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.49s mt 1.81s tts1[vi] 1.93s done 1.95s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.39s mt 1.21s tts1[vi] 1.29s done 1.31s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.18s mt 0.43s tts1[vi] 0.45s done 0.46s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.41s mt 1.36s tts1[vi] 1.45s done 1.47s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.40s mt 1.50s tts1[vi] 1.58s done 1.60s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.42s mt 1.44s tts1[vi] 1.54s done 1.56s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.34s mt 1.23s tts1[vi] 1.31s done 1.33s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.37s mt 1.25s tts1[vi] 1.33s done 1.34s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.23s mt 0.68s tts1[vi] 0.72s done 0.73s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 1.12s tts1[vi] 1.20s done 1.21s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.42s mt 1.51s tts1[vi] 1.63s done 1.65s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.78s tts1[vi] 0.83s done 0.83s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.47s mt 1.09s tts1[vi] 1.17s done 1.18s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.41s mt 1.47s tts1[vi] 1.58s done 1.60s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 1.79s tts1[vi] 1.92s done 1.94s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.33s mt 1.08s tts1[vi] 1.15s done 1.17s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.57s mt 1.91s tts1[vi] 2.02s done 2.05s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.41s mt 1.45s tts1[vi] 1.54s done 1.56s
+[stack] client: ar -> en (context)
+[stack] room open/e2e_ar_en_rktzdx: +en (primary, utterance)
+[stack] utterance 9.0s speech | lid 0.00s asr 0.89s mt 1.89s tts1[en] 2.00s done 2.04s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.94s mt 1.71s tts1[en] 1.82s done 1.85s
+[stack] utterance 7.8s speech | lid 0.00s asr 0.80s mt 1.78s tts1[en] 1.89s done 2.01s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.96s mt 2.06s tts1[en] 2.18s done 2.22s
+[stack] utterance 9.2s speech | lid 0.00s asr 0.82s mt 1.74s tts1[en] 1.86s done 1.89s
+[stack] room open/e2e_ar_en_rktzdx: forced cut at 11.6s of 12.0s (quietest)
+[stack] utterance 11.6s speech | lid 0.00s asr 1.14s mt 2.11s tts1[en] 2.23s done 2.27s
+[stack] utterance 1.1s speech | lid 0.00s asr 0.19s mt 0.37s tts1[en] 0.48s done 0.48s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.85s mt 1.86s tts1[en] 1.98s done 2.02s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.75s mt 1.67s tts1[en] 1.78s done 1.80s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.74s mt 1.62s tts1[en] 1.74s done 1.76s
+[stack] utterance 8.9s speech | lid 0.00s asr 0.83s mt 1.71s tts1[en] 1.82s done 1.85s
+[stack] utterance 7.8s speech | lid 0.00s asr 0.68s mt 1.38s tts1[en] 1.49s done 1.51s
+[stack] utterance 7.8s speech | lid 0.00s asr 0.90s mt 1.70s tts1[en] 1.81s done 1.83s
+[stack] utterance 5.4s speech | lid 0.00s asr 0.57s mt 1.31s tts1[en] 1.42s done 1.44s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.74s mt 1.68s tts1[en] 1.80s done 1.84s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.59s mt 1.46s tts1[en] 1.56s done 1.67s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.87s mt 1.68s tts1[en] 1.80s done 1.84s
+[stack] utterance 8.5s speech | lid 0.00s asr 0.98s mt 1.79s tts1[en] 1.91s done 1.94s
+[stack] utterance 5.4s speech | lid 0.00s asr 0.63s mt 1.41s tts1[en] 1.52s done 1.54s
+[stack] utterance 5.9s speech | lid 0.00s asr 0.64s mt 1.63s tts1[en] 1.74s done 1.77s
+[stack] utterance 6.9s speech | lid 0.00s asr 0.82s mt 1.74s tts1[en] 1.85s done 1.96s
+[stack] client: en -> ar (context)
+[stack] room open/e2e_en_ar_h0m99v: +ar (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.52s mt 1.58s tts1[ar] 1.81s done 1.83s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.58s mt 1.70s tts1[ar] 1.84s done 1.93s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.52s mt 1.40s tts1[ar] 1.50s done 1.59s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 1.51s tts1[ar] 1.75s done 1.79s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.50s mt 1.56s tts1[ar] 1.78s done 1.82s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.49s mt 2.01s tts1[ar] 2.25s done 2.29s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.39s mt 1.38s tts1[ar] 1.56s done 1.57s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.18s mt 0.43s tts1[ar] 0.53s done 0.53s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.41s mt 1.29s tts1[ar] 1.47s done 1.50s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.40s mt 1.53s tts1[ar] 1.75s done 1.79s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.42s mt 1.52s tts1[ar] 1.77s done 1.79s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.34s mt 1.44s tts1[ar] 1.67s done 1.71s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.35s mt 1.38s tts1[ar] 1.55s done 1.56s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 0.69s tts1[ar] 0.76s done 0.76s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 1.05s tts1[ar] 1.23s done 1.24s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.41s mt 1.40s tts1[ar] 1.60s done 1.62s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.74s tts1[ar] 0.88s done 0.89s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.47s mt 0.94s tts1[ar] 1.12s done 1.14s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.42s mt 1.58s tts1[ar] 1.81s done 1.85s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 1.77s tts1[ar] 2.02s done 2.07s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.33s mt 1.05s tts1[ar] 1.20s done 1.23s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.57s mt 1.81s tts1[ar] 2.03s done 2.07s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.40s mt 1.47s tts1[ar] 1.66s done 1.68s
+[stack] client: fa -> en (context)
+[stack] room open/e2e_fa_en_ftbwc9: +en (primary, utterance)
+[stack] utterance 9.3s speech | lid 0.00s asr 3.78s mt 4.79s tts1[en] 4.91s done 4.94s
+[stack] utterance 0.8s speech | lid 0.00s asr 0.71s mt 0.91s tts1[en] 1.02s done 1.02s
+[stack] utterance 6.6s speech | lid 0.00s asr 2.52s mt 3.23s tts1[en] 3.34s done 3.45s
+[stack] utterance 6.9s speech | lid 0.00s asr 2.28s mt 3.08s tts1[en] 3.19s done 3.22s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.77s mt 1.15s tts1[en] 1.26s done 1.27s
+[stack] utterance 6.9s speech | lid 0.00s asr 2.71s mt 3.33s tts1[en] 3.44s done 3.46s
+[stack] utterance 5.0s speech | lid 0.00s asr 1.75s mt 2.19s tts1[en] 2.30s done 2.31s
+[stack] utterance 4.9s speech | lid 0.00s asr 1.68s mt 2.23s tts1[en] 2.33s done 2.35s
+[stack] utterance 7.0s speech | lid 0.00s asr 2.95s mt 3.61s tts1[en] 3.72s done 3.74s
+[stack] utterance 8.7s speech | lid 0.00s asr 3.11s mt 3.85s tts1[en] 3.96s done 4.00s
+[stack] utterance 3.4s speech | lid 0.00s asr 1.17s mt 1.45s tts1[en] 1.55s done 1.56s
+[stack] utterance 0.8s speech | lid 0.00s asr 0.44s mt 0.63s tts1[en] 0.74s done 0.75s
+[stack] utterance 9.2s speech | lid 0.00s asr 2.68s mt 3.39s tts1[en] 3.51s done 3.53s
+[stack] utterance 8.0s speech | lid 0.00s asr 2.97s mt 3.84s tts1[en] 3.96s done 3.97s
+[stack] utterance 0.9s speech | lid 0.00s asr 0.71s mt 0.91s tts1[en] 1.01s done 1.02s
+[stack] utterance 5.4s speech | lid 0.00s asr 2.24s mt 2.79s tts1[en] 2.90s done 2.91s
+[stack] utterance 2.8s speech | lid 0.00s asr 1.24s mt 1.64s tts1[en] 1.73s done 1.75s
+[stack] utterance 5.8s speech | lid 0.00s asr 2.34s mt 2.97s tts1[en] 3.08s done 3.10s
+[stack] utterance 2.2s speech | lid 0.00s asr 0.97s mt 1.21s tts1[en] 1.31s done 1.32s
+[stack] utterance 7.5s speech | lid 0.00s asr 3.27s mt 3.96s tts1[en] 4.06s done 4.09s
+[stack] utterance 8.9s speech | lid 0.00s asr 3.58s mt 4.39s tts1[en] 4.50s done 4.53s
+[stack] utterance 8.8s speech | lid 0.00s asr 2.67s mt 3.34s tts1[en] 3.45s done 3.47s
+[stack] utterance 8.0s speech | lid 0.00s asr 2.74s mt 3.44s tts1[en] 3.55s done 3.57s
+[stack] utterance 4.1s speech | lid 0.00s asr 1.47s mt 1.96s tts1[en] 2.06s done 2.08s
+[stack] utterance 8.0s speech | lid 0.00s asr 2.67s mt 3.57s tts1[en] 3.68s done 3.79s
+[stack] utterance 7.1s speech | lid 0.00s asr 2.63s mt 3.54s tts1[en] 3.64s done 3.73s
+[stack] utterance 7.8s speech | lid 0.00s asr 2.24s mt 2.94s tts1[en] 3.04s done 3.07s
+[stack] utterance 3.6s speech | lid 0.00s asr 1.34s mt 1.65s tts1[en] 1.75s done 1.76s
+[stack] utterance 9.2s speech | lid 0.00s asr 2.81s mt 3.67s tts1[en] 3.78s done 3.81s
+[stack] utterance 4.5s speech | lid 0.00s asr 1.61s mt 2.06s tts1[en] 2.16s done 2.17s
+[stack] utterance 2.7s speech | lid 0.00s asr 0.77s mt 1.95s tts1[en] 2.05s done 2.26s
+[stack] utterance 7.1s speech | lid 0.00s asr 2.96s mt 4.08s tts1[en] 4.20s done 4.23s
+[stack] utterance 1.4s speech | lid 0.00s asr 0.44s mt 0.82s tts1[en] 0.91s done 0.92s
+[stack] utterance 6.4s speech | lid 0.00s asr 2.15s mt 2.77s tts1[en] 2.87s done 2.89s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.61s mt 0.79s tts1[en] 0.90s done 0.90s
+[stack] client: en -> fa (context)
+[stack] room open/e2e_en_fa_ntxmen: +fa (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.50s mt 1.50s tts1[fa] 1.65s done 1.67s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.58s mt 1.53s tts1[fa] 1.61s done 1.66s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.52s mt 1.18s tts1[fa] 1.23s done 1.30s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 1.83s tts1[fa] 1.98s done 2.01s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.50s mt 1.70s tts1[fa] 1.87s done 1.90s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.50s mt 2.06s tts1[fa] 2.23s done 2.26s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.39s mt 1.21s tts1[fa] 1.29s done 1.31s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.18s mt 0.40s tts1[fa] 0.42s done 0.42s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.41s mt 1.46s tts1[fa] 1.55s done 1.57s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.40s mt 1.60s tts1[fa] 1.71s done 1.73s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.42s mt 1.41s tts1[fa] 1.52s done 1.55s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.34s mt 1.26s tts1[fa] 1.36s done 1.38s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.37s mt 1.43s tts1[fa] 1.52s done 1.54s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.23s mt 0.76s tts1[fa] 0.81s done 0.82s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 1.15s tts1[fa] 1.24s done 1.26s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.42s mt 1.42s tts1[fa] 1.53s done 1.56s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.71s tts1[fa] 0.76s done 0.77s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.47s mt 1.05s tts1[fa] 1.14s done 1.16s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.41s mt 1.64s tts1[fa] 1.77s done 1.80s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 1.77s tts1[fa] 1.89s done 1.92s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.34s mt 1.22s tts1[fa] 1.30s done 1.32s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.57s mt 1.99s tts1[fa] 2.12s done 2.15s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.41s mt 1.58s tts1[fa] 1.69s done 1.72s
+[stack] client: tl -> en (context)
+[stack] room open/e2e_tl_en_bz51di: +en (primary, utterance)
+[stack] room open/e2e_tl_en_bz51di: forced cut at 4.9s of 12.0s (clause)
+[stack] utterance 4.9s speech | lid 0.00s asr 0.41s mt 0.81s tts1[en] 0.92s done 0.92s
+[stack] utterance 8.6s speech | lid 0.00s asr 0.64s mt 1.36s tts1[en] 1.47s done 1.49s
+[stack] utterance 5.4s speech | lid 0.00s asr 0.38s mt 0.79s tts1[en] 0.89s done 0.90s
+[stack] utterance 6.9s speech | lid 0.00s asr 0.52s mt 1.00s tts1[en] 1.10s done 1.11s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.50s mt 1.02s tts1[en] 1.13s done 1.22s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.27s mt 0.61s tts1[en] 0.72s done 0.72s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.48s mt 0.92s tts1[en] 1.02s done 1.04s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.53s mt 0.93s tts1[en] 1.04s done 1.14s
+[stack] utterance 3.2s speech | lid 0.00s asr 0.29s mt 0.52s tts1[en] 0.63s done 0.63s
+[stack] room open/e2e_tl_en_bz51di: forced cut at 11.7s of 12.0s (sentence)
+[stack] utterance 11.7s speech | lid 0.00s asr 0.95s mt 1.99s tts1[en] 2.11s done 2.15s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.34s mt 0.69s tts1[en] 0.79s done 0.81s
+[stack] utterance 7.7s speech | lid 0.00s asr 0.48s mt 0.94s tts1[en] 1.03s done 1.04s
+[stack] utterance 5.9s speech | lid 0.00s asr 0.50s mt 0.99s tts1[en] 1.09s done 1.10s
+[stack] utterance 5.3s speech | lid 0.00s asr 0.53s mt 0.95s tts1[en] 1.05s done 1.07s
+[stack] utterance 2.9s speech | lid 0.00s asr 0.36s mt 0.71s tts1[en] 0.81s done 0.82s
+[stack] utterance 10.0s speech | lid 0.00s asr 0.60s mt 1.44s tts1[en] 1.55s done 1.58s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.64s mt 1.16s tts1[en] 1.26s done 1.28s
+[stack] utterance 1.8s speech | lid 0.00s asr 0.27s mt 0.58s tts1[en] 0.68s done 0.69s
+[stack] utterance 9.4s speech | lid 0.00s asr 0.59s mt 1.24s tts1[en] 1.36s done 1.38s
+[stack] utterance 2.9s speech | lid 0.00s asr 0.28s mt 0.55s tts1[en] 0.65s done 0.66s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.54s mt 1.27s tts1[en] 1.39s done 1.40s
+[stack] utterance 6.4s speech | lid 0.00s asr 0.44s mt 0.90s tts1[en] 1.01s done 1.01s
+[stack] utterance 2.8s speech | lid 0.00s asr 0.25s mt 0.49s tts1[en] 0.60s done 0.60s
+[stack] utterance 3.6s speech | lid 0.00s asr 0.37s mt 0.70s tts1[en] 0.81s done 0.82s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.41s mt 0.98s tts1[en] 1.08s done 1.10s
+[stack] utterance 3.2s speech | lid 0.00s asr 0.30s mt 0.57s tts1[en] 0.67s done 0.68s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.44s mt 0.85s tts1[en] 0.96s done 0.97s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.43s mt 1.02s tts1[en] 1.12s done 1.14s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.74s mt 1.28s tts1[en] 1.38s done 1.48s
+[stack] room open/e2e_tl_en_bz51di: forced cut at 10.2s of 12.0s (quietest)
+[stack] utterance 10.2s speech | lid 0.00s asr 0.72s mt 1.42s tts1[en] 1.53s done 1.55s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.30s mt 0.65s tts1[en] 0.76s done 0.77s
+[stack] utterance 10.1s speech | lid 0.00s asr 0.65s mt 1.31s tts1[en] 1.42s done 1.44s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.40s mt 0.74s tts1[en] 0.84s done 0.85s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.53s mt 1.12s tts1[en] 1.23s done 1.25s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.53s mt 1.22s tts1[en] 1.33s done 1.34s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.55s mt 1.04s tts1[en] 1.14s done 1.15s
+[stack] utterance 9.6s speech | lid 0.00s asr 0.64s mt 1.27s tts1[en] 1.38s done 1.41s
+[stack] utterance 2.7s speech | lid 0.00s asr 0.21s mt 0.45s tts1[en] 0.55s done 0.56s
+[stack] client: en -> tl (context)
+[stack] room open/e2e_en_tl_qng8lr: +tl (primary, utterance)
+[stack] VoxCPM2 stats: :8791 served 2 peak 1 errors 0; overflow 0
+[stack] utterance 6.5s speech | lid 0.00s asr 0.52s mt 1.73s tts1[tl] 1.73s done 6.11s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.58s mt 1.42s tts1[tl] 1.42s done 4.86s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.52s mt 1.28s tts1[tl] 1.28s done 3.99s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 2.18s tts1[tl] 2.18s done 7.37s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.50s mt 1.93s tts1[tl] 1.93s done 7.12s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.51s mt 2.23s tts1[tl] 2.23s done 8.88s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.39s mt 1.49s tts1[tl] 1.49s done 4.50s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.18s mt 0.51s tts1[tl] 0.51s done 1.32s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.41s mt 1.47s tts1[tl] 1.47s done 4.56s
+[stack] VoxCPM2 stats: :8791 served 13 peak 1 errors 0; overflow 0
+[stack] utterance 5.6s speech | lid 0.00s asr 0.40s mt 1.60s tts1[tl] 1.60s done 5.89s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.51s mt 1.57s tts1[tl] 1.58s done 5.04s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.34s mt 1.30s tts1[tl] 1.30s done 4.49s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.37s mt 1.11s tts1[tl] 1.11s done 3.95s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 0.79s tts1[tl] 0.79s done 2.27s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 1.23s tts1[tl] 1.23s done 3.77s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.42s mt 1.52s tts1[tl] 1.52s done 4.25s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.78s tts1[tl] 0.78s done 2.14s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.47s mt 1.23s tts1[tl] 1.23s done 4.67s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.41s mt 1.55s tts1[tl] 1.55s done 5.10s
+[stack] VoxCPM2 stats: :8791 served 24 peak 1 errors 0; overflow 0
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 1.83s tts1[tl] 1.83s done 6.02s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.34s mt 1.36s tts1[tl] 1.37s done 4.01s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.57s mt 2.34s tts1[tl] 2.34s done 7.07s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.41s mt 1.86s tts1[tl] 1.86s done 6.05s
+[stack] client: sw -> en (context)
+[stack] room open/e2e_sw_en_yinffx: +en (primary, utterance)
+[stack] utterance 9.4s speech | lid 0.00s asr 3.87s mt 5.41s tts1[en] 5.52s done 5.55s
+[stack] utterance 10.2s speech | lid 0.00s asr 3.69s mt 4.40s tts1[en] 4.49s done 4.60s
+[stack] utterance 7.5s speech | lid 0.00s asr 2.33s mt 3.07s tts1[en] 3.16s done 3.26s
+[stack] utterance 1.8s speech | lid 0.00s asr 0.71s mt 0.97s tts1[en] 1.04s done 1.05s
+[stack] utterance 5.3s speech | lid 0.00s asr 2.34s mt 3.00s tts1[en] 3.09s done 3.11s
+[stack] utterance 3.4s speech | lid 0.00s asr 1.30s mt 1.76s tts1[en] 1.84s done 1.86s
+[stack] utterance 1.8s speech | lid 0.00s asr 0.74s mt 0.95s tts1[en] 1.03s done 1.04s
+[stack] utterance 6.5s speech | lid 0.00s asr 2.45s mt 3.22s tts1[en] 3.30s done 3.39s
+[stack] utterance 1.4s speech | lid 0.00s asr 0.51s mt 0.76s tts1[en] 0.84s done 0.85s
+[stack] room open/e2e_sw_en_yinffx: forced cut at 10.5s of 12.0s (quietest)
+[stack] utterance 10.5s speech | lid 0.00s asr 3.06s mt 3.74s tts1[en] 3.83s done 3.85s
+[stack] utterance 4.8s speech | lid 0.00s asr 2.01s mt 2.61s tts1[en] 2.70s done 2.72s
+[stack] room open/e2e_sw_en_yinffx: forced cut at 10.2s of 12.0s (quietest)
+[stack] utterance 10.2s speech | lid 0.00s asr 4.16s mt 5.15s tts1[en] 5.25s done 5.28s
+[stack] utterance 2.0s speech | lid 0.00s asr 0.58s mt 0.79s tts1[en] 0.88s done 0.88s
+[stack] utterance 7.6s speech | lid 0.00s asr 3.00s mt 3.83s tts1[en] 3.93s done 3.96s
+[stack] utterance 0.8s speech | lid 0.00s asr 0.90s mt 1.31s tts1[en] 1.38s done 1.39s
+[stack] utterance 4.5s speech | lid 0.00s asr 1.97s mt 2.41s tts1[en] 2.49s done 2.50s
+[stack] utterance 3.7s speech | lid 0.00s asr 1.09s mt 1.46s tts1[en] 1.53s done 1.54s
+[stack] utterance 5.4s speech | lid 0.00s asr 1.77s mt 2.27s tts1[en] 2.35s done 2.36s
+[stack] utterance 3.8s speech | lid 0.00s asr 1.57s mt 1.93s tts1[en] 2.01s done 2.03s
+[stack] utterance 5.4s speech | lid 0.00s asr 2.07s mt 2.68s tts1[en] 2.77s done 2.78s
+[stack] utterance 2.5s speech | lid 0.00s asr 1.20s mt 1.56s tts1[en] 1.64s done 1.65s
+[stack] utterance 5.9s speech | lid 0.00s asr 2.21s mt 2.70s tts1[en] 2.78s done 2.79s
+[stack] utterance 6.0s speech | lid 0.00s asr 2.44s mt 3.03s tts1[en] 3.11s done 3.13s
+[stack] utterance 1.5s speech | lid 0.00s asr 0.22s mt 0.40s tts1[en] 0.48s done 0.48s
+[stack] utterance 5.9s speech | lid 0.00s asr 1.98s mt 2.47s tts1[en] 2.56s done 2.58s
+[stack] utterance 1.0s speech | lid 0.00s asr 0.90s mt 1.33s tts1[en] 1.41s done 1.42s
+[stack] utterance 8.0s speech | lid 0.00s asr 2.77s mt 3.41s tts1[en] 3.50s done 3.52s
+[stack] utterance 2.9s speech | lid 0.00s asr 0.81s mt 1.16s tts1[en] 1.24s done 1.25s
+[stack] utterance 7.2s speech | lid 0.00s asr 2.83s mt 3.87s tts1[en] 3.96s done 4.06s
+[stack] utterance 11.5s speech | lid 0.00s asr 4.05s mt 5.35s tts1[en] 5.45s done 5.49s
+[stack] utterance 1.0s speech | lid 0.00s asr 1.13s mt 1.53s tts1[en] 1.61s done 1.62s
+[stack] utterance 7.0s speech | lid 0.00s asr 2.71s mt 3.44s tts1[en] 3.53s done 3.56s
+[stack] utterance 2.9s speech | lid 0.00s asr 1.20s mt 1.55s tts1[en] 1.63s done 1.63s
+[stack] utterance 6.5s speech | lid 0.00s asr 2.12s mt 2.77s tts1[en] 2.85s done 2.87s
+[stack] utterance 8.4s speech | lid 0.00s asr 3.41s mt 4.65s tts1[en] 4.74s done 4.85s
+[stack] utterance 2.5s speech | lid 0.00s asr 1.23s mt 1.60s tts1[en] 1.67s done 1.68s
+[stack] utterance 10.1s speech | lid 0.00s asr 3.75s mt 4.81s tts1[en] 4.90s done 5.00s
+[stack] client: en -> sw (context)
+[stack] room open/e2e_en_sw_0ovqp5: +sw (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.50s mt 1.74s tts1[sw] 1.92s done 1.96s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.58s mt 1.49s tts1[sw] 1.56s done 1.62s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.52s mt 1.40s tts1[sw] 1.46s done 1.51s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 2.05s tts1[sw] 2.21s done 2.24s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.49s mt 1.85s tts1[sw] 1.96s done 1.99s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.50s mt 2.48s tts1[sw] 2.68s done 2.72s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.39s mt 1.53s tts1[sw] 1.64s done 1.66s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.18s mt 0.47s tts1[sw] 0.50s done 0.50s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.41s mt 1.43s tts1[sw] 1.53s done 1.55s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.40s mt 1.71s tts1[sw] 1.86s done 1.88s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.42s mt 1.59s tts1[sw] 1.70s done 1.72s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.34s mt 1.68s tts1[sw] 1.84s done 1.87s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.37s mt 1.43s tts1[sw] 1.52s done 1.54s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 0.69s tts1[sw] 0.74s done 0.75s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 1.19s tts1[sw] 1.28s done 1.29s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.42s mt 1.59s tts1[sw] 1.71s done 1.73s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.78s tts1[sw] 0.84s done 0.84s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.47s mt 1.11s tts1[sw] 1.18s done 1.21s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.41s mt 1.89s tts1[sw] 2.03s done 2.06s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.49s mt 2.07s tts1[sw] 2.23s done 2.26s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.33s mt 1.30s tts1[sw] 1.39s done 1.41s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.57s mt 2.20s tts1[sw] 2.32s done 2.35s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.41s mt 1.93s tts1[sw] 2.06s done 2.09s
+[stack] client: it -> en (context)
+[stack] room open/e2e_it_en_66fswn: +en (primary, utterance)
+[stack] utterance 10.3s speech | lid 0.00s asr 0.78s mt 1.65s tts1[en] 1.75s done 1.78s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.38s mt 0.76s tts1[en] 0.84s done 0.84s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.34s mt 0.71s tts1[en] 0.80s done 0.81s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.48s tts1[en] 0.57s done 0.58s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.34s mt 0.78s tts1[en] 0.86s done 0.88s
+[stack] utterance 3.7s speech | lid 0.00s asr 0.29s mt 0.57s tts1[en] 0.64s done 0.65s
+[stack] utterance 10.0s speech | lid 0.00s asr 0.74s mt 1.68s tts1[en] 1.79s done 1.83s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.62s mt 1.29s tts1[en] 1.39s done 1.42s
+[stack] utterance 8.9s speech | lid 0.00s asr 0.61s mt 1.33s tts1[en] 1.43s done 1.47s
+[stack] utterance 2.9s speech | lid 0.00s asr 0.31s mt 0.58s tts1[en] 0.65s done 0.66s
+[stack] utterance 7.9s speech | lid 0.00s asr 0.33s mt 0.67s tts1[en] 0.76s done 0.77s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 0.63s tts1[en] 0.72s done 0.73s
+[stack] utterance 1.6s speech | lid 0.00s asr 0.19s mt 0.42s tts1[en] 0.50s done 0.51s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.47s mt 1.01s tts1[en] 1.10s done 1.12s
+[stack] utterance 10.0s speech | lid 0.00s asr 0.72s mt 1.42s tts1[en] 1.52s done 1.54s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 0.66s tts1[en] 0.75s done 0.77s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.31s mt 0.65s tts1[en] 0.74s done 0.84s
+[stack] utterance 2.9s speech | lid 0.00s asr 0.21s mt 0.45s tts1[en] 0.54s done 0.55s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.49s mt 1.15s tts1[en] 1.25s done 1.28s
+[stack] utterance 5.9s speech | lid 0.00s asr 0.38s mt 0.74s tts1[en] 0.81s done 0.83s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.40s mt 0.75s tts1[en] 0.83s done 0.84s
+[stack] utterance 3.6s speech | lid 0.00s asr 0.26s mt 0.55s tts1[en] 0.64s done 0.65s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.37s mt 0.74s tts1[en] 0.83s done 0.85s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.35s mt 0.71s tts1[en] 0.79s done 0.81s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.55s mt 1.07s tts1[en] 1.16s done 1.18s
+[stack] utterance 3.8s speech | lid 0.00s asr 0.37s mt 0.78s tts1[en] 0.86s done 0.88s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.57s mt 1.26s tts1[en] 1.36s done 1.38s
+[stack] utterance 7.8s speech | lid 0.00s asr 0.63s mt 1.29s tts1[en] 1.39s done 1.42s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.33s mt 0.76s tts1[en] 0.85s done 0.86s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.41s mt 0.82s tts1[en] 0.90s done 0.92s
+[stack] utterance 8.7s speech | lid 0.00s asr 0.47s mt 0.97s tts1[en] 1.06s done 1.08s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.63s mt 1.36s tts1[en] 1.45s done 1.48s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.77s mt 1.58s tts1[en] 1.68s done 1.79s
+[stack] client: en -> it (context)
+[stack] room open/e2e_en_it_m2drcp: +it (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.50s mt 1.69s tts1[it] 1.78s done 1.79s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.57s mt 1.65s tts1[it] 1.73s done 1.85s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.50s mt 1.50s tts1[it] 1.59s done 1.69s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 1.54s tts1[it] 1.64s done 1.67s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.48s mt 1.60s tts1[it] 1.70s done 1.73s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.49s mt 1.82s tts1[it] 1.91s done 1.95s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.37s mt 1.26s tts1[it] 1.35s done 1.35s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.17s mt 0.40s tts1[it] 0.49s done 0.50s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.40s mt 1.33s tts1[it] 1.42s done 1.45s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.38s mt 1.51s tts1[it] 1.61s done 1.64s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.40s mt 1.24s tts1[it] 1.32s done 1.35s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.33s mt 1.24s tts1[it] 1.33s done 1.35s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.35s mt 1.28s tts1[it] 1.37s done 1.39s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 0.71s tts1[it] 0.79s done 0.80s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.32s mt 1.04s tts1[it] 1.14s done 1.15s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.40s mt 1.47s tts1[it] 1.56s done 1.58s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.74s tts1[it] 0.82s done 0.83s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.46s mt 1.02s tts1[it] 1.11s done 1.21s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.40s mt 1.70s tts1[it] 1.80s done 1.83s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 1.44s tts1[it] 1.53s done 1.57s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.32s mt 1.03s tts1[it] 1.12s done 1.14s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.56s mt 1.82s tts1[it] 1.91s done 1.94s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.40s mt 1.47s tts1[it] 1.55s done 1.66s
+[stack] client: ko -> en (context)
+[stack] room open/e2e_ko_en_ayvpvt: +en (primary, utterance)
+[stack] utterance 8.7s speech | lid 0.00s asr 0.74s mt 1.55s tts1[en] 1.64s done 1.67s
+[stack] utterance 5.4s speech | lid 0.00s asr 0.55s mt 1.05s tts1[en] 1.14s done 1.24s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.57s mt 1.32s tts1[en] 1.41s done 1.51s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.62s mt 1.51s tts1[en] 1.61s done 1.64s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.66s mt 1.51s tts1[en] 1.62s done 1.65s
+[stack] dropped short noise (p=0.89): 감사합니다.
+[stack] utterance 8.6s speech | lid 0.00s asr 0.84s mt 1.66s tts1[en] 1.76s done 1.80s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.49s mt 1.10s tts1[en] 1.20s done 1.23s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.25s mt 0.48s tts1[en] 0.55s done 0.56s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.63s mt 1.32s tts1[en] 1.42s done 1.44s
+[stack] dropped short noise (p=0.92): 감사합니다.
+[stack] utterance 7.4s speech | lid 0.00s asr 0.54s mt 1.07s tts1[en] 1.15s done 1.17s
+[stack] utterance 9.2s speech | lid 0.00s asr 0.68s mt 1.34s tts1[en] 1.45s done 1.48s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.46s mt 1.01s tts1[en] 1.11s done 1.12s
+[stack] utterance 5.4s speech | lid 0.00s asr 0.46s mt 0.93s tts1[en] 1.02s done 1.04s
+[stack] utterance 2.7s speech | lid 0.00s asr 0.26s mt 0.55s tts1[en] 0.63s done 0.64s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.43s mt 0.87s tts1[en] 0.96s done 0.98s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.58s mt 1.35s tts1[en] 1.45s done 1.48s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.56s mt 1.22s tts1[en] 1.31s done 1.33s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.65s mt 1.40s tts1[en] 1.50s done 1.53s
+[stack] utterance 7.6s speech | lid 0.00s asr 0.61s mt 1.19s tts1[en] 1.29s done 1.32s
+[stack] utterance 4.7s speech | lid 0.00s asr 0.44s mt 0.95s tts1[en] 1.04s done 1.06s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.49s mt 1.00s tts1[en] 1.08s done 1.09s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.41s mt 0.89s tts1[en] 0.97s done 0.99s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.53s mt 1.17s tts1[en] 1.26s done 1.34s
+[stack] client: en -> ko (context)
+[stack] room open/e2e_en_ko_gqk3x7: +ko (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.50s mt 2.40s tts1[ko] 2.57s done 2.60s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.57s mt 1.80s tts1[ko] 1.89s done 1.93s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.50s mt 1.82s tts1[ko] 1.88s done 1.95s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 1.95s tts1[ko] 2.10s done 2.13s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.47s mt 2.16s tts1[ko] 2.33s done 2.36s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.49s mt 2.37s tts1[ko] 2.53s done 2.57s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.37s mt 1.25s tts1[ko] 1.33s done 1.34s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.17s mt 0.78s tts1[ko] 0.84s done 0.85s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.40s mt 1.80s tts1[ko] 1.92s done 1.95s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.38s mt 2.11s tts1[ko] 2.23s done 2.26s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.40s mt 1.57s tts1[ko] 1.68s done 1.70s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.33s mt 1.34s tts1[ko] 1.43s done 1.45s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.35s mt 1.52s tts1[ko] 1.61s done 1.63s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 0.69s tts1[ko] 0.74s done 0.75s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.32s mt 1.60s tts1[ko] 1.70s done 1.72s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.41s mt 1.73s tts1[ko] 1.84s done 1.86s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.90s tts1[ko] 0.96s done 0.97s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.46s mt 1.33s tts1[ko] 1.42s done 1.44s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.40s mt 1.75s tts1[ko] 1.91s done 1.94s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 2.18s tts1[ko] 2.35s done 2.38s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.33s mt 1.30s tts1[ko] 1.38s done 1.40s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.56s mt 2.28s tts1[ko] 2.43s done 2.46s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.40s mt 1.94s tts1[ko] 2.07s done 2.10s
+[stack] client: id -> en (context)
+[stack] room open/e2e_id_en_yiqalo: +en (primary, utterance)
+[stack] utterance 9.1s speech | lid 0.00s asr 0.70s mt 1.52s tts1[en] 1.63s done 1.66s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.54s mt 0.91s tts1[en] 0.99s done 1.10s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.53s mt 1.35s tts1[en] 1.42s done 1.54s
+[stack] utterance 10.1s speech | lid 0.00s asr 0.65s mt 1.43s tts1[en] 1.53s done 1.56s
+[stack] utterance 8.7s speech | lid 0.00s asr 0.66s mt 1.48s tts1[en] 1.57s done 1.59s
+[stack] utterance 8.2s speech | lid 0.00s asr 0.55s mt 1.04s tts1[en] 1.12s done 1.14s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.40s mt 0.81s tts1[en] 0.90s done 0.92s
+[stack] utterance 8.9s speech | lid 0.00s asr 0.58s mt 1.22s tts1[en] 1.32s done 1.35s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.53s mt 1.30s tts1[en] 1.41s done 1.43s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.63s mt 1.18s tts1[en] 1.27s done 1.29s
+[stack] utterance 9.9s speech | lid 0.00s asr 0.61s mt 1.25s tts1[en] 1.34s done 1.37s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.49s mt 1.09s tts1[en] 1.19s done 1.21s
+[stack] utterance 7.9s speech | lid 0.00s asr 0.71s mt 1.54s tts1[en] 1.64s done 1.68s
+[stack] utterance 6.4s speech | lid 0.00s asr 0.42s mt 0.94s tts1[en] 1.03s done 1.05s
+[stack] utterance 7.9s speech | lid 0.00s asr 0.47s mt 1.31s tts1[en] 1.41s done 1.44s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.59s mt 1.08s tts1[en] 1.17s done 1.28s
+[stack] utterance 11.6s speech | lid 0.00s asr 0.72s mt 1.46s tts1[en] 1.56s done 1.59s
+[stack] utterance 9.4s speech | lid 0.00s asr 0.65s mt 1.29s tts1[en] 1.40s done 1.43s
+[stack] utterance 1.3s speech | lid 0.00s asr 0.16s mt 0.31s tts1[en] 0.39s done 0.40s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.51s mt 1.07s tts1[en] 1.16s done 1.18s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.41s mt 0.94s tts1[en] 1.02s done 1.04s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.50s mt 1.09s tts1[en] 1.18s done 1.20s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.44s mt 0.88s tts1[en] 0.97s done 0.99s
+[stack] utterance 2.4s speech | lid 0.00s asr 0.23s mt 0.41s tts1[en] 0.49s done 0.50s
+[stack] client: en -> id (context)
+[stack] room open/e2e_en_id_ufik06: +id (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.50s mt 1.80s tts1[id] 2.04s done 2.07s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.57s mt 1.53s tts1[id] 1.61s done 1.71s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.50s mt 1.60s tts1[id] 1.67s done 1.78s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 1.86s tts1[id] 2.09s done 2.11s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.49s mt 1.51s tts1[id] 1.68s done 1.72s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.49s mt 2.02s tts1[id] 2.22s done 2.25s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.37s mt 1.32s tts1[id] 1.45s done 1.47s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.18s mt 0.42s tts1[id] 0.45s done 0.46s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.40s mt 1.26s tts1[id] 1.38s done 1.40s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.38s mt 1.41s tts1[id] 1.55s done 1.57s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.40s mt 1.23s tts1[id] 1.37s done 1.40s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.33s mt 1.14s tts1[id] 1.27s done 1.30s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.36s mt 1.11s tts1[id] 1.21s done 1.23s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 0.91s tts1[id] 1.00s done 1.02s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.33s mt 1.04s tts1[id] 1.16s done 1.18s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.40s mt 1.38s tts1[id] 1.51s done 1.53s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.23s mt 0.76s tts1[id] 0.83s done 0.84s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.46s mt 1.00s tts1[id] 1.09s done 1.12s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.40s mt 1.64s tts1[id] 1.81s done 1.84s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 1.70s tts1[id] 1.87s done 1.90s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.32s mt 1.08s tts1[id] 1.20s done 1.22s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.56s mt 1.92s tts1[id] 2.09s done 2.12s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.40s mt 1.61s tts1[id] 1.77s done 1.81s
+[stack] client: tr -> en (context)
+[stack] room open/e2e_tr_en_knou3b: +en (primary, utterance)
+[stack] utterance 7.6s speech | lid 0.00s asr 0.69s mt 1.65s tts1[en] 1.76s done 1.79s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.64s mt 1.01s tts1[en] 1.10s done 1.21s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.60s mt 1.33s tts1[en] 1.41s done 1.52s
+[stack] utterance 8.5s speech | lid 0.00s asr 0.81s mt 1.36s tts1[en] 1.46s done 1.55s
+[stack] utterance 8.9s speech | lid 0.00s asr 0.70s mt 1.45s tts1[en] 1.55s done 1.58s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.76s mt 1.50s tts1[en] 1.60s done 1.64s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.55s mt 1.19s tts1[en] 1.29s done 1.32s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.49s mt 1.13s tts1[en] 1.22s done 1.25s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.65s mt 1.38s tts1[en] 1.47s done 1.50s
+[stack] utterance 8.1s speech | lid 0.00s asr 0.64s mt 1.34s tts1[en] 1.44s done 1.47s
+[stack] utterance 4.3s speech | lid 0.00s asr 0.47s mt 1.09s tts1[en] 1.18s done 1.19s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.43s mt 0.87s tts1[en] 0.94s done 0.96s
+[stack] utterance 5.9s speech | lid 0.00s asr 0.43s mt 0.90s tts1[en] 0.99s done 1.01s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.43s mt 0.93s tts1[en] 1.02s done 1.04s
+[stack] utterance 9.7s speech | lid 0.00s asr 0.78s mt 1.68s tts1[en] 1.79s done 1.82s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.58s mt 1.13s tts1[en] 1.21s done 1.31s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.63s mt 1.36s tts1[en] 1.46s done 1.50s
+[stack] utterance 8.2s speech | lid 0.00s asr 0.75s mt 1.37s tts1[en] 1.45s done 1.48s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.47s mt 1.06s tts1[en] 1.15s done 1.17s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.80s mt 1.76s tts1[en] 1.84s done 1.96s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.59s mt 1.26s tts1[en] 1.35s done 1.36s
+[stack] utterance 1.8s speech | lid 0.00s asr 0.25s mt 0.52s tts1[en] 0.60s done 0.61s
+[stack] client: en -> tr (context)
+[stack] room open/e2e_en_tr_q1hoa4: +tr (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.50s mt 1.88s tts1[tr] 2.05s done 2.08s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.57s mt 1.68s tts1[tr] 1.76s done 1.80s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.51s mt 1.50s tts1[tr] 1.57s done 1.63s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 2.26s tts1[tr] 2.44s done 2.47s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.48s mt 1.67s tts1[tr] 1.81s done 1.83s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.49s mt 1.93s tts1[tr] 2.08s done 2.11s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.37s mt 1.44s tts1[tr] 1.56s done 1.58s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.18s mt 0.41s tts1[tr] 0.44s done 0.44s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.40s mt 1.29s tts1[tr] 1.38s done 1.39s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.38s mt 1.49s tts1[tr] 1.60s done 1.62s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.40s mt 1.53s tts1[tr] 1.65s done 1.67s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.33s mt 1.25s tts1[tr] 1.34s done 1.36s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.35s mt 1.31s tts1[tr] 1.40s done 1.42s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 0.72s tts1[tr] 0.77s done 0.77s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.32s mt 1.36s tts1[tr] 1.46s done 1.48s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.40s mt 1.58s tts1[tr] 1.70s done 1.72s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.70s tts1[tr] 0.75s done 0.76s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.46s mt 1.05s tts1[tr] 1.14s done 1.15s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.40s mt 1.90s tts1[tr] 2.05s done 2.08s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 2.04s tts1[tr] 2.21s done 2.25s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.33s mt 1.18s tts1[tr] 1.27s done 1.29s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.56s mt 2.12s tts1[tr] 2.20s done 2.25s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.40s mt 2.08s tts1[tr] 2.10s done 2.22s
+[stack] client: bn -> en (context)
+[stack] room open/e2e_bn_en_wpm3ca: +en (primary, utterance)
+[stack] utterance 5.4s speech | lid 0.00s asr 2.11s mt 2.52s tts1[en] 2.60s done 2.62s
+[stack] utterance 6.5s speech | lid 0.00s asr 2.28s mt 2.75s tts1[en] 2.84s done 2.86s
+[stack] utterance 5.3s speech | lid 0.00s asr 1.84s mt 2.33s tts1[en] 2.42s done 2.44s
+[stack] utterance 5.0s speech | lid 0.00s asr 1.77s mt 2.19s tts1[en] 2.27s done 2.29s
+[stack] utterance 6.9s speech | lid 0.00s asr 2.85s mt 3.63s tts1[en] 3.72s done 3.75s
+[stack] room open/e2e_bn_en_wpm3ca: forced cut at 11.5s of 12.0s (quietest)
+[stack] utterance 11.5s speech | lid 0.00s asr 4.18s mt 5.11s tts1[en] 5.22s done 5.26s
+[stack] utterance 0.9s speech | lid 0.00s asr 0.28s mt 0.51s tts1[en] 0.60s done 0.60s
+[stack] utterance 10.6s speech | lid 0.00s asr 3.94s mt 4.79s tts1[en] 4.89s done 4.92s
+[stack] utterance 10.8s speech | lid 0.00s asr 4.51s mt 5.29s tts1[en] 5.38s done 5.42s
+[stack] utterance 6.9s speech | lid 0.00s asr 2.28s mt 2.74s tts1[en] 2.82s done 2.84s
+[stack] utterance 3.8s speech | lid 0.00s asr 1.24s mt 1.58s tts1[en] 1.66s done 1.67s
+[stack] utterance 9.4s speech | lid 0.00s asr 2.78s mt 3.32s tts1[en] 3.41s done 3.44s
+[stack] utterance 10.3s speech | lid 0.00s asr 3.13s mt 3.67s tts1[en] 3.76s done 3.78s
+[stack] utterance 1.2s speech | lid 0.00s asr 0.31s mt 0.56s tts1[en] 0.65s done 0.66s
+[stack] utterance 6.9s speech | lid 0.00s asr 2.35s mt 2.97s tts1[en] 3.06s done 3.09s
+[stack] utterance 2.7s speech | lid 0.00s asr 0.87s mt 1.12s tts1[en] 1.21s done 1.22s
+[stack] utterance 7.3s speech | lid 0.00s asr 2.37s mt 2.99s tts1[en] 3.07s done 3.10s
+[stack] utterance 4.8s speech | lid 0.00s asr 1.48s mt 1.81s tts1[en] 1.89s done 1.90s
+[stack] utterance 7.2s speech | lid 0.00s asr 2.13s mt 2.60s tts1[en] 2.68s done 2.70s
+[stack] utterance 7.8s speech | lid 0.00s asr 2.50s mt 2.98s tts1[en] 3.07s done 3.09s
+[stack] utterance 10.9s speech | lid 0.00s asr 4.51s mt 5.31s tts1[en] 5.40s done 5.44s
+[stack] utterance 5.5s speech | lid 0.00s asr 1.88s mt 2.41s tts1[en] 2.49s done 2.51s
+[stack] utterance 4.7s speech | lid 0.00s asr 1.02s mt 1.35s tts1[en] 1.43s done 1.44s
+[stack] utterance 10.8s speech | lid 0.00s asr 3.94s mt 4.61s tts1[en] 4.71s done 4.72s
+[stack] room open/e2e_bn_en_wpm3ca: forced cut at 11.3s of 12.0s (quietest)
+[stack] utterance 11.3s speech | lid 0.00s asr 3.64s mt 4.34s tts1[en] 4.44s done 4.47s
+[stack] utterance 1.5s speech | lid 0.00s asr 0.45s mt 0.63s tts1[en] 0.71s done 0.71s
+[stack] utterance 6.6s speech | lid 0.00s asr 2.31s mt 2.88s tts1[en] 2.97s done 3.00s
+[stack] utterance 10.3s speech | lid 0.00s asr 3.73s mt 4.62s tts1[en] 4.72s done 4.75s
+[stack] utterance 5.7s speech | lid 0.00s asr 1.81s mt 2.16s tts1[en] 2.24s done 2.26s
+[stack] utterance 5.5s speech | lid 0.00s asr 2.04s mt 2.62s tts1[en] 2.70s done 2.80s
+[stack] client: en -> bn (context)
+[stack] room open/e2e_en_bn_9n8ra9: +bn (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.50s mt 5.63s tts1[bn] 5.84s done 5.88s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.57s mt 3.88s tts1[bn] 4.08s done 4.12s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.50s mt 3.45s tts1[bn] 3.59s done 3.62s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 5.20s tts1[bn] 5.40s done 5.44s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.48s mt 4.40s tts1[bn] 4.54s done 4.57s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.49s mt 4.28s tts1[bn] 4.43s done 4.47s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.37s mt 3.56s tts1[bn] 3.66s done 3.68s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.17s mt 1.04s tts1[bn] 1.07s done 1.08s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.40s mt 3.42s tts1[bn] 3.51s done 3.54s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.40s mt 3.67s tts1[bn] 3.78s done 3.79s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.40s mt 4.19s tts1[bn] 4.31s done 4.33s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.33s mt 2.81s tts1[bn] 2.90s done 2.92s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.36s mt 2.99s tts1[bn] 3.07s done 3.09s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 1.71s tts1[bn] 1.77s done 1.78s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.32s mt 3.16s tts1[bn] 3.25s done 3.27s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.40s mt 3.57s tts1[bn] 3.67s done 3.70s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 1.39s tts1[bn] 1.43s done 1.45s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.46s mt 2.08s tts1[bn] 2.19s done 2.22s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.40s mt 4.69s tts1[bn] 4.81s done 4.84s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 4.66s tts1[bn] 4.80s done 4.83s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.32s mt 2.93s tts1[bn] 3.03s done 3.05s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.56s mt 3.66s tts1[bn] 3.74s done 3.78s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.40s mt 3.60s tts1[bn] 3.74s done 3.76s
+[stack] client: ur -> en (context)
+[stack] room open/e2e_ur_en_1bvmnx: +en (primary, utterance)
+[stack] utterance 8.4s speech | lid 0.00s asr 3.91s mt 4.75s tts1[en] 4.85s done 4.88s
+[stack] utterance 4.4s speech | lid 0.00s asr 2.07s mt 2.58s tts1[en] 2.66s done 2.75s
+[stack] utterance 6.1s speech | lid 0.00s asr 3.17s mt 4.04s tts1[en] 4.13s done 4.25s
+[stack] utterance 6.7s speech | lid 0.00s asr 3.85s mt 4.64s tts1[en] 4.75s done 4.78s
+[stack] utterance 8.9s speech | lid 0.00s asr 4.05s mt 4.78s tts1[en] 4.89s done 4.92s
+[stack] utterance 10.4s speech | lid 0.00s asr 4.95s mt 5.79s tts1[en] 5.89s done 5.92s
+[stack] utterance 7.4s speech | lid 0.00s asr 2.98s mt 3.55s tts1[en] 3.65s done 3.68s
+[stack] utterance 7.5s speech | lid 0.00s asr 3.20s mt 4.06s tts1[en] 4.16s done 4.19s
+[stack] utterance 7.9s speech | lid 0.00s asr 3.65s mt 4.39s tts1[en] 4.49s done 4.52s
+[stack] utterance 6.4s speech | lid 0.00s asr 2.54s mt 3.14s tts1[en] 3.24s done 3.26s
+[stack] utterance 5.9s speech | lid 0.00s asr 2.34s mt 3.01s tts1[en] 3.11s done 3.13s
+[stack] utterance 9.3s speech | lid 0.00s asr 3.01s mt 3.93s tts1[en] 4.04s done 4.08s
+[stack] utterance 5.9s speech | lid 0.00s asr 2.21s mt 2.72s tts1[en] 2.81s done 2.84s
+[stack] utterance 7.7s speech | lid 0.00s asr 3.64s mt 4.52s tts1[en] 4.62s done 4.65s
+[stack] utterance 5.2s speech | lid 0.00s asr 2.37s mt 3.10s tts1[en] 3.18s done 3.28s
+[stack] utterance 7.2s speech | lid 0.00s asr 3.76s mt 4.41s tts1[en] 4.51s done 4.54s
+[stack] utterance 10.4s speech | lid 0.00s asr 4.61s mt 5.30s tts1[en] 5.39s done 5.42s
+[stack] utterance 5.2s speech | lid 0.00s asr 2.24s mt 2.74s tts1[en] 2.83s done 2.84s
+[stack] utterance 8.2s speech | lid 0.00s asr 3.85s mt 4.67s tts1[en] 4.75s done 4.87s
+[stack] utterance 6.7s speech | lid 0.00s asr 2.95s mt 3.81s tts1[en] 3.89s done 3.99s
+[stack] client: en -> ur (context)
+[stack] room open/e2e_en_ur_ce75fe: +ur (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.50s mt 4.14s tts1[ur] 4.33s done 4.36s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.57s mt 3.68s tts1[ur] 3.87s done 3.91s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.50s mt 3.44s tts1[ur] 3.58s done 3.62s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 4.49s tts1[ur] 4.67s done 4.71s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.47s mt 3.80s tts1[ur] 3.97s done 4.00s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.49s mt 4.56s tts1[ur] 4.74s done 4.78s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.37s mt 2.88s tts1[ur] 2.99s done 3.02s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.18s mt 0.70s tts1[ur] 0.73s done 0.74s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.40s mt 2.51s tts1[ur] 2.62s done 2.65s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.38s mt 3.28s tts1[ur] 3.41s done 3.44s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.40s mt 3.34s tts1[ur] 3.50s done 3.54s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.33s mt 2.05s tts1[ur] 2.16s done 2.18s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.36s mt 2.26s tts1[ur] 2.36s done 2.38s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 1.40s tts1[ur] 1.47s done 1.48s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.32s mt 2.39s tts1[ur] 2.49s done 2.51s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.40s mt 3.19s tts1[ur] 3.34s done 3.37s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.96s tts1[ur] 1.01s done 1.02s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.46s mt 1.72s tts1[ur] 1.82s done 1.85s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.40s mt 2.84s tts1[ur] 2.96s done 2.98s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 3.75s tts1[ur] 3.91s done 3.95s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.32s mt 1.93s tts1[ur] 2.02s done 2.03s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.56s mt 3.41s tts1[ur] 3.57s done 3.61s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.40s mt 3.07s tts1[ur] 3.19s done 3.22s
+[stack] client: hi -> en (context)
+[stack] room open/e2e_hi_en_9e2lac: +en (primary, utterance)
+[stack] utterance 8.1s speech | lid 0.00s asr 3.08s mt 3.72s tts1[en] 3.81s done 3.84s
+[stack] utterance 2.2s speech | lid 0.00s asr 0.93s mt 1.27s tts1[en] 1.35s done 1.36s
+[stack] utterance 6.8s speech | lid 0.00s asr 2.18s mt 2.66s tts1[en] 2.74s done 2.76s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.71s mt 0.96s tts1[en] 1.05s done 1.06s
+[stack] utterance 7.9s speech | lid 0.00s asr 3.37s mt 4.18s tts1[en] 4.27s done 4.30s
+[stack] utterance 5.4s speech | lid 0.00s asr 2.21s mt 2.80s tts1[en] 2.90s done 2.92s
+[stack] utterance 4.5s speech | lid 0.00s asr 2.10s mt 2.51s tts1[en] 2.59s done 2.61s
+[stack] utterance 4.9s speech | lid 0.00s asr 1.87s mt 2.29s tts1[en] 2.38s done 2.39s
+[stack] utterance 5.6s speech | lid 0.00s asr 2.11s mt 2.58s tts1[en] 2.65s done 2.67s
+[stack] utterance 6.7s speech | lid 0.00s asr 1.78s mt 2.20s tts1[en] 2.29s done 2.30s
+[stack] utterance 6.1s speech | lid 0.00s asr 1.81s mt 2.10s tts1[en] 2.18s done 2.20s
+[stack] utterance 1.8s speech | lid 0.00s asr 0.61s mt 0.89s tts1[en] 0.97s done 0.98s
+[stack] utterance 8.6s speech | lid 0.00s asr 3.01s mt 3.61s tts1[en] 3.71s done 3.74s
+[stack] utterance 7.7s speech | lid 0.00s asr 3.30s mt 3.95s tts1[en] 4.04s done 4.07s
+[stack] utterance 7.7s speech | lid 0.00s asr 2.87s mt 3.47s tts1[en] 3.55s done 3.57s
+[stack] utterance 8.9s speech | lid 0.00s asr 3.61s mt 4.23s tts1[en] 4.31s done 4.34s
+[stack] utterance 6.8s speech | lid 0.00s asr 1.45s mt 1.85s tts1[en] 1.94s done 1.95s
+[stack] utterance 3.5s speech | lid 0.00s asr 1.20s mt 1.53s tts1[en] 1.62s done 1.63s
+[stack] utterance 4.8s speech | lid 0.00s asr 2.10s mt 2.63s tts1[en] 2.72s done 2.74s
+[stack] utterance 0.8s speech | lid 0.00s asr 0.83s mt 1.09s tts1[en] 1.17s done 1.18s
+[stack] utterance 5.4s speech | lid 0.00s asr 2.34s mt 2.86s tts1[en] 2.95s done 2.98s
+[stack] utterance 4.9s speech | lid 0.00s asr 1.58s mt 2.05s tts1[en] 2.12s done 2.14s
+[stack] utterance 4.0s speech | lid 0.00s asr 1.37s mt 1.92s tts1[en] 2.00s done 2.02s
+[stack] utterance 5.5s speech | lid 0.00s asr 2.57s mt 3.28s tts1[en] 3.36s done 3.45s
+[stack] utterance 6.8s speech | lid 0.00s asr 3.41s mt 4.06s tts1[en] 4.15s done 4.17s
+[stack] utterance 10.6s speech | lid 0.00s asr 4.95s mt 5.87s tts1[en] 5.97s done 6.01s
+[stack] utterance 4.0s speech | lid 0.00s asr 2.00s mt 2.52s tts1[en] 2.60s done 2.69s
+[stack] utterance 8.7s speech | lid 0.00s asr 3.68s mt 4.45s tts1[en] 4.55s done 4.58s
+[stack] utterance 7.0s speech | lid 0.00s asr 1.69s mt 2.07s tts1[en] 2.16s done 2.18s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.61s mt 0.87s tts1[en] 0.95s done 0.95s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.77s mt 0.95s tts1[en] 1.03s done 1.03s
+[stack] client: en -> hi (context)
+[stack] room open/e2e_en_hi_zoiibv: +hi (primary, utterance)
+[stack] utterance 6.5s speech | lid 0.00s asr 0.50s mt 3.99s tts1[hi] 4.09s done 4.13s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.57s mt 3.26s tts1[hi] 3.36s done 3.40s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.50s mt 3.16s tts1[hi] 3.25s done 3.28s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 3.98s tts1[hi] 4.08s done 4.12s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.49s mt 3.84s tts1[hi] 3.94s done 3.96s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.49s mt 4.72s tts1[hi] 4.83s done 4.86s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.37s mt 2.80s tts1[hi] 2.89s done 2.91s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.17s mt 0.73s tts1[hi] 0.82s done 0.82s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.40s mt 2.94s tts1[hi] 3.03s done 3.05s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.38s mt 3.80s tts1[hi] 3.91s done 3.94s
+[stack] utterance 7.3s speech | lid 0.00s asr 0.40s mt 3.49s tts1[hi] 3.59s done 3.62s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.32s mt 2.52s tts1[hi] 2.60s done 2.63s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.35s mt 2.61s tts1[hi] 2.70s done 2.73s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.22s mt 1.58s tts1[hi] 1.67s done 1.68s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.33s mt 2.51s tts1[hi] 2.59s done 2.62s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.40s mt 3.13s tts1[hi] 3.23s done 3.26s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.24s mt 0.99s tts1[hi] 1.07s done 1.07s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.46s mt 1.95s tts1[hi] 2.05s done 2.07s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.40s mt 3.57s tts1[hi] 3.65s done 3.80s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.47s mt 4.53s tts1[hi] 4.64s done 4.68s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.33s mt 2.10s tts1[hi] 2.19s done 2.21s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.56s mt 4.05s tts1[hi] 4.16s done 4.20s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.40s mt 3.40s tts1[hi] 3.49s done 3.53s
+[stack] client: zh -> en (context)
+[stack] room open/e2e_zh_en_x6dqnf: +en (primary, utterance)
+[stack] utterance 4.1s speech | lid 0.00s asr 0.37s mt 1.05s tts1[en] 1.15s done 1.18s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.60s mt 1.40s tts1[en] 1.51s done 1.54s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.60s mt 1.31s tts1[en] 1.42s done 1.44s
+[stack] utterance 10.1s speech | lid 0.00s asr 0.91s mt 2.10s tts1[en] 2.20s done 2.32s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.61s mt 1.21s tts1[en] 1.32s done 1.33s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.56s mt 1.12s tts1[en] 1.24s done 1.26s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.24s mt 0.47s tts1[en] 0.57s done 0.58s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.72s mt 1.67s tts1[en] 1.79s done 1.83s
+[stack] room open/e2e_zh_en_x6dqnf: forced cut at 10.9s of 12.0s (quietest)
+[stack] utterance 10.9s speech | lid 0.00s asr 1.29s mt 2.41s tts1[en] 2.51s done 2.64s
+[stack] utterance 2.9s speech | lid 0.00s asr 0.40s mt 0.87s tts1[en] 0.97s done 0.98s
+[stack] utterance 5.9s speech | lid 0.00s asr 0.67s mt 1.47s tts1[en] 1.58s done 1.60s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.80s mt 1.67s tts1[en] 1.78s done 1.81s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.65s mt 1.49s tts1[en] 1.60s done 1.63s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.56s mt 1.40s tts1[en] 1.50s done 1.60s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.34s mt 0.86s tts1[en] 0.96s done 0.97s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.51s mt 1.27s tts1[en] 1.38s done 1.41s
+[stack] utterance 3.7s speech | lid 0.00s asr 0.51s mt 1.23s tts1[en] 1.34s done 1.36s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.44s mt 0.81s tts1[en] 0.91s done 0.93s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.38s mt 0.78s tts1[en] 0.88s done 0.90s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.47s mt 1.11s tts1[en] 1.21s done 1.24s
+[stack] utterance 4.2s speech | lid 0.00s asr 0.45s mt 1.07s tts1[en] 1.17s done 1.19s
+[stack] utterance 4.2s speech | lid 0.00s asr 0.38s mt 0.79s tts1[en] 0.88s done 0.90s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.68s mt 1.61s tts1[en] 1.72s done 1.73s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.74s mt 1.72s tts1[en] 1.82s done 1.93s
+[stack] client: en -> zh (context)
+[stack] room open/e2e_en_zh_8nn3dm: +zh (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.36s mt 0.97s tts1[zh] 1.09s done 1.11s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.41s mt 1.02s tts1[zh] 1.12s done 1.14s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.24s mt 0.50s tts1[zh] 0.59s done 0.59s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.39s mt 1.08s tts1[zh] 1.18s done 1.20s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.54s mt 1.58s tts1[zh] 1.71s done 1.75s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.39s mt 0.88s tts1[zh] 0.99s done 1.02s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.47s mt 1.31s tts1[zh] 1.43s done 1.45s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.48s mt 1.42s tts1[zh] 1.54s done 1.57s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.61s mt 1.64s tts1[zh] 1.80s done 1.85s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.39s mt 1.23s tts1[zh] 1.35s done 1.37s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.46s mt 1.40s tts1[zh] 1.51s done 1.54s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.47s mt 1.35s tts1[zh] 1.46s done 1.49s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.43s mt 1.30s tts1[zh] 1.42s done 1.45s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.54s mt 1.70s tts1[zh] 1.82s done 1.85s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.37s mt 0.97s tts1[zh] 1.07s done 1.09s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.36s mt 1.12s tts1[zh] 1.23s done 1.26s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.33s mt 1.02s tts1[zh] 1.13s done 1.15s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.34s mt 0.88s tts1[zh] 0.99s done 1.01s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.37s mt 0.88s tts1[zh] 0.98s done 0.99s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 1.15s tts1[zh] 1.26s done 1.29s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.19s mt 0.46s tts1[zh] 0.55s done 0.56s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.53s mt 1.71s tts1[zh] 1.83s done 1.86s
+[stack] client: uk -> en (context)
+[stack] room open/e2e_uk_en_o1y7fb: +en (primary, utterance)
+[stack] utterance 5.3s speech | lid 0.00s asr 0.53s mt 1.13s tts1[en] 1.22s done 1.24s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.79s mt 1.66s tts1[en] 1.76s done 1.77s
+[stack] utterance 6.9s speech | lid 0.00s asr 0.75s mt 1.34s tts1[en] 1.43s done 1.45s
+[stack] utterance 10.8s speech | lid 0.00s asr 1.06s mt 1.95s tts1[en] 2.05s done 2.10s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.75s mt 1.22s tts1[en] 1.30s done 1.41s
+[stack] utterance 9.8s speech | lid 0.00s asr 0.93s mt 1.59s tts1[en] 1.69s done 1.71s
+[stack] utterance 9.6s speech | lid 0.00s asr 0.83s mt 1.62s tts1[en] 1.72s done 1.75s
+[stack] utterance 11.5s speech | lid 0.00s asr 1.23s mt 1.83s tts1[en] 1.91s done 2.11s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.66s mt 1.32s tts1[en] 1.40s done 1.43s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.90s mt 1.59s tts1[en] 1.69s done 1.72s
+[stack] utterance 7.7s speech | lid 0.00s asr 0.69s mt 1.52s tts1[en] 1.61s done 1.64s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.75s mt 1.49s tts1[en] 1.58s done 1.60s
+[stack] utterance 10.6s speech | lid 0.00s asr 0.86s mt 1.83s tts1[en] 1.94s done 1.98s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.49s mt 1.00s tts1[en] 1.09s done 1.12s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.99s mt 1.61s tts1[en] 1.71s done 1.74s
+[stack] utterance 7.6s speech | lid 0.00s asr 0.77s mt 1.43s tts1[en] 1.52s done 1.55s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.55s mt 1.11s tts1[en] 1.20s done 1.21s
+[stack] utterance 3.8s speech | lid 0.00s asr 0.43s mt 0.83s tts1[en] 0.91s done 0.93s
+[stack] utterance 11.8s speech | lid 0.00s asr 0.89s mt 1.66s tts1[en] 1.75s done 1.79s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.68s mt 1.39s tts1[en] 1.48s done 1.51s
+[stack] utterance 2.5s speech | lid 0.00s asr 0.35s mt 0.65s tts1[en] 0.72s done 0.73s
+[stack] client: en -> uk (context)
+[stack] room open/e2e_en_uk_j97c39: +uk (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.34s mt 1.26s tts1[uk] 1.36s done 1.38s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.41s mt 1.44s tts1[uk] 1.53s done 1.55s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.24s mt 0.67s tts1[uk] 0.70s done 0.71s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.39s mt 1.73s tts1[uk] 1.85s done 1.87s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.54s mt 2.35s tts1[uk] 2.52s done 2.56s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.39s mt 1.29s tts1[uk] 1.39s done 1.42s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.47s mt 1.86s tts1[uk] 2.00s done 2.04s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.48s mt 1.68s tts1[uk] 1.83s done 1.86s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.61s mt 1.96s tts1[uk] 2.06s done 2.14s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.40s mt 1.41s tts1[uk] 1.50s done 1.52s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.45s mt 1.62s tts1[uk] 1.74s done 1.76s
+Missing phoneme from id map: 1
+Missing phoneme from id map: 9
+Missing phoneme from id map: 2
+Missing phoneme from id map: 0
+[stack] utterance 6.3s speech | lid 0.00s asr 0.47s mt 1.71s tts1[uk] 1.81s done 1.83s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.43s mt 1.53s tts1[uk] 1.63s done 1.65s
+Missing phoneme from id map: 1
+Missing phoneme from id map: 5
+Missing phoneme from id map: 3
+Missing phoneme from id map: 7
+[stack] utterance 9.0s speech | lid 0.00s asr 0.54s mt 2.03s tts1[uk] 2.15s done 2.18s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.37s mt 1.16s tts1[uk] 1.24s done 1.26s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.36s mt 1.66s tts1[uk] 1.80s done 1.83s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.32s mt 1.35s tts1[uk] 1.44s done 1.46s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.34s mt 1.01s tts1[uk] 1.07s done 1.09s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.37s mt 1.21s tts1[uk] 1.27s done 1.28s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 1.34s tts1[uk] 1.43s done 1.45s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.20s mt 0.48s tts1[uk] 0.50s done 0.51s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.54s mt 1.92s tts1[uk] 2.05s done 2.08s
+[stack] client: vi -> en (context)
+[stack] room open/e2e_vi_en_1gkgk4: +en (primary, utterance)
+[stack] utterance 3.4s speech | lid 0.00s asr 0.36s mt 0.72s tts1[en] 0.83s done 0.83s
+[stack] utterance 3.4s speech | lid 0.00s asr 0.37s mt 0.81s tts1[en] 0.91s done 0.92s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.43s mt 0.97s tts1[en] 1.06s done 1.08s
+[stack] utterance 6.4s speech | lid 0.00s asr 0.50s mt 1.12s tts1[en] 1.22s done 1.24s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.50s mt 1.02s tts1[en] 1.12s done 1.14s
+[stack] utterance 3.2s speech | lid 0.00s asr 0.27s mt 0.58s tts1[en] 0.68s done 0.69s
+[stack] utterance 5.4s speech | lid 0.00s asr 0.51s mt 1.03s tts1[en] 1.13s done 1.15s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.60s mt 1.18s tts1[en] 1.30s done 1.32s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.50s mt 0.95s tts1[en] 1.04s done 1.06s
+[stack] utterance 1.6s speech | lid 0.00s asr 0.28s mt 0.55s tts1[en] 0.65s done 0.66s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.64s mt 1.12s tts1[en] 1.23s done 1.24s
+[stack] utterance 6.1s speech | lid 0.00s asr 0.52s mt 0.97s tts1[en] 1.07s done 1.09s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.61s mt 1.23s tts1[en] 1.35s done 1.37s
+[stack] utterance 3.1s speech | lid 0.00s asr 0.30s mt 0.61s tts1[en] 0.70s done 0.72s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.30s mt 0.59s tts1[en] 0.69s done 0.70s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.62s mt 1.19s tts1[en] 1.28s done 1.39s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.57s mt 1.23s tts1[en] 1.33s done 1.36s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.69s mt 1.74s tts1[en] 1.85s done 1.89s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.72s mt 1.42s tts1[en] 1.53s done 1.55s
+[stack] utterance 3.6s speech | lid 0.00s asr 0.32s mt 0.63s tts1[en] 0.73s done 0.74s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.47s mt 1.10s tts1[en] 1.20s done 1.22s
+[stack] utterance 4.7s speech | lid 0.00s asr 0.51s mt 1.13s tts1[en] 1.23s done 1.25s
+[stack] utterance 6.9s speech | lid 0.00s asr 1.04s mt 1.67s tts1[en] 1.78s done 1.90s
+[stack] utterance 3.3s speech | lid 0.00s asr 0.39s mt 0.85s tts1[en] 0.94s done 0.95s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.22s mt 0.43s tts1[en] 0.52s done 0.53s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.30s mt 0.71s tts1[en] 0.81s done 0.82s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.54s mt 1.09s tts1[en] 1.19s done 1.19s
+[stack] utterance 5.3s speech | lid 0.00s asr 0.56s mt 1.18s tts1[en] 1.28s done 1.30s
+[stack] utterance 9.5s speech | lid 0.00s asr 1.08s mt 1.74s tts1[en] 1.86s done 1.89s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.65s mt 1.42s tts1[en] 1.54s done 1.55s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.59s mt 1.22s tts1[en] 1.32s done 1.34s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.45s mt 0.90s tts1[en] 1.00s done 1.02s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.63s mt 1.22s tts1[en] 1.33s done 1.33s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.26s mt 0.60s tts1[en] 0.70s done 0.70s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.38s mt 0.86s tts1[en] 0.96s done 0.97s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.49s mt 1.11s tts1[en] 1.20s done 1.22s
+[stack] client: en -> vi (context)
+[stack] room open/e2e_en_vi_bnc9kk: +vi (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.36s mt 1.18s tts1[vi] 1.27s done 1.29s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.41s mt 1.16s tts1[vi] 1.24s done 1.25s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.24s mt 0.70s tts1[vi] 0.74s done 0.75s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.39s mt 1.45s tts1[vi] 1.58s done 1.60s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.54s mt 2.10s tts1[vi] 2.27s done 2.30s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.39s mt 1.16s tts1[vi] 1.25s done 1.27s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.47s mt 1.77s tts1[vi] 1.90s done 1.93s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.48s mt 1.54s tts1[vi] 1.65s done 1.65s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.61s mt 1.86s tts1[vi] 1.93s done 2.03s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.40s mt 1.34s tts1[vi] 1.42s done 1.43s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.45s mt 1.76s tts1[vi] 1.88s done 1.90s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.47s mt 1.71s tts1[vi] 1.85s done 1.87s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.43s mt 1.53s tts1[vi] 1.63s done 1.66s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.54s mt 1.89s tts1[vi] 2.02s done 2.05s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.37s mt 1.23s tts1[vi] 1.30s done 1.31s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.36s mt 1.66s tts1[vi] 1.80s done 1.83s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.31s mt 1.44s tts1[vi] 1.54s done 1.56s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.34s mt 1.22s tts1[vi] 1.32s done 1.33s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.37s mt 1.04s tts1[vi] 1.10s done 1.12s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 1.37s tts1[vi] 1.46s done 1.48s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.19s mt 0.44s tts1[vi] 0.46s done 0.46s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.55s mt 1.78s tts1[vi] 1.90s done 1.93s
+[stack] client: ar -> en (context)
+[stack] room open/e2e_ar_en_2tkj04: +en (primary, utterance)
+[stack] utterance 5.8s speech | lid 0.00s asr 0.65s mt 1.33s tts1[en] 1.44s done 1.47s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.64s mt 1.57s tts1[en] 1.68s done 1.69s
+[stack] utterance 7.9s speech | lid 0.00s asr 0.68s mt 1.30s tts1[en] 1.40s done 1.41s
+[stack] utterance 11.4s speech | lid 0.00s asr 1.42s mt 2.50s tts1[en] 2.63s done 2.67s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.69s mt 1.34s tts1[en] 1.44s done 1.47s
+[stack] utterance 8.9s speech | lid 0.00s asr 1.01s mt 2.04s tts1[en] 2.16s done 2.21s
+[stack] utterance 8.7s speech | lid 0.00s asr 0.86s mt 1.91s tts1[en] 2.02s done 2.06s
+[stack] room open/e2e_ar_en_2tkj04: forced cut at 10.1s of 12.0s (quietest)
+[stack] utterance 10.1s speech | lid 0.00s asr 0.92s mt 1.85s tts1[en] 1.95s done 2.06s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.54s mt 1.07s tts1[en] 1.18s done 1.20s
+[stack] utterance 8.7s speech | lid 0.00s asr 0.78s mt 1.80s tts1[en] 1.91s done 1.94s
+[stack] utterance 10.9s speech | lid 0.00s asr 1.09s mt 2.15s tts1[en] 2.27s done 2.30s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.82s mt 1.80s tts1[en] 1.91s done 1.95s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.85s mt 1.74s tts1[en] 1.84s done 1.87s
+[stack] utterance 11.1s speech | lid 0.00s asr 0.87s mt 1.91s tts1[en] 2.03s done 2.06s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.67s mt 1.35s tts1[en] 1.45s done 1.47s
+[stack] utterance 9.4s speech | lid 0.00s asr 0.84s mt 1.51s tts1[en] 1.62s done 1.65s
+[stack] utterance 8.5s speech | lid 0.00s asr 0.75s mt 1.42s tts1[en] 1.53s done 1.56s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.53s mt 1.16s tts1[en] 1.26s done 1.28s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.59s mt 1.18s tts1[en] 1.29s done 1.30s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.80s mt 1.67s tts1[en] 1.78s done 1.81s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.73s mt 1.82s tts1[en] 1.93s done 1.96s
+[stack] client: en -> ar (context)
+[stack] room open/e2e_en_ar_stgag0: +ar (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.34s mt 1.05s tts1[ar] 1.26s done 1.30s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.41s mt 1.27s tts1[ar] 1.44s done 1.47s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.24s mt 0.49s tts1[ar] 0.54s done 0.54s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.37s mt 1.57s tts1[ar] 1.78s done 1.82s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.54s mt 2.25s tts1[ar] 2.62s done 2.67s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.39s mt 1.08s tts1[ar] 1.23s done 1.27s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.47s mt 1.78s tts1[ar] 2.03s done 2.07s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.48s mt 1.72s tts1[ar] 2.02s done 2.06s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.61s mt 1.79s tts1[ar] 1.92s done 2.06s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.39s mt 1.26s tts1[ar] 1.47s done 1.48s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.46s mt 1.59s tts1[ar] 1.80s done 1.84s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.47s mt 1.50s tts1[ar] 1.69s done 1.73s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.43s mt 1.77s tts1[ar] 1.95s done 1.99s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.54s mt 1.91s tts1[ar] 2.21s done 2.26s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.37s mt 1.12s tts1[ar] 1.32s done 1.35s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.36s mt 1.56s tts1[ar] 1.78s done 1.82s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.32s mt 1.10s tts1[ar] 1.23s done 1.25s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.34s mt 1.17s tts1[ar] 1.30s done 1.33s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.37s mt 1.25s tts1[ar] 1.43s done 1.47s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 1.69s tts1[ar] 1.87s done 1.88s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.19s mt 0.55s tts1[ar] 0.64s done 0.64s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.54s mt 1.88s tts1[ar] 2.08s done 2.12s
+[stack] client: fa -> en (context)
+[stack] room open/e2e_fa_en_uc3ohy: +en (primary, utterance)
+[stack] utterance 7.1s speech | lid 0.00s asr 1.97s mt 2.51s tts1[en] 2.61s done 2.63s
+[stack] utterance 8.4s speech | lid 0.00s asr 3.17s mt 4.06s tts1[en] 4.18s done 4.21s
+[stack] utterance 5.5s speech | lid 0.00s asr 2.11s mt 2.55s tts1[en] 2.65s done 2.66s
+[stack] utterance 3.3s speech | lid 0.00s asr 1.57s mt 2.08s tts1[en] 2.18s done 2.19s
+[stack] utterance 5.3s speech | lid 0.00s asr 1.74s mt 2.15s tts1[en] 2.25s done 2.26s
+[stack] utterance 10.0s speech | lid 0.00s asr 3.45s mt 4.18s tts1[en] 4.28s done 4.32s
+[stack] utterance 6.9s speech | lid 0.00s asr 2.81s mt 3.48s tts1[en] 3.58s done 3.67s
+[stack] utterance 5.5s speech | lid 0.00s asr 2.04s mt 2.50s tts1[en] 2.59s done 2.61s
+[stack] utterance 6.0s speech | lid 0.00s asr 2.34s mt 2.93s tts1[en] 3.04s done 3.06s
+[stack] utterance 9.5s speech | lid 0.00s asr 3.58s mt 4.42s tts1[en] 4.53s done 4.57s
+[stack] utterance 5.4s speech | lid 0.00s asr 1.80s mt 2.26s tts1[en] 2.36s done 2.38s
+[stack] utterance 5.4s speech | lid 0.00s asr 1.91s mt 2.36s tts1[en] 2.45s done 2.46s
+[stack] utterance 7.8s speech | lid 0.00s asr 2.47s mt 3.03s tts1[en] 3.13s done 3.15s
+[stack] utterance 8.6s speech | lid 0.00s asr 3.27s mt 4.25s tts1[en] 4.37s done 4.38s
+[stack] utterance 5.3s speech | lid 0.00s asr 1.94s mt 2.50s tts1[en] 2.60s done 2.61s
+[stack] utterance 5.8s speech | lid 0.00s asr 1.61s mt 2.16s tts1[en] 2.26s done 2.27s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.74s mt 2.25s tts1[en] 2.36s done 2.53s
+[stack] utterance 6.5s speech | lid 0.00s asr 2.08s mt 2.78s tts1[en] 2.88s done 2.89s
+[stack] utterance 3.1s speech | lid 0.00s asr 0.74s mt 1.08s tts1[en] 1.18s done 1.18s
+[stack] utterance 5.8s speech | lid 0.00s asr 2.44s mt 3.16s tts1[en] 3.26s done 3.36s
+[stack] repetition guard (omni): truncated 141 -> 21 chars (2.2s of audio)
+[stack] utterance 2.2s speech | lid 0.00s asr 4.69s mt 5.21s tts1[en] 5.30s done 5.31s
+[stack] utterance 9.0s speech | lid 0.00s asr 4.25s mt 5.37s tts1[en] 5.50s done 5.51s
+[stack] utterance 6.7s speech | lid 0.00s asr 2.31s mt 2.98s tts1[en] 3.08s done 3.10s
+[stack] utterance 8.1s speech | lid 0.00s asr 3.44s mt 4.10s tts1[en] 4.21s done 4.25s
+[stack] utterance 6.6s speech | lid 0.00s asr 2.01s mt 2.54s tts1[en] 2.64s done 2.66s
+[stack] utterance 5.0s speech | lid 0.00s asr 1.67s mt 2.01s tts1[en] 2.11s done 2.13s
+[stack] utterance 9.0s speech | lid 0.00s asr 2.41s mt 3.02s tts1[en] 3.12s done 3.14s
+[stack] utterance 6.1s speech | lid 0.00s asr 2.60s mt 3.20s tts1[en] 3.30s done 3.32s
+[stack] utterance 6.2s speech | lid 0.00s asr 1.88s mt 2.36s tts1[en] 2.45s done 2.46s
+[stack] utterance 5.0s speech | lid 0.00s asr 1.54s mt 2.09s tts1[en] 2.19s done 2.20s
+[stack] utterance 5.0s speech | lid 0.00s asr 1.74s mt 2.15s tts1[en] 2.25s done 2.26s
+[stack] utterance 5.9s speech | lid 0.00s asr 1.89s mt 2.44s tts1[en] 2.54s done 2.56s
+[stack] client: en -> fa (context)
+[stack] room open/e2e_en_fa_5e8qs9: +fa (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.34s mt 1.09s tts1[fa] 1.20s done 1.21s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.41s mt 1.23s tts1[fa] 1.32s done 1.34s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.23s mt 0.55s tts1[fa] 0.58s done 0.58s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.39s mt 1.56s tts1[fa] 1.68s done 1.70s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.54s mt 2.45s tts1[fa] 2.65s done 2.69s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.39s mt 1.22s tts1[fa] 1.29s done 1.31s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.47s mt 1.71s tts1[fa] 1.86s done 1.90s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.48s mt 1.62s tts1[fa] 1.75s done 1.78s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.61s mt 2.03s tts1[fa] 2.12s done 2.24s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.39s mt 1.40s tts1[fa] 1.52s done 1.55s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.46s mt 1.60s tts1[fa] 1.73s done 1.77s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.47s mt 1.60s tts1[fa] 1.73s done 1.75s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.43s mt 1.53s tts1[fa] 1.63s done 1.66s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.54s mt 1.85s tts1[fa] 2.01s done 2.04s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.37s mt 1.23s tts1[fa] 1.33s done 1.36s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.36s mt 1.45s tts1[fa] 1.57s done 1.60s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.32s mt 1.17s tts1[fa] 1.26s done 1.28s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.34s mt 1.08s tts1[fa] 1.16s done 1.17s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.37s mt 1.35s tts1[fa] 1.45s done 1.47s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 1.34s tts1[fa] 1.45s done 1.48s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.20s mt 0.65s tts1[fa] 0.69s done 0.70s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.54s mt 1.75s tts1[fa] 1.87s done 1.90s
+[stack] client: tl -> en (context)
+[stack] room open/e2e_tl_en_omi1ly: +en (primary, utterance)
+[stack] utterance 6.0s speech | lid 0.00s asr 0.41s mt 0.82s tts1[en] 0.92s done 0.93s
+[stack] utterance 3.6s speech | lid 0.00s asr 0.33s mt 0.70s tts1[en] 0.79s done 0.80s
+[stack] utterance 5.9s speech | lid 0.00s asr 0.49s mt 1.03s tts1[en] 1.12s done 1.14s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.43s mt 0.95s tts1[en] 1.05s done 1.06s
+[stack] utterance 6.9s speech | lid 0.00s asr 0.54s mt 0.95s tts1[en] 1.05s done 1.07s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.44s mt 0.92s tts1[en] 1.01s done 1.02s
+[stack] room open/e2e_tl_en_omi1ly: forced cut at 11.5s of 12.0s (sentence)
+[stack] utterance 11.5s speech | lid 0.00s asr 0.85s mt 1.52s tts1[en] 1.62s done 1.64s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.49s mt 0.95s tts1[en] 1.04s done 1.06s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.55s mt 1.04s tts1[en] 1.14s done 1.16s
+[stack] utterance 2.9s speech | lid 0.00s asr 0.32s mt 0.59s tts1[en] 0.68s done 0.68s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.43s mt 0.80s tts1[en] 0.89s done 0.91s
+[stack] utterance 8.2s speech | lid 0.00s asr 0.55s mt 1.17s tts1[en] 1.28s done 1.30s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.32s mt 0.70s tts1[en] 0.80s done 0.82s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.42s mt 0.79s tts1[en] 0.91s done 0.92s
+[stack] utterance 5.4s speech | lid 0.00s asr 0.35s mt 0.68s tts1[en] 0.78s done 0.80s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.68s mt 1.15s tts1[en] 1.25s done 1.35s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.48s mt 1.05s tts1[en] 1.14s done 1.16s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.56s mt 1.08s tts1[en] 1.19s done 1.20s
+[stack] utterance 3.5s speech | lid 0.00s asr 0.39s mt 0.84s tts1[en] 0.94s done 0.95s
+[stack] utterance 9.2s speech | lid 0.00s asr 0.82s mt 1.32s tts1[en] 1.42s done 1.52s
+[stack] utterance 6.4s speech | lid 0.00s asr 0.50s mt 1.14s tts1[en] 1.23s done 1.25s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.38s mt 0.77s tts1[en] 0.87s done 0.88s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.38s mt 0.79s tts1[en] 0.89s done 0.90s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.57s mt 1.19s tts1[en] 1.28s done 1.39s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.40s mt 0.95s tts1[en] 1.06s done 1.08s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.59s mt 1.18s tts1[en] 1.28s done 1.31s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.46s mt 0.94s tts1[en] 1.04s done 1.05s
+[stack] utterance 2.5s speech | lid 0.00s asr 0.29s mt 0.49s tts1[en] 0.58s done 0.58s
+[stack] utterance 9.2s speech | lid 0.00s asr 0.63s mt 1.11s tts1[en] 1.21s done 1.23s
+[stack] utterance 4.0s speech | lid 0.00s asr 0.32s mt 0.60s tts1[en] 0.69s done 0.70s
+[stack] utterance 8.9s speech | lid 0.00s asr 0.57s mt 1.09s tts1[en] 1.19s done 1.21s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.33s mt 0.60s tts1[en] 0.70s done 0.70s
+[stack] utterance 7.6s speech | lid 0.00s asr 0.56s mt 1.26s tts1[en] 1.35s done 1.36s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.43s mt 0.84s tts1[en] 0.94s done 0.95s
+[stack] utterance 3.2s speech | lid 0.00s asr 0.34s mt 0.71s tts1[en] 0.80s done 0.82s
+[stack] utterance 7.9s speech | lid 0.00s asr 0.58s mt 1.27s tts1[en] 1.37s done 1.39s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.50s mt 0.99s tts1[en] 1.08s done 1.10s
+[stack] utterance 6.8s speech | lid 0.00s asr 0.44s mt 0.90s tts1[en] 0.99s done 1.00s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.56s mt 1.22s tts1[en] 1.32s done 1.34s
+[stack] client: en -> tl (context)
+[stack] room open/e2e_en_tl_d3o6vj: +tl (primary, utterance)
+[stack] VoxCPM2 stats: :8791 served 28 peak 1 errors 0; overflow 0
+[stack] utterance 6.6s speech | lid 0.00s asr 0.36s mt 1.14s tts1[tl] 1.15s done 3.60s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.41s mt 1.44s tts1[tl] 1.44s done 3.90s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.24s mt 0.80s tts1[tl] 0.80s done 2.26s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.39s mt 1.66s tts1[tl] 1.66s done 5.40s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.54s mt 2.38s tts1[tl] 2.38s done 7.40s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.39s mt 1.19s tts1[tl] 1.19s done 5.17s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.47s mt 2.13s tts1[tl] 2.13s done 6.87s
+[stack] VoxCPM2 stats: :8791 served 36 peak 1 errors 0; overflow 0
+[stack] utterance 8.4s speech | lid 0.00s asr 0.48s mt 1.76s tts1[tl] 1.76s done 5.58s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.61s mt 1.93s tts1[tl] 1.93s done 8.84s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.39s mt 1.47s tts1[tl] 1.47s done 4.84s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.45s mt 1.59s tts1[tl] 1.59s done 5.42s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.46s mt 1.83s tts1[tl] 1.83s done 5.94s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.43s mt 1.39s tts1[tl] 1.39s done 4.50s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.54s mt 2.31s tts1[tl] 2.31s done 7.22s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.37s mt 1.43s tts1[tl] 1.43s done 4.71s
+[stack] VoxCPM2 stats: :8791 served 45 peak 1 errors 0; overflow 0
+[stack] utterance 7.2s speech | lid 0.00s asr 0.36s mt 1.66s tts1[tl] 1.66s done 5.76s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.32s mt 1.48s tts1[tl] 1.48s done 4.68s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.34s mt 1.01s tts1[tl] 1.01s done 3.01s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.37s mt 1.14s tts1[tl] 1.14s done 3.50s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 1.51s tts1[tl] 1.51s done 4.88s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.19s mt 0.52s tts1[tl] 0.52s done 1.33s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.54s mt 2.23s tts1[tl] 2.23s done 7.33s
+[stack] client: sw -> en (context)
+[stack] room open/e2e_sw_en_oqfuwj: +en (primary, utterance)
+[stack] utterance 6.2s speech | lid 0.00s asr 2.07s mt 2.71s tts1[en] 2.80s done 2.82s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.84s mt 1.09s tts1[en] 1.18s done 1.19s
+[stack] utterance 5.5s speech | lid 0.00s asr 1.64s mt 2.19s tts1[en] 2.27s done 2.28s
+[stack] utterance 4.0s speech | lid 0.00s asr 1.46s mt 1.87s tts1[en] 1.96s done 1.96s
+[stack] utterance 8.3s speech | lid 0.00s asr 3.10s mt 3.86s tts1[en] 3.95s done 3.97s
+[stack] utterance 6.7s speech | lid 0.00s asr 2.61s mt 3.17s tts1[en] 3.25s done 3.27s
+[stack] utterance 6.0s speech | lid 0.00s asr 2.31s mt 2.94s tts1[en] 3.02s done 3.05s
+[stack] utterance 1.4s speech | lid 0.00s asr 0.38s mt 0.60s tts1[en] 0.68s done 0.68s
+[stack] utterance 7.4s speech | lid 0.00s asr 2.10s mt 2.65s tts1[en] 2.72s done 2.74s
+[stack] utterance 2.8s speech | lid 0.00s asr 0.67s mt 0.89s tts1[en] 0.97s done 0.98s
+[stack] room open/e2e_sw_en_oqfuwj: forced cut at 10.2s of 12.0s (quietest)
+[stack] utterance 10.2s speech | lid 0.00s asr 4.59s mt 5.66s tts1[en] 5.77s done 5.81s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.67s mt 0.91s tts1[en] 0.98s done 0.98s
+[stack] utterance 10.6s speech | lid 0.00s asr 3.49s mt 4.30s tts1[en] 4.39s done 4.41s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.71s mt 0.99s tts1[en] 1.06s done 1.06s
+[stack] utterance 5.7s speech | lid 0.00s asr 1.71s mt 2.12s tts1[en] 2.20s done 2.28s
+[stack] utterance 6.5s speech | lid 0.00s asr 2.41s mt 3.04s tts1[en] 3.11s done 3.20s
+[stack] utterance 3.1s speech | lid 0.00s asr 1.30s mt 1.61s tts1[en] 1.69s done 1.70s
+[stack] utterance 5.4s speech | lid 0.00s asr 2.44s mt 3.00s tts1[en] 3.07s done 3.08s
+[stack] utterance 3.2s speech | lid 0.00s asr 1.30s mt 1.63s tts1[en] 1.71s done 1.71s
+[stack] utterance 0.9s speech | lid 0.00s asr 0.90s mt 1.31s tts1[en] 1.38s done 1.39s
+[stack] utterance 0.8s speech | lid 0.00s asr 0.25s mt 0.42s tts1[en] 0.50s done 0.50s
+[stack] utterance 7.6s speech | lid 0.00s asr 2.53s mt 3.14s tts1[en] 3.23s done 3.25s
+[stack] utterance 2.4s speech | lid 0.00s asr 0.67s mt 0.89s tts1[en] 0.97s done 0.98s
+[stack] utterance 11.9s speech | lid 0.00s asr 3.24s mt 4.09s tts1[en] 4.18s done 4.20s
+[stack] utterance 5.2s speech | lid 0.00s asr 1.71s mt 2.26s tts1[en] 2.33s done 2.35s
+[stack] utterance 5.6s speech | lid 0.00s asr 2.11s mt 2.78s tts1[en] 2.86s done 2.88s
+[stack] utterance 4.8s speech | lid 0.00s asr 1.08s mt 1.49s tts1[en] 1.56s done 1.57s
+[stack] utterance 4.7s speech | lid 0.00s asr 1.80s mt 2.47s tts1[en] 2.55s done 2.65s
+[stack] utterance 2.8s speech | lid 0.00s asr 1.11s mt 1.37s tts1[en] 1.45s done 1.46s
+[stack] utterance 6.8s speech | lid 0.00s asr 2.39s mt 3.06s tts1[en] 3.15s done 3.17s
+[stack] utterance 8.6s speech | lid 0.00s asr 3.67s mt 4.38s tts1[en] 4.47s done 4.48s
+[stack] repetition guard (omni): dropped 77 -> 0 chars (0.8s of audio)
+[stack] utterance 5.3s speech | lid 0.00s asr 1.90s mt 2.44s tts1[en] 2.52s done 2.54s
+[stack] utterance 3.2s speech | lid 0.00s asr 1.46s mt 1.90s tts1[en] 1.98s done 2.00s
+[stack] utterance 5.5s speech | lid 0.00s asr 2.14s mt 2.73s tts1[en] 2.81s done 2.83s
+[stack] utterance 5.8s speech | lid 0.00s asr 2.50s mt 3.18s tts1[en] 3.27s done 3.28s
+[stack] utterance 5.6s speech | lid 0.00s asr 2.27s mt 2.90s tts1[en] 2.98s done 3.00s
+[stack] utterance 3.7s speech | lid 0.00s asr 1.46s mt 2.01s tts1[en] 2.09s done 2.10s
+[stack] utterance 9.6s speech | lid 0.00s asr 3.42s mt 4.53s tts1[en] 4.62s done 4.65s
+[stack] client: en -> sw (context)
+[stack] room open/e2e_en_sw_3lacd3: +sw (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.34s mt 1.34s tts1[sw] 1.47s done 1.49s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.41s mt 1.29s tts1[sw] 1.38s done 1.40s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.24s mt 0.81s tts1[sw] 0.85s done 0.86s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.39s mt 1.66s tts1[sw] 1.78s done 1.80s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.52s mt 2.36s tts1[sw] 2.53s done 2.56s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.39s mt 1.17s tts1[sw] 1.27s done 1.29s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.47s mt 2.16s tts1[sw] 2.31s done 2.34s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.48s mt 1.82s tts1[sw] 1.95s done 1.98s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.61s mt 2.07s tts1[sw] 2.16s done 2.25s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.38s mt 1.64s tts1[sw] 1.75s done 1.78s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.45s mt 1.69s tts1[sw] 1.81s done 1.82s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.47s mt 1.96s tts1[sw] 2.10s done 2.13s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.43s mt 1.59s tts1[sw] 1.70s done 1.72s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.54s mt 2.19s tts1[sw] 2.34s done 2.37s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.37s mt 1.36s tts1[sw] 1.44s done 1.46s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.36s mt 1.63s tts1[sw] 1.73s done 1.75s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.32s mt 1.24s tts1[sw] 1.34s done 1.36s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.34s mt 1.11s tts1[sw] 1.19s done 1.21s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.37s mt 1.14s tts1[sw] 1.23s done 1.25s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 1.51s tts1[sw] 1.61s done 1.64s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.20s mt 0.48s tts1[sw] 0.51s done 0.51s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.54s mt 2.06s tts1[sw] 2.18s done 2.21s
+[stack] client: it -> en (context)
+[stack] room open/e2e_it_en_ja8k6a: +en (primary, utterance)
+[stack] utterance 10.1s speech | lid 0.00s asr 0.60s mt 1.18s tts1[en] 1.27s done 1.29s
+[stack] utterance 9.1s speech | lid 0.00s asr 0.53s mt 1.36s tts1[en] 1.45s done 1.48s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.62s mt 1.29s tts1[en] 1.38s done 1.41s
+[stack] utterance 9.6s speech | lid 0.00s asr 0.74s mt 1.47s tts1[en] 1.56s done 1.59s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.30s mt 0.65s tts1[en] 0.74s done 0.75s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.39s mt 0.67s tts1[en] 0.74s done 0.83s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.43s mt 0.76s tts1[en] 0.84s done 0.86s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.44s mt 0.88s tts1[en] 0.97s done 0.99s
+[stack] utterance 9.6s speech | lid 0.00s asr 0.78s mt 1.59s tts1[en] 1.69s done 1.73s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.49s mt 0.98s tts1[en] 1.07s done 1.09s
+[stack] utterance 4.9s speech | lid 0.00s asr 0.40s mt 0.78s tts1[en] 0.86s done 0.87s
+[stack] utterance 7.0s speech | lid 0.00s asr 0.56s mt 0.95s tts1[en] 1.04s done 1.13s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.58s mt 1.29s tts1[en] 1.39s done 1.42s
+[stack] utterance 7.7s speech | lid 0.00s asr 0.37s mt 0.80s tts1[en] 0.88s done 0.90s
+[stack] utterance 8.7s speech | lid 0.00s asr 0.36s mt 0.77s tts1[en] 0.85s done 0.86s
+[stack] utterance 8.9s speech | lid 0.00s asr 0.44s mt 0.97s tts1[en] 1.05s done 1.06s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.35s mt 0.79s tts1[en] 0.87s done 0.89s
+[stack] utterance 8.2s speech | lid 0.00s asr 0.59s mt 1.40s tts1[en] 1.49s done 1.52s
+[stack] room open/e2e_it_en_ja8k6a: forced cut at 11.9s of 12.0s (sentence)
+[stack] utterance 11.9s speech | lid 0.00s asr 0.84s mt 1.65s tts1[en] 1.75s done 1.79s
+[stack] dropped short noise (p=0.95): Grazie.
+[stack] utterance 8.5s speech | lid 0.00s asr 0.60s mt 1.21s tts1[en] 1.30s done 1.32s
+[stack] utterance 10.0s speech | lid 0.00s asr 0.71s mt 1.41s tts1[en] 1.51s done 1.54s
+[stack] utterance 7.9s speech | lid 0.00s asr 0.60s mt 1.19s tts1[en] 1.27s done 1.30s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.38s mt 0.79s tts1[en] 0.87s done 0.88s
+[stack] utterance 4.6s speech | lid 0.00s asr 0.47s mt 0.79s tts1[en] 0.87s done 0.89s
+[stack] utterance 10.2s speech | lid 0.00s asr 0.74s mt 1.52s tts1[en] 1.61s done 1.62s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.46s mt 1.07s tts1[en] 1.15s done 1.18s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.26s mt 0.55s tts1[en] 0.62s done 0.62s
+[stack] client: en -> it (context)
+[stack] room open/e2e_en_it_1dn6gj: +it (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.34s mt 1.11s tts1[it] 1.19s done 1.21s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.40s mt 1.24s tts1[it] 1.32s done 1.33s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.23s mt 0.53s tts1[it] 0.61s done 0.62s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.37s mt 1.35s tts1[it] 1.44s done 1.45s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.52s mt 1.99s tts1[it] 2.09s done 2.13s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.37s mt 1.11s tts1[it] 1.20s done 1.29s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.45s mt 1.74s tts1[it] 1.84s done 1.87s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.46s mt 1.73s tts1[it] 1.83s done 1.86s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.59s mt 1.82s tts1[it] 1.90s done 2.03s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.38s mt 1.37s tts1[it] 1.45s done 1.48s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.44s mt 1.40s tts1[it] 1.48s done 1.51s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.46s mt 1.73s tts1[it] 1.82s done 1.86s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.41s mt 1.19s tts1[it] 1.28s done 1.30s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.52s mt 1.68s tts1[it] 1.78s done 1.80s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 1.36s tts1[it] 1.45s done 1.46s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.34s mt 1.50s tts1[it] 1.60s done 1.64s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.31s mt 1.30s tts1[it] 1.38s done 1.41s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.32s mt 1.01s tts1[it] 1.09s done 1.11s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.35s mt 0.98s tts1[it] 1.06s done 1.08s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 1.43s tts1[it] 1.52s done 1.55s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.19s mt 0.49s tts1[it] 0.56s done 0.57s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.53s mt 1.61s tts1[it] 1.69s done 1.72s
+[stack] client: ko -> en (context)
+[stack] room open/e2e_ko_en_4wul1n: +en (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.43s mt 0.96s tts1[en] 1.04s done 1.06s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.46s mt 1.03s tts1[en] 1.11s done 1.13s
+[stack] utterance 4.3s speech | lid 0.00s asr 0.35s mt 0.76s tts1[en] 0.84s done 0.85s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.57s mt 1.24s tts1[en] 1.33s done 1.36s
+[stack] utterance 8.8s speech | lid 0.00s asr 0.80s mt 1.43s tts1[en] 1.52s done 1.62s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.57s mt 1.17s tts1[en] 1.26s done 1.29s
+[stack] utterance 9.1s speech | lid 0.00s asr 0.67s mt 1.37s tts1[en] 1.47s done 1.50s
+[stack] utterance 1.1s speech | lid 0.00s asr 0.17s mt 0.41s tts1[en] 0.49s done 0.50s
+[stack] utterance 8.3s speech | lid 0.00s asr 0.65s mt 1.31s tts1[en] 1.41s done 1.44s
+[stack] utterance 8.7s speech | lid 0.00s asr 0.74s mt 1.18s tts1[en] 1.25s done 1.36s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.47s mt 0.90s tts1[en] 0.98s done 1.00s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.35s mt 0.81s tts1[en] 0.90s done 0.92s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.34s mt 0.80s tts1[en] 0.88s done 0.90s
+[stack] utterance 7.1s speech | lid 0.00s asr 0.59s mt 1.31s tts1[en] 1.41s done 1.44s
+[stack] utterance 6.9s speech | lid 0.00s asr 0.56s mt 1.43s tts1[en] 1.53s done 1.56s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.43s mt 0.86s tts1[en] 0.94s done 0.96s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.38s mt 0.79s tts1[en] 0.87s done 0.88s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.67s mt 1.59s tts1[en] 1.71s done 1.75s
+[stack] utterance 5.6s speech | lid 0.00s asr 0.50s mt 0.90s tts1[en] 0.99s done 1.00s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.71s mt 1.28s tts1[en] 1.38s done 1.40s
+[stack] utterance 7.7s speech | lid 0.00s asr 0.59s mt 1.29s tts1[en] 1.38s done 1.42s
+[stack] utterance 4.8s speech | lid 0.00s asr 0.37s mt 0.77s tts1[en] 0.85s done 0.86s
+[stack] utterance 4.1s speech | lid 0.00s asr 0.41s mt 0.97s tts1[en] 1.04s done 1.06s
+[stack] dropped short noise (p=0.91): 감사합니다.
+[stack] utterance 9.6s speech | lid 0.00s asr 0.94s mt 1.90s tts1[en] 2.01s done 2.04s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.50s mt 1.03s tts1[en] 1.11s done 1.12s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.32s mt 0.70s tts1[en] 0.79s done 0.80s
+[stack] client: en -> ko (context)
+[stack] room open/e2e_en_ko_wijcu0: +ko (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.35s mt 1.36s tts1[ko] 1.48s done 1.50s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.40s mt 1.67s tts1[ko] 1.77s done 1.78s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.23s mt 0.93s tts1[ko] 0.99s done 1.00s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.37s mt 1.68s tts1[ko] 1.78s done 1.80s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.52s mt 2.47s tts1[ko] 2.64s done 2.67s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.37s mt 1.49s tts1[ko] 1.60s done 1.63s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.45s mt 2.17s tts1[ko] 2.33s done 2.37s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.46s mt 2.51s tts1[ko] 2.69s done 2.73s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.59s mt 2.83s tts1[ko] 2.93s done 3.05s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.38s mt 1.82s tts1[ko] 1.94s done 1.97s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.44s mt 2.11s tts1[ko] 2.25s done 2.28s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.46s mt 1.90s tts1[ko] 2.04s done 2.06s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.41s mt 1.90s tts1[ko] 2.03s done 2.05s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.52s mt 2.25s tts1[ko] 2.43s done 2.44s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 1.56s tts1[ko] 1.68s done 1.70s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.34s mt 1.72s tts1[ko] 1.87s done 1.90s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.31s mt 1.46s tts1[ko] 1.58s done 1.61s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.32s mt 1.25s tts1[ko] 1.34s done 1.36s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.36s mt 1.33s tts1[ko] 1.43s done 1.45s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 1.35s tts1[ko] 1.44s done 1.46s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.19s mt 0.60s tts1[ko] 0.63s done 0.64s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.53s mt 2.03s tts1[ko] 2.16s done 2.19s
+[stack] client: id -> en (context)
+[stack] room open/e2e_id_en_w4i53j: +en (primary, utterance)
+[stack] utterance 6.4s speech | lid 0.00s asr 0.43s mt 1.10s tts1[en] 1.18s done 1.21s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.66s mt 1.50s tts1[en] 1.60s done 1.63s
+[stack] utterance 7.8s speech | lid 0.00s asr 0.47s mt 1.01s tts1[en] 1.10s done 1.12s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.59s mt 1.09s tts1[en] 1.17s done 1.19s
+[stack] utterance 5.1s speech | lid 0.00s asr 0.37s mt 0.72s tts1[en] 0.80s done 0.82s
+[stack] utterance 8.5s speech | lid 0.00s asr 0.59s mt 1.05s tts1[en] 1.13s done 1.22s
+[stack] utterance 8.2s speech | lid 0.00s asr 0.77s mt 1.55s tts1[en] 1.65s done 1.69s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.37s mt 0.72s tts1[en] 0.81s done 0.82s
+[stack] utterance 8.2s speech | lid 0.00s asr 0.52s mt 1.04s tts1[en] 1.12s done 1.15s
+[stack] utterance 8.9s speech | lid 0.00s asr 0.63s mt 1.09s tts1[en] 1.17s done 1.27s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.47s mt 0.88s tts1[en] 0.97s done 0.99s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.63s mt 1.33s tts1[en] 1.43s done 1.46s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.38s mt 0.76s tts1[en] 0.84s done 0.85s
+[stack] utterance 3.4s speech | lid 0.00s asr 0.40s mt 0.94s tts1[en] 1.02s done 1.04s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.55s mt 1.23s tts1[en] 1.33s done 1.35s
+[stack] dropped short noise (p=0.49): dan isolasi
+[stack] utterance 9.6s speech | lid 0.00s asr 0.57s mt 1.27s tts1[en] 1.36s done 1.39s
+[stack] utterance 11.7s speech | lid 0.00s asr 0.65s mt 1.43s tts1[en] 1.53s done 1.56s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.50s mt 1.00s tts1[en] 1.09s done 1.11s
+[stack] utterance 7.8s speech | lid 0.00s asr 0.55s mt 1.07s tts1[en] 1.16s done 1.18s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.20s mt 0.38s tts1[en] 0.47s done 0.48s
+[stack] utterance 8.9s speech | lid 0.00s asr 0.56s mt 1.12s tts1[en] 1.21s done 1.22s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.34s mt 0.75s tts1[en] 0.83s done 0.83s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.37s mt 0.81s tts1[en] 0.89s done 0.91s
+[stack] utterance 10.6s speech | lid 0.00s asr 0.87s mt 1.82s tts1[en] 1.92s done 1.96s
+[stack] utterance 7.7s speech | lid 0.00s asr 0.57s mt 1.25s tts1[en] 1.35s done 1.37s
+[stack] utterance 1.8s speech | lid 0.00s asr 0.23s mt 0.50s tts1[en] 0.58s done 0.58s
+[stack] client: en -> id (context)
+[stack] room open/e2e_en_id_nysn8q: +id (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.34s mt 0.90s tts1[id] 1.03s done 1.05s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.40s mt 1.31s tts1[id] 1.45s done 1.47s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.23s mt 0.59s tts1[id] 0.63s done 0.64s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.37s mt 1.31s tts1[id] 1.44s done 1.46s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.52s mt 2.06s tts1[id] 2.30s done 2.34s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.37s mt 1.20s tts1[id] 1.33s done 1.35s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.45s mt 1.92s tts1[id] 2.13s done 2.17s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.46s mt 1.73s tts1[id] 1.92s done 1.96s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.59s mt 1.97s tts1[id] 2.09s done 2.21s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.38s mt 1.39s tts1[id] 1.54s done 1.57s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.44s mt 1.80s tts1[id] 1.97s done 1.98s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.46s mt 1.70s tts1[id] 1.89s done 1.90s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.41s mt 1.31s tts1[id] 1.45s done 1.46s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.52s mt 1.62s tts1[id] 1.80s done 1.84s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 1.22s tts1[id] 1.32s done 1.34s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.34s mt 1.52s tts1[id] 1.68s done 1.69s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.31s mt 1.20s tts1[id] 1.31s done 1.33s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.33s mt 0.91s tts1[id] 1.00s done 1.02s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.35s mt 1.05s tts1[id] 1.14s done 1.16s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 1.38s tts1[id] 1.52s done 1.56s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.19s mt 0.46s tts1[id] 0.48s done 0.49s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.53s mt 1.85s tts1[id] 2.02s done 2.04s
+[stack] client: tr -> en (context)
+[stack] room open/e2e_tr_en_x22wmf: +en (primary, utterance)
+[stack] utterance 4.9s speech | lid 0.00s asr 0.40s mt 0.98s tts1[en] 1.06s done 1.08s
+[stack] utterance 7.4s speech | lid 0.00s asr 0.65s mt 1.52s tts1[en] 1.61s done 1.65s
+[stack] utterance 8.1s speech | lid 0.00s asr 0.65s mt 1.30s tts1[en] 1.39s done 1.40s
+[stack] utterance 10.9s speech | lid 0.00s asr 0.90s mt 1.57s tts1[en] 1.67s done 1.71s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.54s mt 1.24s tts1[en] 1.33s done 1.43s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.78s mt 1.54s tts1[en] 1.64s done 1.68s
+[stack] utterance 8.0s speech | lid 0.00s asr 0.60s mt 1.21s tts1[en] 1.28s done 1.38s
+[stack] room open/e2e_tr_en_x22wmf: forced cut at 11.7s of 12.0s (sentence)
+[stack] utterance 11.7s speech | lid 0.00s asr 1.16s mt 1.98s tts1[en] 2.06s done 2.20s
+[stack] utterance 10.3s speech | lid 0.00s asr 0.72s mt 1.35s tts1[en] 1.43s done 1.53s
+[stack] utterance 9.7s speech | lid 0.00s asr 0.79s mt 1.33s tts1[en] 1.41s done 1.52s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.58s mt 1.38s tts1[en] 1.48s done 1.51s
+[stack] utterance 9.8s speech | lid 0.00s asr 0.68s mt 1.22s tts1[en] 1.29s done 1.39s
+[stack] utterance 8.1s speech | lid 0.00s asr 0.69s mt 1.55s tts1[en] 1.65s done 1.69s
+[stack] utterance 6.2s speech | lid 0.00s asr 0.52s mt 0.90s tts1[en] 0.97s done 1.07s
+[stack] utterance 7.5s speech | lid 0.00s asr 0.65s mt 1.23s tts1[en] 1.33s done 1.36s
+[stack] utterance 6.5s speech | lid 0.00s asr 0.62s mt 1.23s tts1[en] 1.31s done 1.33s
+[stack] utterance 6.6s speech | lid 0.00s asr 0.53s mt 1.09s tts1[en] 1.17s done 1.19s
+[stack] utterance 4.7s speech | lid 0.00s asr 0.46s mt 0.92s tts1[en] 1.00s done 1.01s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.44s mt 0.82s tts1[en] 0.90s done 0.92s
+[stack] utterance 5.2s speech | lid 0.00s asr 0.49s mt 1.04s tts1[en] 1.12s done 1.14s
+[stack] utterance 7.7s speech | lid 0.00s asr 0.58s mt 1.38s tts1[en] 1.47s done 1.50s
+[stack] client: en -> tr (context)
+[stack] room open/e2e_en_tr_9qdjai: +tr (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.34s mt 1.00s tts1[tr] 1.10s done 1.11s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.40s mt 1.53s tts1[tr] 1.64s done 1.67s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.23s mt 0.79s tts1[tr] 0.84s done 0.85s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.37s mt 1.49s tts1[tr] 1.62s done 1.65s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.52s mt 2.28s tts1[tr] 2.46s done 2.49s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.37s mt 1.15s tts1[tr] 1.24s done 1.27s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.45s mt 2.06s tts1[tr] 2.23s done 2.27s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.46s mt 2.19s tts1[tr] 2.28s done 2.34s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.59s mt 2.33s tts1[tr] 2.42s done 2.50s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.39s mt 1.55s tts1[tr] 1.67s done 1.69s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.44s mt 1.92s tts1[tr] 2.03s done 2.06s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.46s mt 1.58s tts1[tr] 1.70s done 1.72s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.41s mt 1.91s tts1[tr] 1.99s done 2.03s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.52s mt 1.96s tts1[tr] 2.12s done 2.16s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.36s mt 1.43s tts1[tr] 1.54s done 1.56s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.34s mt 1.87s tts1[tr] 2.03s done 2.06s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.31s mt 1.37s tts1[tr] 1.49s done 1.51s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.32s mt 1.20s tts1[tr] 1.31s done 1.33s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.35s mt 1.28s tts1[tr] 1.37s done 1.39s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 1.58s tts1[tr] 1.70s done 1.71s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.19s mt 0.53s tts1[tr] 0.56s done 0.57s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.53s mt 1.76s tts1[tr] 1.89s done 1.92s
+[stack] client: bn -> en (context)
+[stack] room open/e2e_bn_en_se9rbb: +en (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 2.15s mt 2.65s tts1[en] 2.73s done 2.75s
+[stack] utterance 8.3s speech | lid 0.00s asr 3.07s mt 3.76s tts1[en] 3.86s done 3.87s
+[stack] utterance 7.5s speech | lid 0.00s asr 2.86s mt 3.43s tts1[en] 3.51s done 3.54s
+[stack] room open/e2e_bn_en_se9rbb: forced cut at 11.0s of 12.0s (quietest)
+[stack] utterance 11.0s speech | lid 0.00s asr 4.38s mt 5.15s tts1[en] 5.25s done 5.29s
+[stack] utterance 2.7s speech | lid 0.00s asr 1.24s mt 1.58s tts1[en] 1.66s done 1.66s
+[stack] utterance 8.0s speech | lid 0.00s asr 2.87s mt 3.45s tts1[en] 3.54s done 3.57s
+[stack] utterance 2.6s speech | lid 0.00s asr 0.67s mt 0.90s tts1[en] 0.97s done 0.98s
+[stack] utterance 9.1s speech | lid 0.00s asr 4.12s mt 4.75s tts1[en] 4.85s done 4.86s
+[stack] utterance 11.3s speech | lid 0.00s asr 4.18s mt 5.00s tts1[en] 5.10s done 5.12s
+[stack] utterance 5.8s speech | lid 0.00s asr 1.68s mt 2.06s tts1[en] 2.14s done 2.16s
+[stack] utterance 9.4s speech | lid 0.00s asr 3.99s mt 4.61s tts1[en] 4.71s done 4.74s
+[stack] utterance 8.2s speech | lid 0.00s asr 3.18s mt 3.87s tts1[en] 3.95s done 3.98s
+[stack] utterance 5.9s speech | lid 0.00s asr 1.94s mt 2.42s tts1[en] 2.50s done 2.51s
+[stack] utterance 6.4s speech | lid 0.00s asr 1.45s mt 1.86s tts1[en] 1.93s done 1.95s
+[stack] utterance 10.3s speech | lid 0.00s asr 2.80s mt 3.42s tts1[en] 3.50s done 3.53s
+[stack] utterance 5.8s speech | lid 0.00s asr 2.05s mt 2.54s tts1[en] 2.62s done 2.72s
+[stack] utterance 2.5s speech | lid 0.00s asr 0.84s mt 1.09s tts1[en] 1.16s done 1.17s
+[stack] utterance 5.5s speech | lid 0.00s asr 1.11s mt 1.45s tts1[en] 1.52s done 1.54s
+[stack] utterance 6.5s speech | lid 0.00s asr 2.48s mt 2.92s tts1[en] 3.01s done 3.03s
+[stack] utterance 6.2s speech | lid 0.00s asr 2.61s mt 3.17s tts1[en] 3.26s done 3.28s
+[stack] utterance 10.7s speech | lid 0.00s asr 3.97s mt 4.52s tts1[en] 4.61s done 4.65s
+[stack] utterance 8.1s speech | lid 0.00s asr 3.10s mt 3.65s tts1[en] 3.73s done 3.76s
+[stack] utterance 4.2s speech | lid 0.00s asr 1.80s mt 2.19s tts1[en] 2.27s done 2.28s
+[stack] utterance 6.1s speech | lid 0.00s asr 2.44s mt 2.98s tts1[en] 3.06s done 3.09s
+[stack] utterance 7.1s speech | lid 0.00s asr 2.40s mt 2.81s tts1[en] 2.89s done 2.90s
+[stack] utterance 4.6s speech | lid 0.00s asr 1.08s mt 1.46s tts1[en] 1.53s done 1.54s
+[stack] utterance 7.7s speech | lid 0.00s asr 2.90s mt 3.55s tts1[en] 3.63s done 3.65s
+[stack] utterance 2.6s speech | lid 0.00s asr 1.20s mt 1.50s tts1[en] 1.58s done 1.59s
+[stack] client: en -> bn (context)
+[stack] room open/e2e_en_bn_7o37o4: +bn (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.34s mt 2.64s tts1[bn] 2.76s done 2.78s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.40s mt 3.48s tts1[bn] 3.58s done 3.60s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.23s mt 1.43s tts1[bn] 1.47s done 1.48s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.37s mt 3.45s tts1[bn] 3.52s done 3.55s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.52s mt 6.56s tts1[bn] 6.76s done 6.80s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.37s mt 3.23s tts1[bn] 3.35s done 3.38s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.45s mt 5.22s tts1[bn] 5.32s done 5.36s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.46s mt 5.38s tts1[bn] 5.54s done 5.57s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.59s mt 5.50s tts1[bn] 5.71s done 5.75s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.38s mt 3.92s tts1[bn] 4.04s done 4.06s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.44s mt 4.51s tts1[bn] 4.61s done 4.64s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.46s mt 3.41s tts1[bn] 3.55s done 3.58s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.41s mt 3.62s tts1[bn] 3.70s done 3.73s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.52s mt 4.76s tts1[bn] 4.91s done 4.95s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.36s mt 3.26s tts1[bn] 3.36s done 3.38s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.34s mt 4.96s tts1[bn] 5.12s done 5.15s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.31s mt 3.24s tts1[bn] 3.33s done 3.35s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.32s mt 2.98s tts1[bn] 3.07s done 3.09s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.35s mt 3.03s tts1[bn] 3.12s done 3.14s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 4.88s tts1[bn] 5.04s done 5.07s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.19s mt 0.76s tts1[bn] 0.79s done 0.79s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.53s mt 5.15s tts1[bn] 5.30s done 5.34s
+[stack] client: ur -> en (context)
+[stack] room open/e2e_ur_en_7can8n: +en (primary, utterance)
+[stack] utterance 5.1s speech | lid 0.00s asr 2.34s mt 2.87s tts1[en] 2.96s done 2.99s
+[stack] utterance 6.1s speech | lid 0.00s asr 2.74s mt 3.51s tts1[en] 3.59s done 3.62s
+[stack] utterance 7.2s speech | lid 0.00s asr 3.53s mt 4.20s tts1[en] 4.28s done 4.38s
+[stack] utterance 11.2s speech | lid 0.00s asr 4.89s mt 5.79s tts1[en] 5.89s done 5.94s
+[stack] utterance 6.8s speech | lid 0.00s asr 2.78s mt 3.36s tts1[en] 3.44s done 3.53s
+[stack] utterance 10.3s speech | lid 0.00s asr 5.11s mt 5.93s tts1[en] 6.03s done 6.07s
+[stack] utterance 9.2s speech | lid 0.00s asr 4.42s mt 5.21s tts1[en] 5.30s done 5.34s
+[stack] utterance 11.2s speech | lid 0.00s asr 5.63s mt 6.61s tts1[en] 6.69s done 6.88s
+[stack] utterance 6.3s speech | lid 0.00s asr 3.07s mt 3.78s tts1[en] 3.87s done 3.95s
+[stack] utterance 8.6s speech | lid 0.00s asr 3.31s mt 3.97s tts1[en] 4.05s done 4.08s
+[stack] utterance 7.4s speech | lid 0.00s asr 2.80s mt 3.40s tts1[en] 3.48s done 3.50s
+[stack] utterance 7.3s speech | lid 0.00s asr 3.30s mt 4.00s tts1[en] 4.08s done 4.11s
+[stack] utterance 7.7s speech | lid 0.00s asr 2.80s mt 3.42s tts1[en] 3.50s done 3.53s
+[stack] utterance 4.9s speech | lid 0.00s asr 2.50s mt 2.93s tts1[en] 3.01s done 3.03s
+[stack] utterance 7.0s speech | lid 0.00s asr 3.31s mt 3.90s tts1[en] 4.00s done 4.04s
+[stack] utterance 6.7s speech | lid 0.00s asr 3.81s mt 4.51s tts1[en] 4.59s done 4.71s
+[stack] utterance 5.2s speech | lid 0.00s asr 2.17s mt 2.66s tts1[en] 2.74s done 2.76s
+[stack] utterance 4.4s speech | lid 0.00s asr 2.23s mt 2.74s tts1[en] 2.82s done 2.84s
+[stack] utterance 8.0s speech | lid 0.00s asr 4.04s mt 4.71s tts1[en] 4.80s done 4.83s
+[stack] utterance 7.6s speech | lid 0.00s asr 3.37s mt 4.23s tts1[en] 4.32s done 4.36s
+[stack] client: en -> ur (context)
+[stack] room open/e2e_en_ur_7yb3vi: +ur (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.34s mt 2.07s tts1[ur] 2.20s done 2.22s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.40s mt 2.52s tts1[ur] 2.61s done 2.63s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.23s mt 1.25s tts1[ur] 1.31s done 1.32s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.37s mt 3.58s tts1[ur] 3.73s done 3.74s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.52s mt 4.19s tts1[ur] 4.42s done 4.45s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.37s mt 2.27s tts1[ur] 2.39s done 2.42s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.45s mt 4.23s tts1[ur] 4.41s done 4.45s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.46s mt 3.83s tts1[ur] 4.01s done 4.04s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.59s mt 4.71s tts1[ur] 4.94s done 4.99s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.38s mt 3.00s tts1[ur] 3.13s done 3.16s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.44s mt 3.32s tts1[ur] 3.49s done 3.53s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.46s mt 2.94s tts1[ur] 3.06s done 3.09s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.41s mt 3.33s tts1[ur] 3.48s done 3.51s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.52s mt 3.72s tts1[ur] 3.90s done 3.94s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.35s mt 2.87s tts1[ur] 2.99s done 3.02s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.34s mt 2.79s tts1[ur] 2.93s done 2.96s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.31s mt 2.36s tts1[ur] 2.45s done 2.48s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.32s mt 2.26s tts1[ur] 2.34s done 2.36s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.35s mt 2.48s tts1[ur] 2.58s done 2.61s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 3.19s tts1[ur] 3.32s done 3.33s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.19s mt 0.63s tts1[ur] 0.66s done 0.67s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.53s mt 3.77s tts1[ur] 3.92s done 3.93s
+[stack] client: hi -> en (context)
+[stack] room open/e2e_hi_en_xiaauw: +en (primary, utterance)
+[stack] utterance 6.8s speech | lid 0.00s asr 2.31s mt 2.77s tts1[en] 2.85s done 2.87s
+[stack] utterance 8.5s speech | lid 0.00s asr 3.44s mt 4.44s tts1[en] 4.54s done 4.57s
+[stack] utterance 5.6s speech | lid 0.00s asr 2.92s mt 3.51s tts1[en] 3.59s done 3.69s
+[stack] utterance 9.5s speech | lid 0.00s asr 4.09s mt 4.88s tts1[en] 4.99s done 5.02s
+[stack] utterance 4.8s speech | lid 0.00s asr 2.53s mt 3.14s tts1[en] 3.22s done 3.24s
+[stack] utterance 6.5s speech | lid 0.00s asr 2.31s mt 2.67s tts1[en] 2.75s done 2.76s
+[stack] utterance 8.7s speech | lid 0.00s asr 2.94s mt 3.40s tts1[en] 3.49s done 3.51s
+[stack] utterance 11.2s speech | lid 0.00s asr 4.38s mt 5.11s tts1[en] 5.20s done 5.24s
+[stack] utterance 8.0s speech | lid 0.00s asr 1.97s mt 2.44s tts1[en] 2.52s done 2.54s
+[stack] utterance 6.2s speech | lid 0.00s asr 2.07s mt 2.62s tts1[en] 2.70s done 2.80s
+[stack] utterance 5.0s speech | lid 0.00s asr 1.68s mt 2.04s tts1[en] 2.12s done 2.14s
+[stack] utterance 8.6s speech | lid 0.00s asr 4.01s mt 4.79s tts1[en] 4.88s done 4.91s
+[stack] utterance 7.8s speech | lid 0.00s asr 3.40s mt 4.10s tts1[en] 4.20s done 4.21s
+[stack] utterance 8.0s speech | lid 0.00s asr 2.97s mt 3.63s tts1[en] 3.72s done 3.73s
+[stack] utterance 9.4s speech | lid 0.00s asr 3.25s mt 4.02s tts1[en] 4.11s done 4.13s
+[stack] utterance 10.0s speech | lid 0.00s asr 3.56s mt 4.23s tts1[en] 4.33s done 4.34s
+[stack] utterance 6.4s speech | lid 0.00s asr 2.98s mt 3.54s tts1[en] 3.62s done 3.65s
+[stack] utterance 10.3s speech | lid 0.00s asr 4.57s mt 5.36s tts1[en] 5.47s done 5.51s
+[stack] utterance 7.2s speech | lid 0.00s asr 3.16s mt 3.84s tts1[en] 3.94s done 3.97s
+[stack] utterance 5.1s speech | lid 0.00s asr 2.53s mt 3.08s tts1[en] 3.16s done 3.18s
+[stack] utterance 6.1s speech | lid 0.00s asr 2.81s mt 3.31s tts1[en] 3.40s done 3.42s
+[stack] utterance 6.5s speech | lid 0.00s asr 2.02s mt 2.48s tts1[en] 2.56s done 2.56s
+[stack] utterance 5.5s speech | lid 0.00s asr 1.44s mt 1.83s tts1[en] 1.91s done 1.92s
+[stack] utterance 1.9s speech | lid 0.00s asr 0.48s mt 0.68s tts1[en] 0.75s done 0.76s
+[stack] utterance 5.8s speech | lid 0.00s asr 1.68s mt 2.06s tts1[en] 2.14s done 2.15s
+[stack] utterance 6.4s speech | lid 0.00s asr 1.88s mt 2.45s tts1[en] 2.53s done 2.55s
+[stack] client: en -> hi (context)
+[stack] room open/e2e_en_hi_a62ec9: +hi (primary, utterance)
+[stack] utterance 6.6s speech | lid 0.00s asr 0.34s mt 2.47s tts1[hi] 2.56s done 2.58s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.40s mt 2.89s tts1[hi] 2.98s done 3.00s
+[stack] utterance 2.1s speech | lid 0.00s asr 0.23s mt 1.36s tts1[hi] 1.44s done 1.45s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.37s mt 3.34s tts1[hi] 3.44s done 3.47s
+[stack] utterance 9.3s speech | lid 0.00s asr 0.52s mt 4.36s tts1[hi] 4.46s done 4.50s
+[stack] utterance 6.7s speech | lid 0.00s asr 0.37s mt 2.48s tts1[hi] 2.57s done 2.60s
+[stack] utterance 11.3s speech | lid 0.00s asr 0.45s mt 4.50s tts1[hi] 4.58s done 4.70s
+[stack] utterance 8.4s speech | lid 0.00s asr 0.46s mt 3.86s tts1[hi] 3.96s done 4.00s
+[stack] utterance 9.5s speech | lid 0.00s asr 0.59s mt 4.46s tts1[hi] 4.61s done 4.65s
+[stack] utterance 4.5s speech | lid 0.00s asr 0.38s mt 3.58s tts1[hi] 3.68s done 3.71s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.44s mt 3.37s tts1[hi] 3.46s done 3.49s
+[stack] utterance 6.3s speech | lid 0.00s asr 0.46s mt 3.25s tts1[hi] 3.34s done 3.38s
+[stack] utterance 6.0s speech | lid 0.00s asr 0.41s mt 3.58s tts1[hi] 3.68s done 3.71s
+[stack] utterance 9.0s speech | lid 0.00s asr 0.52s mt 3.90s tts1[hi] 4.01s done 4.06s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.36s mt 3.03s tts1[hi] 3.12s done 3.15s
+[stack] utterance 7.2s speech | lid 0.00s asr 0.34s mt 4.11s tts1[hi] 4.21s done 4.25s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.31s mt 2.68s tts1[hi] 2.76s done 2.79s
+[stack] utterance 5.0s speech | lid 0.00s asr 0.33s mt 2.43s tts1[hi] 2.52s done 2.53s
+[stack] utterance 5.5s speech | lid 0.00s asr 0.35s mt 2.46s tts1[hi] 2.55s done 2.57s
+[stack] utterance 5.7s speech | lid 0.00s asr 0.34s mt 3.27s tts1[hi] 3.36s done 3.39s
+[stack] utterance 2.3s speech | lid 0.00s asr 0.19s mt 0.66s tts1[hi] 0.74s done 0.75s
+[stack] utterance 5.8s speech | lid 0.00s asr 0.53s mt 4.22s tts1[hi] 4.32s done 4.42s

@@ -1,0 +1,267 @@
+11:38:39 stack up after ~100 s (A)
+        lo translator llmmt: xiaomi-research/MiLMMT-46-12B-v0.1 ❓ > google/gemma-4-31B-it-qat-w4a16-ct ✅ (the first that answers serves)
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) answering — ar,fa,sw,tl,uk,vi,zh use it
+11:38:44 A a zh-en
+zh-en: 21 utterances, 125 audio msgs, err=-
+11:41:50 A a en-zh
+en-zh: 23 utterances, 132 audio msgs, err=-
+11:44:48 A a uk-en
+uk-en: 24 utterances, 126 audio msgs, err=-
+11:48:10 A a en-uk
+en-uk: 23 utterances, 107 audio msgs, err=-
+11:51:09 A a vi-en
+vi-en: 30 utterances, 136 audio msgs, err=-
+11:54:45 A a en-vi
+en-vi: 23 utterances, 89 audio msgs, err=-
+11:57:43 A a ar-en
+ar-en: 21 utterances, 132 audio msgs, err=-
+12:00:59 A a en-ar
+en-ar: 23 utterances, 169 audio msgs, err=-
+12:03:57 A a fa-en
+fa-en: 35 utterances, 160 audio msgs, err=-
+12:08:49 A a en-fa
+en-fa: 23 utterances, 111 audio msgs, err=-
+12:11:47 A a tl-en
+tl-en: 38 utterances, 140 audio msgs, err=-
+12:17:06 A a en-tl
+en-tl: 23 utterances, 869 audio msgs, err=-
+12:20:09 A a sw-en
+sw-en: 37 utterances, 149 audio msgs, err=-
+12:24:46 A a en-sw
+en-sw: 23 utterances, 112 audio msgs, err=-
+12:27:45 A a it-en
+it-en: 33 utterances, 143 audio msgs, err=-
+12:32:02 A a en-it
+en-it: 23 utterances, 128 audio msgs, err=-
+12:35:00 A a ko-en
+ko-en: 23 utterances, 128 audio msgs, err=-
+12:38:12 A a en-ko
+en-ko: 23 utterances, 117 audio msgs, err=-
+12:41:11 A a id-en
+id-en: 24 utterances, 127 audio msgs, err=-
+12:45:08 A a en-id
+en-id: 23 utterances, 132 audio msgs, err=-
+12:48:06 A a tr-en
+tr-en: 22 utterances, 129 audio msgs, err=-
+12:51:34 A a en-tr
+en-tr: 23 utterances, 115 audio msgs, err=-
+12:54:32 A a bn-en
+bn-en: 30 utterances, 142 audio msgs, err=-
+12:58:47 A a en-bn
+en-bn: 23 utterances, 115 audio msgs, err=-
+13:01:47 A a ur-en
+ur-en: 20 utterances, 127 audio msgs, err=-
+13:04:59 A a en-ur
+en-ur: 23 utterances, 130 audio msgs, err=-
+13:07:59 A a hi-en
+hi-en: 31 utterances, 134 audio msgs, err=-
+13:11:40 A a en-hi
+en-hi: 23 utterances, 155 audio msgs, err=-
+13:14:40 A b zh-en
+zh-en: 24 utterances, 134 audio msgs, err=-
+13:17:41 A b en-zh
+en-zh: 22 utterances, 133 audio msgs, err=-
+13:20:42 A b uk-en
+uk-en: 21 utterances, 130 audio msgs, err=-
+13:23:59 A b en-uk
+en-uk: 22 utterances, 107 audio msgs, err=-
+13:27:00 A b vi-en
+vi-en: 36 utterances, 151 audio msgs, err=-
+13:31:00 A b en-vi
+en-vi: 22 utterances, 92 audio msgs, err=-
+13:34:00 A b ar-en
+ar-en: 21 utterances, 135 audio msgs, err=-
+13:37:33 A b en-ar
+en-ar: 22 utterances, 176 audio msgs, err=-
+13:40:34 A b fa-en
+fa-en: 32 utterances, 154 audio msgs, err=-
+13:45:21 A b en-fa
+en-fa: 22 utterances, 116 audio msgs, err=-
+13:48:22 A b tl-en
+tl-en: 39 utterances, 148 audio msgs, err=-
+13:53:53 A b en-tl
+en-tl: 22 utterances, 858 audio msgs, err=-
+13:56:59 A b sw-en
+sw-en: 38 utterances, 141 audio msgs, err=-
+14:01:29 A b en-sw
+en-sw: 22 utterances, 108 audio msgs, err=-
+14:04:30 A b it-en
+it-en: 27 utterances, 135 audio msgs, err=-
+14:08:37 A b en-it
+en-it: 22 utterances, 126 audio msgs, err=-
+14:11:37 A b ko-en
+ko-en: 26 utterances, 134 audio msgs, err=-
+14:14:57 A b en-ko
+en-ko: 22 utterances, 122 audio msgs, err=-
+14:17:58 A b id-en
+id-en: 26 utterances, 133 audio msgs, err=-
+14:22:03 A b en-id
+en-id: 22 utterances, 131 audio msgs, err=-
+14:25:04 A b tr-en
+tr-en: 21 utterances, 134 audio msgs, err=-
+14:28:41 A b en-tr
+en-tr: 22 utterances, 115 audio msgs, err=-
+14:31:42 A b bn-en
+bn-en: 28 utterances, 130 audio msgs, err=-
+14:35:41 A b en-bn
+en-bn: 22 utterances, 124 audio msgs, err=-
+14:38:45 A b ur-en
+ur-en: 20 utterances, 130 audio msgs, err=-
+14:41:54 A b en-ur
+en-ur: 22 utterances, 132 audio msgs, err=-
+14:44:57 A b hi-en
+hi-en: 26 utterances, 135 audio msgs, err=-
+14:48:47 A b en-hi
+en-hi: 22 utterances, 157 audio msgs, err=-
+drops in log: 0
+llmmt failures: 0
+14:52:00 done A
+14:52:40 stack up after ~45 s (B)
+        lo translator llmmt: xiaomi-research/MiLMMT-46-12B-v0.1 ❓ > google/gemma-4-31B-it-qat-w4a16-ct ✅ (the first that answers serves)
+[stack] llmmt: http://127.0.0.1:8101/v1 (google/gemma-4-31B-it-qat-w4a16-ct) answering — ar,bn,fa,hi,id,it,ko,sw,tl,tr,uk,ur,vi,zh use it
+14:52:46 B b it-en
+14:52:46 B a it-en
+it-en: 27 utterances, 137 audio msgs, err=-
+14:56:52 B b en-it
+it-en: 33 utterances, 141 audio msgs, err=-
+14:57:03 B a en-it
+en-it: 22 utterances, 124 audio msgs, err=-
+14:59:53 B b ko-en
+en-it: 23 utterances, 122 audio msgs, err=-
+15:00:01 B a ko-en
+ko-en: 23 utterances, 126 audio msgs, err=-
+ko-en: 26 utterances, 139 audio msgs, err=-
+15:03:13 B a en-ko
+15:03:13 B b en-ko
+en-ko: 23 utterances, 115 audio msgs, err=-
+en-ko: 22 utterances, 120 audio msgs, err=-
+15:06:11 B a id-en
+15:06:14 B b id-en
+id-en: 24 utterances, 128 audio msgs, err=-
+15:10:08 B a en-id
+id-en: 26 utterances, 130 audio msgs, err=-
+15:10:19 B b en-id
+en-id: 23 utterances, 128 audio msgs, err=-
+15:13:06 B a tr-en
+en-id: 22 utterances, 125 audio msgs, err=-
+15:13:20 B b tr-en
+tr-en: 22 utterances, 135 audio msgs, err=-
+15:16:33 B a en-tr
+tr-en: 21 utterances, 140 audio msgs, err=-
+15:16:57 B b en-tr
+en-tr: 23 utterances, 110 audio msgs, err=-
+15:19:32 B a bn-en
+en-tr: 22 utterances, 113 audio msgs, err=-
+15:19:58 B b bn-en
+bn-en: 30 utterances, 141 audio msgs, err=-
+15:23:47 B a en-bn
+bn-en: 28 utterances, 137 audio msgs, err=-
+15:23:57 B b en-bn
+en-bn: 23 utterances, 113 audio msgs, err=-
+15:26:45 B a ur-en
+en-bn: 22 utterances, 117 audio msgs, err=-
+15:26:58 B b ur-en
+ur-en: 20 utterances, 126 audio msgs, err=-
+15:29:59 B a en-ur
+ur-en: 20 utterances, 130 audio msgs, err=-
+15:30:07 B b en-ur
+en-ur: 23 utterances, 129 audio msgs, err=-
+15:32:57 B a hi-en
+en-ur: 22 utterances, 126 audio msgs, err=-
+15:33:08 B b hi-en
+hi-en: 31 utterances, 132 audio msgs, err=-
+15:36:38 B a en-hi
+hi-en: 26 utterances, 133 audio msgs, err=-
+15:36:58 B b en-hi
+en-hi: 23 utterances, 149 audio msgs, err=-
+en-hi: 22 utterances, 149 audio msgs, err=-
+drops in log: 0
+llmmt failures: 0
+/workspace/tos/eval/2026-11-more-languages/live.sh: line 57: kill: (39249) - No such process
+15:59:09 done B
+trimmed 84
+en-zh: utt 23 CER 0.055 stop->first {'p50': 2155, 'p90': 2446, 'n': 20} tail 2187 start->first 7932 missing 0 stage 0.07/0.75 gpu 63202
+zh-en: utt 21 CER 0.076 stop->first {'p50': 2341, 'p90': 2767, 'n': 20} tail 2414 start->first 8137 missing 0 stage 0.136/0.8 gpu 63072
+en-uk: utt 23 CER 0.055 stop->first {'p50': 1911, 'p90': 2544, 'n': 20} tail 1948 start->first 7978 missing 0 stage 0.069/1.1 gpu 63136
+uk-en: utt 24 CER 0.03 stop->first {'p50': 2230, 'p90': 2640, 'n': 20} tail 2271 start->first 7946 missing 0 stage 0.098/0.55 gpu 63234
+en-vi: utt 23 CER 0.055 stop->first {'p50': 1918, 'p90': 2352, 'n': 20} tail 1944 start->first 8016 missing 0 stage 0.07/1.02 gpu 63154
+vi-en: utt 30 CER 0.08 stop->first {'p50': 1504, 'p90': 2598, 'n': 20} tail 2265 start->first 7152 missing 0 stage 0.1/0.58 gpu 63280
+en-ar: utt 23 CER 0.055 stop->first {'p50': 2166, 'p90': 2451, 'n': 20} tail 2208 start->first 7933 missing 0 stage 0.07/1.03 gpu 63282
+ar-en: utt 21 CER 0.027 stop->first {'p50': 2746, 'p90': 2961, 'n': 20} tail 2746 start->first 9567 missing 0 stage 0.102/0.88 gpu 63154
+en-fa: utt 23 CER 0.055 stop->first {'p50': 1987, 'p90': 2469, 'n': 20} tail 2044 start->first 7860 missing 0 stage 0.07/1.0 gpu 62358
+fa-en: utt 35 CER 0.19 stop->first {'p50': 402, 'p90': 4955, 'n': 20} tail 2195 start->first 12166 missing 0 stage 0.364/0.63 gpu 63164
+en-tl: utt 23 CER 0.055 stop->first {'p50': 2050, 'p90': 2662, 'n': 20} tail 2196 start->first 8065 missing 0 stage 0.071/1.06 gpu 62806
+tl-en: utt 38 CER 0.03 stop->first {'p50': -1522, 'p90': 2179, 'n': 20} tail 1082 start->first 8933 missing 0 stage 0.079/0.46 gpu 62522
+en-sw: utt 23 CER 0.055 stop->first {'p50': 2228, 'p90': 2684, 'n': 20} tail 2228 start->first 8248 missing 0 stage 0.07/1.17 gpu 62622
+sw-en: utt 37 CER 0.113 stop->first {'p50': 2192, 'p90': 5799, 'n': 20} tail 3856 start->first 11100 missing 0 stage 0.382/0.5 gpu 62764
+en-it: utt 23 CER 0.055 stop->first {'p50': 2152, 'p90': 2531, 'n': 20} tail 2170 start->first 7946 missing 0 stage 0.067/0.97 gpu 62738
+it-en: utt 33 CER 0.004 stop->first {'p50': 1962, 'p90': 2631, 'n': 20} tail 2278 start->first 8818 missing 0 stage 0.07/0.41 gpu 62824
+en-ko: utt 23 CER 0.055 stop->first {'p50': 2492, 'p90': 3200, 'n': 20} tail 2492 start->first 8502 missing 0 stage 0.068/1.32 gpu 62750
+ko-en: utt 23 CER 0.023 stop->first {'p50': 2256, 'p90': 2564, 'n': 20} tail 2256 start->first 8090 missing 0 stage 0.087/0.61 gpu 62878
+en-id: utt 23 CER 0.055 stop->first {'p50': 1940, 'p90': 2503, 'n': 20} tail 2054 start->first 7992 missing 0 stage 0.068/0.96 gpu 62750
+id-en: utt 24 CER 0.018 stop->first {'p50': 1836, 'p90': 2396, 'n': 20} tail 1990 start->first 9466 missing 0 stage 0.073/0.6 gpu 62878
+en-tr: utt 23 CER 0.055 stop->first {'p50': 2108, 'p90': 2607, 'n': 20} tail 2108 start->first 8252 missing 0 stage 0.068/1.11 gpu 62750
+tr-en: utt 22 CER 0.016 stop->first {'p50': 2283, 'p90': 2662, 'n': 20} tail 2283 start->first 8963 missing 0 stage 0.087/0.64 gpu 62878
+en-bn: utt 23 CER 0.055 stop->first {'p50': 4340, 'p90': 5410, 'n': 20} tail 4340 start->first 10848 missing 0 stage 0.068/3.17 gpu 63347
+bn-en: utt 30 CER 0.073 stop->first {'p50': 3845, 'p90': 5694, 'n': 20} tail 4082 start->first 10684 missing 0 stage 0.346/0.51 gpu 62844
+en-ur: utt 23 CER 0.055 stop->first {'p50': 3624, 'p90': 4897, 'n': 20} tail 3624 start->first 10098 missing 0 stage 0.068/2.67 gpu 62898
+ur-en: utt 20 CER 0.083 stop->first {'p50': 5074, 'p90': 5975, 'n': 20} tail 5074 start->first 11876 missing 0 stage 0.448/0.74 gpu 62818
+en-hi: utt 23 CER 0.055 stop->first {'p50': 4120, 'p90': 5280, 'n': 20} tail 4120 start->first 10691 missing 0 stage 0.068/2.69 gpu 62808
+hi-en: utt 31 CER 0.163 stop->first {'p50': 4042, 'p90': 4914, 'n': 20} tail 4204 start->first 9478 missing 0 stage 0.382/0.48 gpu 62790
+en-zh: utt 22 CER 0.028 stop->first {'p50': 1956, 'p90': 2687, 'n': 20} tail 2144 start->first 7688 missing 0 stage 0.064/0.78 gpu 62956
+zh-en: utt 24 CER 0.06 stop->first {'p50': 2600, 'p90': 2882, 'n': 20} tail 2633 start->first 7163 missing 0 stage 0.102/0.72 gpu 63367
+en-uk: utt 22 CER 0.028 stop->first {'p50': 1994, 'p90': 2563, 'n': 20} tail 1994 start->first 7646 missing 0 stage 0.064/1.06 gpu 62848
+uk-en: utt 21 CER 0.017 stop->first {'p50': 2382, 'p90': 2835, 'n': 20} tail 2393 start->first 9114 missing 0 stage 0.1/0.66 gpu 62976
+en-vi: utt 22 CER 0.028 stop->first {'p50': 1932, 'p90': 2442, 'n': 20} tail 1946 start->first 7432 missing 0 stage 0.064/1.06 gpu 62850
+vi-en: utt 36 CER 0.063 stop->first {'p50': -1046, 'p90': 2568, 'n': 20} tail 2264 start->first 6844 missing 0 stage 0.1/0.53 gpu 63409
+en-ar: utt 22 CER 0.028 stop->first {'p50': 2216, 'p90': 2618, 'n': 20} tail 2216 start->first 7603 missing 0 stage 0.063/1.08 gpu 62978
+ar-en: utt 21 CER 0.015 stop->first {'p50': 2576, 'p90': 3160, 'n': 20} tail 2576 start->first 10716 missing 0 stage 0.094/0.89 gpu 62978
+en-fa: utt 22 CER 0.028 stop->first {'p50': 1965, 'p90': 2450, 'n': 20} tail 2004 start->first 7466 missing 0 stage 0.064/1.05 gpu 62738
+fa-en: utt 32 CER 0.067 stop->first {'p50': 882, 'p90': 5308, 'n': 20} tail 3814 start->first 10308 missing 0 stage 0.375/0.55 gpu 63147
+en-tl: utt 22 CER 0.028 stop->first {'p50': 2088, 'p90': 3154, 'n': 20} tail 2294 start->first 7990 missing 0 stage 0.064/1.15 gpu 62818
+tl-en: utt 39 CER 0.029 stop->first {'p50': -2920, 'p90': -629, 'n': 20} tail 1570 start->first 9022 missing 0 stage 0.078/0.48 gpu 62690
+en-sw: utt 22 CER 0.028 stop->first {'p50': 2114, 'p90': 2763, 'n': 20} tail 2126 start->first 7665 missing 0 stage 0.063/1.2 gpu 62710
+sw-en: utt 38 CER 0.064 stop->first {'p50': 900, 'p90': 5371, 'n': 20} tail 3546 start->first 9896 missing 0 stage 0.361/0.55 gpu 62808
+en-it: utt 22 CER 0.028 stop->first {'p50': 1983, 'p90': 2625, 'n': 20} tail 1991 start->first 7716 missing 0 stage 0.061/0.99 gpu 62776
+it-en: utt 27 CER 0.004 stop->first {'p50': 2254, 'p90': 2503, 'n': 20} tail 2254 start->first 9741 missing 0 stage 0.071/0.53 gpu 62762
+en-ko: utt 22 CER 0.028 stop->first {'p50': 2392, 'p90': 3221, 'n': 20} tail 2450 start->first 7962 missing 0 stage 0.061/1.34 gpu 62920
+ko-en: utt 26 CER 0.067 stop->first {'p50': 2203, 'p90': 2541, 'n': 20} tail 2325 start->first 8396 missing 0 stage 0.084/0.55 gpu 62910
+en-id: utt 22 CER 0.028 stop->first {'p50': 1860, 'p90': 2499, 'n': 20} tail 1860 start->first 7470 missing 0 stage 0.061/0.97 gpu 62792
+id-en: utt 26 CER 0.02 stop->first {'p50': 938, 'p90': 2506, 'n': 20} tail 1793 start->first 9685 missing 0 stage 0.074/0.52 gpu 62920
+en-tr: utt 22 CER 0.028 stop->first {'p50': 2050, 'p90': 2852, 'n': 20} tail 2070 start->first 7570 missing 0 stage 0.061/1.15 gpu 63355
+tr-en: utt 21 CER 0.012 stop->first {'p50': 2273, 'p90': 2587, 'n': 20} tail 2273 start->first 9104 missing 0 stage 0.084/0.61 gpu 62922
+en-bn: utt 22 CER 0.028 stop->first {'p50': 4394, 'p90': 6286, 'n': 20} tail 4394 start->first 9942 missing 0 stage 0.061/3.15 gpu 62916
+bn-en: utt 28 CER 0.043 stop->first {'p50': 4024, 'p90': 4941, 'n': 20} tail 4279 start->first 11140 missing 0 stage 0.36/0.52 gpu 62870
+en-ur: utt 22 CER 0.028 stop->first {'p50': 3933, 'p90': 4659, 'n': 20} tail 3933 start->first 9250 missing 0 stage 0.061/2.57 gpu 62774
+ur-en: utt 20 CER 0.065 stop->first {'p50': 4964, 'p90': 6940, 'n': 20} tail 4964 start->first 11129 missing 0 stage 0.46/0.67 gpu 62902
+en-hi: utt 22 CER 0.028 stop->first {'p50': 4438, 'p90': 5255, 'n': 20} tail 4438 start->first 9756 missing 0 stage 0.061/2.93 gpu 62894
+hi-en: utt 26 CER 0.107 stop->first {'p50': 4348, 'p90': 5762, 'n': 20} tail 4388 start->first 10758 missing 0 stage 0.384/0.57 gpu 62846
+en-it: utt 23 CER 0.055 stop->first {'p50': 2175, 'p90': 2636, 'n': 20} tail 2192 start->first 7966 missing 0 stage None/None gpu 63486
+it-en: utt 33 CER 0.004 stop->first {'p50': 2262, 'p90': 2943, 'n': 20} tail 2497 start->first 8954 missing 0 stage 0.077/1.01 gpu 63484
+en-ko: utt 23 CER 0.055 stop->first {'p50': 2236, 'p90': 2585, 'n': 20} tail 2247 start->first 8154 missing 0 stage 0.076/0.99 gpu 63492
+ko-en: utt 23 CER 0.023 stop->first {'p50': 2358, 'p90': 2900, 'n': 20} tail 2534 start->first 8428 missing 0 stage 0.093/0.67 gpu 63364
+en-id: utt 23 CER 0.055 stop->first {'p50': 1849, 'p90': 2390, 'n': 20} tail 1884 start->first 7826 missing 0 stage 0.069/0.82 gpu 63492
+id-en: utt 24 CER 0.018 stop->first {'p50': 2132, 'p90': 2540, 'n': 20} tail 2178 start->first 9686 missing 0 stage 0.08/0.64 gpu 63364
+en-tr: utt 23 CER 0.055 stop->first {'p50': 1985, 'p90': 2692, 'n': 20} tail 2000 start->first 8008 missing 0 stage 0.073/0.97 gpu 63492
+tr-en: utt 22 CER 0.016 stop->first {'p50': 2419, 'p90': 2894, 'n': 20} tail 2419 start->first 9122 missing 0 stage 0.095/0.76 gpu 63923
+en-bn: utt 23 CER 0.055 stop->first {'p50': 1987, 'p90': 2733, 'n': 20} tail 2054 start->first 7994 missing 0 stage 0.07/0.85 gpu 62676
+bn-en: utt 30 CER 0.073 stop->first {'p50': 4907, 'p90': 8011, 'n': 20} tail 4907 start->first 12826 missing 0 stage 0.475/0.62 gpu 63382
+en-ur: utt 23 CER 0.055 stop->first {'p50': 2330, 'p90': 2894, 'n': 20} tail 2346 start->first 8164 missing 0 stage 0.071/1.1 gpu 62882
+ur-en: utt 20 CER 0.083 stop->first {'p50': 6868, 'p90': 8438, 'n': 20} tail 6868 start->first 13427 missing 0 stage 0.665/0.9 gpu 62914
+en-hi: utt 23 CER 0.055 stop->first {'p50': 2410, 'p90': 2843, 'n': 20} tail 2410 start->first 8243 missing 0 stage 0.071/0.95 gpu 62904
+hi-en: utt 31 CER 0.163 stop->first {'p50': 4449, 'p90': 8430, 'n': 20} tail 5400 start->first 12280 missing 0 stage 0.582/0.65 gpu 62934
+en-it: utt 22 CER 0.028 stop->first {'p50': 1992, 'p90': 2757, 'n': 20} tail 2162 start->first 7716 missing 0 stage 0.071/0.92 gpu 63488
+it-en: utt 27 CER 0.004 stop->first {'p50': 2448, 'p90': 2912, 'n': 20} tail 2448 start->first 10136 missing 0 stage 0.081/0.55 gpu 63484
+en-ko: utt 22 CER 0.028 stop->first {'p50': 2103, 'p90': 2693, 'n': 20} tail 2103 start->first 7692 missing 0 stage None/None gpu 63492
+ko-en: utt 26 CER 0.067 stop->first {'p50': 2362, 'p90': 2738, 'n': 20} tail 2504 start->first 8557 missing 0 stage None/None gpu 63364
+en-id: utt 22 CER 0.028 stop->first {'p50': 1689, 'p90': 2288, 'n': 20} tail 1762 start->first 7321 missing 0 stage 0.093/1.1 gpu 63492
+id-en: utt 26 CER 0.02 stop->first {'p50': 1246, 'p90': 2695, 'n': 20} tail 2016 start->first 9778 missing 0 stage None/None gpu 63492
+en-tr: utt 22 CER 0.028 stop->first {'p50': 1870, 'p90': 2517, 'n': 20} tail 1966 start->first 7562 missing 0 stage 0.241/0.58 gpu 63492
+tr-en: utt 21 CER 0.012 stop->first {'p50': 2442, 'p90': 2838, 'n': 20} tail 2442 start->first 9218 missing 0 stage 0.102/0.95 gpu 63492
+en-bn: utt 22 CER 0.028 stop->first {'p50': 2058, 'p90': 2602, 'n': 20} tail 2082 start->first 7706 missing 0 stage 0.093/1.27 gpu 62676
+bn-en: utt 28 CER 0.043 stop->first {'p50': 4732, 'p90': 6839, 'n': 20} tail 5309 start->first 11872 missing 0 stage None/None gpu 62952
+en-ur: utt 22 CER 0.028 stop->first {'p50': 2224, 'p90': 2741, 'n': 20} tail 2224 start->first 7718 missing 0 stage 0.091/1.3 gpu 62882
+ur-en: utt 20 CER 0.065 stop->first {'p50': 7338, 'p90': 8968, 'n': 20} tail 7338 start->first 13506 missing 0 stage None/None gpu 63313
+en-hi: utt 22 CER 0.028 stop->first {'p50': 2335, 'p90': 3107, 'n': 20} tail 2393 start->first 8010 missing 0 stage 0.079/0.85 gpu 62904
+hi-en: utt 26 CER 0.107 stop->first {'p50': 6212, 'p90': 8733, 'n': 20} tail 6483 start->first 12986 missing 0 stage 0.191/0.75 gpu 62934
+15:59:44 all done; stopping in 20 min unless /workspace/KEEP exists
