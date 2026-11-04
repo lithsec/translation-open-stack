@@ -53,6 +53,7 @@
 | `2026-10-segmentation/` | Where the stack loses speech before recognition, and the fix. See [its README](2026-10-segmentation/README.md). |
 | `2026-10-translation-cost/` | Tokens, cost and reasoning setting per language for the Foundry translation step. See [its README](2026-10-translation-cost/README.md). |
 | `2026-10-translator-shootout/` | Seven translators on identical text from Azure's transcripts, 25 directions graded blind in one round. See [its README](2026-10-translator-shootout/README.md). |
+| `2026-11-more-languages/` | The 14 languages never run live before (zh, uk, vi, ar, fa, tl, sw, it, ko, id, tr, bn, ur, hi), both ways with English, live on the stack with Gemma 4 beside it; Hy-MT2 against Gemma 4 for the seven Hy-MT2-only languages (Gemma higher in all 14 directions, now their route). See [its README](2026-11-more-languages/README.md). |
 | `tools/` | The continuous-speech harness: stream a clip at real time to the stack, omni-stt or your own service, and measure first audio, per-piece lag, final lag, pauses, cuts and quality from its event log. See [its README](tools/README.md). |
 
 ## Where the data comes from

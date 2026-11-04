@@ -1,0 +1,10598 @@
+{
+ "en-zh:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated translation for 'but excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'high latitudes' as 'high temperature latitudes'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation separating 'with each generation'."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'tenth named' and added 'tense'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated 'train' as a verb."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward ellipsis and repetition."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'levees' at the end."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1661,
+   "candidatesTokenCount": 712,
+   "totalTokenCount": 3980,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1661
+    }
+   ],
+   "thoughtsTokenCount": 1607,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-zh:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": true,
+     "note": "Schengen zone mistranslated as Shenzhen Special Economic Zone."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Added '紧邻' (adjacent) which contradicts 'completely isolated'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": false,
+     "note": "Contains Thai word 'จำนวน' instead of Chinese."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "'Specimen' translated too specifically as '一根茎' (stem)."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Mosasaurus mistranslated as Masa Serif and Mosul."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'returning home'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled phrasing around '由……提供的遮荫处'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1619,
+   "candidatesTokenCount": 804,
+   "totalTokenCount": 4197,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1619
+    }
+   ],
+   "thoughtsTokenCount": 1774,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "zh-en:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'hot' from hot chocolate."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'pools' awkwardly as 'libraries'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'bug' as pinyin 'chong'."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'with a heel'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'anti-regime protests' as 'armed counter-insurgency'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'Jerry' as 'Leslie'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'renown' as 'growth'."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Missing 'the crust' at the end."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'sentence' as 'word'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1646,
+   "candidatesTokenCount": 739,
+   "totalTokenCount": 4394,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1646
+    }
+   ],
+   "thoughtsTokenCount": 2009,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "zh-en:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "\"Schengen zone\" mistranslated as \"deep-cultivation zone\"."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"Alcoholic beverages\" mistranslated as \"oil\"."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation in the middle of sentence."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "\"Sagittarius galaxy\" mistranslated as \"humans and horses\"."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "\"Separatist\" is slightly inaccurate for \"isolation\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"Apex predator\" mistranslated as \"top enthusiast\"."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "\"The disease\" mistranslated as \"calcium-level cake\"."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Unnecessary period creates a sentence fragment."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1628,
+   "candidatesTokenCount": 738,
+   "totalTokenCount": 4567,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1628
+    }
+   ],
+   "thoughtsTokenCount": 2201,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-uk:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward movie title translation."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "\"Excellent\" mistranslated as feeling sweetness later."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "\"High latitudes\" mistranslated as \"hot latitudes\"."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Unnecessary period before the last phrase."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "\"Riding boots\" left partially untranslated."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"Tenth named\" mistranslated as \"tense\"."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled meaning."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"levees\" at the end."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1865,
+   "candidatesTokenCount": 726,
+   "totalTokenCount": 4454,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1865
+    }
+   ],
+   "thoughtsTokenCount": 1863,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-uk:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Translated Schengen as Shenzhen (Шеньчженська)."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "\"знаходиться зовсім відірваною\" is slightly awkward."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "\"стеблину\" means stem, not specimen."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong names (Mosasaurus translated as Маса Сериф)."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"returning home\"."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "\"як мітка\" is slightly awkward grammatically."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong tree name (Погікана instead of pohutukawa)."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1831,
+   "candidatesTokenCount": 711,
+   "totalTokenCount": 4357,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1831
+    }
+   ],
+   "thoughtsTokenCount": 1815,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "uk-en:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward sentence split and missing 'citizens'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "'Alter' is less precise than 'shuffle'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "'Beetles' is wrong; should be 'bug'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "'Tropical' instead of 'Subtropical', awkward sentence split."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing and unnecessary ellipsis."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "'Overwhelm' and 'dams' slightly alter meaning."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "'Confused growls' is a bit inaccurate."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "'High' is wrong; should be 'expressed'."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1905,
+   "candidatesTokenCount": 722,
+   "totalTokenCount": 4773,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1905
+    }
+   ],
+   "thoughtsTokenCount": 2146,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "uk-en:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'sharpener' as 'keyboard'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Used 'her' instead of 'it' for Catalan."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'just one' as 'today's'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'remote' (віддалених)."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'pohutukawa' trees, replaced with 'along shore'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation and grammar at the end."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1848,
+   "candidatesTokenCount": 693,
+   "totalTokenCount": 4716,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1848
+    }
+   ],
+   "thoughtsTokenCount": 2175,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-vi:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "\"excellent\" mistranslated as feeling sweetness after a while."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "\"high latitudes\" mistranslated as \"vĩ độ nóng\"."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Extra period and \"pools\" translated as \"quần thể\"."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"tenth named storm\" mistranslated as \"cơn bão đầy căng thẳng\"."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "\"train\" mistranslated as \"huấn luyện\" (training)."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "\"cho đến khi đến khoảng\" is awkward."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "\"levees\" is omitted."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1825,
+   "candidatesTokenCount": 718,
+   "totalTokenCount": 4405,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1825
+    }
+   ],
+   "thoughtsTokenCount": 1862,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-vi:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "\"Schengen zone\" mistranslated as \"Thâm Quyến\" (Shenzhen)."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "\"nằm sát biệt lập\" is awkward and contradictory."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "\"specimen\" translated as \"cành\" (branch) is imprecise."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"Mosasaurus\" mistranslated as \"Masa Serif\" and \"Mosul\"."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted the crucial phrase \"returning home\"."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "\"pohutukawa\" mistranslated as \"Pohican\"."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1788,
+   "candidatesTokenCount": 713,
+   "totalTokenCount": 4482,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1788
+    }
+   ],
+   "thoughtsTokenCount": 1981,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "vi-en:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Missed 'Belgian' in the translation."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing with 'Aside from'."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing 'consider the main focal point'."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning: 'needs a permit' is incorrect."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing with 'occur reciprocally'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Left 'bọ với' untranslated; fragmented sentence."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'smooth' (trơn) from the translation."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong entities: 'Maitreya' and 'anti-shamanism'."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning (painters, imported water, glaze)."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong names and numbers (Thới Mời, Cherry)."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date: '400-500 AD' instead of 400 BC."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error splits the sentence awkwardly."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'graffiti into structures' (phun sơn lên tường)."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong terms: 'Diving and fighting' instead of recessive/dominant."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1796,
+   "candidatesTokenCount": 860,
+   "totalTokenCount": 5014,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1796
+    }
+   ],
+   "thoughtsTokenCount": 2358,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "vi-en:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Schengen translated as Trang Gang."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "Mecca omitted; cave translated as action."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Pencil sharpener translated as drop of ink."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Sagittarius translated as Centaurus."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Specimen translated as word."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Nations translated as singular nation."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mosasaurus translated as woolly mammoth."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Disease translated as fate; mosquito as nose."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Anticipate translated as come close to."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Was added translated as can be added."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Pohutukawa misspelled; awkward punctuation."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong pronoun 'It' used for Duvall."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1831,
+   "candidatesTokenCount": 848,
+   "totalTokenCount": 5230,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1831
+    }
+   ],
+   "thoughtsTokenCount": 2551,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-ar:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated translation for 'but excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'high latitudes' as 'hot latitudes'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong translation for 'tenth named' and 'Subtropical'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning; missing train and car."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Grammatically awkward and contains a repeated word."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted the word 'levees'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Translated plural 'structures' as singular."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1822,
+   "candidatesTokenCount": 711,
+   "totalTokenCount": 4617,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1822
+    }
+   ],
+   "thoughtsTokenCount": 2084,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-ar:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Schengen incorrectly translated as Shenzhen."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "Translated as close to instead of completely isolated."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Typo: تطلب instead of تتطلب."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Specimen translated as stem/stalk."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Mosasaurus transliterated completely wrong."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'returning home'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Pohutukawa transliterated incorrectly."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1790,
+   "candidatesTokenCount": 690,
+   "totalTokenCount": 4417,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1790
+    }
+   ],
+   "thoughtsTokenCount": 1937,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "ar-en:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Missed freezing temperatures; added extra garbled words."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing but meaning is mostly preserved."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Transliterated 'bug' incorrectly as 'al-ba''."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'narrow' as 'uncomfortable'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'the tenth' as 'Ten named storms'."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": true,
+     "note": "Passive voice changes who-did-what."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong date (700 AD instead of 400 AD)."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'lying' as 'attracted'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly inaccurate translation of scratching graffiti."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1859,
+   "candidatesTokenCount": 747,
+   "totalTokenCount": 4896,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1859
+    }
+   ],
+   "thoughtsTokenCount": 2290,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "ar-en:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated sharpener as match."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Misplaced 'sometimes' changes the meaning slightly."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'understands it' as 'speak it'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'still' as a negation."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslated pohutukawa as bottletree."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1836,
+   "candidatesTokenCount": 669,
+   "totalTokenCount": 5730,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1836
+    }
+   ],
+   "thoughtsTokenCount": 3225,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-fa:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "\"but excellent\" translated as \"can feel their sweetness\"."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "\"high latitudes\" mistranslated as \"warm latitudes\"."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Split into two sentences, slightly awkward."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong tense, \"sole\" mistranslated as \"جدی\"."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"tenth named\" mistranslated as \"tense\"."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "\"train\" missing, \"brought\" mistranslated as \"training\"."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Stutter \"تا... تا\", slightly awkward phrasing."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "\"levees\" mistranslated as \"parts\"."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1834,
+   "candidatesTokenCount": 734,
+   "totalTokenCount": 4692,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1834
+    }
+   ],
+   "thoughtsTokenCount": 2124,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-fa:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Schengen is mistranslated as Shenzhen (شنژن)."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "'Completely' is mistranslated as 'closely' (به‌طور نزدیکی)."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Sagittarius is left untranslated in English."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "'Specimen' is translated too specifically as 'stem'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mosasaurus and mosasaurs are completely garbled."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Paraguay is spelled awkwardly as پاراگوی."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'returning home'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Pohutukawa is misspelled and includes ellipses."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1790,
+   "candidatesTokenCount": 814,
+   "totalTokenCount": 4501,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1790
+    }
+   ],
+   "thoughtsTokenCount": 1897,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "fa-en:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Added extra text at the end."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Added 'modern tourism' which alters the meaning slightly."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Added 'End of lesson' at the end."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'generation' as 'installation'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'bug' as 'Sass' and added text."
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong negation: 'no heel' instead of 'with heel'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'Martelly's', changing who did what."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "The translation is awkwardly repeated twice."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'micro-expressions' awkwardly as 'small phrases'."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "Hallucinated an error message instead of translating."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled meaning, mistranslated 'tiger' as 'shark'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1918,
+   "candidatesTokenCount": 844,
+   "totalTokenCount": 5047,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1918
+    }
+   ],
+   "thoughtsTokenCount": 2285,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "fa-en:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'cave' as 'village'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Used 'I' instead of 'they'."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'Travellers bound for' as 'Passenger limits'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation with a sentence fragment."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Contains hallucinated text and wrong meaning."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong entity 'Musa' and garbled second half."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'Asunción' as 'Asan C1'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing 'of the conditions for are'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing 'many instances'."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled 'pohutukawa' as 'Pohutukona'."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity 'Dubal' and awkward grammar."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1864,
+   "candidatesTokenCount": 780,
+   "totalTokenCount": 5053,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1864
+    }
+   ],
+   "thoughtsTokenCount": 2409,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-tl:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "\"excellent\" mistranslated as tasting sweetness later."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "\"high latitudes\" mistranslated as \"mainit na latitud\"."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Unnecessary period before \"sa bawat henerasyon\"."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"tenth named storm\" is omitted and mistranslated."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"train\" and mistranslated \"brought us\"."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward repetition of the word \"hanggang\"."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "The word \"levees\" is omitted."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1911,
+   "candidatesTokenCount": 715,
+   "totalTokenCount": 4646,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1911
+    }
+   ],
+   "thoughtsTokenCount": 2020,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-tl:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Schengen translated as Shenzhen."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "completely isolated translated as almost isolated."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "specimen translated as tangkay (stem)."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mosasaurus translated as Masa Serif."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted returning home."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "pohutukawa translated as pohican."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1873,
+   "candidatesTokenCount": 767,
+   "totalTokenCount": 4576,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1873
+    }
+   ],
+   "thoughtsTokenCount": 1936,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "tl-en:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated treasure map as enduring wealth."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Misinterpreted the phrase about other governments."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation and phrasing."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward translation of shuffle variation back and forth."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated bug as bag."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrongly translated narrow sole as spiked sole."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Added GIP and omitted rescue."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing and punctuation."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 400 A.D. as fourth century AD."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation of the second half."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward translation of deface and structures."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted the translation for snarly."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation and starts with that."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2006,
+   "candidatesTokenCount": 820,
+   "totalTokenCount": 5326,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2006
+    }
+   ],
+   "thoughtsTokenCount": 2500,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "tl-en:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation and phrasing."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation and capitalization."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence unnaturally."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence unnaturally."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'maghikayat' as encourage instead of simulate."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Incorrectly states 'almost all Spanish people know it'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrectly translates 'look their best' as 'best grown'."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Uses 'custom' instead of 'attitudes'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslates the proper noun 'Asunción' as 'assumption'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence unnaturally."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence unnaturally."
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence unnaturally."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Translates 'label' as 'reminder'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation and phrasing."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing ('wade into the water')."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Misspells 'Duvall' and has broken sentence structure."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1976,
+   "candidatesTokenCount": 891,
+   "totalTokenCount": 5327,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1976
+    }
+   ],
+   "thoughtsTokenCount": 2460,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-sw:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'but excellent' as 'feel its sweetness'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "'kushauriana na ushauri' is slightly awkward."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "'kinapa' is a typo for 'kinapatia' or 'hupa'."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'high latitudes' as 'latitudo za joto'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error before 'kwa kila kizazi'."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Added past tense 'walikuwa wamevaa' instead of present."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "'iliunda' should be 'iliundwa' (formed)."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "'tufunze' means 'teach us', not 'brought us'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward phrasing 'mwanzo wa hadi mnamo'."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "'Useo' is a typo for 'Uso'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'levees' (matuta) in the translation."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "'chora-chora' is informal for graffiti."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1943,
+   "candidatesTokenCount": 885,
+   "totalTokenCount": 65741,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1943
+    }
+   ],
+   "thoughtsTokenCount": 62913,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-sw:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Translated Schengen as Shenzhen"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "'karibu mbali' is contradictory for completely isolated"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "'vinyago' means carvings/masks, not beverages"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "'kinawaelewa' means it understands them (who-did-what error)"
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "'shina' means stem/trunk, slightly awkward for specimen"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "'upacifisti' is an unidiomatic loanword"
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled names: Masa Serif and Mosul"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'returning home'"
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Translated pohutukawa as Pohican"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "'hakuacha alama kubwa' is a literal, awkward translation"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1879,
+   "candidatesTokenCount": 830,
+   "totalTokenCount": 4752,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1879
+    }
+   ],
+   "thoughtsTokenCount": 2043,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "sw-en:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "\"National Treasure\" mistranslated as \"National Anthem\"."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "\"Fruit juices\" translated as \"fruit syrup\"."
+    },
+    {
+     "i": 2,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled meaning in the second half."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "\"Made up of\" instead of \"designed for\"."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Imperative \"Focus on it\" changes the meaning."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Contains garbled text \"ANAS This takes into account\"."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates segregation and recombination."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Added hallucinated text \"10,000 miles away\"."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "\"Drivers\" instead of \"riders\", slightly awkward."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"Martelly's\", added \"adequate\"."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time translated (5:35 instead of 11:35)."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted the name \"Jerry\"."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Missed \"car\", added \"10,000 miles away\"."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted \"400\", garbled \"1100 A.D.\"."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning and garbled text."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "\"Has strongly claimed\" instead of \"it is claimed\"."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "\"Deceive\" instead of \"deface\", poor translation overall."
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation, wrong animal name."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "\"Described\" instead of \"expressed\"."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1919,
+   "candidatesTokenCount": 949,
+   "totalTokenCount": 6045,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1919
+    }
+   ],
+   "thoughtsTokenCount": 3177,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "sw-en:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation in the middle of sentence."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "\"Cave\" mistranslated as \"program\"."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated \"sharpener\" as \"pen\", wrong negation."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"Considerable amount\" mistranslated as \"small amount\"."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated \"photosynthesis\" as \"synapses\"."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Added \"with certain diseases\", awkward punctuation."
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated \"theoretical\" and \"Sagittarius\"."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation and capitalization."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Added hallucinated text \"10,000 miles away\"."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Untranslated word, mistranslated \"remove\" and \"specimen\"."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted the specific decade \"1920s\"."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation of \"Mosasaurus\"."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Misspelled Asuncion, awkward number formatting."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated \"pigs\" as \"rats\"."
+    },
+    {
+     "i": 14,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated \"telescopes\" as \"political research dolphins\"."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Split sentence changes meaning of second clause."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward word choices."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Added \"sauropods\" unnecessarily."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing and capitalization."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated \"impression\" as \"room for the tradition\"."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 1873,
+   "candidatesTokenCount": 948,
+   "totalTokenCount": 5640,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1873
+    }
+   ],
+   "thoughtsTokenCount": 2819,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A"
+  }
+ },
+ "en-it:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated translation for 'but excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "'High latitudes' mistranslated as 'hot tropical zones'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Unnatural punctuation in the middle of the sentence."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Repetitive use of 'insetto'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Number 'tenth' omitted and meaning altered."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "'Train' mistranslated as the verb 'to train'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Added words and unnatural punctuation."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "'Levees' omitted and 'breach' mistranslated."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing for 'graffiti into structures'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated translation for 'but excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "'High latitudes' mistranslated as 'hot latitudes'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Unnatural punctuation in the middle of the sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Number 'tenth' omitted and meaning altered."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "'Train' mistranslated as the verb 'to train'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Repetition of 'fino a'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "'Levees' omitted and 'breach' mistranslated."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2384,
+   "candidatesTokenCount": 1439,
+   "totalTokenCount": 7719,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2384
+    }
+   ],
+   "thoughtsTokenCount": 3896,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A",
+   "B": "B"
+  }
+ },
+ "en-it:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity Shenzhen instead of Schengen."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled phrase molto vicino isolata."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Ne servono diversi minuti is grammatically awkward."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Specimen translated as gambo (stem)."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entities Masa Serif and Mosul."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted returning home."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity Pohican instead of pohutukawa."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "B": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity Shenzhen instead of Schengen."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Strettamente isolata is slightly awkward."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Specimen translated as gambo (stem)."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entities Masa Serif and Mosul."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted returning home."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity Pohican instead of pohutukawa."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2318,
+   "candidatesTokenCount": 958,
+   "totalTokenCount": 9003,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2318
+    }
+   ],
+   "thoughtsTokenCount": 5727,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A",
+   "B": "B"
+  }
+ },
+ "it-en:a": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the list."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled punctuation and wrong meaning."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Missing punctuation and awkward phrasing."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the list."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward capitalization in the middle."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Wrong movie title."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the list."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled punctuation and wrong meaning."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Missing punctuation and awkward phrasing."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the list."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splits the sentence."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward capitalization and missing preposition."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2304,
+   "candidatesTokenCount": 995,
+   "totalTokenCount": 8350,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2304
+    }
+   ],
+   "thoughtsTokenCount": 5051,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "it-en:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Translated pencil sharpener as eraser."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation fragment."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation fragment."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward capitalization and phrasing."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted Asunción."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Typo in pohutukawa."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation fragment."
+    }
+   ],
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation fragment."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation fragment."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Typo in pohutukawa."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation fragment."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2225,
+   "candidatesTokenCount": 1307,
+   "totalTokenCount": 7518,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2225
+    }
+   ],
+   "thoughtsTokenCount": 3986,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A",
+   "B": "B"
+  }
+ },
+ "en-ko:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'excellent' as sweet taste over time."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslated 'freezing temperatures' as slippery road conditions."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": true,
+     "note": "Translated 'by' as 'around' (time error)."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'tenth named storm' (number error)."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated noun 'train' as verb 'to train'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing and translation of luxury."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'levees'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'sentence of ... words'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'pools'."
+    }
+   ],
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'excellent' as sweet taste over time."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward translation of 'freezing temperatures'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing at the end."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'tenth named storm' (number error)."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated noun 'train' as verb 'to train'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled sentence structure with '~까지'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'levees'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2406,
+   "candidatesTokenCount": 1445,
+   "totalTokenCount": 8347,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2406
+    }
+   ],
+   "thoughtsTokenCount": 4496,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A",
+   "B": "B"
+  }
+ },
+ "en-ko:b": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Schengen is mistranslated as Shenzhen."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated completely isolated as closely isolated."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mosasaurus is mistranslated."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted returning home."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward structure and mistranslated pohutukawa."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Schengen is mistranslated as Shenzhen."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated completely isolated as very close."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward translation of sharpener."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Sagittarius is mistranslated as Indus."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mosasaurus is mistranslated."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted returning home."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward structure and mistranslated pohutukawa."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject for relating the story."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2347,
+   "candidatesTokenCount": 1364,
+   "totalTokenCount": 7739,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2347
+    }
+   ],
+   "thoughtsTokenCount": 4028,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "ko-en:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "\"Fruit Jesus\" instead of \"Fruit juice\"."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Misinterprets \"your own\" as \"your own opinion\"."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Incorrectly identifies them as mutations."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "\"Worm\" is incorrect for insects."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong name (Muldoon instead of Martelly)."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "\"Tropical\" instead of \"Subtropical\", grammatical error."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "\"It claims that it can\" is awkward."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "\"their own\" instead of \"your own\"."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted \"snow\"."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled grammar and meaning."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong name (Multoe instead of Martelly)."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "\"it can detect\" is slightly awkward."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2267,
+   "candidatesTokenCount": 1355,
+   "totalTokenCount": 8799,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2267
+    }
+   ],
+   "thoughtsTokenCount": 5177,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A",
+   "B": "B"
+  }
+ },
+ "ko-en:b": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Negation applied incorrectly to writing on screens."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Incorrect direction of travelers."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Garbled text at the end."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation and capitalization error."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'birds' as 'New Year'."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled pohutukawa trees as putuka and trees."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Misplaced modifier and awkward pronoun usage."
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled Schengen zone as Shengenjo."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Grammatical error with repeated verb."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Negation applied incorrectly to typing on screens."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Incorrect meaning regarding the one specimen."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Capitalization error in the middle of sentence."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly alters the subject and meaning."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Omits the two-step transmission emphasis."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'birds' as 'New Year'."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing at the beginning."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong pronoun and misplaced modifier."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2269,
+   "candidatesTokenCount": 1425,
+   "totalTokenCount": 10304,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2269
+    }
+   ],
+   "thoughtsTokenCount": 6610,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "en-id:a": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation for 'excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'high latitudes' as 'hot latitudes'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation in the middle of the sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'tenth named storm' as 'tense storm'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated 'the train' as 'to train'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Contains a typo/stutter ('hingga u sampai')."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted the word 'levees'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation for 'excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'high latitudes' as 'hot climate'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation in the middle of the sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'tenth named storm'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated 'the train' as 'to train'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Contains a stutter ('hingga... hingga')."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted the word 'levees'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly inaccurate translation of 'snarly'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2260,
+   "candidatesTokenCount": 1411,
+   "totalTokenCount": 6539,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2260
+    }
+   ],
+   "thoughtsTokenCount": 2868,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "en-id:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Schengen translated as Shenzhen."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "sangat dekat terisolasi contradicts completely isolated."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "alat pengasah pena is slightly awkward."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "lagi adds unnecessary meaning."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong translation for remove even just one specimen."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mosasaurus translated as Masa Serif."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted returning home."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong amount and entity."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "B": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Schengen translated as Shenzhen."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "batang is slightly inaccurate for specimen."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mosasaurus translated as Masa Serif."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted returning home."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "pohutukawa translated as Pohican."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2178,
+   "candidatesTokenCount": 1347,
+   "totalTokenCount": 7042,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2178
+    }
+   ],
+   "thoughtsTokenCount": 3517,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A",
+   "B": "B"
+  }
+ },
+ "id-en:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'tourists' from the translation."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'snow' and awkward grammar."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Repetitive use of 'insects'."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'halus' as 'soft' instead of 'smooth'."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated name 'Martelly' as 'martyrdom'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted the name 'Jerry'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing with dates."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error before 'correctly'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'my' and mistranslated 'situs'."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Missing punctuation changes meaning slightly."
+    }
+   ],
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'turis' as 'writers'."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Repetitive use of 'insect'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated name 'Martelly' as 'retaliatory'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated name 'Jerry' as 'Ciri'."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing with dates."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation error before 'correctly'."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'situs' as 'my city'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Missing punctuation changes meaning slightly."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2161,
+   "candidatesTokenCount": 1491,
+   "totalTokenCount": 7800,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2161
+    }
+   ],
+   "thoughtsTokenCount": 4148,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A",
+   "B": "B"
+  }
+ },
+ "id-en:b": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity: monetary zone instead of Schengen."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing 'People now writing'."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Erroneous period in the middle of sentence."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong action: watering instead of boiling water."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Erroneous capitalization of 'Resist'."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'and isolation'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled repetition at the end."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word: level instead of label."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Erroneous period splits the sentence."
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity: convergence zone instead of Schengen."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong object: typewriters instead of sharpener."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Erroneous period in the middle of sentence."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong action: watering instead of boiling water."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Erroneous capitalization of 'Resist'."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'and isolation'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted the entity Asuncion."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'harsh conditions' and garbled punctuation."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong word: level instead of label."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Erroneous period splits the sentence."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2096,
+   "candidatesTokenCount": 1457,
+   "totalTokenCount": 7936,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2096
+    }
+   ],
+   "thoughtsTokenCount": 4383,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "en-tr:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated translation for 'but excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'high' as 'hot' (sıcak)."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation splitting the sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": true,
+     "note": "Translated 'by' as 'around' (civarında)."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'tenth named' as 'tense' (gergin)."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated 'the train' as 'to train'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkwardly split into two sentences."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'levees' as 'structures' (yapıları)."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated translation for 'but excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'high' as 'hot' (sıcak)."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation and capitalization."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong tense (past instead of present)."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'eventually'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'tenth named' as 'tension increasing'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated 'the train' as 'to train'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Contains literal ellipsis and awkward split."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'levees' as 'part' (kısmı)."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'graffiti'."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2416,
+   "candidatesTokenCount": 1473,
+   "totalTokenCount": 7527,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2416
+    }
+   ],
+   "thoughtsTokenCount": 3638,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A",
+   "B": "B"
+  }
+ },
+ "en-tr:b": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity: 'Shenzhen' instead of 'Schengen'."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "The word 'completely' is missing."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "'Bileyici' is awkward for pencil sharpener."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "The word 'sometimes' is missing."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Translated as constellation instead of galaxy."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": true,
+     "note": "Incorrectly added 'daha' (more) to the time."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "'Gövdeyi' is an awkward translation for specimen."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity: 'Masa Serif' instead of Mosasaurus."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "The phrase 'returning home' is completely omitted."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkwardly split sentence and wrong tree name."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Active voice slightly alters the intended meaning."
+    }
+   ],
+   "B": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity: 'Shenzhen' instead of 'Schengen'."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "'Yakından' is garbled here; 'completely' is missing."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "'Sapı' is an awkward translation for specimen."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong entity: 'Masa Serif' instead of Mosasaurus."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "The phrase 'returning home' is completely omitted."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Contains missing words and is awkwardly split."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2363,
+   "candidatesTokenCount": 1468,
+   "totalTokenCount": 7987,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2363
+    }
+   ],
+   "thoughtsTokenCount": 4156,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A",
+   "B": "B"
+  }
+ },
+ "tr-en:a": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject and object; who-did-what error."
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Translates bug as insect."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates soled as tan, omits sole."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates damaged as seen yellowing."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong subject and object; who-did-what error."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslates entomologists as insect consciousnesses."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Adds high to heels, mistranslates smooth sole."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates Subtropical as Tropical and Alt."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Translates damaged as breached, wrong organization name."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Omits particularly, changes lying to honesty."
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates scratching as digging up."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2300,
+   "candidatesTokenCount": 1353,
+   "totalTokenCount": 9144,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2300
+    }
+   ],
+   "thoughtsTokenCount": 5491,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "tr-en:b": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'provide shade' as 'survive in shade'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Added incorrect negation 'did not isolate'."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'apex predator of its time'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated city 'Asunción' as person 'Asensio'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'sandy' as 'designated'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing at the end."
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "'Pencil shaver' is unidiomatic."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'provide shade'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Added incorrect negation 'did not isolate'."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'apex predator of its time'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated city 'Asunción' as person 'Asensio'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted the word 'sandy'."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Incorrectly states Duval is married to children."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2231,
+   "candidatesTokenCount": 998,
+   "totalTokenCount": 9421,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2231
+    }
+   ],
+   "thoughtsTokenCount": 6192,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "en-bn:a": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "\"but excellent\" is mistranslated as feeling sweet later."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "\"high latitudes\" and \"freezing temperatures\" mistranslated."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong tense (past instead of present)."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "\"doused\" translated as brought under control."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"tenth named storm\" mistranslated as exciting storm."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "\"train\" (noun) mistranslated as verb \"train\"."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "\"levees\" translated generically as \"part\"."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "\"but excellent\" is mistranslated as feeling sweetness later."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "\"freezing temperatures\" translated as slippery conditions."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing for shuffle back and forth."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"tenth named storm\" mistranslated as exciting storm."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "\"train\" (noun) mistranslated as verb \"train\"."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence structure."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "\"breach\" and \"levees\" mistranslated."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted \"a sentence of\"."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2315,
+   "candidatesTokenCount": 1425,
+   "totalTokenCount": 7085,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2315
+    }
+   ],
+   "thoughtsTokenCount": 3345,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "en-bn:b": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation for 'completely isolated'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation for 'specimen' (translated as branch)."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong transliteration for Mosasaurus and mosasaurs."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'returning home'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Disconnected and wrong transliteration for pohutukawa trees."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation for 'completely isolated'."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward translation for 'sharpener'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'areas' as 'cases'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong translation for 'specimen' (translated as branch)."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong transliteration for Mosasaurus and mosasaurs."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'returning home'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Disconnected and wrong transliteration for pohutukawa trees."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2279,
+   "candidatesTokenCount": 1358,
+   "totalTokenCount": 6141,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2279
+    }
+   ],
+   "thoughtsTokenCount": 2504,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "bn-en:a": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward flow."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'arguments' instead of 'advice', added text."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled meaning."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Added 'in the region' and extra text."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "'power outage' instead of 'anti-regime'."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time (2:45 AM)."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'car'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year (100 AD)."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "'geological' instead of 'crust'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward trailing 'Identify'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Missed 'full-voiced' and 'sentence'."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "'The animal' instead of 'genetic variation'."
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "'after' instead of 'on the back of'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Used 'reasoning' instead of 'advice', added text."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled meaning."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Added 'There is a heel.'"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "'Khemrajban government' is hallucinated."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time (11:30 p.m.)."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong names (Harriet, Geri)."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "'buses' instead of 'cars'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "'geosphere' instead of 'crust'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Missed 'micro-expressions', trailing 'Identify'."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly awkward phrasing."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "'Zimbat chapter' instead of 'genetic variation'."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2282,
+   "candidatesTokenCount": 1594,
+   "totalTokenCount": 7757,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2282
+    }
+   ],
+   "thoughtsTokenCount": 3881,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "bn-en:b": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "sharpener translated as notepad"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "garbled syntax and added text"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "dying instead of providing shade"
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "galaxy translated as Sayapath"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "trees instead of plants"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": true,
+     "note": "omitted 1920s, translated isolation as separatist"
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Mosasaurus translated as Musara, awkward punctuation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "omitted 1537, founder instead of foundation"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "facilities translated as advantages"
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "compromise instead of understanding"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "level instead of label"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "garbled syntax"
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "wrong who-did-what, awkward punctuation"
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Schengen misspelled as Sengen, omitted however"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "sharpener translated as notepad"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "added have to pay more, contradictory meaning"
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "added and other processes"
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "galaxy translated as Syapath"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "trees instead of plants"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": true,
+     "note": "omitted 1920s, translated isolation as separatist"
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Mosasaurus translated as Musa, awkward punctuation"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "omitted 1537, founder passed away instead of foundation"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "facilities translated as advantages"
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "compromise instead of understanding"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "level instead of label"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "garbled syntax"
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "wrong meaning, awkward punctuation"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2124,
+   "candidatesTokenCount": 1557,
+   "totalTokenCount": 7994,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2124
+    }
+   ],
+   "thoughtsTokenCount": 4313,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "en-ur:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated translation for 'but excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'high' as 'hot' (گرم)."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation with full stop."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Used 'saving' instead of 'rescue'."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'tenth named' as 'stress-inducing'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated 'train' (noun) as verb 'train'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted specific translation for levees."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'graffiti'."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Reversed tiger and lion."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated translation for 'but excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'high' as 'hot' (گرم)."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation with full stop."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled word 'حشرات پologist'."
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": true,
+     "note": "Wrong tense (past instead of present)."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'tenth named' as 'stress-increasing'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Mistranslated 'train' (noun) as verb 'train'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward sentence split."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Used Hindi word instead of Urdu."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated lion as Bengal tiger."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2596,
+   "candidatesTokenCount": 1484,
+   "totalTokenCount": 8514,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2596
+    }
+   ],
+   "thoughtsTokenCount": 4434,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A",
+   "B": "B"
+  }
+ },
+ "en-ur:b": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Translates 'specimen' as 'stem'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong transliteration for Mosasaurus."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'returning home'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing at the end."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'is very close', changing meaning."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward translation for 'sharpener'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Translates 'specimen' as 'stem'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong transliteration for Mosasaurus."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'returning home'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Fragmented sentence at the end."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2507,
+   "candidatesTokenCount": 928,
+   "totalTokenCount": 6940,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2507
+    }
+   ],
+   "thoughtsTokenCount": 3505,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "ur-en:a": {
+  "grades": {
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong movie name (Traders instead of Treasure)."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation with incorrect meaning."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong pronoun (They instead of You)."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted that the island gives the territory name."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong term (altitudes instead of latitudes)."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Inaccurate translation of segregation and recombination."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong term (book instead of bug)."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'sole' as 'single-strapped'."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time (11:01 instead of 11:35)."
+    },
+    {
+     "i": 11,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong details and names."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong pronoun and omitted 'car'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning (center of learning instead of luxury)."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong term (regolith instead of crust)."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong term (sewers instead of levees)."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly ambiguous phrasing."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly inaccurate verb (using instead of scratching)."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong animal and inaccurate description of roar."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning (Chinese dialects instead of genetics)."
+    }
+   ],
+   "B": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Added 'also' but meaning is mostly correct."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled translation with incorrect meaning."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Used plural 'documents' instead of singular."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong pronoun (They instead of You)."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly unidiomatic phrasing."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong term (high-altitude instead of latitudes)."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Inaccurate translation of segregation and recombination."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong term (buck instead of bug)."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'sole' as 'single'."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": true,
+     "note": "Misspelled name (Martley instead of Martelly)."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong time (10:55 instead of 11:35)."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'tenth' and 'today'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'train' and 'car'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning (axis of Asian-European region)."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong term (drains instead of levees)."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong verb (presenting instead of interpreting)."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly inaccurate verb (applying instead of scratching)."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Wrong verb (learned instead of shouted)."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning (Chinese diversity instead of genetics)."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2335,
+   "candidatesTokenCount": 1795,
+   "totalTokenCount": 7654,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2335
+    }
+   ],
+   "thoughtsTokenCount": 3524,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "A",
+   "B": "B"
+  }
+ },
+ "ur-en:b": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Schengen translated as Xinjiang."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "Cave translated as village; Mecca as Garmukhe."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Never translated as occasionally; sharpener as shortener."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning for travelers; tobacco is missing."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Sagittarius translated as Burge Cross."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Boiling omitted; negation added incorrectly."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "The year 1920 is omitted."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Feared translated as preyed on."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Year 1537 is wrong; Asunción omitted."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Pigs translated as suit; mosquitos as fish."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Atmospheric conditions translated as eco-friendly conditions."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Birds translated as videos."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Swimming translated as development; pohutukawa as crow."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Duvall and Miller are omitted."
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Schengen translated as Shenzhen."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "Cave translated as garrison; Mecca as Mount Beeh's."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Never translated as sometimes; sharpener as keyboard."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong meaning for travelers; who-did-what is wrong."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Food translated as homes."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Sagittarius translated as Virgo."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": true,
+     "note": "Water translated as mobile data; negation added."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Plants translated as food."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "The year 1920 is omitted."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Feared translated as had no rivals."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Completely garbled and wrong meaning."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "Pigs translated as fish; mosquitos omitted."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Atmospheric conditions translated as environmentally friendly."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'ten things' incorrectly."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Birds translated as videos."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Swimming translated as Turks; pohutukawa as palm."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Impress translated as affect; names misspelled."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2272,
+   "candidatesTokenCount": 1652,
+   "totalTokenCount": 9881,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2272
+    }
+   ],
+   "thoughtsTokenCount": 5957,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "en-hi:a": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated meaning instead of 'but excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Translated 'high latitudes' as 'hot latitudes'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation with a fragmented sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong tense used (past instead of present)."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'tenth named' and added 'stressful'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Translated noun 'train' as verb 'to train'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing and punctuation with ellipsis."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'levees', translated as 'part'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Missing space before the English word graffiti."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated meaning instead of 'but excellent'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'freezing temperatures'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward punctuation with a fragmented sentence."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'anti-regime'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'tenth named' and added 'intense'."
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": true,
+     "note": "Translated noun 'train' as verb 'to train'."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing and sentence structure."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'levees' and 'breach'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'sentence' as 'group'."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Translated 'pools' as 'sources'."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2436,
+   "candidatesTokenCount": 1475,
+   "totalTokenCount": 6810,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2436
+    }
+   ],
+   "thoughtsTokenCount": 2899,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "en-hi:b": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Schengen is mistranslated as Shenzhen."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "'Completely' is mistranslated as 'quite closely'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Specimen mistranslated as stem; 'just one' omitted."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mosasaurus mistranslated as Masa serif and Mosul."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'returning home'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing at the end of the sentence."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Schengen is mistranslated as Shenzhen."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'completely isolated' as 'located very near'."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Grammatical error with the subject 'यात्रियों'."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Added the word 'sufficient' (पर्याप्त)."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Sagittarius mistranslated as 'synthesis constellation'."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Specimen mistranslated as stalk; 'just one' omitted."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Mosasaurus mistranslated as Masa serif and Mosul."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'returning home'."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Fragmented and incomplete sentence at the end."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Added 'because', changing the meaning."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2355,
+   "candidatesTokenCount": 1441,
+   "totalTokenCount": 6247,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2355
+    }
+   ],
+   "thoughtsTokenCount": 2451,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "hi-en:a": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward grammar at the end."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward run-on sentence."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong pronouns used (their instead of your)."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Plural instead of singular, missed tourists."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward grammar at the end."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Translated pools as bridges, missed variation."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Missed smooth, translated heel as high heels."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled Martelly as Matele."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning, missed time."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong storm type, added hallucinated sentence."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Translated train, car as train cars."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled and awkward phrasing."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly inaccurate translation of the roar description."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong century, garbled translation."
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled grammar at the end."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward run-on sentence."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "Plural instead of singular."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled grammar."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Translated pools as bridges, missed variation."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": false,
+     "note": "Completely garbled translation."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Added report, missed Martelly."
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning, missed time."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong storm type, added hallucinated sentence."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Translated train, car as train cars."
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled translation."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false,
+     "note": ""
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Completely wrong meaning."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly inaccurate translation of the roar description."
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": true,
+     "note": "Wrong century, garbled translation."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2255,
+   "candidatesTokenCount": 1660,
+   "totalTokenCount": 8426,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2255
+    }
+   ],
+   "thoughtsTokenCount": 4511,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ },
+ "hi-en:b": {
+  "grades": {
+   "B": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "\"outskirts\" instead of \"north\"."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "\"paper\" instead of \"sharpener\"."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"living in\" changes the intended meaning."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Missed \"The hospital has followed\"."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "\"almost everyone is Spanish\" is wrong."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missed \"1920s\"."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missed the year \"1537\"."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "\"have many facilities\" is slightly awkward."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "\"girl-hunting\" is completely wrong."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"level\" instead of \"label\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Grammatical error \"trees provide shade\"."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "\"global\" instead of \"adult\"."
+    }
+   ],
+   "A": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "\"Shengen John\" instead of \"Schengen Zone\"."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled names and locations."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "\"typewriter\" instead of \"sharpener\"."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"living in\" changes the intended meaning."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "\"transmission from others\" changes the meaning."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "\"constellation\" instead of \"galaxy\"."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Misinterpreted \"a vast majority understands it\"."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": true,
+     "note": "Missed \"1920s\"."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"Mosa Soros\" instead of \"Mosasaurus\"."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Missed the year \"1537\"."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Implies pigs are transmitted to humans."
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Missed \"research\"."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "\"girl hunting trips\" is completely wrong."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "\"level\" instead of \"label\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Misspelled \"pohutukawa\" as \"pong-kutwa\"."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "\"global\" instead of \"adult\"."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2210,
+   "candidatesTokenCount": 1615,
+   "totalTokenCount": 9097,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2210
+    }
+   ],
+   "thoughtsTokenCount": 5272,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "B",
+   "B": "A"
+  }
+ }
+}

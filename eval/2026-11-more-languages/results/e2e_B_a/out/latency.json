@@ -1,0 +1,859 @@
+{
+ "en-it": {
+  "src": "en",
+  "tgt": "it",
+  "err": "",
+  "utterances": 23,
+  "missing_audio": 0,
+  "cer": 0.055,
+  "voiced_before_stop": 0.1,
+  "stop_to_first_audio_ms": {
+   "p50": 2175,
+   "p90": 2636,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 2192,
+   "p90": 2636,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 7966,
+   "p90": 9415,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1794,
+   "p90": 2240,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 8851,
+   "p90": 10362,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 2886,
+   "p90": 5604,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 63486,
+   "mem_used_mb_min": 63356,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100.0,
+   "util_pct_max": 100,
+   "samples": 87
+  }
+ },
+ "it-en": {
+  "src": "it",
+  "tgt": "en",
+  "err": "",
+  "utterances": 33,
+  "missing_audio": 0,
+  "cer": 0.004,
+  "voiced_before_stop": 0.45,
+  "stop_to_first_audio_ms": {
+   "p50": 2262,
+   "p90": 2943,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 2497,
+   "p90": 3080,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 8954,
+   "p90": 12264,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1757,
+   "p90": 2339,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 7614,
+   "p90": 11695,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 2262,
+   "p90": 3193,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 1,
+   "speech_s": 10.3,
+   "asr_s": 0.79,
+   "asr_rtf": 0.077,
+   "mt_s": 1.01,
+   "mt_rtf": 0.098,
+   "done_s": 1.96,
+   "pipeline_rtf": 0.19,
+   "asr_median_s": 0.79,
+   "mt_median_s": 1.01,
+   "first_tts_median_s": 0.12
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 63484,
+   "mem_used_mb_min": 63196,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 126
+  }
+ },
+ "en-ko": {
+  "src": "en",
+  "tgt": "ko",
+  "err": "",
+  "utterances": 23,
+  "missing_audio": 0,
+  "cer": 0.055,
+  "voiced_before_stop": 0.05,
+  "stop_to_first_audio_ms": {
+   "p50": 2236,
+   "p90": 2585,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 2247,
+   "p90": 2585,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 8154,
+   "p90": 9213,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1890,
+   "p90": 2266,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 8460,
+   "p90": 10087,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 2343,
+   "p90": 4511,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 45,
+   "speech_s": 278.0,
+   "asr_s": 21.02,
+   "asr_rtf": 0.076,
+   "mt_s": 43.05,
+   "mt_rtf": 0.155,
+   "done_s": 69.74,
+   "pipeline_rtf": 0.251,
+   "asr_median_s": 0.43,
+   "mt_median_s": 0.99,
+   "first_tts_median_s": 0.11
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 63492,
+   "mem_used_mb_min": 63364,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 87
+  }
+ },
+ "ko-en": {
+  "src": "ko",
+  "tgt": "en",
+  "err": "",
+  "utterances": 23,
+  "missing_audio": 0,
+  "cer": 0.023,
+  "voiced_before_stop": 0.15,
+  "stop_to_first_audio_ms": {
+   "p50": 2358,
+   "p90": 2900,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 2534,
+   "p90": 2900,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 8428,
+   "p90": 10554,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1860,
+   "p90": 2342,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 9018,
+   "p90": 11307,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 2956,
+   "p90": 5531,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 49,
+   "speech_s": 305.9,
+   "asr_s": 28.55,
+   "asr_rtf": 0.093,
+   "mt_s": 35.42,
+   "mt_rtf": 0.116,
+   "done_s": 71.28,
+   "pipeline_rtf": 0.233,
+   "asr_median_s": 0.56,
+   "mt_median_s": 0.67,
+   "first_tts_median_s": 0.11
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 63364,
+   "mem_used_mb_min": 63360,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 94
+  }
+ },
+ "en-id": {
+  "src": "en",
+  "tgt": "id",
+  "err": "",
+  "utterances": 23,
+  "missing_audio": 0,
+  "cer": 0.055,
+  "voiced_before_stop": 0.15,
+  "stop_to_first_audio_ms": {
+   "p50": 1849,
+   "p90": 2390,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 1884,
+   "p90": 2390,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 7826,
+   "p90": 9059,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1698,
+   "p90": 2236,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 8930,
+   "p90": 11565,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 2608,
+   "p90": 5751,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 44,
+   "speech_s": 272.2,
+   "asr_s": 18.79,
+   "asr_rtf": 0.069,
+   "mt_s": 35.82,
+   "mt_rtf": 0.132,
+   "done_s": 60.74,
+   "pipeline_rtf": 0.223,
+   "asr_median_s": 0.41,
+   "mt_median_s": 0.82,
+   "first_tts_median_s": 0.11
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 63492,
+   "mem_used_mb_min": 63364,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 87
+  }
+ },
+ "id-en": {
+  "src": "id",
+  "tgt": "en",
+  "err": "",
+  "utterances": 24,
+  "missing_audio": 0,
+  "cer": 0.018,
+  "voiced_before_stop": 0.2,
+  "stop_to_first_audio_ms": {
+   "p50": 2132,
+   "p90": 2540,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 2178,
+   "p90": 2540,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 9686,
+   "p90": 11757,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1636,
+   "p90": 2026,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 8030,
+   "p90": 10453,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 2178,
+   "p90": 2717,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 50,
+   "speech_s": 353.2,
+   "asr_s": 28.41,
+   "asr_rtf": 0.08,
+   "mt_s": 33.53,
+   "mt_rtf": 0.095,
+   "done_s": 68.92,
+   "pipeline_rtf": 0.195,
+   "asr_median_s": 0.56,
+   "mt_median_s": 0.64,
+   "first_tts_median_s": 0.11
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 63364,
+   "mem_used_mb_min": 63364,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 116
+  }
+ },
+ "en-tr": {
+  "src": "en",
+  "tgt": "tr",
+  "err": "",
+  "utterances": 23,
+  "missing_audio": 0,
+  "cer": 0.055,
+  "voiced_before_stop": 0.1,
+  "stop_to_first_audio_ms": {
+   "p50": 1985,
+   "p90": 2692,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 2000,
+   "p90": 2692,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 8008,
+   "p90": 9052,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1864,
+   "p90": 2380,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 7904,
+   "p90": 10258,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 2052,
+   "p90": 3463,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 40,
+   "speech_s": 252.2,
+   "asr_s": 18.5,
+   "asr_rtf": 0.073,
+   "mt_s": 38.45,
+   "mt_rtf": 0.152,
+   "done_s": 62.02,
+   "pipeline_rtf": 0.246,
+   "asr_median_s": 0.41,
+   "mt_median_s": 0.97,
+   "first_tts_median_s": 0.1
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 63492,
+   "mem_used_mb_min": 63364,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 87
+  }
+ },
+ "tr-en": {
+  "src": "tr",
+  "tgt": "en",
+  "err": "",
+  "utterances": 22,
+  "missing_audio": 0,
+  "cer": 0.016,
+  "voiced_before_stop": 0.1,
+  "stop_to_first_audio_ms": {
+   "p50": 2419,
+   "p90": 2894,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 2419,
+   "p90": 2894,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 9122,
+   "p90": 12819,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1906,
+   "p90": 2359,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 9548,
+   "p90": 11632,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 3515,
+   "p90": 6264,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 41,
+   "speech_s": 298.3,
+   "asr_s": 28.36,
+   "asr_rtf": 0.095,
+   "mt_s": 31.54,
+   "mt_rtf": 0.106,
+   "done_s": 66.63,
+   "pipeline_rtf": 0.223,
+   "asr_median_s": 0.66,
+   "mt_median_s": 0.76,
+   "first_tts_median_s": 0.11
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 63923,
+   "mem_used_mb_min": 63364,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 101
+  }
+ },
+ "en-bn": {
+  "src": "en",
+  "tgt": "bn",
+  "err": "",
+  "utterances": 23,
+  "missing_audio": 0,
+  "cer": 0.055,
+  "voiced_before_stop": 0.1,
+  "stop_to_first_audio_ms": {
+   "p50": 1987,
+   "p90": 2733,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 2054,
+   "p90": 2733,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 7994,
+   "p90": 9221,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1654,
+   "p90": 2128,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 8016,
+   "p90": 10007,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 2178,
+   "p90": 3640,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 44,
+   "speech_s": 272.2,
+   "asr_s": 19.01,
+   "asr_rtf": 0.07,
+   "mt_s": 36.95,
+   "mt_rtf": 0.136,
+   "done_s": 61.87,
+   "pipeline_rtf": 0.227,
+   "asr_median_s": 0.41,
+   "mt_median_s": 0.85,
+   "first_tts_median_s": 0.11
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 62676,
+   "mem_used_mb_min": 62548,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 87
+  }
+ },
+ "bn-en": {
+  "src": "bn",
+  "tgt": "en",
+  "err": "",
+  "utterances": 30,
+  "missing_audio": 0,
+  "cer": 0.073,
+  "voiced_before_stop": 0.2,
+  "stop_to_first_audio_ms": {
+   "p50": 4907,
+   "p90": 8011,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 4907,
+   "p90": 8216,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 12826,
+   "p90": 18275,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 4357,
+   "p90": 7478,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 10771,
+   "p90": 16760,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 5640,
+   "p90": 8011,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 56,
+   "speech_s": 382.8,
+   "asr_s": 181.75,
+   "asr_rtf": 0.475,
+   "mt_s": 35.26,
+   "mt_rtf": 0.092,
+   "done_s": 226.4,
+   "pipeline_rtf": 0.591,
+   "asr_median_s": 2.92,
+   "mt_median_s": 0.62,
+   "first_tts_median_s": 0.12
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 63382,
+   "mem_used_mb_min": 62528,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 125
+  }
+ },
+ "en-ur": {
+  "src": "en",
+  "tgt": "ur",
+  "err": "",
+  "utterances": 23,
+  "missing_audio": 0,
+  "cer": 0.055,
+  "voiced_before_stop": 0.05,
+  "stop_to_first_audio_ms": {
+   "p50": 2330,
+   "p90": 2894,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 2346,
+   "p90": 2894,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 8164,
+   "p90": 9430,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1919,
+   "p90": 2519,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 9247,
+   "p90": 12169,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 3753,
+   "p90": 6423,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 44,
+   "speech_s": 272.2,
+   "asr_s": 19.36,
+   "asr_rtf": 0.071,
+   "mt_s": 45.39,
+   "mt_rtf": 0.167,
+   "done_s": 71.09,
+   "pipeline_rtf": 0.261,
+   "asr_median_s": 0.42,
+   "mt_median_s": 1.1,
+   "first_tts_median_s": 0.12
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 62882,
+   "mem_used_mb_min": 62754,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 87
+  }
+ },
+ "ur-en": {
+  "src": "ur",
+  "tgt": "en",
+  "err": "",
+  "utterances": 20,
+  "missing_audio": 0,
+  "cer": 0.083,
+  "voiced_before_stop": 0.0,
+  "stop_to_first_audio_ms": {
+   "p50": 6868,
+   "p90": 8438,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 6868,
+   "p90": 8438,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 13427,
+   "p90": 16270,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 6324,
+   "p90": 7898,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 14108,
+   "p90": 15773,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 9050,
+   "p90": 11786,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 40,
+   "speech_s": 294.0,
+   "asr_s": 195.48,
+   "asr_rtf": 0.665,
+   "mt_s": 35.81,
+   "mt_rtf": 0.122,
+   "done_s": 239.32,
+   "pipeline_rtf": 0.814,
+   "asr_median_s": 4.86,
+   "mt_median_s": 0.9,
+   "first_tts_median_s": 0.15
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 62914,
+   "mem_used_mb_min": 62548,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 95
+  }
+ },
+ "en-hi": {
+  "src": "en",
+  "tgt": "hi",
+  "err": "",
+  "utterances": 23,
+  "missing_audio": 0,
+  "cer": 0.055,
+  "voiced_before_stop": 0.05,
+  "stop_to_first_audio_ms": {
+   "p50": 2410,
+   "p90": 2843,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 2410,
+   "p90": 2843,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 8243,
+   "p90": 9986,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 1781,
+   "p90": 2224,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 9866,
+   "p90": 12367,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 11622,
+   "p90": 22981,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 40,
+   "speech_s": 252.2,
+   "asr_s": 17.92,
+   "asr_rtf": 0.071,
+   "mt_s": 37.48,
+   "mt_rtf": 0.149,
+   "done_s": 61.63,
+   "pipeline_rtf": 0.244,
+   "asr_median_s": 0.42,
+   "mt_median_s": 0.95,
+   "first_tts_median_s": 0.11
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 62904,
+   "mem_used_mb_min": 62528,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 87
+  }
+ },
+ "hi-en": {
+  "src": "hi",
+  "tgt": "en",
+  "err": "",
+  "utterances": 31,
+  "missing_audio": 0,
+  "cer": 0.163,
+  "voiced_before_stop": 0.25,
+  "stop_to_first_audio_ms": {
+   "p50": 4449,
+   "p90": 8430,
+   "n": 20
+  },
+  "stop_to_tail_audio_ms": {
+   "p50": 5400,
+   "p90": 8430,
+   "n": 20
+  },
+  "start_to_first_audio_ms": {
+   "p50": 12280,
+   "p90": 14677,
+   "n": 20
+  },
+  "stop_to_first_text_ms": {
+   "p50": 3933,
+   "p90": 7872,
+   "n": 20
+  },
+  "stop_to_audio_end_ms": {
+   "p50": 11566,
+   "p90": 14627,
+   "n": 20
+  },
+  "stop_to_first_audio_played_ms": {
+   "p50": 4449,
+   "p90": 8785,
+   "n": 20
+  },
+  "stage": {
+   "dropped_utterances": 0,
+   "utterances_logged": 55,
+   "speech_s": 346.6,
+   "asr_s": 201.68,
+   "asr_rtf": 0.582,
+   "mt_s": 35.47,
+   "mt_rtf": 0.102,
+   "done_s": 246.38,
+   "pipeline_rtf": 0.711,
+   "asr_median_s": 3.61,
+   "mt_median_s": 0.65,
+   "first_tts_median_s": 0.15
+  },
+  "gpu": {
+   "name": "NVIDIA RTX PRO 6000 Blackwell Server Edition",
+   "mem_used_mb_max": 62934,
+   "mem_used_mb_min": 62548,
+   "mem_total_mb": 97887,
+   "util_pct_mean": 100,
+   "util_pct_max": 100,
+   "samples": 108
+  }
+ }
+}

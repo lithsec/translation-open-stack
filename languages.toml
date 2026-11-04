@@ -35,7 +35,10 @@
 # English from zh vi tl ar fa. Also out of English into uk ar fa sw, where the router
 # prefers sol but Gemma beats the stack's own translator in the short check
 # (eval/2026-10-language-short-check: uk 88 vs Hy-MT2 75, ar 90 vs 85, fa 90 vs 88; sw 87
-# vs MADLAD's 69 in September). Gemma 4 and MiLMMT run in vLLM
+# vs MADLAD's 69 in September). Measured live on this stack since (eval/2026-11-more-languages).
+# Gemma 4 both ways for it ko id tr bn ur hi too: graded beside Hy-MT2 live, it scored
+# higher in all 14 directions (+3.6 out of English, +5.7 into English on average), and
+# into bn ur hi its last audio came 1.5-2.3 s sooner. Gemma 4 and MiLMMT run in vLLM
 # beside the stack (ports 8101 and 8102, docs/reference.md); without them every pair
 # falls back to the translator it had before, and the log says so.
 #   madlad      "<code>"                   MADLAD's language tag, when it differs from the code
@@ -201,7 +204,9 @@ madlad = "pt"
 kokoro = "i:if_sara"
 piper = "it_IT-serena-high"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "it"
 
 # thorsten is the one German voice at `high`; Kokoro has no German.
@@ -288,7 +293,9 @@ madlad = "ja"
 [ko]
 piper = "ko_KR-kss-medium"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "ko"
 
 # Commercial: kss: CC-BY-NC-SA data (⛔); no other Korean Piper voice. VoxCPM2
@@ -340,7 +347,9 @@ madlad = "fa"
 [id]
 piper = "id_ID-news_tts-medium"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "id"
 
 # Commercial: news_tts: the card's dataset link is wrong, lessac-derived (❓). VoxCPM2
@@ -351,7 +360,9 @@ voxcpm = true
 [tr]
 piper = "tr_TR-dfki-medium"
 asr = "whisper"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "tr"
 
 # Commercial: dfki: CC-BY-NC-SA data (⛔); no other Turkish Piper voice. VoxCPM2
@@ -362,13 +373,17 @@ voxcpm = true
 [bn]
 piper = "bn_BD-google-medium"
 asr = "omni:ben_Beng"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "bn"
 
 [ur]
 piper = "ur_PK-aegis_female-medium"
 asr = "omni:urd_Arab"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "ur"
 
 # Hindi: Kokoro was the most natural candidate (4.0 vs Piper 3.5 vs VoxCPM2 1.8, blind).
@@ -376,7 +391,9 @@ madlad = "ur"
 kokoro = "h:hf_alpha"
 piper = "hi_IN-rohan-medium"
 asr = "omni:hin_Deva"
-translator = "hymt"
+translator = ["llmmt", "hymt"]
+llmmt = "chat http://127.0.0.1:8101/v1 google/gemma-4-31B-it-qat-w4a16-ct"
+translator_to_en = ["llmmt", "hymt"]
 madlad = "hi"
 
 # Hy-MT2 does not support Swahili, Haitian Creole or Lao: MADLAD 7B translates them.

@@ -194,21 +194,21 @@ shows yours.
 | es | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Kokoro `ef_dora` ✅ › Piper `davefx` ❓ › eSpeak NG ⚠️ | Kokoro `ef_dora` ✅ › Piper `carlfm` ✅ › eSpeak NG ⚠️ | new: Piper `es_ES-carlfm-x_low` (public-domain dataset, trained from scratch (x_low: 16 kHz, the only clean Spanish Piper voice)); replaced: Piper `davefx` ❓ |
 | fr | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Kokoro `ff_siwis` ✅ › Piper `siwis` ❓ › eSpeak NG ⚠️ | Kokoro `ff_siwis` ✅ › Piper `mls` ⚠️ › eSpeak NG ⚠️ | ⚠️ CC-BY 4.0: credit Multilingual LibriSpeech (Pratap et al., 2020); new: Piper `fr_FR-mls-medium` (CC-BY dataset, trained from scratch); replaced: Piper `siwis` ❓ |
 | pt | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Kokoro `pf_dora` ✅ › Piper `faber` ❓ › eSpeak NG ⚠️ | Kokoro `pf_dora` ✅ › eSpeak NG ⚠️ | not loaded: Piper `faber` ❓ |
-| it | Whisper | Hy-MT2 | Kokoro `if_sara` ✅ › Piper `serena` ⚠️ › eSpeak NG ⚠️ | Kokoro `if_sara` ✅ › Piper `serena` ⚠️ › eSpeak NG ⚠️ | ⚠️ CC-BY 4.0: credit the serena-synthetic-it-27h dataset (committa) |
+| it | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Kokoro `if_sara` ✅ › Piper `serena` ⚠️ › eSpeak NG ⚠️ | Kokoro `if_sara` ✅ › Piper `serena` ⚠️ › eSpeak NG ⚠️ | ⚠️ CC-BY 4.0: credit the serena-synthetic-it-27h dataset (committa) |
 | de | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Piper `thorsten` ❓ › eSpeak NG ⚠️ | Piper `mls` ⚠️ › eSpeak NG ⚠️ | ⚠️ CC-BY 4.0: credit Multilingual LibriSpeech (Pratap et al., 2020); new: Piper `de_DE-mls-medium` (CC-BY dataset, trained from scratch); replaced: Piper `thorsten` ❓ |
 | ru | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Piper `irina` ❓ › eSpeak NG ⚠️ | VoxCPM2 ✅ › eSpeak NG ⚠️ | new: VoxCPM2 (shared GPU capacity, §2); replaced: Piper `irina` ❓ |
 | uk | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Piper `ukrainian_tts` ✅ › eSpeak NG ⚠️ | Piper `ukrainian_tts` ✅ › eSpeak NG ⚠️ | ✅ unchanged |
 | zh | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Kokoro `zf_xiaobei` ✅ › Piper `huayan` ❓ › eSpeak NG ⚠️ | Kokoro `zf_xiaobei` ✅ › eSpeak NG ⚠️ | not loaded: Piper `huayan` ❓ |
 | ja | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Kokoro `jf_alpha` ✅ › Piper `hi_fi_captain` ⛔ | Kokoro `jf_alpha` ✅ | not loaded: Piper `hi_fi_captain` ⛔ |
-| ko | Whisper | Hy-MT2 | Piper `kss` ⛔ › eSpeak NG ⚠️ | VoxCPM2 ✅ › eSpeak NG ⚠️ | new: VoxCPM2 (shared GPU capacity, §2); replaced: Piper `kss` ⛔ |
+| ko | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Piper `kss` ⛔ › eSpeak NG ⚠️ | VoxCPM2 ✅ › eSpeak NG ⚠️ | new: VoxCPM2 (shared GPU capacity, §2); replaced: Piper `kss` ⛔ |
 | vi | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Piper `vais1000` ❓ › eSpeak NG ⚠️ | VoxCPM2 ✅ › eSpeak NG ⚠️ | new: VoxCPM2 (shared GPU capacity, §2); replaced: Piper `vais1000` ❓ |
 | ar | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Piper `kareem` ❓ › eSpeak NG ⚠️ | VoxCPM2 ✅ › eSpeak NG ⚠️ | new: VoxCPM2 (shared GPU capacity, §2); replaced: Piper `kareem` ❓ |
 | fa | Omnilingual | Gemma 4 (llmmt) › Hy-MT2 | Piper `gyro` ❓ › eSpeak NG ⚠️ | eSpeak NG ⚠️ | **eSpeak NG only** (robotic; was text only); not loaded: Piper `gyro` ❓ |
-| id | Whisper | Hy-MT2 | Piper `news_tts` ❓ › eSpeak NG ⚠️ | VoxCPM2 ✅ › eSpeak NG ⚠️ | new: VoxCPM2 (shared GPU capacity, §2); replaced: Piper `news_tts` ❓ |
-| tr | Whisper | Hy-MT2 | Piper `dfki` ⛔ › eSpeak NG ⚠️ | VoxCPM2 ✅ › eSpeak NG ⚠️ | new: VoxCPM2 (shared GPU capacity, §2); replaced: Piper `dfki` ⛔ |
-| bn | Omnilingual | Hy-MT2 | Piper `google` ⚠️ › eSpeak NG ⚠️ | Piper `google` ⚠️ › eSpeak NG ⚠️ | ⚠️ CC-BY-SA 4.0: credit Google's OpenSLR 37 Bengali corpus and keep the CMU notice |
-| ur | Omnilingual | Hy-MT2 | Piper `aegis_female` ✅ › eSpeak NG ⚠️ | Piper `aegis_female` ✅ › eSpeak NG ⚠️ | ✅ unchanged |
-| hi | Omnilingual | Hy-MT2 | Kokoro `hf_alpha` ✅ › Piper `rohan` ❓ › eSpeak NG ⚠️ | Kokoro `hf_alpha` ✅ › eSpeak NG ⚠️ | not loaded: Piper `rohan` ❓ |
+| id | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Piper `news_tts` ❓ › eSpeak NG ⚠️ | VoxCPM2 ✅ › eSpeak NG ⚠️ | new: VoxCPM2 (shared GPU capacity, §2); replaced: Piper `news_tts` ❓ |
+| tr | Whisper | Gemma 4 (llmmt) › Hy-MT2 | Piper `dfki` ⛔ › eSpeak NG ⚠️ | VoxCPM2 ✅ › eSpeak NG ⚠️ | new: VoxCPM2 (shared GPU capacity, §2); replaced: Piper `dfki` ⛔ |
+| bn | Omnilingual | Gemma 4 (llmmt) › Hy-MT2 | Piper `google` ⚠️ › eSpeak NG ⚠️ | Piper `google` ⚠️ › eSpeak NG ⚠️ | ⚠️ CC-BY-SA 4.0: credit Google's OpenSLR 37 Bengali corpus and keep the CMU notice |
+| ur | Omnilingual | Gemma 4 (llmmt) › Hy-MT2 | Piper `aegis_female` ✅ › eSpeak NG ⚠️ | Piper `aegis_female` ✅ › eSpeak NG ⚠️ | ✅ unchanged |
+| hi | Omnilingual | Gemma 4 (llmmt) › Hy-MT2 | Kokoro `hf_alpha` ✅ › Piper `rohan` ❓ › eSpeak NG ⚠️ | Kokoro `hf_alpha` ✅ › eSpeak NG ⚠️ | not loaded: Piper `rohan` ❓ |
 | sw | Omnilingual | Gemma 4 (llmmt) › MADLAD | Piper `lanfrica` ❓ › eSpeak NG ⚠️ | VoxCPM2 ✅ › eSpeak NG ⚠️ | new: VoxCPM2 (shared GPU capacity, §2); replaced: Piper `lanfrica` ❓ |
 | ro | Omnilingual | MADLAD | Piper `mihai` ❓ › eSpeak NG ⚠️ | eSpeak NG ⚠️ | **eSpeak NG only** (robotic; was text only); not loaded: Piper `mihai` ❓ |
 | ht | Omnilingual | Gemma 4 (llmmt) › MADLAD | MMS `mms-tts-hat` ⛔ › eSpeak NG ⚠️ | Coqui `VITS-OpenBible-Haitian-Creole` ⚠️ › eSpeak NG ⚠️ | ⚠️ CC-BY-SA 4.0: credit multilingual-tts / Open Bible; share adaptations of the model under CC-BY-SA; not loaded: MMS `mms-tts-hat` ⛔ |
