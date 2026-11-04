@@ -1,0 +1,20 @@
+
+== pt: 37 runs
+A: kept 37/37, length 84% of original, call p50 415 ms | join_in 4.74 | join_out 4.54 | natural 4.68 | faithful 4.85 | repeats 2 added 0 (of 74 gradings)
+B: kept 34/37, length 84% of original, call p50 419 ms | join_in 4.74 | join_out 4.61 | natural 4.76 | faithful 4.97 | repeats 2 added 0 (of 74 gradings)
+   B - A join_in  : +0.00 (95% +0.00 to +0.00)
+   B - A join_out : +0.07 (95% +0.00 to +0.16)
+   B - A natural  : +0.08 (95% -0.08 to +0.27)
+   B - A faithful : +0.12 (95% +0.03 to +0.23)
+   runs that continues a sentence (24): B - A on that join +0.00
+   runs that ends mid-sentence (18): B - A on that join +0.11
+
+== es: 37 runs
+A: kept 35/37, length 81% of original, call p50 405 ms | join_in 4.73 | join_out 4.54 | natural 4.80 | faithful 4.89 | repeats 1 added 0 (of 74 gradings)
+B: kept 32/37, length 82% of original, call p50 402 ms | join_in 4.57 | join_out 4.55 | natural 4.55 | faithful 4.97 | repeats 5 added 0 (of 74 gradings)
+   B - A join_in  : -0.16 (95% -0.32 to -0.03)
+   B - A join_out : +0.01 (95% +0.00 to +0.04)
+   B - A natural  : -0.24 (95% -0.43 to -0.08)
+   B - A faithful : +0.08 (95% +0.00 to +0.18)
+   runs that continues a sentence (24): B - A on that join -0.25
+   runs that ends mid-sentence (18): B - A on that join +0.03

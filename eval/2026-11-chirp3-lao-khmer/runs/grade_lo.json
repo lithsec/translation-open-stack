@@ -1,0 +1,2242 @@
+[
+ {
+  "pat": "reg",
+  "i": 0,
+  "lo": "ດ້ວຍເຫດນັ້ນ, ປາສອງຊະນິດໄດ້ສູນພັນໄປແລ້ວ ແລະ ອີກສອງຊະນິດໄດ້ກາຍເປັນສັດທີ່ໃກ້ຈະສູນພັນ, ໃນນັ້ນມີປານໍ້າຈືດຫລັງກົ່ງ.",
+  "ref": "As a result, two fish species have become extinct, and two others have become endangered, including the humpback chub.",
+  "answers": {
+   "chirp-sol": "As a result, two fish species have gone extinct, and two others have become endangered, including the humpback freshwater fish.",
+   "chirp-gemma": "Therefore, two species of fish have gone extinct and another two species have become endangered, including the hump-backed freshwater fish.",
+   "omni-sol": "As a result, two fish species have gone extinct, and two others have become endangered, including a freshwater fish in Hong Kong.",
+   "omni-gemma": "Therefore, two species have gone extinct and another two species have become endangered, including the Irrawaddy dolphin."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.8,
+   "chirp-gemma": 1.86,
+   "omni-sol": 7.07,
+   "omni-gemma": 3.56
+  },
+  "grades": {
+   "1": {
+    "omni-sol": {
+     "score": 2,
+     "critical": true
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 1,
+  "lo": "ເຖິງຢ່າງໃດກໍຕາມ, ຍ້ອນວ່າຊ່ອງທາງການສື່ສານທີ່ຊັກຊ້າຮູບແບບທາງຕາເວັນຕົກອາດຈະຊ້າກວ່າ 25 - 30 ປີ.",
+  "ref": "However, due to the slow communication channels, styles in the west could lag behind by 25 to 30 year.",
+  "answers": {
+   "chirp-sol": "However, because communication channels are slow, Western models may lag by 25 to 30 years.",
+   "chirp-gemma": "However, because the communication channels in the Western style may be 25 to 30 years slower.",
+   "omni-sol": "However, because communication channels were slow, Western-style... may have lagged by 25 to 30 years.",
+   "omni-gemma": "However, because the communication channels were slow in the western pattern it might be 25 to 30 years slower."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 3.74,
+   "chirp-gemma": 1.76,
+   "omni-sol": 1.25,
+   "omni-gemma": 0.75
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 2,
+  "lo": "ພື້ນຜິວຂອງດວງຈັນແມ່ນຖືກເຮັດມາດ້ວຍຫີນ ແລະ ຝຸ່ນ. ຜິວຊັ້ນນອກຂອງດວງຈັນຖືກເອີ້ນວ່າເປືອກໂລກ.",
+  "ref": "The surface of the Moon is made of rocks and dust. The outer layer of the Moon is called the crust.",
+  "answers": {
+   "chirp-sol": "The Moon’s surface is made of rock and dust. Its outer layer is called the crust.",
+   "chirp-gemma": "The surface of the moon is made of rock and dust. The outer layer of the moon is called the crust.",
+   "omni-sol": "The surface of the moon. is made of rock and dust. The Moon’s outer layer is called the crust.",
+   "omni-gemma": "the surface of the moon is made of rock and dust The outer layer of the moon is called the crust. Uh, okay."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 1.99,
+   "chirp-gemma": 1.51,
+   "omni-sol": 6.72,
+   "omni-gemma": 5.86
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 3,
+  "lo": "ການປາກົດຕົວຂອງ “ທີມທີ່ເບິ່ງບໍ່ເຫັນ” ຕົວຈິງ (ລາຊັ່ນ (Larson) ແລະ ລາຟັສ໌ໂຕ (LaFasto), ປີ 1989, ໜ້າ 109) ແມ່ນເປັນສ່ວນປະກອບໜຶ່ງທີ່ເປັນເອກະລັກສະເພາະຂອງທີມທີ່ເໝືອນຈິງ.",
+  "ref": "The presence of a true “invisible team” (Larson and LaFasto, 1989, p109) is also a unique component of a virtual team.",
+  "answers": {
+   "chirp-sol": "The presence of an “invisible team” (Larson & LaFasto, 1989, p. 109) is one distinctive feature of an effective team.",
+   "chirp-gemma": "The appearance of the \"invisible team\" (Lasson & LaFasto, 1989, p. 109) is one of the unique components of an effective team.",
+   "omni-sol": "The appearance of a team that you can’t actually see Larson and LaFasto, 1800, 1989, page 109. is one of the defining characteristics of a real team.",
+   "omni-gemma": "The appearance of the team that is not physically visible Rashan and Rafasto, 1800, 1989, 109 is a unique component of the realistic team."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.48,
+   "chirp-gemma": 0.94,
+   "omni-sol": 3.95,
+   "omni-gemma": 7.83
+  },
+  "grades": {
+   "1": {
+    "chirp-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 4,
+  "lo": "ອຸບັດຕິເຫດດັ່ງກ່າວມີໂອກາດເກີດຂື້ນສູງໃນພູມສັນຖານທີ່ເປັນພູເຂົາ ແລະ ເຊື່ອກັນວ່າມັນເປັນຜົນຈາກການເກີດໄຟໄໝ້.",
+  "ref": "The crash occurred high up in mountainous terrain, and is believed to have been the result of hostile fire.",
+  "answers": {
+   "chirp-sol": "Such accidents are likely to happen. This highland has mountainous terrain, and it is believed to be the result of a fire.",
+   "chirp-gemma": "Such accidents are likely to occur highly because the terrain is mountainous, and it is believed to be the result of a fire.",
+   "omni-sol": "Such accidents are more likely to occur in this terrain. in mountainous terrain. And it is believed that... It was caused by a fire.",
+   "omni-gemma": "Such accidents are highly likely to occur in this terrain. that is mountainous. and it is believed that it was the result of a fire."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.4,
+   "chirp-gemma": 1.49,
+   "omni-sol": 1.43,
+   "omni-gemma": 0.94
+  },
+  "grades": {
+   "1": {
+    "chirp-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 5,
+  "lo": "ການກ່າວໂຈມຕີ Dunlap 25 ເທື່ອ ເປັນທີ່ຮູ້ຈັກດີວ່າຍັງຄົງຢູ່ ແມ່ນບັນດາສຳເນົາທີ່ເກົ່າທີ່ສຸດຂອງເອກກະສານ. ສຳເນົາຕົ້ນສະບັບທີ່ຂຽນດ້ວຍມືບໍ່ມີເຫຼືອແລ້ວ.",
+  "ref": "The 25 Dunlap broadsides still known to exist are the oldest surviving copies of the document. The original handwritten copy has not survived.",
+  "answers": {
+   "chirp-sol": "The attacks on Du-Donras are known only from the oldest surviving copies of the document; no original handwritten copies remain.",
+   "chirp-gemma": "Regarding the attack on Du-Donras, it is well known that what remains are the oldest copies of the documents; the original handwritten copies no longer exist.",
+   "omni-sol": "The criticism of Donald Trump in the United States is well known to... The oldest surviving copies of the document; the original handwritten copies no longer exist.",
+   "omni-gemma": "The simultaneous attacks on Donagrap are well known to be... what remains are the oldest copies of the documents; the original handwritten copies are no longer left."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 6.09,
+   "chirp-gemma": 4.16,
+   "omni-sol": 3.71,
+   "omni-gemma": 2.6
+  },
+  "grades": {
+   "1": {
+    "omni-sol": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-sol": {
+     "score": 1,
+     "critical": true
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "omni-sol": {
+     "score": 0,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 6,
+  "lo": "ໃນວັນທີ 15 ເດືອນ ສິງຫາ ປີ 1940, ບັນດາປະເທດພັນທະມິດໄດ້ບຸກເຂົ້າໂຈມຕີພາກໃຕ້ຂອງຝຣັ່ງ ເຊິ່ງການບຸກໂຈມຕີນີ້ຖືກເອີ້ນວ່າ “ປະຕິບັດການ Dragoon”.",
+  "ref": "On 15 August 1940, the Allies invaded southern France, the invasion was called \"Operation Dragoon\".",
+  "answers": {
+   "chirp-sol": "On August 15, 1940, the Allies invaded southern France in an attack called “Operation Dragoon.”",
+   "chirp-gemma": "On August 15, 1940, the Allied forces invaded southern France, an attack known as \"Operation Dragoon.\"",
+   "omni-sol": "On August 15, 1940, the Allied forces invaded southern France, an invasion known as Operation Dragoon.",
+   "omni-gemma": "On August 15, 1940, the Allied forces invaded southern France, and this invasion was called Operation Dragoon."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.49,
+   "chirp-gemma": 1.9,
+   "omni-sol": 1.05,
+   "omni-gemma": 0.69
+  },
+  "grades": {
+   "1": {
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 7,
+  "lo": "ບໍ່ຈຳເປັນຕ້ອງເວົ້າຖ້າທ່ານຮູ້ພາສາ Romance, ມັນຈະງ່າຍກວ່າສຳລັບທ່ານທີ່ຈະຮຽນພາສາປອກຕຸຍການ.",
+  "ref": "Needless to say, if you know a Romance language, it will be easier for you to learn Portuguese.",
+  "answers": {
+   "chirp-sol": "Needless to say, if you know Romanian, it will be easier for you to learn Portuguese.",
+   "chirp-gemma": "No need to say. If you know Roman, it will be easier for you to learn Portuguese.",
+   "omni-sol": "I have to say, if you know a Romance language, it will be easier for you to learn Portuguese.",
+   "omni-gemma": "The speaker needs to say that if you use Roman characters, it will be easier to support the columns that provide the Portuguese language."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.14,
+   "chirp-gemma": 1.75,
+   "omni-sol": 4.5,
+   "omni-gemma": 1.85
+  },
+  "grades": {
+   "1": {
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 8,
+  "lo": "ໃນຄວາມເປັນຈິງມັນບໍ່ງ່າຍເລີຍທີ່ຈະຊອກຫາເຖິງແມ່ນວ່າຈະຮູ້ວ່າມັນມີຢູ່ຈິງ. ແຕ່ເມື່ອເຂົ້າໄປໃນຖໍ້າທຸກຢ່າງຈະມືດມິດ.",
+  "ref": "In fact, it is not easy to find at all even if one knew it existed. Once inside the cave, it is a total isolation.",
+  "answers": {
+   "chirp-sol": "In fact, it’s not easy to find, even if you know it exists, but once you enter the cave, everything is pitch dark.",
+   "chirp-gemma": "In reality, it is not easy to find, even if you know it actually exists, but once you enter the cave, everything is pitch black.",
+   "omni-sol": "In fact, it’s not easy at all to find... even though you know it really exists. But when you go into the cave, everything goes pitch-black.",
+   "omni-gemma": "In fact, it is not easy at all to find. even though you know it actually exists. but when you enter the cave, everything will be pitch black."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.55,
+   "chirp-gemma": 1.93,
+   "omni-sol": 1.71,
+   "omni-gemma": 1.24
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 9,
+  "lo": "ຄຳວ່າແມງໄມ້ປີກແຂງ ຖືກໃຊ້ຢ່າງເປັນທາງການໂດຍນັກແມງໄມ້ວິທະຍາສຳລັບແມງໄມ້ກຸ່ມນີ້.",
+  "ref": "The term bug is used by entomologists in a formal sense for this group of insects.",
+  "answers": {
+   "chirp-sol": "The term “beetle” is officially used by entomologists for this group of insects.",
+   "chirp-gemma": "The term \"beetle\" is used officially by entomologists for this group of insects.",
+   "omni-sol": "It’s thought that the beetles officially named by entomologists for this group of beetles…",
+   "omni-gemma": "The expected new species name officially assigned by entomologists for this group of insects."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 1.99,
+   "chirp-gemma": 1.37,
+   "omni-sol": 5.54,
+   "omni-gemma": 1.5
+  },
+  "grades": {
+   "1": {
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 0,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 10,
+  "lo": "ຄົນພຽງແຕ່ສົງໄສວ່າແປ້ນພິມຈະກາຍເປັນຫຍັງເມື່ອມີສິ່ງໃໝ່ໆເຂົ້າມາ.",
+  "ref": "One can only wonder what the keyboard will become when something newer comes along.",
+  "answers": {
+   "chirp-sol": "People just wonder what will happen to keyboards when new things come along.",
+   "chirp-gemma": "People just wonder what keyboards will become when new things arrive.",
+   "omni-sol": "People just wonder what will happen to keyboards when something new comes along.",
+   "omni-gemma": "People just wonder what the blueprint will become when something new arrives."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.14,
+   "chirp-gemma": 4.91,
+   "omni-sol": 3.23,
+   "omni-gemma": 2.18
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 11,
+  "lo": "ພາສາອີຕາລີຍັງເປັນພາສາທີ່ໃຊ້ໃນຊີວິດປະຈຳວັນທີ່ຄົນສ່ວນໃຫຍ່ໃຊ້ເຮັດວຽກຢູ່ໃນລັດ ໃນຂະນະທີ່ພາສາລາຕິນມັກຖືກນຳໃຊ້ໃນພິທີທາງສາດສະໜາ.",
+  "ref": "Italian is also the everyday language used by most of those who work in the state while Latin is often used in religious ceremonies.",
+  "answers": {
+   "chirp-sol": "Italian remains the language of everyday life and is used by most people working in the state, while Latin is often used in religious ceremonies.",
+   "chirp-gemma": "Italian is still the everyday language that most people use for work in the state, while Latin is often used in religious ceremonies.",
+   "omni-sol": "Italian is still used in everyday life and is the language most people use at work in the state. While Latin is often used in religious ceremonies.",
+   "omni-gemma": "Italian is also a language used in daily life that most people use for working in the office. while Latin is often used in religious ceremonies."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 1.86,
+   "chirp-gemma": 1.37,
+   "omni-sol": 1.72,
+   "omni-gemma": 1.03
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 12,
+  "lo": "ການແປ່ງປັນການທັດສະນະສຶກສາແບບສົມຈິງກໍເປັນວິທີທີ່ດີທີ່ຈະສະທ້ອນເຖິງການເດີນທາງ ແລະ ແບ່ງປັນປະສົບການກັບຫ້ອງຮຽນໃນອະນາຄົດ.",
+  "ref": "Sharing a field trip virtually is also a great way to reflect a on a trip and share experiences with future classes.",
+  "answers": {
+   "chirp-sol": "Sharing a realistic field trip is also a good way to reflect on the journey and share the experience with future classes.",
+   "chirp-gemma": "Sharing a virtual field trip is also a good way to reflect on the journey and share experiences with the classroom in the future.",
+   "omni-sol": "Sharing a firsthand educational tour. is also a good way. to reflect on the journey. And to share experiences. with schools in the future.",
+   "omni-gemma": "sharing the experience of a study tour is also a good way. to reflect on the journey and sharing experiences with schools in the future"
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.13,
+   "chirp-gemma": 1.52,
+   "omni-sol": 1.18,
+   "omni-gemma": 0.64
+  },
+  "grades": {
+   "1": {
+    "chirp-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 13,
+  "lo": "ປົກກະຕິພວກເຂົາມັກຈະມີການສະເໜີອາຫານທີ່ພິເສດ, ເຄື່ອງດື່ມ ແລະ ຄວາມບັນເທີງເພື່ອເຮັດໃຫ້ແຂກມີອາລົມດີ ແລະ ເພື່ອໃຫ້ພວກເຂົາຢູ່ໃນສະຖານທີ່ພັກ.",
+  "ref": "They usually have special food, drink and entertainment offers, to keep guests in a good mood, and keep them at the premise.",
+  "answers": {
+   "chirp-sol": "Typically, they offer special food, drinks, and entertainment. to keep guests in a good mood and encourage them to stay at the accommodation.",
+   "chirp-gemma": "Usually, they often offer special food, drinks, and entertainment. to make the guests feel good and to keep them staying at the accommodation.",
+   "omni-sol": "They usually offer special food, drinks, and entertainment. to put the guests in a good mood. And to keep them at the accommodation. as before.",
+   "omni-gemma": "Usually, they tend to offer special food, drinks, and entertainment. to make the guests feel good. and to keep them staying at the accommodation. you know."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.06,
+   "chirp-gemma": 1.33,
+   "omni-sol": 2.86,
+   "omni-gemma": 1.02
+  },
+  "grades": {
+   "1": {
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 14,
+  "lo": "ຄິດຫາເສັ້ນທາງຂີ່ສະກີຄ້າຍຄືກັບເປັນເສັ້ນທາງຍ່າງປ່າ.",
+  "ref": "Think of the skiing route as of a similar hiking route.",
+  "answers": {
+   "chirp-sol": "If the ski trails are like paved roads...",
+   "chirp-gemma": "where the ski slopes are like fishbone patterns.",
+   "omni-sol": "like ski trails and places selling things. and hiking trails.",
+   "omni-gemma": "like the route to the ski slope where they sell snacks. It's a walking path."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 6.14,
+   "chirp-gemma": 1.69,
+   "omni-sol": 4.07,
+   "omni-gemma": 2.65
+  },
+  "grades": {
+   "1": {
+    "chirp-sol": {
+     "score": 0,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 0,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 0,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 15,
+  "lo": "ນອກຈາກນີ້ທາງເໜຶອຍັງຢ້ຽມຊົມວິຫານສັກສິດແຫ່ງພະແມ່ຟາຕິມາ (ສານເຈົ້າ) ເຊິ່ງເປັນສະຖານທີ່ປະຈັກຂອງແມ່ມາຣຽນທີ່ມີຊື່ສຽງທົ່ວໂລກ.",
+  "ref": "Also to the north visit the great Sanctuary of Our Lady of Fatima (Shrine), a place of worldwide famous Marian apparitions.",
+  "answers": {
+   "chirp-sol": "In addition, to the north, you can visit the Shrine of Our Lady of Fatima. The shrine is the site of a Marian apparition known around the world.",
+   "chirp-gemma": "Additionally, in the north, they visit the sacred sanctuary of Our Lady of Fatima. a shrine which is the site of the apparition of the Virgin Mary, famous throughout the world.",
+   "omni-sol": "In addition, you can visit sacred temples in the north. of Our Lady of Fatima. a shrine, which is a place where the Virgin Mary appeared. That is famous worldwide.",
+   "omni-gemma": "Additionally, in the north, you can visit the sacred temple. of Our Lady of Fatima. the sanctuary, which is a place where the Marian apparitions occurred which are world-famous"
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.74,
+   "chirp-gemma": 1.8,
+   "omni-sol": 3.92,
+   "omni-gemma": 3.3
+  },
+  "grades": {
+   "1": {
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 16,
+  "lo": "MS ແມ່ນໂລກທີ່ມີຜົນຕໍ່ລະບົບປະສາດສ່ວນກາງເຊິ່ງປະກອບດ້ວຍສະໝອງ, ກະດູກສັນຫຼັງ ແລະ ປະສາດຕາ.",
+  "ref": "MS is a disease that affects the central nervous system, which is made up of the brain, the spinal cord and the optic nerve.",
+  "answers": {
+   "chirp-sol": "MS is a disease that affects the central nervous system, which includes the brain, spinal cord, and optic nerves.",
+   "chirp-gemma": "MS is a disease that affects the central nervous system, which consists of the brain, spinal cord, and optic nerves.",
+   "omni-sol": "MS is a disease that affects the central nervous system, which includes the brain, spinal cord, and optic nerves.",
+   "omni-gemma": "MS is a disease that affects the central nervous system, which consists of the brain, spinal cord, and optic nerves."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.15,
+   "chirp-gemma": 1.64,
+   "omni-sol": 3.69,
+   "omni-gemma": 2.24
+  },
+  "grades": {
+   "1": {
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 17,
+  "lo": "ພູເຂົາ Cochamó - ເປັນຈຸດໝາຍປາຍທາງການປີນພູຂອງປະເທດ Chile, ເຊິ່ງເປັນທີ່ຮູ້ຈັກໃນນາມ Yosemite ຂອງອາເມລິກາໃຕ້ທີ່ມີມີຝາ ແລະ ກ້ອນຫີນໃຫຍ່ໆຫຼາກຫຼາຍຊະນິດ.",
+  "ref": "Cochamó Valley - Chile's premier climbing destination, known as the Yosemite of South America, with a variety of granite big walls and crags.",
+  "answers": {
+   "chirp-sol": "Cochamó is a climbing destination in Chile known as the Yosemite of South America for its many large rock faces and boulders.",
+   "chirp-gemma": "Cochamo Valley is a climbing destination in Chile, known as the Yosemite of South America, featuring a variety of walls and boulders.",
+   "omni-sol": "Mount Kosamu is a mountain-climbing destination in Syria. which is known as the Yosemite of South America, with sky and many kinds of large rocks.",
+   "omni-gemma": "Mount Kilimanjaro is a destination for mountain climbing in Tanzania. which is known as Yosemite in the southern United States, which has skies and various types of large boulders."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 1.89,
+   "chirp-gemma": 1.31,
+   "omni-sol": 2.15,
+   "omni-gemma": 0.78
+  },
+  "grades": {
+   "1": {
+    "omni-gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 0,
+     "critical": true
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 0,
+     "critical": true
+    },
+    "omni-gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 18,
+  "lo": "ການນຳໃຊ້ການບັນທຶກວິດີໂອໄດ້ເຮັດໃຫ້ມີການຄົ້ນພົບທີ່ສຳຄັນໃນການຕີຄວາມໝາຍໃນການສະແດງອອກເທິງໃບໜ້າເຊິ່ງເປັນເວລາພຽງສອງສາມມິນລີວິນາທີ.",
+  "ref": "The use of video recording has led to important discoveries in the interpretation of micro-expressions, facial movements which last a few milliseconds.",
+  "answers": {
+   "chirp-sol": "The use of video recordings led to an important discovery about interpreting facial expressions that last only 2–3 milliseconds.",
+   "chirp-gemma": "The use of video recording has led to significant discoveries in interpreting facial expressions that last for only 2-3 milliseconds.",
+   "omni-sol": "Using video recordings has led to important discoveries in interpretation and expression going forward. which lasts only two or three milliseconds.",
+   "omni-gemma": "The use of video recording has led to significant discoveries in interpretation and the expression of progress. which is only two or three milliseconds."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 1.65,
+   "chirp-gemma": 1.48,
+   "omni-sol": 2.11,
+   "omni-gemma": 0.8
+  },
+  "grades": {
+   "1": {
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "reg",
+  "i": 19,
+  "lo": "ລະວັງຢ່າປ່ອຍໃຫ້ຜ້າໄໝຮ້ອນຈົນເກີນໄປ (ເພາະມັນຈະຫົດຕົວ ຫຼື ໃນກໍລະນີຮ້າຍແຮງໄປກວ່ານັ້ນຜ້າອາດຈະໄໝ້).",
+  "ref": "Be careful not to allow fabric to become too hot (which can cause shrinkage, or in extreme cases, scorch).",
+  "answers": {
+   "chirp-sol": "Be careful not to let the silk get too hot, because it will shrink and, in more severe cases, it may burn.",
+   "chirp-gemma": "Be careful not to let the silk get too hot, because it will shrink and, in worse cases, the fabric may burn.",
+   "omni-sol": "Be careful not to let the silk get too hot. Because it will shrink. And in more serious cases than that... It might be new.",
+   "omni-gemma": "Be careful not to let the silk fabric get too hot. because it will be noticeable. And in more severe cases, it might be fatal."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.67,
+   "chirp-gemma": 2.14,
+   "omni-sol": 3.2,
+   "omni-gemma": 0.56
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    }
+   },
+   "2": {
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 0,
+  "lo": "ດ້ວຍເຫດນັ້ນ, ປາສອງຊະນິດໄດ້ສູນພັນໄປແລ້ວ ແລະ ອີກສອງຊະນິດໄດ້ກາຍເປັນສັດທີ່ໃກ້ຈະສູນພັນ, ໃນນັ້ນມີປານໍ້າຈືດຫລັງກົ່ງ.",
+  "ref": "As a result, two fish species have become extinct, and two others have become endangered, including the humpback chub.",
+  "answers": {
+   "chirp-sol": "As a result, two fish species have gone extinct, and two others have become endangered, including the humpbacked freshwater fish.",
+   "chirp-gemma": "Therefore, two species of fish have gone extinct and another two species have become endangered, including the hump-backed freshwater fish.",
+   "omni-sol": "As a result, two fish species have already gone extinct, and two others are now endangered, including a humpback freshwater fish.",
+   "omni-gemma": "Therefore, two species have gone extinct and another two species have become endangered, including the Irrawaddy dolphin."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.53,
+   "chirp-gemma": 2.02,
+   "omni-sol": 9.91,
+   "omni-gemma": 5.11
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 1,
+  "lo": "ເຖິງຢ່າງໃດກໍຕາມ, ຍ້ອນວ່າຊ່ອງທາງການສື່ສານທີ່ຊັກຊ້າຮູບແບບທາງຕາເວັນຕົກອາດຈະຊ້າກວ່າ 25 - 30 ປີ.",
+  "ref": "However, due to the slow communication channels, styles in the west could lag behind by 25 to 30 year.",
+  "answers": {
+   "chirp-sol": "However, because of slow communication channels, Western approaches may arrive 25 to 30 years later.",
+   "chirp-gemma": "However, because the communication channels in the Western style may be 25 to 30 years slower.",
+   "omni-sol": "However, because communication channels were slow, Western-style... may have lagged behind by twenty-five to thirty years.",
+   "omni-gemma": "However, because of the slow communication channels in the western region it might be 25 to 30 years slower."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 3.45,
+   "chirp-gemma": 1.72,
+   "omni-sol": 1.53,
+   "omni-gemma": 1.07
+  },
+  "grades": {
+   "1": {
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 2,
+  "lo": "ພື້ນຜິວຂອງດວງຈັນແມ່ນຖືກເຮັດມາດ້ວຍຫີນ ແລະ ຝຸ່ນ. ຜິວຊັ້ນນອກຂອງດວງຈັນຖືກເອີ້ນວ່າເປືອກໂລກ.",
+  "ref": "The surface of the Moon is made of rocks and dust. The outer layer of the Moon is called the crust.",
+  "answers": {
+   "chirp-sol": "The Moon’s surface is made of rock and dust. Its outer layer is called the crust.",
+   "chirp-gemma": "The surface of the moon is made of rock and dust. The outer layer of the moon is called the crust.",
+   "omni-sol": "The surface of the moon. is made of rock and dust. The moon’s outer layer is called the crust.",
+   "omni-gemma": "the surface of the moon is made of rock and dust The outer layer of the moon is called the crust. Uh, okay."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.2,
+   "chirp-gemma": 1.69,
+   "omni-sol": 9.46,
+   "omni-gemma": 8.66
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 3,
+  "lo": "ການປາກົດຕົວຂອງ “ທີມທີ່ເບິ່ງບໍ່ເຫັນ” ຕົວຈິງ (ລາຊັ່ນ (Larson) ແລະ ລາຟັສ໌ໂຕ (LaFasto), ປີ 1989, ໜ້າ 109) ແມ່ນເປັນສ່ວນປະກອບໜຶ່ງທີ່ເປັນເອກະລັກສະເພາະຂອງທີມທີ່ເໝືອນຈິງ.",
+  "ref": "The presence of a true “invisible team” (Larson and LaFasto, 1989, p109) is also a unique component of a virtual team.",
+  "answers": {
+   "chirp-sol": "The appearance of... the invisible (real) team (Larson and LaFasto, 1989, p. 109) is a distinctive feature of effective teams.",
+   "chirp-gemma": "The appearance of invisible teams (actually) (Laasan and LaFasto, 1989, p. 109) are one of the unique components of an appropriate team.",
+   "omni-sol": "The appearance of a team you can’t see in person Larson and LaFasto, 1800, 1989, page 109. is a distinctive characteristic of a real team.",
+   "omni-gemma": "The appearance of the team that is not physically visible Rashan and Rafatto, 1800, 1989, 109 is a unique component of the realistic team."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 3.87,
+   "chirp-gemma": 1.1,
+   "omni-sol": 6.32,
+   "omni-gemma": 11.2
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 4,
+  "lo": "ອຸບັດຕິເຫດດັ່ງກ່າວມີໂອກາດເກີດຂື້ນສູງໃນພູມສັນຖານທີ່ເປັນພູເຂົາ ແລະ ເຊື່ອກັນວ່າມັນເປັນຜົນຈາກການເກີດໄຟໄໝ້.",
+  "ref": "The crash occurred high up in mountainous terrain, and is believed to have been the result of hostile fire.",
+  "answers": {
+   "chirp-sol": "Such accidents are more likely to occur in areas that are mountainous, and are believed to result from fires.",
+   "chirp-gemma": "Such accidents have a high chance of occurring in the area where the terrain is mountainous, and it is believed to be a result of a fire.",
+   "omni-sol": "Such accidents are more likely to occur in mountainous terrain. And it is believed that… it was caused by a fire.",
+   "omni-gemma": "Such accidents are highly likely to occur in mountainous terrain. and it is believed that it is a result of the fire."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 1.87,
+   "chirp-gemma": 1.54,
+   "omni-sol": 2.32,
+   "omni-gemma": 1.34
+  },
+  "grades": {
+   "1": {
+    "omni-sol": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-sol": {
+     "score": 1,
+     "critical": true
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    }
+   },
+   "2": {
+    "chirp-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 5,
+  "lo": "ການກ່າວໂຈມຕີ Dunlap 25 ເທື່ອ ເປັນທີ່ຮູ້ຈັກດີວ່າຍັງຄົງຢູ່ ແມ່ນບັນດາສຳເນົາທີ່ເກົ່າທີ່ສຸດຂອງເອກກະສານ. ສຳເນົາຕົ້ນສະບັບທີ່ຂຽນດ້ວຍມືບໍ່ມີເຫຼືອແລ້ວ.",
+  "ref": "The 25 Dunlap broadsides still known to exist are the oldest surviving copies of the document. The original handwritten copy has not survived.",
+  "answers": {
+   "chirp-sol": "The oldest known surviving copies of the document remain, but no original handwritten copy survives.",
+   "chirp-gemma": "The attacks on Russia are well known; what remains are the oldest copies of the documents, as the original handwritten copies no longer exist.",
+   "omni-sol": "The attacks on Donald Trump are well known to... the oldest surviving copies of the document; the handwritten original no longer exists.",
+   "omni-gemma": "The repeated attacks on Don Rat are well known to be still remaining are the oldest copies of the documents, the original handwritten copies, and there are no more left."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 4.91,
+   "chirp-gemma": 1.77,
+   "omni-sol": 4.68,
+   "omni-gemma": 2.54
+  },
+  "grades": {
+   "1": {
+    "omni-sol": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 6,
+  "lo": "ໃນວັນທີ 15 ເດືອນ ສິງຫາ ປີ 1940, ບັນດາປະເທດພັນທະມິດໄດ້ບຸກເຂົ້າໂຈມຕີພາກໃຕ້ຂອງຝຣັ່ງ ເຊິ່ງການບຸກໂຈມຕີນີ້ຖືກເອີ້ນວ່າ “ປະຕິບັດການ Dragoon”.",
+  "ref": "On 15 August 1940, the Allies invaded southern France, the invasion was called \"Operation Dragoon\".",
+  "answers": {
+   "chirp-sol": "On August 15, 1940, Allied forces invaded southern France in an attack called “Operation Dragoon.”",
+   "chirp-gemma": "On August 15, 1940, the Allies invaded southern France, an attack known as \"Operation Dragoon.\"",
+   "omni-sol": "On August 15, 1940, the Allied forces invaded southern France, an operation known as Operation Dragoon.",
+   "omni-gemma": "On August 15, 1940, the Allied forces invaded southern France, and this invasion was called Operation Dragoon."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.51,
+   "chirp-gemma": 2.03,
+   "omni-sol": 2.13,
+   "omni-gemma": 1.54
+  },
+  "grades": {
+   "1": {
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 7,
+  "lo": "ບໍ່ຈຳເປັນຕ້ອງເວົ້າຖ້າທ່ານຮູ້ພາສາ Romance, ມັນຈະງ່າຍກວ່າສຳລັບທ່ານທີ່ຈະຮຽນພາສາປອກຕຸຍການ.",
+  "ref": "Needless to say, if you know a Romance language, it will be easier for you to learn Portuguese.",
+  "answers": {
+   "chirp-sol": "Needless to say, if you know a Romance language, it will be easier for you to learn Portuguese.",
+   "chirp-gemma": "No need to say. If you know Romanian, it will be easier for you to learn Portuguese.",
+   "omni-sol": "You need to speak. If you know Romanian, it will be easier for you to learn Portuguese.",
+   "omni-gemma": "The speaker must say that if you know the Roman language, it will be easier than knowing the Portuguese language."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.25,
+   "chirp-gemma": 1.73,
+   "omni-sol": 5.29,
+   "omni-gemma": 1.94
+  },
+  "grades": {
+   "1": {
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    }
+   },
+   "2": {
+    "omni-gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 8,
+  "lo": "ໃນຄວາມເປັນຈິງມັນບໍ່ງ່າຍເລີຍທີ່ຈະຊອກຫາເຖິງແມ່ນວ່າຈະຮູ້ວ່າມັນມີຢູ່ຈິງ. ແຕ່ເມື່ອເຂົ້າໄປໃນຖໍ້າທຸກຢ່າງຈະມືດມິດ.",
+  "ref": "In fact, it is not easy to find at all even if one knew it existed. Once inside the cave, it is a total isolation.",
+  "answers": {
+   "chirp-sol": "In fact, it’s not at all easy to find, even if you know it exists. But once you enter the cave, everything goes completely dark.",
+   "chirp-gemma": "In fact, it is not easy to find at all; even if you know it actually exists, once you enter the cave, everything is pitch black.",
+   "omni-sol": "In fact, it’s not easy at all to find... Even though you know it really exists. But when you go into the cave, everything is pitch dark.",
+   "omni-gemma": "In reality, it is not easy at all to find even though you know that it actually exists. but when you enter the cave, everything will be pitch black. Yeah, okay."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.27,
+   "chirp-gemma": 1.79,
+   "omni-sol": 5.33,
+   "omni-gemma": 4.64
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 9,
+  "lo": "ຄຳວ່າແມງໄມ້ປີກແຂງ ຖືກໃຊ້ຢ່າງເປັນທາງການໂດຍນັກແມງໄມ້ວິທະຍາສຳລັບແມງໄມ້ກຸ່ມນີ້.",
+  "ref": "The term bug is used by entomologists in a formal sense for this group of insects.",
+  "answers": {
+   "chirp-sol": "I believe that the beetles were officially assigned to this group of insects by entomologists.",
+   "chirp-gemma": "I believe that the beetles were formally described by entomologists for this group of insects.",
+   "omni-sol": "It is thought that beetles were officially placed in this group of insects by entomologists.",
+   "omni-gemma": "It is expected that the new species will be officially described by entomologists for this group of insects."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 5.07,
+   "chirp-gemma": 1.47,
+   "omni-sol": 5.99,
+   "omni-gemma": 2.01
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 0,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 10,
+  "lo": "ຄົນພຽງແຕ່ສົງໄສວ່າແປ້ນພິມຈະກາຍເປັນຫຍັງເມື່ອມີສິ່ງໃໝ່ໆເຂົ້າມາ.",
+  "ref": "One can only wonder what the keyboard will become when something newer comes along.",
+  "answers": {
+   "chirp-sol": "People just wonder what will happen to keyboards when new things come along.",
+   "chirp-gemma": "People just wonder what will happen to keyboards when new things come along.",
+   "omni-sol": "People just wonder what will happen to the keyboard when something new comes along.",
+   "omni-gemma": "People are just wondering what will happen to the blueprint when something new arrives."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 1.83,
+   "chirp-gemma": 1.5,
+   "omni-sol": 2.1,
+   "omni-gemma": 1.47
+  },
+  "grades": {
+   "1": {
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 11,
+  "lo": "ພາສາອີຕາລີຍັງເປັນພາສາທີ່ໃຊ້ໃນຊີວິດປະຈຳວັນທີ່ຄົນສ່ວນໃຫຍ່ໃຊ້ເຮັດວຽກຢູ່ໃນລັດ ໃນຂະນະທີ່ພາສາລາຕິນມັກຖືກນຳໃຊ້ໃນພິທີທາງສາດສະໜາ.",
+  "ref": "Italian is also the everyday language used by most of those who work in the state while Latin is often used in religious ceremonies.",
+  "answers": {
+   "chirp-sol": "Italian is still a language that most people use in everyday life. while Latin is often used in religious ceremonies.",
+   "chirp-gemma": "Italian is also a language used in daily life that most people use. while Latin is often used in religious ceremonies.",
+   "omni-sol": "Italian is still the language most people use in daily life and at work in the state. while Latin is often used in religious ceremonies.",
+   "omni-gemma": "Italian is also the language used in daily life that most people use to work in the state. while Latin is often used in religious ceremonies."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 1.44,
+   "chirp-gemma": 0.93,
+   "omni-sol": 1.76,
+   "omni-gemma": 1.09
+  },
+  "grades": {
+   "1": {
+    "chirp-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 12,
+  "lo": "ການແປ່ງປັນການທັດສະນະສຶກສາແບບສົມຈິງກໍເປັນວິທີທີ່ດີທີ່ຈະສະທ້ອນເຖິງການເດີນທາງ ແລະ ແບ່ງປັນປະສົບການກັບຫ້ອງຮຽນໃນອະນາຄົດ.",
+  "ref": "Sharing a field trip virtually is also a great way to reflect a on a trip and share experiences with future classes.",
+  "answers": {
+   "chirp-sol": "Sharing a virtual field trip is also a good way to reflect on the journey and share the experience with the class later.",
+   "chirp-gemma": "Sharing a virtual field trip is also a good way to reflect on the journey and share experiences with the classroom in the future.",
+   "omni-sol": "Sharing an in-person educational tour. is also a good way. to reflect on the journey. And share experiences. with schools in the future.",
+   "omni-gemma": "Uh, uh, okay. sharing the experience of a field trip is a good way. to reflect on the journey and sharing experiences with schools in the future"
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 3.63,
+   "chirp-gemma": 1.62,
+   "omni-sol": 0.62,
+   "omni-gemma": 0.11
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": true
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 13,
+  "lo": "ປົກກະຕິພວກເຂົາມັກຈະມີການສະເໜີອາຫານທີ່ພິເສດ, ເຄື່ອງດື່ມ ແລະ ຄວາມບັນເທີງເພື່ອເຮັດໃຫ້ແຂກມີອາລົມດີ ແລະ ເພື່ອໃຫ້ພວກເຂົາຢູ່ໃນສະຖານທີ່ພັກ.",
+  "ref": "They usually have special food, drink and entertainment offers, to keep guests in a good mood, and keep them at the premise.",
+  "answers": {
+   "chirp-sol": "They usually offer special food, drinks, and entertainment. to keep guests in a good mood and encourage them to stay at the accommodation.",
+   "chirp-gemma": "Usually, they often offer special food, drinks, and entertainment. to make the guests feel good and to keep them staying at the accommodation.",
+   "omni-sol": "They usually offer special food, drinks, and entertainment. To put the guests in a good mood. And to keep them at the venue.",
+   "omni-gemma": "Usually, they tend to offer special food, drinks, and entertainment. to make the guests feel good. and to keep them staying at the accommodation. Uh, uh, okay."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 1.94,
+   "chirp-gemma": 1.45,
+   "omni-sol": 5.23,
+   "omni-gemma": 4.67
+  },
+  "grades": {
+   "1": {
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 14,
+  "lo": "ຄິດຫາເສັ້ນທາງຂີ່ສະກີຄ້າຍຄືກັບເປັນເສັ້ນທາງຍ່າງປ່າ.",
+  "ref": "Think of the skiing route as of a similar hiking route.",
+  "answers": {
+   "chirp-sol": "",
+   "chirp-gemma": "",
+   "omni-sol": "as a hiking trail.",
+   "omni-gemma": "I think the road is blocked. It's a walking path."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": null,
+   "chirp-gemma": null,
+   "omni-sol": 3.79,
+   "omni-gemma": 1.1
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "chirp-sol": {
+     "score": 0,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 0,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 0,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 15,
+  "lo": "ນອກຈາກນີ້ທາງເໜຶອຍັງຢ້ຽມຊົມວິຫານສັກສິດແຫ່ງພະແມ່ຟາຕິມາ (ສານເຈົ້າ) ເຊິ່ງເປັນສະຖານທີ່ປະຈັກຂອງແມ່ມາຣຽນທີ່ມີຊື່ສຽງທົ່ວໂລກ.",
+  "ref": "Also to the north visit the great Sanctuary of Our Lady of Fatima (Shrine), a place of worldwide famous Marian apparitions.",
+  "answers": {
+   "chirp-sol": "Ski trails are similar to hiking trails. The shrine where the Virgin Mary appeared is famous worldwide.",
+   "chirp-gemma": "The ski trails are similar to hiking trails. The sanctuary, which is the site of the world-famous Mother Mary's apparition.",
+   "omni-sol": "In addition, to the north, you can also visit a sacred temple. of Our Lady of Fatima. a shrine, which is a place where the Virgin Mary appeared. that is famous worldwide.",
+   "omni-gemma": "Additionally, to the north, you can visit the sacred vihara. of Our Lady of Fatima. the sanctuary, which is a place where Mother Mary appeared. which is world-famous"
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 3.07,
+   "chirp-gemma": 1.72,
+   "omni-sol": 2.79,
+   "omni-gemma": 2.92
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 16,
+  "lo": "MS ແມ່ນໂລກທີ່ມີຜົນຕໍ່ລະບົບປະສາດສ່ວນກາງເຊິ່ງປະກອບດ້ວຍສະໝອງ, ກະດູກສັນຫຼັງ ແລະ ປະສາດຕາ.",
+  "ref": "MS is a disease that affects the central nervous system, which is made up of the brain, the spinal cord and the optic nerve.",
+  "answers": {
+   "chirp-sol": "MS is a disease that affects the central nervous system, which includes the brain, spinal cord, and optic nerves.",
+   "chirp-gemma": "MS is a disease that affects the central nervous system, which consists of the brain, spinal cord, and optic nerves.",
+   "omni-sol": "MS is a disease that affects the central nervous system, including the brain, spinal cord, and optic nerves.",
+   "omni-gemma": "MS is a disease that affects the central nervous system, which consists of the brain, spinal cord, and optic nerves."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.25,
+   "chirp-gemma": 1.8,
+   "omni-sol": 1.91,
+   "omni-gemma": 1.47
+  },
+  "grades": {
+   "1": {
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 17,
+  "lo": "ພູເຂົາ Cochamó - ເປັນຈຸດໝາຍປາຍທາງການປີນພູຂອງປະເທດ Chile, ເຊິ່ງເປັນທີ່ຮູ້ຈັກໃນນາມ Yosemite ຂອງອາເມລິກາໃຕ້ທີ່ມີມີຝາ ແລະ ກ້ອນຫີນໃຫຍ່ໆຫຼາກຫຼາຍຊະນິດ.",
+  "ref": "Cochamó Valley - Chile's premier climbing destination, known as the Yosemite of South America, with a variety of granite big walls and crags.",
+  "answers": {
+   "chirp-sol": "Cochamó is a climbing destination in Chile known as the “Yosemite of South America” for its many massive rock walls and boulders.",
+   "chirp-gemma": "Cochamo Valley is a hiking destination in Chile, known as the \"Yosemite of South America,\" featuring a variety of cliffs and boulders.",
+   "omni-sol": "Mount Cochamó is a climbing destination in Chile known as Yosemite. of South America, with cliffs and a variety of large rock formations.",
+   "omni-gemma": "Mount Kilimanjaro is a climbing destination in Tanzania, which is known for its beauty. of South America, which has skies and various types of large icebergs."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.2,
+   "chirp-gemma": 1.66,
+   "omni-sol": 2.35,
+   "omni-gemma": 0.81
+  },
+  "grades": {
+   "1": {
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 0,
+     "critical": true
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 18,
+  "lo": "ການນຳໃຊ້ການບັນທຶກວິດີໂອໄດ້ເຮັດໃຫ້ມີການຄົ້ນພົບທີ່ສຳຄັນໃນການຕີຄວາມໝາຍໃນການສະແດງອອກເທິງໃບໜ້າເຊິ່ງເປັນເວລາພຽງສອງສາມມິນລີວິນາທີ.",
+  "ref": "The use of video recording has led to important discoveries in the interpretation of micro-expressions, facial movements which last a few milliseconds.",
+  "answers": {
+   "chirp-sol": "Using video recordings has led to important discoveries about interpreting facial expressions that last only 2–3 milliseconds.",
+   "chirp-gemma": "The use of video recording has led to significant discoveries in interpreting facial expressions that last for only 2-3 milliseconds.",
+   "omni-sol": "The use of video recordings has led to important discoveries in interpreting facial expressions. which last only two or three milliseconds.",
+   "omni-gemma": "The use of video recording has led to significant discoveries in interpreting forward-moving expressions. which lasts for only two or three milliseconds."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 1.8,
+   "chirp-gemma": 1.31,
+   "omni-sol": 1.73,
+   "omni-gemma": 0.11
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 2,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "pat": "irr",
+  "i": 19,
+  "lo": "ລະວັງຢ່າປ່ອຍໃຫ້ຜ້າໄໝຮ້ອນຈົນເກີນໄປ (ເພາະມັນຈະຫົດຕົວ ຫຼື ໃນກໍລະນີຮ້າຍແຮງໄປກວ່ານັ້ນຜ້າອາດຈະໄໝ້).",
+  "ref": "Be careful not to allow fabric to become too hot (which can cause shrinkage, or in extreme cases, scorch).",
+  "answers": {
+   "chirp-sol": "Be careful not to let the silk get too hot, because it will shrink, and in more severe cases, the fabric may burn.",
+   "chirp-gemma": "Be careful not to let the silk get too hot, because it will shrink and, in worse cases, the fabric may burn.",
+   "omni-sol": "Be careful not to let the new fabric get too hot. Because it will shrink. And in more serious cases, It might be new.",
+   "omni-gemma": "Be careful not to let the silk fabric get too hot. because it will be noticeable. And in more severe cases, it might be fatal."
+  },
+  "ready_after_end_s": {
+   "chirp-sol": 2.68,
+   "chirp-gemma": 1.81,
+   "omni-sol": 3.98,
+   "omni-gemma": 1.29
+  },
+  "grades": {
+   "1": {
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-sol": {
+     "score": 3,
+     "critical": false
+    },
+    "omni-sol": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ }
+]
