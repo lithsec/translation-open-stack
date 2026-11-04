@@ -4,7 +4,7 @@ set -u
 R=/tmp/rs/chirp; LT=/Users/sstone/dev/live-translation
 until [ -f $R/data/asia/hi/clip.json ]; do sleep 5; done
 source /Users/sstone/dev/lt-into-en-eval-results/scripts/keys.sh >/dev/null 2>&1
-export GCP_PROJECT=linen-cubist-509804-h6 GCP_TOKEN=$(gcloud auth print-access-token)
+export GCP_PROJECT=${GCP_PROJECT:?set GCP_PROJECT} GCP_TOKEN=$(gcloud auth print-access-token)
 typeset -A LOC; LOC=(ja ja-JP vi vi-VN zh cmn-Hans-CN ko ko-KR hi hi-IN)
 typeset -A BASE; BASE=(ja mai vi mai zh mai ko azure hi azure)
 echo "== hearing $(date +%T)"

@@ -8,7 +8,7 @@ as what we run now, without a GPU? Hearing only: no translation, no voice. No ap
 - **Chirp 3:** Speech-to-Text v2 `StreamingRecognize`, `us-speech.googleapis.com`, recognizer `locations/us`,
   model `chirp_3`, one language named (`lo-LA`, `km-KH`, `en-US`; no auto-detect), LINEAR16 16 kHz mono,
   `interim_results` on, `enable_voice_activity_events` on. Endpointing default (STANDARD) unless stated. Lao and Khmer
-  are **Preview** on Chirp 3. Project `linen-cubist-509804-h6` (data logging not enabled: Google keeps no audio by
+  are **Preview** on Chirp 3. A spare Google Cloud project (data logging not enabled: Google keeps no audio by
   default).
 - **Amazon Transcribe:** `StartStreamTranscription` through `amazon-transcribe` (Python), us-east-2, `km-KH`, no
   partial-results stabilisation (the app turns it on), key `lithos-evals`.
@@ -80,7 +80,7 @@ endpointing, paced by the clock.
 - **Haitian Creole:** no Google speech-to-text model has it.
 - **Before building:** Google's pre-GA terms for Preview languages (privacy wording), and the per-minute price (not
   verified here; from memory about $0.016/min).
-- Clean read speech only (FLEURS); sermon audio will be harder for every recogniser.
+- Clean read speech only (FLEURS); live, unscripted speech will be harder for every recogniser.
 
 `runs/` holds every run's per-sentence (or per-event) output. Audio is not kept; `fetch.py` and `rebuild_oct.py`
 rebuild it.

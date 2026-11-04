@@ -44,4 +44,4 @@ Where both rewrites were used (23 runs each), B − A (95% bootstrap):
 - Join out: no change. Telling Gemma the passage ends mid-sentence did not help.
 - B costs ~50 ms more per call (Gemma on Bedrock).
 
-Model-graded; read parliamentary speech, not sermons; 37 runs per language.
+Model-graded; parliamentary speeches only, not other kinds of live speech; 37 runs per language.

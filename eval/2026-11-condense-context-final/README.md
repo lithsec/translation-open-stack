@@ -54,4 +54,4 @@ Where both rewrites were used, final B − A (95% bootstrap), next to the first 
   rephrasings the word check does not catch.
 - ~10–25 ms more per call than A here (p50 402–419 vs 393–396 ms).
 
-Model-graded; read parliamentary speech, not sermons; 37 runs per language.
+Model-graded; parliamentary speeches only, not other kinds of live speech; 37 runs per language.
