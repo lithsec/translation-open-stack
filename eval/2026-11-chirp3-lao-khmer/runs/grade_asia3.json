@@ -1,0 +1,2082 @@
+[
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 0,
+  "lo": "이곳은 남아프리카의 명소 중 하나로 남아프리카 국립 공원(SANParks)의 플래그십입니다.",
+  "ref": "It is one of the main attractions of South Africa and it is considered the flagship of South African National Parks (SANParks).",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "This is one of South Africa's attractions and is the flagship of South Africa's national parks.",
+   "azure-gemma": "This is one of South Africa's attractions and is the flagship of South Africa's national parks.",
+   "mai-gemma": "This is one of South Africa's attractions and is the flagship of South Africa's national parks."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 0.56,
+   "azure-gemma": 0.38,
+   "mai-gemma": -0.08
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 1,
+  "lo": "카파네도(Carpanedo)는 수요일의 이벤트 말고도, 챔피언십에서 두 번의 개별 레이스에 출전했습니다.",
+  "ref": "Beyond Wednesday's event, Carpanedo competed in two individual races at the Championships.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Besides Wednesday's event, Capenedo competed in two individual races in the championship.",
+   "azure-gemma": "Besides the event on Wednesday, Gapanedo competed in two individual races in the championship.",
+   "mai-gemma": "Besides Wednesday's event, Capenedo competed in two individual races in the championship."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 2.15,
+   "azure-gemma": 1.14,
+   "mai-gemma": 1.11
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 2,
+  "lo": "특히, 미세한 표정을 정확하게 해석해서 사람이 거짓말을 하고 있는지 여부를 검출할 수 있다고 주장합니다.",
+  "ref": "In particular, it is claimed that one can detect whether a person is lying by interpreting micro-expressions correctly.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "They claim that it can specifically detect whether a person is lying by accurately interpreting micro-expressions.",
+   "azure-gemma": "They claim that it can specifically detect whether a person is lying by accurately interpreting subtle facial expressions.",
+   "mai-gemma": "They claim that it can specifically detect whether a person is lying by accurately interpreting subtle facial expressions."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 2.04,
+   "azure-gemma": 0.69,
+   "mai-gemma": 0.97
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 3,
+  "lo": "병원에서 일하는 동한 리긴스는 여가 시간에 조기 진통에 관해 조사하기 시작했다.",
+  "ref": "While he was working at the hospital Liggins began to investigate premature labor during his spare time.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "While working at the hospital, Riggins began researching preterm labor in his spare time.",
+   "azure-gemma": "While working at the hospital, Riggins began researching preterm labor in his spare time.",
+   "mai-gemma": "While working at the hospital, Riggins began investigating preterm labor during his spare time."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.7,
+   "azure-gemma": 0.92,
+   "mai-gemma": 1.19
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 4,
+  "lo": "우리는 나무로 집을 짓고 식물로 옷을 만듭니다. 우리가 먹는 대부분의 음식은 야채입니다. 식물이 없다면, 동물은 살아남을 수 없습니다.",
+  "ref": "We make our houses from plants and make clothes from plants. Most foods that we eat are plants. Without plants, animals could not survive.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "We build houses with wood and make clothes from plants. Most of the food we eat is vegetables. Without plants, animals could not survive.",
+   "azure-gemma": "We build houses with wood and make clothes from plants. Most of the food we eat is vegetables. Without plants, animals could not survive.",
+   "mai-gemma": "We build houses with wood and make clothes from plants. Most of the food we eat is vegetables. Without plants, animals could not survive."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.87,
+   "azure-gemma": 2.02,
+   "mai-gemma": 1.08
+  },
+  "grades": {
+   "1": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 5,
+  "lo": "겨우 2주 만에 미군과 자유 프랑스군은 프랑스 남부를 해방시키고 독일로 진격 방향을 틀고 있었다.",
+  "ref": "In just two weeks the Americans and Free French forces had liberated southern France and were turning towards Germany.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "In just two weeks, US and Free French forces liberated southern France and were turning their advance toward Germany.",
+   "azure-gemma": "In just two weeks, the US and Free French forces liberated southern France and were turning their advance toward Germany.",
+   "mai-gemma": "In just two weeks, US and Free French forces liberated southern France and were turning their advance toward Germany."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.62,
+   "azure-gemma": 0.35,
+   "mai-gemma": 1.04
+  },
+  "grades": {
+   "1": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 6,
+  "lo": "생식 계열 세포의 돌연변이만이 자녀에게 유전될 수 있고, 다른 곳에서의 돌연변이는 세포 사망 또는 암을 유발할 수 있습니다.",
+  "ref": "Only mutations in germ-line cells can be passed on to children, while mutations elsewhere can cause cell-death or cancer.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Only mutations in germline cells can be inherited by offspring, while mutations elsewhere can cause cell death or cancer.",
+   "azure-gemma": "Only mutations in germ cells can be inherited by offspring, while mutations elsewhere can cause cell death or cancer.",
+   "mai-gemma": "Only mutations in germline cells can be inherited by offspring, while mutations elsewhere can cause cell death or cancer."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.75,
+   "azure-gemma": 0.93,
+   "mai-gemma": 1.79
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 7,
+  "lo": "물론 이 전통에 대한 기독교 신학적 설명이 있지만 이것은 기독교 이전의 봄과 풍년 의식일 수 있다.",
+  "ref": "There are of course Christian theological explanations for this tradition, but it may well be a pre-Christian Spring and Fertility ritual.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Of course, there is a Christian theological explanation for this tradition, but it may have been a pre-Christian ritual for spring and a bountiful harvest.",
+   "azure-gemma": "Of course, there are Christian theological explanations for this tradition, but it may be a pre-Christian ritual for abundance and a bountiful harvest.",
+   "mai-gemma": "Of course, there are Christian theological explanations for this tradition, but it may have been a pre-Christian ritual for the gospel and a bountiful harvest."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 3.11,
+   "azure-gemma": 0.84,
+   "mai-gemma": 1.23
+  },
+  "grades": {
+   "1": {
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 1,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 8,
+  "lo": "해당 서비스는 유락용 선박을 포함한 해상운송 및 원켝 데이터 및 음성 서비스가 필요한 곳에서 자주 사용됩니다.",
+  "ref": "The service is frequently used by shipping, including pleasure craft, as well as expeditions who have remote data and voice needs.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "This service is frequently used where maritime transport, including cruise ships, and remote data and voice services are required.",
+   "azure-gemma": "This service is frequently used for maritime transport, including liquid cargo vessels, and in locations where remote data and voice services are required.",
+   "mai-gemma": "This service is frequently used for maritime transport, including cruising vessels, and in locations where remote data and voice services are required."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.95,
+   "azure-gemma": 1.94,
+   "mai-gemma": 1.02
+  },
+  "grades": {
+   "1": {
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 9,
+  "lo": "그러나 정보 교환이 느렸기 때문에, 서부 쪽 양식은 25~30년 뒤떨어질 수 있었습니다.",
+  "ref": "However, due to the slow communication channels, styles in the west could lag behind by 25 to 30 year.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "However, because the exchange of information was slow, the styles in the west could lag behind by 25 to 30 years.",
+   "azure-gemma": "However, because the exchange of information was slow, the style in the west could be 25 to 30 years behind.",
+   "mai-gemma": "However, because the exchange of information was slow, the style in the west could be 25 to 30 years behind."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.95,
+   "azure-gemma": 0.33,
+   "mai-gemma": 1.09
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 10,
+  "lo": "그는 싱가포르 부총리 웡칸셍의 환영을 받았고 싱가포르 총리 리셴룽과 무역 및 테러 문제를 논의하였습니다.",
+  "ref": "He was greeted by Singapore's Deputy Prime Minister Wong Kan Seng and discussed trade and terrorism issues with the Singapore Prime Minister Lee Hsien Loong.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "He was welcomed by Singapore's Deputy Prime Minister Wong Kan Seng and discussed trade and terrorism issues with Singapore's Prime Minister Lee Hsien Loong.",
+   "azure-gemma": "He was welcomed by Singapore's Deputy Prime Minister Warren K. an Sang and discussed trade and terrorism issues with Singapore's Prime Minister Lee Hsien Loong.",
+   "mai-gemma": "He was welcomed by Singapore's Deputy Prime Minister Wong Kan Seng and discussed trade and terrorism issues with Singapore's Prime Minister Lee Hsien Loong."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.82,
+   "azure-gemma": 0.66,
+   "mai-gemma": 1.14
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 11,
+  "lo": "하지만 여전히 새에는 공룡처럼 보이게 하는 것들이 많습니다.",
+  "ref": "But there are a lot of things about birds that still look like a dinosaur.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "However, there are still many things that make the New Year look like a dinosaur.",
+   "azure-gemma": "However, there are still many things that make the New Year look like a dinosaur.",
+   "mai-gemma": "However, there are still many things in birds that make them look like dinosaurs."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.5,
+   "azure-gemma": 0.77,
+   "mai-gemma": 0.98
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 0,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 12,
+  "lo": "파리 사람들은 자기중심적이고, 무례하고, 오만하다는 평판이 있습니다.",
+  "ref": "Parisians have a reputation for being egocentric, rude and arrogant.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Parisians have a reputation for being self-centered, rude, and arrogant.",
+   "azure-gemma": "Parisians have a reputation for being self-centered, rude, and arrogant.",
+   "mai-gemma": "Parisians have a reputation for being self-centered, rude, and arrogant."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 0.7,
+   "azure-gemma": -0.45,
+   "mai-gemma": -0.11
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 13,
+  "lo": "사실, 이게 존재한다는 사실을 아는 사람이 있다고 해도 찾는 것조차 쉽지 않습니다. 일단 동굴 안에 들어가면, 완전한 고립입니다.",
+  "ref": "In fact, it is not easy to find at all even if one knew it existed. Once inside the cave, it is a total isolation.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "In fact, even if there are people who know it exists, it's not even easy to find. Once you enter the cave, you are in complete isolation.",
+   "azure-gemma": "In fact, even if there are people who know it exists, it's not even easy to find. Once you enter the cave, you are in complete isolation.",
+   "mai-gemma": "In fact, even if there are people who know that this exists, it is not even easy to find. Once you enter the cave, you are in complete isolation."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.94,
+   "azure-gemma": 0.8,
+   "mai-gemma": 1.07
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 14,
+  "lo": "포클랜드의 공식 화폐는 1영국 파운드(GBP)의 가치와 동등하게 설정된 포클랜드 파운드(FKP)이다.",
+  "ref": "The official Falklands currency is the Falkland pound (FKP) whose value is set equivalent to that of one British pound (GBP).",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "The official currency of the Falkland Islands is 1 Falkland Pound, which is set equal in value to the British Pound.",
+   "azure-gemma": "The official currency of the Falkland Islands is the Falkland Pound, which is pegged to the value of one British Pound.",
+   "mai-gemma": "The official currency of the Falkland Islands is the Falkland Islands pound, which is pegged to the value of 1 British pound."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.65,
+   "azure-gemma": 1.04,
+   "mai-gemma": 1.01
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 15,
+  "lo": "이렇게 되면 플레이어들이 장치를 허공에서 움직여 동작과 움직임을 제어할 수 있게 된다.",
+  "ref": "This will allow players to control actions and movements in video games by moving the device through the air.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "This allows players to move the device in mid-air to control actions and movements.",
+   "azure-gemma": "This allows players to move the device through the air to control its actions and movements.",
+   "mai-gemma": "This allows players to move the device in mid-air to control its actions and movements."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.8,
+   "azure-gemma": 1.25,
+   "mai-gemma": 1.68
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 16,
+  "lo": "겨울에 북발트해를 건널 경우에는 빙판을 통과하면서 꽤 끔찍한 소음이 발생하기 때문에, 객실의 위치를 확인하는 것이 좋다.",
+  "ref": "If crossing the Northern Baltic in winter, check the cabin location, as going through ice causes quite horrible noise for those most affected.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "When crossing the Arctic Ocean in winter, it is a good idea to check the location of your cabin, as passing through ice sheets generates quite terrible noise.",
+   "azure-gemma": "When crossing the North Baltic Sea in winter, it is advisable to check the location of your cabin, as quite terrible noises occur while passing through the ice.",
+   "mai-gemma": "When crossing the North Baltic Sea in winter, it is a good idea to check the location of your cabin, as passing through ice sheets can create quite terrible noise."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 0.87,
+   "azure-gemma": -0.24,
+   "mai-gemma": 0.11
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": true
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 17,
+  "lo": "따라서, 연필이 등장하고 연필은 많은 사람들에게 좋은 도구로 남았습니다.",
+  "ref": "Thus, the pencil was a good friend to many people when it came out.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Therefore, the pencil appeared and remained a great tool for many people.",
+   "azure-gemma": "Therefore, the pencil appeared and remained a great tool for many people.",
+   "mai-gemma": "Therefore, the pencil appeared, and it has remained a great tool for many people."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.5,
+   "azure-gemma": 0.1,
+   "mai-gemma": 0.49
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 18,
+  "lo": "대서양 허리케인의 열 번째 폭풍인 아열대 폭풍 제리가 오늘 대서양에서 생성되었습니다.",
+  "ref": "The tenth named storm of the Atlantic Hurricane season, Subtropical Storm Jerry, formed in the Atlantic Ocean today.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Subtropical Storm Jerry, the tenth storm of the Atlantic hurricane season, formed in the Atlantic today.",
+   "azure-gemma": "Subtropical Storm Jerry, the 10th storm of the Atlantic hurricane season, formed in the Atlantic today.",
+   "mai-gemma": "Subtropical Storm Jerry, the tenth storm of the Atlantic hurricane season, formed in the Atlantic today."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 2.66,
+   "azure-gemma": 1.31,
+   "mai-gemma": 1.27
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "ko",
+  "pat": "ko",
+  "i": 19,
+  "lo": "여행자들은 여행 계획에 차질이 생기지 않도록 현지 날씨에 대해 미리 찾아보고 가야 한다.",
+  "ref": "Travellers are strongly advised to be aware of any risk of severe weather affecting their area as they may affect any travel plans.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Travelers should check the local weather in advance to ensure their travel plans are not disrupted.",
+   "azure-gemma": "Travelers should check the local weather in advance to ensure their travel plans are not disrupted.",
+   "mai-gemma": "Travelers should check the local weather in advance to ensure their travel plans are not disrupted."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.58,
+   "azure-gemma": 0.75,
+   "mai-gemma": 1.13
+  },
+  "grades": {
+   "1": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 0,
+  "lo": "विलासिता के एक उपरिकेंद्र होने के लिए इसको लगभग 400 A.D से  1100 A.D तक जाना गया।",
+  "ref": "Its renown for being an epicenter of luxury began in about 400 A.D. and lasted up until about 1100 A.D.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "It was known as a center of luxury from approximately 400 AD to 1100 AD.",
+   "azure-gemma": "It was considered a center of luxury from approximately 400 AD to 1100 AD.",
+   "mai-gemma": "It was considered a center of luxury from approximately 400 AD to 1100 AD."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 2.49,
+   "azure-gemma": 0.97,
+   "mai-gemma": 1.18
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 1,
+  "lo": "कैलिफोर्निया के गवर्नर अर्नोल्ड श्वार्ज़नेगर ने कानून में एक बिल पर हस्ताक्षर किए, जो नाबालिगों को हिंसक वीडियो गेम उन्हें बेचने या किराये पर देने से प्रतिबंध लगाता है।",
+  "ref": "California Governor Arnold Schwarzenegger signed into law a bill that bans the sale or rental of violent video games to minors.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "The Governor of California Arnold Schwarzenegger signed a bill into law that prohibits the sale or rental of violent video games to minors.",
+   "azure-gemma": "The Governor of California. Arnold. Schwarzenegger signed a bill into law that... bans the sale or rental of violent video games to minors.",
+   "mai-gemma": "The Governor of California Arnold Schwarzenegger signed a bill into law that bans the sale or rental of violent video games to minors."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 3.25,
+   "azure-gemma": 0.63,
+   "mai-gemma": 0.99
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 2,
+  "lo": "लक्खा सिंह ने छप्पन भोग भजन भी प्रस्तुत किया। गायक, राजू खंडेलवाल उनके साथ थे।",
+  "ref": "Lakkha Singh presented the chhappan bhog bhajan as well. Singer, Raju Khandelwal was accompanying him.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Lakha Singh also presented the 56 Bhog bhajan. Singer Raju Khandelwal was with him.",
+   "azure-gemma": "Lakha Singh also presented the 56 Bhog bhajan. Singer Raju Khandelwal was with him.",
+   "mai-gemma": "Lakha Singh also presented the Chappan Bhog bhajan. Singer Raju Khandelwal was with him."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.87,
+   "azure-gemma": 0.67,
+   "mai-gemma": 1.01
+  },
+  "grades": {
+   "1": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 3,
+  "lo": "उत्तर में यह क्षेत्र साहेल और दक्षिण और पश्चिम में अटलांटिक महासागर से घिरा है.",
+  "ref": "In the north the region is bounded by the Sahel, and in the south and west by the Atlantic Ocean.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "To the north, this region is the coast and to the south and in the west, it is surrounded by the Atlantic Ocean.",
+   "azure-gemma": "To the north, this region is the coast and to the south. and to the west, it is bordered by the Atlantic Ocean.",
+   "mai-gemma": "This region is coastal in the north and plateaued in the south. and is surrounded by the Atlantic Ocean in the west."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 0.03,
+   "azure-gemma": -0.69,
+   "mai-gemma": -0.31
+  },
+  "grades": {
+   "1": {
+    "azure-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "mai-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": true
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "mai-gemma": {
+     "score": 0,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 4,
+  "lo": "MS, बीमारी केंद्रीय तंत्रिका तंत्र पर असर करती है, जिसमें दिमाग, स्पाइनल कॉर्ड और ऑप्टिक नर्व शामिल हैं.",
+  "ref": "MS is a disease that affects the central nervous system, which is made up of the brain, the spinal cord and the optic nerve.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "MS disease affects the central nervous system, which includes the brain, spinal cord, and optic nerve.",
+   "azure-gemma": "MS affects the central nervous system, which includes the brain, spinal cord, and optic nerve.",
+   "mai-gemma": "MS disease affects the central nervous system, which includes the brain, spinal cord, and optic nerve."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.73,
+   "azure-gemma": 0.63,
+   "mai-gemma": 1.06
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 5,
+  "lo": "गंभीर मौसम किसी भी खतरनाक मौसमी घटना के लिए वर्गीय शब्द है जिसमें नुकसान, गंभीर सामाजिक व्यवधान, या मानव जीवन की हानि की संभावना है।",
+  "ref": "Severe weather is the generic term for any dangerous weather phenomenon with the potential to cause damage, serious social disruption, or loss of human life.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Severe weather is for any dangerous weather event these are categorical terms, which have the potential for damage, severe social disruption, or loss of human life.",
+   "azure-gemma": "Severe weather is a categorical term for any dangerous weather event that has the potential for damage, severe social disruption, or loss of human life.",
+   "mai-gemma": "Severe weather is a generic term for any dangerous weather event that has the potential for damage, severe social disruption, or loss of human life."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.59,
+   "azure-gemma": 0.7,
+   "mai-gemma": 0.98
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 6,
+  "lo": "कुछ अणुओं में अस्थिर केंद्रक होता है, जिसका मतलब यह है कि उनमें थोड़े या बिना किसी झटके से टूटने की प्रवृत्ति होती है,",
+  "ref": "Some atoms have unstable nuclei which means that they tend to break apart with little or no nudging.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Some atoms have unstable nuclei, which means they have a tendency to break apart spontaneously or with little to no shock.",
+   "azure-gemma": "Some molecules have unstable nuclei, which means they have a tendency to break down with little or no trigger.",
+   "mai-gemma": "Some molecules have unstable nuclei, which means they have a tendency to break down with little or no provocation."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.35,
+   "azure-gemma": 0.37,
+   "mai-gemma": 1.31
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 7,
+  "lo": "अस्पताल ने संक्रमण नियंत्रण के लिए नियमों का पालन किया है, इन नियमों में दूसरों के संभावित संक्रमण को रोकने के लिए रोगी को दूसरों से अलग करना शामिल है।",
+  "ref": "The hospital has followed protocol for infection control, including separating the patient from others to prevent possible infection of others.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Rules are followed to control infections in hospitals. These rules include isolating the patient to prevent potential infection to others.",
+   "azure-gemma": "Rules are followed to control infections in the hospital. In these rules. it includes isolating the patient to prevent potential infection to others.",
+   "mai-gemma": "Rules are followed to control infections in hospitals. These rules include isolating the patient to prevent potential infection to others."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.7,
+   "azure-gemma": 0.75,
+   "mai-gemma": 0.84
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 8,
+  "lo": "टुकड़ियों के पहुँचने से पहले, 1800 के दशक से हैती का कभी-भी बीमारियों से जुड़ी समस्याओं से सामना नहीं हुआ था.",
+  "ref": "Prior to the arrival of troops, Haiti had not encountered problems related to the disease since the 1800s.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Before the arrival of the detachments, Haiti had never faced disease-related problems since the 1800s.",
+   "azure-gemma": "Since the 1800s, before the arrival of the detachments, Haiti had never faced problems related to diseases.",
+   "mai-gemma": "Before the arrival of the detachments, since the 1800s, Haiti had never faced problems related to diseases."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.86,
+   "azure-gemma": 0.83,
+   "mai-gemma": 1.1
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 9,
+  "lo": "सुंदरबन को यूनेस्को द्वारा विश्व धरोहर घोषित किया है। जंगल का वह हिस्सा जो भारत में है उसको सुंदरबन नेशनल पार्क कहा जाता है।",
+  "ref": "The Sundarbans has been declared a UNESCO World Heritage Site. The part of the forest within Indian territory is called Sundarbans National Park.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "The Sundarbans have been declared a World Heritage site by UNESCO. The part of the forest that is in India is called the Sundarbans National Park.",
+   "azure-gemma": "The Sundarbans have been declared a World Heritage site by UNESCO. The part of the forest that is in India is called the Sundarbans National Park.",
+   "mai-gemma": "The Sundarbans have been declared a World Heritage site by UNESCO. The part of the forest that is in India is called the Sundarbans National Park."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.73,
+   "azure-gemma": 0.76,
+   "mai-gemma": 0.99
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 10,
+  "lo": "जियानकार्लो फिशिचेला ने अपनी कार पर नियंत्रण खो दिया और शुरू करने के कुछ समय बाद ही दौड़ समाप्त कर दी.",
+  "ref": "Giancarlo Fisichella lost control of his car and ended the race very soon after the start.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Giancarlo Fisichella lost control of his car and ended his race shortly after starting.",
+   "azure-gemma": "Yes, Carlo Fisichella lost control of his car and ended the race shortly after starting.",
+   "mai-gemma": "Giancarlo Fisichella lost control of his car and ended his race shortly after starting."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.89,
+   "azure-gemma": 0.63,
+   "mai-gemma": 1.02
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 11,
+  "lo": "किया गया अधिकांश काम सैद्धांतिक था, लेकिन सैजिटेरियस गैलेक्सी से बने ऑब्ज़र्वेशन को सिम्युलेट करने के लिए प्रोग्राम को लिखा गया था.",
+  "ref": "The work done was mostly theoretical, but the program was written to simulate observations made of the Sagittarius galaxy.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Most of the work done was theoretical, but the program was written to simulate observations made from the Sagittarius galaxy.",
+   "azure-gemma": "It was done. Most of the work was theoretical, but the program was written to simulate observations made from the Sagittarius galaxy.",
+   "mai-gemma": "Most of the work done was theoretical, but the program was written to simulate observations made from the Sagittarius galaxy."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.88,
+   "azure-gemma": 1.07,
+   "mai-gemma": 0.94
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 12,
+  "lo": "आप गोमा के आस-पास घूमने के लिए बोडा-बोडा (मोटरसाइकिल टैक्सी) ले सकते हैं. छोटी सैर के लिए आम तौर पर (स्थानीय) किराया करीब 500 कांगोलीज़ फ़्रैंक लगता है.",
+  "ref": "You can use boda-boda (motorcycle taxi) to get around Goma. The normal (local) price is ~500 Congolese Francs for the short ride.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "You can take a boda-boda motorcycle taxi to get around Goma. For a short trip across town, the local fare is usually around 500 Congolese francs.",
+   "azure-gemma": "You can take a boda boda motorcycle taxi to get around Goma. For a short trip across town, the local fare is usually around 500 Congolese francs.",
+   "mai-gemma": "You can take a boda-boda motorcycle taxi to get around Goma. For a short trip around town, the local fare is usually around 500 Congolese francs."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.17,
+   "azure-gemma": -0.49,
+   "mai-gemma": 0.14
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 13,
+  "lo": "उनके पैरों में पपड़ियाँ और पंजे हैं, वे अंडे देते हैं, और वे किसी टी-रेक्स की तरह अपने दो पीछे वाले पैरों पर चलते हैं.",
+  "ref": "They have feet with scales and claws, they lay eggs, and they walk on their two back legs like a T-Rex.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "They have scales and claws on their feet, they lay eggs, and they walk on their two hind legs like a T-Rex.",
+   "azure-gemma": "They have scales and claws on their feet. They lay eggs and walk on their two hind legs, like a T-Rex.",
+   "mai-gemma": "They have scales and claws on their feet. They lay eggs and walk on their two hind legs, like a T-Rex."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 2.43,
+   "azure-gemma": 0.9,
+   "mai-gemma": 1.25
+  },
+  "grades": {
+   "1": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 14,
+  "lo": "अस्पताल में काम करते हुए, लिगिन्स ने अपने खाली समय के दौरान समय से पहले प्रसव की जाँच शुरू कर दी.",
+  "ref": "While he was working at the hospital Liggins began to investigate premature labor during his spare time.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "While working at the hospital, Liggins began investigating premature births during his free time.",
+   "azure-gemma": "While working at the hospital, Leggins began researching premature births during his free time.",
+   "mai-gemma": "While working at the hospital, Liggins began investigating premature births during his spare time."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.81,
+   "azure-gemma": 0.76,
+   "mai-gemma": 1.0
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 15,
+  "lo": "कैल्शियम और पोटैशियम जैसे तत्वों को धातु माना जाता है। बेशक, चांदी और सोने जैसी धातुएं भी हैं।",
+  "ref": "Elements like calcium and potassium are considered metals. Of course, there are also metals like silver and gold.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Elements such as calcium and potassium are considered metals; of course, there are also metals like silver and gold.",
+   "azure-gemma": "Elements such as calcium and potassium are considered metals. Of course, there are also metals like silver and gold.",
+   "mai-gemma": "Elements such as calcium and potassium are considered metals; of course, there are also metals like silver and gold."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.75,
+   "azure-gemma": 0.61,
+   "mai-gemma": 1.09
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 16,
+  "lo": "अंत में, कई ऐसी छोटी बिल्लियाँ (लूज़ पेट कैट्स सहित) हैं जो कीट, रोडंट्स, छिपकलियों और पक्षियों जैसे कई छोटे जीवों को खाती हैं.",
+  "ref": "Finally, there are many small cats (including loose pet cats) that eat the far more numerous small prey like insects, rodents, lizards, and birds.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Finally, there are many such small cats (including lynx, bobcats) that eat many small creatures such as insects, rodents, lizards, and birds.",
+   "azure-gemma": "Finally, there are many such small categories, including loose pet cats. which eat many small creatures such as insects, rodents, lizards, and birds.",
+   "mai-gemma": "Finally, there are many such small cats, including loose pet cats that eat many small creatures such as insects, rodents, lizards, and birds."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.55,
+   "azure-gemma": 0.23,
+   "mai-gemma": 0.75
+  },
+  "grades": {
+   "1": {
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 17,
+  "lo": "सबसे पहले, अधिकांश सवार हील और एक चिकनी, काफी पतले तले वाले राइडिंग बूट्स पहनते हैं।",
+  "ref": "First, most riders wear riding boots with a heel and a smooth, quite narrow, sole.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "First of all, a professional rider wears a special riding helmet and tight-fitting, thin-soled riding boots.",
+   "azure-gemma": "First of all, more of the... (unclear) and quite a bit in one thing. Let's ask for their thank you ID.",
+   "mai-gemma": "First of all, they have very thin stems and act as climbing roots."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 8.4,
+   "azure-gemma": 0.18,
+   "mai-gemma": 1.01
+  },
+  "grades": {
+   "1": {
+    "azure-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 0,
+     "critical": false
+    }
+   },
+   "2": {
+    "chirp-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "mai-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 0,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 18,
+  "lo": "इसलिए, यह माना जा रहा है कि नोटेशन को सिर्फ़ एक लेबल के रूप में जोड़ा गया था.",
+  "ref": "So, it is likely that the notation was added simply as a label.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "",
+   "azure-gemma": "Therefore, it is believed that the notation was added only as a single level.",
+   "mai-gemma": "Therefore, it is believed that the notation was added only as a label."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": null,
+   "azure-gemma": 0.55,
+   "mai-gemma": 0.99
+  },
+  "grades": {
+   "1": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 0,
+     "critical": false
+    }
+   },
+   "2": {
+    "mai-gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "lang": "hi",
+  "pat": "hi",
+  "i": 19,
+  "lo": "रूमानियत में सांस्कृतिक नियतिवाद का बड़ा तत्व था, जो गोएथे, फिच्ते और श्लेगल जैसे लेखकों से लिया गया.",
+  "ref": "Romanticism had a large element of cultural determinism, drawn from writers such as Goethe, Fichte, and Schlegel.",
+  "arms": [
+   "chirp-gemma",
+   "azure-gemma",
+   "mai-gemma"
+  ],
+  "answers": {
+   "chirp-gemma": "Cultural determinism had great importance in humanity. which was derived from writers such as Goethe, Fichte, and Schlegel.",
+   "azure-gemma": "had great importance. whatever they were.",
+   "mai-gemma": "Cultural determinism had great importance in Romanticism. which was derived from writers like Goethe, Fichte, and Schelling."
+  },
+  "ready_after_end_s": {
+   "chirp-gemma": 1.77,
+   "azure-gemma": -4.25,
+   "mai-gemma": 1.08
+  },
+  "grades": {
+   "1": {
+    "azure-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "mai-gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "mai-gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure-gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "chirp-gemma": {
+     "score": 1,
+     "critical": true
+    }
+   }
+  }
+ }
+]

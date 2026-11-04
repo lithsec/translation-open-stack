@@ -1,0 +1,1250 @@
+[
+ {
+  "speech": "20180117-0900-PLENARY-6-en_20180117-12:05:57",
+  "at": 1,
+  "spoken": [
+   "Señor Presidente, debo comenzar agradeciendo al Taoiseach por su esfuerzo continuo."
+  ],
+  "run": [
+   {
+    "text": "y su compromiso para preservar el proceso de paz",
+    "ends": "cut"
+   },
+   {
+    "text": "y para evitar la formación de barreras dentro de la isla de Irlanda a raíz de la decisión del Reino Unido de retirarse de la Unión.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Sin embargo, Taoiseach, no comparto su ideología en otros aspectos.",
+  "continues": true,
+  "endsCut": false,
+  "original": "y su compromiso para preservar el proceso de paz y para evitar la formación de barreras dentro de la isla de Irlanda a raíz de la decisión del Reino Unido de retirarse de la Unión.",
+  "A": {
+   "text": "y su compromiso para preservar el proceso de paz y evitar barreras en la isla de Irlanda tras la decisión del Reino Unido de retirarse de la Unión.",
+   "ms": 430,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "y su compromiso para preservar el proceso de paz y evitar barreras en la isla de Irlanda tras la decisión del Reino Unido de retirarse de la Unión.",
+   "ms": 908,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180117-0900-PLENARY-6-en_20180117-12:05:57",
+  "at": 4,
+  "spoken": [
+   "y para evitar la formación de barreras dentro de la isla de Irlanda a raíz de la decisión del Reino Unido de retirarse de la Unión.",
+   "Sin embargo, Taoiseach, no comparto su ideología en otros aspectos."
+  ],
+  "run": [
+   {
+    "text": "por lo que también debo seguir con una petición a u",
+    "ends": "cut"
+   },
+   {
+    "text": "sted, como Taoiseach de Irlanda y como miembro de la fuerza política europea cuyo mundo",
+    "ends": "cut"
+   }
+  ],
+  "next": "visión y poder ha moldeado más considerablemente tanto el surgimiento de la financiera",
+  "continues": true,
+  "endsCut": true,
+  "original": "por lo que también debo seguir con una petición a u sted, como Taoiseach de Irlanda y como miembro de la fuerza política europea cuyo mundo",
+  "A": {
+   "text": "por lo que debo pedirle, como Taoiseach de Irlanda y miembro de la fuerza política europea cuyo mundo",
+   "ms": 327,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "por lo que debo pedirle, como Taoiseach de Irlanda y miembro de la fuerza política europea cuyo mundo",
+   "ms": 366,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180117-0900-PLENARY-6-en_20180117-12:05:57",
+  "at": 7,
+  "spoken": [
+   "sted, como Taoiseach de Irlanda y como miembro de la fuerza política europea cuyo mundo",
+   "visión y poder ha moldeado más considerablemente tanto el surgimiento de la financiera"
+  ],
+  "run": [
+   {
+    "text": "y la crisis económica de hace una década, como las medidas adoptadas en respuesta a ella desde entonces.",
+    "ends": "sentence"
+   },
+   {
+    "text": "Esa súplica es que trabajen para reparar el desgastado contrato social que unió a nuestras comunidades a nivel nacional y europeo.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Al igual que el conflicto en el norte de Irlanda ocultó la desigualdad",
+  "continues": true,
+  "endsCut": false,
+  "original": "y la crisis económica de hace una década, como las medidas adoptadas en respuesta a ella desde entonces. Esa súplica es que trabajen para reparar el desgastado contrato social que unió a nuestras comunidades a nivel nacional y europeo.",
+  "A": {
+   "text": "y la crisis económica de hace una década, así como las medidas adoptadas en respuesta. Le pido que trabajen para reparar el desgastado contrato social que unió a nuestras comunidades nacional y europeamente.",
+   "ms": 523,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "y la crisis económica de hace una década, así como las medidas adoptadas en respuesta. Le pido que trabajen para reparar el desgastado contrato social que unió a nuestras comunidades nacional y europeamente.",
+   "ms": 601,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180117-0900-PLENARY-6-en_20180117-12:05:57",
+  "at": 10,
+  "spoken": [
+   "Esa súplica es que trabajen para reparar el desgastado contrato social que unió a nuestras comunidades a nivel nacional y europeo.",
+   "Al igual que el conflicto en el norte de Irlanda ocultó la desigualdad"
+  ],
+  "run": [
+   {
+    "text": "y la privación de derechos básicos bajo un manto de odio etnorreligioso,",
+    "ends": "cut"
+   },
+   {
+    "text": "así hoy la marcha de ciudadanos desilusionados extrae mucha energía de los perdedores de la globalización",
+    "ends": "cut"
+   }
+  ],
+  "next": "y de los perdedores de nuestra respuesta a una crisis de la globalización.",
+  "continues": true,
+  "endsCut": true,
+  "original": "y la privación de derechos básicos bajo un manto de odio etnorreligioso, así hoy la marcha de ciudadanos desilusionados extrae mucha energía de los perdedores de la globalización",
+  "A": {
+   "text": "y la privación de derechos básicos bajo el odio etnorreligioso, así hoy la marcha de ciudadanos desilusionados extrae energía de los perdedores de la globalización",
+   "ms": 468,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "y la privación de derechos básicos bajo un manto de odio etnorreligioso, así hoy la marcha de ciudadanos desilusionados extrae energía de los perdedores de la globalización",
+   "ms": 486,
+   "verdict": "notShorter",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180117-0900-PLENARY-6-en_20180117-12:05:57",
+  "at": 13,
+  "spoken": [
+   "así hoy la marcha de ciudadanos desilusionados extrae mucha energía de los perdedores de la globalización",
+   "y de los perdedores de nuestra respuesta a una crisis de la globalización."
+  ],
+  "run": [
+   {
+    "text": "Salvamos a las finanzas y luchamos por volver al status quo ante en una transferencia de riqueza sin precedentes,",
+    "ends": "cut"
+   },
+   {
+    "text": "y coincido con la opinión del Sr. Kofod sobre nuestro régimen de tributación corporativa.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Una tributación justa, incluso una mínima tributación en algunos casos, podría simplemente ayudarnos a hacer lo que ya he sugerido y,",
+  "continues": false,
+  "endsCut": false,
+  "original": "Salvamos a las finanzas y luchamos por volver al status quo ante en una transferencia de riqueza sin precedentes, y coincido con la opinión del Sr. Kofod sobre nuestro régimen de tributación corporativa.",
+  "A": {
+   "text": "Salvamos las finanzas para volver al status quo en una transferencia de riqueza sin precedentes, y coincido con el Sr. Kofod sobre nuestro régimen de tributación corporativa.",
+   "ms": 432,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "Salvamos las finanzas para volver al status quo en una transferencia de riqueza sin precedentes, y coincido con el Sr. Kofod sobre nuestro régimen de tributación corporativa.",
+   "ms": 575,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20200914-0900-PLENARY-en_20200914-20:35:21",
+  "at": 1,
+  "spoken": [
+   "En mi primera intervención en el Parlamento Europeo el pasado septiembre,"
+  ],
+  "run": [
+   {
+    "text": "hablé sobre la importancia de mecanismos como el Centro de Coordinación para la Gestión de Crisis",
+    "ends": "cut"
+   },
+   {
+    "text": "y la reserva europea de capacidad de rescEU para la respuesta a crisis.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Tales desastres y crisis no pueden resolverse sin cooperación y basándose únicamente en las capacidades nacionales.",
+  "continues": true,
+  "endsCut": false,
+  "original": "hablé sobre la importancia de mecanismos como el Centro de Coordinación para la Gestión de Crisis y la reserva europea de capacidad de rescEU para la respuesta a crisis.",
+  "A": {
+   "text": "hablé sobre la importancia del Centro de Coordinación para la Gestión de Crisis y la reserva europea de capacidad rescEU para la respuesta a crisis.",
+   "ms": 567,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "hablé sobre la importancia del Centro de Coordinación para la Gestión de Crisis y la reserva europea de capacidad rescEU para la respuesta a crisis.",
+   "ms": 370,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20200914-0900-PLENARY-en_20200914-20:35:21",
+  "at": 4,
+  "spoken": [
+   "y la reserva europea de capacidad de rescEU para la respuesta a crisis.",
+   "Tales desastres y crisis no pueden resolverse sin cooperación y basándose únicamente en las capacidades nacionales."
+  ],
+  "run": [
+   {
+    "text": "Los Estados miembros, especialmente los más pequeños, no pueden permitirse mantener una alta preparación",
+    "ends": "cut"
+   },
+   {
+    "text": "y grandes reservas en tiempos de crisis.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "En muchos Estados miembros, incluida Eslovenia, la protección contra desastres natur",
+  "continues": false,
+  "endsCut": false,
+  "original": "Los Estados miembros, especialmente los más pequeños, no pueden permitirse mantener una alta preparación y grandes reservas en tiempos de crisis.",
+  "A": {
+   "text": "Los Estados miembros, especialmente los más pequeños, no pueden permitirse mantener una alta preparación y grandes reservas en tiempos de crisis.",
+   "ms": 359,
+   "verdict": "notShorter",
+   "error": null
+  },
+  "B": {
+   "text": "Los Estados miembros, especialmente los más pequeños, no pueden permitirse mantener una alta preparación y grandes reservas en tiempos de crisis.",
+   "ms": 317,
+   "verdict": "notShorter",
+   "error": null
+  }
+ },
+ {
+  "speech": "20200914-0900-PLENARY-en_20200914-20:35:21",
+  "at": 7,
+  "spoken": [
+   "y grandes reservas en tiempos de crisis.",
+   "En muchos Estados miembros, incluida Eslovenia, la protección contra desastres natur"
+  ],
+  "run": [
+   {
+    "text": "ales y otros desastres sigue dependiendo fuertemente de los voluntarios.",
+    "ends": "sentence"
+   },
+   {
+    "text": "La solidaridad y el voluntariado son valores que yo, como socialdemócrata y como ser humano, apoyo firmemente.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Sinceramente agradezco y extiendo mi gratitud a todos los que ayudan desinteresadamente a sus semejantes y a las comunidades.",
+  "continues": true,
+  "endsCut": false,
+  "original": "ales y otros desastres sigue dependiendo fuertemente de los voluntarios. La solidaridad y el voluntariado son valores que yo, como socialdemócrata y como ser humano, apoyo firmemente.",
+  "A": {
+   "text": "ales y otros desastres sigue dependiendo fuertemente de los voluntarios. Apoyo firmemente la solidaridad y el voluntariado, como socialdemócrata y ser humano.",
+   "ms": 458,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "ales y otros desastres sigue dependiendo fuertemente de los voluntarios. La solidaridad y el voluntariado son valores que apoyo firmemente como socialdemócrata y ser humano.",
+   "ms": 467,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20200914-0900-PLENARY-en_20200914-20:35:21",
+  "at": 10,
+  "spoken": [
+   "La solidaridad y el voluntariado son valores que yo, como socialdemócrata y como ser humano, apoyo firmemente.",
+   "Sinceramente agradezco y extiendo mi gratitud a todos los que ayudan desinteresadamente a sus semejantes y a las comunidades."
+  ],
+  "run": [
+   {
+    "text": "Pero los voluntarios no pueden, y no deben, cargar con el peso de las grandes crisis globales.",
+    "ends": "sentence"
+   },
+   {
+    "text": "Una de las mayores decepciones en esta crisis sigue siendo el comportamiento descoordinado y, a veces, también muy egoísta de los Estados miembros.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "En este caos, la Comisión Europea, dentro de su competencia",
+  "continues": false,
+  "endsCut": false,
+  "original": "Pero los voluntarios no pueden, y no deben, cargar con el peso de las grandes crisis globales. Una de las mayores decepciones en esta crisis sigue siendo el comportamiento descoordinado y, a veces, también muy egoísta de los Estados miembros.",
+  "A": {
+   "text": "Pero los voluntarios no pueden ni deben cargar con el peso de las grandes crisis globales. Una de las mayores decepciones sigue siendo el comportamiento descoordinado y a veces egoísta de los Estados miembros.",
+   "ms": 417,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "Pero los voluntarios no pueden ni deben cargar con el peso de las grandes crisis globales. Una de las mayores decepciones sigue siendo el comportamiento descoordinado y a veces egoísta de los Estados miembros.",
+   "ms": 529,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180205-0900-PLENARY-16-en_20180205-20:23:20",
+  "at": 1,
+  "spoken": [
+   "Una de las razones principales es precisamente la práctica del bloqueo geográfico."
+  ],
+  "run": [
+   {
+    "text": "y tenemos que deshacernos de esto.",
+    "ends": "sentence"
+   },
+   {
+    "text": "Los ciudadanos de la UE tienen derecho a poder comprar en línea en otro país de la UE al igual que los residentes locales.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Esa es la idea central detrás del mercado único digital en el que hemos estado trabajando en el Parlamento Europeo.",
+  "continues": true,
+  "endsCut": false,
+  "original": "y tenemos que deshacernos de esto. Los ciudadanos de la UE tienen derecho a poder comprar en línea en otro país de la UE al igual que los residentes locales.",
+  "A": {
+   "text": "y debemos eliminarlo. Los ciudadanos de la UE tienen derecho a comprar en línea en otro país de la Unión igual que los residentes locales.",
+   "ms": 420,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "y debemos eliminarlo. Los ciudadanos de la UE tienen derecho a comprar en línea en otro país de la UE como los residentes locales.",
+   "ms": 455,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180205-0900-PLENARY-16-en_20180205-20:23:20",
+  "at": 4,
+  "spoken": [
+   "Los ciudadanos de la UE tienen derecho a poder comprar en línea en otro país de la UE al igual que los residentes locales.",
+   "Esa es la idea central detrás del mercado único digital en el que hemos estado trabajando en el Parlamento Europeo."
+  ],
+  "run": [
+   {
+    "text": "Me gustaría agradecer a la ponente del PPE, la Sra. Róża Thun, por su compromi",
+    "ends": "cut"
+   },
+   {
+    "text": "so y el gran trabajo realizado durante el proceso de negociación con la Comisión</speech>",
+    "ends": "cut"
+   }
+  ],
+  "next": "y el Consejo durante la Presidencia estonia.",
+  "continues": false,
+  "endsCut": true,
+  "original": "Me gustaría agradecer a la ponente del PPE, la Sra. Róża Thun, por su compromi so y el gran trabajo realizado durante el proceso de negociación con la Comisión</speech>",
+  "A": {
+   "text": "Agradezco a la ponente del PPE, la Sra. Róża Thun, por su compromiso y el gran trabajo en la negociación con la Comisión",
+   "ms": 430,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "Agradezco a la ponente del PPE, la Sra. Róża Thun, por su compromiso y el gran trabajo en la negociación con la Comisión",
+   "ms": 466,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180205-0900-PLENARY-16-en_20180205-20:23:20",
+  "at": 7,
+  "spoken": [
+   "so y el gran trabajo realizado durante el proceso de negociación con la Comisión</speech>",
+   "y el Consejo durante la Presidencia estonia."
+  ],
+  "run": [
+   {
+    "text": "El acuerdo entre el Consejo",
+    "ends": "cut"
+   },
+   {
+    "text": "y el Parlamento eliminará las barreras al comercio electrónico evitando la discriminación basada en la nacionalidad del consumidor,",
+    "ends": "cut"
+   }
+  ],
+  "next": "el lugar de residencia o el lugar de establecimiento.",
+  "continues": false,
+  "endsCut": true,
+  "original": "El acuerdo entre el Consejo y el Parlamento eliminará las barreras al comercio electrónico evitando la discriminación basada en la nacionalidad del consumidor,",
+  "A": {
+   "text": "El acuerdo entre el Consejo y el Parlamento eliminará las barreras al comercio electrónico evitando la discriminación por nacionalidad del consumidor,",
+   "ms": 375,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "El acuerdo entre el Consejo y el Parlamento eliminará las barreras al comercio electrónico evitando la discriminación por la nacionalidad del consumidor,",
+   "ms": 393,
+   "verdict": "notShorter",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180205-0900-PLENARY-16-en_20180205-20:23:20",
+  "at": 10,
+  "spoken": [
+   "y el Parlamento eliminará las barreras al comercio electrónico evitando la discriminación basada en la nacionalidad del consumidor,",
+   "el lugar de residencia o el lugar de establecimiento."
+  ],
+  "run": [
+   {
+    "text": "Evitará la discriminación de consumidores y empresas basada en el acceso a los precios,",
+    "ends": "cut"
+   },
+   {
+    "text": "ventas o condiciones de pago al comprar productos y servicios en otro país de la UE.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Los consumidores de la UE se beneficiarán ahora de mejores precios al comprar en línea,",
+  "continues": false,
+  "endsCut": false,
+  "original": "Evitará la discriminación de consumidores y empresas basada en el acceso a los precios, ventas o condiciones de pago al comprar productos y servicios en otro país de la UE.",
+  "A": {
+   "text": "Evitará la discriminación de consumidores y empresas en precios, ventas o condiciones de pago al comprar productos y servicios en otro país de la UE.",
+   "ms": 307,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "Evitará la discriminación de consumidores y empresas en precios, ventas o condiciones de pago al comprar productos y servicios en otro país de la UE.",
+   "ms": 398,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20131023-0900-PLENARY-11-en_20131023-16:42:58",
+  "at": 1,
+  "spoken": [
+   "Incluso el propio gobierno del Reino Unido"
+  ],
+  "run": [
+   {
+    "text": "la llamada Revisión del Equilibrio de Competencias muestra que las competencias en materia de política exterior siguen recayendo plenamente en los Estados miembros",
+    "ends": "cut"
+   },
+   {
+    "text": "y que la mayor parte de las pruebas sostienen firmemente que es interés del Reino Unido trabajar a través de la UE.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Sin embargo, es su ideología la que los lleva a ignorar sus propias pruebas.",
+  "continues": true,
+  "endsCut": false,
+  "original": "la llamada Revisión del Equilibrio de Competencias muestra que las competencias en materia de política exterior siguen recayendo plenamente en los Estados miembros y que la mayor parte de las pruebas sostienen firmemente que es interés del Reino Unido trabajar a través de la UE.",
+  "A": {
+   "text": "la Revisión del Equilibrio de Competencias muestra que las competencias de política exterior recaen plenamente en los Estados miembros y que la mayoría de las pruebas sostienen que es interés del Reino Unido trabajar a través de la UE.",
+   "ms": 720,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "la Revisión del Equilibrio de Competencias muestra que las competencias de política exterior recaen plenamente en los Estados miembros y que la mayoría de las pruebas sostienen que es interés del Reino Unido trabajar a través de la UE.",
+   "ms": 498,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20131023-0900-PLENARY-11-en_20131023-16:42:58",
+  "at": 4,
+  "spoken": [
+   "y que la mayor parte de las pruebas sostienen firmemente que es interés del Reino Unido trabajar a través de la UE.",
+   "Sin embargo, es su ideología la que los lleva a ignorar sus propias pruebas."
+  ],
+  "run": [
+   {
+    "text": "El balance de la política exterior europea de este año ya ha demostrado que el Gobierno británico está dispuesto a renunciar al liderazgo en seis de las 19 áreas de la política exterior europea,",
+    "ends": "cut"
+   },
+   {
+    "text": "a pesar de la conclusión general de que en solo una, durante el último año,",
+    "ends": "cut"
+   }
+  ],
+  "next": "ha habido siquiera una divergencia menor entre los objetivos de la UE y el Reino Unido.",
+  "continues": false,
+  "endsCut": true,
+  "original": "El balance de la política exterior europea de este año ya ha demostrado que el Gobierno británico está dispuesto a renunciar al liderazgo en seis de las 19 áreas de la política exterior europea, a pesar de la conclusión general de que en solo una, durante el último año,",
+  "A": {
+   "text": "El balance de la política exterior europea de este año demuestra que el Gobierno británico está dispuesto a renunciar al liderazgo en seis de las 19 áreas, a pesar de que en solo una, durante el último año,",
+   "ms": 496,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "El balance de la política exterior europea de este año ya demostró que el Gobierno británico está dispuesto a renunciar al liderazgo en seis de las 19 áreas, a pesar de que en solo una, durante el último año,",
+   "ms": 683,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20131023-0900-PLENARY-11-en_20131023-16:42:58",
+  "at": 7,
+  "spoken": [
+   "a pesar de la conclusión general de que en solo una, durante el último año,",
+   "ha habido siquiera una divergencia menor entre los objetivos de la UE y el Reino Unido."
+  ],
+  "run": [
+   {
+    "text": "En este debate, lo que importan son los méritos individuales de nuestra Alta Representante, no su nacionalidad",
+    "ends": "cut"
+   },
+   {
+    "text": "que nos permiten celebrar lo que considero que son éxitos de la política exterior, la mediación entre los serbios",
+    "ends": "cut"
+   }
+  ],
+  "next": "y Kosovo, el fomento de las reformas en Birmania, el liderazgo de la diplomacia, enormemente importante, sobre el programa nuclear de Irán",
+  "continues": false,
+  "endsCut": true,
+  "original": "En este debate, lo que importan son los méritos individuales de nuestra Alta Representante, no su nacionalidad que nos permiten celebrar lo que considero que son éxitos de la política exterior, la mediación entre los serbios",
+  "A": {
+   "text": "En este debate importan los méritos individuales de nuestra Alta Representante, no su nacionalidad, que permiten celebrar éxitos de la política exterior, como la mediación entre los serbios",
+   "ms": 508,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "En este debate importan los méritos individuales de nuestra Alta Representante, no su nacionalidad, que permiten celebrar éxitos de la política exterior, como la mediación entre los serbios",
+   "ms": 362,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20131023-0900-PLENARY-11-en_20131023-16:42:58",
+  "at": 10,
+  "spoken": [
+   "que nos permiten celebrar lo que considero que son éxitos de la política exterior, la mediación entre los serbios",
+   "y Kosovo, el fomento de las reformas en Birmania, el liderazgo de la diplomacia, enormemente importante, sobre el programa nuclear de Irán"
+  ],
+  "run": [
+   {
+    "text": "y el combate a la piratería frente al Cuerno de África.",
+    "ends": "sentence"
+   },
+   {
+    "text": "Pero me enorgullece que el Alto Representante también sea británico,",
+    "ends": "cut"
+   }
+  ],
+  "next": "y que su éxito personal demuestre cómo la política exterior británica puede encajar cómodamente en el corazón de la Unión Europea actual.",
+  "continues": true,
+  "endsCut": true,
+  "original": "y el combate a la piratería frente al Cuerno de África. Pero me enorgullece que el Alto Representante también sea británico,",
+  "A": {
+   "text": "y el combate a la piratería en el Cuerno de África. Me enorgullece que el Alto Representante sea también británico,",
+   "ms": 405,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "y el combate a la piratería frente al Cuerno de África. Pero me enorgullece que el Alto Representante sea también británico,",
+   "ms": 493,
+   "verdict": "notShorter",
+   "error": null
+  }
+ },
+ {
+  "speech": "20170518-0900-PLENARY-4-en_20170518-09:56:44",
+  "at": 1,
+  "spoken": [
+   "Tenemos que asegurarnos de que toda la Unión pueda beneficiarse del desarrollo económico."
+  ],
+  "run": [
+   {
+    "text": "y de una transición hacia una sociedad sostenible y la igualdad social, que la política de cohesión ayuda a promover.",
+    "ends": "sentence"
+   },
+   {
+    "text": "Sin embargo, un aspecto clave que creemos que falta son las sinergias entre el Fondo de Cohesión",
+    "ends": "cut"
+   }
+  ],
+  "next": "y los fondos que no son de cohesión, como el Programa Marco para la Investigación y la Innovación",
+  "continues": true,
+  "endsCut": true,
+  "original": "y de una transición hacia una sociedad sostenible y la igualdad social, que la política de cohesión ayuda a promover. Sin embargo, un aspecto clave que creemos que falta son las sinergias entre el Fondo de Cohesión",
+  "A": {
+   "text": "y de una transición hacia una sociedad sostenible e igualdad social, que la política de cohesión promueve. Sin embargo, creemos que falta un aspecto clave: las sinergias entre el Fondo de Cohesión",
+   "ms": 474,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "y de una transición hacia una sociedad sostenible e igualdad social, que la política de cohesión promueve. Sin embargo, creemos que falta un aspecto clave: las sinergias entre el Fondo de Cohesión",
+   "ms": 494,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20170518-0900-PLENARY-4-en_20170518-09:56:44",
+  "at": 4,
+  "spoken": [
+   "Sin embargo, un aspecto clave que creemos que falta son las sinergias entre el Fondo de Cohesión",
+   "y los fondos que no son de cohesión, como el Programa Marco para la Investigación y la Innovación"
+  ],
+  "run": [
+   {
+    "text": ", que es un programa que ayuda a promover proyectos de investigación excelentes en toda Europa",
+    "ends": "cut"
+   },
+   {
+    "text": ", aunque algunas partes de la Unión han tenido algunos desafíos para participar plenamente en este programa.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Un objetivo de la política de cohesión es funcionar como una herramienta para fomentar la excelencia",
+  "continues": true,
+  "endsCut": false,
+  "original": ", que es un programa que ayuda a promover proyectos de investigación excelentes en toda Europa , aunque algunas partes de la Unión han tenido algunos desafíos para participar plenamente en este programa.",
+  "A": {
+   "text": ", que promueve proyectos de investigación excelentes en toda Europa, aunque algunas partes de la Unión han tenido desafíos para participar plenamente en él.",
+   "ms": 336,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": ", que promueve proyectos de investigación excelentes en toda Europa, aunque algunas partes de la Unión han tenido desafíos para participar plenamente en él.",
+   "ms": 394,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20170518-0900-PLENARY-4-en_20170518-09:56:44",
+  "at": 7,
+  "spoken": [
+   ", aunque algunas partes de la Unión han tenido algunos desafíos para participar plenamente en este programa.",
+   "Un objetivo de la política de cohesión es funcionar como una herramienta para fomentar la excelencia"
+  ],
+  "run": [
+   {
+    "text": "para que el fondo regional pueda convertirse en la escalera de la región hacia la excelencia",
+    "ends": "cut"
+   },
+   {
+    "text": "y una mejor participación en el programa de investigación, lo que beneficiaría a toda Europa.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Esto es algo que la Comisión está tratando de promover con una herramienta para las estrategias de especialización inteligente.",
+  "continues": true,
+  "endsCut": false,
+  "original": "para que el fondo regional pueda convertirse en la escalera de la región hacia la excelencia y una mejor participación en el programa de investigación, lo que beneficiaría a toda Europa.",
+  "A": {
+   "text": "para que el fondo regional sea la escalera de la región hacia la excelencia y una mejor participación en el programa de investigación, beneficiando a toda Europa.",
+   "ms": 314,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "para que el fondo regional sea la escalera de la región hacia la excelencia y una mejor participación en el programa de investigación, beneficiando a toda Europa.",
+   "ms": 902,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20170518-0900-PLENARY-4-en_20170518-09:56:44",
+  "at": 10,
+  "spoken": [
+   "y una mejor participación en el programa de investigación, lo que beneficiaría a toda Europa.",
+   "Esto es algo que la Comisión está tratando de promover con una herramienta para las estrategias de especialización inteligente."
+  ],
+  "run": [
+   {
+    "text": "Este es un buen comienzo",
+    "ends": "cut"
+   },
+   {
+    "text": "y hago un llamamiento a todas las partes interesadas involucradas para que mejoren las sinergias en los próximos periodos del programa",
+    "ends": "cut"
+   }
+  ],
+  "next": "para que todo este discurso tan agradable sobre las sinergias pueda convertirse realmente en una realidad.",
+  "continues": false,
+  "endsCut": true,
+  "original": "Este es un buen comienzo y hago un llamamiento a todas las partes interesadas involucradas para que mejoren las sinergias en los próximos periodos del programa",
+  "A": {
+   "text": "Es un buen comienzo y pido a todas las partes interesadas que mejoren las sinergias en los próximos periodos del programa",
+   "ms": 336,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "Es un buen comienzo y pido a todas las partes interesadas que mejoren las sinergias en los próximos periodos del programa",
+   "ms": 328,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180612-0900-PLENARY-13-en_20180612-16:07:56",
+  "at": 1,
+  "spoken": [
+   "Cito a la administración Obama: el Plan de Acción Integral Conjunto no es un tratado ni un acuerdo ejecutivo."
+  ],
+  "run": [
+   {
+    "text": "y no es un documento firmado'.",
+    "ends": "sentence"
+   },
+   {
+    "text": "En los Estados Unidos fue una decisión tomada por una sola persona,",
+    "ends": "cut"
+   }
+  ],
+  "next": "el expresidente de los Estados Unidos",
+  "continues": true,
+  "endsCut": true,
+  "original": "y no es un documento firmado'. En los Estados Unidos fue una decisión tomada por una sola persona,",
+  "A": {
+   "text": "ni un documento firmado. En EE. UU. fue una decisión de una sola persona,",
+   "ms": 306,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "y no un documento firmado. En EE. UU. fue una decisión de una sola persona,",
+   "ms": 472,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180612-0900-PLENARY-13-en_20180612-16:07:56",
+  "at": 4,
+  "spoken": [
+   "En los Estados Unidos fue una decisión tomada por una sola persona,",
+   "el expresidente de los Estados Unidos"
+  ],
+  "run": [
+   {
+    "text": ", contra la mayoría democrática articulada del Congreso de los Estados Unidos por todas sus repúblicas",
+    "ends": "cut"
+   },
+   {
+    "text": "y algunos de sus miembros demócratas.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Fue un acuerdo sin obligaciones vinculantes, como los líderes de Irán muy abiertamente",
+  "continues": true,
+  "endsCut": false,
+  "original": ", contra la mayoría democrática articulada del Congreso de los Estados Unidos por todas sus repúblicas y algunos de sus miembros demócratas.",
+  "A": {
+   "text": ", contra la mayoría democrática del Congreso y algunos de sus miembros demócratas.",
+   "ms": 279,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": ", contra la mayoría democrática del Congreso de los Estados Unidos y algunos de sus miembros demócratas.",
+   "ms": 230,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180612-0900-PLENARY-13-en_20180612-16:07:56",
+  "at": 7,
+  "spoken": [
+   "y algunos de sus miembros demócratas.",
+   "Fue un acuerdo sin obligaciones vinculantes, como los líderes de Irán muy abiertamente"
+  ],
+  "run": [
+   {
+    "text": "y precisamente dejaron claro el mismo día en que se publicó este supuesto acuerdo.",
+    "ends": "sentence"
+   },
+   {
+    "text": "Era un acuerdo que únicamente establecía la voluntad personal",
+    "ends": "cut"
+   }
+  ],
+  "next": "y la confianza política del expresidente de los Estados Unidos en el liderazgo iraní.",
+  "continues": true,
+  "endsCut": true,
+  "original": "y precisamente dejaron claro el mismo día en que se publicó este supuesto acuerdo. Era un acuerdo que únicamente establecía la voluntad personal",
+  "A": {
+   "text": "dejaron claro el día de su publicación. Era un acuerdo que solo establecía la voluntad personal",
+   "ms": 385,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "dejaron claro el día que se publicó este supuesto acuerdo. Era un acuerdo que solo establecía la voluntad personal",
+   "ms": 299,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180612-0900-PLENARY-en_20180612-16:07:56",
+  "at": 1,
+  "spoken": [
+   "Cito a la administración Obama: el Plan de Acción Integral Conjunto no es un tratado ni un acuerdo ejecutivo."
+  ],
+  "run": [
+   {
+    "text": "y no es un documento firmado'.",
+    "ends": "sentence"
+   },
+   {
+    "text": "En los Estados Unidos fue una decisión tomada por una sola persona,",
+    "ends": "cut"
+   }
+  ],
+  "next": "el expresidente de los Estados Unidos",
+  "continues": true,
+  "endsCut": true,
+  "original": "y no es un documento firmado'. En los Estados Unidos fue una decisión tomada por una sola persona,",
+  "A": {
+   "text": "ni un documento firmado. En EE. UU. fue una decisión de una sola persona,",
+   "ms": 329,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "y no un documento firmado. En EE. UU. fue una decisión de una sola persona,",
+   "ms": 299,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180612-0900-PLENARY-en_20180612-16:07:56",
+  "at": 4,
+  "spoken": [
+   "En los Estados Unidos fue una decisión tomada por una sola persona,",
+   "el expresidente de los Estados Unidos"
+  ],
+  "run": [
+   {
+    "text": ", contra la mayoría democrática articulada del Congreso de los Estados Unidos por todas sus repúblicas",
+    "ends": "cut"
+   },
+   {
+    "text": "y algunos de sus miembros demócratas.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Fue un acuerdo sin obligaciones vinculantes, como los líderes de Irán muy abiertamente",
+  "continues": true,
+  "endsCut": false,
+  "original": ", contra la mayoría democrática articulada del Congreso de los Estados Unidos por todas sus repúblicas y algunos de sus miembros demócratas.",
+  "A": {
+   "text": ", contra la mayoría democrática del Congreso y algunos de sus miembros demócratas.",
+   "ms": 353,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": ", contra la mayoría democrática del Congreso de los Estados Unidos y algunos de sus miembros demócratas.",
+   "ms": 342,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20180612-0900-PLENARY-en_20180612-16:07:56",
+  "at": 7,
+  "spoken": [
+   "y algunos de sus miembros demócratas.",
+   "Fue un acuerdo sin obligaciones vinculantes, como los líderes de Irán muy abiertamente"
+  ],
+  "run": [
+   {
+    "text": "y precisamente dejaron claro el mismo día en que se publicó este supuesto acuerdo.",
+    "ends": "sentence"
+   },
+   {
+    "text": "Era un acuerdo que únicamente establecía la voluntad personal",
+    "ends": "cut"
+   }
+  ],
+  "next": "y la confianza política del expresidente de los Estados Unidos en el liderazgo iraní.",
+  "continues": true,
+  "endsCut": true,
+  "original": "y precisamente dejaron claro el mismo día en que se publicó este supuesto acuerdo. Era un acuerdo que únicamente establecía la voluntad personal",
+  "A": {
+   "text": "dejaron claro el día de su publicación. Era un acuerdo que solo establecía la voluntad personal",
+   "ms": 263,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "dejaron claro el día que se publicó este supuesto acuerdo. Era un acuerdo que solo establecía la voluntad personal",
+   "ms": 367,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20170118-0900-PLENARY-20-en_20170118-20:21:34",
+  "at": 1,
+  "spoken": [
+   "De hecho, el FTT tendría un impacto grave en el funcionamiento de los mercados de deuda."
+  ],
+  "run": [
+   {
+    "text": "que son esenciales para el gobierno",
+    "ends": "cut"
+   },
+   {
+    "text": "y las empresas para recaudar fondos, ya que aumentaría tanto sus costos de endeudamiento como sus costos operativos.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "La propuesta de la Comisión no es solo un impuesto a los bancos",
+  "continues": true,
+  "endsCut": false,
+  "original": "que son esenciales para el gobierno y las empresas para recaudar fondos, ya que aumentaría tanto sus costos de endeudamiento como sus costos operativos.",
+  "A": {
+   "text": "esenciales para que gobierno y empresas recauden fondos, al aumentar sus costos de endeudamiento y operativos.",
+   "ms": 258,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "esenciales para que gobierno y empresas recauden fondos, al aumentar sus costos de endeudamiento y operativos.",
+   "ms": 341,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20170118-0900-PLENARY-20-en_20170118-20:21:34",
+  "at": 4,
+  "spoken": [
+   "y las empresas para recaudar fondos, ya que aumentaría tanto sus costos de endeudamiento como sus costos operativos.",
+   "La propuesta de la Comisión no es solo un impuesto a los bancos"
+  ],
+  "run": [
+   {
+    "text": "y no es solo un impuesto a la especulación,",
+    "ends": "cut"
+   },
+   {
+    "text": "sino que impactará en todas las áreas de negocio, ya que se aplicará en cada etapa de una transacción financiera de varios niveles.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Esto tendrá consecuencias perjudiciales para la economía en general, ya que provocará que una gran cantidad de actividad financiera se desplace fuera de las fronteras de la zona del FTT.",
+  "continues": true,
+  "endsCut": false,
+  "original": "y no es solo un impuesto a la especulación, sino que impactará en todas las áreas de negocio, ya que se aplicará en cada etapa de una transacción financiera de varios niveles.",
+  "A": {
+   "text": "ni a la especulación, sino que impactará todas las áreas de negocio al aplicarse en cada etapa de una transacción financiera de varios niveles.",
+   "ms": 415,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "ni a la especulación, sino que impactará todas las áreas de negocio al aplicarse en cada etapa de una transacción financiera de varios niveles.",
+   "ms": 420,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20170118-0900-PLENARY-20-en_20170118-20:21:34",
+  "at": 7,
+  "spoken": [
+   "sino que impactará en todas las áreas de negocio, ya que se aplicará en cada etapa de una transacción financiera de varios niveles.",
+   "Esto tendrá consecuencias perjudiciales para la economía en general, ya que provocará que una gran cantidad de actividad financiera se desplace fuera de las fronteras de la zona del FTT."
+  ],
+  "run": [
+   {
+    "text": "En cuanto a los estados no participantes,",
+    "ends": "cut"
+   },
+   {
+    "text": "el FTT se cobrará no solo en las transacciones que tengan lugar dentro de los 11 países",
+    "ends": "cut"
+   }
+  ],
+  "next": ", sino en cualquier transacción que involucre acciones o bonos emitidos por ellos.",
+  "continues": false,
+  "endsCut": true,
+  "original": "En cuanto a los estados no participantes, el FTT se cobrará no solo en las transacciones que tengan lugar dentro de los 11 países",
+  "A": {
+   "text": "Para los estados no participantes, el FTT se cobrará no solo en transacciones dentro de los 11 países",
+   "ms": 330,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "Para los estados no participantes, el FTT se cobrará no solo en transacciones dentro de los 11 países",
+   "ms": 307,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20130910-0900-PLENARY-9-en_20130910-13:26:25",
+  "at": 1,
+  "spoken": [
+   "Durante las reuniones de comité en las que se debaten los derivados, la infraestructura del mercado o los depositarios centrales de valores"
+  ],
+  "run": [
+   {
+    "text": ", soy la única persona en la sala que podría discutir temas en Wels",
+    "ends": "cut"
+   },
+   {
+    "text": "pero también me siento cómodo debatiendo en inglés.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "Cualquiera de mis electores que esté interesado en estos temas puede leer toda esta información de forma bilingüe en mi sitio web, algo que yo mismo proporciono a través de los gastos de funcionamiento de mi oficina que el PE suministra.",
+  "continues": true,
+  "endsCut": false,
+  "original": ", soy la única persona en la sala que podría discutir temas en Wels pero también me siento cómodo debatiendo en inglés.",
+  "A": {
+   "text": ", soy el único capaz de discutir temas en galés, aunque también me siento cómodo debatiendo en inglés.",
+   "ms": 357,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": ", soy el único que podría discutir temas en wels, pero también me siento cómodo debatiendo en inglés.",
+   "ms": 289,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20130910-0900-PLENARY-9-en_20130910-13:26:25",
+  "at": 4,
+  "spoken": [
+   "pero también me siento cómodo debatiendo en inglés.",
+   "Cualquiera de mis electores que esté interesado en estos temas puede leer toda esta información de forma bilingüe en mi sitio web, algo que yo mismo proporciono a través de los gastos de funcionamiento de mi oficina que el PE suministra."
+  ],
+  "run": [
+   {
+    "text": "Este informe sugiere eficiencias similares donde se utiliza la traducción para los miembros",
+    "ends": "cut"
+   },
+   {
+    "text": "cuando sea necesario para que desempeñen sus funciones,",
+    "ends": "cut"
+   }
+  ],
+  "next": "pero no para plantear cuestiones políticas sobre el uso de la lengua.",
+  "continues": false,
+  "endsCut": true,
+  "original": "Este informe sugiere eficiencias similares donde se utiliza la traducción para los miembros cuando sea necesario para que desempeñen sus funciones,",
+  "A": {
+   "text": "Este informe sugiere eficiencias similares al usar traducción para los miembros cuando sea necesario para desempeñar sus funciones,",
+   "ms": 333,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "Este informe sugiere eficiencias similares al usar traducción para los miembros cuando sea necesario para desempeñar sus funciones,",
+   "ms": 402,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20130910-0900-PLENARY-9-en_20130910-13:26:25",
+  "at": 7,
+  "spoken": [
+   "cuando sea necesario para que desempeñen sus funciones,",
+   "pero no para plantear cuestiones políticas sobre el uso de la lengua."
+  ],
+  "run": [
+   {
+    "text": "Creo sinceramente que los fondos de la UE deberían reservarse para los costes de traducción",
+    "ends": "cut"
+   },
+   {
+    "text": "cuando sean requeridos por miembros específicos para realizar su labor legislativa,",
+    "ends": "cut"
+   }
+  ],
+  "next": "no como algo habitual",
+  "continues": false,
+  "endsCut": true,
+  "original": "Creo sinceramente que los fondos de la UE deberían reservarse para los costes de traducción cuando sean requeridos por miembros específicos para realizar su labor legislativa,",
+  "A": {
+   "text": "Creo que los fondos de la UE deben reservarse para costes de traducción requeridos por miembros específicos para su labor legislativa,",
+   "ms": 543,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "Creo que los fondos de la UE deben reservarse para costes de traducción requeridos por miembros específicos para su labor legislativa,",
+   "ms": 429,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20131022-0900-PLENARY-19-en_20131022-19:58:22",
+  "at": 1,
+  "spoken": [
+   "Pero ni nuestros vecinos orientales ni nosotros deberíamos dormirnos en los laureles."
+  ],
+  "run": [
+   {
+    "text": "Debemos continuar el arduo trabajo hacia las metas que compartimos,",
+    "ends": "cut"
+   },
+   {
+    "text": "y es por eso que Moldavia debe comprometerse más activamente en la reforma política",
+    "ends": "cut"
+   }
+  ],
+  "next": "ma y centrarse en los esfuerzos contra la corrupción, y por qué Georgia debe continuar las reformas de su sistema judicial",
+  "continues": false,
+  "endsCut": true,
+  "original": "Debemos continuar el arduo trabajo hacia las metas que compartimos, y es por eso que Moldavia debe comprometerse más activamente en la reforma política",
+  "A": {
+   "text": "Debemos seguir trabajando por nuestras metas compartidas, por lo que Moldavia debe comprometerse más activamente en la reforma política",
+   "ms": 534,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "Debemos seguir trabajando por nuestras metas compartidas, por lo que Moldavia debe comprometerse más activamente en la reforma política",
+   "ms": 325,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20131022-0900-PLENARY-19-en_20131022-19:58:22",
+  "at": 4,
+  "spoken": [
+   "y es por eso que Moldavia debe comprometerse más activamente en la reforma política",
+   "ma y centrarse en los esfuerzos contra la corrupción, y por qué Georgia debe continuar las reformas de su sistema judicial"
+  ],
+  "run": [
+   {
+    "text": "y su trabajo sobre los derechos de las minorías, y por qué la Unión",
+    "ends": "cut"
+   },
+   {
+    "text": "y, en particular, la Comisión, debería esforzarse por finalizar el texto legal",
+    "ends": "cut"
+   }
+  ],
+  "next": "os para que puedan firmarse lo antes posible",
+  "continues": true,
+  "endsCut": true,
+  "original": "y su trabajo sobre los derechos de las minorías, y por qué la Unión y, en particular, la Comisión, debería esforzarse por finalizar el texto legal",
+  "A": {
+   "text": "y el trabajo sobre los derechos de las minorías, y por qué la Unión y la Comisión deberían esforzarse por finalizar el texto legal",
+   "ms": 1468,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "y el trabajo sobre derechos de minorías, y por qué la Unión, en particular la Comisión, debería esforzarse por finalizar el texto legal",
+   "ms": 392,
+   "verdict": "condensed",
+   "error": null
+  }
+ },
+ {
+  "speech": "20131022-0900-PLENARY-19-en_20131022-19:58:22",
+  "at": 7,
+  "spoken": [
+   "y, en particular, la Comisión, debería esforzarse por finalizar el texto legal",
+   "os para que puedan firmarse lo antes posible"
+  ],
+  "run": [
+   {
+    "text": "y por qué los Estados miembros y el Parlamento deben priorizar los intereses de la gente",
+    "ends": "cut"
+   },
+   {
+    "text": "y no caer en disputas políticas partidistas.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "la presión de Rusia sobre nuestros socios orientales",
+  "continues": true,
+  "endsCut": false,
+  "original": "y por qué los Estados miembros y el Parlamento deben priorizar los intereses de la gente y no caer en disputas políticas partidistas.",
+  "A": {
+   "text": "y por qué los Estados miembros y el Parlamento deben priorizar los intereses de la gente y no caer en disputas políticas partidistas.",
+   "ms": 297,
+   "verdict": "notShorter",
+   "error": null
+  },
+  "B": {
+   "text": "y por qué los Estados miembros y el Parlamento deben priorizar los intereses de la gente y no caer en disputas políticas partidistas.",
+   "ms": 581,
+   "verdict": "notShorter",
+   "error": null
+  }
+ },
+ {
+  "speech": "20131022-0900-PLENARY-19-en_20131022-19:58:22",
+  "at": 10,
+  "spoken": [
+   "y no caer en disputas políticas partidistas.",
+   "la presión de Rusia sobre nuestros socios orientales"
+  ],
+  "run": [
+   {
+    "text": "y ahora sobre uno de nuestros Estados miembros, debe resistirse a toda costa,",
+    "ends": "cut"
+   },
+   {
+    "text": "ya que, como demuestra este proceso, el presidente Putin está en el lado equivocado de la historia.",
+    "ends": "sentence"
+   }
+  ],
+  "next": "la Presidencia de Lituania puede lograr un éxito en esta cumbre,",
+  "continues": true,
+  "endsCut": false,
+  "original": "y ahora sobre uno de nuestros Estados miembros, debe resistirse a toda costa, ya que, como demuestra este proceso, el presidente Putin está en el lado equivocado de la historia.",
+  "A": {
+   "text": "y ahora sobre un Estado miembro, debe resistirse a toda costa, ya que este proceso demuestra que el presidente Putin está en el lado equivocado de la historia.",
+   "ms": 419,
+   "verdict": "condensed",
+   "error": null
+  },
+  "B": {
+   "text": "y ahora sobre un Estado miembro, debe resistirse a toda costa, ya que este proceso demuestra que el presidente Putin está en el lado equivocado de la historia.",
+   "ms": 421,
+   "verdict": "condensed",
+   "error": null
+  }
+ }
+]
