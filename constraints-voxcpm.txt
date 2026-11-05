@@ -4,6 +4,11 @@
 # Its engine is nano-vllm-voxcpm (MIT) with the prebuilt flash-attn wheel for torch
 # 2.8 (pinned by hash in prepare-voices.sh). Refresh like constraints.txt.
 #
-# Being refreshed for nano-vllm-voxcpm: the first build's freeze replaces this.
-# torchcodec 0.7 is the line for torch 2.8 (later ones need a newer torch).
-torchcodec<0.8
+# From the stack-image build of 2026-11-05 (voices/voxcpm-nano-vllm). Everything else
+# comes from the stack's own packages; numpy and scipy are newer here because
+# librosa 1.0 (the stack's, imported by nano-vllm) asks for them. torchcodec 0.7 is
+# the line for torch 2.8 (later ones need a newer torch).
+nano-vllm-voxcpm==2.0.5
+numpy==2.5.4
+scipy==1.18.1
+torchcodec==0.7.0
