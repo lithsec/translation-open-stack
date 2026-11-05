@@ -156,11 +156,11 @@ The key is the voice name, repo or engine; the value says who, when and why
 for ⛔: a review naming one is an error. `COMMERCIAL_ALLOW_UNCLEAR=1` admits
 every ❓ item at once and says so loudly at startup and in `check`.
 
-**Capacity.** VoxCPM2 is one model per GPU that makes one voice at a time,
-and commercial routes ten languages to it (section 3; why VoxCPM2:
-[section 11](#11-replacing-the-non-commercial-voices)). One GPU keeps about
-three listeners in real time on an A100 (RTF 0.28), about two on an RTX PRO
-4500 (RTF 0.46). A commercial stack starts one instance per GPU with room
+**Capacity.** VoxCPM2 is one model per GPU that decodes up to `VOXCPM_BATCH`
+(16) sentences at once (nano-vllm-voxcpm), and commercial routes ten languages
+to it (section 3; why VoxCPM2: [section 11](#11-replacing-the-non-commercial-voices)).
+One GPU keeps many listeners in real time (measured for Live Translation, 2026-11-05: 16 on an L4, 32 on an A100, each card to itself); OpenBMB's own PyTorch package,
+which the stack ran before, kept one per A100. A commercial stack starts one instance per GPU with room
 (`VOXCPM_INSTANCES=auto`), and a sentence that waits more than
 `VOXCPM_QUEUE_S` (2 s) for a free one is spoken by eSpeak NG instead. Khmer,
 Lao and Tagalog have nothing after VoxCPM2 and wait up to `VOXCPM_WAIT_S`
@@ -416,7 +416,7 @@ every version pinned by `constraints.txt` and `constraints-voxcpm.txt`
 | [speechbrain](https://github.com/speechbrain/speechbrain) | Apache 2.0 | ✅ | VoxLingua107. |
 | [omnilingual-asr](https://github.com/facebookresearch/omnilingual-asr) | Apache 2.0 | ✅ | |
 | [fairseq2](https://github.com/facebookresearch/fairseq2) | MIT | ✅ | Omnilingual's runtime. |
-| [voxcpm](https://github.com/OpenBMB/VoxCPM) and its virtualenv (funasr MIT, wetext Apache 2.0, gradio, modelscope, …) | Apache 2.0 | ✅ | Transitive dependencies not individually audited. |
+| [nano-vllm-voxcpm](https://github.com/a710128/nanovllm-voxcpm) (VoxCPM2's engine, in its own virtualenv) | MIT | ✅ | With [flash-attn](https://github.com/Dao-AILab/flash-attention) (BSD-3-Clause), the prebuilt wheel pinned by hash in `scripts/prepare-voices.sh`, and torchcodec (BSD-3-Clause). |
 | [onnxruntime](https://github.com/microsoft/onnxruntime), [spaCy](https://github.com/explosion/spaCy) + [`en_core_web_sm`](https://huggingface.co/spacy/en_core_web_sm) | MIT | ✅ | |
 | torch, torchaudio, numpy, scipy, websockets | BSD-style | ✅ | |
 | Base image [`runpod/pytorch`](https://hub.docker.com/r/runpod/pytorch) | Ubuntu packages + NVIDIA CUDA (NVIDIA's CUDA licence) | ⚠️ | Relevant only if you redistribute the image. |

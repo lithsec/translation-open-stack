@@ -56,9 +56,11 @@ environment (RunPod).
 | `VOXCPM_REV` | `[models.voxcpm]` revision | VoxCPM2 revision; wins over `languages.toml`. |
 | `VOXCPM_LANGS` | from `languages.toml` (`voxcpm = true` for the edition) | Languages VoxCPM2 speaks. |
 | `VOXCPM_INSTANCES` | `auto` (commercial), `1` (nonprofit) | VoxCPM2 services to start: `auto` = one on the main GPU plus one on each other GPU with ≥ 10 GB, a number, or `0` = none. |
-| `VOXCPM_GPUS` | unset | Exactly these GPUs, in order, one instance each (`0,1,1`: two on GPU 1); a number in `VOXCPM_INSTANCES` then takes the first n. |
+| `VOXCPM_GPUS` | unset | Exactly these GPUs, in order, one instance each (`0,1`); a number in `VOXCPM_INSTANCES` then takes the first n. Two on one GPU only split its batch. |
 | `VOXCPM_MAX_INSTANCES` | `4` | Most instances `auto` starts. |
-| `VOXCPM_MAX_INFLIGHT` | `1` | Sentences one instance takes at once. A service makes one voice at a time and answers "busy" rather than queue, so the server does the queueing. |
+| `VOXCPM_BATCH` | `16` | Sentences one instance decodes at once (nano-vllm-voxcpm). It says so on `/health` (`X-Max-Inflight`), the server sends it that many, and it answers "busy" rather than queue past them, so the server does the queueing. |
+| `VOXCPM_MAX_INFLIGHT` | unset | Caps the sentences the server sends each instance; unset, each instance's own `/health` number. |
+| `VOXCPM_KV_BLOCKS`, `VOXCPM_MAX_LEN` | batch × 4096 tokens / 256, `4096` | The instance's fixed cache: nano-vllm's own sizing does not see the other processes on the GPU. |
 | `VOXCPM_QUEUE_S` | `2` | How long a sentence waits for a free instance before the next voice in its chain (eSpeak NG) speaks it. |
 | `VOXCPM_WAIT_S` | `15` | The same for a language with no voice after VoxCPM2 (km lo tl in commercial), before it is text only. |
 | `VOXCPM_RETRY_S` | `15` | An unreachable instance is skipped this long, then tried again. |

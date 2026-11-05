@@ -1945,7 +1945,7 @@ def build_models(D):
         ("Hy-MT2 7B (pinned revision, 4-bit)", "Translation, its 36 languages", "Apache 2.0", "Permissive", "Ahead of a commercial translation API into English (Findings §2); not under the Hunyuan Community Licence at the pinned revision."),
         ("MADLAD-400 7B (int8)", "Translation where Hy-MT2 has no language (ht, lo, sw, ro)", "Apache 2.0", "Permissive", "Wide coverage; weaker than Hy-MT2 where both run."),
         ("Kokoro-82M", "Voices: en es fr it pt ja zh hi", "Apache 2.0", "Permissive", "24 kHz native, ~98× real time on a GPU."),
-        ("VoxCPM2", "Voices: Khmer, Lao, Tagalog (and more in commercial)", "Apache 2.0", "Permissive", "Clearest tested for Khmer and Lao; one voice at a time per GPU."),
+        ("VoxCPM2", "Voices: Khmer, Lao, Tagalog (and more in commercial)", "Apache 2.0", "Permissive", "Clearest tested for Khmer and Lao; batched on one GPU (nano-vllm-voxcpm)."),
         ("Piper voices", "Voices: ~21 languages", "Per voice", "Mixed", "Each voice's training data sets its licence; several are non-commercial or unclear."),
         ("Coqui VITS OpenBible (Haitian Creole)", "Haitian Creole voice, commercial edition", "CC-BY-SA 4.0", "Attribution / share-alike", "Clear; the commercial edition's alternative to MMS."),
         ("Meta MMS-TTS", "Haitian Creole voice (non-profit); fallback for km lo tl", "CC-BY-NC 4.0", "Non-commercial", "Clearest open Haitian Creole voice; never loaded in the commercial edition."),

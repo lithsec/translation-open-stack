@@ -553,14 +553,16 @@ That test spoke continuously, so real rooms go further. The connection limits
 apply first: 30 per access token (`STACK_MAX_PER_CLIENT`, about 7 rooms of 4
 languages) and 60 in all (`STACK_MAX_CONNECTIONS`).
 
-**VoxCPM2 is the part that runs out.** One instance makes one voice at a time
-and keeps about two to three listeners in real time. Non-profit routes only
+**VoxCPM2 is the part that runs out.** One instance per GPU decodes up to
+`VOXCPM_BATCH` (16) sentences at once (nano-vllm-voxcpm), so one GPU keeps many
+listeners in real time (measured for Live Translation, 2026-11-05: 16 on an L4, 32 on an A100, each card to itself). Beside the rest of the stack on one card it has
+less room; it has not been measured there yet. Non-profit routes only
 Khmer, Lao and Tagalog to it; commercial routes ten languages (ko tr ru ar id
 sw vi km lo tl). Each connection's audio is made separately.
 
 `VOXCPM_INSTANCES` sets how many instances run (`auto`, the commercial
 default: one on the main GPU plus one on each other GPU with 10 GB+; `1` in
-nonprofit), and `VOXCPM_GPUS=0,1,1` places them exactly. The queue and wait
+nonprofit), and `VOXCPM_GPUS=0,1` places them exactly. The queue and wait
 times are in the [reference](reference.md#voxcpm2-and-espeak-ng).
 
 When every instance is busy, a sentence waits 2 s for one, then eSpeak NG
