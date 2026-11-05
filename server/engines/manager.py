@@ -431,8 +431,9 @@ class EngineSet:
         if streamer is not None:
             # A streaming voice (VoxCPM2) sends each sentence as it is
             # generated. The streams open lazily, in order, when the sender
-            # reaches them: the service makes one voice at a time, so opening
-            # them all at once would only queue them. The sender iterates each
+            # reaches them: opening them all at once would take a listener's later
+            # sentences into the service's batch ahead of other listeners' first
+            # ones, and they are not needed yet. The sender iterates each
             # on its own thread (server.send_speech), not on `pool`: a stream
             # may wait seconds for a VoxCPM2 slot, and the fallback runs there.
             done = []

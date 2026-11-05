@@ -14,18 +14,18 @@ Enabled with --voxcpm URL[,URL...]; which languages: `voxcpm = true`, or
 audio is sent as it is generated, so Khmer starts ~0.1 s after its text
 instead of 1.5 s.
 
-Capacity. One service makes ONE voice at a time (its model lock; RTF ~0.28
-on an A100, 0.46 on an RTX PRO 4500): a five-second sentence takes ~1.4 s of
-GPU, so one GPU keeps two to three listeners in real time by taking their
-sentences in turn. scripts/run.sh starts one service per GPU it may use
+Capacity. A service decodes a batch of sentences at once (nano-vllm-voxcpm,
+server/voxcpm_service.py: VOXCPM_BATCH, 16) and says how many on /health
+(X-Max-Inflight). scripts/run.sh starts one service per GPU it may use
 (stack_config.voxcpm_plan) and passes every URL. The queue is HERE, not in
 the services:
 
-  - an instance takes --voxcpm-max-inflight sentences at once
-    (VOXCPM_MAX_INFLIGHT, default 1: what the service really runs at once).
-    A higher cap only queues requests inside the service, where the balancer
-    cannot see them, another GPU cannot take them, and a listener who left is
-    still generated for;
+  - an instance takes as many sentences at once as its /health says (a
+    service that does not say, an older one, takes 1); VOXCPM_MAX_INFLIGHT
+    (--voxcpm-max-inflight), when set, overrides that for every instance.
+    More than the service's batch would only queue requests inside it, where
+    the balancer cannot see them, another GPU cannot take them, and a
+    listener who left is still generated for;
   - each sentence goes to the healthy instance with the fewest sentences in
     flight (ties: the one that has served fewest);
   - when every healthy instance is full the sentence waits for the first slot
@@ -59,7 +59,7 @@ from engines import register
 from engines.base import Voice, RATE
 from engines.common import to_pcm16
 
-DEFAULT_MAX_INFLIGHT = 1
+DEFAULT_MAX_INFLIGHT = 1   # an instance whose /health does not say (X-Max-Inflight)
 OVERFLOW_LOG_S = 10.0
 STATS_LOG_S = float(os.environ.get("VOXCPM_STATS_S", "60"))
 
@@ -92,6 +92,7 @@ class Instance:
         self.host, self.port = u.hostname, u.port or 80
         self.name = f"{self.host}:{self.port}"
         self.inflight = 0
+        self.cap = DEFAULT_MAX_INFLIGHT   # from its /health (X-Max-Inflight), or VOXCPM_MAX_INFLIGHT
         self.peak = 0
         self.served = 0
         self.errors = 0
@@ -132,10 +133,14 @@ class VoxCPM(Voice):
         self.url = self.instances[0].url if self.instances else None
         langs = ctx.options.get("voxcpm_langs")
         self.langs = set(langs) if langs else set(ctx.tables.get("VOXCPM_LANGS", set()))
-        self.cap = int(ctx.options.get("voxcpm_max_inflight") or os.environ.get("VOXCPM_MAX_INFLIGHT")
-                       or DEFAULT_MAX_INFLIGHT)
-        if self.cap < 1:
-            raise ValueError(f"VOXCPM_MAX_INFLIGHT must be at least 1 (got {self.cap})")
+        # An explicit cap wins over what the services say they take (None: theirs).
+        forced = ctx.options.get("voxcpm_max_inflight") or os.environ.get("VOXCPM_MAX_INFLIGHT")
+        self.forced_cap = int(forced) if forced else None
+        if self.forced_cap is not None and self.forced_cap < 1:
+            raise ValueError(f"VOXCPM_MAX_INFLIGHT must be at least 1 (got {self.forced_cap})")
+        if self.forced_cap is not None:
+            for inst in self.instances:
+                inst.cap = self.forced_cap
         self.retry_s = float(os.environ.get("VOXCPM_RETRY_S", "15"))
         self.timeout = float(os.environ.get("VOXCPM_TIMEOUT_S", "30"))
         self._clock = clock
@@ -154,20 +159,41 @@ class VoxCPM(Voice):
     def supports(self, lang):
         return bool(self.instances) and lang in self.langs
 
+    def _health(self, inst):
+        """GET /health (raises when it is not up); its X-Max-Inflight sets the
+        instance's cap unless VOXCPM_MAX_INFLIGHT does."""
+        import urllib.request
+        with urllib.request.urlopen(f"{inst.url}/health", timeout=5) as r:
+            r.read()
+            said = r.headers.get("X-Max-Inflight")
+        if self.forced_cap is None:
+            try:
+                n = int(said) if said else DEFAULT_MAX_INFLIGHT
+            except ValueError:
+                n = DEFAULT_MAX_INFLIGHT
+            with self._guard:
+                inst.cap = max(1, n)
+                self._freed.notify_all()
+
+    def caps(self):
+        """What `load` and the stats say: '8' when every instance takes the same, else '8/1'."""
+        cs = sorted({i.cap for i in self.instances}, reverse=True)
+        return "/".join(str(c) for c in cs)
+
     def load(self):
         if not self.instances:
             return
-        import urllib.request
         for inst in self.instances:
             try:
-                urllib.request.urlopen(f"{inst.url}/health", timeout=5).read()
+                self._health(inst)
             except Exception:
                 print(f"[stack] VoxCPM2 instance {inst.name} not up yet — waited for after the other models",
                       flush=True)
                 inst.down_until = self._clock() + self.retry_s
         n = len(self.instances)
         print(f"[stack] VoxCPM2 voices for {sorted(self.langs)} via {n} instance{'s' * (n > 1)} "
-              f"({', '.join(i.name for i in self.instances)}), {self.cap} sentence{'s' * (self.cap > 1)} each at once; "
+              f"({', '.join(i.name for i in self.instances)}), {self.caps()} sentence{'s' * (self.caps() != '1')} each at once"
+              f"{' (VOXCPM_MAX_INFLIGHT)' if self.forced_cap is not None else ''}; "
               f"when all are busy a sentence waits up to {self.queue_s:g}s for a slot ({self.wait_s:g}s with no "
               "voice after VoxCPM2), then goes to the next voice in its chain", flush=True)
         self.available = True
@@ -184,14 +210,13 @@ class VoxCPM(Voice):
         down = [i for i in self.instances if i.down_until > 0]
         if not down:
             return
-        import urllib.request
         deadline = START + float(os.environ.get("VOXCPM_START_WAIT_S", "600"))
         print(f"[stack] waiting for VoxCPM2 ({', '.join(i.name for i in down)})…", flush=True)
         t0 = self._clock()
         while down and time.time() < deadline:
             for inst in list(down):
                 try:
-                    urllib.request.urlopen(f"{inst.url}/health", timeout=5).read()
+                    self._health(inst)
                     inst.down_until = 0.0
                     down.remove(inst)
                 except Exception:
@@ -202,13 +227,13 @@ class VoxCPM(Voice):
                 time.sleep(2)
         up = len(self.instances) - sum(1 for i in self.instances if i.down_until > 0)
         print(f"[stack] VoxCPM2: {up} of {len(self.instances)} instance{'s' * (len(self.instances) > 1)} up "
-              f"({self._clock() - t0:.0f}s waited)" + ("" if up else
+              f"({self._clock() - t0:.0f}s waited), {self.caps()} sentences each at once" + ("" if up else
               " — its languages use the next voice in their chain, or text"), flush=True)
 
     # ------------------------------------------------------------ balancing
 
     def _ready(self, tried, now):
-        return [i for i in self.instances if i not in tried and i.down_until <= now and i.inflight < self.cap]
+        return [i for i in self.instances if i not in tried and i.down_until <= now and i.inflight < i.cap]
 
     def acquire(self, lang="", tried=(), wait=True):
         """Reserve a slot on the least-loaded healthy instance (not in `tried`)
@@ -271,7 +296,7 @@ class VoxCPM(Voice):
             n = sum(self._overflow_pending.values())
             down = sum(1 for i in self.instances if i.down_until > now)
             k = len(self.instances)
-            what = f"all {k} instance{'s' * (k > 1)} at {self.cap} sentences" + (f" or down ({down})" if down else "")
+            what = f"all {k} instance{'s' * (k > 1)} at {self.caps()} sentences" + (f" or down ({down})" if down else "")
             langs = ",".join(f"{g}×{v}" if v > 1 else g for g, v in sorted(self._overflow_pending.items()))
             print(f"[stack] VoxCPM2 busy: {what} — {n} sentence{'s' * (n > 1)} to the next voice ({langs}); "
                   f"{self.overflows} in total", flush=True)
@@ -294,7 +319,8 @@ class VoxCPM(Voice):
         now = self._clock()
         return {"instances": [{"url": i.url, "inflight": i.inflight, "peak": i.peak, "served": i.served,
                                "errors": i.errors, "down": i.down_until > now} for i in self.instances],
-                "overflow": self.overflows, "max_inflight": self.cap}
+                "overflow": self.overflows, "max_inflight": max((i.cap for i in self.instances), default=0),
+                "caps": [i.cap for i in self.instances]}
 
     def _stats_line(self):
         s = self._stats()

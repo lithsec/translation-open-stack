@@ -58,7 +58,7 @@ RUN STRICT=1 bash scripts/install-deps.sh && rm -rf /root/.cache
 ENV VOXCPM_VENV=/opt/venv_voxcpm
 COPY scripts/prepare-voices.sh scripts/
 RUN VOXCPM_VENV_ONLY=1 bash scripts/prepare-voices.sh && rm -rf /root/.cache \
- && /opt/venv_voxcpm/bin/python -c "import voxcpm, soundfile; print('voxcpm ok')"
+ && /opt/venv_voxcpm/bin/python -c "import nanovllm_voxcpm, soundfile; print('nano-vllm-voxcpm ok')"
 
 # Fail the BUILD if anything the server needs is missing, rather than at the
 # moment someone starts speaking. Every import listed has broken this stack at

@@ -558,8 +558,8 @@ def apply_edition(table, ed, reviews=None, unclear_ok=None):
 
 # ------------------------------------------------------------------ VoxCPM2 capacity
 
-# One voxcpm_service.py makes one voice at a time: ~2-3 real-time voices per GPU
-# (RTF 0.28 on an A100). scripts/run.sh starts the instances this plan names,
+# One voxcpm_service.py per GPU decodes a batch of sentences at once (nano-vllm-voxcpm,
+# VOXCPM_BATCH). scripts/run.sh starts the instances this plan names,
 # on ports VOXCPM_PORT (8791), +1, ...; the server balances over all of them
 # (engines/voxcpm.py) and sends what none can take to the next voice.
 VOXCPM_PORT = 8791
@@ -674,10 +674,12 @@ def voxcpm_plan_lines(ed, vox_langs):
     """What `check` says about VoxCPM2's instances (they depend on the GPUs at start)."""
     raw = os.environ.get("VOXCPM_INSTANCES", "")
     mode = raw or ("auto" if ed == "commercial" else "1")
-    cap = os.environ.get("VOXCPM_MAX_INFLIGHT") or "1"
+    forced = os.environ.get("VOXCPM_MAX_INFLIGHT")
+    batch = os.environ.get("VOXCPM_BATCH") or "16"
+    takes = f"{forced} (VOXCPM_MAX_INFLIGHT)" if forced else f"{batch} (VOXCPM_BATCH)"
     lines = [f"VoxCPM2 speaks {len(vox_langs)} language{'s' * (len(vox_langs) != 1)}"
-             f"{' (' + ', '.join(vox_langs) + ')' if vox_langs else ''}; one instance makes ~2-3 real-time "
-             f"voices, and takes up to {cap} sentences at once (VOXCPM_MAX_INFLIGHT)"]
+             f"{' (' + ', '.join(vox_langs) + ')' if vox_langs else ''}; one instance decodes a batch of sentences "
+             f"at once (nano-vllm-voxcpm), and takes up to {takes} at once"]
     if mode == "auto":
         lines.append(f"VoxCPM2 instances: auto{'' if raw else f' (the {ed} default)'}: one on the main GPU plus one on "
                      f"each other GPU with ≥ {VOXCPM_MIN_GPU_MB // 1024} GB, up to {VOXCPM_MAX_INSTANCES} — "
