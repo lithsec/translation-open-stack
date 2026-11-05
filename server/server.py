@@ -229,9 +229,9 @@ async def main():
                          "for --voxcpm-langs, each sentence to the least-loaded instance; when all are busy or "
                          "down, the next voice in the chain speaks it")
     ap.add_argument("--voxcpm-max-inflight", type=int,
-                    default=int(os.environ.get("VOXCPM_MAX_INFLIGHT") or 1),
+                    default=int(os.environ["VOXCPM_MAX_INFLIGHT"]) if os.environ.get("VOXCPM_MAX_INFLIGHT") else None,
                     help="sentences one VoxCPM2 instance takes at once before overflow goes to the next voice "
-                         "(default: $VOXCPM_MAX_INFLIGHT or 1: a service makes one voice at a time)")
+                         "(default: $VOXCPM_MAX_INFLIGHT, else what each instance's /health says: its batch)")
     ap.add_argument("--espeak", action="store_true",
                     help="eSpeak NG (the espeak-ng program, GPL-3.0, run as a separate process) as the last "
                          "voice of every language it speaks: VoxCPM2's overflow, and fa/ro in commercial")

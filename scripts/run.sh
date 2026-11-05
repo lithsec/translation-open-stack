@@ -50,9 +50,10 @@ export FAIRSEQ2_CACHE_DIR="${FAIRSEQ2_CACHE_DIR:-$W/fairseq2-cache}"
 # Less fragmentation: the default allocator holds on to blocks it cannot reuse, and the full stack
 # (25 languages + VoxCPM2) sits right at a 32 GB card's limit.
 export PYTORCH_CUDA_ALLOC_CONF="${PYTORCH_CUDA_ALLOC_CONF:-expandable_segments:True}"
-# VoxCPM2: one sentence per instance at once (what a service runs; see below). Set before
-# `check` so it reports the same number.
-export VOXCPM_MAX_INFLIGHT="${VOXCPM_MAX_INFLIGHT:-1}"
+# VoxCPM2: how many sentences a service decodes at once (its batch; see below). Set before
+# `check` so it reports the same number. VOXCPM_MAX_INFLIGHT, when set, caps what the server
+# sends each instance; unset, it sends what each instance's /health says (its batch).
+export VOXCPM_BATCH="${VOXCPM_BATCH:-16}"
 EDITION="${EDITION:-nonprofit}"
 case "$EDITION" in
   nonprofit)  VOICE_ARGS=(--mms) ;;
@@ -108,14 +109,15 @@ else
 fi
 
 # VoxCPM2 voice services, from their own venv on the volume: one instance per GPU the plan
-# gives it (server/stack_config.py voxcpm_plan). One instance makes ~2-3 real-time voices, and
-# commercial routes ten languages to it, so there:
+# gives it (server/stack_config.py voxcpm_plan). An instance decodes VOXCPM_BATCH sentences
+# (16) at once on its GPU (nano-vllm-voxcpm), and commercial routes ten languages to it, so there:
 #   VOXCPM_INSTANCES=auto (the commercial default): one on the main GPU (GPU 0, with the rest of
 #     the stack) plus one on each other GPU with >= 10 GB, up to VOXCPM_MAX_INSTANCES (4);
 #     "1" is the nonprofit default (today's single instance), "0" = none (like VOXCPM=0);
-#   VOXCPM_GPUS=0,1,1: exactly these GPUs, in order (here two instances share GPU 1);
-#   VOXCPM_MAX_INFLIGHT (1): sentences one instance takes at once. A service makes one voice
-#     at a time and answers 503 rather than queue, so more only hides a queue in the service.
+#   VOXCPM_GPUS=0,1: exactly these GPUs, in order (two on one GPU only split its batch);
+#   VOXCPM_BATCH (16): sentences one instance decodes at once; it says so on /health, and the
+#     server sends it that many. It answers 503 rather than queue past its batch.
+#     VOXCPM_KV_BLOCKS / VOXCPM_MAX_LEN size its cache (server/voxcpm_service.py, Memory).
 #     With every instance full a sentence waits in the server for the first free one, up to
 #     VOXCPM_QUEUE_S (2 s), then goes to the next voice in its chain (eSpeak NG at the end of
 #     every commercial chain); with no voice after VoxCPM2 (km lo tl) up to VOXCPM_WAIT_S (15 s).

@@ -146,7 +146,7 @@ jobs:
           print(\"imports ok: torch\", torch.__version__, \"transformers\", transformers.__version__,
                 \"numpy\", numpy.__version__, \"scipy\", scipy.__version__)
           "
-            "$VOXCPM_VENV/bin/python" -c "import voxcpm, soundfile; print(\"voxcpm ok\")"
+            "$VOXCPM_VENV/bin/python" -c "import nanovllm_voxcpm, soundfile; print(\"nano-vllm-voxcpm ok\")"
           '
 
       # docker-compose.yml runs the stack as the image's unprivileged user; the
@@ -157,7 +157,7 @@ jobs:
             [ "$(id -un)" = stack ] && [ -w "$HOME" ] && [ -w /workspace ]
             python3 server/server.py --help >/dev/null && echo "server.py --help ok as $(id -un)"
             VOICES_DIR=/workspace/voices bash scripts/fetch-voices.sh en && ls -l /workspace/voices
-            "$VOXCPM_VENV/bin/python" -c "import voxcpm" && echo "voxcpm ok as $(id -un)"
+            "$VOXCPM_VENV/bin/python" -c "import nanovllm_voxcpm" && echo "nano-vllm-voxcpm ok as $(id -un)"
           '
 
       - name: Entrypoint refuses without a credential or a GPU

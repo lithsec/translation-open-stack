@@ -571,55 +571,66 @@ async def _send_then_fail(srv, v):
 
 
 _FAKE_VOXCPM = """
-import os, time
+import asyncio, os
 import numpy as np
 LOG = os.environ["FAKE_VOXCPM_LOG"]
-class _M:
-    sample_rate = 48000
-class VoxCPM:
-    tts_model = _M()
-    @classmethod
-    def from_pretrained(cls, path, **kw):
-        return cls()
-    def generate(self, text, **kw):
-        return np.zeros(4800, np.float32)
-    def generate_streaming(self, text, **kw):
-        for i in range(20):                      # 20 chunks, 0.1 s each: 2 s of GPU
+class _Pool:
+    async def wait_for_ready(self):
+        pass
+    async def get_model_info(self):
+        return {"sample_rate": 48000, "output_sample_rate": 48000, "encoder_sample_rate": 16000}
+    async def encode_latents(self, wav, fmt):
+        return b"latents"
+    async def generate(self, target_text, **kw):
+        n = 1 if target_text == "Hello." else 20   # 20 chunks, 0.1 s each: 2 s of GPU
+        for i in range(n):
             with open(LOG, "a") as f:
-                f.write(f"{text} {i}\\n")
-            time.sleep(0.1)
+                f.write(f"{target_text} {i}\\n")
+            await asyncio.sleep(0.1)
             yield np.full(4800, 0.1, np.float32)
+class VoxCPM:
+    @staticmethod
+    def from_pretrained(model, **kw):
+        with open(LOG + ".kw", "w") as f:
+            f.write(repr(sorted(kw.items())))
+        return _Pool()
 """
 
 
-def test_service_answers_busy_and_skips_abandoned_requests():
-    """voxcpm_service.py with a stand-in model: headers as soon as the model is free,
-    503 (not a silent queue) when it stays busy, no GPU work for a client that has
-    gone, and a listener hanging up stops the generation."""
-    import socket
+def _start_fake_service(tmp, log, port, **env):
+    """voxcpm_service.py on a stand-in nanovllm_voxcpm (same async API, no GPU)."""
     import subprocess
-    import tempfile
     import urllib.request
-    tmp = tempfile.mkdtemp()
-    with open(os.path.join(tmp, "voxcpm.py"), "w") as f:
+    pkg = os.path.join(tmp, "nanovllm_voxcpm")
+    os.makedirs(pkg, exist_ok=True)
+    with open(os.path.join(pkg, "__init__.py"), "w") as f:
         f.write(_FAKE_VOXCPM)
     with open(os.path.join(tmp, "huggingface_hub.py"), "w") as f:
         f.write("def snapshot_download(repo, revision=None):\n    return repo\n")
+    e = dict(os.environ, PYTHONPATH=tmp, FAKE_VOXCPM_LOG=log, VOXCPM_REF_DIR=tmp, **env)
+    p = subprocess.Popen([sys.executable, os.path.join(ROOT, "server", "voxcpm_service.py"), "--port", str(port)],
+                         env=e, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    url = f"http://127.0.0.1:{port}"
+    for _ in range(100):
+        try:
+            urllib.request.urlopen(url + "/health", timeout=1).read()
+            return p, url
+        except OSError:
+            time.sleep(0.1)
+    raise AssertionError(p.stdout.read1(4000) if p.poll() is not None else "service did not start")
+
+
+def test_service_answers_busy_and_skips_abandoned_requests():
+    """voxcpm_service.py with a stand-in model and a batch of one: headers as soon as a
+    slot is free, 503 (not a silent queue) when it stays busy, no GPU work for a client
+    that has gone, and a listener hanging up stops the generation."""
+    import socket
+    import tempfile
+    tmp = tempfile.mkdtemp()
     log = os.path.join(tmp, "gen.log")
     port = int(_dead_url().rsplit(":", 1)[1])
-    env = dict(os.environ, PYTHONPATH=tmp, FAKE_VOXCPM_LOG=log, VOXCPM_REF_DIR=tmp)
-    p = subprocess.Popen([sys.executable, os.path.join(ROOT, "server", "voxcpm_service.py"), "--port", str(port)],
-                         env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    url = f"http://127.0.0.1:{port}"
+    p, url = _start_fake_service(tmp, log, port, VOXCPM_BATCH="1")
     try:
-        for _ in range(100):
-            try:
-                urllib.request.urlopen(url + "/health", timeout=1).read()
-                break
-            except OSError:
-                time.sleep(0.1)
-        else:
-            raise AssertionError(p.stdout.read1(4000) if p.poll() is not None else "service did not start")
 
         def generated(text):
             try:
@@ -671,6 +682,67 @@ def test_service_answers_busy_and_skips_abandoned_requests():
         conn_e, r_e = v._open(v.instances[0], "eee", "ko")
         assert r_e.status == 200 and time.monotonic() - t0 < 0.5
         conn_e.close()
+    finally:
+        p.kill()
+        p.wait()
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_service_batches_and_the_engine_takes_its_batch():
+    """VOXCPM_BATCH=2: /health says X-Max-Inflight 2, the engine (no VOXCPM_MAX_INFLIGHT)
+    takes that as the instance's cap, two sentences generate at the same time (2 s, not 4),
+    a third waits ~1 s and gets 503, and the pool is built with the batch and one GPU."""
+    import http.client
+    import tempfile
+    import threading
+    import urllib.request
+    tmp = tempfile.mkdtemp()
+    log = os.path.join(tmp, "gen.log")
+    port = int(_dead_url().rsplit(":", 1)[1])
+    p, url = _start_fake_service(tmp, log, port, VOXCPM_BATCH="2")
+    try:
+        with urllib.request.urlopen(url + "/health", timeout=2) as r:
+            assert r.headers.get("X-Max-Inflight") == "2"
+        kw = dict(eval(open(log + ".kw").read()))
+        assert kw["max_num_seqs"] == 2 and kw["devices"] == [0], kw
+        ctx = Context(options={"voxcpm": url, "voxcpm_langs": ["ko"]})
+        v = VoxCPM(ctx)
+        v.load()
+        assert [i.cap for i in v.instances] == [2] and v.caps() == "2"
+        # Two at once: both get headers at once and both end ~2 s later.
+        done = []
+        t0 = time.monotonic()
+
+        def one(text):
+            conn, r = v._open(v.instances[0], text, "ko")
+            assert r.status == 200
+            r.read()
+            conn.close()
+            done.append(time.monotonic() - t0)
+
+        ts = [threading.Thread(target=one, args=(x,)) for x in ("aaa", "bbb")]
+        for t in ts:
+            t.start()
+        time.sleep(0.3)
+        # A third while both slots are taken: 503 after ~1 s.
+        t1 = time.monotonic()
+        c = http.client.HTTPConnection("127.0.0.1", port, timeout=10)
+        c.request("POST", "/tts", json.dumps({"text": "ccc", "stream": True}), {"Content-Type": "application/json"})
+        r = c.getresponse()
+        assert r.status == 503 and 0.8 < time.monotonic() - t1 < 1.8
+        r.read()
+        c.close()
+        for t in ts:
+            t.join(10)
+        assert len(done) == 2 and max(done) < 3.2, done      # side by side, not one after the other
+        # VOXCPM_MAX_INFLIGHT still wins over what the service says.
+        os.environ["VOXCPM_MAX_INFLIGHT"] = "1"
+        try:
+            v1 = VoxCPM(Context(options={"voxcpm": url, "voxcpm_langs": ["ko"]}))
+            v1.load()
+            assert [i.cap for i in v1.instances] == [1]
+        finally:
+            del os.environ["VOXCPM_MAX_INFLIGHT"]
     finally:
         p.kill()
         p.wait()
