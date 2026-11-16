@@ -1775,5 +1775,1901 @@
    "baseline_last_text_p50": 1539,
    "baseline_last_text_p90": 2415
   }
+ },
+ "soniox_hear": {
+  "round": "talk-soniox-hear-2026-11",
+  "grader": "gemini-flash-latest",
+  "n_per_set": 20,
+  "systems": [
+   "soniox-hear",
+   "baseline",
+   "soniox-s2s"
+  ],
+  "directions": {
+   "en-es": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 87.5,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 77.5,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 68.3,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 70.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 66.7,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 10.0,
+    "hear_qualifies": true
+   },
+   "es-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 95.8,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 96.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 91.7,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 96.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 75.0,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 76.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 4.1,
+    "hear_qualifies": true
+   },
+   "en-pt": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 82.5,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 75.0,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 75.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 66.7,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 66.7,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 66.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 66.7,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 6.7,
+    "hear_qualifies": true
+   },
+   "pt-en": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 87.1,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 87.5,
+     "read2_q": 86.7,
+     "read2": {
+      "a": {
+       "q": 85.0,
+       "crit": 2
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 2
+      }
+     }
+    },
+    "baseline": {
+     "q": 91.3,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 90.8,
+     "read2_q": 91.7,
+     "read2": {
+      "a": {
+       "q": 86.7,
+       "crit": 2
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 0
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 74.6,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 73.3,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 73.3,
+     "read2_q": 75.8,
+     "read2": {
+      "a": {
+       "q": 75.0,
+       "crit": 2
+      },
+      "b": {
+       "q": 76.7,
+       "crit": 2
+      }
+     }
+    },
+    "hear_minus_baseline": -4.2,
+    "hear_qualifies": false
+   },
+   "en-fr": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 83.3,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 75.8,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 66.7,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 58.4,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 61.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 55.0,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 7.5,
+    "hear_qualifies": true
+   },
+   "fr-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 90.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 79.2,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 71.7,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 77.5,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 78.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 76.7,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 11.6,
+    "hear_qualifies": true
+   },
+   "en-de": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 87.5,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 75.8,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 81.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 57.5,
+     "crit": 8,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 61.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 53.3,
+       "crit": 6,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 11.7,
+    "hear_qualifies": true
+   },
+   "de-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 90.8,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 98.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 90.8,
+     "read2_q": 90.8,
+     "read2": {
+      "a": {
+       "q": 98.3,
+       "crit": 0
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 4
+      }
+     }
+    },
+    "baseline": {
+     "q": 86.7,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 87.5,
+     "read2_q": 85.8,
+     "read2": {
+      "a": {
+       "q": 86.7,
+       "crit": 1
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 4
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 71.7,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 73.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 73.3,
+     "read2_q": 70.0,
+     "read2": {
+      "a": {
+       "q": 70.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 4
+      }
+     }
+    },
+    "hear_minus_baseline": 4.1,
+    "hear_qualifies": true
+   },
+   "en-zh": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 87.5,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 77.5,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 68.3,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 60.0,
+     "crit": 10,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 68.3,
+       "crit": 5,
+       "n": 20
+      },
+      "b": {
+       "q": 51.7,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 10.0,
+    "hear_qualifies": true
+   },
+   "zh-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 88.8,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 89.2,
+     "read2_q": 88.3,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 2
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 4
+      }
+     }
+    },
+    "baseline": {
+     "q": 88.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 88.3,
+     "read2_q": 89.2,
+     "read2": {
+      "a": {
+       "q": 86.7,
+       "crit": 2
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 2
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 65.8,
+     "crit": 9,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 75.0,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 58.3,
+       "crit": 5,
+       "n": 20
+      }
+     },
+     "read1_q": 66.7,
+     "read2_q": 65.0,
+     "read2": {
+      "a": {
+       "q": 73.3,
+       "crit": 5
+      },
+      "b": {
+       "q": 56.7,
+       "crit": 8
+      }
+     }
+    },
+    "hear_minus_baseline": 0.0,
+    "hear_qualifies": true
+   },
+   "en-vi": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 87.5,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 78.3,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 83.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 66.7,
+     "crit": 9,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 70.0,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 63.3,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 9.2,
+    "hear_qualifies": true
+   },
+   "vi-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 80.0,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 71.7,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 78.3,
+     "read2_q": 81.7,
+     "read2": {
+      "a": {
+       "q": 70.0,
+       "crit": 5
+      },
+      "b": {
+       "q": 93.3,
+       "crit": 1
+      }
+     }
+    },
+    "baseline": {
+     "q": 77.5,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 78.3,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 75.8,
+     "read2_q": 79.2,
+     "read2": {
+      "a": {
+       "q": 78.3,
+       "crit": 4
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 2
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 60.4,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 53.3,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 65.0,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 59.1,
+     "read2_q": 61.6,
+     "read2": {
+      "a": {
+       "q": 55.0,
+       "crit": 7
+      },
+      "b": {
+       "q": 68.3,
+       "crit": 4
+      }
+     }
+    },
+    "hear_minus_baseline": 2.5,
+    "hear_qualifies": true
+   },
+   "en-ar": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 87.5,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 80.0,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 59.2,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 56.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 61.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 7.5,
+    "hear_qualifies": true
+   },
+   "ar-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 92.5,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 92.5,
+     "read2_q": 92.5,
+     "read2": {
+      "a": {
+       "q": 93.3,
+       "crit": 0
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 0
+      }
+     }
+    },
+    "baseline": {
+     "q": 90.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 93.3,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 91.7,
+     "read2_q": 90.0,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 1
+      },
+      "b": {
+       "q": 90.0,
+       "crit": 1
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 71.2,
+     "crit": 9,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 73.3,
+       "crit": 5,
+       "n": 20
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 72.5,
+     "read2_q": 70.0,
+     "read2": {
+      "a": {
+       "q": 71.7,
+       "crit": 4
+      },
+      "b": {
+       "q": 68.3,
+       "crit": 3
+      }
+     }
+    },
+    "hear_minus_baseline": 1.7,
+    "hear_qualifies": true
+   },
+   "en-fa": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 88.3,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 81.7,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 55.9,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 56.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 55.0,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 6.6,
+    "hear_qualifies": true
+   },
+   "fa-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 88.3,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 76.7,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 80.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 68.3,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 70.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 66.7,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 11.6,
+    "hear_qualifies": true
+   },
+   "en-tl": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 79.2,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 81.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 76.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 70.0,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 76.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 63.3,
+       "crit": 6,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 70.0,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 66.7,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 9.2,
+    "hear_qualifies": true
+   },
+   "tl-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 95.0,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 83.3,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 63.4,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 61.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 65.0,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 11.7,
+    "hear_qualifies": true
+   },
+   "en-uk": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 85.8,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 85.8,
+     "read2_q": 85.8,
+     "read2": {
+      "a": {
+       "q": 91.7,
+       "crit": 0
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 3
+      }
+     }
+    },
+    "baseline": {
+     "q": 82.1,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 75.0,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 82.5,
+     "read2_q": 81.7,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 3
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 62.5,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 56.7,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 61.7,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 59.2,
+     "read2_q": 65.8,
+     "read2": {
+      "a": {
+       "q": 63.3,
+       "crit": 2
+      },
+      "b": {
+       "q": 68.3,
+       "crit": 4
+      }
+     }
+    },
+    "hear_minus_baseline": 3.7,
+    "hear_qualifies": true
+   },
+   "uk-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 95.8,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 98.3,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 88.3,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 80.0,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 72.5,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 68.3,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 76.7,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 7.5,
+    "hear_qualifies": true
+   },
+   "en-ko": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 87.5,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 96.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 78.3,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 77.5,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 64.2,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 60.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 68.3,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 10.0,
+    "hear_qualifies": true
+   },
+   "ko-en": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 95.0,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 95.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 90.8,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 68.3,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 66.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 4.2,
+    "hear_qualifies": true
+   },
+   "en-ru": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 86.7,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 78.3,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 60.9,
+     "crit": 8,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 61.7,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 60.0,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 8.4,
+    "hear_qualifies": true
+   },
+   "ru-en": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 96.7,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 95.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 98.3,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 96.7,
+     "read2_q": 96.7,
+     "read2": {
+      "a": {
+       "q": 93.3,
+       "crit": 1
+      },
+      "b": {
+       "q": 100.0,
+       "crit": 0
+      }
+     }
+    },
+    "baseline": {
+     "q": 96.7,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 96.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 96.7,
+     "read2_q": 96.7,
+     "read2": {
+      "a": {
+       "q": 95.0,
+       "crit": 1
+      },
+      "b": {
+       "q": 98.3,
+       "crit": 0
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 74.2,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 68.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 75.8,
+     "read2_q": 72.5,
+     "read2": {
+      "a": {
+       "q": 71.7,
+       "crit": 2
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 2
+      }
+     }
+    },
+    "hear_minus_baseline": 0.0,
+    "hear_qualifies": true
+   },
+   "en-hi": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 80.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 83.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 78.3,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 70.0,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 71.7,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 68.3,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 64.2,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 66.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 61.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 10.8,
+    "hear_qualifies": true
+   },
+   "hi-en": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 87.9,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 80.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 87.5,
+     "read2_q": 88.3,
+     "read2": {
+      "a": {
+       "q": 85.0,
+       "crit": 1
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 1
+      }
+     }
+    },
+    "baseline": {
+     "q": 86.2,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 80.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 90.0,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 85.0,
+     "read2_q": 87.5,
+     "read2": {
+      "a": {
+       "q": 85.0,
+       "crit": 2
+      },
+      "b": {
+       "q": 90.0,
+       "crit": 2
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 64.6,
+     "crit": 11,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 56.7,
+       "crit": 7,
+       "n": 20
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 63.4,
+     "read2_q": 65.8,
+     "read2": {
+      "a": {
+       "q": 66.7,
+       "crit": 2
+      },
+      "b": {
+       "q": 65.0,
+       "crit": 5
+      }
+     }
+    },
+    "hear_minus_baseline": 1.7,
+    "hear_qualifies": true
+   },
+   "en-it": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 84.2,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 74.2,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 78.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 6,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 65.0,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 68.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 61.7,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": 10.0,
+    "hear_qualifies": true
+   },
+   "it-en": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 94.2,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "baseline": {
+     "q": 100.0,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 100.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 100.0,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "soniox-s2s": {
+     "q": 76.7,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 81.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "hear_minus_baseline": -5.8,
+    "hear_qualifies": false
+   }
+  }
  }
 }

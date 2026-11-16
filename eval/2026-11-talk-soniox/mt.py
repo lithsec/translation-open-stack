@@ -8,7 +8,9 @@
 #   AWS_PROFILE=lithos-evals FOUNDRY_ENDPOINT=... FOUNDRY_KEY=... FOUNDRY_DEPLOYMENT=gpt-6-sol-us \
 #     python3 -I mt.py OUT
 #
-# Writes OUT/mt/<set>/<src>-<tgt>.json: out, wall_s, tokens. At most 3 calls at a time to each host (both are
+# Writes OUT/mt/<set>/<src>-<tgt>.json: out, wall_s, tokens. HEAR=soniox (the soniox-hear arm): the same
+# translator and prompt on Soniox's own transcripts (soniox_hear.py, OUT/soniox_hear/<set>/<src>-<tgt>.sent.json),
+# written to OUT/mt_soniox_hear/<set>/<src>-<tgt>.json. At most 3 calls at a time to each host (both are
 # shared with live users); 429s and 5xx are retried with a growing wait. Nothing secret is printed.
 import concurrent.futures as cf
 import json, os, sys, threading, time
@@ -22,6 +24,7 @@ sys.path.insert(0, os.path.join(HERE, "..", "2026-10-translator-shootout"))
 import shootout as S  # noqa: E402  (prompt())
 
 OUT = sys.argv[1]
+HEAR = os.environ.get("HEAR", "azure")
 # direction -> (route, recogniser, translator): what auto runs today (the brief, from the server's planner).
 BASELINE = {
     "en-es": ("hybrid-gemma", "azure", "gemma"), "es-en": ("mai-gemma", "mai", "gemma"),
@@ -105,10 +108,11 @@ POOLS = {k: cf.ThreadPoolExecutor(3) for k in FN}   # at most 3 at a time per ho
 def direction(st, d):
     src, tgt = d.split("-")
     tr = BASELINE[d][2]
-    p = os.path.join(OUT, "mt", st, f"{d}.json")
+    p = os.path.join(OUT, "mt" if HEAR == "azure" else "mt_soniox_hear", st, f"{d}.json")
     if os.path.exists(p):
         return
-    inputs = json.load(open(os.path.join(OUT, "stt", st, f"{src}.sent.json")))
+    inputs = json.load(open(os.path.join(OUT, "stt", st, f"{src}.sent.json") if HEAR == "azure"
+                            else os.path.join(OUT, "soniox_hear", st, f"{d}.sent.json")))
     empty = {"out": "", "wall_s": None, "prompt_tokens": None, "completion_tokens": None}
     futs = [POOLS[tr].submit(FN[tr], x, src, tgt) if x.strip() else None for x in inputs]
     res = [f.result() if f else empty for f in futs]

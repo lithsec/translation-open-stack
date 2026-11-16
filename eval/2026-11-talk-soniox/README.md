@@ -72,6 +72,69 @@ same verdict (fr→en: Soniox 77.5 vs 76.7, then 78.3 vs 80.0; en→tl: 70.0 vs 
    (the baseline's too, fa and tl); and Soniox's figure is the last chunk credited to the sentence, so a late
    tail credited to the next sentence makes it read early. Per direction in `results.json` `latency_ms`.
 
+## Soniox hearing + our translator
+
+A second, fresh round (`talk-soniox-hear-2026-11`): does Soniox's better hearing help when our own translator
+translates? A third system, **soniox-hear**: Soniox's own source-language transcript per sentence, taken from the
+same streams (`soniox_hear.py`: the original tokens grouped by audio offset as the translations were; each
+direction uses its own stream, so en→X uses the en→X stream's English; no new streams, no sentence empty),
+translated by the baseline's translator for that direction with the same prompt and host (`mt.py` with
+`HEAR=soniox`). All three systems, soniox-hear, the baseline (Azure + the same translator) and Soniox S2S, were
+graded blind side by side in one call per direction and set (`round_hear.py`, `grade.py`, `gemini-flash-latest`,
+same rubric and FLEURS references, n = 40). Where soniox-hear and the baseline were within about 3 points
+(±3.3: pt, de, zh, vi, ar, ru, hi into English and en→uk) the round was graded a second time and the quality is
+the mean of both reads (in brackets). Critical: of 40, first read. Recognition CER: as in the first table.
+"Qualifies": soniox-hear ≥ 70 and ≥ baseline − 3. Rows: `soniox-hear-rows.json`; numbers: `results.json`
+`soniox_hear`.
+
+| Direction | Translator | soniox-hear | Baseline | Soniox S2S | soniox-hear − baseline | Critical, hear / baseline / S2S | CER, Soniox / Azure | Qualifies |
+|---|---|---|---|---|---|---|---|---|
+| en→es | Gemma 4 | **87.5** | **77.5** | **68.3** | +10.0 | 3 / 4 / 4 | 5.8% / 6.9% | **yes** |
+| es→en | Gemma 4 | **95.8** | **91.7** | **75.0** | +4.1 | 2 / 3 / 3 | 0.9% / 1.4% | **yes** |
+| en→pt | Gemma 4 | **82.5** | **75.8** | **66.7** | +6.7 | 3 / 3 / 3 | 5.8% / 6.9% | **yes** |
+| pt→en | gpt-6-sol | **87.1** (87.5, 86.7) | **91.3** (90.8, 91.7) | **74.6** (73.3, 75.8) | -4.2 | 4 / 2 / 6 | 1.3% / 1.6% | no |
+| en→fr | Gemma 4 | **83.3** | **75.8** | **58.4** | +7.5 | 3 / 4 / 6 | 5.8% / 6.9% | **yes** |
+| fr→en | Gemma 4 | **90.8** | **79.2** | **77.5** | +11.6 | 3 / 5 / 4 | 1.9% / 4.0% | **yes** |
+| en→de | Gemma 4 | **87.5** | **75.8** | **57.5** | +11.7 | 3 / 5 / 8 | 5.8% / 6.9% | **yes** |
+| de→en | gpt-6-sol | **90.8** (90.8, 90.8) | **86.7** (87.5, 85.8) | **71.7** (73.3, 70.0) | +4.1 | 4 / 5 / 4 | 1.2% / 2.2% | **yes** |
+| en→zh | Gemma 4 | **87.5** | **77.5** | **60.0** | +10.0 | 5 / 6 / 10 | 5.8% / 6.9% | **yes** |
+| zh→en | Gemma 4 | **88.8** (89.2, 88.3) | **88.8** (88.3, 89.2) | **65.8** (66.7, 65.0) | +0.0 | 4 / 3 / 9 | 2.4% / 3.0% | **yes** |
+| en→vi | Gemma 4 | **87.5** | **78.3** | **66.7** | +9.2 | 4 / 5 / 9 | 5.8% / 6.9% | **yes** |
+| vi→en | Gemma 4 | **80.0** (78.3, 81.7) | **77.5** (75.8, 79.2) | **60.4** (59.1, 61.6) | +2.5 | 5 / 6 / 6 | 3.4% / 4.6% | **yes** |
+| en→ar | gpt-6-sol | **87.5** | **80.0** | **59.2** | +7.5 | 2 / 2 / 5 | 5.8% / 6.9% | **yes** |
+| ar→en | Gemma 4 | **92.5** (92.5, 92.5) | **90.8** (91.7, 90.0) | **71.2** (72.5, 70.0) | +1.7 | 1 / 3 / 9 | 0.9% / 1.7% | **yes** |
+| en→fa | gpt-6-sol | **88.3** | **81.7** | **55.9** | +6.6 | 3 / 3 / 7 | 5.8% / 6.9% | **yes** |
+| fa→en | Gemma 4 | **88.3** | **76.7** | **68.3** | +11.6 | 2 / 6 / 6 | 2.4% / 4.4% | **yes** |
+| en→tl | Gemma 4 | **79.2** | **70.0** | **70.0** | +9.2 | 4 / 7 / 7 | 5.8% / 6.9% | **yes** |
+| tl→en | Gemma 4 | **95.0** | **83.3** | **63.4** | +11.7 | 0 / 3 / 4 | 2.7% / 4.2% | **yes** |
+| en→uk | gpt-6-sol | **85.8** (85.8, 85.8) | **82.1** (82.5, 81.7) | **62.5** (59.2, 65.8) | +3.7 | 2 / 2 / 5 | 5.8% / 6.9% | **yes** |
+| uk→en | gpt-6-sol | **95.8** | **88.3** | **72.5** | +7.5 | 1 / 4 / 5 | 2.7% / 2.8% | **yes** |
+| en→ko | Gemma 4 | **87.5** | **77.5** | **64.2** | +10.0 | 3 / 7 / 6 | 5.8% / 6.9% | **yes** |
+| ko→en | gpt-6-sol | **95.0** | **90.8** | **68.3** | +4.2 | 1 / 0 / 3 | 4.0% / 6.1% | **yes** |
+| en→ru | Gemma 4 | **86.7** | **78.3** | **60.9** | +8.4 | 4 / 7 / 8 | 5.8% / 6.9% | **yes** |
+| ru→en | gpt-6-sol | **96.7** (96.7, 96.7) | **96.7** (96.7, 96.7) | **74.2** (75.8, 72.5) | +0.0 | 0 / 1 / 2 | 1.8% / 2.3% | **yes** |
+| en→hi | Gemma 4 | **80.8** | **70.0** | **64.2** | +10.8 | 3 / 6 / 4 | 5.8% / 6.9% | **yes** |
+| hi→en | gpt-6-sol | **87.9** (87.5, 88.3) | **86.2** (85.0, 87.5) | **64.6** (63.4, 65.8) | +1.7 | 3 / 4 / 11 | 3.6% / 4.3% | **yes** |
+| en→it | Gemma 4 | **84.2** | **74.2** | **65.0** | +10.0 | 4 / 7 / 7 | 5.8% / 6.9% | **yes** |
+| it→en | gpt-6-sol | **94.2** | **100.0** | **76.7** | -5.8 | 2 / 0 / 2 | 1.4% / 1.1% | no |
+
+1. **Soniox's hearing with our translator qualifies in 26 of 28 directions**, and is ahead of the baseline in 24.
+   Out of English it is ahead in all 14 (+3.7 to +11.7); into English -5.8 to
+   +11.7, level (within 2.5) in zh, vi, ar, ru, hi into English. It is behind in pt→en (−4.2 over two
+   reads) and it→en (−5.8; the baseline scored 100.0), both sol directions.
+2. **The gain is larger than the character error rates suggest** (English: 5.8% vs 6.9%). In the 7 en→de
+   sentences checked where soniox-hear scored higher, the Azure side had a misplaced sentence break or full stop that the
+   translator followed ("the seasonal floods though would spread. Sediment ... were halted"), a clause missing
+   from the sentence ("... were now enemies." without "and the Cold War began"), or a misheard word ("vendors"
+   as "inventors"); Soniox's transcript of the same audio had none of those. CER counts letters only, not
+   punctuation or where a sentence ends.
+3. **Soniox S2S in this round** is again far behind both (55.9-77.5), and level with the baseline only in
+   fr→en (77.5 vs 79.2) and en→tl (70.0 vs 70.0), as in the first round.
+4. Caveats: as above (MAI not run, Azure stands in; sentence-at-a-time translation with the shootout prompt; read
+   speech with regular pauses; one grader). soniox-hear's transcripts come from streams that also translated
+   (one-way translation on); a Soniox stream without translation was not run. Grades differ between rounds (the
+   baseline's en→es is 76.7 in the first round, 77.5 here): compare within one round's table.
+
 ## Caveats
 
 - **MAI not run.** Where the route's recogniser is MAI (`mai-gemma`: es, fr, de, zh, vi, ar, fa, tl, uk into
@@ -137,6 +200,14 @@ GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK/out/jobs.
 python3 -I round.py jobs2 WORK WORK/out fr-en en-tl
 GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK/out/jobs_r2.json WORK/out/grades_r2.json
 python3 -I round.py table WORK WORK/out
+# Soniox hearing + our translator
+python3 -I soniox_hear.py WORK WORK/out
+HEAR=soniox AWS_PROFILE=... FOUNDRY_ENDPOINT=... FOUNDRY_KEY=... FOUNDRY_DEPLOYMENT=gpt-6-sol-us python3 -I mt.py WORK/out
+python3 -I round_hear.py jobs WORK WORK/out
+GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK/out/hear/jobs.json WORK/out/hear/grades.json
+python3 -I round_hear.py jobs2 WORK WORK/out pt-en de-en zh-en vi-en ar-en en-uk ru-en hi-en
+GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK/out/hear/jobs_r2.json WORK/out/hear/grades_r2.json
+python3 -I round_hear.py table WORK WORK/out
 ```
 
 Python 3 with `azure-cognitiveservices-speech`, `websockets`, `boto3`, `numpy`; `sox` for the clips.
@@ -146,7 +217,11 @@ Python 3 with `azure-cognitiveservices-speech`, `websockets`, `boto3`, `numpy`; 
 tokens), `jobs.json` / `grades.json` and `jobs_r2.json` / `grades_r2.json` (what the grader saw and said),
 `clips_*` (texts, offsets, FLEURS files and speakers' genders), `ids.json`. `results.json` has the table's numbers;
 `soniox-talk-rows.json` is the rows in the shape the server reads (lithos-server `src/routes/soniox-talk.json`).
+The second round: `soniox_hear.json` (Soniox's transcript per sentence and its translations), `hear_jobs.json` /
+`hear_grades.json`, `hear_jobs_r2.json` / `hear_grades_r2.json`; its rows in `soniox-hear-rows.json`.
 
 Usage, from the runs: Soniox 56 streams, 2.9 hours of stream time, 119,122 translation characters; Azure
 speech-to-text 1.8 hours of audio; Gemma 4 on Bedrock 720 calls (67,301 tokens in, 19,122 out); gpt-6-sol 400
-calls (28,102 in, 21,662 out); the grader 60 calls (140,462 tokens in, 62,727 out, 173,392 thinking).
+calls (28,102 in, 21,662 out); the grader 60 calls (140,462 tokens in, 62,727 out, 173,392 thinking). The second
+round: Gemma 4 720 calls (67,440 in, 19,120 out), gpt-6-sol 400 calls (28,305 in, 17,711 out), the grader 72
+calls (204,911 in, 107,926 out, 277,377 thinking); no new Soniox or Azure use.

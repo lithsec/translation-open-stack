@@ -79,7 +79,7 @@ def main():
     out = sys.argv[2]
     G = json.load(open(out)) if os.path.exists(out) else {}
     todo = [j for j in jobs if j["id"] not in G]
-    with cf.ThreadPoolExecutor(4) as ex:
+    with cf.ThreadPoolExecutor(3) as ex:
         for k, v in ex.map(grade_one, todo):
             G[k] = v
             json.dump(G, open(out, "w"), ensure_ascii=False, indent=1)
