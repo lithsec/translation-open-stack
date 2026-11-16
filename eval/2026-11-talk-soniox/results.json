@@ -1,0 +1,1779 @@
+{
+ "round": "talk-soniox-2026-11",
+ "grader": "gemini-flash-latest",
+ "n_per_set": 20,
+ "directions": {
+  "en-es": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 63.3,
+    "crit": 5,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 63.3,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 63.3,
+      "crit": 4,
+      "n": 20,
+      "zeros": 2
+     }
+    }
+   },
+   "baseline": {
+    "q": 76.7,
+    "crit": 5,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 81.7,
+      "crit": 0,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 71.7,
+      "crit": 5,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -13.4,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "es-en": {
+   "baseline_route": "mai-gemma",
+   "baseline_recogniser": "azure (stand-in for mai)",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 75.0,
+    "crit": 2,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 76.7,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 73.3,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "baseline": {
+    "q": 92.5,
+    "crit": 3,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 96.7,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 88.3,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -17.5,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-pt": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 69.2,
+    "crit": 4,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 68.3,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 70.0,
+      "crit": 3,
+      "n": 20,
+      "zeros": 2
+     }
+    }
+   },
+   "baseline": {
+    "q": 77.5,
+    "crit": 4,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 85.0,
+      "crit": 0,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 70.0,
+      "crit": 4,
+      "n": 20,
+      "zeros": 2
+     }
+    }
+   },
+   "diff": -8.3,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "pt-en": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gpt-6-sol (Foundry, low)",
+   "soniox": {
+    "q": 70.8,
+    "crit": 6,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 70.0,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 71.7,
+      "crit": 4,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "baseline": {
+    "q": 91.7,
+    "crit": 4,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 88.3,
+      "crit": 3,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 95.0,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -20.9,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-fr": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 58.3,
+    "crit": 5,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 68.3,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 48.3,
+      "crit": 4,
+      "n": 20,
+      "zeros": 4
+     }
+    }
+   },
+   "baseline": {
+    "q": 75.0,
+    "crit": 5,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 85.0,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 65.0,
+      "crit": 4,
+      "n": 20,
+      "zeros": 3
+     }
+    }
+   },
+   "diff": -16.7,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "fr-en": {
+   "baseline_route": "mai-gemma",
+   "baseline_recogniser": "azure (stand-in for mai)",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 77.9,
+    "crit": 3,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 80.0,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 75.0,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     }
+    },
+    "read1_q": 77.5,
+    "read2_q": 78.3,
+    "read2": {
+     "a": {
+      "q": 80.0,
+      "crit": 1
+     },
+     "b": {
+      "q": 76.7,
+      "crit": 2
+     }
+    }
+   },
+   "baseline": {
+    "q": 78.3,
+    "crit": 5,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 73.3,
+      "crit": 3,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 80.0,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     }
+    },
+    "read1_q": 76.7,
+    "read2_q": 80.0,
+    "read2": {
+     "a": {
+      "q": 73.3,
+      "crit": 3
+     },
+     "b": {
+      "q": 86.7,
+      "crit": 1
+     }
+    }
+   },
+   "diff": -0.4,
+   "server_picks_soniox": true,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-de": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 50.9,
+    "crit": 6,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 51.7,
+      "crit": 2,
+      "n": 20,
+      "zeros": 2
+     },
+     "b": {
+      "q": 50.0,
+      "crit": 4,
+      "n": 20,
+      "zeros": 2
+     }
+    }
+   },
+   "baseline": {
+    "q": 74.2,
+    "crit": 5,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 80.0,
+      "crit": 1,
+      "n": 20,
+      "zeros": 1
+     },
+     "b": {
+      "q": 68.3,
+      "crit": 4,
+      "n": 20,
+      "zeros": 1
+     }
+    }
+   },
+   "diff": -23.3,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "de-en": {
+   "baseline_route": "mai-gemma",
+   "baseline_recogniser": "azure (stand-in for mai)",
+   "baseline_translator": "gpt-6-sol (Foundry, low)",
+   "soniox": {
+    "q": 69.2,
+    "crit": 3,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 66.7,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 71.7,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "baseline": {
+    "q": 85.8,
+    "crit": 3,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 86.7,
+      "crit": 2,
+      "n": 20,
+      "zeros": 1
+     },
+     "b": {
+      "q": 85.0,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -16.6,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-zh": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 57.5,
+    "crit": 10,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 58.3,
+      "crit": 5,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 56.7,
+      "crit": 5,
+      "n": 20,
+      "zeros": 2
+     }
+    }
+   },
+   "baseline": {
+    "q": 79.2,
+    "crit": 6,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 85.0,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 73.3,
+      "crit": 4,
+      "n": 20,
+      "zeros": 2
+     }
+    }
+   },
+   "diff": -21.7,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "zh-en": {
+   "baseline_route": "mai-gemma",
+   "baseline_recogniser": "azure (stand-in for mai)",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 66.7,
+    "crit": 12,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 76.7,
+      "crit": 3,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 56.7,
+      "crit": 9,
+      "n": 20,
+      "zeros": 2
+     }
+    }
+   },
+   "baseline": {
+    "q": 90.0,
+    "crit": 5,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 88.3,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 91.7,
+      "crit": 3,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -23.3,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-vi": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 61.6,
+    "crit": 9,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 60.0,
+      "crit": 5,
+      "n": 20,
+      "zeros": 2
+     },
+     "b": {
+      "q": 63.3,
+      "crit": 4,
+      "n": 20,
+      "zeros": 1
+     }
+    }
+   },
+   "baseline": {
+    "q": 78.3,
+    "crit": 4,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 83.3,
+      "crit": 0,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 73.3,
+      "crit": 4,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -16.7,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "vi-en": {
+   "baseline_route": "mai-gemma",
+   "baseline_recogniser": "azure (stand-in for mai)",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 60.0,
+    "crit": 5,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 56.7,
+      "crit": 4,
+      "n": 20,
+      "zeros": 1
+     },
+     "b": {
+      "q": 63.3,
+      "crit": 1,
+      "n": 20,
+      "zeros": 1
+     }
+    }
+   },
+   "baseline": {
+    "q": 80.0,
+    "crit": 4,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 80.0,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 80.0,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -20.0,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-ar": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gpt-6-sol (Foundry, low)",
+   "soniox": {
+    "q": 66.7,
+    "crit": 7,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 70.0,
+      "crit": 5,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 63.3,
+      "crit": 2,
+      "n": 20,
+      "zeros": 3
+     }
+    }
+   },
+   "baseline": {
+    "q": 82.5,
+    "crit": 3,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 90.0,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 75.0,
+      "crit": 2,
+      "n": 20,
+      "zeros": 1
+     }
+    }
+   },
+   "diff": -15.8,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "ar-en": {
+   "baseline_route": "mai-gemma",
+   "baseline_recogniser": "azure (stand-in for mai)",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 70.8,
+    "crit": 10,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 65.0,
+      "crit": 6,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 76.7,
+      "crit": 4,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "baseline": {
+    "q": 90.8,
+    "crit": 2,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 85.0,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 96.7,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -20.0,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-fa": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gpt-6-sol (Foundry, low)",
+   "soniox": {
+    "q": 54.1,
+    "crit": 7,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 58.3,
+      "crit": 2,
+      "n": 20,
+      "zeros": 1
+     },
+     "b": {
+      "q": 50.0,
+      "crit": 5,
+      "n": 20,
+      "zeros": 4
+     }
+    }
+   },
+   "baseline": {
+    "q": 81.7,
+    "crit": 3,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 90.0,
+      "crit": 0,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 73.3,
+      "crit": 3,
+      "n": 20,
+      "zeros": 1
+     }
+    }
+   },
+   "diff": -27.6,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "fa-en": {
+   "baseline_route": "mai-gemma",
+   "baseline_recogniser": "azure (stand-in for mai)",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 65.8,
+    "crit": 5,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 68.3,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 63.3,
+      "crit": 3,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "baseline": {
+    "q": 73.3,
+    "crit": 7,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 71.7,
+      "crit": 3,
+      "n": 20,
+      "zeros": 1
+     },
+     "b": {
+      "q": 75.0,
+      "crit": 4,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -7.5,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-tl": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 71.2,
+    "crit": 6,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 70.0,
+      "crit": 3,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 70.0,
+      "crit": 3,
+      "n": 20,
+      "zeros": 2
+     }
+    },
+    "read1_q": 70.0,
+    "read2_q": 72.5,
+    "read2": {
+     "a": {
+      "q": 71.7,
+      "crit": 3
+     },
+     "b": {
+      "q": 73.3,
+      "crit": 3
+     }
+    }
+   },
+   "baseline": {
+    "q": 70.8,
+    "crit": 6,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 78.3,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 61.7,
+      "crit": 4,
+      "n": 20,
+      "zeros": 3
+     }
+    },
+    "read1_q": 70.0,
+    "read2_q": 71.7,
+    "read2": {
+     "a": {
+      "q": 80.0,
+      "crit": 2
+     },
+     "b": {
+      "q": 63.3,
+      "crit": 5
+     }
+    }
+   },
+   "diff": 0.4,
+   "server_picks_soniox": true,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "tl-en": {
+   "baseline_route": "mai-gemma",
+   "baseline_recogniser": "azure (stand-in for mai)",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 64.2,
+    "crit": 2,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 61.7,
+      "crit": 0,
+      "n": 20,
+      "zeros": 1
+     },
+     "b": {
+      "q": 66.7,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "baseline": {
+    "q": 84.2,
+    "crit": 1,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 83.3,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 85.0,
+      "crit": 0,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -20.0,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-uk": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gpt-6-sol (Foundry, low)",
+   "soniox": {
+    "q": 66.7,
+    "crit": 7,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 61.7,
+      "crit": 3,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 71.7,
+      "crit": 4,
+      "n": 20,
+      "zeros": 2
+     }
+    }
+   },
+   "baseline": {
+    "q": 81.7,
+    "crit": 4,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 90.0,
+      "crit": 0,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 73.3,
+      "crit": 4,
+      "n": 20,
+      "zeros": 1
+     }
+    }
+   },
+   "diff": -15.0,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "uk-en": {
+   "baseline_route": "mai-gemma",
+   "baseline_recogniser": "azure (stand-in for mai)",
+   "baseline_translator": "gpt-6-sol (Foundry, low)",
+   "soniox": {
+    "q": 75.0,
+    "crit": 3,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 70.0,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 80.0,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "baseline": {
+    "q": 88.3,
+    "crit": 3,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 80.0,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 96.7,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -13.3,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-ko": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 65.0,
+    "crit": 4,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 63.3,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 66.7,
+      "crit": 3,
+      "n": 20,
+      "zeros": 4
+     }
+    }
+   },
+   "baseline": {
+    "q": 76.7,
+    "crit": 4,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 80.0,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 73.3,
+      "crit": 3,
+      "n": 20,
+      "zeros": 3
+     }
+    }
+   },
+   "diff": -11.7,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "ko-en": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gpt-6-sol (Foundry, low)",
+   "soniox": {
+    "q": 66.7,
+    "crit": 10,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 63.3,
+      "crit": 6,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 70.0,
+      "crit": 4,
+      "n": 20,
+      "zeros": 1
+     }
+    }
+   },
+   "baseline": {
+    "q": 90.0,
+    "crit": 2,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 81.7,
+      "crit": 2,
+      "n": 20,
+      "zeros": 1
+     },
+     "b": {
+      "q": 98.3,
+      "crit": 0,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -23.3,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 1
+   }
+  },
+  "en-ru": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 63.4,
+    "crit": 6,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 61.7,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 65.0,
+      "crit": 4,
+      "n": 20,
+      "zeros": 2
+     }
+    }
+   },
+   "baseline": {
+    "q": 77.5,
+    "crit": 5,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 81.7,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 73.3,
+      "crit": 4,
+      "n": 20,
+      "zeros": 1
+     }
+    }
+   },
+   "diff": -14.1,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "ru-en": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gpt-6-sol (Foundry, low)",
+   "soniox": {
+    "q": 70.8,
+    "crit": 4,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 66.7,
+      "crit": 2,
+      "n": 20,
+      "zeros": 1
+     },
+     "b": {
+      "q": 75.0,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "baseline": {
+    "q": 95.8,
+    "crit": 1,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 96.7,
+      "crit": 0,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 95.0,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -25.0,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-hi": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 64.2,
+    "crit": 3,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 66.7,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 61.7,
+      "crit": 2,
+      "n": 20,
+      "zeros": 2
+     }
+    }
+   },
+   "baseline": {
+    "q": 75.8,
+    "crit": 2,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 81.7,
+      "crit": 0,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 70.0,
+      "crit": 2,
+      "n": 20,
+      "zeros": 2
+     }
+    }
+   },
+   "diff": -11.6,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "hi-en": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gpt-6-sol (Foundry, low)",
+   "soniox": {
+    "q": 66.7,
+    "crit": 10,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 63.3,
+      "crit": 3,
+      "n": 20,
+      "zeros": 1
+     },
+     "b": {
+      "q": 70.0,
+      "crit": 7,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "baseline": {
+    "q": 85.0,
+    "crit": 3,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 83.3,
+      "crit": 1,
+      "n": 20,
+      "zeros": 2
+     },
+     "b": {
+      "q": 86.7,
+      "crit": 2,
+      "n": 20,
+      "zeros": 1
+     }
+    }
+   },
+   "diff": -18.3,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "en-it": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gemma-4-31b (Bedrock)",
+   "soniox": {
+    "q": 63.4,
+    "crit": 6,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 66.7,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 60.0,
+      "crit": 4,
+      "n": 20,
+      "zeros": 4
+     }
+    }
+   },
+   "baseline": {
+    "q": 73.3,
+    "crit": 5,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 78.3,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 68.3,
+      "crit": 4,
+      "n": 20,
+      "zeros": 4
+     }
+    }
+   },
+   "diff": -9.9,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  },
+  "it-en": {
+   "baseline_route": "hybrid-gemma",
+   "baseline_recogniser": "azure",
+   "baseline_translator": "gpt-6-sol (Foundry, low)",
+   "soniox": {
+    "q": 75.8,
+    "crit": 3,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 76.7,
+      "crit": 2,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 75.0,
+      "crit": 1,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "baseline": {
+    "q": 100.0,
+    "crit": 0,
+    "n": 40,
+    "sets": {
+     "a": {
+      "q": 100.0,
+      "crit": 0,
+      "n": 20,
+      "zeros": 0
+     },
+     "b": {
+      "q": 100.0,
+      "crit": 0,
+      "n": 20,
+      "zeros": 0
+     }
+    }
+   },
+   "diff": -24.2,
+   "server_picks_soniox": false,
+   "empty_sentences": {
+    "soniox": 0,
+    "baseline": 0
+   }
+  }
+ },
+ "recognition_cer": {
+  "en": {
+   "azure": {
+    "a": 0.0451,
+    "b": 0.0921,
+    "mean": 0.0686
+   },
+   "soniox": {
+    "a": 0.034,
+    "b": 0.0813,
+    "mean": 0.0576
+   }
+  },
+  "es": {
+   "azure": {
+    "a": 0.0132,
+    "b": 0.0147,
+    "mean": 0.014
+   },
+   "soniox": {
+    "a": 0.0086,
+    "b": 0.0098,
+    "mean": 0.0092
+   }
+  },
+  "pt": {
+   "azure": {
+    "a": 0.0178,
+    "b": 0.0135,
+    "mean": 0.0157
+   },
+   "soniox": {
+    "a": 0.0139,
+    "b": 0.0118,
+    "mean": 0.0129
+   }
+  },
+  "fr": {
+   "azure": {
+    "a": 0.0403,
+    "b": 0.0393,
+    "mean": 0.0398
+   },
+   "soniox": {
+    "a": 0.0159,
+    "b": 0.0222,
+    "mean": 0.0191
+   }
+  },
+  "de": {
+   "azure": {
+    "a": 0.0212,
+    "b": 0.0236,
+    "mean": 0.0224
+   },
+   "soniox": {
+    "a": 0.0126,
+    "b": 0.0108,
+    "mean": 0.0117
+   }
+  },
+  "zh": {
+   "azure": {
+    "a": 0.0213,
+    "b": 0.039,
+    "mean": 0.0301
+   },
+   "soniox": {
+    "a": 0.0115,
+    "b": 0.037,
+    "mean": 0.0243
+   }
+  },
+  "vi": {
+   "azure": {
+    "a": 0.0499,
+    "b": 0.0423,
+    "mean": 0.0461
+   },
+   "soniox": {
+    "a": 0.0446,
+    "b": 0.0238,
+    "mean": 0.0342
+   }
+  },
+  "ar": {
+   "azure": {
+    "a": 0.0142,
+    "b": 0.0198,
+    "mean": 0.017
+   },
+   "soniox": {
+    "a": 0.0123,
+    "b": 0.0059,
+    "mean": 0.0091
+   }
+  },
+  "fa": {
+   "azure": {
+    "a": 0.0328,
+    "b": 0.0547,
+    "mean": 0.0437
+   },
+   "soniox": {
+    "a": 0.0268,
+    "b": 0.0215,
+    "mean": 0.0241
+   }
+  },
+  "tl": {
+   "azure": {
+    "a": 0.033,
+    "b": 0.0506,
+    "mean": 0.0418
+   },
+   "soniox": {
+    "a": 0.0233,
+    "b": 0.0308,
+    "mean": 0.0271
+   }
+  },
+  "uk": {
+   "azure": {
+    "a": 0.0234,
+    "b": 0.0327,
+    "mean": 0.028
+   },
+   "soniox": {
+    "a": 0.0396,
+    "b": 0.0152,
+    "mean": 0.0274
+   }
+  },
+  "ko": {
+   "azure": {
+    "a": 0.0618,
+    "b": 0.0598,
+    "mean": 0.0608
+   },
+   "soniox": {
+    "a": 0.0242,
+    "b": 0.0559,
+    "mean": 0.0401
+   }
+  },
+  "ru": {
+   "azure": {
+    "a": 0.0238,
+    "b": 0.0213,
+    "mean": 0.0226
+   },
+   "soniox": {
+    "a": 0.0243,
+    "b": 0.0115,
+    "mean": 0.0179
+   }
+  },
+  "hi": {
+   "azure": {
+    "a": 0.0526,
+    "b": 0.0338,
+    "mean": 0.0432
+   },
+   "soniox": {
+    "a": 0.0319,
+    "b": 0.04,
+    "mean": 0.0359
+   }
+  },
+  "it": {
+   "azure": {
+    "a": 0.007,
+    "b": 0.0148,
+    "mean": 0.0109
+   },
+   "soniox": {
+    "a": 0.0149,
+    "b": 0.0122,
+    "mean": 0.0135
+   }
+  }
+ },
+ "latency_ms": {
+  "en-es": {
+   "soniox_last_text_p50": 287,
+   "soniox_last_text_p90": 496,
+   "baseline_last_text_p50": 1262,
+   "baseline_last_text_p90": 2056
+  },
+  "es-en": {
+   "soniox_last_text_p50": 154,
+   "soniox_last_text_p90": 273,
+   "baseline_last_text_p50": 1044,
+   "baseline_last_text_p90": 1411
+  },
+  "en-pt": {
+   "soniox_last_text_p50": 310,
+   "soniox_last_text_p90": 549,
+   "baseline_last_text_p50": 1253,
+   "baseline_last_text_p90": 2104
+  },
+  "pt-en": {
+   "soniox_last_text_p50": 108,
+   "soniox_last_text_p90": 222,
+   "baseline_last_text_p50": 1509,
+   "baseline_last_text_p90": 3156
+  },
+  "en-fr": {
+   "soniox_last_text_p50": 349,
+   "soniox_last_text_p90": 544,
+   "baseline_last_text_p50": 1253,
+   "baseline_last_text_p90": 2212
+  },
+  "fr-en": {
+   "soniox_last_text_p50": 265,
+   "soniox_last_text_p90": 416,
+   "baseline_last_text_p50": 888,
+   "baseline_last_text_p90": 1453
+  },
+  "en-de": {
+   "soniox_last_text_p50": 294,
+   "soniox_last_text_p90": 508,
+   "baseline_last_text_p50": 1299,
+   "baseline_last_text_p90": 2212
+  },
+  "de-en": {
+   "soniox_last_text_p50": 250,
+   "soniox_last_text_p90": 431,
+   "baseline_last_text_p50": 1545,
+   "baseline_last_text_p90": 2203
+  },
+  "en-zh": {
+   "soniox_last_text_p50": 290,
+   "soniox_last_text_p90": 496,
+   "baseline_last_text_p50": 1243,
+   "baseline_last_text_p90": 2133
+  },
+  "zh-en": {
+   "soniox_last_text_p50": 392,
+   "soniox_last_text_p90": 540,
+   "baseline_last_text_p50": 729,
+   "baseline_last_text_p90": 1285
+  },
+  "en-vi": {
+   "soniox_last_text_p50": 295,
+   "soniox_last_text_p90": 493,
+   "baseline_last_text_p50": 1307,
+   "baseline_last_text_p90": 2187
+  },
+  "vi-en": {
+   "soniox_last_text_p50": -309,
+   "soniox_last_text_p90": 353,
+   "baseline_last_text_p50": 710,
+   "baseline_last_text_p90": 1367
+  },
+  "en-ar": {
+   "soniox_last_text_p50": 293,
+   "soniox_last_text_p90": 499,
+   "baseline_last_text_p50": 2276,
+   "baseline_last_text_p90": 4368
+  },
+  "ar-en": {
+   "soniox_last_text_p50": 177,
+   "soniox_last_text_p90": 398,
+   "baseline_last_text_p50": 1214,
+   "baseline_last_text_p90": 1451
+  },
+  "en-fa": {
+   "soniox_last_text_p50": 301,
+   "soniox_last_text_p90": 508,
+   "baseline_last_text_p50": 2331,
+   "baseline_last_text_p90": 4164
+  },
+  "fa-en": {
+   "soniox_last_text_p50": -1970,
+   "soniox_last_text_p90": 41,
+   "baseline_last_text_p50": -329,
+   "baseline_last_text_p90": 1252
+  },
+  "en-tl": {
+   "soniox_last_text_p50": 291,
+   "soniox_last_text_p90": 584,
+   "baseline_last_text_p50": 1336,
+   "baseline_last_text_p90": 2230
+  },
+  "tl-en": {
+   "soniox_last_text_p50": -1315,
+   "soniox_last_text_p90": -225,
+   "baseline_last_text_p50": -200,
+   "baseline_last_text_p90": 958
+  },
+  "en-uk": {
+   "soniox_last_text_p50": 372,
+   "soniox_last_text_p90": 576,
+   "baseline_last_text_p50": 1988,
+   "baseline_last_text_p90": 3437
+  },
+  "uk-en": {
+   "soniox_last_text_p50": 200,
+   "soniox_last_text_p90": 418,
+   "baseline_last_text_p50": 2220,
+   "baseline_last_text_p90": 3603
+  },
+  "en-ko": {
+   "soniox_last_text_p50": 300,
+   "soniox_last_text_p90": 527,
+   "baseline_last_text_p50": 1290,
+   "baseline_last_text_p90": 2072
+  },
+  "ko-en": {
+   "soniox_last_text_p50": -15,
+   "soniox_last_text_p90": 270,
+   "baseline_last_text_p50": 1773,
+   "baseline_last_text_p90": 3177
+  },
+  "en-ru": {
+   "soniox_last_text_p50": 292,
+   "soniox_last_text_p90": 502,
+   "baseline_last_text_p50": 1264,
+   "baseline_last_text_p90": 2083
+  },
+  "ru-en": {
+   "soniox_last_text_p50": 221,
+   "soniox_last_text_p90": 386,
+   "baseline_last_text_p50": 1638,
+   "baseline_last_text_p90": 3207
+  },
+  "en-hi": {
+   "soniox_last_text_p50": 343,
+   "soniox_last_text_p90": 548,
+   "baseline_last_text_p50": 1296,
+   "baseline_last_text_p90": 2142
+  },
+  "hi-en": {
+   "soniox_last_text_p50": -193,
+   "soniox_last_text_p90": 157,
+   "baseline_last_text_p50": 1719,
+   "baseline_last_text_p90": 2606
+  },
+  "en-it": {
+   "soniox_last_text_p50": 371,
+   "soniox_last_text_p90": 586,
+   "baseline_last_text_p50": 1226,
+   "baseline_last_text_p90": 2255
+  },
+  "it-en": {
+   "soniox_last_text_p50": 213,
+   "soniox_last_text_p90": 304,
+   "baseline_last_text_p50": 1539,
+   "baseline_last_text_p90": 2415
+  }
+ }
+}
