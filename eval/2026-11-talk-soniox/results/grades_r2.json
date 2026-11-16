@@ -1,0 +1,975 @@
+{
+ "r2:a:fr-en": {
+  "grades": {
+   "soniox": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Unidiomatic rendering of advances and stand ground"
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward word order and phrasing"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated dragonfly and mayfly"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated sediment as bleeding"
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Misplaced word boundary creates awkward sentence structure"
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled syntax and mistranslated severe weather"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslated ball as balloon"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Incorrect year: 1900 instead of 1967"
+    }
+   ],
+   "baseline": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Opposite meaning: bearable instead of unbearable"
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Clumsy phrasing in the second sentence"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated sediment as bleeding"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated 'but sir' and shifted pronouns"
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated falling asleep as relaxation period"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted key word hostile"
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslated team name Springboks as Sprintbox"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Severely mistranslated who does what"
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Incorrect year: 1960 instead of 1967"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2396,
+   "candidatesTokenCount": 1032,
+   "totalTokenCount": 5225,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2396
+    }
+   ],
+   "thoughtsTokenCount": 1797,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "soniox",
+   "B": "baseline"
+  }
+ },
+ "r2:a:en-tl": {
+  "grades": {
+   "soniox": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'in birds'."
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "'all male' mistranslated as 'maliliit na lalaking'."
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled grammar and mistranslated 'cabin' as 'kubo'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "'Swore in' mistranslated as took the oath."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "'cannot fold back' inverted to 'hindi maibuka'."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "'sandbars' mistranslated as 'mga gilid'."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Missing object pronoun in first clause."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "'team to beat' and 'stand out' mistranslated."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Search term mistranslated into nonsensical phrase."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Phrasing suggests it ended in a losing streak."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "'leak' mistranslated as 'nabagong impormasyon'."
+    }
+   ],
+   "baseline": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Incomplete sentence ending with dangling 'at'."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'to succeed' at the end."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "'Swore in' mistranslated as took the oath."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "'sandbars' mistranslated as 'sidebar'."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Second sentence garbled and meaning distorted."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "'team to beat' translated awkwardly as succeeding team."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Said 'bago' (before) and omitted Cold War clause."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Added inappropriate contrastive conjunction 'ngunit'."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2816,
+   "candidatesTokenCount": 1095,
+   "totalTokenCount": 7386,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2816
+    }
+   ],
+   "thoughtsTokenCount": 3475,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "soniox",
+   "B": "baseline"
+  }
+ },
+ "r2:b:fr-en": {
+  "grades": {
+   "baseline": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "\"1£\" is garbled for \"livre\" (book)."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": true,
+     "note": "Omitted \"of the injured\", changing meaning slightly."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "\"fewer stars are activated\" mistranslates the source."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Fragmented sentence with inaccurate phrasing."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "\"volcanism\" used instead of \"maria\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "soniox": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Repeats \"exhale\" instead of translating \"expirent\" properly."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "\"made in a way of matter\" is awkward."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Unnatural phrasing."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "\"which had to\" is awkward for \"devaient\"."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "Non-standard astronomical terms (\"visible/hidden surface\")."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Contains speech disfluency and spelling error."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslates lunar maria (\"mers\") as sea level."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "\"brought them out\" mistranslates \"est sorti\"."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "\"Greek knowledge\" is somewhat ambiguous."
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": true,
+     "note": "\"It\" used instead of \"He\"."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Slightly unnatural phrasing."
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "Missing subject \"Casablanca\"."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2196,
+   "candidatesTokenCount": 1044,
+   "totalTokenCount": 5271,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2196
+    }
+   ],
+   "thoughtsTokenCount": 2031,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "baseline",
+   "B": "soniox"
+  }
+ },
+ "r2:b:en-tl": {
+  "grades": {
+   "soniox": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'plants make' into 'plasmic'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "'story book' translated only as 'kuwento'."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing for smoking joints."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Incomplete sentence; missing police officers."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Clumsy phrasing of the list of conditions."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'magnetic reversals'; 'ROSP' instead of Rossby."
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "'mga putol' is unnatural for cuts."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Incomplete sentence cut off at the end."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Omitted subject Italian and entire second clause."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "baseline": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'plants make' into 'plasmic'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'vendors' as 'imbentor'."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Used past tense 'nanigarilyo'."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Contradicts meaning; says floods still spread."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Incomplete sentence; missing police officers."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'magnetic reversals'."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'maria' as 'Merrier'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Incomplete sentence cut off at the end."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Omitted subject Italian and entire second clause."
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "'pinakawalang-kwento' is overly harsh and colloquial."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'silliness' and added hallucinated text."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2482,
+   "candidatesTokenCount": 1092,
+   "totalTokenCount": 6197,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2482
+    }
+   ],
+   "thoughtsTokenCount": 2623,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "soniox",
+   "B": "baseline"
+  }
+ }
+}
