@@ -1,0 +1,201 @@
+{
+ "recognition": {
+  "azure irregular": {
+   "werPlain": 15.14,
+   "cerPlain": 11.16,
+   "werSpelled": 14.32,
+   "cerSpelled": 10.35,
+   "finals": 59,
+   "forced": 0,
+   "midSentence": 20,
+   "joined": 1,
+   "lagP50MeanOfSets": 0.21
+  },
+  "azure nonstop": {
+   "werPlain": 14.86,
+   "cerPlain": 10.88,
+   "werSpelled": 14.05,
+   "cerSpelled": 10.1,
+   "finals": 42,
+   "forced": 1,
+   "midSentence": 18,
+   "joined": 9,
+   "lagP50MeanOfSets": 0.24
+  },
+  "azure paused": {
+   "werPlain": 14.03,
+   "cerPlain": 10.07,
+   "werSpelled": 13.24,
+   "cerSpelled": 9.31,
+   "finals": 63,
+   "forced": 0,
+   "midSentence": 23,
+   "joined": 1,
+   "lagP50MeanOfSets": 0.21
+  },
+  "azure-default irregular": {
+   "werPlain": 9.86,
+   "cerPlain": 6.57,
+   "werSpelled": 9.14,
+   "cerSpelled": 5.89,
+   "finals": 28,
+   "forced": 1,
+   "midSentence": 3,
+   "joined": 10,
+   "lagP50MeanOfSets": 0.75
+  },
+  "azure-default nonstop": {
+   "werPlain": 13.89,
+   "cerPlain": 10.59,
+   "werSpelled": 12.82,
+   "cerSpelled": 9.79,
+   "finals": 16,
+   "forced": 5,
+   "midSentence": 4,
+   "joined": 10,
+   "lagP50MeanOfSets": 0.67
+  },
+  "azure-default paused": {
+   "werPlain": 10.42,
+   "cerPlain": 7.03,
+   "werSpelled": 9.69,
+   "cerSpelled": 6.34,
+   "finals": 43,
+   "forced": 0,
+   "midSentence": 4,
+   "joined": 2,
+   "lagP50MeanOfSets": 0.64
+  },
+  "mai irregular": {
+   "werPlain": 7.09,
+   "cerPlain": 4.6,
+   "werSpelled": 6.82,
+   "cerSpelled": 4.27,
+   "finals": 52,
+   "forced": 0,
+   "midSentence": 16,
+   "joined": 4,
+   "lagP50MeanOfSets": 0.4
+  },
+  "mai nonstop": {
+   "werPlain": 7.36,
+   "cerPlain": 5.38,
+   "werSpelled": 7.09,
+   "cerSpelled": 5.04,
+   "finals": 33,
+   "forced": 1,
+   "midSentence": 14,
+   "joined": 13,
+   "lagP50MeanOfSets": 0.4
+  },
+  "mai paused": {
+   "werPlain": 6.39,
+   "cerPlain": 4.31,
+   "werSpelled": 6.14,
+   "cerSpelled": 3.99,
+   "finals": 53,
+   "forced": 0,
+   "midSentence": 15,
+   "joined": 2,
+   "lagP50MeanOfSets": 0.41
+  },
+  "mai-default irregular": {
+   "werPlain": 6.67,
+   "cerPlain": 4.66,
+   "werSpelled": 6.41,
+   "cerSpelled": 4.33,
+   "finals": 39,
+   "forced": 1,
+   "midSentence": 6,
+   "joined": 4,
+   "lagP50MeanOfSets": 0.6
+  },
+  "mai-default nonstop": {
+   "werPlain": 6.95,
+   "cerPlain": 5.24,
+   "werSpelled": 6.68,
+   "cerSpelled": 4.89,
+   "finals": 23,
+   "forced": 4,
+   "midSentence": 11,
+   "joined": 11,
+   "lagP50MeanOfSets": 0.57
+  },
+  "mai-default paused": {
+   "werPlain": 5.97,
+   "cerPlain": 4.05,
+   "werSpelled": 5.73,
+   "cerSpelled": 3.73,
+   "finals": 44,
+   "forced": 0,
+   "midSentence": 5,
+   "joined": 1,
+   "lagP50MeanOfSets": 0.59
+  }
+ },
+ "translation": {
+  "azure irregular": {
+   "quality": 68.3,
+   "es": 70.0,
+   "fr": 66.7,
+   "critical": 9,
+   "n": 80
+  },
+  "azure nonstop": {
+   "quality": 72.9,
+   "es": 72.5,
+   "fr": 73.3,
+   "critical": 11,
+   "n": 80
+  },
+  "azure paused": {
+   "quality": 67.9,
+   "es": 66.7,
+   "fr": 69.2,
+   "critical": 8,
+   "n": 80
+  },
+  "azure-default irregular": {
+   "quality": 77.9,
+   "es": 78.3,
+   "fr": 77.5,
+   "critical": 6,
+   "n": 80
+  },
+  "azure-default nonstop": {
+   "quality": 73.3,
+   "es": 72.5,
+   "fr": 74.2,
+   "critical": 8,
+   "n": 80
+  },
+  "azure-default paused": {
+   "quality": 75.4,
+   "es": 75.0,
+   "fr": 75.8,
+   "critical": 9,
+   "n": 80
+  },
+  "mai irregular": {
+   "quality": 84.6,
+   "es": 85.0,
+   "fr": 84.2,
+   "critical": 4,
+   "n": 80
+  },
+  "mai nonstop": {
+   "quality": 86.2,
+   "es": 87.5,
+   "fr": 85.0,
+   "critical": 6,
+   "n": 80
+  },
+  "mai paused": {
+   "quality": 85.0,
+   "es": 85.8,
+   "fr": 84.2,
+   "critical": 6,
+   "n": 80
+  }
+ }
+}
