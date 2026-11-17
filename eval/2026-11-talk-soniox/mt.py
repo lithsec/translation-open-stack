@@ -132,4 +132,4 @@ if __name__ == "__main__":
     dirs = sys.argv[2:] or list(BASELINE)
     # One thread per (set, direction) feeding the two host pools; each pool caps its host at 3 calls.
     with cf.ThreadPoolExecutor(8) as ex:
-        list(ex.map(lambda a: direction(*a), [(st, d) for st in ["a", "b"] for d in dirs]))
+        list(ex.map(lambda a: direction(*a), [(st, d) for st in os.environ.get("SETS", "a,b").split(",") for d in dirs]))

@@ -83,4 +83,4 @@ def run(lang, st):
 if __name__ == "__main__":
     langs = sys.argv[3:] or list(LOCALE)
     with cf.ThreadPoolExecutor(3) as ex:
-        list(ex.map(lambda a: run(*a), [(l, st) for l in langs for st in ["a", "b"]]))
+        list(ex.map(lambda a: run(*a), [(l, st) for l in langs for st in os.environ.get("SETS", "a,b").split(",")]))
