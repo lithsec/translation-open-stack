@@ -1,0 +1,762 @@
+{
+ "pooled": {
+  "azure irregular": {
+   "werPlain": 15.14,
+   "cerPlain": 11.16,
+   "werSpelled": 14.32,
+   "cerSpelled": 10.35,
+   "finals": 59,
+   "forced": 0,
+   "midSentence": 20,
+   "joined": 1,
+   "lagP50MeanOfSets": 0.21
+  },
+  "azure nonstop": {
+   "werPlain": 14.86,
+   "cerPlain": 10.88,
+   "werSpelled": 14.05,
+   "cerSpelled": 10.1,
+   "finals": 42,
+   "forced": 1,
+   "midSentence": 18,
+   "joined": 9,
+   "lagP50MeanOfSets": 0.24
+  },
+  "azure paused": {
+   "werPlain": 14.03,
+   "cerPlain": 10.07,
+   "werSpelled": 13.24,
+   "cerSpelled": 9.31,
+   "finals": 63,
+   "forced": 0,
+   "midSentence": 23,
+   "joined": 1,
+   "lagP50MeanOfSets": 0.21
+  },
+  "azure-default irregular": {
+   "werPlain": 9.86,
+   "cerPlain": 6.57,
+   "werSpelled": 9.14,
+   "cerSpelled": 5.89,
+   "finals": 28,
+   "forced": 1,
+   "midSentence": 3,
+   "joined": 10,
+   "lagP50MeanOfSets": 0.75
+  },
+  "azure-default nonstop": {
+   "werPlain": 13.89,
+   "cerPlain": 10.59,
+   "werSpelled": 12.82,
+   "cerSpelled": 9.79,
+   "finals": 16,
+   "forced": 5,
+   "midSentence": 4,
+   "joined": 10,
+   "lagP50MeanOfSets": 0.67
+  },
+  "azure-default paused": {
+   "werPlain": 10.42,
+   "cerPlain": 7.03,
+   "werSpelled": 9.69,
+   "cerSpelled": 6.34,
+   "finals": 43,
+   "forced": 0,
+   "midSentence": 4,
+   "joined": 2,
+   "lagP50MeanOfSets": 0.64
+  },
+  "mai irregular": {
+   "werPlain": 7.09,
+   "cerPlain": 4.6,
+   "werSpelled": 6.82,
+   "cerSpelled": 4.27,
+   "finals": 52,
+   "forced": 0,
+   "midSentence": 16,
+   "joined": 4,
+   "lagP50MeanOfSets": 0.4
+  },
+  "mai nonstop": {
+   "werPlain": 7.36,
+   "cerPlain": 5.38,
+   "werSpelled": 7.09,
+   "cerSpelled": 5.04,
+   "finals": 33,
+   "forced": 1,
+   "midSentence": 14,
+   "joined": 13,
+   "lagP50MeanOfSets": 0.4
+  },
+  "mai paused": {
+   "werPlain": 6.39,
+   "cerPlain": 4.31,
+   "werSpelled": 6.14,
+   "cerSpelled": 3.99,
+   "finals": 53,
+   "forced": 0,
+   "midSentence": 15,
+   "joined": 2,
+   "lagP50MeanOfSets": 0.41
+  },
+  "mai-default irregular": {
+   "werPlain": 6.67,
+   "cerPlain": 4.66,
+   "werSpelled": 6.41,
+   "cerSpelled": 4.33,
+   "finals": 39,
+   "forced": 1,
+   "midSentence": 6,
+   "joined": 4,
+   "lagP50MeanOfSets": 0.6
+  },
+  "mai-default nonstop": {
+   "werPlain": 6.95,
+   "cerPlain": 5.24,
+   "werSpelled": 6.68,
+   "cerSpelled": 4.89,
+   "finals": 23,
+   "forced": 4,
+   "midSentence": 11,
+   "joined": 11,
+   "lagP50MeanOfSets": 0.57
+  },
+  "mai-default paused": {
+   "werPlain": 5.97,
+   "cerPlain": 4.05,
+   "werSpelled": 5.73,
+   "cerSpelled": 3.73,
+   "finals": 44,
+   "forced": 0,
+   "midSentence": 5,
+   "joined": 1,
+   "lagP50MeanOfSets": 0.59
+  }
+ },
+ "runs": {
+  "azure a_irregular": {
+   "recogniser": "azure",
+   "set": "a",
+   "style": "irregular",
+   "err": "",
+   "plain": {
+    "wer": 14.02,
+    "cer": 8.03,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 13.26,
+    "cer": 7.66,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 31,
+   "forced": 0,
+   "midSentence": 12,
+   "joined": 1,
+   "lagP50": 0.2,
+   "lagP90": 0.7,
+   "firstPartialS": 1.97,
+   "partials": 285
+  },
+  "azure a_nonstop": {
+   "recogniser": "azure",
+   "set": "a",
+   "style": "nonstop",
+   "err": "",
+   "plain": {
+    "wer": 15.09,
+    "cer": 8.53,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 14.32,
+    "cer": 8.15,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 27,
+   "forced": 0,
+   "midSentence": 13,
+   "joined": 4,
+   "lagP50": 0.18,
+   "lagP90": 0.34,
+   "firstPartialS": 1.97,
+   "partials": 268
+  },
+  "azure a_paused": {
+   "recogniser": "azure",
+   "set": "a",
+   "style": "paused",
+   "err": "",
+   "plain": {
+    "wer": 12.67,
+    "cer": 7.26,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 11.94,
+    "cer": 6.91,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 34,
+   "forced": 0,
+   "midSentence": 14,
+   "joined": 0,
+   "lagP50": 0.19,
+   "lagP90": 0.46,
+   "firstPartialS": 1.98,
+   "partials": 287
+  },
+  "azure b_irregular": {
+   "recogniser": "azure",
+   "set": "b",
+   "style": "irregular",
+   "err": "",
+   "plain": {
+    "wer": 16.33,
+    "cer": 14.64,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 15.45,
+    "cer": 13.32,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 28,
+   "forced": 0,
+   "midSentence": 8,
+   "joined": 0,
+   "lagP50": 0.21,
+   "lagP90": 0.34,
+   "firstPartialS": 2.28,
+   "partials": 243
+  },
+  "azure b_nonstop": {
+   "recogniser": "azure",
+   "set": "b",
+   "style": "nonstop",
+   "err": "",
+   "plain": {
+    "wer": 14.61,
+    "cer": 13.48,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 13.76,
+    "cer": 12.25,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 15,
+   "forced": 1,
+   "midSentence": 5,
+   "joined": 5,
+   "lagP50": 0.3,
+   "lagP90": 0.49,
+   "firstPartialS": 2.27,
+   "partials": 243
+  },
+  "azure b_paused": {
+   "recogniser": "azure",
+   "set": "b",
+   "style": "paused",
+   "err": "",
+   "plain": {
+    "wer": 15.47,
+    "cer": 13.18,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 14.61,
+    "cer": 11.95,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 29,
+   "forced": 0,
+   "midSentence": 9,
+   "joined": 1,
+   "lagP50": 0.22,
+   "lagP90": 0.85,
+   "firstPartialS": 2.27,
+   "partials": 242
+  },
+  "azure-default a_irregular": {
+   "recogniser": "azure-default",
+   "set": "a",
+   "style": "irregular",
+   "err": "",
+   "plain": {
+    "wer": 9.7,
+    "cer": 4.46,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 9.02,
+    "cer": 4.16,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 16,
+   "forced": 1,
+   "midSentence": 2,
+   "joined": 5,
+   "lagP50": 0.76,
+   "lagP90": 1.22,
+   "firstPartialS": 1.97,
+   "partials": 293
+  },
+  "azure-default a_nonstop": {
+   "recogniser": "azure-default",
+   "set": "a",
+   "style": "nonstop",
+   "err": "",
+   "plain": {
+    "wer": 13.48,
+    "cer": 7.7,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 12.2,
+    "cer": 7.29,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 10,
+   "forced": 3,
+   "midSentence": 3,
+   "joined": 6,
+   "lagP50": 0.49,
+   "lagP90": 0.92,
+   "firstPartialS": 1.99,
+   "partials": 298
+  },
+  "azure-default a_paused": {
+   "recogniser": "azure-default",
+   "set": "a",
+   "style": "paused",
+   "err": "",
+   "plain": {
+    "wer": 9.16,
+    "cer": 4.62,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 8.49,
+    "cer": 4.32,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 23,
+   "forced": 0,
+   "midSentence": 3,
+   "joined": 0,
+   "lagP50": 0.61,
+   "lagP90": 1.04,
+   "firstPartialS": 1.97,
+   "partials": 301
+  },
+  "azure-default b_irregular": {
+   "recogniser": "azure-default",
+   "set": "b",
+   "style": "irregular",
+   "err": "",
+   "plain": {
+    "wer": 10.03,
+    "cer": 8.91,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 9.27,
+    "cer": 7.79,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 12,
+   "forced": 0,
+   "midSentence": 1,
+   "joined": 5,
+   "lagP50": 0.74,
+   "lagP90": 0.86,
+   "firstPartialS": 2.28,
+   "partials": 261
+  },
+  "azure-default b_nonstop": {
+   "recogniser": "azure-default",
+   "set": "b",
+   "style": "nonstop",
+   "err": "",
+   "plain": {
+    "wer": 14.33,
+    "cer": 13.79,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 13.48,
+    "cer": 12.54,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 6,
+   "forced": 2,
+   "midSentence": 1,
+   "joined": 4,
+   "lagP50": 0.84,
+   "lagP90": 0.96,
+   "firstPartialS": 2.28,
+   "partials": 263
+  },
+  "azure-default b_paused": {
+   "recogniser": "azure-default",
+   "set": "b",
+   "style": "paused",
+   "err": "",
+   "plain": {
+    "wer": 11.75,
+    "cer": 9.7,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 10.96,
+    "cer": 8.56,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 20,
+   "forced": 0,
+   "midSentence": 1,
+   "joined": 2,
+   "lagP50": 0.66,
+   "lagP90": 1.31,
+   "firstPartialS": 2.27,
+   "partials": 261
+  },
+  "mai a_irregular": {
+   "recogniser": "mai",
+   "set": "a",
+   "style": "irregular",
+   "err": "",
+   "plain": {
+    "wer": 7.28,
+    "cer": 3.3,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 7.16,
+    "cer": 3.24,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 29,
+   "forced": 0,
+   "midSentence": 10,
+   "joined": 2,
+   "lagP50": 0.42,
+   "lagP90": 0.5,
+   "firstPartialS": 1.34,
+   "partials": 362
+  },
+  "mai a_nonstop": {
+   "recogniser": "mai",
+   "set": "a",
+   "style": "nonstop",
+   "err": "",
+   "plain": {
+    "wer": 6.74,
+    "cer": 3.41,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 6.63,
+    "cer": 3.35,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 23,
+   "forced": 0,
+   "midSentence": 10,
+   "joined": 7,
+   "lagP50": 0.38,
+   "lagP90": 0.46,
+   "firstPartialS": 1.38,
+   "partials": 334
+  },
+  "mai a_paused": {
+   "recogniser": "mai",
+   "set": "a",
+   "style": "paused",
+   "err": "",
+   "plain": {
+    "wer": 6.2,
+    "cer": 2.97,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 6.1,
+    "cer": 2.91,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 30,
+   "forced": 0,
+   "midSentence": 11,
+   "joined": 2,
+   "lagP50": 0.41,
+   "lagP90": 0.5,
+   "firstPartialS": 1.36,
+   "partials": 353
+  },
+  "mai b_irregular": {
+   "recogniser": "mai",
+   "set": "b",
+   "style": "irregular",
+   "err": "",
+   "plain": {
+    "wer": 6.88,
+    "cer": 6.04,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 6.46,
+    "cer": 5.41,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 23,
+   "forced": 0,
+   "midSentence": 6,
+   "joined": 2,
+   "lagP50": 0.38,
+   "lagP90": 0.43,
+   "firstPartialS": 1.69,
+   "partials": 315
+  },
+  "mai b_nonstop": {
+   "recogniser": "mai",
+   "set": "b",
+   "style": "nonstop",
+   "err": "",
+   "plain": {
+    "wer": 8.02,
+    "cer": 7.57,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 7.58,
+    "cer": 6.9,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 10,
+   "forced": 1,
+   "midSentence": 4,
+   "joined": 6,
+   "lagP50": 0.41,
+   "lagP90": 0.45,
+   "firstPartialS": 1.65,
+   "partials": 283
+  },
+  "mai b_paused": {
+   "recogniser": "mai",
+   "set": "b",
+   "style": "paused",
+   "err": "",
+   "plain": {
+    "wer": 6.59,
+    "cer": 5.8,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 6.18,
+    "cer": 5.17,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 23,
+   "forced": 0,
+   "midSentence": 4,
+   "joined": 0,
+   "lagP50": 0.4,
+   "lagP90": 0.46,
+   "firstPartialS": 1.67,
+   "partials": 309
+  },
+  "mai-default a_irregular": {
+   "recogniser": "mai-default",
+   "set": "a",
+   "style": "irregular",
+   "err": "",
+   "plain": {
+    "wer": 6.2,
+    "cer": 2.53,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 6.1,
+    "cer": 2.48,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 23,
+   "forced": 0,
+   "midSentence": 3,
+   "joined": 1,
+   "lagP50": 0.62,
+   "lagP90": 0.7,
+   "firstPartialS": 1.35,
+   "partials": 353
+  },
+  "mai-default a_nonstop": {
+   "recogniser": "mai-default",
+   "set": "a",
+   "style": "nonstop",
+   "err": "",
+   "plain": {
+    "wer": 6.2,
+    "cer": 3.08,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 6.1,
+    "cer": 3.02,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 15,
+   "forced": 2,
+   "midSentence": 8,
+   "joined": 6,
+   "lagP50": 0.61,
+   "lagP90": 0.68,
+   "firstPartialS": 1.34,
+   "partials": 309
+  },
+  "mai-default a_paused": {
+   "recogniser": "mai-default",
+   "set": "a",
+   "style": "paused",
+   "err": "",
+   "plain": {
+    "wer": 5.39,
+    "cer": 2.26,
+    "words": 371,
+    "chars": 1818
+   },
+   "spelled": {
+    "wer": 5.31,
+    "cer": 2.21,
+    "words": 377,
+    "chars": 1853
+   },
+   "finals": 22,
+   "forced": 0,
+   "midSentence": 2,
+   "joined": 1,
+   "lagP50": 0.59,
+   "lagP90": 0.67,
+   "firstPartialS": 1.34,
+   "partials": 359
+  },
+  "mai-default b_irregular": {
+   "recogniser": "mai-default",
+   "set": "b",
+   "style": "irregular",
+   "err": "",
+   "plain": {
+    "wer": 7.16,
+    "cer": 7.02,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 6.74,
+    "cer": 6.36,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 16,
+   "forced": 1,
+   "midSentence": 3,
+   "joined": 3,
+   "lagP50": 0.59,
+   "lagP90": 0.64,
+   "firstPartialS": 1.66,
+   "partials": 297
+  },
+  "mai-default b_nonstop": {
+   "recogniser": "mai-default",
+   "set": "b",
+   "style": "nonstop",
+   "err": "",
+   "plain": {
+    "wer": 7.74,
+    "cer": 7.63,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 7.3,
+    "cer": 6.96,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 8,
+   "forced": 2,
+   "midSentence": 3,
+   "joined": 5,
+   "lagP50": 0.54,
+   "lagP90": 0.61,
+   "firstPartialS": 1.66,
+   "partials": 267
+  },
+  "mai-default b_paused": {
+   "recogniser": "mai-default",
+   "set": "b",
+   "style": "paused",
+   "err": "",
+   "plain": {
+    "wer": 6.59,
+    "cer": 6.04,
+    "words": 349,
+    "chars": 1639
+   },
+   "spelled": {
+    "wer": 6.18,
+    "cer": 5.41,
+    "words": 356,
+    "chars": 1682
+   },
+   "finals": 22,
+   "forced": 0,
+   "midSentence": 3,
+   "joined": 0,
+   "lagP50": 0.59,
+   "lagP90": 0.65,
+   "firstPartialS": 1.68,
+   "partials": 303
+  }
+ }
+}
