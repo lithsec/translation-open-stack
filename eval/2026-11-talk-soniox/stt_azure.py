@@ -5,6 +5,11 @@
 # (LithosSpike/AzureStreamHub.swift locales, the server's AZURE_LOCALES).
 #
 #   AZURE_SPEECH_KEY=... AZURE_SPEECH_REGION=eastus python3 -I stt_azure.py CLIPS_ROOT OUT [lang ...]
+#   RECOGNISER=mai AZURE_SPEECH_KEY=<Lithos-Speech-eus2> AZURE_SPEECH_REGION=eastus2 python3 -I stt_azure.py ...
+#
+# RECOGNISER=mai: MAI-Transcribe-2-Streaming (speech_config.model "mai-transcribe-2-streaming", as Talk's
+# AzureStreamHub.maiModel and ../2026-10-mai-streaming-more-languages/stream.py), pinned to the same locale, on the
+# eastus2 resource; written to OUT/stt_mai/ instead of OUT/stt/. Three streams at a time (shared with production).
 #
 # Writes OUT/stt/<set>/<lang>.json (finals with offsets and arrival times) and <lang>.sent.json (one transcript
 # per read sentence). Nothing secret is printed.
@@ -20,17 +25,20 @@ LOCALE = {"en": "en-US", "es": "es-MX", "pt": "pt-BR", "fr": "fr-FR", "de": "de-
           "ar": "ar-SA", "fa": "fa-IR", "tl": "fil-PH", "uk": "uk-UA", "ko": "ko-KR", "ru": "ru-RU", "hi": "hi-IN",
           "it": "it-IT"}
 CLIPS, OUT = sys.argv[1], sys.argv[2]
+REC = os.environ.get("RECOGNISER", "azure")
 
 
 def run(lang, st):
     clips = os.path.join(CLIPS, f"clips_{st}")
-    p = os.path.join(OUT, "stt", st, f"{lang}.json")
+    p = os.path.join(OUT, "stt" if REC == "azure" else "stt_mai", st, f"{lang}.json")
     if os.path.exists(p) and not json.load(open(p))["err"]:
         return
     with wave.open(os.path.join(clips, f"{lang}.wav")) as w:
         assert w.getframerate() == 16000 and w.getnchannels() == 1
         pcm = w.readframes(w.getnframes())
     cfg = speechsdk.SpeechConfig(subscription=KEY, region=REGION)
+    if REC == "mai":
+        cfg.model = "mai-transcribe-2-streaming"
     cfg.speech_recognition_language = LOCALE[lang]
     cfg.output_format = speechsdk.OutputFormat.Detailed
     push = speechsdk.audio.PushAudioInputStream()
@@ -65,7 +73,7 @@ def run(lang, st):
     meta = json.load(open(os.path.join(clips, f"{lang}.json")))
     gold = json.load(open(os.path.join(clips, f"{lang}.txt.json")))
     os.makedirs(os.path.dirname(p), exist_ok=True)
-    json.dump({"lang": lang, "set": st, "locale": LOCALE[lang], "err": err[0] if err else "", "finals": finals},
+    json.dump({"lang": lang, "set": st, "recogniser": REC, "locale": LOCALE[lang], "err": err[0] if err else "", "finals": finals},
               open(p, "w"), ensure_ascii=False, indent=1)
     json.dump(group(finals, meta["sentences"], gold), open(p.replace(".json", ".sent.json"), "w"),
               ensure_ascii=False, indent=1)
