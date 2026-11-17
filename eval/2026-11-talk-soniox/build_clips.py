@@ -3,12 +3,16 @@
 # seed 2029. Ids no earlier round used come first, then ids earlier rounds used, to make up 40. Recordings
 # alternate male and female readers where both exist, so each set has several FLEURS speakers. Regular pauses
 # only (1.0-1.95 s, as ../2026-11-more-languages/build_clips.py).
-#   python3 -I build_clips.py <out dir> <real-voices dir> <eval dir>
+#   python3 -I build_clips.py <out dir> <real-voices dir> <eval dir> [ids.json [lang ...]]
+# With ids.json (results/ids.json), the sets are taken from it instead of drawn again (to rebuild this round's
+# audio: the draw would now exclude this round's own ids), and only the named languages are written.
 # Writes <out>/clips_{a,b}/<lang>.wav (16 kHz mono), .json (sentence offsets), .txt.json (FLEURS text) and
 # <out>/ids.json.
 import concurrent.futures as cf, glob, json, os, random, sys, tarfile, urllib.request, wave
 
 OUT, RV, EV = sys.argv[1], sys.argv[2], sys.argv[3]
+FIXED = json.load(open(sys.argv[4]))["sets"] if len(sys.argv) > 4 else None
+ONLY = sys.argv[5:]
 sys.path.insert(0, RV)
 import fetch_audio as fa  # noqa: E402
 
@@ -33,10 +37,13 @@ rest = [i for i in ok if i not in fresh]
 print(f"{len(common)} common ids, {len(ok)} of 6-25 words, {len(fresh)} unused", flush=True)
 if len(ok) < 2 * N:
     sys.exit("not enough ids")
-rng = random.Random(2029)
-ids = rng.sample(fresh, min(len(fresh), 2 * N))
-ids += rng.sample(rest, 2 * N - len(ids))
-rng.shuffle(ids)
+if FIXED:
+    ids = FIXED["a"] + FIXED["b"]
+else:
+    rng = random.Random(2029)
+    ids = rng.sample(fresh, min(len(fresh), 2 * N))
+    ids += rng.sample(rest, 2 * N - len(ids))
+    rng.shuffle(ids)
 SETS = {"a": ids[:N], "b": ids[N:]}
 r = random.Random(11)
 GAPS = [round(r.uniform(1.0, 1.95), 2) for _ in range(N + 1)]
@@ -86,6 +93,6 @@ def one(lang):
 os.makedirs(OUT, exist_ok=True)
 json.dump({"sets": SETS}, open(os.path.join(OUT, "ids.json"), "w"))
 with cf.ThreadPoolExecutor(5) as ex:
-    for l in ex.map(one, FLEURS):
+    for l in ex.map(one, ONLY or FLEURS):
         print(l, "done", flush=True)
 print("done", flush=True)

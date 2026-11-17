@@ -10,7 +10,9 @@
 #
 # Writes OUT/mt/<set>/<src>-<tgt>.json: out, wall_s, tokens. HEAR=soniox (the soniox-hear arm): the same
 # translator and prompt on Soniox's own transcripts (soniox_hear.py, OUT/soniox_hear/<set>/<src>-<tgt>.sent.json),
-# written to OUT/mt_soniox_hear/<set>/<src>-<tgt>.json. At most 3 calls at a time to each host (both are
+# written to OUT/mt_soniox_hear/<set>/<src>-<tgt>.json. HEAR=mai (the mai-hear arm): on MAI's transcripts
+# (stt_azure.py RECOGNISER=mai, OUT/stt_mai/<set>/<src>.sent.json), written to OUT/mt_mai/; directions whose source
+# MAI has no transcript for are skipped. At most 3 calls at a time to each host (both are
 # shared with live users); 429s and 5xx are retried with a growing wait. Nothing secret is printed.
 import concurrent.futures as cf
 import json, os, sys, threading, time
@@ -108,11 +110,15 @@ POOLS = {k: cf.ThreadPoolExecutor(3) for k in FN}   # at most 3 at a time per ho
 def direction(st, d):
     src, tgt = d.split("-")
     tr = BASELINE[d][2]
-    p = os.path.join(OUT, "mt" if HEAR == "azure" else "mt_soniox_hear", st, f"{d}.json")
+    p = os.path.join(OUT, {"azure": "mt", "soniox": "mt_soniox_hear", "mai": "mt_mai"}[HEAR], st, f"{d}.json")
     if os.path.exists(p):
         return
-    inputs = json.load(open(os.path.join(OUT, "stt", st, f"{src}.sent.json") if HEAR == "azure"
-                            else os.path.join(OUT, "soniox_hear", st, f"{d}.sent.json")))
+    ip = {"azure": os.path.join(OUT, "stt", st, f"{src}.sent.json"),
+          "soniox": os.path.join(OUT, "soniox_hear", st, f"{d}.sent.json"),
+          "mai": os.path.join(OUT, "stt_mai", st, f"{src}.sent.json")}[HEAR]
+    if HEAR == "mai" and not os.path.exists(ip):
+        return
+    inputs = json.load(open(ip))
     empty = {"out": "", "wall_s": None, "prompt_tokens": None, "completion_tokens": None}
     futs = [POOLS[tr].submit(FN[tr], x, src, tgt) if x.strip() else None for x in inputs]
     res = [f.result() if f else empty for f in futs]

@@ -135,6 +135,94 @@ the mean of both reads (in brackets). Critical: of 40, first read. Recognition C
    (one-way translation on); a Soniox stream without translation was not run. Grades differ between rounds (the
    baseline's en→es is 76.7 in the first round, 77.5 here): compare within one round's table.
 
+## Which hearing: Soniox, MAI or Azure, with our translator
+
+A third, fresh round (`talk-hearing-2026-11`): is Soniox's hearing better than MAI's, not only Azure standard's?
+**mai-hear**: MAI-Transcribe-2-Streaming (`stt_azure.py` with `RECOGNISER=mai`: the Speech SDK's
+`model = "mai-transcribe-2-streaming"`, as Talk's `AzureStreamHub.maiModel`, pinned to the same locale, on the
+eastus2 resource, three streams at a time), finals regrouped per sentence by audio offset as Azure's. Talk hears
+es, fr, de, zh, vi, ar, fa, tl and uk with MAI today (lithos-server `testroutes.ts` `MAI_STREAM_LANGS`); MAI was
+run on all 15 languages here, English included, and accepted every one, so every direction has all three. Each
+arm's transcripts were translated by the direction's baseline translator with the same prompt and host (`mt.py`
+`HEAR=mai`; soniox-hear and azure-hear are the second round's translations). The three were graded blind side
+by side in one call per direction and set (`round_hearing.py`, `grade.py`, `gemini-flash-latest`, n = 40); 21
+directions whose top two were within 3.3 points were graded a second time (quality = mean of both reads, in
+brackets). Critical: of 40, first read. "Soniox qualifies": Soniox ≥ 70 and ≥ the better of MAI and Azure − 3.
+Rows: `hearing-rows.json`; numbers: `results.json` `hearing`; outputs and grades: `results/hearing/`.
+
+**Audio.** The clips were deleted after the first two rounds and rebuilt for this one from `results/ids.json`
+(`build_clips.py ... results/ids.json`). Every rebuilt clip's offsets, files and texts matched the committed
+ones except Ukrainian set a, whose last sentence came out 220 ms shorter (199.79 s against 200.01 s). Soniox
+(uk→en) and Azure were re-run on the rebuilt uk set-a clip and their translations redone, so all three arms
+heard identical audio (`results/hearing/uk_a_rebuilt.json`); every other clip is the one the earlier rounds used.
+
+| Direction | Translator | Soniox | MAI | Azure | Best | Soniox − best other | Soniox qualifies | Critical, Soniox / MAI / Azure |
+|---|---|---|---|---|---|---|---|---|
+| en→es | Gemma 4 | **85.0** (85.8, 84.2) | **87.5** (87.5, 87.5) | **75.8** (75.8, 75.8) | MAI | -2.5 | **yes** | 3 / 2 / 4 |
+| es→en | Gemma 4 | **95.0** (95.0, 95.0) | **95.8** (95.8, 95.8) | **90.8** (90.8, 90.8) | MAI | -0.8 | **yes** | 2 / 1 / 3 |
+| en→pt | Gemma 4 | **83.8** (84.2, 83.3) | **87.1** (87.5, 86.7) | **76.7** (76.7, 76.7) | MAI | -3.3 | no | 3 / 2 / 3 |
+| pt→en | gpt-6-sol | **87.1** (86.7, 87.5) | **94.2** (93.3, 95.0) | **92.5** (92.5, 92.5) | MAI | -7.1 | no | 5 / 2 / 2 |
+| en→fr | Gemma 4 | **84.6** (83.3, 85.8) | **85.8** (84.2, 87.5) | **75.4** (73.3, 77.5) | MAI | -1.2 | **yes** | 4 / 2 / 6 |
+| fr→en | Gemma 4 | **91.7** (90.8, 92.5) | **92.9** (91.7, 94.2) | **77.9** (77.5, 78.3) | MAI | -1.2 | **yes** | 2 / 3 / 7 |
+| en→de | Gemma 4 | **83.3** (84.2, 82.5) | **85.0** (86.7, 83.3) | **74.6** (75.8, 73.3) | MAI | -1.7 | **yes** | 3 / 2 / 6 |
+| de→en | gpt-6-sol | **90.8** | **94.2** | **86.7** | MAI | -3.4 | no | 2 / 2 / 4 |
+| en→zh | Gemma 4 | **85.4** (85.8, 85.0) | **87.5** (87.5, 87.5) | **77.1** (78.3, 75.8) | MAI | -2.1 | **yes** | 2 / 2 / 5 |
+| zh→en | Gemma 4 | **87.5** | **91.7** | **85.8** | MAI | -4.2 | no | 4 / 2 / 3 |
+| en→vi | Gemma 4 | **88.0** (89.2, 86.7) | **89.2** (90.0, 88.3) | **77.5** (78.3, 76.7) | MAI | -1.2 | **yes** | 3 / 2 / 4 |
+| vi→en | Gemma 4 | **80.8** (81.7, 80.0) | **83.3** (83.3, 83.3) | **77.1** (77.5, 76.7) | MAI | -2.5 | **yes** | 4 / 5 / 8 |
+| en→ar | gpt-6-sol | **87.9** (87.5, 88.3) | **88.8** (87.5, 90.0) | **81.2** (80.8, 81.7) | MAI | -0.9 | **yes** | 3 / 3 / 3 |
+| ar→en | Gemma 4 | **90.8** (91.7, 90.0) | **92.5** (93.3, 91.7) | **89.2** (90.0, 88.3) | MAI | -1.7 | **yes** | 1 / 1 / 2 |
+| en→fa | gpt-6-sol | **87.9** (87.5, 88.3) | **87.1** (86.7, 87.5) | **82.1** (80.8, 83.3) | Soniox | +0.8 | **yes** | 3 / 4 / 4 |
+| fa→en | Gemma 4 | **85.8** | **77.5** | **75.0** | Soniox | +8.3 | **yes** | 1 / 5 / 5 |
+| en→tl | Gemma 4 | **80.8** | **84.2** | **71.7** | MAI | -3.4 | no | 5 / 3 / 6 |
+| tl→en | Gemma 4 | **92.5** | **87.5** | **81.7** | Soniox | +5.0 | **yes** | 0 / 2 / 3 |
+| en→uk | gpt-6-sol | **85.0** (84.2, 85.8) | **84.2** (84.2, 84.2) | **79.6** (79.2, 80.0) | Soniox | +0.8 | **yes** | 4 / 3 / 3 |
+| uk→en | gpt-6-sol | **93.8** (95.0, 92.5) | **91.2** (91.7, 90.8) | **90.8** (90.8, 90.8) | Soniox | +2.6 | **yes** | 3 / 4 / 4 |
+| en→ko | Gemma 4 | **89.6** (90.0, 89.2) | **91.2** (90.8, 91.7) | **76.2** (76.7, 75.8) | MAI | -1.6 | **yes** | 3 / 2 / 5 |
+| ko→en | gpt-6-sol | **95.0** (95.0, 95.0) | **98.3** (98.3, 98.3) | **91.7** (91.7, 91.7) | MAI | -3.3 | no | 1 / 0 / 0 |
+| en→ru | Gemma 4 | **83.3** | **89.2** | **76.7** | MAI | -5.9 | no | 4 / 4 / 6 |
+| ru→en | gpt-6-sol | **95.4** (95.8, 95.0) | **98.3** (98.3, 98.3) | **95.5** (96.7, 94.2) | MAI | -2.9 | **yes** | 0 / 0 / 1 |
+| en→hi | Gemma 4 | **85.4** (85.0, 85.8) | **87.9** (87.5, 88.3) | **75.8** (75.0, 76.7) | MAI | -2.5 | **yes** | 3 / 3 / 6 |
+| hi→en | gpt-6-sol | **85.0** (85.8, 84.2) | **86.2** (87.5, 85.0) | **83.8** (85.0, 82.5) | MAI | -1.2 | **yes** | 3 / 2 / 5 |
+| en→it | Gemma 4 | **83.3** (85.0, 81.7) | **81.7** (82.5, 80.8) | **72.1** (74.2, 70.0) | Soniox | +1.6 | **yes** | 4 / 4 / 5 |
+| it→en | gpt-6-sol | **94.2** | **95.0** | **100.0** | Azure | -5.8 | no | 2 / 1 / 0 |
+
+Recognition, characters wrong against the FLEURS text of the whole clip, mean of sets a and b (Soniox: the
+original-language transcript of its translation streams; for Ukrainian set a, the rebuilt clip):
+
+| Language | Soniox | MAI | Azure |
+|---|---|---|---|
+| en | 5.8% | 4.2% | 6.9% |
+| es | 0.9% | 0.5% | 1.4% |
+| pt | 1.3% | 0.8% | 1.6% |
+| fr | 1.9% | 1.1% | 4.0% |
+| de | 1.2% | 0.9% | 2.2% |
+| zh | 2.4% | 1.1% | 3.0% |
+| vi | 3.4% | 3.3% | 4.6% |
+| ar | 0.9% | 0.8% | 1.7% |
+| fa | 2.4% | 1.8% | 4.4% |
+| tl | 2.7% | 1.9% | 4.2% |
+| uk | 2.8% | 1.0% | 2.9% |
+| ko | 4.0% | 3.0% | 6.1% |
+| ru | 1.8% | 0.7% | 2.3% |
+| hi | 3.6% | 2.9% | 4.3% |
+| it | 1.4% | 0.3% | 1.1% |
+
+1. **MAI's hearing scores highest in 21 of 28 directions, Soniox's in 6** (en→fa, fa→en, tl→en, en→uk,
+   uk→en, en→it), Azure's in 1 (it→en, 100.0). Soniox is within 3 points of the best (and ≥ 70) in 20.
+   It is more than 3 behind in en→pt, pt→en, de→en, zh→en, en→tl, ko→en, en→ru and it→en.
+2. **MAI has the fewest character errors in all 15 languages**, English included (4.2% against Soniox's 5.8% and
+   Azure's 6.9%), and under 60% of Soniox's in fr, zh, uk, ru and it.
+3. **Character errors don't decide it.** In fa→en MAI has the fewest (1.8%) but scores 77.5 against Soniox's
+   85.8: its misses there were numbers and key words (19 injured heard as 11, 70 km as 700 km, "pencil" as
+   "Medal", "all" as "these"), each a whole sentence wrong for one or two characters. Into English from tl and
+   uk Soniox is also ahead (+5.0, +2.6) despite more character errors.
+4. **Azure standard is last in 25 of 28**: it beats Soniox in pt→en (92.5 against 87.1), ru→en (95.5 against
+   95.4) and it→en (100.0 against 94.2), and MAI only in it→en.
+5. Caveats: as above (sentence-at-a-time translation with the shootout prompt, read speech with regular pauses,
+   one grader). MAI was pinned to the clip's language, as Talk pins it per direction; Soniox ran with language
+   identification and no hint, as the app runs it. Grades differ between rounds: compare within one table.
+
 ## Caveats
 
 - **MAI not run.** Where the route's recogniser is MAI (`mai-gemma`: es, fr, de, zh, vi, ar, fa, tl, uk into
@@ -208,7 +296,16 @@ GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK/out/hear/
 python3 -I round_hear.py jobs2 WORK WORK/out pt-en de-en zh-en vi-en ar-en en-uk ru-en hi-en
 GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK/out/hear/jobs_r2.json WORK/out/hear/grades_r2.json
 python3 -I round_hear.py table WORK WORK/out
+# Which hearing (after rebuilding the audio with build_clips.py WORK ../2026-10-real-voices .. results/ids.json)
+RECOGNISER=mai AZURE_SPEECH_KEY=... AZURE_SPEECH_REGION=eastus2 python3 -I stt_azure.py WORK WORK/out
+HEAR=mai AWS_PROFILE=... FOUNDRY_ENDPOINT=... FOUNDRY_KEY=... FOUNDRY_DEPLOYMENT=gpt-6-sol-us python3 -I mt.py WORK/out
+python3 -I round_hearing.py jobs WORK WORK/out
+GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK/out/hearing/jobs.json WORK/out/hearing/grades.json
+python3 -I round_hearing.py jobs2 WORK WORK/out <directions whose top two are within ~3>
+GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK/out/hearing/jobs_r2.json WORK/out/hearing/grades_r2.json
+python3 -I round_hearing.py table WORK WORK/out
 ```
+(`round_hearing.py restore` puts the earlier rounds' translations back into WORK/out from `results/`.)
 
 Python 3 with `azure-cognitiveservices-speech`, `websockets`, `boto3`, `numpy`; `sox` for the clips.
 

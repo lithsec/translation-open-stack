@@ -3671,5 +3671,2705 @@
     "hear_qualifies": false
    }
   }
+ },
+ "hearing": {
+  "round": "talk-hearing-2026-11",
+  "grader": "gemini-flash-latest",
+  "n_per_set": 20,
+  "directions": {
+   "en-es": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 85.0,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 78.3,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 85.8,
+     "read2_q": 84.2,
+     "read2": {
+      "a": {
+       "q": 88.3,
+       "crit": 0
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 3
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 87.5,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 87.5,
+     "read2_q": 87.5,
+     "read2": {
+      "a": {
+       "q": 91.7,
+       "crit": 0
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 3
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 75.8,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 66.7,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 75.8,
+     "read2_q": 75.8,
+     "read2": {
+      "a": {
+       "q": 81.7,
+       "crit": 0
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 4
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -2.5,
+    "soniox_qualifies": true
+   },
+   "es-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 95.0,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 96.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 93.3,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 95.0,
+     "read2_q": 95.0,
+     "read2": {
+      "a": {
+       "q": 96.7,
+       "crit": 1
+      },
+      "b": {
+       "q": 93.3,
+       "crit": 1
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 95.8,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 100.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 95.8,
+     "read2_q": 95.8,
+     "read2": {
+      "a": {
+       "q": 100.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 1
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 90.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 96.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 90.8,
+     "read2_q": 90.8,
+     "read2": {
+      "a": {
+       "q": 96.7,
+       "crit": 1
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 2
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -0.8,
+    "soniox_qualifies": true
+   },
+   "en-pt": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 83.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 78.3,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 84.2,
+     "read2_q": 83.3,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 1
+      },
+      "b": {
+       "q": 76.7,
+       "crit": 4
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 87.1,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 87.5,
+     "read2_q": 86.7,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 3
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 76.7,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 83.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 76.7,
+     "read2_q": 76.7,
+     "read2": {
+      "a": {
+       "q": 83.3,
+       "crit": 1
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 4
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -3.3,
+    "soniox_qualifies": false
+   },
+   "pt-en": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 87.1,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 86.7,
+     "read2_q": 87.5,
+     "read2": {
+      "a": {
+       "q": 88.3,
+       "crit": 3
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 3
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 94.2,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 95.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 93.3,
+     "read2_q": 95.0,
+     "read2": {
+      "a": {
+       "q": 95.0,
+       "crit": 1
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 1
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 92.5,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 92.5,
+     "read2_q": 92.5,
+     "read2": {
+      "a": {
+       "q": 88.3,
+       "crit": 3
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 0
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -7.1,
+    "soniox_qualifies": false
+   },
+   "en-fr": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 84.6,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 83.3,
+     "read2_q": 85.8,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 1
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 85.8,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 84.2,
+     "read2_q": 87.5,
+     "read2": {
+      "a": {
+       "q": 91.7,
+       "crit": 0
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 2
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 75.4,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 81.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 65.0,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 73.3,
+     "read2_q": 77.5,
+     "read2": {
+      "a": {
+       "q": 86.7,
+       "crit": 1
+      },
+      "b": {
+       "q": 68.3,
+       "crit": 4
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -1.2,
+    "soniox_qualifies": true
+   },
+   "fr-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 91.7,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 90.8,
+     "read2_q": 92.5,
+     "read2": {
+      "a": {
+       "q": 86.7,
+       "crit": 2
+      },
+      "b": {
+       "q": 98.3,
+       "crit": 0
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 92.9,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 91.7,
+     "read2_q": 94.2,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 2
+      },
+      "b": {
+       "q": 98.3,
+       "crit": 0
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 77.9,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 73.3,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 77.5,
+     "read2_q": 78.3,
+     "read2": {
+      "a": {
+       "q": 71.7,
+       "crit": 3
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 2
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -1.2,
+    "soniox_qualifies": true
+   },
+   "en-de": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 83.3,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 84.2,
+     "read2_q": 82.5,
+     "read2": {
+      "a": {
+       "q": 86.7,
+       "crit": 0
+      },
+      "b": {
+       "q": 78.3,
+       "crit": 3
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 85.0,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 86.7,
+     "read2_q": 83.3,
+     "read2": {
+      "a": {
+       "q": 86.7,
+       "crit": 0
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 3
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 74.6,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 81.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 5,
+       "n": 20
+      }
+     },
+     "read1_q": 75.8,
+     "read2_q": 73.3,
+     "read2": {
+      "a": {
+       "q": 78.3,
+       "crit": 1
+      },
+      "b": {
+       "q": 68.3,
+       "crit": 4
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -1.7,
+    "soniox_qualifies": true
+   },
+   "de-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 90.8,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 98.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 94.2,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 98.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 90.0,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 86.7,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -3.4,
+    "soniox_qualifies": false
+   },
+   "en-zh": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 85.4,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 85.8,
+     "read2_q": 85.0,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 2
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 3
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 87.5,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 87.5,
+     "read2_q": 87.5,
+     "read2": {
+      "a": {
+       "q": 93.3,
+       "crit": 0
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 2
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 77.1,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 78.3,
+     "read2_q": 75.8,
+     "read2": {
+      "a": {
+       "q": 83.3,
+       "crit": 2
+      },
+      "b": {
+       "q": 68.3,
+       "crit": 5
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -2.1,
+    "soniox_qualifies": true
+   },
+   "zh-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 87.5,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 91.7,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 90.0,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 85.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 83.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -4.2,
+    "soniox_qualifies": false
+   },
+   "en-vi": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 88.0,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 89.2,
+     "read2_q": 86.7,
+     "read2": {
+      "a": {
+       "q": 91.7,
+       "crit": 0
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 89.2,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 90.0,
+     "read2_q": 88.3,
+     "read2": {
+      "a": {
+       "q": 91.7,
+       "crit": 0
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 2
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 77.5,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 83.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 78.3,
+     "read2_q": 76.7,
+     "read2": {
+      "a": {
+       "q": 83.3,
+       "crit": 0
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 3
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -1.2,
+    "soniox_qualifies": true
+   },
+   "vi-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 80.8,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 71.7,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 81.7,
+     "read2_q": 80.0,
+     "read2": {
+      "a": {
+       "q": 71.7,
+       "crit": 5
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 1
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 83.3,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 83.3,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 83.3,
+     "read2_q": 83.3,
+     "read2": {
+      "a": {
+       "q": 83.3,
+       "crit": 4
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 1
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 77.1,
+     "crit": 8,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 78.3,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 76.7,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 77.5,
+     "read2_q": 76.7,
+     "read2": {
+      "a": {
+       "q": 75.0,
+       "crit": 5
+      },
+      "b": {
+       "q": 78.3,
+       "crit": 2
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -2.5,
+    "soniox_qualifies": true
+   },
+   "en-ar": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 87.9,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 87.5,
+     "read2_q": 88.3,
+     "read2": {
+      "a": {
+       "q": 93.3,
+       "crit": 1
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 3
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 88.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 87.5,
+     "read2_q": 90.0,
+     "read2": {
+      "a": {
+       "q": 91.7,
+       "crit": 1
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 2
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 81.2,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 80.8,
+     "read2_q": 81.7,
+     "read2": {
+      "a": {
+       "q": 88.3,
+       "crit": 0
+      },
+      "b": {
+       "q": 75.0,
+       "crit": 4
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -0.9,
+    "soniox_qualifies": true
+   },
+   "ar-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 90.8,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 90.0,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 91.7,
+     "read2_q": 90.0,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 1
+      },
+      "b": {
+       "q": 90.0,
+       "crit": 1
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 92.5,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 95.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 93.3,
+     "read2_q": 91.7,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 1
+      },
+      "b": {
+       "q": 93.3,
+       "crit": 1
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 89.2,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 90.0,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 90.0,
+     "read2_q": 88.3,
+     "read2": {
+      "a": {
+       "q": 85.0,
+       "crit": 1
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 1
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -1.7,
+    "soniox_qualifies": true
+   },
+   "en-fa": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 87.9,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 87.5,
+     "read2_q": 88.3,
+     "read2": {
+      "a": {
+       "q": 95.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 87.1,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 86.7,
+     "read2_q": 87.5,
+     "read2": {
+      "a": {
+       "q": 91.7,
+       "crit": 1
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 2
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 82.1,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 80.8,
+     "read2_q": 83.3,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 76.7,
+       "crit": 3
+      }
+     }
+    },
+    "winner": [
+     "soniox-hear"
+    ],
+    "soniox_minus_best_other": 0.8,
+    "soniox_qualifies": true
+   },
+   "fa-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 85.8,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 83.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 77.5,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 81.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 75.0,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 71.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 78.3,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "winner": [
+     "soniox-hear"
+    ],
+    "soniox_minus_best_other": 8.3,
+    "soniox_qualifies": true
+   },
+   "en-tl": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 80.8,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 76.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 84.2,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 71.7,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 80.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 63.3,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -3.4,
+    "soniox_qualifies": false
+   },
+   "tl-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 92.5,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 87.5,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 81.7,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 78.3,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "winner": [
+     "soniox-hear"
+    ],
+    "soniox_minus_best_other": 5.0,
+    "soniox_qualifies": true
+   },
+   "en-uk": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 85.0,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 76.7,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 84.2,
+     "read2_q": 85.8,
+     "read2": {
+      "a": {
+       "q": 91.7,
+       "crit": 0
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 3
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 84.2,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 84.2,
+     "read2_q": 84.2,
+     "read2": {
+      "a": {
+       "q": 86.7,
+       "crit": 1
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 79.6,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 79.2,
+     "read2_q": 80.0,
+     "read2": {
+      "a": {
+       "q": 88.3,
+       "crit": 0
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 4
+      }
+     }
+    },
+    "winner": [
+     "soniox-hear"
+    ],
+    "soniox_minus_best_other": 0.8,
+    "soniox_qualifies": true
+   },
+   "uk-en": {
+    "baseline_route": "mai-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 93.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 98.3,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 95.0,
+     "read2_q": 92.5,
+     "read2": {
+      "a": {
+       "q": 88.3,
+       "crit": 2
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 0
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 91.2,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 98.3,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 91.7,
+     "read2_q": 90.8,
+     "read2": {
+      "a": {
+       "q": 83.3,
+       "crit": 2
+      },
+      "b": {
+       "q": 98.3,
+       "crit": 0
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 90.8,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 90.8,
+     "read2_q": 90.8,
+     "read2": {
+      "a": {
+       "q": 85.0,
+       "crit": 3
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 1
+      }
+     }
+    },
+    "winner": [
+     "soniox-hear"
+    ],
+    "soniox_minus_best_other": 2.6,
+    "soniox_qualifies": true
+   },
+   "en-ko": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 89.6,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 96.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 90.0,
+     "read2_q": 89.2,
+     "read2": {
+      "a": {
+       "q": 96.7,
+       "crit": 0
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 2
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 91.2,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 95.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 2,
+       "n": 20
+      }
+     },
+     "read1_q": 90.8,
+     "read2_q": 91.7,
+     "read2": {
+      "a": {
+       "q": 95.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 1
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 76.2,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 83.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 76.7,
+     "read2_q": 75.8,
+     "read2": {
+      "a": {
+       "q": 83.3,
+       "crit": 1
+      },
+      "b": {
+       "q": 68.3,
+       "crit": 3
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -1.6,
+    "soniox_qualifies": true
+   },
+   "ko-en": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 95.0,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 95.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 95.0,
+     "read2_q": 95.0,
+     "read2": {
+      "a": {
+       "q": 95.0,
+       "crit": 1
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 0
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 98.3,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 100.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 98.3,
+     "read2_q": 98.3,
+     "read2": {
+      "a": {
+       "q": 100.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 0
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 91.7,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 91.7,
+     "read2_q": 91.7,
+     "read2": {
+      "a": {
+       "q": 88.3,
+       "crit": 1
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 0
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -3.3,
+    "soniox_qualifies": false
+   },
+   "en-ru": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 83.3,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 78.3,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 89.2,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 76.7,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 83.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -5.9,
+    "soniox_qualifies": false
+   },
+   "ru-en": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 95.4,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 98.3,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 95.8,
+     "read2_q": 95.0,
+     "read2": {
+      "a": {
+       "q": 95.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 0
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 98.3,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 98.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 98.3,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 98.3,
+     "read2_q": 98.3,
+     "read2": {
+      "a": {
+       "q": 100.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 0
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 95.5,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 96.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 96.7,
+     "read2_q": 94.2,
+     "read2": {
+      "a": {
+       "q": 96.7,
+       "crit": 0
+      },
+      "b": {
+       "q": 91.7,
+       "crit": 1
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -2.9,
+    "soniox_qualifies": true
+   },
+   "en-hi": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 85.4,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 85.0,
+     "read2_q": 85.8,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 87.9,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 87.5,
+     "read2_q": 88.3,
+     "read2": {
+      "a": {
+       "q": 90.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 2
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 75.8,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 78.3,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 75.0,
+     "read2_q": 76.7,
+     "read2": {
+      "a": {
+       "q": 80.0,
+       "crit": 0
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 4
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -2.5,
+    "soniox_qualifies": true
+   },
+   "hi-en": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 85.0,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 83.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 85.8,
+     "read2_q": 84.2,
+     "read2": {
+      "a": {
+       "q": 80.0,
+       "crit": 4
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 1
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 86.2,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 0,
+       "n": 20
+      }
+     },
+     "read1_q": 87.5,
+     "read2_q": 85.0,
+     "read2": {
+      "a": {
+       "q": 81.7,
+       "crit": 2
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 1
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 83.8,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 81.7,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 88.3,
+       "crit": 1,
+       "n": 20
+      }
+     },
+     "read1_q": 85.0,
+     "read2_q": 82.5,
+     "read2": {
+      "a": {
+       "q": 78.3,
+       "crit": 3
+      },
+      "b": {
+       "q": 86.7,
+       "crit": 2
+      }
+     }
+    },
+    "winner": [
+     "mai-hear"
+    ],
+    "soniox_minus_best_other": -1.2,
+    "soniox_qualifies": true
+   },
+   "en-it": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "gemma",
+    "soniox-hear": {
+     "q": 83.3,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 85.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 85.0,
+     "read2_q": 81.7,
+     "read2": {
+      "a": {
+       "q": 86.7,
+       "crit": 1
+      },
+      "b": {
+       "q": 76.7,
+       "crit": 3
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 81.7,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 81.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 3,
+       "n": 20
+      }
+     },
+     "read1_q": 82.5,
+     "read2_q": 80.8,
+     "read2": {
+      "a": {
+       "q": 83.3,
+       "crit": 1
+      },
+      "b": {
+       "q": 78.3,
+       "crit": 3
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 72.1,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 75.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 73.3,
+       "crit": 4,
+       "n": 20
+      }
+     },
+     "read1_q": 74.2,
+     "read2_q": 70.0,
+     "read2": {
+      "a": {
+       "q": 76.7,
+       "crit": 1
+      },
+      "b": {
+       "q": 63.3,
+       "crit": 5
+      }
+     }
+    },
+    "winner": [
+     "soniox-hear"
+    ],
+    "soniox_minus_best_other": 1.6,
+    "soniox_qualifies": true
+   },
+   "it-en": {
+    "baseline_route": "hybrid-gemma",
+    "translator": "sol",
+    "soniox-hear": {
+     "q": 94.2,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "mai-hear": {
+     "q": 95.0,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 98.3,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "azure-hear": {
+     "q": 100.0,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 100.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 100.0,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "winner": [
+     "azure-hear"
+    ],
+    "soniox_minus_best_other": -5.8,
+    "soniox_qualifies": false
+   }
+  },
+  "recognition_cer": {
+   "en": {
+    "azure": {
+     "a": 0.0451,
+     "b": 0.0921,
+     "mean": 0.0686
+    },
+    "soniox": {
+     "a": 0.034,
+     "b": 0.0813,
+     "mean": 0.0576
+    },
+    "mai": {
+     "a": 0.0226,
+     "b": 0.0604,
+     "mean": 0.0415
+    }
+   },
+   "es": {
+    "azure": {
+     "a": 0.0132,
+     "b": 0.0147,
+     "mean": 0.014
+    },
+    "soniox": {
+     "a": 0.0086,
+     "b": 0.0098,
+     "mean": 0.0092
+    },
+    "mai": {
+     "a": 0.0009,
+     "b": 0.0092,
+     "mean": 0.005
+    }
+   },
+   "pt": {
+    "azure": {
+     "a": 0.0178,
+     "b": 0.0135,
+     "mean": 0.0157
+    },
+    "soniox": {
+     "a": 0.0139,
+     "b": 0.0118,
+     "mean": 0.0129
+    },
+    "mai": {
+     "a": 0.0054,
+     "b": 0.0101,
+     "mean": 0.0077
+    }
+   },
+   "fr": {
+    "azure": {
+     "a": 0.0403,
+     "b": 0.0393,
+     "mean": 0.0398
+    },
+    "soniox": {
+     "a": 0.0159,
+     "b": 0.0222,
+     "mean": 0.0191
+    },
+    "mai": {
+     "a": 0.0071,
+     "b": 0.0145,
+     "mean": 0.0108
+    }
+   },
+   "de": {
+    "azure": {
+     "a": 0.0212,
+     "b": 0.0236,
+     "mean": 0.0224
+    },
+    "soniox": {
+     "a": 0.0126,
+     "b": 0.0108,
+     "mean": 0.0117
+    },
+    "mai": {
+     "a": 0.0036,
+     "b": 0.0154,
+     "mean": 0.0095
+    }
+   },
+   "zh": {
+    "azure": {
+     "a": 0.0213,
+     "b": 0.039,
+     "mean": 0.0301
+    },
+    "soniox": {
+     "a": 0.0115,
+     "b": 0.037,
+     "mean": 0.0243
+    },
+    "mai": {
+     "a": 0.0033,
+     "b": 0.0195,
+     "mean": 0.0114
+    }
+   },
+   "vi": {
+    "azure": {
+     "a": 0.0499,
+     "b": 0.0423,
+     "mean": 0.0461
+    },
+    "soniox": {
+     "a": 0.0446,
+     "b": 0.0238,
+     "mean": 0.0342
+    },
+    "mai": {
+     "a": 0.0372,
+     "b": 0.028,
+     "mean": 0.0326
+    }
+   },
+   "ar": {
+    "azure": {
+     "a": 0.0142,
+     "b": 0.0198,
+     "mean": 0.017
+    },
+    "soniox": {
+     "a": 0.0123,
+     "b": 0.0059,
+     "mean": 0.0091
+    },
+    "mai": {
+     "a": 0.0058,
+     "b": 0.0095,
+     "mean": 0.0076
+    }
+   },
+   "fa": {
+    "azure": {
+     "a": 0.0328,
+     "b": 0.0547,
+     "mean": 0.0437
+    },
+    "soniox": {
+     "a": 0.0268,
+     "b": 0.0215,
+     "mean": 0.0241
+    },
+    "mai": {
+     "a": 0.0131,
+     "b": 0.0235,
+     "mean": 0.0183
+    }
+   },
+   "tl": {
+    "azure": {
+     "a": 0.033,
+     "b": 0.0506,
+     "mean": 0.0418
+    },
+    "soniox": {
+     "a": 0.0233,
+     "b": 0.0308,
+     "mean": 0.0271
+    },
+    "mai": {
+     "a": 0.0241,
+     "b": 0.014,
+     "mean": 0.0191
+    }
+   },
+   "uk": {
+    "azure": {
+     "a": 0.0249,
+     "b": 0.0327,
+     "mean": 0.0288
+    },
+    "soniox": {
+     "a": 0.04,
+     "b": 0.0152,
+     "mean": 0.0276
+    },
+    "mai": {
+     "a": 0.0112,
+     "b": 0.0082,
+     "mean": 0.0097
+    }
+   },
+   "ko": {
+    "azure": {
+     "a": 0.0618,
+     "b": 0.0598,
+     "mean": 0.0608
+    },
+    "soniox": {
+     "a": 0.0242,
+     "b": 0.0559,
+     "mean": 0.0401
+    },
+    "mai": {
+     "a": 0.0097,
+     "b": 0.0505,
+     "mean": 0.0301
+    }
+   },
+   "ru": {
+    "azure": {
+     "a": 0.0238,
+     "b": 0.0213,
+     "mean": 0.0226
+    },
+    "soniox": {
+     "a": 0.0243,
+     "b": 0.0115,
+     "mean": 0.0179
+    },
+    "mai": {
+     "a": 0.0095,
+     "b": 0.0046,
+     "mean": 0.007
+    }
+   },
+   "hi": {
+    "azure": {
+     "a": 0.0526,
+     "b": 0.0338,
+     "mean": 0.0432
+    },
+    "soniox": {
+     "a": 0.0319,
+     "b": 0.04,
+     "mean": 0.0359
+    },
+    "mai": {
+     "a": 0.031,
+     "b": 0.0267,
+     "mean": 0.0289
+    }
+   },
+   "it": {
+    "azure": {
+     "a": 0.007,
+     "b": 0.0148,
+     "mean": 0.0109
+    },
+    "soniox": {
+     "a": 0.0149,
+     "b": 0.0122,
+     "mean": 0.0135
+    },
+    "mai": {
+     "a": 0.0013,
+     "b": 0.0056,
+     "mean": 0.0034
+    }
+   }
+  }
  }
 }
