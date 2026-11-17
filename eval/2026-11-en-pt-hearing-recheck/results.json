@@ -1,0 +1,1335 @@
+{
+ "date": "2026-11-16",
+ "sdk": "azure-cognitiveservices-speech 1.52.0",
+ "recognisers": {
+  "azure": "Azure standard real-time, Lithos-Speech (eastus), locale pinned; result field SRModel = 'base'",
+  "mai": "mai-transcribe-2-streaming, Lithos-Speech-eus2 (eastus2), locale pinned; no model or version field in results"
+ },
+ "said_reference": "witness.py, gemini-pro-latest (served as gemini-3.1-pro-preview), regenerated 2026-11-16; oct-en sentence 3 from ../2026-10-unseen english_said",
+ "summary_mean_of_r1_r2": {
+  "en|oct|azure": {
+   "text/nov/cer": {
+    "mean": 8.15,
+    "runs": [
+     8.15,
+     8.15
+    ]
+   },
+   "text/nov/wer": {
+    "mean": 12.94,
+    "runs": [
+     12.94,
+     12.94
+    ]
+   },
+   "text/oct/cer": {
+    "mean": 7.0,
+    "runs": [
+     7.0,
+     7.0
+    ]
+   },
+   "text/oct/wer": {
+    "mean": 11.78,
+    "runs": [
+     11.78,
+     11.78
+    ]
+   },
+   "said/nov/cer": {
+    "mean": 5.1,
+    "runs": [
+     5.1,
+     5.1
+    ]
+   },
+   "said/nov/wer": {
+    "mean": 9.92,
+    "runs": [
+     9.92,
+     9.92
+    ]
+   },
+   "said/oct/cer": {
+    "mean": 3.78,
+    "runs": [
+     3.78,
+     3.78
+    ]
+   },
+   "said/oct/wer": {
+    "mean": 8.58,
+    "runs": [
+     8.58,
+     8.58
+    ]
+   }
+  },
+  "en|oct|mai": {
+   "text/nov/cer": {
+    "mean": 8.73,
+    "runs": [
+     8.79,
+     8.67
+    ]
+   },
+   "text/nov/wer": {
+    "mean": 12.94,
+    "runs": [
+     12.94,
+     12.94
+    ]
+   },
+   "text/oct/cer": {
+    "mean": 7.22,
+    "runs": [
+     7.33,
+     7.11
+    ]
+   },
+   "text/oct/wer": {
+    "mean": 11.39,
+    "runs": [
+     11.26,
+     11.52
+    ]
+   },
+   "said/nov/cer": {
+    "mean": 4.63,
+    "runs": [
+     4.99,
+     4.27
+    ]
+   },
+   "said/nov/wer": {
+    "mean": 9.09,
+    "runs": [
+     9.64,
+     8.54
+    ]
+   },
+   "said/oct/cer": {
+    "mean": 3.43,
+    "runs": [
+     3.83,
+     3.03
+    ]
+   },
+   "said/oct/wer": {
+    "mean": 7.91,
+    "runs": [
+     8.31,
+     7.51
+    ]
+   }
+  },
+  "en|nov|azure": {
+   "text/nov/cer": {
+    "mean": 7.13,
+    "runs": [
+     7.13,
+     7.13
+    ]
+   },
+   "text/nov/wer": {
+    "mean": 10.4,
+    "runs": [
+     10.4,
+     10.4
+    ]
+   },
+   "text/oct/cer": {
+    "mean": 6.41,
+    "runs": [
+     6.41,
+     6.41
+    ]
+   },
+   "text/oct/wer": {
+    "mean": 9.66,
+    "runs": [
+     9.66,
+     9.66
+    ]
+   },
+   "said/nov/cer": {
+    "mean": 3.81,
+    "runs": [
+     3.81,
+     3.81
+    ]
+   },
+   "said/nov/wer": {
+    "mean": 7.5,
+    "runs": [
+     7.5,
+     7.5
+    ]
+   },
+   "said/oct/cer": {
+    "mean": 3.0,
+    "runs": [
+     3.0,
+     3.0
+    ]
+   },
+   "said/oct/wer": {
+    "mean": 6.67,
+    "runs": [
+     6.67,
+     6.67
+    ]
+   }
+  },
+  "en|nov|mai": {
+   "text/nov/cer": {
+    "mean": 4.27,
+    "runs": [
+     4.15,
+     4.39
+    ]
+   },
+   "text/nov/wer": {
+    "mean": 6.16,
+    "runs": [
+     5.96,
+     6.36
+    ]
+   },
+   "text/oct/cer": {
+    "mean": 3.93,
+    "runs": [
+     3.81,
+     4.05
+    ]
+   },
+   "text/oct/wer": {
+    "mean": 5.91,
+    "runs": [
+     5.71,
+     6.11
+    ]
+   },
+   "said/nov/cer": {
+    "mean": 3.52,
+    "runs": [
+     3.4,
+     3.65
+    ]
+   },
+   "said/nov/wer": {
+    "mean": 5.31,
+    "runs": [
+     5.11,
+     5.52
+    ]
+   },
+   "said/oct/cer": {
+    "mean": 3.05,
+    "runs": [
+     2.92,
+     3.17
+    ]
+   },
+   "said/oct/wer": {
+    "mean": 4.93,
+    "runs": [
+     4.73,
+     5.13
+    ]
+   }
+  },
+  "pt|oct|azure": {
+   "text/nov/cer": {
+    "mean": 3.84,
+    "runs": [
+     3.84,
+     3.84
+    ]
+   },
+   "text/nov/wer": {
+    "mean": 7.01,
+    "runs": [
+     7.01,
+     7.01
+    ]
+   },
+   "text/oct/cer": {
+    "mean": 3.01,
+    "runs": [
+     3.01,
+     3.01
+    ]
+   },
+   "text/oct/wer": {
+    "mean": 5.84,
+    "runs": [
+     5.84,
+     5.84
+    ]
+   },
+   "said/nov/cer": {
+    "mean": 2.08,
+    "runs": [
+     2.08,
+     2.08
+    ]
+   },
+   "said/nov/wer": {
+    "mean": 4.35,
+    "runs": [
+     4.35,
+     4.35
+    ]
+   },
+   "said/oct/cer": {
+    "mean": 0.91,
+    "runs": [
+     0.91,
+     0.91
+    ]
+   },
+   "said/oct/wer": {
+    "mean": 2.75,
+    "runs": [
+     2.75,
+     2.75
+    ]
+   }
+  },
+  "pt|oct|mai": {
+   "text/nov/cer": {
+    "mean": 1.49,
+    "runs": [
+     1.33,
+     1.65
+    ]
+   },
+   "text/nov/wer": {
+    "mean": 3.64,
+    "runs": [
+     3.38,
+     3.9
+    ]
+   },
+   "text/oct/cer": {
+    "mean": 1.09,
+    "runs": [
+     1.09,
+     1.09
+    ]
+   },
+   "text/oct/wer": {
+    "mean": 3.05,
+    "runs": [
+     3.05,
+     3.05
+    ]
+   },
+   "said/nov/cer": {
+    "mean": 2.29,
+    "runs": [
+     2.14,
+     2.45
+    ]
+   },
+   "said/nov/wer": {
+    "mean": 4.09,
+    "runs": [
+     3.84,
+     4.35
+    ]
+   },
+   "said/oct/cer": {
+    "mean": 1.47,
+    "runs": [
+     1.47,
+     1.47
+    ]
+   },
+   "said/oct/wer": {
+    "mean": 3.0,
+    "runs": [
+     3.0,
+     3.0
+    ]
+   }
+  },
+  "pt|nov|azure": {
+   "text/nov/cer": {
+    "mean": 1.59,
+    "runs": [
+     1.59,
+     1.59
+    ]
+   },
+   "text/nov/wer": {
+    "mean": 4.17,
+    "runs": [
+     4.17,
+     4.17
+    ]
+   },
+   "text/oct/cer": {
+    "mean": 1.02,
+    "runs": [
+     1.02,
+     1.02
+    ]
+   },
+   "text/oct/wer": {
+    "mean": 3.49,
+    "runs": [
+     3.49,
+     3.49
+    ]
+   },
+   "said/nov/cer": {
+    "mean": 1.31,
+    "runs": [
+     1.31,
+     1.31
+    ]
+   },
+   "said/nov/wer": {
+    "mean": 3.23,
+    "runs": [
+     3.23,
+     3.23
+    ]
+   },
+   "said/oct/cer": {
+    "mean": 0.73,
+    "runs": [
+     0.73,
+     0.73
+    ]
+   },
+   "said/oct/wer": {
+    "mean": 2.56,
+    "runs": [
+     2.56,
+     2.56
+    ]
+   }
+  },
+  "pt|nov|mai": {
+   "text/nov/cer": {
+    "mean": 0.81,
+    "runs": [
+     0.81,
+     0.81
+    ]
+   },
+   "text/nov/wer": {
+    "mean": 2.52,
+    "runs": [
+     2.52,
+     2.52
+    ]
+   },
+   "text/oct/cer": {
+    "mean": 0.8,
+    "runs": [
+     0.8,
+     0.8
+    ]
+   },
+   "text/oct/wer": {
+    "mean": 2.48,
+    "runs": [
+     2.48,
+     2.48
+    ]
+   },
+   "said/nov/cer": {
+    "mean": 0.52,
+    "runs": [
+     0.52,
+     0.52
+    ]
+   },
+   "said/nov/wer": {
+    "mean": 1.72,
+    "runs": [
+     1.72,
+     1.72
+    ]
+   },
+   "said/oct/cer": {
+    "mean": 0.51,
+    "runs": [
+     0.51,
+     0.51
+    ]
+   },
+   "said/oct/wer": {
+    "mean": 1.7,
+    "runs": [
+     1.7,
+     1.7
+    ]
+   }
+  }
+ },
+ "earlier": {
+  "oct (../2026-10-mai-streaming-followup results.json, oct normalisation)": {
+   "en": {
+    "azure": {
+     "said": {
+      "cer": 3.6,
+      "wer": 7.8
+     },
+     "text": {
+      "cer": 7.0,
+      "wer": 11.8
+     },
+     "finals": 22
+    },
+    "mai_pinned": {
+     "said": {
+      "cer": 6.0,
+      "wer": 11.2
+     },
+     "text": {
+      "cer": 8.3,
+      "wer": 13.6
+     },
+     "finals": 34
+    }
+   },
+   "pt": {
+    "azure": {
+     "said": {
+      "cer": 0.9,
+      "wer": 2.8
+     },
+     "text": {
+      "cer": 3.0,
+      "wer": 5.6
+     },
+     "finals": 22
+    },
+    "mai_pinned": {
+     "said": {
+      "cer": 1.7,
+      "wer": 3.2
+     },
+     "text": {
+      "cer": 0.9,
+      "wer": 2.5
+     },
+     "finals": 20
+    }
+   }
+  },
+  "nov (../2026-11-talk-soniox results.json hearing.recognition_cer, text, nov normalisation, no WER)": {
+   "en": {
+    "azure": {
+     "a": 4.51,
+     "b": 9.21,
+     "mean": 6.86
+    },
+    "mai": {
+     "a": 2.26,
+     "b": 6.04,
+     "mean": 4.15
+    }
+   },
+   "pt": {
+    "azure": {
+     "a": 1.78,
+     "b": 1.35,
+     "mean": 1.57
+    },
+    "mai": {
+     "a": 0.54,
+     "b": 1.01,
+     "mean": 0.77
+    }
+   }
+  }
+ },
+ "rows": [
+  {
+   "run": "orig",
+   "recogniser": "azure",
+   "clip": "nova-en",
+   "finals": 23,
+   "text": {
+    "nov": {
+     "cer": 4.57,
+     "wer": 9.12
+    },
+    "oct": {
+     "cer": 4.26,
+     "wer": 8.44
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 3.06,
+     "wer": 6.72
+    },
+    "oct": {
+     "cer": 2.79,
+     "wer": 6.08
+    }
+   }
+  },
+  {
+   "run": "orig",
+   "recogniser": "azure",
+   "clip": "novb-en",
+   "finals": 19,
+   "text": {
+    "nov": {
+     "cer": 9.7,
+     "wer": 11.68
+    },
+    "oct": {
+     "cer": 8.56,
+     "wer": 10.89
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 4.56,
+     "wer": 8.28
+    },
+    "oct": {
+     "cer": 3.22,
+     "wer": 7.27
+    }
+   }
+  },
+  {
+   "run": "orig",
+   "recogniser": "azure",
+   "clip": "oct-en",
+   "finals": 22,
+   "text": {
+    "nov": {
+     "cer": 8.15,
+     "wer": 12.94
+    },
+    "oct": {
+     "cer": 7.0,
+     "wer": 11.78
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 5.1,
+     "wer": 9.92
+    },
+    "oct": {
+     "cer": 3.78,
+     "wer": 8.58
+    }
+   }
+  },
+  {
+   "run": "orig",
+   "recogniser": "mai",
+   "clip": "nova-en",
+   "finals": 22,
+   "text": {
+    "nov": {
+     "cer": 2.26,
+     "wer": 5.36
+    },
+    "oct": {
+     "cer": 2.21,
+     "wer": 5.28
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 2.17,
+     "wer": 4.3
+    },
+    "oct": {
+     "cer": 2.13,
+     "wer": 4.23
+    }
+   }
+  },
+  {
+   "run": "orig",
+   "recogniser": "mai",
+   "clip": "novb-en",
+   "finals": 22,
+   "text": {
+    "nov": {
+     "cer": 6.04,
+     "wer": 6.55
+    },
+    "oct": {
+     "cer": 5.41,
+     "wer": 6.15
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 4.63,
+     "wer": 5.92
+    },
+    "oct": {
+     "cer": 3.72,
+     "wer": 5.23
+    }
+   }
+  },
+  {
+   "run": "orig",
+   "recogniser": "mai",
+   "clip": "oct-en",
+   "finals": 23,
+   "text": {
+    "nov": {
+     "cer": 8.84,
+     "wer": 12.94
+    },
+    "oct": {
+     "cer": 7.39,
+     "wer": 11.26
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 5.16,
+     "wer": 9.64
+    },
+    "oct": {
+     "cer": 4.0,
+     "wer": 8.31
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "azure",
+   "clip": "nova-en",
+   "finals": 23,
+   "text": {
+    "nov": {
+     "cer": 4.57,
+     "wer": 9.12
+    },
+    "oct": {
+     "cer": 4.26,
+     "wer": 8.44
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 3.06,
+     "wer": 6.72
+    },
+    "oct": {
+     "cer": 2.79,
+     "wer": 6.08
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "azure",
+   "clip": "nova-pt",
+   "finals": 23,
+   "text": {
+    "nov": {
+     "cer": 1.83,
+     "wer": 3.97
+    },
+    "oct": {
+     "cer": 0.98,
+     "wer": 2.94
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 1.54,
+     "wer": 3.46
+    },
+    "oct": {
+     "cer": 0.68,
+     "wer": 2.44
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "azure",
+   "clip": "novb-en",
+   "finals": 19,
+   "text": {
+    "nov": {
+     "cer": 9.7,
+     "wer": 11.68
+    },
+    "oct": {
+     "cer": 8.56,
+     "wer": 10.89
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 4.56,
+     "wer": 8.28
+    },
+    "oct": {
+     "cer": 3.22,
+     "wer": 7.27
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "azure",
+   "clip": "novb-pt",
+   "finals": 21,
+   "text": {
+    "nov": {
+     "cer": 1.35,
+     "wer": 4.36
+    },
+    "oct": {
+     "cer": 1.05,
+     "wer": 4.03
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 1.07,
+     "wer": 3.0
+    },
+    "oct": {
+     "cer": 0.77,
+     "wer": 2.69
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "azure",
+   "clip": "oct-en",
+   "finals": 22,
+   "text": {
+    "nov": {
+     "cer": 8.15,
+     "wer": 12.94
+    },
+    "oct": {
+     "cer": 7.0,
+     "wer": 11.78
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 5.1,
+     "wer": 9.92
+    },
+    "oct": {
+     "cer": 3.78,
+     "wer": 8.58
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "azure",
+   "clip": "oct-pt",
+   "finals": 22,
+   "text": {
+    "nov": {
+     "cer": 3.84,
+     "wer": 7.01
+    },
+    "oct": {
+     "cer": 3.01,
+     "wer": 5.84
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 2.08,
+     "wer": 4.35
+    },
+    "oct": {
+     "cer": 0.91,
+     "wer": 2.75
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "mai",
+   "clip": "nova-en",
+   "finals": 22,
+   "text": {
+    "nov": {
+     "cer": 2.26,
+     "wer": 5.36
+    },
+    "oct": {
+     "cer": 2.21,
+     "wer": 5.28
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 2.17,
+     "wer": 4.3
+    },
+    "oct": {
+     "cer": 2.13,
+     "wer": 4.23
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "mai",
+   "clip": "nova-pt",
+   "finals": 26,
+   "text": {
+    "nov": {
+     "cer": 0.54,
+     "wer": 1.49
+    },
+    "oct": {
+     "cer": 0.54,
+     "wer": 1.47
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 0.25,
+     "wer": 0.99
+    },
+    "oct": {
+     "cer": 0.24,
+     "wer": 0.98
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "mai",
+   "clip": "novb-en",
+   "finals": 22,
+   "text": {
+    "nov": {
+     "cer": 6.04,
+     "wer": 6.55
+    },
+    "oct": {
+     "cer": 5.41,
+     "wer": 6.15
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 4.63,
+     "wer": 5.92
+    },
+    "oct": {
+     "cer": 3.72,
+     "wer": 5.23
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "mai",
+   "clip": "novb-pt",
+   "finals": 23,
+   "text": {
+    "nov": {
+     "cer": 1.07,
+     "wer": 3.54
+    },
+    "oct": {
+     "cer": 1.05,
+     "wer": 3.49
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 0.79,
+     "wer": 2.45
+    },
+    "oct": {
+     "cer": 0.77,
+     "wer": 2.42
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "mai",
+   "clip": "oct-en",
+   "finals": 23,
+   "text": {
+    "nov": {
+     "cer": 8.79,
+     "wer": 12.94
+    },
+    "oct": {
+     "cer": 7.33,
+     "wer": 11.26
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 4.99,
+     "wer": 9.64
+    },
+    "oct": {
+     "cer": 3.83,
+     "wer": 8.31
+    }
+   }
+  },
+  {
+   "run": "r1",
+   "recogniser": "mai",
+   "clip": "oct-pt",
+   "finals": 25,
+   "text": {
+    "nov": {
+     "cer": 1.33,
+     "wer": 3.38
+    },
+    "oct": {
+     "cer": 1.09,
+     "wer": 3.05
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 2.14,
+     "wer": 3.84
+    },
+    "oct": {
+     "cer": 1.47,
+     "wer": 3.0
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "azure",
+   "clip": "nova-en",
+   "finals": 23,
+   "text": {
+    "nov": {
+     "cer": 4.57,
+     "wer": 9.12
+    },
+    "oct": {
+     "cer": 4.26,
+     "wer": 8.44
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 3.06,
+     "wer": 6.72
+    },
+    "oct": {
+     "cer": 2.79,
+     "wer": 6.08
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "azure",
+   "clip": "nova-pt",
+   "finals": 23,
+   "text": {
+    "nov": {
+     "cer": 1.83,
+     "wer": 3.97
+    },
+    "oct": {
+     "cer": 0.98,
+     "wer": 2.94
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 1.54,
+     "wer": 3.46
+    },
+    "oct": {
+     "cer": 0.68,
+     "wer": 2.44
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "azure",
+   "clip": "novb-en",
+   "finals": 19,
+   "text": {
+    "nov": {
+     "cer": 9.7,
+     "wer": 11.68
+    },
+    "oct": {
+     "cer": 8.56,
+     "wer": 10.89
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 4.56,
+     "wer": 8.28
+    },
+    "oct": {
+     "cer": 3.22,
+     "wer": 7.27
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "azure",
+   "clip": "novb-pt",
+   "finals": 21,
+   "text": {
+    "nov": {
+     "cer": 1.35,
+     "wer": 4.36
+    },
+    "oct": {
+     "cer": 1.05,
+     "wer": 4.03
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 1.07,
+     "wer": 3.0
+    },
+    "oct": {
+     "cer": 0.77,
+     "wer": 2.69
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "azure",
+   "clip": "oct-en",
+   "finals": 22,
+   "text": {
+    "nov": {
+     "cer": 8.15,
+     "wer": 12.94
+    },
+    "oct": {
+     "cer": 7.0,
+     "wer": 11.78
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 5.1,
+     "wer": 9.92
+    },
+    "oct": {
+     "cer": 3.78,
+     "wer": 8.58
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "azure",
+   "clip": "oct-pt",
+   "finals": 22,
+   "text": {
+    "nov": {
+     "cer": 3.84,
+     "wer": 7.01
+    },
+    "oct": {
+     "cer": 3.01,
+     "wer": 5.84
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 2.08,
+     "wer": 4.35
+    },
+    "oct": {
+     "cer": 0.91,
+     "wer": 2.75
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "mai",
+   "clip": "nova-en",
+   "finals": 22,
+   "text": {
+    "nov": {
+     "cer": 2.75,
+     "wer": 6.17
+    },
+    "oct": {
+     "cer": 2.7,
+     "wer": 6.07
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 2.67,
+     "wer": 5.11
+    },
+    "oct": {
+     "cer": 2.62,
+     "wer": 5.03
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "mai",
+   "clip": "nova-pt",
+   "finals": 26,
+   "text": {
+    "nov": {
+     "cer": 0.54,
+     "wer": 1.49
+    },
+    "oct": {
+     "cer": 0.54,
+     "wer": 1.47
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 0.25,
+     "wer": 0.99
+    },
+    "oct": {
+     "cer": 0.24,
+     "wer": 0.98
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "mai",
+   "clip": "novb-en",
+   "finals": 22,
+   "text": {
+    "nov": {
+     "cer": 6.04,
+     "wer": 6.55
+    },
+    "oct": {
+     "cer": 5.41,
+     "wer": 6.15
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 4.63,
+     "wer": 5.92
+    },
+    "oct": {
+     "cer": 3.72,
+     "wer": 5.23
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "mai",
+   "clip": "novb-pt",
+   "finals": 23,
+   "text": {
+    "nov": {
+     "cer": 1.07,
+     "wer": 3.54
+    },
+    "oct": {
+     "cer": 1.05,
+     "wer": 3.49
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 0.79,
+     "wer": 2.45
+    },
+    "oct": {
+     "cer": 0.77,
+     "wer": 2.42
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "mai",
+   "clip": "oct-en",
+   "finals": 23,
+   "text": {
+    "nov": {
+     "cer": 8.67,
+     "wer": 12.94
+    },
+    "oct": {
+     "cer": 7.11,
+     "wer": 11.52
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 4.27,
+     "wer": 8.54
+    },
+    "oct": {
+     "cer": 3.03,
+     "wer": 7.51
+    }
+   }
+  },
+  {
+   "run": "r2",
+   "recogniser": "mai",
+   "clip": "oct-pt",
+   "finals": 25,
+   "text": {
+    "nov": {
+     "cer": 1.65,
+     "wer": 3.9
+    },
+    "oct": {
+     "cer": 1.09,
+     "wer": 3.05
+    }
+   },
+   "said": {
+    "nov": {
+     "cer": 2.45,
+     "wer": 4.35
+    },
+    "oct": {
+     "cer": 1.47,
+     "wer": 3.0
+    }
+   }
+  }
+ ]
+}
