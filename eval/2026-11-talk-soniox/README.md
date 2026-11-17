@@ -223,6 +223,48 @@ original-language transcript of its translation streams; for Ukrainian set a, th
    one grader). MAI was pinned to the clip's language, as Talk pins it per direction; Soniox ran with language
    identification and no hint, as the app runs it. Grades differ between rounds: compare within one table.
 
+## Russian and Hindi: MAI or Azure, with more sentences
+
+The "which hearing" round put MAI ahead of Azure standard by 2.8 (ru→en) and 2.4 (hi→en) on 40 sentences, inside
+the 2-3 points a second grading moves a score. A fourth round (`talk-hearing-ruhi-2026-11`) settles the two: the
+same three arms and translator (gpt-6-sol, the baseline's for both, `mt.py`) on sets a and b (the third round's
+outputs, restored from `results/`) and **four more sets, c d e f** (`build_more.py`: 80 FLEURS sentences per language
+no eval here had used, each language drawn from the ids it shares with English; Hindi has only 73 unused, so its
+last 7 are ids other evals used, never this one's sets a and b; pauses and readers as `build_clips.py`), so n = 120
+per direction. Each arm streamed as before (`stt_azure.py` standard on eastus and `RECOGNISER=mai` on eastus2,
+pinned to ru-RU / hi-IN; `soniox_s2s.py` with language identification and no hint). All six sets were graded
+afresh and twice, blind side by side (`round_ruhi.py`, `grade.py`, `gemini-flash-latest`; read 2 is the same job
+under a new label shuffle): quality is the mean of both reads per sentence. MAI − Azure is the paired difference
+per sentence, with a 95% bootstrap interval (10,000 resamples of the 120 sentences). Numbers: `results.json`
+`hearing_ruhi`; jobs, grades and sets c-f's outputs: `results/ruhi/`; the sets: `results/ids_more.json`,
+`results/clips_{c,d,e,f}/`.
+
+| Direction | Soniox | MAI | Azure | MAI − Azure (95% CI) | Soniox − MAI (95% CI) | Critical, Soniox / MAI / Azure |
+|---|---|---|---|---|---|---|
+| ru→en | **95.6** (95.3, 95.8) | **97.4** (97.5, 97.2) | **93.9** (93.9, 93.9) | **+3.5** (+1.0 to +6.4) | -1.8 (-3.9 to -0.1) | 2 / 0 / 3 |
+| hi→en | **83.5** (83.3, 83.6) | **91.4** (91.4, 91.4) | **85.6** (86.1, 85.0) | **+5.8** (+1.9 to +10.0) | -7.9 (-12.5 to -3.5) | 14 / 6 / 10 |
+
+(Reads 1 and 2 in brackets; critical: of 120, read 1.) By sets, sets a+b and then c-f: ru MAI 97.9 / 97.1, Azure
+95.0 / 93.3; hi MAI 85.8 / 94.2, Azure 85.4 / 85.6, Soniox 86.2 / 82.1.
+
+Recognition, characters wrong against the FLEURS text of each whole clip, mean of the six sets:
+
+| Language | Soniox | MAI | Azure |
+|---|---|---|---|
+| ru | 1.8% | 1.2% | 2.5% |
+| hi | 27.4% (3.3% without set f) | 3.0% | 5.2% |
+
+1. **MAI beats Azure standard for Russian and Hindi speakers**, and neither interval includes zero: +3.5
+   (+1.0 to +6.4) into English from Russian, +5.8 (+1.9 to +10.0) from Hindi, with about half Azure's character
+   errors in both and fewer critical errors.
+2. **In Hindi the gap is all in the new sets**: sets a and b are level again in this round's grades (85.8 against
+   85.4), sets c-f 94.2 against 85.6. The pooled interval still excludes zero.
+3. **Soniox identified Hindi set f as Urdu** (no language hint, as the app runs it) and wrote the whole clip in
+   Urdu script (CER 148% against the Devanagari text, 3.3% over the other five sets). Its translations of set f
+   are still graded, and it ends 7.9 behind MAI in Hindi and 1.8 behind in Russian.
+4. Caveats as for the third round: read speech with regular pauses, sentence-at-a-time translation with the
+   shootout prompt, one grader (two reads), MAI pinned to the language. Recognition only, no latency.
+
 ## Caveats
 
 - **MAI not run.** Where the route's recogniser is MAI (`mai-gemma`: es, fr, de, zh, vi, ar, fa, tl, uk into
@@ -304,6 +346,20 @@ GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK/out/heari
 python3 -I round_hearing.py jobs2 WORK WORK/out <directions whose top two are within ~3>
 GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK/out/hearing/jobs_r2.json WORK/out/hearing/grades_r2.json
 python3 -I round_hearing.py table WORK WORK/out
+# Russian and Hindi, more sentences: build sets c-f, then per language a clip root ROOT_<l>/clips_<set>/ with
+# <l>.{wav,json,txt.json} and en.txt.json -> <l>.ref.json (soniox_s2s.py reads the English text as en.txt.json)
+python3 -I build_more.py WORK2 ../2026-10-real-voices ..      # or ... .. results/ids_more.json to rebuild
+python3 -I round_ruhi.py restore WORK2/out
+export SETS=c,d,e,f   # stt_azure.py, mt.py, soniox_s2s.py and soniox_hear.py read the sets from SETS (default a,b)
+AZURE_SPEECH_KEY=... AZURE_SPEECH_REGION=eastus python3 -I stt_azure.py ROOT_ru WORK2/out ru   # and ROOT_hi ... hi
+RECOGNISER=mai AZURE_SPEECH_KEY=... AZURE_SPEECH_REGION=eastus2 python3 -I stt_azure.py ROOT_ru WORK2/out ru   # and hi
+SONIOX_API_KEY=... python3 -I soniox_s2s.py ROOT_ru WORK2/out ru-en   # and ROOT_hi ... hi-en
+python3 -I soniox_hear.py ROOT_ru WORK2/out c:ru-en d:ru-en e:ru-en f:ru-en   # and hi
+HEAR=azure|mai|soniox AWS_PROFILE=... FOUNDRY_ENDPOINT=... FOUNDRY_KEY=... FOUNDRY_DEPLOYMENT=gpt-6-sol-us python3 -I mt.py WORK2/out ru-en hi-en
+python3 -I round_ruhi.py jobs ROOT_ru ROOT_hi WORK2/out
+GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK2/out/ruhi/jobs.json WORK2/out/ruhi/grades.json
+GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK2/out/ruhi/jobs_r2.json WORK2/out/ruhi/grades_r2.json
+python3 -I round_ruhi.py table ROOT_ru ROOT_hi WORK2/out
 ```
 (`round_hearing.py restore` puts the earlier rounds' translations back into WORK/out from `results/`.)
 

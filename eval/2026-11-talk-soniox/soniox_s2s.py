@@ -25,7 +25,7 @@ KEY = os.environ["SONIOX_API_KEY"].strip()
 CLIPS, OUT = sys.argv[1], sys.argv[2]
 LANGS = ["es", "pt", "fr", "de", "zh", "vi", "ar", "fa", "tl", "uk", "ko", "ru", "hi", "it"]
 DIRS = sys.argv[3:] or [f"en-{l}" for l in LANGS] + [f"{l}-en" for l in LANGS]
-SETS = ["a", "b"]
+SETS = os.environ.get("SETS", "a,b").split(",")   # SETS=c,d,e,f: build_more.py's sets
 CONCURRENCY = 3
 J = lambda p: json.load(open(p))
 
