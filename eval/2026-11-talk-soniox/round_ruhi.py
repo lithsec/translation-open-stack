@@ -15,9 +15,11 @@ import json, os, random, statistics, sys, unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = os.path.join(HERE, "results")
-ROUND = "talk-hearing-ruhi-2026-11"
+# LANGS / TAG: the Portuguese rerun is LANGS=pt TAG=pt (default ru,hi / ruhi: the Russian and Hindi one, unchanged).
+TAG = os.environ.get("TAG", "ruhi")
+ROUND = f"talk-hearing-{TAG}-2026-11"
 GRADER = os.environ.get("GRADER", "gemini-flash-latest")
-LANGS = ["ru", "hi"]
+LANGS = os.environ.get("LANGS", "ru,hi").split(",")
 NEW, OLD = ["c", "d", "e", "f"], ["a", "b"]
 SETS = OLD + NEW
 ARMS = ["soniox-hear", "mai-hear", "azure-hear"]
@@ -48,9 +50,9 @@ if MODE == "restore":
     print("restored sets a and b")
     sys.exit()
 
-ROOT = {"ru": sys.argv[2], "hi": sys.argv[3]}
-OUT = sys.argv[4]
-H = os.path.join(OUT, "ruhi")
+ROOT = {l: sys.argv[2 + k] for k, l in enumerate(LANGS)}
+OUT = sys.argv[2 + len(LANGS)]
+H = os.path.join(OUT, TAG)
 
 
 def clip(st, l, name):   # sets a and b: results/clips_<set>/ (all languages' English reference is en.txt.json)
@@ -72,7 +74,7 @@ if MODE == "jobs":
             d = f"{l}-en"
             sy = systems(st, d)
             assert all(len(v) == 20 for v in sy.values()), (st, d)
-            jobs.append({"id": f"ruhi:{st}:{d}", "src": l, "tgt": "en", "source": clip(st, l, "SRC"),
+            jobs.append({"id": f"{TAG}:{st}:{d}", "src": l, "tgt": "en", "source": clip(st, l, "SRC"),
                          "reference": clip(st, l, "REF"), "systems": sy})
     dump(os.path.join(H, "jobs.json"), jobs)
     dump(os.path.join(H, "jobs_r2.json"), [dict(j, id="r2:" + j["id"]) for j in jobs])
@@ -108,7 +110,7 @@ for l in LANGS:
     reads = {a: {"read1": [], "read2": []} for a in ARMS}
     sets = {a: {} for a in ARMS}
     for st in SETS:
-        g1, g2 = G1[f"ruhi:{st}:{d}"]["grades"], G2[f"r2:ruhi:{st}:{d}"]["grades"]
+        g1, g2 = G1[f"{TAG}:{st}:{d}"]["grades"], G2[f"r2:{TAG}:{st}:{d}"]["grades"]
         for a in ARMS:
             s1 = {x["i"]: x.get("score", 0) for x in g1[a]}
             s2 = {x["i"]: x.get("score", 0) for x in g2[a]}
@@ -145,9 +147,9 @@ for l in LANGS:
     out["recognition_cer"][l] = c
 
 res = J(os.path.join(HERE, "results.json"))
-res["hearing_ruhi"] = out
+res[f"hearing_{TAG}"] = out
 json.dump(res, open(os.path.join(HERE, "results.json"), "w"), ensure_ascii=False, indent=1)
-R = os.path.join(RES, "ruhi")
+R = os.path.join(RES, TAG)
 for name in ["jobs.json", "jobs_r2.json", "grades.json", "grades_r2.json"]:
     dump(os.path.join(R, name), J(os.path.join(H, name)))
 new = {}

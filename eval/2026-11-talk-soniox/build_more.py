@@ -16,8 +16,9 @@ FIXED = json.load(open(sys.argv[4]))["sets"] if len(sys.argv) > 4 else None
 sys.path.insert(0, RV)
 import fetch_audio as fa  # noqa: E402
 
-FLEURS = {"en": "en_us", "ru": "ru_ru", "hi": "hi_in"}
-AUDIO = ["ru", "hi"]
+FLEURS = {"en": "en_us", "ru": "ru_ru", "hi": "hi_in", "pt": "pt_br"}
+# LANGS=pt for the Portuguese rerun (default ru,hi: the Russian and Hindi one, unchanged).
+AUDIO = os.environ.get("LANGS", "ru,hi").split(",")
 NAMES = ["c", "d", "e", "f"]
 N, RATE = 20, 16000
 
@@ -29,7 +30,7 @@ for p in glob.glob(os.path.join(EV, "**", "ids*.json"), recursive=True):
     except Exception:
         pass
 
-rows = {l: fa.fleurs_rows(c) for l, c in FLEURS.items()}
+rows = {l: fa.fleurs_rows(FLEURS[l]) for l in ["en", *AUDIO]}
 SETS = {}
 for lang in AUDIO:
     common = sorted(set(rows["en"]) & set(rows[lang]), key=int)
@@ -102,7 +103,7 @@ for lang in AUDIO:   # the English reference text of each language's sentences
         os.makedirs(os.path.join(OUT, f"clips_{st}"), exist_ok=True)
         json.dump([rows["en"][i][0][1] for i in SETS[lang][st]], open(os.path.join(OUT, f"clips_{st}", f"{lang}.ref.json"), "w"),
                   ensure_ascii=False, indent=1)
-with cf.ThreadPoolExecutor(2) as ex:
+with cf.ThreadPoolExecutor(len(AUDIO)) as ex:
     for l in ex.map(one, AUDIO):
         print(l, "done", flush=True)
 print("done", flush=True)

@@ -265,6 +265,39 @@ Recognition, characters wrong against the FLEURS text of each whole clip, mean o
 4. Caveats as for the third round: read speech with regular pauses, sentence-at-a-time translation with the
    shootout prompt, one grader (two reads), MAI pinned to the language. Recognition only, no latency.
 
+## Portuguese: MAI or Azure, graded
+
+The recognition-only recheck (eval/2026-11-en-pt-hearing-recheck) had MAI slightly ahead on Portuguese characters
+(0.51% against 0.73% on sets a and b) but graded no translations. A fifth round (`talk-hearing-pt-2026-11`) grades
+them exactly as the Russian and Hindi round: pt→en, gpt-6-sol (the baseline's translator, `mt.py`) behind the same
+three arms, on sets a and b (restored from `results/`) and **four more sets, c d e f** (`LANGS=pt build_more.py`: 80
+FLEURS Brazilian Portuguese sentences no eval here had used, of 111 unused; seed 2031, pauses and readers as
+`build_clips.py`), n = 120. Azure standard on eastus and MAI on eastus2, both pinned to pt-BR; Soniox with language
+identification and no hint. Every set graded afresh and twice, blind (`LANGS=pt TAG=pt round_ruhi.py`, `grade.py`,
+`gemini-flash-latest`); paired bootstrap as above. Numbers: `results.json` `hearing_pt`; jobs, grades and sets c-f's
+outputs: `results/pt/`; the sets: `results/ids_more_pt.json`. (Clips are rebuilt with `LANGS=pt build_more.py ...
+results/ids_more_pt.json`; no audio committed.)
+
+| Direction | Soniox | MAI | Azure | MAI − Azure (95% CI) | Soniox − MAI (95% CI) | Critical, Soniox / MAI / Azure |
+|---|---|---|---|---|---|---|
+| pt→en | **92.8** (93.9, 91.7) | **95.7** (96.1, 95.3) | **89.7** (90.8, 88.6) | **+6.0** (+2.5 to +9.7) | -2.9 (-5.6 to -0.4) | 7 / 4 / 9 |
+
+(Reads 1 and 2 in brackets; critical: of 120, read 1.) Sets a+b and then c-f: MAI 95.8 / 95.6, Azure 93.3 / 87.9,
+Soniox 88.8 / 94.8.
+
+Characters wrong against the FLEURS text, mean of the six sets: Soniox 1.5%, **MAI 1.1%**, Azure 2.5% (Azure 1.4-1.8%
+on a and b, 2.6-3.3% on c-f; MAI 0.5-1.5% throughout).
+
+1. **MAI beats Azure standard for Portuguese speakers**: +6.0 (+2.5 to +9.7), under half Azure's character errors,
+   fewer critical errors. Azure's misses are names and numbers ("Luna" as "the student", 802.11a/b/g as
+   "8121181211 b 1180211 g", Fisichella as "Viziquela").
+2. **Sets a and b alone would not have shown it** (95.8 against 93.3, inside the regrade noise): the gap is in the
+   new sets, where Azure makes about twice its a+b errors. October's "Azure better for Portuguese" (1.7 vs 0.9%) was
+   one clip scored against Gemini's word-for-word transcript (eval/2026-11-en-pt-hearing-recheck).
+3. Soniox sits between them and trails MAI (-2.9, -5.6 to -0.4).
+4. Caveats as for the Russian and Hindi round: read speech with regular pauses, sentence-at-a-time translation, one
+   grader (two reads), Brazilian Portuguese only (pt-PT not run). No latency.
+
 ## Caveats
 
 - **MAI not run.** Where the route's recogniser is MAI (`mai-gemma`: es, fr, de, zh, vi, ar, fa, tl, uk into
@@ -360,6 +393,11 @@ python3 -I round_ruhi.py jobs ROOT_ru ROOT_hi WORK2/out
 GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK2/out/ruhi/jobs.json WORK2/out/ruhi/grades.json
 GEMINI_API_KEY=... GRADER=gemini-flash-latest python3 -I grade.py WORK2/out/ruhi/jobs_r2.json WORK2/out/ruhi/grades_r2.json
 python3 -I round_ruhi.py table ROOT_ru ROOT_hi WORK2/out
+# Portuguese, the same way: LANGS=pt for build_more.py and round_ruhi.py (with TAG=pt), one clip root
+LANGS=pt python3 -I build_more.py WORK3 ../2026-10-real-voices .. results/ids_more_pt.json
+LANGS=pt python3 -I round_ruhi.py restore WORK3/out    # then stt_azure.py / soniox_s2s.py / soniox_hear.py / mt.py as above, for pt and pt-en
+LANGS=pt TAG=pt python3 -I round_ruhi.py jobs ROOT_pt WORK3/out    # grade.py on WORK3/out/pt/jobs.json and jobs_r2.json
+LANGS=pt TAG=pt python3 -I round_ruhi.py table ROOT_pt WORK3/out
 ```
 (`round_hearing.py restore` puts the earlier rounds' translations back into WORK/out from `results/`.)
 
