@@ -71,6 +71,44 @@ points apart, far outside the 2-3 points a second read moves a score.
    standard + the same translator, from the Talk eval). Pieces bring the first words of a sentence sooner only
    where phrases are cut (out of English: 3.3-3.9 s after the sentence starts, against 7.0-7.4 s whole).
 
+## Translation alone (correct text)
+
+A second grading run with Apple Translation given the reference sentences instead of what Apple heard
+(harness/TextOnly.swift, text_only.py; results/text-only/). One blind read per direction and set, the three systems
+side by side, so its heard and cloud scores differ a little from the table above (a different read of the same outputs).
+
+| Direction | Apple Translation, correct text | Apple heard + translated | Cloud route |
+|---|---|---|---|
+| en→es | 83.3 | 52.5 | 86.7 |
+| en→pt | 87.5 | 55.8 | 75.8 |
+| en→fr | 83.3 | 53.3 | 85.8 |
+| en→de | 79.2 | 51.7 | 75.8 |
+| en→zh | 84.2 | 52.5 | 76.7 |
+| en→vi | 81.7 | 52.5 | 88.3 |
+| en→ar | 76.7 | 50.0 | 89.2 |
+| en→uk | 62.5 | 40.8 | 85.8 |
+| en→ko | 84.2 | 46.7 | 75.8 |
+| en→ru | 68.3 | 45.8 | 80.0 |
+| en→hi | 85.8 | 53.3 | 83.3 |
+| en→it | 85.0 | 52.5 | 68.3 |
+| es→en | 95.0 | 66.7 | 95.8 |
+| pt→en | 95.0 | 65.8 | 95.0 |
+| fr→en | 95.0 | 60.0 | 91.7 |
+| de→en | 93.3 | 58.3 | 86.7 |
+| zh→en | 92.5 | 59.2 | 96.7 |
+| ko→en | 77.5 | 59.2 | 98.3 |
+| hi→en | 80.8 | 34.2 | 85.0 |
+| it→en | 87.5 | 66.7 | 99.2 |
+
+- Given correct text, Apple Translation scores within 10 points of the cloud route in 15 of 20 directions, and above
+  it in 8 (en→pt, en→de, en→zh, en→ko, en→hi, en→it, fr→en, de→en; pt→en ties). The cloud row is heard
+  by its own recogniser, so this compares Apple's translator on perfect text with the full cloud pipeline.
+- Most of the on-device loss is hearing: 18 to 47 points between Apple on correct text and Apple on what it heard.
+  These read sentences are dense in names and rare words ("El día de ayer, Martelly juró…" heard as "Peshi juró…",
+  "efemerópteros" as "enfermermerópteros"), which the grader counts as critical errors. Everyday speech with fewer
+  names may hear better; not measured here.
+- Weakest translation on correct text: en→uk 62.5, en→ru 68.3, ko→en 77.5.
+
 ## Hearing
 
 Characters wrong (CER) against the FLEURS text of the whole clip, mean of sets a and b, and words wrong (WER,
