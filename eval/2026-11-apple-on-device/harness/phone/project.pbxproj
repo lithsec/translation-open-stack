@@ -1,0 +1,55 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+		A0000000000000000000000A /* AppleHearCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleHearCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0000000000000000000000B /* AppleHearCheck */ = {isa = PBXFileSystemSynchronizedRootGroup; path = AppleHearCheck; sourceTree = "<group>"; };
+		A0000000000000000000000C /* Frameworks */ = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A0000000000000000000000D /* Sources */ = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A0000000000000000000000E /* Resources */ = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		A0000000000000000000000F = {isa = PBXGroup; children = (A0000000000000000000000B, A00000000000000000000010); sourceTree = "<group>"; };
+		A00000000000000000000010 /* Products */ = {isa = PBXGroup; children = (A0000000000000000000000A); name = Products; sourceTree = "<group>"; };
+		A00000000000000000000011 /* AppleHearCheck */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00000000000000000000014;
+			buildPhases = (A0000000000000000000000D, A0000000000000000000000C, A0000000000000000000000E);
+			buildRules = ();
+			dependencies = ();
+			fileSystemSynchronizedGroups = (A0000000000000000000000B);
+			name = AppleHearCheck;
+			productName = AppleHearCheck;
+			productReference = A0000000000000000000000A;
+			productType = "com.apple.product-type.application";
+		};
+		A00000000000000000000012 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 2600; LastUpgradeCheck = 2600; };
+			buildConfigurationList = A00000000000000000000013;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base);
+			mainGroup = A0000000000000000000000F;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A00000000000000000000010;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (A00000000000000000000011);
+		};
+		A00000000000000000000015 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {
+			ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_MODULES = YES; IPHONEOS_DEPLOYMENT_TARGET = 26.4; SDKROOT = iphoneos; SWIFT_COMPILATION_MODE = wholemodule; SWIFT_OPTIMIZATION_LEVEL = "-O"; VALIDATE_PRODUCT = YES;
+		}; name = Release; };
+		A00000000000000000000016 /* Release */ = {isa = XCBuildConfiguration; buildSettings = {
+			CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = L3NLW4U9ZM; GENERATE_INFOPLIST_FILE = YES; CURRENT_PROJECT_VERSION = 1; MARKETING_VERSION = 1.0;
+			INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES; INFOPLIST_KEY_UILaunchScreen_Generation = YES; INFOPLIST_KEY_UIFileSharingEnabled = YES; INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+			INFOPLIST_KEY_UIBackgroundModes = audio;
+			PRODUCT_BUNDLE_IDENTIFIER = com.lithsec.eval.applehearcheck; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; SUPPORTED_PLATFORMS = "iphoneos"; ENABLE_PREVIEWS = NO;
+		}; name = Release; };
+		A00000000000000000000013 = {isa = XCConfigurationList; buildConfigurations = (A00000000000000000000015); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		A00000000000000000000014 = {isa = XCConfigurationList; buildConfigurations = (A00000000000000000000016); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+	};
+	rootObject = A00000000000000000000012;
+}

@@ -109,6 +109,45 @@ side by side, so its heard and cloud scores differ a little from the table above
   names may hear better; not measured here.
 - Weakest translation on correct text: en→uk 62.5, en→ru 68.3, ko→en 77.5.
 
+## On an iPhone 13
+
+The same clips on an iPhone 13 (iOS 26, no Apple Intelligence), run by a small test app (harness/phone: App.swift
+plus the harness's Hear.swift and Cut.swift and the app's FastPhrases.swift; phone_eval.py; results/phone/). The phone
+heard en, es, fr and zh (both sets, real time) and translated the correct text for the pairs it had installed. Three
+set-a cuts (en→es, es→en, en→fr) failed with "not installed" and are missing. One blind read, five systems side by side.
+
+Hearing, character error rate (both sets):
+
+| Language | iPhone 13 | Mac | Azure | MAI | Soniox |
+|---|---|---|---|---|---|
+| en (en-US) | 11.8% | 9.9% | 6.9% | 4.1% | 5.8% |
+| es (es-MX) | 2.6% | 2.5% | 1.4% | 0.5% | 0.9% |
+| fr (fr-FR) | 4.8% | 4.3% | 4.0% | 1.1% | 1.9% |
+| zh (zh-CN) | 5.3% | 5.9% | 3.0% | 1.1% | 2.4% |
+
+End to end, same set and read (heard by Apple, whole sentences):
+
+| Set:direction | iPhone heard | Mac heard | iPhone, correct text | Cloud |
+|---|---|---|---|---|
+| a: fr→en | 65.0 | 63.3 | 91.7 | 86.7 |
+| a: en→zh | 43.3 | 55.0 | 85.0 | 83.3 |
+| a: zh→en | 58.3 | 63.3 | 88.3 | 100.0 |
+| b: en→es | 55.0 | 55.0 | 90.0 | 78.3 |
+| b: es→en | 55.0 | 65.0 | 96.7 | 95.0 |
+| b: en→fr | 50.0 | 51.7 | 88.3 | 80.0 |
+| b: fr→en | 58.3 | 66.7 | 90.0 | 95.0 |
+| b: en→zh | 55.0 | 53.3 | 90.0 | 65.0 |
+| b: zh→en | 45.0 | 55.0 | 91.7 | 96.7 |
+
+Translation alone (correct text, both sets): iPhone 13 / Mac, en→es 85.8 / 88.3, es→en 91.7 / 95.0, en→fr 85.8 / 84.2,
+fr→en 90.8 / 95.8, en→zh 87.5 / 79.2, zh→en 90.0 / 94.2, en→de 82.5 / 78.3, de→en 88.3 / 92.5, en→pt 87.5 / 87.5,
+pt→en 92.5 / 95.0.
+
+- The phone hears like the Mac (within 2 points of error rate), and its translation on correct text is within 5 points
+  of the Mac's except en→zh (8.3 better on the phone). Without Apple Intelligence the phone uses Apple's other models,
+  and on these pairs that costs little or nothing.
+- Heard end to end, the phone is level with the Mac or up to 12 points lower; it does not change the rule above.
+
 ## Hearing
 
 Characters wrong (CER) against the FLEURS text of the whole clip, mean of sets a and b, and words wrong (WER,
