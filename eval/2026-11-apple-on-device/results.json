@@ -1,0 +1,2725 @@
+{
+ "round": "apple-on-device-2026-11",
+ "grader": "gemini-flash-latest",
+ "n_per_set": 20,
+ "mac": "27.0.0",
+ "recognition": {
+  "en": {
+   "apple": {
+    "a": {
+     "cer": 0.0671067106710671,
+     "wer": 0.12064343163538874,
+     "locale": "en-US"
+    },
+    "b": {
+     "cer": 0.13117754728492984,
+     "wer": 0.14814814814814814,
+     "locale": "en-US"
+    },
+    "cer": 9.9,
+    "wer": 13.4
+   },
+   "azure": {
+    "a": {
+     "cer": 0.045104510451045104,
+     "wer": 0.08579088471849866
+    },
+    "b": {
+     "cer": 0.0921293471629042,
+     "wer": 0.1111111111111111
+    },
+    "cer": 6.9,
+    "wer": 9.8
+   },
+   "mai": {
+    "a": {
+     "cer": 0.022552255225522552,
+     "wer": 0.058981233243967826
+    },
+    "b": {
+     "cer": 0.06040268456375839,
+     "wer": 0.06552706552706553
+    },
+    "cer": 4.1,
+    "wer": 6.2
+   },
+   "soniox": {
+    "a": {
+     "cer": 0.03398554141128399,
+     "wer": 0.06932209881271544
+    },
+    "b": {
+     "cer": 0.0812777826200645,
+     "wer": 0.08750508750508751
+    },
+    "cer": 5.8,
+    "wer": 7.8
+   }
+  },
+  "es": {
+   "apple": {
+    "a": {
+     "cer": 0.021373351523419737,
+     "wer": 0.035955056179775284,
+     "locale": "es-MX"
+    },
+    "b": {
+     "cer": 0.027702335687126562,
+     "wer": 0.05263157894736842,
+     "locale": "es-MX"
+    },
+    "cer": 2.5,
+    "wer": 4.4
+   },
+   "azure": {
+    "a": {
+     "cer": 0.01318781264211005,
+     "wer": 0.029213483146067417
+    },
+    "b": {
+     "cer": 0.014665942422596416,
+     "wer": 0.02368421052631579
+    },
+    "cer": 1.4,
+    "wer": 2.6
+   },
+   "mai": {
+    "a": {
+     "cer": 0.0009095043201455207,
+     "wer": 0.0044943820224719105
+    },
+    "b": {
+     "cer": 0.009234111895708854,
+     "wer": 0.013157894736842105
+    },
+    "cer": 0.5,
+    "wer": 0.9
+   },
+   "soniox": {
+    "a": {
+     "cer": 0.008640291041382447,
+     "wer": 0.015730337078651686
+    },
+    "b": {
+     "cer": 0.00977729494839761,
+     "wer": 0.018421052631578946
+    },
+    "cer": 0.9,
+    "wer": 1.7
+   }
+  },
+  "pt": {
+   "apple": {
+    "a": {
+     "cer": 0.046534653465346534,
+     "wer": 0.0794044665012407,
+     "locale": "pt-BR"
+    },
+    "b": {
+     "cer": 0.04560810810810811,
+     "wer": 0.07084468664850137,
+     "locale": "pt-BR"
+    },
+    "cer": 4.6,
+    "wer": 7.5
+   },
+   "azure": {
+    "a": {
+     "cer": 0.01782178217821782,
+     "wer": 0.03722084367245657
+    },
+    "b": {
+     "cer": 0.013513513513513514,
+     "wer": 0.043596730245231606
+    },
+    "cer": 1.6,
+    "wer": 4.0
+   },
+   "mai": {
+    "a": {
+     "cer": 0.005445544554455445,
+     "wer": 0.01488833746898263
+    },
+    "b": {
+     "cer": 0.010135135135135136,
+     "wer": 0.0326975476839237
+    },
+    "cer": 0.8,
+    "wer": 2.4
+   },
+   "soniox": {
+    "a": {
+     "cer": 0.013861386138613862,
+     "wer": 0.03225806451612903
+    },
+    "b": {
+     "cer": 0.011824324324324325,
+     "wer": 0.03814713896457766
+    },
+    "cer": 1.3,
+    "wer": 3.5
+   }
+  },
+  "fr": {
+   "apple": {
+    "a": {
+     "cer": 0.04072598494909252,
+     "wer": 0.08676789587852494,
+     "locale": "fr-FR"
+    },
+    "b": {
+     "cer": 0.046018614270941054,
+     "wer": 0.10462287104622871,
+     "locale": "fr-FR"
+    },
+    "cer": 4.3,
+    "wer": 9.6
+   },
+   "azure": {
+    "a": {
+     "cer": 0.04028331119964586,
+     "wer": 0.08676789587852494
+    },
+    "b": {
+     "cer": 0.03929679420889348,
+     "wer": 0.08029197080291971
+    },
+    "cer": 4.0,
+    "wer": 8.4
+   },
+   "mai": {
+    "a": {
+     "cer": 0.007082779991146525,
+     "wer": 0.026030368763557483
+    },
+    "b": {
+     "cer": 0.014477766287487074,
+     "wer": 0.031630170316301706
+    },
+    "cer": 1.1,
+    "wer": 2.9
+   },
+   "soniox": {
+    "a": {
+     "cer": 0.01593625498007968,
+     "wer": 0.0368763557483731
+    },
+    "b": {
+     "cer": 0.022233712512926575,
+     "wer": 0.0364963503649635
+    },
+    "cer": 1.9,
+    "wer": 3.7
+   }
+  },
+  "de": {
+   "apple": {
+    "a": {
+     "cer": 0.03566591422121896,
+     "wer": 0.0855614973262032,
+     "locale": "de-DE"
+    },
+    "b": {
+     "cer": 0.055299539170506916,
+     "wer": 0.13333333333333333,
+     "locale": "de-DE"
+    },
+    "cer": 4.5,
+    "wer": 10.9
+   },
+   "azure": {
+    "a": {
+     "cer": 0.021218961625282168,
+     "wer": 0.06417112299465241
+    },
+    "b": {
+     "cer": 0.023553507424475168,
+     "wer": 0.06060606060606061
+    },
+    "cer": 2.2,
+    "wer": 6.2
+   },
+   "mai": {
+    "a": {
+     "cer": 0.0036117381489841984,
+     "wer": 0.03208556149732621
+    },
+    "b": {
+     "cer": 0.015360983102918587,
+     "wer": 0.03636363636363636
+    },
+    "cer": 0.9,
+    "wer": 3.4
+   },
+   "soniox": {
+    "a": {
+     "cer": 0.012641083521444696,
+     "wer": 0.0481283422459893
+    },
+    "b": {
+     "cer": 0.010752688172043012,
+     "wer": 0.03636363636363636
+    },
+    "cer": 1.2,
+    "wer": 4.2
+   }
+  },
+  "zh": {
+   "apple": {
+    "a": {
+     "cer": 0.040983606557377046,
+     "wer": null,
+     "locale": "zh-CN"
+    },
+    "b": {
+     "cer": 0.07797270955165692,
+     "wer": null,
+     "locale": "zh-CN"
+    },
+    "cer": 5.9,
+    "wer": null
+   },
+   "azure": {
+    "a": {
+     "cer": 0.021311475409836064,
+     "wer": null
+    },
+    "b": {
+     "cer": 0.03898635477582846,
+     "wer": null
+    },
+    "cer": 3.0,
+    "wer": null
+   },
+   "mai": {
+    "a": {
+     "cer": 0.003278688524590164,
+     "wer": null
+    },
+    "b": {
+     "cer": 0.01949317738791423,
+     "wer": null
+    },
+    "cer": 1.1,
+    "wer": null
+   },
+   "soniox": {
+    "a": {
+     "cer": 0.011475409836065573,
+     "wer": null
+    },
+    "b": {
+     "cer": 0.037037037037037035,
+     "wer": null
+    },
+    "cer": 2.4,
+    "wer": null
+   }
+  },
+  "ko": {
+   "apple": {
+    "a": {
+     "cer": 0.03636363636363636,
+     "wer": 0.14893617021276595,
+     "locale": "ko-KR"
+    },
+    "b": {
+     "cer": 0.06914893617021277,
+     "wer": 0.18875502008032127,
+     "locale": "ko-KR"
+    },
+    "cer": 5.3,
+    "wer": 16.9
+   },
+   "azure": {
+    "a": {
+     "cer": 0.06181818181818182,
+     "wer": 0.17375886524822695
+    },
+    "b": {
+     "cer": 0.0598404255319149,
+     "wer": 0.1686746987951807
+    },
+    "cer": 6.1,
+    "wer": 17.1
+   },
+   "mai": {
+    "a": {
+     "cer": 0.009696969696969697,
+     "wer": 0.07092198581560284
+    },
+    "b": {
+     "cer": 0.05053191489361702,
+     "wer": 0.12449799196787148
+    },
+    "cer": 3.0,
+    "wer": 9.8
+   },
+   "soniox": {
+    "a": {
+     "cer": 0.024242424242424242,
+     "wer": 0.09574468085106383
+    },
+    "b": {
+     "cer": 0.05585106382978723,
+     "wer": 0.14859437751004015
+    },
+    "cer": 4.0,
+    "wer": 12.2
+   }
+  },
+  "hi": {
+   "apple": {
+    "a": {
+     "cer": 1.704225352112676,
+     "wer": 1.0,
+     "locale": "hi-IN"
+    },
+    "b": {
+     "cer": 1.6717948717948719,
+     "wer": 1.0,
+     "locale": "hi-IN"
+    },
+    "cer": 168.8,
+    "wer": 100.0
+   },
+   "azure": {
+    "a": {
+     "cer": 0.05258215962441314,
+     "wer": 0.08121827411167512
+    },
+    "b": {
+     "cer": 0.033846153846153845,
+     "wer": 0.05327868852459016
+    },
+    "cer": 4.3,
+    "wer": 6.7
+   },
+   "mai": {
+    "a": {
+     "cer": 0.030985915492957747,
+     "wer": 0.044416243654822336
+    },
+    "b": {
+     "cer": 0.02666666666666667,
+     "wer": 0.03961748633879782
+    },
+    "cer": 2.9,
+    "wer": 4.2
+   },
+   "soniox": {
+    "a": {
+     "cer": 0.03192488262910798,
+     "wer": 0.05456852791878172
+    },
+    "b": {
+     "cer": 0.04,
+     "wer": 0.04918032786885246
+    },
+    "cer": 3.6,
+    "wer": 5.2
+   }
+  },
+  "it": {
+   "apple": {
+    "a": {
+     "cer": 0.018356643356643356,
+     "wer": 0.03926096997690531,
+     "locale": "it-IT"
+    },
+    "b": {
+     "cer": 0.028018339276617423,
+     "wer": 0.044270833333333336,
+     "locale": "it-IT"
+    },
+    "cer": 2.3,
+    "wer": 4.2
+   },
+   "azure": {
+    "a": {
+     "cer": 0.006993006993006993,
+     "wer": 0.016166281755196306
+    },
+    "b": {
+     "cer": 0.014773306164034642,
+     "wer": 0.028645833333333332
+    },
+    "cer": 1.1,
+    "wer": 2.2
+   },
+   "mai": {
+    "a": {
+     "cer": 0.0013111888111888112,
+     "wer": 0.006928406466512702
+    },
+    "b": {
+     "cer": 0.0056036678553234845,
+     "wer": 0.005208333333333333
+    },
+    "cer": 0.3,
+    "wer": 0.6
+   },
+   "soniox": {
+    "a": {
+     "cer": 0.01486013986013986,
+     "wer": 0.025404157043879907
+    },
+    "b": {
+     "cer": 0.012226184411614875,
+     "wer": 0.020833333333333332
+    },
+    "cer": 1.4,
+    "wer": 2.3
+   }
+  }
+ },
+ "directions": {
+  "en-es": {
+   "auto": {
+    "hear": "soniox",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-pieces": {
+     "q": 37.5,
+     "crit": 9,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 40.0,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 35.0,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "apple-whole": {
+     "q": 55.0,
+     "crit": 9,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 55.0,
+       "crit": 5,
+       "n": 20
+      },
+      "b": {
+       "q": 55.0,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 87.5,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 93.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "phrases 4-8",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.58,
+      "p90": 2.68,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.1,
+      "p90": 10.73,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.23,
+      "p90": 2.28,
+      "n": 40
+     },
+     "first": {
+      "p50": 3.72,
+      "p90": 5.11,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 595,
+     "translate_ms_p90": 948
+    },
+    "pieces": {
+     "pieces": 121,
+     "cut_pieces": 121,
+     "translate_ms_p50": 391,
+     "translate_ms_p90": 512
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 85.0,
+    "mai-hear": 87.5,
+    "azure-hear": 75.8
+   }
+  },
+  "en-pt": {
+   "auto": {
+    "hear": "azure",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 53.4,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 55.0,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 51.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 77.5,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 66.7,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 34.2,
+     "crit": 9,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 31.7,
+       "crit": 5,
+       "n": 20
+      },
+      "b": {
+       "q": 36.7,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "phrases 4-8",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.51,
+      "p90": 2.66,
+      "n": 40
+     },
+     "first": {
+      "p50": 6.96,
+      "p90": 10.86,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.28,
+      "p90": 2.34,
+      "n": 40
+     },
+     "first": {
+      "p50": 3.75,
+      "p90": 5.13,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 627,
+     "translate_ms_p90": 1004
+    },
+    "pieces": {
+     "pieces": 121,
+     "cut_pieces": 121,
+     "translate_ms_p50": 395,
+     "translate_ms_p90": 539
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 83.8,
+    "mai-hear": 87.1,
+    "azure-hear": 76.7
+   }
+  },
+  "en-fr": {
+   "auto": {
+    "hear": "soniox",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 54.1,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 53.3,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 55.0,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 85.8,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 90.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 32.5,
+     "crit": 8,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 33.3,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 31.7,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "phrases 3-7",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.59,
+      "p90": 2.78,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.11,
+      "p90": 10.99,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.22,
+      "p90": 2.33,
+      "n": 40
+     },
+     "first": {
+      "p50": 3.34,
+      "p90": 4.68,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 657,
+     "translate_ms_p90": 1103
+    },
+    "pieces": {
+     "pieces": 129,
+     "cut_pieces": 129,
+     "translate_ms_p50": 386,
+     "translate_ms_p90": 539
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 84.6,
+    "mai-hear": 85.8,
+    "azure-hear": 75.4
+   }
+  },
+  "en-de": {
+   "auto": {
+    "hear": "azure",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 53.3,
+     "crit": 10,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 58.3,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 48.3,
+       "crit": 6,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 32.5,
+     "crit": 13,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 35.0,
+       "crit": 6,
+       "n": 20
+      },
+      "b": {
+       "q": 30.0,
+       "crit": 7,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 78.3,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 70.0,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "phrases 3-7",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.65,
+      "p90": 2.76,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.06,
+      "p90": 10.88,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.27,
+      "p90": 2.32,
+      "n": 40
+     },
+     "first": {
+      "p50": 3.34,
+      "p90": 4.64,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 710,
+     "translate_ms_p90": 1152
+    },
+    "pieces": {
+     "pieces": 129,
+     "cut_pieces": 129,
+     "translate_ms_p50": 430,
+     "translate_ms_p90": 566
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 83.3,
+    "mai-hear": 85.0,
+    "azure-hear": 74.6
+   }
+  },
+  "en-zh": {
+   "auto": {
+    "hear": "azure",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 55.0,
+     "crit": 8,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 53.3,
+       "crit": 5,
+       "n": 20
+      },
+      "b": {
+       "q": 56.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 80.0,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 88.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 45.8,
+     "crit": 8,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 43.3,
+       "crit": 5,
+       "n": 20
+      },
+      "b": {
+       "q": 48.3,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.55,
+      "p90": 2.65,
+      "n": 40
+     },
+     "first": {
+      "p50": 6.93,
+      "p90": 10.57,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.58,
+      "p90": 2.64,
+      "n": 40
+     },
+     "first": {
+      "p50": 6.02,
+      "p90": 7.49,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 597,
+     "translate_ms_p90": 902
+    },
+    "pieces": {
+     "pieces": 71,
+     "cut_pieces": 42,
+     "translate_ms_p50": 505,
+     "translate_ms_p90": 710
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 85.4,
+    "mai-hear": 87.5,
+    "azure-hear": 77.1
+   }
+  },
+  "en-vi": {
+   "auto": {
+    "hear": "soniox",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-pieces": {
+     "q": 43.4,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 40.0,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 46.7,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "apple-whole": {
+     "q": 52.5,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 51.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 53.3,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 86.7,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 81.7,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.66,
+      "p90": 2.77,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.05,
+      "p90": 10.92,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.66,
+      "p90": 2.73,
+      "n": 40
+     },
+     "first": {
+      "p50": 6.08,
+      "p90": 7.68,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 736,
+     "translate_ms_p90": 1119
+    },
+    "pieces": {
+     "pieces": 71,
+     "cut_pieces": 42,
+     "translate_ms_p50": 613,
+     "translate_ms_p90": 819
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 88.0,
+    "mai-hear": 89.2,
+    "azure-hear": 77.5
+   }
+  },
+  "en-ar": {
+   "auto": {
+    "hear": "soniox",
+    "translator": "sol"
+   },
+   "systems": {
+    "apple-pieces": {
+     "q": 35.0,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 30.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 40.0,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 90.0,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 96.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 83.3,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "apple-whole": {
+     "q": 52.5,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 50.0,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 55.0,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "phrases 4-8",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.93,
+      "p90": 3.12,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.4,
+      "p90": 11.45,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.43,
+      "p90": 2.38,
+      "n": 40
+     },
+     "first": {
+      "p50": 3.89,
+      "p90": 5.2,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 934,
+     "translate_ms_p90": 1553
+    },
+    "pieces": {
+     "pieces": 121,
+     "cut_pieces": 121,
+     "translate_ms_p50": 549,
+     "translate_ms_p90": 734
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 87.9,
+    "mai-hear": 88.8,
+    "azure-hear": 81.2
+   }
+  },
+  "en-uk": {
+   "auto": {
+    "hear": "soniox",
+    "translator": "sol"
+   },
+   "systems": {
+    "apple-pieces": {
+     "q": 32.5,
+     "crit": 8,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 28.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 36.7,
+       "crit": 6,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 85.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "apple-whole": {
+     "q": 40.0,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 36.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 43.3,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.95,
+      "p90": 3.03,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.37,
+      "p90": 11.23,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.82,
+      "p90": 2.82,
+      "n": 40
+     },
+     "first": {
+      "p50": 6.16,
+      "p90": 7.7,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 909,
+     "translate_ms_p90": 1627
+    },
+    "pieces": {
+     "pieces": 71,
+     "cut_pieces": 42,
+     "translate_ms_p50": 742,
+     "translate_ms_p90": 1090
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 85.0,
+    "mai-hear": 84.2,
+    "azure-hear": 79.6
+   }
+  },
+  "en-ko": {
+   "auto": {
+    "hear": "azure",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 52.5,
+     "crit": 10,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 48.3,
+       "crit": 5,
+       "n": 20
+      },
+      "b": {
+       "q": 56.7,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 40.0,
+     "crit": 10,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 35.0,
+       "crit": 5,
+       "n": 20
+      },
+      "b": {
+       "q": 45.0,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 80.8,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 81.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.84,
+      "p90": 2.85,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.11,
+      "p90": 11.02,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.76,
+      "p90": 2.75,
+      "n": 40
+     },
+     "first": {
+      "p50": 6.25,
+      "p90": 7.66,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 735,
+     "translate_ms_p90": 1207
+    },
+    "pieces": {
+     "pieces": 71,
+     "cut_pieces": 42,
+     "translate_ms_p50": 671,
+     "translate_ms_p90": 857
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 89.6,
+    "mai-hear": 91.2,
+    "azure-hear": 76.2
+   }
+  },
+  "en-ru": {
+   "auto": {
+    "hear": "azure",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 49.2,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 51.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 46.7,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 79.2,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 40.8,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 43.3,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 38.3,
+       "crit": 6,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.65,
+      "p90": 2.82,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.1,
+      "p90": 11.12,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.66,
+      "p90": 2.69,
+      "n": 40
+     },
+     "first": {
+      "p50": 6.11,
+      "p90": 7.56,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 751,
+     "translate_ms_p90": 1177
+    },
+    "pieces": {
+     "pieces": 71,
+     "cut_pieces": 42,
+     "translate_ms_p50": 601,
+     "translate_ms_p90": 820
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 83.3,
+    "mai-hear": 89.2,
+    "azure-hear": 76.7
+   }
+  },
+  "en-hi": {
+   "auto": {
+    "hear": "soniox",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 53.3,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 53.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 53.3,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 85.8,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 91.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 80.0,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 41.6,
+     "crit": 5,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 40.0,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 43.3,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.72,
+      "p90": 2.87,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.18,
+      "p90": 11.08,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.72,
+      "p90": 2.81,
+      "n": 40
+     },
+     "first": {
+      "p50": 6.12,
+      "p90": 7.66,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 834,
+     "translate_ms_p90": 1262
+    },
+    "pieces": {
+     "pieces": 71,
+     "cut_pieces": 42,
+     "translate_ms_p50": 683,
+     "translate_ms_p90": 837
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 85.4,
+    "mai-hear": 87.9,
+    "azure-hear": 75.8
+   }
+  },
+  "en-it": {
+   "auto": {
+    "hear": "azure",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 51.6,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 53.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 50.0,
+       "crit": 4,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 72.5,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 76.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 68.3,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 40.0,
+     "crit": 7,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 41.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 38.3,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "en-US",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 1.59,
+      "p90": 2.84,
+      "n": 40
+     },
+     "first": {
+      "p50": 6.96,
+      "p90": 11.0,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 1.59,
+      "p90": 2.83,
+      "n": 40
+     },
+     "first": {
+      "p50": 6.08,
+      "p90": 7.53,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 49,
+     "cut_pieces": 0,
+     "translate_ms_p50": 627,
+     "translate_ms_p90": 1151
+    },
+    "pieces": {
+     "pieces": 71,
+     "cut_pieces": 42,
+     "translate_ms_p50": 578,
+     "translate_ms_p90": 840
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 83.3,
+    "mai-hear": 81.7,
+    "azure-hear": 72.1
+   }
+  },
+  "es-en": {
+   "auto": {
+    "hear": "soniox",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-pieces": {
+     "q": 49.1,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 53.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 45.0,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 96.7,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 98.3,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "apple-whole": {
+     "q": 65.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 70.0,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 61.7,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "es-MX",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 2.42,
+      "p90": 3.53,
+      "n": 40
+     },
+     "first": {
+      "p50": 9.73,
+      "p90": 12.97,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 2.31,
+      "p90": 3.11,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.27,
+      "p90": 9.22,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 44,
+     "cut_pieces": 0,
+     "translate_ms_p50": 617,
+     "translate_ms_p90": 921
+    },
+    "pieces": {
+     "pieces": 77,
+     "cut_pieces": 60,
+     "translate_ms_p50": 447,
+     "translate_ms_p90": 614
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 95.0,
+    "mai-hear": 95.8,
+    "azure-hear": 90.8
+   }
+  },
+  "pt-en": {
+   "auto": {
+    "hear": "mai",
+    "translator": "sol"
+   },
+   "systems": {
+    "apple-pieces": {
+     "q": 51.7,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 46.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 56.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 95.0,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 96.7,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 93.3,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "apple-whole": {
+     "q": 61.6,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 60.0,
+       "crit": 1,
+       "n": 20
+      },
+      "b": {
+       "q": 63.3,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "pt-BR",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 2.49,
+      "p90": 3.18,
+      "n": 40
+     },
+     "first": {
+      "p50": 10.41,
+      "p90": 13.87,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 2.23,
+      "p90": 2.91,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.26,
+      "p90": 8.41,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 50,
+     "cut_pieces": 0,
+     "translate_ms_p50": 558,
+     "translate_ms_p90": 742
+    },
+    "pieces": {
+     "pieces": 92,
+     "cut_pieces": 73,
+     "translate_ms_p50": 396,
+     "translate_ms_p90": 546
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 87.1,
+    "mai-hear": 94.2,
+    "azure-hear": 92.5
+   }
+  },
+  "fr-en": {
+   "auto": {
+    "hear": "soniox",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-pieces": {
+     "q": 44.1,
+     "crit": 8,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 43.3,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 45.0,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 90.8,
+     "crit": 2,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 95.0,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "apple-whole": {
+     "q": 63.4,
+     "crit": 6,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 55.0,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 71.7,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "fr-FR",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 2.73,
+      "p90": 3.43,
+      "n": 40
+     },
+     "first": {
+      "p50": 9.1,
+      "p90": 12.37,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 2.48,
+      "p90": 3.02,
+      "n": 40
+     },
+     "first": {
+      "p50": 7.61,
+      "p90": 8.8,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 41,
+     "cut_pieces": 0,
+     "translate_ms_p50": 641,
+     "translate_ms_p90": 829
+    },
+    "pieces": {
+     "pieces": 73,
+     "cut_pieces": 58,
+     "translate_ms_p50": 448,
+     "translate_ms_p90": 641
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 91.7,
+    "mai-hear": 92.9,
+    "azure-hear": 77.9
+   }
+  },
+  "de-en": {
+   "auto": {
+    "hear": "azure",
+    "translator": "sol"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 59.1,
+     "crit": 11,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 63.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 55.0,
+       "crit": 9,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 85.8,
+     "crit": 3,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 85.0,
+       "crit": 3,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 59.1,
+     "crit": 11,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 63.3,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 55.0,
+       "crit": 9,
+       "n": 20
+      }
+     },
+     "same_as": "apple-whole"
+    }
+   },
+   "cut_mode": "whole",
+   "locale": "de-DE",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 2.64,
+      "p90": 3.18,
+      "n": 40
+     },
+     "first": {
+      "p50": 9.22,
+      "p90": 12.79,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 2.65,
+      "p90": 3.22,
+      "n": 40
+     },
+     "first": {
+      "p50": 9.22,
+      "p90": 12.74,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 46,
+     "cut_pieces": 0,
+     "translate_ms_p50": 629,
+     "translate_ms_p90": 889
+    },
+    "pieces": {
+     "pieces": 46,
+     "cut_pieces": 0,
+     "translate_ms_p50": 645,
+     "translate_ms_p90": 894
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 90.8,
+    "mai-hear": 94.2,
+    "azure-hear": 86.7
+   }
+  },
+  "zh-en": {
+   "auto": {
+    "hear": "mai",
+    "translator": "gemma"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 60.8,
+     "crit": 13,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 68.3,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 53.3,
+       "crit": 9,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 96.7,
+     "crit": 1,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 100.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 93.3,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 57.5,
+     "crit": 14,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 66.7,
+       "crit": 5,
+       "n": 20
+      },
+      "b": {
+       "q": 48.3,
+       "crit": 9,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "zh-CN",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 2.93,
+      "p90": 3.54,
+      "n": 40
+     },
+     "first": {
+      "p50": 9.75,
+      "p90": 12.66,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 2.89,
+      "p90": 3.33,
+      "n": 39
+     },
+     "first": {
+      "p50": 9.25,
+      "p90": 11.9,
+      "n": 39
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 42,
+     "cut_pieces": 0,
+     "translate_ms_p50": 725,
+     "translate_ms_p90": 972
+    },
+    "pieces": {
+     "pieces": 43,
+     "cut_pieces": 2,
+     "translate_ms_p50": 710,
+     "translate_ms_p90": 952
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 87.5,
+    "mai-hear": 91.7,
+    "azure-hear": 85.8
+   }
+  },
+  "ko-en": {
+   "auto": {
+    "hear": "mai",
+    "translator": "sol"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 65.0,
+     "crit": 9,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 70.0,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 60.0,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 98.3,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 100.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 96.7,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 65.0,
+     "crit": 9,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 70.0,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 60.0,
+       "crit": 5,
+       "n": 20
+      }
+     },
+     "same_as": "apple-whole"
+    }
+   },
+   "cut_mode": "whole",
+   "locale": "ko-KR",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 2.09,
+      "p90": 2.64,
+      "n": 40
+     },
+     "first": {
+      "p50": 8.75,
+      "p90": 12.14,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 2.1,
+      "p90": 2.65,
+      "n": 40
+     },
+     "first": {
+      "p50": 8.73,
+      "p90": 12.16,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 45,
+     "cut_pieces": 0,
+     "translate_ms_p50": 696,
+     "translate_ms_p90": 923
+    },
+    "pieces": {
+     "pieces": 45,
+     "cut_pieces": 0,
+     "translate_ms_p50": 674,
+     "translate_ms_p90": 908
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 95.0,
+    "mai-hear": 98.3,
+    "azure-hear": 91.7
+   }
+  },
+  "hi-en": {
+   "auto": {
+    "hear": "soniox",
+    "translator": "sol"
+   },
+   "systems": {
+    "apple-whole": {
+     "q": 37.5,
+     "crit": 14,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 43.3,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 31.7,
+       "crit": 10,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 88.3,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 86.7,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 90.0,
+       "crit": 1,
+       "n": 20
+      }
+     }
+    },
+    "apple-pieces": {
+     "q": 37.5,
+     "crit": 14,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 43.3,
+       "crit": 4,
+       "n": 20
+      },
+      "b": {
+       "q": 31.7,
+       "crit": 10,
+       "n": 20
+      }
+     },
+     "same_as": "apple-whole"
+    }
+   },
+   "cut_mode": "whole",
+   "locale": "hi-IN",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 2.42,
+      "p90": 3.39,
+      "n": 40
+     },
+     "first": {
+      "p50": 11.04,
+      "p90": 16.72,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 2.42,
+      "p90": 3.24,
+      "n": 39
+     },
+     "first": {
+      "p50": 10.92,
+      "p90": 15.54,
+      "n": 39
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 39,
+     "cut_pieces": 0,
+     "translate_ms_p50": 728,
+     "translate_ms_p90": 1062
+    },
+    "pieces": {
+     "pieces": 39,
+     "cut_pieces": 0,
+     "translate_ms_p50": 727,
+     "translate_ms_p90": 1063
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 85.0,
+    "mai-hear": 86.2,
+    "azure-hear": 83.8
+   }
+  },
+  "it-en": {
+   "auto": {
+    "hear": "azure",
+    "translator": "sol"
+   },
+   "systems": {
+    "apple-pieces": {
+     "q": 46.7,
+     "crit": 8,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 46.7,
+       "crit": 3,
+       "n": 20
+      },
+      "b": {
+       "q": 46.7,
+       "crit": 5,
+       "n": 20
+      }
+     }
+    },
+    "cloud-auto": {
+     "q": 100.0,
+     "crit": 0,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 100.0,
+       "crit": 0,
+       "n": 20
+      },
+      "b": {
+       "q": 100.0,
+       "crit": 0,
+       "n": 20
+      }
+     }
+    },
+    "apple-whole": {
+     "q": 65.8,
+     "crit": 4,
+     "n": 40,
+     "sets": {
+      "a": {
+       "q": 66.7,
+       "crit": 2,
+       "n": 20
+      },
+      "b": {
+       "q": 65.0,
+       "crit": 2,
+       "n": 20
+      }
+     }
+    }
+   },
+   "cut_mode": "boundary",
+   "locale": "it-IT",
+   "delay_s": {
+    "whole": {
+     "end": {
+      "p50": 2.59,
+      "p90": 3.05,
+      "n": 40
+     },
+     "first": {
+      "p50": 9.82,
+      "p90": 14.37,
+      "n": 40
+     }
+    },
+    "pieces": {
+     "end": {
+      "p50": 2.36,
+      "p90": 2.85,
+      "n": 40
+     },
+     "first": {
+      "p50": 8.21,
+      "p90": 9.24,
+      "n": 40
+     }
+    }
+   },
+   "pieces": {
+    "whole": {
+     "pieces": 54,
+     "cut_pieces": 0,
+     "translate_ms_p50": 559,
+     "translate_ms_p90": 810
+    },
+    "pieces": {
+     "pieces": 100,
+     "cut_pieces": 83,
+     "translate_ms_p50": 393,
+     "translate_ms_p90": 558
+    }
+   },
+   "talk_hearing_round": {
+    "soniox-hear": 94.2,
+    "mai-hear": 95.0,
+    "azure-hear": 100.0
+   }
+  }
+ },
+ "not_run": {
+  "fa-en": "no Apple speech recognition or translation for Persian",
+  "en-fa": "no Apple translation for Persian",
+  "tl-en": "no Apple speech recognition or translation for Filipino",
+  "en-tl": "no Apple translation for Filipino",
+  "vi-en": "no Apple speech recognition for Vietnamese",
+  "ar-en": "no Apple speech recognition for Arabic",
+  "uk-en": "no Apple speech recognition for Ukrainian",
+  "ru-en": "no Apple speech recognition for Russian"
+ },
+ "auto": {
+  "en-es": {
+   "hear": "soniox",
+   "translator": "gemma"
+  },
+  "es-en": {
+   "hear": "soniox",
+   "translator": "gemma"
+  },
+  "en-pt": {
+   "hear": "azure",
+   "translator": "gemma"
+  },
+  "pt-en": {
+   "hear": "mai",
+   "translator": "sol"
+  },
+  "en-fr": {
+   "hear": "soniox",
+   "translator": "gemma"
+  },
+  "fr-en": {
+   "hear": "soniox",
+   "translator": "gemma"
+  },
+  "en-de": {
+   "hear": "azure",
+   "translator": "gemma"
+  },
+  "de-en": {
+   "hear": "azure",
+   "translator": "sol"
+  },
+  "en-zh": {
+   "hear": "azure",
+   "translator": "gemma"
+  },
+  "zh-en": {
+   "hear": "mai",
+   "translator": "gemma"
+  },
+  "en-vi": {
+   "hear": "soniox",
+   "translator": "gemma"
+  },
+  "vi-en": {
+   "hear": "soniox",
+   "translator": "gemma"
+  },
+  "en-ar": {
+   "hear": "soniox",
+   "translator": "sol"
+  },
+  "ar-en": {
+   "hear": "soniox",
+   "translator": "gemma"
+  },
+  "en-fa": {
+   "hear": "soniox",
+   "translator": "sol"
+  },
+  "fa-en": {
+   "hear": "soniox",
+   "translator": "gemma"
+  },
+  "en-tl": {
+   "hear": "azure",
+   "translator": "gemma"
+  },
+  "tl-en": {
+   "hear": "mai",
+   "translator": "gemma"
+  },
+  "en-uk": {
+   "hear": "soniox",
+   "translator": "sol"
+  },
+  "uk-en": {
+   "hear": "soniox",
+   "translator": "sol"
+  },
+  "en-ko": {
+   "hear": "azure",
+   "translator": "gemma"
+  },
+  "ko-en": {
+   "hear": "mai",
+   "translator": "sol"
+  },
+  "en-ru": {
+   "hear": "azure",
+   "translator": "gemma"
+  },
+  "ru-en": {
+   "hear": "mai",
+   "translator": "sol"
+  },
+  "en-hi": {
+   "hear": "soniox",
+   "translator": "gemma"
+  },
+  "hi-en": {
+   "hear": "soniox",
+   "translator": "sol"
+  },
+  "en-it": {
+   "hear": "azure",
+   "translator": "gemma"
+  },
+  "it-en": {
+   "hear": "azure",
+   "translator": "sol"
+  }
+ }
+}

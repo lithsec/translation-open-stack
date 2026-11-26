@@ -1,0 +1,10293 @@
+{
+ "phone:a:en-es": {
+  "grades": {
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"in birds\"."
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled translation with nonsensical meaning."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"Cabina\" instead of \"camarote\"."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Parenthetical meaning is garbled."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "\"Juró en\" reverses who was sworn in."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "\"Mariquitas\" (ladybugs) instead of mayflies."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "\"Barras laterales\" mistranslates sandbars."
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "Severe hallucination and repetitions."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "\"Mal tiempo\" and added \"pero\"."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Fused sentences and gender error."
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"to beat\"."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates \"falling asleep a short time later\"."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Awkward phrasing and gender error \"la fin\"."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward query rendering."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslates Springboks as \"caja de primavera\"."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Period mid-sentence; \"niños\" instead of \"hijos\"."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Inconsistent register and mistranslated clause."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward syntax with \"quiere basándose\"."
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "\"Cabaña\" (cottage) mistranslates ship cabin."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward literal translation in parentheses."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslates transitive \"swore in\"."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Literal calques for dragonflies and mayflies."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "\"Cuencos de arena\" mistranslates sandbars."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "\"Clima severo\" is an English calque."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "\"Niños\" instead of \"hijos\" for offspring."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"Cabina\" instead of \"camarote\"."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "\"No lo hace bien\" is awkward."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "\"Juró en\" reverses who was sworn in."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "\"Luciérnagas\" (fireflies) mistranslates mayflies."
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "\"Dunas de arena\" inexact for sandbars."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "\"Mal tiempo\" does not capture severe weather."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Gender agreement error \"una total aislamiento\"."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "Unnatural calque \"Con dos años del fin\"."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "\"Niños\" instead of \"hijos\" for offspring."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing with \"quiere basándose\"."
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted \"in birds\"."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "\"Permitiendo el acceso\" alters \"allowing to succeed\"."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "\"Barras laterales\" mistranslates sandbars."
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Punctuation change creates awkward syntax."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "\"Equipo a seguir\" mistranslates team to beat."
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3518,
+   "candidatesTokenCount": 2178,
+   "totalTokenCount": 11038,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3518
+    }
+   ],
+   "thoughtsTokenCount": 5342,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "mac-heard",
+   "B": "phone-text",
+   "C": "mac-text",
+   "D": "cloud-auto"
+  }
+ },
+ "phone:a:es-en": {
+  "grades": {
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "\"constant\" used instead of check/verify."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "\"Peshi\" instead of Martelly."
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated insect names."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Missing main verb; sentence fragment."
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward word order with \"risky\"."
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "Second sentence cut off due to alignment."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Time phrase omitted and shifted to previous sentence."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Subject \"the scenes\" omitted."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing at beginning."
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "Garbled grammar in first clause."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Garbled clause syntax around leak."
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Missing conjunction \"whether\" makes clause ungrammatical."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Diptera and Coleoptera are completely wrong orders."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "\"Martegi\" instead of Martelly."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "\"their position\" changes who defends whose stance."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Passive \"was sworn in\" alters who-did-what."
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "\"bend their wings\" instead of fold."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "\"severe climate\" used instead of severe weather."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "\"missed matches\" mistranslates lost matches."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3385,
+   "candidatesTokenCount": 1841,
+   "totalTokenCount": 9230,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3385
+    }
+   ],
+   "thoughtsTokenCount": 4004,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "mac-heard",
+   "B": "mac-text",
+   "C": "cloud-auto",
+   "D": "phone-text"
+  }
+ },
+ "phone:a:en-fr": {
+  "grades": {
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "omitted 'in birds'"
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "garbled nonsense translation"
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "'Northern Baltic' mistranslated as 'Bélarus du nord'"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "garbled meaning and overly literal phrasing"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "inverted who took the oath"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "hallucinated insect name for mayflies"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "'sandbars' mistranslated as 'barres latérales'"
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "severely garbled and truncated text"
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "added contradictory 'mais'"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "garbled phrasing and 'isolation' instead of 'isolement'"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "omitted 'to beat'"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "awkward restrictive phrasing with 'ne... que'"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "'Springboks' mistranslated as 'boîte de printemps'"
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "awkward punctuation split mid-sentence"
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "'obey' mistranslated as 'consultez'"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic 'différend de frontières'"
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "slightly awkward phrasing in parentheses"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "mistranslated 'swore in'"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "untranslated 'mouches may'"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "'sandbars' mistranslated as 'bacs de sable'"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic 'pour laisser les gens regarder'"
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "ungrammatical parallel construction"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "wrong time: means 2 years before end"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic phrasing and awkward repetitions"
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "'Northern Baltic' mistranslated as 'Bélarus du Nord'"
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "'stand your ground' mistranslated literally"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "mistranslated 'swore in'"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "hallucinated translations of insect names"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "'barrières de sable' and grammatical hiatus"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "slightly unidiomatic phrasing"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "'isolation' used instead of 'isolement'"
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic 'différend de frontières'"
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "omitted 'in birds'"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "incomplete sentence and mistranslated words"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "contains hesitation marker 'euh'"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "'l'équipe à suivre' alters 'team to beat'"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "wrong time: means 2 years before end"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3761,
+   "candidatesTokenCount": 2102,
+   "totalTokenCount": 10744,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3761
+    }
+   ],
+   "thoughtsTokenCount": 4881,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "mac-heard",
+   "B": "phone-text",
+   "C": "mac-text",
+   "D": "cloud-auto"
+  }
+ },
+ "phone:a:fr-en": {
+  "grades": {
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Unidiomatic phrasing for 'tenir bon'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "'Ephemerals' used instead of mayflies."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "'Violent weather' is unidiomatic for severe weather."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled word 'drownss' alters meaning."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted initial clause about the Revolution."
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled syntax distorts meaning of clause."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": false,
+     "note": "Completely mistranslated subject and insects."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated sediment as 'bleeding'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Fragmented and mistranslated society as 'company'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled subject phrase."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward tense shift and run-on structure."
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "'Best team' alters 'team to beat'."
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled words 'somm' and mistranslated sleep."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Subject 'Springboks' is omitted."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Grammatical error 'following' instead of imperative."
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Incorrect year '1960' and mistranslated 'fuite'."
+    }
+   ],
+   "phone-heard": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted initial clause about the Revolution."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Broken syntax and awkward lexical choices."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled nonsense word 'enences'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'insectes' as 'ancestors' and 'éphémères'."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated sediment as 'bleeding' and 'inhabitable'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "Missing words and mistranslated society as 'company'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled opening clause."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward run-on sentence structure."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslated 'assoupissement' as 'relaxation'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted time frame 'Two years after'."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Subject 'Springboks' is omitted."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Incorrect year '1960' and mistranslated 'fuite'."
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "'Shifting ice' inaccurate for traversing ice."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Erroneously split dragonflies into flies and dragonflies."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated sediment as 'drainage'."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Quantifiers swapped: everyone vs almost everyone."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Wrong year '1900' instead of 1967."
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3867,
+   "candidatesTokenCount": 2485,
+   "totalTokenCount": 9802,
+   "cachedContentTokenCount": 1863,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3867
+    }
+   ],
+   "cacheTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 1863
+    }
+   ],
+   "thoughtsTokenCount": 3450,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "phone-text",
+   "B": "mac-heard",
+   "C": "phone-heard",
+   "D": "cloud-auto",
+   "E": "mac-text"
+  }
+ },
+ "phone:a:en-zh": {
+  "grades": {
+   "phone-heard": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "omits birds"
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "completely garbled translation"
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "机舱 is inaccurate for cabin"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "broken sentences and bad phrasing"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "swore in council mistranslated as took oath"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "mayflies translated as 可能"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "sandbars translated as 边栏"
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "cut off and garbled"
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 0,
+     "critical": false,
+     "note": "cave mistranslated as 案件 and garbled"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "missed team to beat and awkward syntax"
+    },
+    {
+     "i": 12,
+     "score": 0,
+     "critical": false,
+     "note": "garbled with ellipses"
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "前盟军 is slightly inaccurate"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Springboks mistranslated as 春季拳击场"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "germ-line mistranslated as 生殖石灰"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "obey signs mistranslated as 保释标志"
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "confusing syntax and repetitive"
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "机舱 is unidiomatic for ship cabin"
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing in parentheses"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "swore in council mistranslated as took oath"
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "五月蝇 is a literal calque"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "值得击败 misinterprets team to beat"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "短时间内入睡 misinterprets falling asleep later"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "生殖系细胞 and 儿童 are slightly unidiomatic"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing at the end"
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "omits birds and awkward collocation"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "misinterprets swore in as took office"
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "misplaced cave into prior clause"
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "故意唤醒 is transitive and awkward here"
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "translated after as before and omitted clause"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "added 但 and slightly unnatural phrasing"
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "occupations mistranslated as 占领机会"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing in parentheses"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "swore in council mistranslated as took oath"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "mayflies mistranslated as 毛毛虫"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "sandbars omitted in second clause"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "awkward sentence structure"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing at the end"
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "awkward repetition of 的"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "短时间内 is slightly ambiguous"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "南非国脚 refers to soccer players"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "awkward repetitive phrasing"
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "omits birds"
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": true,
+     "note": "garbled translation and wrong time frame"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "broken sentences and missing context"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "swore in council mistranslated as took oath"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "mayflies mistranslated as 蚊子"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "sandbars mistranslated as 侧边栏"
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": true,
+     "note": "hallucinated repeated pronouns and trans mistranslated"
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "incomplete sentence structure"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "misplaced cave into prior clause"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "missed to beat and awkward syntax"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "falling asleep mistranslated as sleeping shortly"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Springboks mistranslated as 春季比赛"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "inaccurate rendering of take advice and obey"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "awkward repetitive phrasing"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3524,
+   "candidatesTokenCount": 2434,
+   "totalTokenCount": 11331,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3524
+    }
+   ],
+   "thoughtsTokenCount": 5373,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "phone-heard",
+   "B": "phone-text",
+   "C": "cloud-auto",
+   "D": "mac-text",
+   "E": "mac-heard"
+  }
+ },
+ "phone:a:zh-en": {
+  "grades": {
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "North Sea instead of Baltic Sea"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "antelope team literal for Springboks"
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "awkward word order"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "birds and feathers mistranslates bird feathers"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "North Sea instead of Baltic Sea"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "omits yesterday"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "plankton mistranslates mayflies"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Rome is omitted"
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing and run-on sentence"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "living together hallucinated instead of war ends"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Golden Spires mistranslates pyramids"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Jump Age mistranslates team name"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "pictures mistranslates mutations"
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "extraneous word Gold"
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "omits Palestine and hallucinates Israeli officials"
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "opportunity to soar is unidiomatic"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "slugs mistranslates mayflies"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "bad weather instead of severe weather"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "antelope jumping team mistranslates Springboks"
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "inherited to children is awkward"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "phone-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "birds and hair mistranslates bird feathers"
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "opportunity to fly is unidiomatic"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "omits yesterday"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "floats mistranslates mayflies"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "awkward syntax"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Rome is omitted"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "omits damage and destruction"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "it is completely isolated is ambiguous"
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "wrong pronoun Its and awkward phrasing"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "falling asleep for instead of after"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "living for two years garbles meaning"
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "jumping team mistranslates Springboks"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "pictures mistranslates mutations"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "Elstein corrupts Palestine"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3750,
+   "candidatesTokenCount": 2159,
+   "totalTokenCount": 12837,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3750
+    }
+   ],
+   "thoughtsTokenCount": 6928,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "cloud-auto",
+   "B": "mac-text",
+   "C": "mac-heard",
+   "D": "phone-text",
+   "E": "phone-heard"
+  }
+ },
+ "phone:a:en-de": {
+  "grades": {
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "omitted 'in birds'"
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "slightly unidiomatic phrasing"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "typo in 'Wahllat'"
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "mistranslated sandbars as 'Nebenarmen'"
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "'Verkehr' instead of transportation systems"
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "severely garbled cave clause"
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "slightly unidiomatic translation of 'team to beat'"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "meaning inverted ('vor') and clause omitted"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "unusual word 'fünfspielige'"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "accidental repetition 'erfolgreichsten'"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "'Seien Sie fest darin' is awkward"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "wrong meaning for 'swore in'"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "literal mistranslations of insect names"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "slightly awkward phrasing"
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "awkward sentence structure"
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing 'gab' instead of 'galt'"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "inverted meaning ('endete mit einer Niederlagenserie')"
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic preposition 'auf Kinder'"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "awkward calque 'aufgrund der Grenzen will'"
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "'Besetzungen' is wrong for occupations/jobs"
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "'Nordsee' instead of Baltic Sea ('Ostsee')"
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "wrong meaning for 'swore in'"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "completely wrong insect names"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "grammatical number agreement error"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "ungrammatical 'sich in die Höhle betritt'"
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "awkward calque 'machten sie hervorstechen'"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "awkward word choice 'sich erwecken'"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "garbled phrasing 'Mit zwei Jahren zum Ende'"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "'Verliererserie' is colloquial/awkward"
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "misspelled compound 'Keimliniezellen'"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "omitted 'in birds'"
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "hallucinated gibberish ('kleine Mahlzeiten')"
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "'Nordsee' instead of Baltic Sea ('Ostsee')"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "negation error ('Kulturelle Unterschiede sind es nicht')"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "wrong meaning for 'swore in'"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "translated mayflies as 'Schmetterlinge'"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "mistranslated sandbars as 'Seitenleisten'"
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "garbled speech recognition repetition"
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "grammatical number agreement error"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "garbled cave clause"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "omitted 'to beat'"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "unnecessary addition 'erst'"
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing 'Mit zwei Jahren nach'"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "literally translated Springboks and hallucinated 'Niederlagenstrilogie'"
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "incomplete sentence fragment"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "mistranslated 'obey all signs' as 'verfügbare Schilder'"
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3666,
+   "candidatesTokenCount": 2237,
+   "totalTokenCount": 10689,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3666
+    }
+   ],
+   "thoughtsTokenCount": 4786,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "cloud-auto",
+   "B": "phone-text",
+   "C": "mac-text",
+   "D": "mac-heard"
+  }
+ },
+ "phone:a:de-en": {
+  "grades": {
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": false,
+     "note": "heavily garbled and wrong meaning"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": true,
+     "note": "translated imperative as 'they'"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "CEP misrecognized as Cip"
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "'leak' mistranscribed as 'Lieb'"
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "slightly unidiomatic phrasing"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "'dayflies' instead of mayflies"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "feathers mistranslated as fields"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "'reüssieren' mistranslated as realize"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "idioms mistranslated literally"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "'nine' mistranslated as 'new'"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "'one-day flyers' instead of mayflies"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "trailing words from next sentence"
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": false,
+     "note": "garbled start due to boundary error"
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "garbled syntax"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "'their' mistranslated as 'her'"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "garbled syntax and missing terms"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "omitted 'for', altering grammar"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": false,
+     "note": "garbled grammar and repeated verbs"
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "omitted 'Dennoch'"
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "'leak' mistranslated as 'love'"
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "'Stay consistent' is somewhat awkward"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "'dayflies' instead of mayflies"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "'Sleep break' is unidiomatic"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "'loss streak' is unidiomatic"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3333,
+   "candidatesTokenCount": 1885,
+   "totalTokenCount": 8622,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3333
+    }
+   ],
+   "thoughtsTokenCount": 3404,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "cloud-auto",
+   "B": "mac-text",
+   "C": "mac-heard",
+   "D": "phone-text"
+  }
+ },
+ "phone:a:en-pt": {
+  "grades": {
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "awkward literal translation at the end"
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": true,
+     "note": "calque: swore in translated as jurou em"
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "libélula-de-água is damselfly, not mayfly"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "isolação used instead of isolamento"
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "tome conselhos is unidiomatic"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "gender agreement error: a vazamento"
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing: não torna tudo bem"
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": true,
+     "note": "calque: swore in translated as jurou"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": false,
+     "note": "hallucinated insect names"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "deixar as pessoas assistirem is awkward"
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "grammatical error: um pouco tempo depois"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "crianças instead of filhos or descendentes"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "omitted in birds"
+    },
+    {
+     "i": 1,
+     "score": 0,
+     "critical": false,
+     "note": "garbled live recognition error"
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "omitted Northern"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "garbled phrasing: Diferenças culturais não são"
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": true,
+     "note": "calque: swore in translated as jurou em"
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "libélula-de-água is damselfly, not mayfly"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "barras laterais mistranslates sandbars"
+    },
+    {
+     "i": 7,
+     "score": 0,
+     "critical": false,
+     "note": "garbled speech recognition repetition"
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "awkward insertion of conjunction mas"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "punctuation error distorts sentence structure"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "omitted to beat"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "clunky syntax and unnecessary apenas"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Springboks mistranslated as caixa de primavera"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "tome conselhos is unidiomatic; added disponíveis"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "gender agreement error: a vazamento"
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "cut off at end, missing birds"
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "permitindo a entrada slightly shifts meaning"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "untranslated The Cave and garbled meaning"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "para se observar mistranslates to beat"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 0,
+     "critical": true,
+     "note": "reversed timeframe and omitted final clause"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "unnatural passive construction terminou-se"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "altered connective structure with Continue... mas"
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3571,
+   "candidatesTokenCount": 2032,
+   "totalTokenCount": 11063,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3571
+    }
+   ],
+   "thoughtsTokenCount": 5460,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "mac-text",
+   "B": "phone-text",
+   "C": "mac-heard",
+   "D": "cloud-auto"
+  }
+ },
+ "phone:a:pt-en": {
+  "grades": {
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "'Bico' instead of Baltic."
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'be firm in turning down men'."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'only' and translated mayflies as butterflies."
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "Subject 'this sediment' omitted."
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted 'everyone participates in society'."
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted main clause subject 'severe weather'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": false,
+     "note": "Omitted 'defense' and garbled phrasing."
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": true,
+     "note": "Range 10-60 translated as '10 or 60'."
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "Translated former allies as 'the exes'."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled syntax with 'of different pyramids'."
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled phrasing missing 'search'."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted subject 'Springboks'."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Translated neuter object as 'him'/'he'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": true,
+     "note": "Range 10-60 translated as '10 or 60'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "Unidiomatic 'ephemerals' instead of mayflies."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Unidiomatic 'a total isolation'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "'In the pyramids' instead of 'on'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated mayflies as butterflies."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3272,
+   "candidatesTokenCount": 1861,
+   "totalTokenCount": 10375,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3272
+    }
+   ],
+   "thoughtsTokenCount": 5242,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "mac-heard",
+   "B": "cloud-auto",
+   "C": "phone-text",
+   "D": "mac-text"
+  }
+ },
+ "phone:b:en-es": {
+  "grades": {
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled start and wrong agent/meaning."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'book'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "Incomplete sentence; omitted police officers."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "Slight change in syntactic relationships."
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted magnetic reversals and mistranslated Rossby."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated lunar maria as terrestrial sea."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'on their tour'."
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted second clause about Latin."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'make' as 'reciben'."
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "Gender agreement error 'todo la materia'."
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'book'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward syntax with 'aunque'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Incomplete and garbled fragment."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted magnetic reversals."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled ASR mistranslations (Marriott, etc.)."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Mistranslated 'Thus' as 'Ese'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing 'lo griego'."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled ending."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled sentence fragment."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'maria' as 'Mario'."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Incomplete and garbled translation."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated sentence start."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward repetition of exhalan."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward conditional tense 'esparcirían'."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated maria as proper name 'la María'."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward phrasing for wilderness."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Left 'maria' unadapted/singular."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "Left 'maria' singular/untranslated."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Left 'maria' singular/untranslated."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "phone-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Mistranslated 'make' as 'encuentran'."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted 'book'."
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward syntax with 'sin embargo'."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Incomplete sentence fragment."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Omitted magnetic reversals."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled ASR mistranslations (Marriott, etc.)."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "Awkward translation of 'Thus'."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "Garbled first clause changes meaning."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Garbled ending."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled sentence fragment."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "Mistranslated 'maria' as 'Mario'."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Incomplete and garbled fragment."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated sentence start."
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3662,
+   "candidatesTokenCount": 2517,
+   "totalTokenCount": 8225,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3662
+    }
+   ],
+   "thoughtsTokenCount": 2046,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "cloud-auto",
+   "B": "mac-heard",
+   "C": "phone-text",
+   "D": "mac-text",
+   "E": "phone-heard"
+  }
+ },
+ "phone:b:es-en": {
+  "grades": {
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"history\" used instead of \"story\""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "\"pending concerts\" is unidiomatic"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "\"qualified\" is a false friend for \"calificó\""
+    }
+   ],
+   "phone-heard": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "missing punctuation creates run-on clause"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "garbled text: \"uni That\""
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "comma splice and awkward phrasing"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": false,
+     "note": "\"make it their own\" mistranslates \"hacer lo propio\""
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "speech recognition glitch: \"infor That\""
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": true,
+     "note": "\"nearby lake\" mistranslates \"lado cercano\""
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "omitted \"He added\""
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "severely garbled opening clause"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "\"rural seas\" mistranslates \"mares lunares\""
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "pencil referred to as \"he\""
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"three states\" instead of thirteen"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "garbled start: \"No men Not\""
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "\"his tour\" and \"pending concerts\" awkward"
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": false,
+     "note": "\"almost disabled\" mistranslates \"casi inhabitadas\""
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "\"bark\" mistranslates crust; missing predicate"
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "awkward word order"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "sentence fragment missing subject and verb"
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "missing punctuation creates run-on clause"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": false,
+     "note": "garbled \"uni That\" and \"material\" for matter"
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "comma splice and \"history\" instead of story"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "garbled \"inform That\""
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "garbled subject \"Tsa\" instead of crust"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "\"investments\" mistranslates magnetic reversals"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "omitted subject/verb and mistranslated \"coastal seas\""
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"three states\" instead of thirteen"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "distorted meaning about what was declining"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "\"Aerosmith He\" and \"pending concerts\""
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "\"uninhabitable\" mistranslates uninhabited"
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "awkward word order"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 0,
+     "critical": false,
+     "note": "garbled fragment: \"Political Lauría\""
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "\"three states\" instead of thirteen"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "\"uninhabitable\" mistranslates uninhabited"
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "\"flim\" typo for flimsy"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "\"pending concerts of his tour\" is awkward"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3503,
+   "candidatesTokenCount": 2497,
+   "totalTokenCount": 8912,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3503
+    }
+   ],
+   "thoughtsTokenCount": 2912,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "mac-text",
+   "B": "phone-heard",
+   "C": "mac-heard",
+   "D": "cloud-auto",
+   "E": "phone-text"
+  }
+ },
+ "phone:b:en-fr": {
+  "grades": {
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "tautological repetition at the end"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"son des touristes\" is unnatural"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "\"répandraient\" conditional instead of past"
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic lunar terminology"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "\"la maria\" treated as singular feminine"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "ungrammatical ending"
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic lunar terminology"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "wrong meaning: plants breathe oxygen"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"story book\" translated as just \"histoire\""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "\"saison des inondations s'est arrêtée\" is awkward"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "incomplete and garbled"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing and lunar terms"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "omitted \"with respect to magnetic reversals\""
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "hallucinated translation (\"Marriott\")"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "\"Thus\" mistranslated"
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "\"guerre de Révolte\" is incorrect"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "mistranslated \"Greek\" as Greece"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "truncated sentence"
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "fragmented and garbled"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "\"maria\" mistranslated as \"Mario\""
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "fragmented and garbled"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "subject omitted, truncated"
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "phone-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "\"rencontrent\" wrong meaning for \"make\""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"story book\" translated as just \"histoire\""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": false,
+     "note": "awkward structure and incorrect conditional"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "incomplete and garbled fragment"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic lunar terms"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "omitted \"with respect to magnetic reversals\""
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "hallucinated translation (\"Marriott\")"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "\"Thus\" mistranslated"
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": false,
+     "note": "garbled introductory clause"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "truncated sentence"
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "fragmented and garbled"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "\"maria\" mistranslated as \"Mario\""
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": false,
+     "note": "fragmented and garbled"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "subject omitted, truncated"
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": true,
+     "note": "garbled translation of first clause"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "missed \"book\" in story book"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "omitted that injured were police officers"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "garbled term and omitted magnetic reversals"
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "omitted \"on their tour\""
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "incomplete fragment, second half missing"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "literal calque \"respirent hors\""
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "\"Toutes les matières sont composées\" slightly awkward"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic lunar terms"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "\"la Maria\" treated as singular"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "\"guerre de Révolte\" is incorrect"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic lunar terms"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "\"bravade\" mistranslates \"chatter\""
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3996,
+   "candidatesTokenCount": 2572,
+   "totalTokenCount": 9373,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3996
+    }
+   ],
+   "thoughtsTokenCount": 2805,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "phone-text",
+   "B": "mac-heard",
+   "C": "phone-heard",
+   "D": "cloud-auto",
+   "E": "mac-text"
+  }
+ },
+ "phone:b:fr-en": {
+  "grades": {
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "literal translation of lunar maria and highlands"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "\"price\" is unidiomatic for quantify"
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "\"The Aerosmith band\" is unidiomatic"
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "\"in the wild\" is awkward for wilderness"
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "\"nearby side\" instead of near side"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "\"expire\" is unidiomatic for breathe out"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "literal translation of lunar geological terms"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "\"in a wild state\" is awkward"
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "missing initial \"usually\""
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "mistranslated visible side as melting face"
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing around development of responsibility"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "\"less tactile\" and misspelled Rossby"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "garbled syntax and wrong meaning"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "omitted \"During the Revolutionary War\""
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing due to missing lead words"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": true,
+     "note": "wrong pronoun \"it\" and \"its\""
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "garbled entity name \"Many by Aosmith\""
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "initial subject truncated"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "mistranslated maria as water"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "missing subject and main verb"
+    }
+   ],
+   "phone-heard": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "redundant tautology \"exhale, that is, exhale\""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "missing initial \"usually\""
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "unnatural definite article \"the cannabis joints\""
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "\"when\" instead of \"after\""
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": true,
+     "note": "inverted who was injured"
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "mistranslated visible side as fuse face"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": false,
+     "note": "completely garbled"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "garbled syntax and meaning"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "omitted \"During the Revolutionary War\""
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "sentence fragment"
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "\"count his reductions\" is unidiomatic"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "garbled entity name \"A lot by Aosmith\""
+    },
+    {
+     "i": 15,
+     "score": 1,
+     "critical": true,
+     "note": "\"quite populated\" reverses sparsely populated"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "mistranslated maria as husbands"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "missing subject and main verb"
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "redundant explanation \"i.e. exhale\""
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "\"at sea level\" distorts meaning"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "\"number\" is unidiomatic for quantify"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "\"in the wild\" is awkward for wilderness"
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "\"nearby side\" instead of near side"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3519,
+   "candidatesTokenCount": 2483,
+   "totalTokenCount": 10576,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3519
+    }
+   ],
+   "thoughtsTokenCount": 4574,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "mac-text",
+   "B": "cloud-auto",
+   "C": "mac-heard",
+   "D": "phone-heard",
+   "E": "phone-text"
+  }
+ },
+ "phone:b:en-zh": {
+  "grades": {
+   "phone-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "mistranslated make oxygen as encounter"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "omitted book"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "distorted causal logic of flood halt"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "police officers omitted, sentence incomplete"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "omitted magnetic reversals"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "severe hallucination of terms"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "mistranslated knowledge of Greek"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "omitted on their tour"
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "severely garbled and incomplete"
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "mistranslated maria as Mario"
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "cut off, Latin clause missing"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "missing Casablanca"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing"
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "mistranslated make as absorb"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "omitted book"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "awkward grammar and logic"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "police officers omitted, sentence incomplete"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "omitted magnetic reversals"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": true,
+     "note": "severe hallucination of terms"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "imprecise terminology"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "wrong meaning of knowledge of Greek"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "distorted by neighboring words"
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": true,
+     "note": "severely garbled and incomplete"
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "mistranslated maria as Mario"
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "cut off, Latin clause missing"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": true,
+     "note": "missing Casablanca"
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "maria transliterated as person name"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "omitted wilderness"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "maria transliterated as person name"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing"
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "imprecise phrasing of casualty count"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "repetitive word choice"
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "maria transliterated as person name"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "imprecise terminology"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "mistranslated knowledge of Greek"
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "mistranslated cuts as layoffs"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "maria transliterated as person name"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 0,
+     "critical": true,
+     "note": "hallucinated plasma oxygen"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "mistranslated vendors"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "inverted meaning of flood halting"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "meta-commentary and missing meaning"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "omitted magnetic reversals"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "untranslated terms"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "imprecise terminology"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "omitted on their tour"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "incomplete fragment, main clauses missing"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "unwarranted addition and omitted silliness"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3246,
+   "candidatesTokenCount": 2480,
+   "totalTokenCount": 10918,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3246
+    }
+   ],
+   "thoughtsTokenCount": 5192,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "phone-heard",
+   "B": "mac-heard",
+   "C": "phone-text",
+   "D": "mac-text",
+   "E": "cloud-auto"
+  }
+ },
+ "phone:b:zh-en": {
+  "grades": {
+   "phone-heard": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "absorbed should be inhaled"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "universe mistranslated as rain"
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "omitted sound and light"
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "garbled mistranslation of cannabis and theatre"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "dam mistranslated as target"
+    },
+    {
+     "i": 5,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing due to boundary split"
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": true,
+     "note": "completely mistranslated"
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "missing he added attribution"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Rossby number mistranslated as multiplier"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "omitted dark side and highlands"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "mistranslated pencil's debut as question"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "thirteen states mistranslated as three"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "awkward sentence structure"
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "fragmented sentence structure"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "band name mistranslated"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "lava and surface mistranslated"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Italian omitted and replaced with Latin"
+    },
+    {
+     "i": 18,
+     "score": 2,
+     "critical": false,
+     "note": "Casablanca transliterated poorly"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "chatter mistranslated as fragmentation"
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Rossby number mistranslated"
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "reversed relationship between Congress and government"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "literal translation of band name Aerosmith"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "chatter mistranslated as fragmentation"
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "produce oxygen mistranslated as absorb oxygen"
+    },
+    {
+     "i": 1,
+     "score": 1,
+     "critical": true,
+     "note": "universe mistranslated as rain"
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 0,
+     "critical": true,
+     "note": "completely garbled"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "dam mistranslated as shooting range"
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 0,
+     "critical": true,
+     "note": "completely garbled"
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "hallucinated words at start"
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": true,
+     "note": "Rossby number mistranslated and negation inverted"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": true,
+     "note": "inverted thickness of highlands and lowlands"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "pencil's debut mistranslated as pencil questions"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "thirteen states mistranslated as three"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "wrong band name"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "garbled translation of lava and surface"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "Italian corrupted and omitted"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "Air Smith instead of Aerosmith"
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "Guangmao untranslated pinyin"
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "inner/outer side instead of near/far side"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "band name mistranslated as Flying Dutchman"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3382,
+   "candidatesTokenCount": 2451,
+   "totalTokenCount": 9106,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3382
+    }
+   ],
+   "thoughtsTokenCount": 3273,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "phone-heard",
+   "B": "phone-text",
+   "C": "mac-heard",
+   "D": "cloud-auto",
+   "E": "mac-text"
+  }
+ },
+ "phone:b:en-de": {
+  "grades": {
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": false,
+     "note": "garbled beginning; plants omitted"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 1,
+     "critical": false,
+     "note": "vendors translated as Erfindern"
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "tense shifted to past in first clause"
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "meaning distorted regarding floods and sediments"
+    },
+    {
+     "i": 5,
+     "score": 1,
+     "critical": false,
+     "note": "sentence cut off; police officers omitted"
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "magnetic reversals omitted"
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "maria and highlands mistranslated as Merrier/Highland"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "untranslated title and awkward clause placement"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "on their tour omitted"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "incomplete fragment; Italian and Latin omitted"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "silliness mistranslated into hallucinated clause"
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing for sound and light show"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "slightly awkward relative clause tense"
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "literal terminology and typo Ferneite"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "maria mistreated as singular; unidiomatic highlands translation"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Revolutionary War mistranslated as Civil War"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing for knowledge of Greek"
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "accidental double verb werden werden"
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "grammatical agreement error in politischem/politisches Gerede"
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "plants absorb oxygen instead of produce it"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "book omitted from story book"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing Saison der Überschwemmungen"
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "garbled fragment; police officers omitted"
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "literal terminology and typo Ferneite"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "spelling error and magnetic reversals omitted"
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "completely garbled hallucination"
+    },
+    {
+     "i": 10,
+     "score": 1,
+     "critical": false,
+     "note": "ungrammatical sentence start"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "Revolutionary War mistranslated as Civil War"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "gross mistranslation of knowledge of Greek"
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "clumsy repetition of festgelegt"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "cut off mid-sentence with speech overlap"
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "garbled fragment"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "maria mistranslated as Mario"
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "garbled incomplete fragment; key terms omitted"
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Casablanca omitted; fragment"
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "grammatical inflection error in feminine/neuter noun"
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Märchenbuch means fairy tale book"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "awkward choice of modal verbreiten sollten"
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 1,
+     "critical": false,
+     "note": "auf der Nähe is incorrect and ungrammatical"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "Rossby-Nummer used instead of Rossby-Zahl"
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "maria treated as feminine singular"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "awkward compound Griechischwissen"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "auf der Nähe is ungrammatical"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3358,
+   "candidatesTokenCount": 2128,
+   "totalTokenCount": 9515,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3358
+    }
+   ],
+   "thoughtsTokenCount": 4029,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "cloud-auto",
+   "B": "mac-text",
+   "C": "mac-heard",
+   "D": "phone-text"
+  }
+ },
+ "phone:b:de-en": {
+  "grades": {
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "mistranslated 'smoke' as 'need'"
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "slight phrasing change for the relative clause"
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "'Raspberry' instead of 'Rossby'"
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "statement translated as a question"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "statement turned into question with wrong subject"
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "'fairy tale' instead of 'storybook'"
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "'encouraged' rather than 'asked'"
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "omitted 'magnetic' before 'field reversals'"
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "used German singular 'Mare' instead of 'maria'"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "mistranslated Articles of Confederation as 'the Constitution'"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "capitalized 'Maria' instead of 'maria'"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "'listen to' and 'fairy tale' unidiomatic"
+    },
+    {
+     "i": 3,
+     "score": 1,
+     "critical": true,
+     "note": "mistranslated 'smoke' as 'need'"
+    },
+    {
+     "i": 4,
+     "score": 0,
+     "critical": true,
+     "note": "completely garbled meaning"
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "subject 'crust' replaced with pronoun 'it'"
+    },
+    {
+     "i": 7,
+     "score": 2,
+     "critical": false,
+     "note": "garbled phrase start 'he In addition'"
+    },
+    {
+     "i": 8,
+     "score": 0,
+     "critical": false,
+     "note": "garbled repetitive nonsense"
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "used German singular 'Mare' instead of 'maria'"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "'Evolutionary struggles' and 'Constitution' mistranslated"
+    },
+    {
+     "i": 12,
+     "score": 1,
+     "critical": true,
+     "note": "'the West' mistranslated as 'the best'"
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "singular 'cut' and 'it'"
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "'Ero Smith' instead of 'Aerosmith'"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 0,
+     "critical": true,
+     "note": "severe mistranslations: 'NA side', 'body', 'But'"
+    },
+    {
+     "i": 17,
+     "score": 1,
+     "critical": true,
+     "note": "'Latein' mistranslated as 'files'"
+    },
+    {
+     "i": 18,
+     "score": 0,
+     "critical": true,
+     "note": "garbled: 'ca' and 'unassailable'"
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": true,
+     "note": "wrong subject 'You' instead of 'He'"
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "grammatically garbled: 'inhale humans'"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 2,
+     "critical": false,
+     "note": "'distant side' is unidiomatic for lunar far side"
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 2,
+     "critical": false,
+     "note": "'polarities' does not convey polarity reversals"
+    },
+    {
+     "i": 9,
+     "score": 2,
+     "critical": false,
+     "note": "singular 'mare' instead of plural 'maria'"
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "overly literal renderings of historical terms"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 2,
+     "critical": false,
+     "note": "tense error: 'were made' instead of 'would be'"
+    },
+    {
+     "i": 14,
+     "score": 2,
+     "critical": false,
+     "note": "'outstanding' is awkward/ambiguous for remaining"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "'close side' and capitalized 'Maria'"
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "misspelling 'sillyness'"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3071,
+   "candidatesTokenCount": 2104,
+   "totalTokenCount": 8473,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3071
+    }
+   ],
+   "thoughtsTokenCount": 3298,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "cloud-auto",
+   "B": "mac-text",
+   "C": "mac-heard",
+   "D": "phone-text"
+  }
+ },
+ "phone:b:en-pt": {
+  "grades": {
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "\"cachos de maconha\" is a mistranslation of joints."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Gender error in \"toda a rio\"."
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "\"maria\" mistranslated as female name; gender mismatch."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "False friend \"figura\" and gender error \"cortes\"."
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "\"selva\" is inaccurate for wilderness."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Untranslated lunar geological term \"maria\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Grammar and gender errors in \"referiu as rumores\"."
+    }
+   ],
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "Redundant repetition: \"exalam (ou seja, exalam)\"."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted \"joints\"."
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "\"maria\" mistranslated; gender agreement error."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "\"cortado de\" is slightly unidiomatic."
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "\"selvagens quase desabitadas\" is awkward."
+    },
+    {
+     "i": 16,
+     "score": 2,
+     "critical": false,
+     "note": "Untranslated lunar term \"maria\"."
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "Hallucinated \"Oxigênio plasmático\"; omitted \"Plants make\"."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "\"inventores\" mistranslates vendors."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "Incorrect past tense \"fumaram\"."
+    },
+    {
+     "i": 4,
+     "score": 1,
+     "critical": true,
+     "note": "Meaning heavily distorted; added \"no entanto\"."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Incomplete and garbled."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Truncated sentence ending."
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "Hallucinated terms \"Merrier\" and \"Highland\"."
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Sentence truncated; major elements omitted."
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 1,
+     "critical": false,
+     "note": "Distorted meaning with \"instigando-os\"."
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 1,
+     "critical": true,
+     "note": "\"encontram\" (find) mistranslates make."
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "Omitted \"book\" from \"story book\"."
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "\"cachos de maconha\" mistranslates joints."
+    },
+    {
+     "i": 4,
+     "score": 2,
+     "critical": false,
+     "note": "Gender error and awkward concessive clause."
+    },
+    {
+     "i": 5,
+     "score": 0,
+     "critical": true,
+     "note": "Incomplete and garbled fragment."
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 1,
+     "critical": false,
+     "note": "Missing \"with respect to magnetic reversals\"."
+    },
+    {
+     "i": 9,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled translation (\"jantar sob o Marriott\")."
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "\"Esse lápis\" mistranslates \"Thus, the pencil\"."
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 1,
+     "critical": false,
+     "note": "False friend \"figura\" and gender error."
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": false,
+     "note": "Incomplete sentence blending into neighbour words."
+    },
+    {
+     "i": 15,
+     "score": 0,
+     "critical": false,
+     "note": "Garbled fragment."
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "\"maria\" mistranslated as \"Mario\"."
+    },
+    {
+     "i": 17,
+     "score": 0,
+     "critical": true,
+     "note": "Garbled and truncated fragment."
+    },
+    {
+     "i": 18,
+     "score": 1,
+     "critical": false,
+     "note": "Incomplete sentence missing subject."
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "Grammatical and gender errors in \"referiu as rumores\"."
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 3210,
+   "candidatesTokenCount": 2124,
+   "totalTokenCount": 10166,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 3210
+    }
+   ],
+   "thoughtsTokenCount": 4832,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "mac-text",
+   "B": "phone-text",
+   "C": "cloud-auto",
+   "D": "mac-heard"
+  }
+ },
+ "phone:b:pt-en": {
+  "grades": {
+   "phone-text": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "repetitive phrasing"
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic phrasing for a pencil"
+    },
+    {
+     "i": 11,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic term Confederation Articles"
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "areas described as sparse instead of populated"
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "grammatical error with most those"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "politics does not fully capture politicagem"
+    }
+   ],
+   "mac-heard": [
+    {
+     "i": 0,
+     "score": 2,
+     "critical": false,
+     "note": "distorts parenthetical definition"
+    },
+    {
+     "i": 1,
+     "score": 2,
+     "critical": false,
+     "note": "awkward syntax with redundant pronoun"
+    },
+    {
+     "i": 2,
+     "score": 2,
+     "critical": false,
+     "note": "omits normally and contains sentence fragment"
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "mistranslates joints as marijuana-based products"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 1,
+     "critical": true,
+     "note": "omits main clause and speaker attribution"
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 1,
+     "critical": false,
+     "note": "mistranslates layer as camel"
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "awkward word choice launched for pencil"
+    },
+    {
+     "i": 11,
+     "score": 1,
+     "critical": true,
+     "note": "wrong number three instead of thirteen"
+    },
+    {
+     "i": 12,
+     "score": 2,
+     "critical": false,
+     "note": "mistranslates knowledge as recognition"
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing uninhabited nature"
+    },
+    {
+     "i": 16,
+     "score": 1,
+     "critical": false,
+     "note": "garbled text But Maria"
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "mistranslates the state as plural states"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "cloud-auto": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 1,
+     "critical": true,
+     "note": "wrong subject Aaron Smith instead of Aerosmith"
+    },
+    {
+     "i": 15,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 2,
+     "critical": false,
+     "note": "mistranslates state as plural states"
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 3,
+     "critical": false
+    }
+   ],
+   "mac-text": [
+    {
+     "i": 0,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 1,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 2,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 3,
+     "score": 2,
+     "critical": false,
+     "note": "mistranslates joints as marijuana-based products"
+    },
+    {
+     "i": 4,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 5,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 6,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 7,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 8,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 9,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 10,
+     "score": 2,
+     "critical": false,
+     "note": "awkward word choice launched for pencil"
+    },
+    {
+     "i": 11,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 12,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 13,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 14,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 15,
+     "score": 2,
+     "critical": false,
+     "note": "awkward phrasing uninhabited nature"
+    },
+    {
+     "i": 16,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 17,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 18,
+     "score": 3,
+     "critical": false
+    },
+    {
+     "i": 19,
+     "score": 2,
+     "critical": false,
+     "note": "unidiomatic use of politicizing as noun"
+    }
+   ]
+  },
+  "usage": {
+   "promptTokenCount": 2995,
+   "candidatesTokenCount": 1885,
+   "totalTokenCount": 8989,
+   "promptTokensDetails": [
+    {
+     "modality": "TEXT",
+     "tokenCount": 2995
+    }
+   ],
+   "thoughtsTokenCount": 4109,
+   "serviceTier": "standard"
+  },
+  "labels": {
+   "A": "phone-text",
+   "B": "mac-heard",
+   "C": "cloud-auto",
+   "D": "mac-text"
+  }
+ }
+}
