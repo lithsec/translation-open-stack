@@ -1,0 +1,326 @@
+{
+ "quality": {
+  "en-km:ref:sol": {
+   "q": 96.5,
+   "r1": 94.4,
+   "r2": 98.6,
+   "critical_per_round": 0.0,
+   "n": 24
+  },
+  "en-km:ref:flash": {
+   "q": 100.0,
+   "r1": 100.0,
+   "r2": 100.0,
+   "critical_per_round": 0.0,
+   "n": 24
+  },
+  "en-km:ref:gemma": {
+   "q": 91.7,
+   "r1": 93.1,
+   "r2": 90.3,
+   "critical_per_round": 0.0,
+   "n": 24
+  },
+  "en-km:ref:azure": {
+   "q": 64.6,
+   "r1": 63.9,
+   "r2": 65.3,
+   "critical_per_round": 3.5,
+   "n": 24
+  },
+  "km-en:azure:sol": {
+   "q": 69.4,
+   "r1": 68.1,
+   "r2": 70.8,
+   "critical_per_round": 2.0,
+   "n": 24
+  },
+  "km-en:azure:flash": {
+   "q": 73.6,
+   "r1": 73.6,
+   "r2": 73.6,
+   "critical_per_round": 2.0,
+   "n": 24
+  },
+  "km-en:azure:gemma": {
+   "q": 43.1,
+   "r1": 41.7,
+   "r2": 44.4,
+   "critical_per_round": 6.5,
+   "n": 24
+  },
+  "km-en:azure:azure": {
+   "q": 29.2,
+   "r1": 27.8,
+   "r2": 30.6,
+   "critical_per_round": 6.0,
+   "n": 24
+  },
+  "km-en:ref:sol": {
+   "q": 94.4,
+   "r1": 95.8,
+   "r2": 93.1,
+   "critical_per_round": 0.0,
+   "n": 24
+  },
+  "km-en:ref:flash": {
+   "q": 96.5,
+   "r1": 97.2,
+   "r2": 95.8,
+   "critical_per_round": 0.0,
+   "n": 24
+  },
+  "km-en:ref:gemma": {
+   "q": 84.7,
+   "r1": 84.7,
+   "r2": 84.7,
+   "critical_per_round": 1.0,
+   "n": 24
+  },
+  "km-en:ref:azure": {
+   "q": 54.9,
+   "r1": 55.6,
+   "r2": 54.2,
+   "critical_per_round": 4.0,
+   "n": 24
+  },
+  "km-en:transcribe:sol": {
+   "q": 79.9,
+   "r1": 80.6,
+   "r2": 79.2,
+   "critical_per_round": 1.0,
+   "n": 24
+  },
+  "km-en:transcribe:flash": {
+   "q": 81.2,
+   "r1": 81.9,
+   "r2": 80.6,
+   "critical_per_round": 2.0,
+   "n": 24
+  },
+  "km-en:transcribe:gemma": {
+   "q": 64.6,
+   "r1": 66.7,
+   "r2": 62.5,
+   "critical_per_round": 2.5,
+   "n": 24
+  },
+  "km-en:transcribe:azure": {
+   "q": 34.7,
+   "r1": 33.3,
+   "r2": 36.1,
+   "critical_per_round": 5.0,
+   "n": 24
+  }
+ },
+ "latency_translate_ms": {
+  "en-km:ref:sol": {
+   "p50": 4101,
+   "p90": 4992
+  },
+  "km-en:ref:sol": {
+   "p50": 3336,
+   "p90": 4893
+  },
+  "km-en:transcribe:sol": {
+   "p50": 6766,
+   "p90": 8610
+  },
+  "en-km:ref:flash": {
+   "p50": 13147,
+   "p90": 14707
+  },
+  "km-en:ref:flash": {
+   "p50": 12198,
+   "p90": 15262
+  },
+  "km-en:transcribe:flash": {
+   "p50": 16214,
+   "p90": 22732
+  },
+  "en-km:ref:gemma": {
+   "p50": 4659,
+   "p90": 6558
+  },
+  "km-en:ref:gemma": {
+   "p50": 2743,
+   "p90": 4812
+  },
+  "km-en:transcribe:gemma": {
+   "p50": 2736,
+   "p90": 3762
+  },
+  "en-km:ref:azure": {
+   "p50": 385,
+   "p90": 463
+  },
+  "km-en:ref:azure": {
+   "p50": 394,
+   "p90": 506
+  },
+  "km-en:transcribe:azure": {
+   "p50": 424,
+   "p90": 513
+  },
+  "km-en:azure:sol": {
+   "p50": 7346,
+   "p90": 11163
+  },
+  "km-en:azure:flash": {
+   "p50": 20181,
+   "p90": 25860
+  },
+  "km-en:azure:gemma": {
+   "p50": 2022,
+   "p90": 3551
+  },
+  "km-en:azure:azure": {
+   "p50": 434,
+   "p90": 559
+  }
+ },
+ "hearing": {
+  "transcribe (chirp3 eval, stored)": {
+   "cer": 18.2,
+   "final_after_speech_end_p50_s": -1.31,
+   "note": "relative to the FLEURS file's end (files carry trailing silence)"
+  },
+  "az_km_pin": {
+   "cer": 19.9,
+   "n": 24,
+   "final_after_its_audio_p50_s": 0.44,
+   "p90_s": 0.68,
+   "final_after_speech_end_p50_s": -1.48,
+   "errors": 0
+  },
+  "az_km_lid": {
+   "cer": 23.2,
+   "n": 24,
+   "final_after_its_audio_p50_s": 0.46,
+   "p90_s": 1.32,
+   "final_after_speech_end_p50_s": -1.4,
+   "errors": 0
+  },
+  "az_en_lid (English clips)": {
+   "cer": 5.6
+  }
+ },
+ "lid": {
+  "az_km_lid": {
+   "segments": 57,
+   "segments_right": 49,
+   "chars_right_pct": 94.9,
+   "sentences_all_right": 17,
+   "sentences": 24
+  },
+  "az_en_lid": {
+   "segments": 35,
+   "segments_right": 35,
+   "chars_right_pct": 100.0,
+   "sentences_all_right": 24,
+   "sentences": 24
+  }
+ },
+ "voice": [
+  {
+   "i": 1,
+   "voice": "en-US-AvaMultilingualNeural",
+   "seconds": 8.65,
+   "voiced_s": 6.94,
+   "chars_per_voiced_s": 19.7,
+   "file": "1_AvaMultilingualNeural.wav",
+   "azure_km_stt_cer": 14.8
+  },
+  {
+   "i": 1,
+   "voice": "km-KH-SreymomNeural",
+   "seconds": 10.06,
+   "voiced_s": 7.58,
+   "chars_per_voiced_s": 18.1,
+   "file": "1_SreymomNeural.wav",
+   "azure_km_stt_cer": 11.1
+  },
+  {
+   "i": 2,
+   "voice": "en-US-AvaMultilingualNeural",
+   "seconds": 4.55,
+   "voiced_s": 3.5,
+   "chars_per_voiced_s": 19.1,
+   "file": "2_AvaMultilingualNeural.wav",
+   "azure_km_stt_cer": 7.6
+  },
+  {
+   "i": 2,
+   "voice": "km-KH-SreymomNeural",
+   "seconds": 5.58,
+   "voiced_s": 3.94,
+   "chars_per_voiced_s": 17,
+   "file": "2_SreymomNeural.wav",
+   "azure_km_stt_cer": 4.5
+  },
+  {
+   "i": 3,
+   "voice": "en-US-AvaMultilingualNeural",
+   "seconds": 11.36,
+   "voiced_s": 8.9,
+   "chars_per_voiced_s": 19.4,
+   "file": "3_AvaMultilingualNeural.wav",
+   "azure_km_stt_cer": 16.6
+  },
+  {
+   "i": 3,
+   "voice": "km-KH-SreymomNeural",
+   "seconds": 13.49,
+   "voiced_s": 10.04,
+   "chars_per_voiced_s": 17.2,
+   "file": "3_SreymomNeural.wav",
+   "azure_km_stt_cer": 10.4
+  },
+  {
+   "i": 4,
+   "voice": "en-US-AvaMultilingualNeural",
+   "seconds": 4.66,
+   "voiced_s": 3.48,
+   "chars_per_voiced_s": 20.1,
+   "file": "4_AvaMultilingualNeural.wav",
+   "azure_km_stt_cer": 13.4
+  },
+  {
+   "i": 4,
+   "voice": "km-KH-SreymomNeural",
+   "seconds": 5.49,
+   "voiced_s": 3.46,
+   "chars_per_voiced_s": 20.2,
+   "file": "4_SreymomNeural.wav",
+   "azure_km_stt_cer": 0.0
+  },
+  {
+   "i": 5,
+   "voice": "en-US-AvaMultilingualNeural",
+   "seconds": 6.56,
+   "voiced_s": 5,
+   "chars_per_voiced_s": 21,
+   "file": "5_AvaMultilingualNeural.wav",
+   "azure_km_stt_cer": 9.1
+  },
+  {
+   "i": 5,
+   "voice": "km-KH-SreymomNeural",
+   "seconds": 7.21,
+   "voiced_s": 5.18,
+   "chars_per_voiced_s": 20.3,
+   "file": "5_SreymomNeural.wav",
+   "azure_km_stt_cer": 7.1
+  }
+ ],
+ "voice_summary": {
+  "en-US-AvaMultilingualNeural": {
+   "seconds": 35.8,
+   "azure_km_stt_cer": 13.2
+  },
+  "km-KH-SreymomNeural": {
+   "seconds": 41.8,
+   "azure_km_stt_cer": 7.9
+  }
+ }
+}

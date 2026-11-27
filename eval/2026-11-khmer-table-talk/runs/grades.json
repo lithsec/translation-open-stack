@@ -1,0 +1,4994 @@
+[
+ {
+  "set": "en-km:ref",
+  "i": 0,
+  "src": "en",
+  "tgt": "km",
+  "said": "The city is also the base to climb the Nyiragongo volcano along with some of the cheapest Mountain Gorilla tracking in Africa.",
+  "ref": "ទីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង Nyiragongo រួមជាមួយនឹងការតាមMountain Gorilla ដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក។",
+  "answers": {
+   "sol": "ទីក្រុងនេះក៏ជាចំណុចចេញដំណើរសម្រាប់ឡើងភ្នំភ្លើងនីរ៉ាហ្គុងហ្គោ និងដើរព្រៃស្វែងរកសត្វហ្គោរីឡាភ្នំក្នុងតម្លៃថោកបំផុតមួយចំនួននៅអាហ្វ្រិកផងដែរ។",
+   "flash": "ទីក្រុងនេះក៏ជាមូលដ្ឋានសម្រាប់ការឡើងភ្នំភ្លើង Nyiragongo ព្រមទាំងការដើរមើលសត្វកូរីឡាភ្នំដែលមានតម្លៃថោកបំផុតមួយនៅអាហ្វ្រិកផងដែរ។",
+   "gemma": "ទីក្រុងនេះក៏ជាមូលដ្ឋានសម្រាប់ឡើងភ្នំភ្លើង Nyiragongo ព្រមទាំងជាកន្លែងដែលផ្តល់សេវាកម្មតាមដានស្វែងរកសត្វស្វាភ្នំ (Mountain Gorilla) ដែលមានតម្លៃថោកបំផុតមួយនៅក្នុងទ្វីបអាហ្វ្រិកផងដែរ។",
+   "azure": "ទីក្រុងនេះក៏ជាមូលដ្ឋានសម្រាប់ឡើងភ្នំភ្លើង Nyiragongo ជាមួយនឹងការតាមដានកំពូលភ្នំដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក។"
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 1,
+     "critical": true
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 1,
+  "src": "en",
+  "tgt": "km",
+  "said": "The find also grants insight into the evolution of feathers in birds.",
+  "ref": "ការរកឃើញថ្មីនេះក៏ផ្តល់ជាការយល់ដឹងដ៏ទូលំទូលាយអំពី​ការវិវឌ្ឍន៍​ស្លាប​របស់​បក្សីផងដែរ។",
+  "answers": {
+   "sol": "ការរកឃើញនេះក៏ផ្តល់ការយល់ដឹងអំពីការវិវត្តនៃរោមនៅក្នុងសត្វស្លាបផងដែរ។",
+   "flash": "របកគំហើញនេះក៏ផ្តល់នូវការយល់ដឹងអំពីការវិវត្តនៃរោមសត្វស្លាបផងដែរ។",
+   "gemma": "ការរកឃើញនេះក៏ផ្តល់នូវការយល់ដឹងអំពីការវិវត្តនៃរោមបក្សីផងដែរ។",
+   "azure": "ការរកឃើញនេះក៏ផ្តល់ឱ្យយើងនូវការយល់ដឹងអំពីការវិវត្តន៍នៃព្រិលនៅបក្សីផងដែរ។"
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 1,
+     "critical": true
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 2,
+  "src": "en",
+  "tgt": "km",
+  "said": "The Sundarbans are the largest littoral mangrove belt in the world, stretching 80 km (50 mi) into the Bangladeshi and Indian hinterland from the coast.",
+  "ref": "Sundarbans គឺ​ជា​ខ្សែ​ក្រវាត់ដើម​កោង​កាង​ធំ​ជាង​គេ​នៅ​ក្នុង​ពិភព​លោក​ ដែល​លាត​សន្ធឹង​ប្រវែង​ 80 គម (50 ម៉ាយល៍) ចូល​ទៅ​ក្នុង​ដី​គោក​នៃ​ប្រទេស​បង់ក្លាដេស និង​ឥណ្ឌា​ ពី​តំបន់​មាត់​ឆ្នេរ​។​",
+  "answers": {
+   "sol": "ព្រៃស៊ុនដាបាន់គឺជាតំបន់ព្រៃកោងកាងតាមឆ្នេរសមុទ្រដ៏ធំបំផុតក្នុងពិភពលោក ដោយលាតសន្ធឹងចម្ងាយ ៨០ គីឡូម៉ែត្រ (៥០ ម៉ាយ) ពីឆ្នេរសមុទ្រចូលទៅក្នុងតំបន់ដីគោកនៃប្រទេសបង់ក្លាដែស និងឥណ្ឌា។",
+   "flash": "តំបន់ស៊ុនដារបិន គឺជាខ្សែក្រវាត់ព្រៃកោងកាងឆ្នេរសមុទ្រដែលធំជាងគេបំផុតនៅលើពិភពលោក ដោយលាតសន្ធឹងប្រវែង ៨០ គីឡូម៉ែត្រ (៥០ ម៉ាយ) ចាប់ពីឆ្នេរសមុទ្រចូលទៅក្នុងតំបន់ដីគោកនៃប្រទេសបង់ក្លាដែស និងឥណ្ឌា។",
+   "gemma": "ព្រៃ mangroves Sundarbans គឺជាតំបន់ព្រៃ mangrove តាមឆ្នេរដែលធំជាងគេបំផុតក្នុងពិភពលោក ដោយលាតសន្ធឹងពីឆ្នេរសមុទ្រចូលទៅក្នុងដែនដីនៃប្រទេសបង់ក្លាដេស និងឥណ្ឌា ចំនួន ៨០ គីឡូម៉ែត្រ (៥០ ម៉ាយ)។",
+   "azure": "Sundarbans គឺជាខ្សែព្រៃមង់ក្រូវឆ្នេរធំបំផុតនៅលើពិភពលោក ដែលពន្លឿន ៨០ គីឡូម៉ែត្រ (៥០ ម៉ាយ) ចូលទៅក្នុងតំបន់ខាងក្នុងរបស់បង់ក្លាដែស និងឥណ្ឌា ពីឆ្នេរ។"
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 3,
+  "src": "en",
+  "tgt": "km",
+  "said": "Parisians have a reputation for being egocentric, rude and arrogant.",
+  "ref": "ប្រជាជន​ក្រុង​ប៉ារីស​មាន​កេរ្តិ៍ឈ្មោះ​ថា ជា​មនុស្ស​អាត្ម័ន អួតអាង និង​ក្រអឺត​ក្រ​ទម។",
+  "answers": {
+   "sol": "អ្នកទីក្រុងប៉ារីសមានកេរ្តិ៍ឈ្មោះថាគិតតែពីខ្លួនឯង ឈ្លើយ និងក្រអឺតក្រទម។",
+   "flash": "អ្នកក្រុងប៉ារីសមានកេរ្តិ៍ឈ្មោះថាជាមនុស្សអាត្មានិយម មិនគួរសម និងឆអើតឆអង។",
+   "gemma": "អ្នកក្រុងប៉ារីសមានកេរ្តិ៍ឈ្មោះថាជាមនុស្សដែលគិតតែពីខ្លួនឯង ចិត្តអាក្រក់ និងអំនួត។",
+   "azure": "ប្រជាជនប៉ារីសមានកេរ្តិ៍ឈ្មោះថាជាមនុស្សស្រឡាញ់ខ្លួនឯង មិនគោរព និងអួតអាង។"
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 4,
+  "src": "en",
+  "tgt": "km",
+  "said": "The photographers later took the place of an aged lady as she needed the lavatory. Mendoza was gunned down.",
+  "ref": "អ្នកថតរូប​ក្រោយមក​យកកន្លែងរបស់​ស្ត្រីវ័យចំណាស់ម្នាក់​​ ខណៈដែលគាត់ទៅបន្ទប់ទឹក។ Mendoza ត្រូវបានគេបាញ់សម្លាប់។",
+  "answers": {
+   "sol": "ក្រោយមក អ្នកថតរូបបានចូលជំនួសស្ត្រីវ័យចំណាស់ម្នាក់ ព្រោះគាត់ត្រូវការទៅបង្គន់។ Mendoza ត្រូវបានបាញ់សម្លាប់។",
+   "flash": "ក្រោយមក ក្រុមអ្នកថតរូបបានចូលទៅជំនួសកន្លែងស្ត្រីចំណាស់ម្នាក់ ដោយសារគាត់ត្រូវទៅបន្ទប់ទឹក។ Mendoza ត្រូវបានបាញ់សម្លាប់។",
+   "gemma": "ក្រោយមក ក្រុមអ្នកថតរូបបានចូលមកជំនួសកន្លែងស្ត្រីវ័យចំណាស់ម្នាក់ ដោយសារគាត់ត្រូវការទៅបន្ទប់ទឹក។ Mendoza ត្រូវបានគេបាញ់សម្លាប់។",
+   "azure": "អ្នកថតរូបបន្ទាប់មកបានជំនួសស្ត្រីចាស់ម្នាក់ ព្រោះនាងត្រូវការបង្គន់។Mendoza ត្រូវបានបាញ់សម្លាប់។"
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 5,
+  "src": "en",
+  "tgt": "km",
+  "said": "Last week, METI announced that Apple had informed it of 34 additional overheating incidents, which the company called \"non-serious.\"",
+  "ref": "កាល​ពី​សប្ដាហ៍​មុន​ METI បាន​ប្រកាស​ថា​ ក្រុមហ៊ុន Apple បាន​ជូនដំណឹង​ដល់​ខ្លួន​អំពី​គ្រោះ​ថ្នាក់​ចំនួន​ 34 ករណី​បន្ថែម​ទៀត​ អំពី​ការ​ឡើង​កំដៅ​ខ្លាំង​​ ដែល​ក្រុមហ៊ុន​ហៅ​ករណី​នេះ​ថា​ “មិន​មែនជាករណី​ធ្ងន់ធ្ងរ​”​។",
+  "answers": {
+   "sol": "កាលពីសប្តាហ៍មុន METI បានប្រកាសថា Apple បានជូនដំណឹងខ្លួនអំពីករណីឧបករណ៍ឡើងកម្ដៅខ្លាំងបន្ថែមចំនួន 34 ករណី ដែលក្រុមហ៊ុនហៅថា «មិនធ្ងន់ធ្ងរ»។",
+   "flash": "កាលពីសប្តាហ៍មុន METI បានប្រកាសថា ក្រុមហ៊ុន Apple បានជូនដំណឹងដល់ខ្លួនអំពីឧប្បត្តិហេតុឡើងកម្ដៅខ្លាំងបន្ថែមចំនួន ៣៤ ករណី ដែលក្រុមហ៊ុនបានហៅថា \"មិនធ្ងន់ធ្ងរ\"។",
+   "gemma": "កាលពីសប្តាហ៍មុន METI បានប្រកាសថា ក្រុមហ៊ុន Apple បានជូនដំណឹងដល់ពួកគេអំពីករណីឡើងកម្តៅបន្ថែមចំនួន ៣៤ ករណី ដែលក្រុមហ៊ុនបានហៅថាជាករណី \"មិនធ្ងន់ធ្ងរ\"។",
+   "azure": "សប្តាហ៍មុន METI បានប្រកាសថា Apple បានជូនដំណឹងអំពីករណីក្តៅបន្ថែម ៣៤ ករណី ដែលក្រុមហ៊ុនបានហៅថា \"មិនធ្ងន់ធ្ងរ\"។"
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 6,
+  "src": "en",
+  "tgt": "km",
+  "said": "towards the end of the Middle Ages western Europe began to develop their own style. one of the biggest developments of the time as a result of the crusades people began to use buttons to fasten clothing.",
+  "ref": "អឺរ៉ុបខាងលិចបានចាប់ផ្តើមអភិវឌ្ឍរចនាបថរបស់ខ្លួនឆ្ពោះទៅចុងបញ្ចប់នៃយុគសម័យកណ្តាល។ ការវិវឌ្ឃន៍ដ៏ធំបំផុតបានកើតឡើង នៅពេលដែលប្រជាជនបានចាប់ផ្តើមប្រើឡេវដើម្បីភ្ជាប់សម្លៀកបំពាក់។",
+  "answers": {
+   "sol": "នៅចុងសម័យមជ្ឈិមអាយុ អឺរ៉ុបខាងលិចបានចាប់ផ្តើមបង្កើតរចនាបថផ្ទាល់ខ្លួន។ ការវិវត្តដ៏ធំបំផុតមួយនៅសម័យនោះគឺ ដោយសារឥទ្ធិពលនៃសង្គ្រាមបូជនីយកិច្ច មនុស្សបានចាប់ផ្តើមប្រើក្រិបដើម្បីភ្ជាប់សម្លៀកបំពាក់។",
+   "flash": "នៅជិតចុងបញ្ចប់នៃយុគសម័យកណ្តាល អឺរ៉ុបខាងលិចបានចាប់ផ្តើមអភិវឌ្ឍរចនាប័ទ្មផ្ទាល់ខ្លួនរបស់ពួកគេ។ ការអភិវឌ្ឍដ៏ធំបំផុតមួយនាពេលនោះ គឺជារឿងដែលកើតឡើងពីសង្គ្រាមគ្រូសេត ដោយមនុស្សបានចាប់ផ្តើមប្រើប្រាស់ឡេវដើម្បីខ្ទាស់សម្លៀកបំពាក់។",
+   "gemma": "នៅចុងសម័យមជ្ឈិមយុគ អឺរ៉ុបខាងលិចបានចាប់ផ្តើមអភិវឌ្ឍរចនាប័ទ្មផ្ទាល់ខ្លួន។ ការវិវត្តដ៏ធំបំផុតមួយក្នុងសម័យនោះ ដែលជាលទ្ធផលនៃសង្គ្រាមសាលីប គឺមនុស្សបានចាប់ផ្តើមប្រើឡាបូតុងដើម្បីបិទសម្លៀកបំពាក់។",
+   "azure": "នៅចុងសម័យមធ្យម អឺរ៉ុបខាងលិចបានចាប់ផ្តើមអភិវឌ្ឍរចនាបថផ្ទាល់ខ្លួន។មួយក្នុងចំណោមការអភិវឌ្ឍធំបំផុតនៃសម័យនោះ គឺដោយសារសង្រ្គាមឆ្លងសាសនា មនុស្សបានចាប់ផ្តើមប្រើប៊ូតុងដើម្បីចងសម្លៀកបំពាក់។"
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 7,
+  "src": "en",
+  "tgt": "km",
+  "said": "We don't know for sure, but it may have had a forked tongue. Its diet included turtles, large fish, other mosasaurs, and it may even have been a cannibal.",
+  "ref": "ពួកយើងមិនច្បាស់ដែរ ប៉ុន្តែវាប្រហែលជាមានពងបែកនៅអណ្តាត។ ចំនីរបស់វាជាសត្វអណ្តើក ត្រីធំៗ សត្វ mosasaurs ផ្សេងទៀត ហើយពេលខ្លះវាស៊ីគ្នាវាផងដែរ។",
+  "answers": {
+   "sol": "យើងមិនដឹងច្បាស់ទេ ប៉ុន្តែវាប្រហែលជាមានអណ្ដាតពុះជាពីរ។ ចំណីរបស់វារួមមានអណ្ដើក ត្រីធំៗ និងម៉ូសាស័រដទៃទៀត ហើយវាអាចស៊ីសាច់សត្វប្រភេទដូចគ្នាផងដែរ។",
+   "flash": "យើងមិនដឹងប្រាកដទេ ប៉ុន្តែវាអាចមានអណ្តាតឆែក។ របបអាហាររបស់វារួមមាន អណ្តើក ត្រីធំៗ ម៉ូសាស័រផ្សេងទៀត ហើយវាថែមទាំងអាចជាសត្វស៊ីសាច់ពូជឯងទៀតផង។",
+   "gemma": "យើងមិនដឹងច្បាស់នោះទេ ប៉ុន្តែវាអាចមានអណ្តាតបែកជាពីរ។ អាហាររបស់វារួមមាន អណ្តើក ត្រីធំៗ មូសាស័រ (mosasaur) ផ្សេងទៀត ហើយវាក៏អាចជាសត្វដែលស៊ីសាច់ពូជតែមួយផងដែរ។",
+   "azure": "យើងមិនដឹងច្បាស់ទេ ប៉ុន្តែវាអាចមានអណ្តាតបែក។អាហាររបស់វារួមមានអណ្តើក ត្រីធំៗ មូសាសូរផ្សេងទៀត ហើយវាអាចជាសត្វស៊ីសាច់មនុស្សផងដែរ។"
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": true
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 1,
+     "critical": true
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 8,
+  "src": "en",
+  "tgt": "km",
+  "said": "Hong Kong Island gives the territory of Hong Kong its name and is the place that many tourists regard as the main focus.",
+  "ref": "កោះហុងកុង ផ្តល់ឈ្មោះ​នេះឱ្យទឹកដីហុងកុងតែ​ម្ដង​​ និងជាកន្លែងដែលភ្ញៀវទេសចរជាច្រើន ចាត់ទុកថា​ជាកន្លែង​​សំខាន់។",
+  "answers": {
+   "sol": "កោះហុងកុងបានផ្តល់ឈ្មោះឱ្យដែនដីហុងកុង ហើយជាកន្លែងដែលអ្នកទេសចរជាច្រើនចាត់ទុកថាជាគោលដៅសំខាន់។",
+   "flash": "កោះហុងកុងបានផ្ដល់ឈ្មោះដល់ដែនដីហុងកុង ហើយជាកន្លែងដែលភ្ញៀវទេសចរជាច្រើនចាត់ទុកថាជាចំណុចសំខាន់ចម្បង។",
+   "gemma": "កោះហុងកុងគឺជាប្រភពនៃឈ្មោះរបស់ដែនដីហុងកុង ហើយក៏ជាទីកន្លែងដែលភ្ញៀវទេសចរជាច្រើនចាត់ទុកថាជាគោលដៅចម្បងផងដែរ។",
+   "azure": "កោះហុងកុងបានផ្តល់ឈ្មោះដល់ដែនដីហុងកុង ហើយជាកន្លែងដែលភ្ញៀវទេសចរច្រើនគិតថាជាគោលដៅសំខាន់។"
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 9,
+  "src": "en",
+  "tgt": "km",
+  "said": "ASUS Eee PC, earlier launched world-wide for cost-saving and functionality factors, became a hot topic in 2007 Taipei IT Month.",
+  "ref": "ASUS Eee PC ជា​កម្មវិធី​ដែល​បាន​ដាក់ឲ្យ​ប្រើប្រាស់​នៅ​ទូទាំង​ពិភព​លោកដើម្បីការ​សន្សំ​សំចៃ​លើ​ការចំណាយ​ និង​កត្តា​មុខ​ងារ​របស់​វា​ បាន​ក្លាយ​ជា​ប្រធាន​បទ​ក្ដៅៗ​នៅ​ក្នុង​សន្និសីទ​ព័ត៌មាន​វិទ្យា​ប្រចាំ​ខែ​នៅ​ទីក្រុង​តៃបិ ឆ្នាំ 2007។",
+  "answers": {
+   "sol": "ASUS Eee PC ដែលបានដាក់លក់ទូទាំងពិភពលោកមុននោះ ដោយផ្តោតលើតម្លៃសន្សំសំចៃ និងមុខងារប្រើប្រាស់ បានក្លាយជាប្រធានបទដ៏ពេញនិយមនៅក្នុងព្រឹត្តិការណ៍ Taipei IT Month ឆ្នាំ 2007។",
+   "flash": "ASUS Eee PC ដែលត្រូវបានដាក់លក់ទូទាំងពិភពលោកកាលពីពេលមុន ដោយសារតែកត្តាសន្សំសំចៃ និងមុខងារប្រើប្រាស់ បានក្លាយជាប្រធានបទដ៏ក្តៅគគុកនៅក្នុងព្រឹត្តិការណ៍ Taipei IT Month ឆ្នាំ ២០០៧។",
+   "gemma": "ASUS Eee PC ដែលត្រូវបានដាក់លក់ទូទាំងពិភពលោកកាលពីមុន ដោយផ្អែកលើកត្តាកាត់បន្ថយចំណាយ និងមុខងារប្រើប្រាស់ បានក្លាយជាប្រធានបទដ៏ក្ដៅគគុកនៅក្នុងខែបច្ចេកវិទ្យាព័ត៌មាន (IT Month) ឆ្នាំ ២០០៧ នៅទីក្រុងតៃប៉ិ។",
+   "azure": "ASUS Eee PC ដែលបានចេញផ្សាយជាសកលមុននេះដោយសារតែការសន្សំសំចៃថ្លៃដើម និងមុខងារ បានក្លាយជាប្រធានបទក្តៅក្នុងខែ IT តៃប៉េ ឆ្នាំ ២០០៧។"
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 10,
+  "src": "en",
+  "tgt": "km",
+  "said": "Many German baked goods also feature almonds, hazelnuts, and other tree nuts. Popular cakes often pair particularly well with a cup of strong coffee.",
+  "ref": "ការនំដុតរបស់អាឡឺម៉ង់ជាច្រើនក៏មានដាក់គ្រាប់អាល់ម៉ុន ហេសលណាត់ និងគ្រាប់ផ្លែឈើដទៃទៀត។ នំដែលពេញនិយមតែងតែត្រូវគ្នាយ៉ាងពិសេសជាមួយកាហ្វេចាស់មួយកែវ។",
+  "answers": {
+   "sol": "នំដុតអាល្លឺម៉ង់ជាច្រើនប្រភេទក៏មានគ្រាប់អាល់ម៉ុន គ្រាប់ហេហ្សែល និងគ្រាប់ធញ្ញជាតិពីដើមឈើផ្សេងៗទៀតដែរ។ នំខេកពេញនិយមជាច្រើនប្រភេទ ជាពិសេសស័ក្តិសមនឹងកាហ្វេខ្លាំងមួយពែង។",
+   "flash": "នំដុតអាល្លឺម៉ង់ជាច្រើនក៏មានគ្រាប់អាល់ម៉ុង គ្រាប់ហាហ្សែលណាត់ និងគ្រាប់ធញ្ញជាតិផ្សេងទៀតផងដែរ។ នំខេកដែលពេញនិយមច្រើនតែត្រូវគ្នាយ៉ាងល្អជាពិសេសជាមួយនឹងកាហ្វេខាប់មួយពែង។",
+   "gemma": "នំដុតរបស់អាល្លឺម៉ង់ជាច្រើនក៏មានប្រើគ្រាប់អាល់ម៉ុន គ្រាប់ហេស៊ែលណាត់ និងគ្រាប់ធញ្ញជាតិផ្សេងៗទៀតផងដែរ។ នំខេកដែលពេញនិយម ជាច្រើនតែម្តងគឺស័ក្តិសមបំផុតនៅពេលទទួលទានជាមួយកាហ្វេ and មួយកែវដែលខាប់ខ្លាំង។",
+   "azure": "នំបុ័ងអាល្លឺម៉ង់ជាច្រើនក៏មានអាល់ម៉ុង គ្រាប់ហាសែលណាត់ និងគ្រាប់ឈើផ្សេងទៀតផងដែរ។នំពេញនិយមភាគច្រើនត្រូវបានផ្គូផ្គងយ៉ាងល្អជាមួយកាហ្វេខ្លាំងមួយកែវ។"
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 11,
+  "src": "en",
+  "tgt": "km",
+  "said": "The crust is about 70 km thick on the near side and 100 km thick on the far side.",
+  "ref": "សំបករបស់វាមានកម្រាស់ប្រហែលជា 70 គីឡូម៉ែត្រនៅផ្នែកជិត និង 100គីឡូម៉ែត្រនៅផ្នែកឆ្ងាយ។",
+  "answers": {
+   "sol": "សំបកមានកម្រាស់ប្រហែល 70 គីឡូម៉ែត្រនៅផ្នែកខាងជិត និង 100 គីឡូម៉ែត្រនៅផ្នែកខាងឆ្ងាយ។",
+   "flash": "ស្រទាប់សំបកមានកម្រាស់ប្រហែល ៧០ គីឡូម៉ែត្រនៅផ្នែកខាងជិត និង ១០០ គីឡូម៉ែត្រនៅផ្នែកខាងឆ្ងាយ។",
+   "gemma": "សំបកផែនដីមានកម្រាស់ប្រហែល ៧០ គីឡូម៉ែត្រនៅផ្នែកខាងជិត និង ១០០ គីឡូម៉ែត្រនៅផ្នែកខាងឆ្ងាយ។",
+   "azure": "ស្រទាប់ដីមានកម្រាស់ប្រហែល 70 គីឡូម៉ែត្រនៅផ្នែកជិត និង 100 គីឡូម៉ែត្រនៅផ្នែកឆ្ងាយ។"
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 12,
+  "src": "en",
+  "tgt": "km",
+  "said": "Sharing a field trip virtually is also a great way to reflect a on a trip and share experiences with future classes.",
+  "ref": "ការ​ចែករំលែក​អំពី​ការ​ធ្វើ​ដំណើរ​ទស្សនកិច្ច​សិក្សា​ដោយ​ផ្ទាល់​ ក៏​ជា​វិធី​ដ៏​ល្អ​មួយ​ដើម្បី​ឆ្លុះ​បញ្ចាំង​ពី​ការ​ធ្វើ​ដំណើរ​ និ​ង​ចែក​រំលែក​បទ​ពិសោធន៍​សម្រាប់​ថ្នាក់​រៀន​ទៅ​ថ្ងៃ​អនាគតដែរ។",
+  "answers": {
+   "sol": "ការចែករំលែកដំណើរទស្សនកិច្ចសិក្សាតាមអនឡាញ ក៏ជាវិធីដ៏ល្អមួយក្នុងការរំលឹកគិតអំពីដំណើរនោះ និងចែករំលែកបទពិសោធន៍ជាមួយថ្នាក់រៀនជំនាន់ក្រោយផងដែរ។",
+   "flash": "ការចែករំលែកដំណើរសិក្សាតាមប្រព័ន្ធនិម្មិត ក៏ជាវិធីដ៏ល្អមួយក្នុងការរំលឹកឡើងវិញអំពីដំណើរសិក្សានោះ និងចែករំលែកបទពិសោធន៍ជាមួយថ្នាក់រៀនជំនាន់ក្រោយផងដែរ។",
+   "gemma": "ការចែករំលែកដំណើរកម្សាន្តសិក្សាតាមប្រព័ន្ធនិម្មិត ក៏ជាវិធីដ៏ល្អមួយក្នុងការរំលឹកឡើងវិញអំពីដំណើរកម្សាន្ត និងចែករំលែកបទពិសោធន៍ជាមួយសិស្សជំនាន់ក្រោយៗផងដែរ។",
+   "azure": "ការចែករំលែកដំណើរកម្សាន្តតាមអនឡាញក៏ជាវិធីល្អមួយក្នុងការពិចារណាអំពីដំណើរនោះ និងចែករំលែកបទពិសោធន៍ជាមួយថ្នាក់អនាគត។"
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 13,
+  "src": "en",
+  "tgt": "km",
+  "said": "Giancarlo Fisichella lost control of his car and ended the race very soon after the start.",
+  "ref": "ជីអានខាឡូ ហ្វីស៊ីឆែលឡា (Giancarlo Fisichella) បានបញ្ជាឡានរបស់គាត់លែងកើត ហើយបានបញ្ចប់ការប្រកួតភ្លាមៗគ្រាន់តែចាប់ផ្តើមបានបន្តិច។",
+  "answers": {
+   "sol": "Giancarlo Fisichella បានបាត់បង់ការគ្រប់គ្រងរថយន្តរបស់គាត់ ហើយត្រូវបញ្ចប់ការប្រណាំងភ្លាមៗបន្ទាប់ពីការចាប់ផ្តើម។",
+   "flash": "Giancarlo Fisichella បានបាត់បង់ការគ្រប់គ្រងលើរថយន្តរបស់គាត់ ហើយបានបញ្ចប់ការប្រកួតភ្លាមៗបន្ទាប់ពីការចាប់ផ្តើម។",
+   "gemma": "Giancarlo Fisichella បានបាត់បង់ការគ្រប់គ្រងលើរថយន្តរបស់គាត់ ហើយបានបញ្ចប់ការប្រកួតក្នុងពេលដ៏ខ្លីបន្ទាប់ពីការចាប់ផ្ដើម។",
+   "azure": "Giancarlo Fisichella បានបាត់បង់ការគ្រប់គ្រងរថយន្តរបស់គាត់ ហើយបញ្ចប់ការប្រណាំងឆាប់ៗបន្ទាប់ពីចាប់ផ្តើម។"
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 14,
+  "src": "en",
+  "tgt": "km",
+  "said": "Lakkha Singh presented the chhappan bhog bhajan as well. Singer, Raju Khandelwal was accompanying him.",
+  "ref": "Lakkha Singh (ឡាក់​កាស៊ីង)​ក៏បានបង្ហាញ chhappan bhog bhajan ផងដែរ។ តារា​ចម្រៀង​លោក Raju Khandelwal (រ៉ាជូ ខាន់ដេវ៉ាល់) បាន​អមដំណើរ​ជាមួយ​នឹងគាត់។",
+  "answers": {
+   "sol": "លក្ខា ស៊ីង ក៏បានច្រៀងបទភជន «ឆាប៉ាន់ ភោគ» ផងដែរ។ អ្នកចម្រៀង រាជូ ខាន់ឌែលវ៉ាល់ បានច្រៀងរួមជាមួយគាត់។",
+   "flash": "Lakkha Singh ក៏បានសម្តែងបទ Chhappan Bhog Bhajan ផងដែរ។ អ្នកចម្រៀង Raju Khandelwal បានច្រៀងអមជាមួយគាត់។",
+   "gemma": "លោក Lakkha Singh ក៏បានបង្ហាញបទចម្រៀង chhappan bhog bhajan ផងដែរ ដោយមានអ្នកចម្រៀង លោក Raju Khandelwal ច្រៀងរួមជាមួយគាត់។",
+   "azure": "Lakkha Singh ក៏បានបង្ហាញបទ chhappan bhog bhajan ផងដែរ។អ្នកចម្រៀង Raju Khandelwal បានជួយសម្តែងជាមួយគាត់។"
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 15,
+  "src": "en",
+  "tgt": "km",
+  "said": "Because the dinosaur feathers do not have a well-developed shaft, called a rachis, but do have other features of feathers — barbs and barbules — the researchers inferred the rachis was likely a later evolutionary development that these other features.",
+  "ref": "ដោយសារតែស្លាបដាយណូស័រមិនមានការលូតលាស់ល្អ ហើយត្រូវបានគេហៅថាឆ្នឹងខ្នង (rachis) ប៉ុន្តែមានលក្ខណៈពិសេសផ្សេងទៀតរបស់ស្លាប - រោម និង រោមល្អិតៗ - អ្នកស្រាវជ្រាវបានរកឃើញថា ឆ្នឹងខ្នងទំនងជាការវិវត្តនៅពេលក្រោយដែលវាមានលក្ខណៈពិសេសទាំងនេះ។",
+  "answers": {
+   "sol": "ដោយសាររោមរបស់ដាយណូស័រមិនមានដើមរោមដែលលូតលាស់ពេញលេញ ហៅថា rachis ប៉ុន្តែមានលក្ខណៈផ្សេងទៀតរបស់រោម គឺសរសៃរោម និងសរសៃតូចៗនៅលើសរសៃរោម អ្នកស្រាវជ្រាវបានសន្និដ្ឋានថា rachis ទំនងជាវិវត្តឡើងក្រោយលក្ខណៈផ្សេងទៀតទាំងនេះ។",
+   "flash": "ដោយសារតែរោមដាយណូស័រមិនមានទងរោមដែលលូតលាស់បានល្អ ដែលហៅថា rachis នោះទេ ប៉ុន្តែមានលក្ខណៈពិសេសផ្សេងទៀតនៃរោមសត្វ — គឺ barbs និង barbules — អ្នកស្រាវជ្រាវបានសន្និដ្ឋានថា rachis ទំនងជាការវិវត្តន៍កើតឡើងក្រោយលក្ខណៈពិសេសផ្សេងទៀតទាំងនេះ។",
+   "gemma": "ដោយសារតែរោមសត្វដាយណូស័រមិនមានអ័ក្សដែលលូតលាស់ពេញលេញ ដែលហៅថា rachis ប៉ុន្តែមានលក្ខណៈពិសេសផ្សេងទៀតនៃរោម គឺ barbs និង barbules ដូច្នេះអ្នកស្រាវជ្រាវបានសន្និដ្ឋានថា rachis ទំនងជាការវិវត្តន៍ដែលកើតឡើងក្រោយលក្ខណៈពិសេសផ្សេងទៀតទាំងនេះ។",
+   "azure": "ដោយសារតែរោមសត្វដាយណូស័រមិនមានដើមរោមដែលអភិវឌ្ឍល្អហៅថា rachis ប៉ុន្តែមានលក្ខណៈផ្សេងទៀតដូចជា barbs និង barbules អ្នកស្រាវជ្រាវបានសន្និដ្ឋានថា rachis អាចជាការអភិវឌ្ឍវិវត្តន៍ក្រោយលក្ខណៈទាំងនេះ។"
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 16,
+  "src": "en",
+  "tgt": "km",
+  "said": "The document, according to the leak, will refer to the borders dispute, which Palestine wants based on the borders before the 1967 Mideast War.",
+  "ref": "បើយោងទៅតាមការបែកធ្លាយឯកសារនេះ គឺមានសេចក្តីយោងទៅលើជម្លោះព្រំដែន ដែល​ប៉ាឡេស្ទីន​ចង់បាន ដោយផ្អែក​លើព្រំដែនជាច្រើន មុនពេលកើតសង្គ្រាមនៅ​មជ្ឈិមបូព៌ា​ឆ្នាំ 1967។",
+  "answers": {
+   "sol": "យោងតាមព័ត៌មានដែលបានលេចធ្លាយ ឯកសារនោះនឹងលើកឡើងពីវិវាទព្រំដែន ដែលប៉ាឡេស្ទីនចង់ឱ្យកំណត់ដោយផ្អែកលើព្រំដែនមុនសង្គ្រាមមជ្ឈិមបូព៌ាឆ្នាំ 1967។",
+   "flash": "យោងតាមការលេចធ្លាយ ឯកសារនេះនឹងលើកឡើងអំពីវិវាទព្រំដែន ដែលប៉ាឡេស្ទីនចង់បានដោយផ្អែកលើព្រំដែនមុនសង្គ្រាមមជ្ឈិមបូព៌ាឆ្នាំ ១៩៦៧។",
+   "gemma": "យោងតាមការលេចធ្លាយបានឱ្យដឹងថា ឯកសារនេះនឹងលើកឡើងអំពីជម្លោះព្រំដែន ដែលប៉ាឡេស្ទីនចង់បានផ្អែកលើព្រំដែនមុនសង្គ្រាមមជ្ឈឹមបូព៌ាឆ្នាំ ១៩៦៧។",
+   "azure": "ឯកសារនេះ តាមការលេចចេញ នឹងយោងទៅលើវិវាទព្រំដែន ដែលប៉ាឡេស្ទីនចង់បាន ដោយផ្អែកលើព្រំដែនមុនសង្គ្រាមមជ្ឈិមបូព៌ា ឆ្នាំ ១៩៦៧។"
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 17,
+  "src": "en",
+  "tgt": "km",
+  "said": "A car bomb detonated at police headquarters in Gaziantep, Turkey yesterday morning killed two police officers and injured more than twenty other people.",
+  "ref": "គ្រាប់បែកនៅក្នុងរថយន្តដែលគេបានដាក់បំផ្ទុះនៅទីស្នាក់ការប៉ូលីសក្នុងទីក្រុង ហ្កា​ហ្សៀន​តិប (Gaziantep) ប្រទេស​ទួរគី​កាល​ពី​ព្រឹក​ម្សិល​មិញនេះ បាន​សម្លាប់​មន្ត្រី​ប៉ូលិស​ចំនួន​ពីរ​នាក់ និងអ្នករងរបួសជាងម្ភៃនាក់ផ្សេងទៀត។",
+  "answers": {
+   "sol": "គ្រាប់បែកបង្កប់ក្នុងរថយន្តមួយគ្រឿងបានផ្ទុះនៅទីស្នាក់ការប៉ូលិសក្នុងទីក្រុងហ្គាហ្ស៊ីអាន់តេប ប្រទេសតួកគី កាលពីព្រឹកម្សិលមិញ ដោយសម្លាប់មន្ត្រីប៉ូលិសពីរនាក់ និងធ្វើឱ្យមនុស្សជាងម្ភៃនាក់ផ្សេងទៀតរងរបួស។",
+   "flash": "គ្រាប់បែករថយន្តមួយបានផ្ទុះឡើងនៅស្នងការដ្ឋាននគរបាលក្នុងក្រុង Gaziantep ប្រទេសទួរគី កាលពីព្រឹកម្សិលមិញ ដោយបានសម្លាប់មន្ត្រីនគរបាលពីររូប និងបង្កឱ្យមនុស្សជាង ២០ នាក់ផ្សេងទៀតរងរបួស។",
+   "gemma": "គ្រាប់បែកដាក់ក្នុងរថយន្តដែលបានផ្ទុះនៅទីស្នាក់ការប៉ូលីសក្នុងទីក្រុង Gaziantep ប្រទេសទួរគី កាលពីព្រឹកមិញនេះ បានសម្លាប់មន្ត្រីប៉ូលីសពីរនាក់ និងធ្វើឱ្យមនុស្សជាង ២០ នាក់ទៀតរងរបួស។",
+   "azure": "គ្រាប់បែករថយន្តមួយបានផ្ទុះនៅស្នាក់ការកណ្តាលប៉ូលិសនៅ Gaziantep ប្រទេសតួកគីកាលពីព្រឹកម្សិលមិញ បានសម្លាប់ប៉ូលិសពីរនាក់ និងបង្កររបួសដល់មនុស្សជាងម្ភៃនាក់។"
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 18,
+  "src": "en",
+  "tgt": "km",
+  "said": "The scenes are displayed on the pyramids and the different pyramids are lit up.",
+  "ref": "ផ្ទាំងទស្សនីយភាពត្រូវ​បញ្ចាំង​ទៅលើពីរ៉ាមីតទាំងឡាយ ហើយពីរ៉ាមីតដទៃទៀត ក៏ត្រូវបាន​បំភ្លឺភ្លើង​ដែរ។",
+  "answers": {
+   "sol": "ទិដ្ឋភាពទាំងនោះត្រូវបានបញ្ចាំងលើពីរ៉ាមីត ហើយពីរ៉ាមីតនីមួយៗត្រូវបានបំភ្លឺ។",
+   "flash": "រូបភាពត្រូវបានបង្ហាញនៅលើប្រាសាទពីរ៉ាមីត ហើយប្រាសាទពីរ៉ាមីតផ្សេងៗត្រូវបានបំភ្លឺ។",
+   "gemma": "ទិដ្ឋភាពទាំងនោះត្រូវបានបង្ហាញនៅលើពីរ៉ាមីត ហើយពីរ៉ាមីតផ្សេងៗគ្នាត្រូវបានបំភ្លឺ។",
+   "azure": "ឈុតឆាកត្រូវបានបង្ហាញលើពិរាមីត ហើយពិរាមីតផ្សេងៗត្រូវបានបំភ្លឺ។"
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 19,
+  "src": "en",
+  "tgt": "km",
+  "said": "In the warm climate of the Middle East, the house was not so important.",
+  "ref": "នៅ​ក្នុង​អាកាសធាតុក្តៅនៃ​មជ្ឈិម​បូព៌ា ផ្ទះ​មិន​សូវ​សំខាន់​ទេ។",
+  "answers": {
+   "sol": "នៅក្នុងអាកាសធាតុក្តៅនៃតំបន់មជ្ឈិមបូព៌ា ផ្ទះមិនសូវសំខាន់ប៉ុន្មានទេ។",
+   "flash": "នៅក្នុងអាកាសធាតុក្តៅនៃមជ្ឈិមបូព៌ា ផ្ទះមិនសូវជាមានសារៈសំខាន់ប៉ុន្មានទេ។",
+   "gemma": "នៅក្នុងអាកាសធាតុដ៏ក្ដៅនៃតំបន់មជ្ឈិមបូព៌ា ផ្ទះមិនសូវមានសារៈសំខាន់នោះទេ។",
+   "azure": "នៅក្នុងអាកាសធាតុក្តៅនៃមជ្ឈិមបូព៌ា ផ្ទះមិនសំខាន់ប៉ុន្មានទេ។"
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 20,
+  "src": "en",
+  "tgt": "km",
+  "said": "Do not deface the site by marking or scratching graffiti into structures.",
+  "ref": "កុំបំផ្លាញកន្លែងទស្សនាដោយការគូសចំណាំ កោសឆ្កូត ឬ គូរគំនូរនៅលើសំណង់តាមទីសាធារណៈ។",
+  "answers": {
+   "sol": "កុំធ្វើឱ្យទីតាំងនេះខូចខាតដោយគូសសញ្ញា ឬឆ្លាក់អក្សរគំនូរលើសំណង់។",
+   "flash": "សូមកុំធ្វើឱ្យខូចខាតទីតាំងដោយការគូស ឬឆ្កូតសរសេរអក្សរផ្ដេសផ្ដាសលើសំណង់នានា។",
+   "gemma": "សូមកុំធ្វើឱ្យខូចខាតទីតាំងនេះ ដោយការគូសវាស ឬសរសេរអក្សរលើសំណង់ទាំងនោះ។",
+   "azure": "កុំបំផ្លាញគេហទំព័រដោយសម្គាល់ ឬកោសស្នាមលើរចនាសម្ព័ន្ធ។"
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 21,
+  "src": "en",
+  "tgt": "km",
+  "said": "In just two weeks the Americans and Free French forces had liberated southern France and were turning towards Germany.",
+  "ref": "គ្រាន់តែ​ក្នុងរយៈពេល​ពីរសប្តាហ៍ប៉ុណ្ណោះ កងទ័ពអាមេរិក និងកងទ័ពសេរី​របស់បារាំង​បានចូលទៅរំដោះភាគខាងត្បូងប្រទេសបារាំង ហើយបានត្រឡប់​ឆ្ពោះ​ទៅកាន់​ប្រទេសអាល្លឺម៉ង់វិញ។",
+  "answers": {
+   "sol": "ត្រឹមតែពីរសប្តាហ៍ កងទ័ពអាមេរិក និងកងទ័ពបារាំងសេរីបានរំដោះភាគខាងត្បូងប្រទេសបារាំង ហើយកំពុងបែរឆ្ពោះទៅកាន់ប្រទេសអាល្លឺម៉ង់។",
+   "flash": "ក្នុងរយៈពេលត្រឹមតែពីរ សប្តាហ៍ ប៉ុណ្ណោះ កងកម្លាំងអាមេរិក និងបារាំងសេរី បានរំដោះភាគខាងត្បូងប្រទេសបារាំង ហើយបានឆ្ពោះទៅកាន់ប្រទេសអាល្លឺម៉ង់។",
+   "gemma": "ក្នុងរយៈពេលត្រឹមតែពីរសប្តាហ៍ប៉ុណ្ណោះ កងកម្លាំងអាមេរិក និងកងកម្លាំងបារាំងសេរី បានរំដោះភាគខាងត្បូងនៃប្រទេសបារាំង ហើយកំពុងតែបង្វែរទិសដៅឆ្ពោះទៅកាន់ប្រទេសអាល្លឺម៉ង់។",
+   "azure": "ក្នុងរយៈពេលត្រឹមពីរពីសប្តាហ៍ កងទ័ពអាមេរិក និងកងទ័ពបារាំងសេរីបានដោះស្រាយភាគខាងត្បូងនៃប្រទេសបារាំង ហើយកំពុងបង្វិលទៅកាន់ប្រទេសអាល្លឺម៉ង់។"
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 22,
+  "src": "en",
+  "tgt": "km",
+  "said": "Most of the buildings on the edges of the complex have been rebuilt in order to give tourists a better idea of how they originally appeared.",
+  "ref": "ភាគច្រើននៃអគារ​នៅលើគែមដ៏ស្មុគស្មាញត្រូវបាន​គេសាងសង់ឡើងវិញ​ដើម្បីផ្តល់ឱ្យអ្នកទេសចរនូវគំនិត​កាន់តែប្រសើរឡើង​អំពីរបៀបដែលអគារនេះវាបានផុសខ្លួនចេញមកដំបូង។",
+  "answers": {
+   "sol": "អគារភាគច្រើននៅជុំវិញបរិវេណនេះត្រូវបានសាងសង់ឡើងវិញ ដើម្បីឱ្យភ្ញៀវទេសចរយល់កាន់តែច្បាស់ថា ដើមឡើយអគារទាំងនោះមានរូបរាងបែបណា។",
+   "flash": "អគារភាគច្រើននៅតាមគែមនៃតំបន់នេះ ត្រូវបានសាងសង់ឡើងវិញ ដើម្បីឱ្យអ្នកទេសចរយល់កាន់តែច្បាស់អំពីរូបរាងដើមរបស់វា។",
+   "gemma": "អគារភាគច្រើនដែលនៅតាមគែមនៃបរិវេណនេះ ត្រូវបានសាងសង់ឡើងវិញ ដើម្បីឱ្យភ្ញៀវទេសចរអាចយល់កាន់តែច្បាស់អំពីសណ្ឋានដើមរបស់វា។",
+   "azure": "អាគារច្រើននៅគែមសំណង់ត្រូវបានសាងសង់ឡើងវិញ ដើម្បីឲ្យភ្ញៀវទេសចរមានគំនិតល្អប្រសើរជាងមុនអំពីរូបរាងដើមរបស់វា។"
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "en-km:ref",
+  "i": 23,
+  "src": "en",
+  "tgt": "km",
+  "said": "The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011, it didn't open to traffic until March 2017.",
+  "ref": "ប្រឡោះបញ្ឈរនៅក្រោមស្ពានគឺមានកម្ពស់ 15 ម៉ែត្រ។ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហាឆ្នាំ 2011 ហើយការធ្វើចរាចរនឹងត្រូវបានផ្អាករហូតដល់ខែមីនាឆ្នាំ 2017 ។",
+  "answers": {
+   "sol": "កម្ពស់ទំនេរក្រោមស្ពានគឺ ១៥ ម៉ែត្រ។ ការសាងសង់បានបញ្ចប់នៅខែសីហា ឆ្នាំ ២០១១ ប៉ុន្តែស្ពាននេះមិនបានបើកឱ្យចរាចរណ៍ឆ្លងកាត់រហូតដល់ខែមីនា ឆ្នាំ ២០១៧។",
+   "flash": "កម្ពស់ចន្លោះក្រោមស្ពានគឺ ១៥ ម៉ែត្រ។ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហា ឆ្នាំ២០១១ ប៉ុន្តែវាមិនបានបើកឱ្យចរាចរណ៍រហូតដល់ខែមីនា ឆ្នាំ២០១៧ នោះទេ។",
+   "gemma": "កម្ពស់ចន្លោះទំនេរក្រោមស្ពានគឺ ១៥ ម៉ែត្រ។ ការសាងសង់ត្រូវបានបញ្ចប់នៅក្នុងខែសីហា ឆ្នាំ២០១១ ប៉ុន្តែវាមិនបានបើកឱ្យចរាចរណ៍ឆ្លងកាត់ រហូតដល់ខែមីនា ឆ្នាំ២០១៧។",
+   "azure": "កម្ពស់បញ្ឈរក្រោមស្ពានគឺ 15 ម៉ែត្រ។ការសាងសង់បានបញ្ចប់នៅខែសីហា ឆ្នាំ 2011 ហើយមិនបានបើកសម្រាប់ចរាចរណ៍រហូតដល់ខែមីនា ឆ្នាំ 2017។"
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 0,
+  "src": "km",
+  "tgt": "en",
+  "said": "ទីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង Nyiragongo រួមជាមួយនឹងការតាមMountain Gorilla ដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក។",
+  "ref": "The city is also the base to climb the Nyiragongo volcano along with some of the cheapest Mountain Gorilla tracking in Africa.",
+  "answers": {
+   "sol": "This city is also a base for climbing Mount Nyiragongo and for gorilla trekking, one of the most expensive activities in Africa.",
+   "flash": "This city is also the base for climbing Mount Nyiragongo, along with Katama, which is the cheapest in Africa.",
+   "gemma": "This city is also a base for climbing Mount Kilimanjaro, along with the tour guides. It is very valuable and African.",
+   "azure": "The city is also a base to climb volcanoes. Naraconko along with the following. Hours. Worth photographing and Africa."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 1,
+     "critical": true
+    },
+    "flash": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 1,
+     "critical": true
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 0,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 1,
+  "src": "km",
+  "tgt": "en",
+  "said": "ការរកឃើញថ្មីនេះក៏ផ្តល់ជាការយល់ដឹងដ៏ទូលំទូលាយអំពី​ការវិវឌ្ឍន៍​ស្លាប​របស់​បក្សីផងដែរ។",
+  "ref": "The find also grants insight into the evolution of feathers in birds.",
+  "answers": {
+   "sol": "This new discovery also provides a broader understanding of how birds’ wings evolved.",
+   "flash": "This new discovery also provides a comprehensive insight into the evolution of bird wings.",
+   "gemma": "This new discovery also provides a broad understanding of the evolution of birds.",
+   "azure": "The new findings also provide a comprehensive understanding of bird mortality evolution."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 2,
+  "src": "km",
+  "tgt": "en",
+  "said": "Sundarbans គឺ​ជា​ខ្សែ​ក្រវាត់ដើម​កោង​កាង​ធំ​ជាង​គេ​នៅ​ក្នុង​ពិភព​លោក​ ដែល​លាត​សន្ធឹង​ប្រវែង​ 80 គម (50 ម៉ាយល៍) ចូល​ទៅ​ក្នុង​ដី​គោក​នៃ​ប្រទេស​បង់ក្លាដេស និង​ឥណ្ឌា​ ពី​តំបន់​មាត់​ឆ្នេរ​។​",
+  "ref": "The Sundarbans are the largest littoral mangrove belt in the world, stretching 80 km (50 mi) into the Bangladeshi and Indian hinterland from the coast.",
+  "answers": {
+   "sol": "The Sundarbans is the world’s largest mangrove belt, stretching 80 kilometers and 50 meters inland from the coast of Bangladesh and India.",
+   "flash": "The Sundarbans is the largest mangrove belt in the world, stretching 80 kilometers (50 miles) inland from the coast into Bangladesh and India.",
+   "gemma": "The Sundarbans is the largest mangrove forest in the world, stretching 80 kilometers and 50 meters inland into Bangladesh and India from the coastal region.",
+   "azure": "Sanda is the largest mangrove belt in the world. She stretches 80 km long. 50 meters into the mainland of Bangladesh. And India from the coastal areas."
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 3,
+  "src": "km",
+  "tgt": "en",
+  "said": "ប្រជាជន​ក្រុង​ប៉ារីស​មាន​កេរ្តិ៍ឈ្មោះ​ថា ជា​មនុស្ស​អាត្ម័ន អួតអាង និង​ក្រអឺត​ក្រ​ទម។",
+  "ref": "Parisians have a reputation for being egocentric, rude and arrogant.",
+  "answers": {
+   "sol": "Parisians have a reputation for being impatient, rude, and arrogant.",
+   "flash": "Parisians have a reputation for being impatient, rude, and arrogant.",
+   "gemma": "People of Paris are known to be impatient and grumpy.",
+   "azure": "The people of Paris have a reputation for that. They are arrogant and arrogant people."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 4,
+  "src": "km",
+  "tgt": "en",
+  "said": "អ្នកថតរូប​ក្រោយមក​យកកន្លែងរបស់​ស្ត្រីវ័យចំណាស់ម្នាក់​​ ខណៈដែលគាត់ទៅបន្ទប់ទឹក។ Mendoza ត្រូវបានគេបាញ់សម្លាប់។",
+  "ref": "The photographers later took the place of an aged lady as she needed the lavatory. Mendoza was gunned down.",
+  "answers": {
+   "sol": "The photographer later took the place of three women who had gone to fetch water before being shot dead.",
+   "flash": "The photographer later took the place of three women who went to the restroom before being shot dead.",
+   "gemma": "The photographer then took a picture of three women who went to fetch water and were shot dead.",
+   "azure": "The photographer later takes the place of 3 women. He goes to the bathroom. Not like being shot dead."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "sol": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 1,
+     "critical": true
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 1,
+     "critical": true
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 1,
+     "critical": true
+    },
+    "gemma": {
+     "score": 0,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 5,
+  "src": "km",
+  "tgt": "en",
+  "said": "កាល​ពី​សប្ដាហ៍​មុន​ METI បាន​ប្រកាស​ថា​ ក្រុមហ៊ុន Apple បាន​ជូនដំណឹង​ដល់​ខ្លួន​អំពី​គ្រោះ​ថ្នាក់​ចំនួន​ 34 ករណី​បន្ថែម​ទៀត​ អំពី​ការ​ឡើង​កំដៅ​ខ្លាំង​​ ដែល​ក្រុមហ៊ុន​ហៅ​ករណី​នេះ​ថា​ “មិន​មែនជាករណី​ធ្ងន់ធ្ងរ​”​។",
+  "ref": "Last week, METI announced that Apple had informed it of 34 additional overheating incidents, which the company called \"non-serious.\"",
+  "answers": {
+   "sol": "Last week, Mety announced that Hetuphal had notified it of 34 more overheating incidents, which the company still says were not serious.",
+   "flash": "Last week, Meti announced that Apple had notified them of 34 additional cases of severe overheating, which the company still called non-serious.",
+   "gemma": "Last week, the mayor announced that the company had notified him of 34 additional cases of overheating, which the company does not consider to be serious cases.",
+   "azure": "Last week, the company announced that. The company notified it of 34 accidents. More cases of extreme warming that the company calls the case. Not a serious case."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 6,
+  "src": "km",
+  "tgt": "en",
+  "said": "អឺរ៉ុបខាងលិចបានចាប់ផ្តើមអភិវឌ្ឍរចនាបថរបស់ខ្លួនឆ្ពោះទៅចុងបញ្ចប់នៃយុគសម័យកណ្តាល។ ការវិវឌ្ឃន៍ដ៏ធំបំផុតបានកើតឡើង នៅពេលដែលប្រជាជនបានចាប់ផ្តើមប្រើឡេវដើម្បីភ្ជាប់សម្លៀកបំពាក់។",
+  "ref": "towards the end of the Middle Ages western Europe began to develop their own style. one of the biggest developments of the time as a result of the crusades people began to use buttons to fasten clothing.",
+  "answers": {
+   "sol": "Western Europe began developing its own style toward the end of the Middle Ages. The biggest change came when people began using buttons to fasten their clothes.",
+   "flash": "Western Europe began developing its own style toward the end of the Middle Ages. The biggest evolution occurred when people started using buttons to fasten clothing.",
+   "gemma": "Western Europe began to develop its own style toward the end of the Middle Ages. The biggest evolution occurred when people began using letters to communicate.",
+   "azure": "Western Europe began to develop its style towards the end of the Middle Ages. The greatest evolution occurred when people began to use the lever to connect."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 7,
+  "src": "km",
+  "tgt": "en",
+  "said": "ពួកយើងមិនច្បាស់ដែរ ប៉ុន្តែវាប្រហែលជាមានពងបែកនៅអណ្តាត។ ចំនីរបស់វាជាសត្វអណ្តើក ត្រីធំៗ សត្វ mosasaurs ផ្សេងទៀត ហើយពេលខ្លះវាស៊ីគ្នាវាផងដែរ។",
+  "ref": "We don't know for sure, but it may have had a forked tongue. Its diet included turtles, large fish, other mosasaurs, and it may even have been a cannibal.",
+  "answers": {
+   "sol": "We’re not sure, but it probably ate turtles, large fish, and other crocodiles. Sometimes they even ate each other.",
+   "flash": "We are not sure, but it probably laid eggs. Its diet consisted of turtles, large fish, other mosasaurs, and sometimes it even ate its own kind.",
+   "gemma": "We aren't sure, but it probably has eggs, and its food is ants, other insects, and sometimes it even eats its own.",
+   "azure": "We're not sure, either, but it probably has a broken egg whose feed is that of turtles, other mammals, and sometimes it feeds on it as well."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "sol": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 0,
+     "critical": true
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 8,
+  "src": "km",
+  "tgt": "en",
+  "said": "កោះហុងកុង ផ្តល់ឈ្មោះ​នេះឱ្យទឹកដីហុងកុងតែ​ម្ដង​​ និងជាកន្លែងដែលភ្ញៀវទេសចរជាច្រើន ចាត់ទុកថា​ជាកន្លែង​​សំខាន់។",
+  "ref": "Hong Kong Island gives the territory of Hong Kong its name and is the place that many tourists regard as the main focus.",
+  "answers": {
+   "sol": "Hong Kong Island gives its name to the territory of Hong Kong and is a place many tourists consider important.",
+   "flash": "Hong Kong Island gave this name to the territory of Hong Kong itself, which many tourists consider an important location.",
+   "gemma": "Hong Kong gave this name to the Hong Kong territory, which many tourists consider an important place.",
+   "azure": "Liegon gives this name to Hong Kong Territory alone, a place that many tourists consider to be an important place."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 9,
+  "src": "km",
+  "tgt": "en",
+  "said": "ASUS Eee PC ជា​កម្មវិធី​ដែល​បាន​ដាក់ឲ្យ​ប្រើប្រាស់​នៅ​ទូទាំង​ពិភព​លោកដើម្បីការ​សន្សំ​សំចៃ​លើ​ការចំណាយ​ និង​កត្តា​មុខ​ងារ​របស់​វា​ បាន​ក្លាយ​ជា​ប្រធាន​បទ​ក្ដៅៗ​នៅ​ក្នុង​សន្និសីទ​ព័ត៌មាន​វិទ្យា​ប្រចាំ​ខែ​នៅ​ទីក្រុង​តៃបិ ឆ្នាំ 2007។",
+  "ref": "ASUS Eee PC, earlier launched world-wide for cost-saving and functionality factors, became a hot topic in 2007 Taipei IT Month.",
+  "answers": {
+   "sol": "ACPC is a program that was rolled out worldwide for its cost savings and functionality. It became a hot topic at the city’s monthly information technology conference in 2007.",
+   "flash": "ACPC is a program implemented worldwide for cost savings and functionality. It became a hot topic at the monthly IT conference in the city in 2007.",
+   "gemma": "EPC is a program implemented worldwide for cost savings and its functional capabilities. It became a hot topic at the monthly information technology conference in the city in 2007.",
+   "azure": "SPC is a software that has been deployed worldwide to save on its costs and workload factors. Has become a hot topic at monthly IT conferences. In the Metropolitan Municipality. 2000 Seven."
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 10,
+  "src": "km",
+  "tgt": "en",
+  "said": "ការនំដុតរបស់អាឡឺម៉ង់ជាច្រើនក៏មានដាក់គ្រាប់អាល់ម៉ុន ហេសលណាត់ និងគ្រាប់ផ្លែឈើដទៃទៀត។ នំដែលពេញនិយមតែងតែត្រូវគ្នាយ៉ាងពិសេសជាមួយកាហ្វេចាស់មួយកែវ។",
+  "ref": "Many German baked goods also feature almonds, hazelnuts, and other tree nuts. Popular cakes often pair particularly well with a cup of strong coffee.",
+  "answers": {
+   "sol": "Many German baked goods also contain almonds, hazelnuts, and other nuts. These popular pastries go especially well with a cup of old coffee.",
+   "flash": "Many German pastries also contain almonds, hazelnuts, and other nuts. Popular cakes pair especially well with a cup of strong coffee.",
+   "gemma": "Many German baked goods contain almonds and other nuts. Popular cakes are especially well-paired with a cup of strong coffee.",
+   "azure": "Many German baking products also contain almonds. What are the leftovers? Other nuts and nuts. Popular cakes always pair especially well with 1 cup of old coffee."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 11,
+  "src": "km",
+  "tgt": "en",
+  "said": "សំបករបស់វាមានកម្រាស់ប្រហែលជា 70 គីឡូម៉ែត្រនៅផ្នែកជិត និង 100គីឡូម៉ែត្រនៅផ្នែកឆ្ងាយ។",
+  "ref": "The crust is about 70 km thick on the near side and 100 km thick on the far side.",
+  "answers": {
+   "sol": "Its crust is about 70 kilometers thick on the near side, and [inaudible] kilometers on the far side.",
+   "flash": "Its crust is about 70 kilometers thick on the near side and kilometers on the far side.",
+   "gemma": "Its shell is about 70 kilometers in the center and kilometers in the far part.",
+   "azure": "Its scars exist. Maybe 70 kilometers on the mental side. kilometers on the far side."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 12,
+  "src": "km",
+  "tgt": "en",
+  "said": "ការ​ចែករំលែក​អំពី​ការ​ធ្វើ​ដំណើរ​ទស្សនកិច្ច​សិក្សា​ដោយ​ផ្ទាល់​ ក៏​ជា​វិធី​ដ៏​ល្អ​មួយ​ដើម្បី​ឆ្លុះ​បញ្ចាំង​ពី​ការ​ធ្វើ​ដំណើរ​ និ​ង​ចែក​រំលែក​បទ​ពិសោធន៍​សម្រាប់​ថ្នាក់​រៀន​ទៅ​ថ្ងៃ​អនាគតដែរ។",
+  "ref": "Sharing a field trip virtually is also a great way to reflect a on a trip and share experiences with future classes.",
+  "answers": {
+   "sol": "Sharing about a field trip you’ve taken yourself is also a good way to reflect on the trip and share your experiences with future classes.",
+   "flash": "Sharing about a study trip firsthand is also a great way to reflect on the journey and share experiences for future classes as well.",
+   "gemma": "Sharing about the field trip is also a great way to reflect on the journey and share experiences for future classes.",
+   "azure": "Sharing about in-person study visits is also a great way. 1. To reflect on the journey. Share experiences for classrooms in the future as well."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 13,
+  "src": "km",
+  "tgt": "en",
+  "said": "ជីអានខាឡូ ហ្វីស៊ីឆែលឡា (Giancarlo Fisichella) បានបញ្ជាឡានរបស់គាត់លែងកើត ហើយបានបញ្ចប់ការប្រកួតភ្លាមៗគ្រាន់តែចាប់ផ្តើមបានបន្តិច។",
+  "ref": "Giancarlo Fisichella lost control of his car and ended the race very soon after the start.",
+  "answers": {
+   "sol": "Giancarlo crashed his car and was out of the race shortly after it began.",
+   "flash": "Giancarlo Fisichella crashed his car and ended the race shortly after it started.",
+   "gemma": "Jean-Claude drove his car off the track and finished the race immediately after it had just started.",
+   "azure": "Ankalofi ordered his car. He was born and finished the game immediately just a little bit earlier."
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 14,
+  "src": "km",
+  "tgt": "en",
+  "said": "Lakkha Singh (ឡាក់​កាស៊ីង)​ក៏បានបង្ហាញ chhappan bhog bhajan ផងដែរ។ តារា​ចម្រៀង​លោក Raju Khandelwal (រ៉ាជូ ខាន់ដេវ៉ាល់) បាន​អមដំណើរ​ជាមួយ​នឹងគាត់។",
+  "ref": "Lakkha Singh presented the chhappan bhog bhajan as well. Singer, Raju Khandelwal was accompanying him.",
+  "answers": {
+   "sol": "Lak Kasi also showed up shortly afterward. Singer Preu Choukhan accompanied him.",
+   "flash": "Lacazette also showed a quick attempt in return. Star singer Mr. Prechukhan reached the end of the journey with him.",
+   "gemma": "Laki also quickly showed his reaction. The singer, Luke Bryan, ran out of luck with him.",
+   "azure": "Lucknow also showed up for a comeback. Singer Joe Khan passed away with him."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 0,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 0,
+     "critical": false
+    },
+    "gemma": {
+     "score": 0,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 15,
+  "src": "km",
+  "tgt": "en",
+  "said": "ដោយសារតែស្លាបដាយណូស័រមិនមានការលូតលាស់ល្អ ហើយត្រូវបានគេហៅថាឆ្នឹងខ្នង (rachis) ប៉ុន្តែមានលក្ខណៈពិសេសផ្សេងទៀតរបស់ស្លាប - រោម និង រោមល្អិតៗ - អ្នកស្រាវជ្រាវបានរកឃើញថា ឆ្នឹងខ្នងទំនងជាការវិវត្តនៅពេលក្រោយដែលវាមានលក្ខណៈពិសេសទាំងនេះ។",
+  "ref": "Because the dinosaur feathers do not have a well-developed shaft, called a rachis, but do have other features of feathers — barbs and barbules — the researchers inferred the rachis was likely a later evolutionary development that these other features.",
+  "answers": {
+   "sol": "The remaining feathers were not well developed and were called “spines.” But they had other features of feathers, including fine down. Research has found that the spine likely evolved after these other features.",
+   "flash": "Because the remaining feather lacked a well-developed shaft, known as a rachis, but possessed other feather features such as barbs and barbules, research found that the shaft likely evolved later than these features.",
+   "gemma": "Because the wings did not develop well, they were called \"mineral backbones.\" However, there are other special characteristics of the feathers and fine wraps. Research has found that the backbone is likely a later evolution with these special characteristics.",
+   "azure": "Because the rest of the wings don't grow well and are called mineral spines. But there are other characteristics of feathered and finely wrapped wings. Research has found that the spine is likely to evolve later with these characteristics."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 16,
+  "src": "km",
+  "tgt": "en",
+  "said": "បើយោងទៅតាមការបែកធ្លាយឯកសារនេះ គឺមានសេចក្តីយោងទៅលើជម្លោះព្រំដែន ដែល​ប៉ាឡេស្ទីន​ចង់បាន ដោយផ្អែក​លើព្រំដែនជាច្រើន មុនពេលកើតសង្គ្រាមនៅ​មជ្ឈិមបូព៌ា​ឆ្នាំ 1967។",
+  "ref": "The document, according to the leak, will refer to the borders dispute, which Palestine wants based on the borders before the 1967 Mideast War.",
+  "answers": {
+   "sol": "According to the leaked document, it refers to the border dispute and the borders Palestine wants, based on those that existed before the 1967 war in the Middle East.",
+   "flash": "According to this document leak, there is a reference to the border dispute that Palestine wants, based on the borders prior to the 1967 Middle East War.",
+   "gemma": "According to these leaked documents, there is a reference to the border dispute that Palestine wants, based on the borders from well before the 1967 Middle East war.",
+   "azure": "According to the leak, the document is a reference to the border dispute that the Palestinians wanted based on much of the border before the outbreak of the war in the Middle East in 1967."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 17,
+  "src": "km",
+  "tgt": "en",
+  "said": "គ្រាប់បែកនៅក្នុងរថយន្តដែលគេបានដាក់បំផ្ទុះនៅទីស្នាក់ការប៉ូលីសក្នុងទីក្រុង ហ្កា​ហ្សៀន​តិប (Gaziantep) ប្រទេស​ទួរគី​កាល​ពី​ព្រឹក​ម្សិល​មិញនេះ បាន​សម្លាប់​មន្ត្រី​ប៉ូលិស​ចំនួន​ពីរ​នាក់ និងអ្នករងរបួសជាងម្ភៃនាក់ផ្សេងទៀត។",
+  "ref": "A car bomb detonated at police headquarters in Gaziantep, Turkey yesterday morning killed two police officers and injured more than twenty other people.",
+  "answers": {
+   "sol": "A car bomb detonated at a police station in Gaziantep, Turkey, this morning killed two police officers and injured more than 20 others.",
+   "flash": "A car bomb detonated at a police headquarters in the city of Gaziantep, Turkey, this morning killed two police officers and injured more than twenty others.",
+   "gemma": "A car bomb that exploded at a police station in Kahramanmaraş, Turkey, this morning killed two police officers and injured more than twenty others.",
+   "azure": "A car bomb detonated at a police headquarters in the Turkish city of Cairo yesterday morning killed 2 police officers and injured more than twenty others."
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": true
+    },
+    "gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 1,
+     "critical": true
+    },
+    "gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 18,
+  "src": "km",
+  "tgt": "en",
+  "said": "ផ្ទាំងទស្សនីយភាពត្រូវ​បញ្ចាំង​ទៅលើពីរ៉ាមីតទាំងឡាយ ហើយពីរ៉ាមីតដទៃទៀត ក៏ត្រូវបាន​បំភ្លឺភ្លើង​ដែរ។",
+  "ref": "The scenes are displayed on the pyramids and the different pyramids are lit up.",
+  "answers": {
+   "sol": "Visual displays were projected onto the two structures, and others were lit up as well.",
+   "flash": "The displays were projected on both, and two other modes were also illuminated.",
+   "gemma": "The screens are to be projected on both sides, and other areas must also be illuminated.",
+   "azure": "Spectacle panels are projected on both sides and other modes are also illuminated."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 19,
+  "src": "km",
+  "tgt": "en",
+  "said": "នៅ​ក្នុង​អាកាសធាតុក្តៅនៃ​មជ្ឈិម​បូព៌ា ផ្ទះ​មិន​សូវ​សំខាន់​ទេ។",
+  "ref": "In the warm climate of the Middle East, the house was not so important.",
+  "answers": {
+   "sol": "In the hot climate of the Middle East, houses aren’t very important.",
+   "flash": "In the hot climate of the Middle East, houses are not very important.",
+   "gemma": "In the hot weather of the Middle East, houses are not very important.",
+   "azure": "In the warm climate of the Middle East, home is less important."
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 20,
+  "src": "km",
+  "tgt": "en",
+  "said": "កុំបំផ្លាញកន្លែងទស្សនាដោយការគូសចំណាំ កោសឆ្កូត ឬ គូរគំនូរនៅលើសំណង់តាមទីសាធារណៈ។",
+  "ref": "Do not deface the site by marking or scratching graffiti into structures.",
+  "answers": {
+   "sol": "Don’t vandalize tourist sites by scribbling or drawing on public structures.",
+   "flash": "Do not deface sightseeing spots by scribbling, scratching, or drawing graffiti on public structures.",
+   "gemma": "Do not damage the sightseeing areas by scribbling or drawing on public structures.",
+   "azure": "Don't ruin the sightseeing spot by drawing a dog's note. Or drawing graffiti on public spaces."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 21,
+  "src": "km",
+  "tgt": "en",
+  "said": "គ្រាន់តែ​ក្នុងរយៈពេល​ពីរសប្តាហ៍ប៉ុណ្ណោះ កងទ័ពអាមេរិក និងកងទ័ពសេរី​របស់បារាំង​បានចូលទៅរំដោះភាគខាងត្បូងប្រទេសបារាំង ហើយបានត្រឡប់​ឆ្ពោះ​ទៅកាន់​ប្រទេសអាល្លឺម៉ង់វិញ។",
+  "ref": "In just two weeks the Americans and Free French forces had liberated southern France and were turning towards Germany.",
+  "answers": {
+   "sol": "In just two weeks, American troops and the Free French forces entered and liberated southern France, then headed back toward Germany.",
+   "flash": "In just two weeks, US forces and Free French forces liberated southern France and headed back toward Germany.",
+   "gemma": "In just two weeks, American troops and the Free French Forces entered to liberate southern France and then headed back toward Germany.",
+   "azure": "In just 2 weeks. The U.S. Army and the French Free Army entered southern France and returned toward Germany."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 22,
+  "src": "km",
+  "tgt": "en",
+  "said": "ភាគច្រើននៃអគារ​នៅលើគែមដ៏ស្មុគស្មាញត្រូវបាន​គេសាងសង់ឡើងវិញ​ដើម្បីផ្តល់ឱ្យអ្នកទេសចរនូវគំនិត​កាន់តែប្រសើរឡើង​អំពីរបៀបដែលអគារនេះវាបានផុសខ្លួនចេញមកដំបូង។",
+  "ref": "Most of the buildings on the edges of the complex have been rebuilt in order to give tourists a better idea of how they originally appeared.",
+  "answers": {
+   "sol": "Most of the buildings at the site have been reconstructed to give tourists a better idea of what they originally looked like.",
+   "flash": "Most of the buildings in Pompeii have been rebuilt to give tourists a better idea of how they originally looked.",
+   "gemma": "Most of the buildings in the top 10 were rebuilt to give visitors a better idea of how these buildings originally looked.",
+   "azure": "Most of the buildings on the 10-block prison have been rebuilt to give the inmates a better idea of how the building came out in the first place."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 1,
+     "critical": true
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 1,
+     "critical": true
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:azure",
+  "i": 23,
+  "src": "km",
+  "tgt": "en",
+  "said": "ប្រឡោះបញ្ឈរនៅក្រោមស្ពានគឺមានកម្ពស់ 15 ម៉ែត្រ។ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហាឆ្នាំ 2011 ហើយការធ្វើចរាចរនឹងត្រូវបានផ្អាករហូតដល់ខែមីនាឆ្នាំ 2017 ។",
+  "ref": "The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011, it didn't open to traffic until March 2017.",
+  "answers": {
+   "sol": "The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011. Traffic was suspended until March 2017.",
+   "flash": "The vertical clearance under the bridge is 15 meters high. Construction was completed in August 2011. Traffic will be suspended until March 2017.",
+   "gemma": "The vertical pillar under the bridge is 15 meters high. Construction was completed in August 2011. Traffic was suspended until March 2017.",
+   "azure": "The vertical passage under the bridge is fifteen meters high. Construction was completed in August 2017. The traffic was suspended until March 2017."
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": true
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": true
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 0,
+  "src": "km",
+  "tgt": "en",
+  "said": "ទីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង Nyiragongo រួមជាមួយនឹងការតាមMountain Gorilla ដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក។",
+  "ref": "The city is also the base to climb the Nyiragongo volcano along with some of the cheapest Mountain Gorilla tracking in Africa.",
+  "answers": {
+   "sol": "This city is also a base for climbing Mount Nyiragongo and for the cheapest mountain gorilla trekking in Africa.",
+   "flash": "This city is also a base for climbing the Nyiragongo volcano, along with the cheapest mountain gorilla tracking in Africa.",
+   "gemma": "This city is also the base for climbing Mount Nyiragongo, as well as for the most affordable mountain gorilla trekking in Africa.",
+   "azure": "The city is also the base to climb Nyiragongo volcano, along with the cheapest gorilla trail in Africa."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 1,
+  "src": "km",
+  "tgt": "en",
+  "said": "ការរកឃើញថ្មីនេះក៏ផ្តល់ជាការយល់ដឹងដ៏ទូលំទូលាយអំពី​ការវិវឌ្ឍន៍​ស្លាប​របស់​បក្សីផងដែរ។",
+  "ref": "The find also grants insight into the evolution of feathers in birds.",
+  "answers": {
+   "sol": "This new discovery also provides a broader understanding of how birds’ wings evolved.",
+   "flash": "This new discovery also provides a comprehensive understanding of the evolution of bird wings.",
+   "gemma": "This new discovery also provides a broad understanding of the evolution of bird wings.",
+   "azure": "The new findings also provide a comprehensive understanding of the bird's wing evolution."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 2,
+  "src": "km",
+  "tgt": "en",
+  "said": "Sundarbans គឺ​ជា​ខ្សែ​ក្រវាត់ដើម​កោង​កាង​ធំ​ជាង​គេ​នៅ​ក្នុង​ពិភព​លោក​ ដែល​លាត​សន្ធឹង​ប្រវែង​ 80 គម (50 ម៉ាយល៍) ចូល​ទៅ​ក្នុង​ដី​គោក​នៃ​ប្រទេស​បង់ក្លាដេស និង​ឥណ្ឌា​ ពី​តំបន់​មាត់​ឆ្នេរ​។​",
+  "ref": "The Sundarbans are the largest littoral mangrove belt in the world, stretching 80 km (50 mi) into the Bangladeshi and Indian hinterland from the coast.",
+  "answers": {
+   "sol": "The Sundarbans is the world’s largest mangrove belt, stretching 80 km (50 miles) inland from the coast into Bangladesh and India.",
+   "flash": "The Sundarbans is the world's largest mangrove belt, stretching 80 km (50 miles) inland into Bangladesh and India from the coast.",
+   "gemma": "The Sundarbans is the largest mangrove forest belt in the world, extending 80 km (50 miles) inland into Bangladesh and India from the coast.",
+   "azure": "The Sundarbans are the largest mangrove belt in the world, stretching 80 km (50 miles) long into the mainland of Bangladesh and India from coastal areas."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 3,
+  "src": "km",
+  "tgt": "en",
+  "said": "ប្រជាជន​ក្រុង​ប៉ារីស​មាន​កេរ្តិ៍ឈ្មោះ​ថា ជា​មនុស្ស​អាត្ម័ន អួតអាង និង​ក្រអឺត​ក្រ​ទម។",
+  "ref": "Parisians have a reputation for being egocentric, rude and arrogant.",
+  "answers": {
+   "sol": "Parisians have a reputation for being selfish, boastful, and arrogant.",
+   "flash": "Parisians have a reputation for being self-centered, boastful, and arrogant.",
+   "gemma": "People of Paris are known to be selfish, boastful, and arrogant.",
+   "azure": "The people of Paris have a reputation for being arrogant, arrogant, and arrogant."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 4,
+  "src": "km",
+  "tgt": "en",
+  "said": "អ្នកថតរូប​ក្រោយមក​យកកន្លែងរបស់​ស្ត្រីវ័យចំណាស់ម្នាក់​​ ខណៈដែលគាត់ទៅបន្ទប់ទឹក។ Mendoza ត្រូវបានគេបាញ់សម្លាប់។",
+  "ref": "The photographers later took the place of an aged lady as she needed the lavatory. Mendoza was gunned down.",
+  "answers": {
+   "sol": "A photographer later took an elderly woman’s place while she went to the bathroom. Mendoza was shot and killed.",
+   "flash": "The photographer later took the place of an elderly woman while she went to the restroom. Mendoza was shot dead.",
+   "gemma": "The photographer then took the place of an elderly woman while she went to the restroom. Mendoza was shot dead.",
+   "azure": "Photographers later took the place of an elderly woman as he went to the bathroom. Mendoza was shot and killed."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 5,
+  "src": "km",
+  "tgt": "en",
+  "said": "កាល​ពី​សប្ដាហ៍​មុន​ METI បាន​ប្រកាស​ថា​ ក្រុមហ៊ុន Apple បាន​ជូនដំណឹង​ដល់​ខ្លួន​អំពី​គ្រោះ​ថ្នាក់​ចំនួន​ 34 ករណី​បន្ថែម​ទៀត​ អំពី​ការ​ឡើង​កំដៅ​ខ្លាំង​​ ដែល​ក្រុមហ៊ុន​ហៅ​ករណី​នេះ​ថា​ “មិន​មែនជាករណី​ធ្ងន់ធ្ងរ​”​។",
+  "ref": "Last week, METI announced that Apple had informed it of 34 additional overheating incidents, which the company called \"non-serious.\"",
+  "answers": {
+   "sol": "Last week, METI announced that Apple had reported 34 more overheating incidents, which the company described as “not serious.”",
+   "flash": "Last week, METI announced that Apple had notified it of 34 additional cases of overheating incidents, which the company called \"not serious.\"",
+   "gemma": "Last week, METI announced that Apple had notified them of 34 additional cases of overheating, which the company described as \"not serious.\"",
+   "azure": "Last week, METI announced that Apple had notified itself of 34 more cases of extreme warming, which the company called \"not a serious case.\""
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": true
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 6,
+  "src": "km",
+  "tgt": "en",
+  "said": "អឺរ៉ុបខាងលិចបានចាប់ផ្តើមអភិវឌ្ឍរចនាបថរបស់ខ្លួនឆ្ពោះទៅចុងបញ្ចប់នៃយុគសម័យកណ្តាល។ ការវិវឌ្ឃន៍ដ៏ធំបំផុតបានកើតឡើង នៅពេលដែលប្រជាជនបានចាប់ផ្តើមប្រើឡេវដើម្បីភ្ជាប់សម្លៀកបំពាក់។",
+  "ref": "towards the end of the Middle Ages western Europe began to develop their own style. one of the biggest developments of the time as a result of the crusades people began to use buttons to fasten clothing.",
+  "answers": {
+   "sol": "Western Europe began developing its own style toward the end of the Middle Ages. The biggest change came when people began using buttons to fasten their clothes.",
+   "flash": "Western Europe began developing its own style towards the end of the Middle Ages. The biggest development occurred when people started using buttons to fasten clothing.",
+   "gemma": "Western Europe began developing its style toward the end of the Middle Ages. The biggest evolution occurred when people started using buttons to fasten their clothes.",
+   "azure": "Umsebenzisa ukuba"
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 7,
+  "src": "km",
+  "tgt": "en",
+  "said": "ពួកយើងមិនច្បាស់ដែរ ប៉ុន្តែវាប្រហែលជាមានពងបែកនៅអណ្តាត។ ចំនីរបស់វាជាសត្វអណ្តើក ត្រីធំៗ សត្វ mosasaurs ផ្សេងទៀត ហើយពេលខ្លះវាស៊ីគ្នាវាផងដែរ។",
+  "ref": "We don't know for sure, but it may have had a forked tongue. Its diet included turtles, large fish, other mosasaurs, and it may even have been a cannibal.",
+  "answers": {
+   "sol": "We’re not sure, but it may have had blisters on its tongue. It ate turtles, large fish, other mosasaurs, and sometimes even its own kind.",
+   "flash": "We aren't sure, but it may have had blisters on its tongue. Its diet consisted of turtles, large fish, other mosasaurs, and sometimes it even ate its own kind.",
+   "gemma": "We aren't sure, but it might have had an explosion (bulb/sac) on its tongue. Its prey consisted of ammonites, large fish, other mosasaurs, and sometimes they even ate each other.",
+   "azure": "Its mouths are turtles, large fish, other mosasaurs, and sometimes it splits it too."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 8,
+  "src": "km",
+  "tgt": "en",
+  "said": "កោះហុងកុង ផ្តល់ឈ្មោះ​នេះឱ្យទឹកដីហុងកុងតែ​ម្ដង​​ និងជាកន្លែងដែលភ្ញៀវទេសចរជាច្រើន ចាត់ទុកថា​ជាកន្លែង​​សំខាន់។",
+  "ref": "Hong Kong Island gives the territory of Hong Kong its name and is the place that many tourists regard as the main focus.",
+  "answers": {
+   "sol": "Hong Kong Island gives the territory of Hong Kong its name and is a place many tourists consider a major attraction.",
+   "flash": "Hong Kong Island gives its name to the territory of Hong Kong itself and is a place that many tourists consider an important destination.",
+   "gemma": "Hong Kong Island gave its name to the Hong Kong territory and is a place that many tourists consider important.",
+   "azure": "Hong Kong Island gives this name only to the Hong Kong territory and is considered an important place by many tourists."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 9,
+  "src": "km",
+  "tgt": "en",
+  "said": "ASUS Eee PC ជា​កម្មវិធី​ដែល​បាន​ដាក់ឲ្យ​ប្រើប្រាស់​នៅ​ទូទាំង​ពិភព​លោកដើម្បីការ​សន្សំ​សំចៃ​លើ​ការចំណាយ​ និង​កត្តា​មុខ​ងារ​របស់​វា​ បាន​ក្លាយ​ជា​ប្រធាន​បទ​ក្ដៅៗ​នៅ​ក្នុង​សន្និសីទ​ព័ត៌មាន​វិទ្យា​ប្រចាំ​ខែ​នៅ​ទីក្រុង​តៃបិ ឆ្នាំ 2007។",
+  "ref": "ASUS Eee PC, earlier launched world-wide for cost-saving and functionality factors, became a hot topic in 2007 Taipei IT Month.",
+  "answers": {
+   "sol": "The ASUS Eee PC, launched worldwide with its low cost and functionality, became a hot topic at a monthly IT conference in Taipei in 2007.",
+   "flash": "The ASUS Eee PC, launched worldwide for its cost-effectiveness and form factor, became a hot topic at the 2007 Taipei IT Month.",
+   "gemma": "The ASUS Eee PC was released worldwide for cost-efficiency, and its functionality became a hot topic at the monthly IT conference in Taipei in 2007.",
+   "azure": "The ASUS Eee PC, a software deployed worldwide to save on cost and its functional factors, became a hot topic at the 2007 Monthly IT Conference in Taipei."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 1,
+     "critical": true
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 10,
+  "src": "km",
+  "tgt": "en",
+  "said": "ការនំដុតរបស់អាឡឺម៉ង់ជាច្រើនក៏មានដាក់គ្រាប់អាល់ម៉ុន ហេសលណាត់ និងគ្រាប់ផ្លែឈើដទៃទៀត។ នំដែលពេញនិយមតែងតែត្រូវគ្នាយ៉ាងពិសេសជាមួយកាហ្វេចាស់មួយកែវ។",
+  "ref": "Many German baked goods also feature almonds, hazelnuts, and other tree nuts. Popular cakes often pair particularly well with a cup of strong coffee.",
+  "answers": {
+   "sol": "Many German baked goods also contain almonds, hazelnuts, and other nuts. Popular pastries go especially well with a cup of coffee.",
+   "flash": "Many German baked goods also contain almonds, hazelnuts, and other nuts. Popular pastries go especially well with a cup of strong coffee.",
+   "gemma": "Many German baked goods also contain almonds, hazelnuts, and other nuts. Popular pastries are often paired perfectly with a cup of old coffee.",
+   "azure": "Many German bakeries also contain almonds, hazelnuts, and other fruit nuts."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 11,
+  "src": "km",
+  "tgt": "en",
+  "said": "សំបករបស់វាមានកម្រាស់ប្រហែលជា 70 គីឡូម៉ែត្រនៅផ្នែកជិត និង 100គីឡូម៉ែត្រនៅផ្នែកឆ្ងាយ។",
+  "ref": "The crust is about 70 km thick on the near side and 100 km thick on the far side.",
+  "answers": {
+   "sol": "Its crust is about 70 kilometers thick on the near side and 100 kilometers thick on the far side.",
+   "flash": "Its crust is about 70 kilometers thick on the near side and 100 kilometers on the far side.",
+   "gemma": "Its shell is approximately 70 kilometers thick at the near side and 100 kilometers thick at the far side.",
+   "azure": "Its shell is about 70 km thick on the near side and 100 km on the far side."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 12,
+  "src": "km",
+  "tgt": "en",
+  "said": "ការ​ចែករំលែក​អំពី​ការ​ធ្វើ​ដំណើរ​ទស្សនកិច្ច​សិក្សា​ដោយ​ផ្ទាល់​ ក៏​ជា​វិធី​ដ៏​ល្អ​មួយ​ដើម្បី​ឆ្លុះ​បញ្ចាំង​ពី​ការ​ធ្វើ​ដំណើរ​ និ​ង​ចែក​រំលែក​បទ​ពិសោធន៍​សម្រាប់​ថ្នាក់​រៀន​ទៅ​ថ្ងៃ​អនាគតដែរ។",
+  "ref": "Sharing a field trip virtually is also a great way to reflect a on a trip and share experiences with future classes.",
+  "answers": {
+   "sol": "Sharing about the field trip in person is also a great way to reflect on the trip and pass on what you learned to future classes.",
+   "flash": "Sharing about an in-person study tour is also a great way to reflect on the trip and share experiences for future classes.",
+   "gemma": "Sharing about a field trip is also a great way to reflect on the journey and share experiences for future classes.",
+   "azure": "Sharing about in-person learning visits is also a great way to reflect on the journey and share experiences for future classrooms."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 13,
+  "src": "km",
+  "tgt": "en",
+  "said": "ជីអានខាឡូ ហ្វីស៊ីឆែលឡា (Giancarlo Fisichella) បានបញ្ជាឡានរបស់គាត់លែងកើត ហើយបានបញ្ចប់ការប្រកួតភ្លាមៗគ្រាន់តែចាប់ផ្តើមបានបន្តិច។",
+  "ref": "Giancarlo Fisichella lost control of his car and ended the race very soon after the start.",
+  "answers": {
+   "sol": "Giancarlo Fisichella lost control of his car and was out of the race shortly after it began.",
+   "flash": "Giancarlo Fisichella lost control of his car and his race ended immediately shortly after it started.",
+   "gemma": "Giancarlo Fisichella lost control of his car and retired from the race shortly after it began.",
+   "azure": "Giancarlo Fisichella ordered his car out and ended the match abruptly with just a little bit started."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 14,
+  "src": "km",
+  "tgt": "en",
+  "said": "Lakkha Singh (ឡាក់​កាស៊ីង)​ក៏បានបង្ហាញ chhappan bhog bhajan ផងដែរ។ តារា​ចម្រៀង​លោក Raju Khandelwal (រ៉ាជូ ខាន់ដេវ៉ាល់) បាន​អមដំណើរ​ជាមួយ​នឹងគាត់។",
+  "ref": "Lakkha Singh presented the chhappan bhog bhajan as well. Singer, Raju Khandelwal was accompanying him.",
+  "answers": {
+   "sol": "Lakkha Singh also performed a chhappan bhog bhajan, accompanied by singer Raju Khandelwal.",
+   "flash": "Lakkha Singh also performed Chhappan Bhog Bhajan. Singer Raju Khandelwal accompanied him.",
+   "gemma": "Lakkha Singh also performed Chhappan Bhog Bhajan. He was accompanied by singer Raju Khandelwal.",
+   "azure": "Lakkha Singh (Lakkha Singh) also presented a chhappan bhog bhajan, singer Raju Khandelwal (Raju Khandelwal) escorted with him."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 15,
+  "src": "km",
+  "tgt": "en",
+  "said": "ដោយសារតែស្លាបដាយណូស័រមិនមានការលូតលាស់ល្អ ហើយត្រូវបានគេហៅថាឆ្នឹងខ្នង (rachis) ប៉ុន្តែមានលក្ខណៈពិសេសផ្សេងទៀតរបស់ស្លាប - រោម និង រោមល្អិតៗ - អ្នកស្រាវជ្រាវបានរកឃើញថា ឆ្នឹងខ្នងទំនងជាការវិវត្តនៅពេលក្រោយដែលវាមានលក្ខណៈពិសេសទាំងនេះ។",
+  "ref": "Because the dinosaur feathers do not have a well-developed shaft, called a rachis, but do have other features of feathers — barbs and barbules — the researchers inferred the rachis was likely a later evolutionary development that these other features.",
+  "answers": {
+   "sol": "Because dinosaur feathers lacked a well-developed central shaft, called a rachis, but had other feather features—barbs and barbules—researchers concluded that the rachis probably evolved after those features.",
+   "flash": "Because dinosaur feathers lacked a well-developed central shaft, called a rachis, but had other feather features—barbs and barbules—researchers found that the rachis likely evolved later than these features.",
+   "gemma": "Because dinosaur wings did not develop well and were called a rachis, but there are other special features of the wing—feathers and down—researchers have found that the rachis was likely a later evolution that possessed these characteristics.",
+   "azure": "Because dinosaur wings didn't grow well and were called rachis, but had other features of the wings — feathers and fine feathers — the researchers found that dorsal vertebrates were more likely to evolve later that they had these features."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 16,
+  "src": "km",
+  "tgt": "en",
+  "said": "បើយោងទៅតាមការបែកធ្លាយឯកសារនេះ គឺមានសេចក្តីយោងទៅលើជម្លោះព្រំដែន ដែល​ប៉ាឡេស្ទីន​ចង់បាន ដោយផ្អែក​លើព្រំដែនជាច្រើន មុនពេលកើតសង្គ្រាមនៅ​មជ្ឈិមបូព៌ា​ឆ្នាំ 1967។",
+  "ref": "The document, according to the leak, will refer to the borders dispute, which Palestine wants based on the borders before the 1967 Mideast War.",
+  "answers": {
+   "sol": "According to the leaked document, it refers to the borders the Palestinians want, based on those that existed before the 1967 Middle East war.",
+   "flash": "According to the leaked document, there is a reference to the border dispute that Palestine wants, based on the borders prior to the 1967 Middle East War.",
+   "gemma": "According to these leaked documents, there is a reference to the border dispute that Palestine desires, based on several borders prior to the 1967 Middle East war.",
+   "azure": "According to the leak, the document contains references to border disputes, which Palestine wants, based on several borders before the 1967 Middle East war."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 17,
+  "src": "km",
+  "tgt": "en",
+  "said": "គ្រាប់បែកនៅក្នុងរថយន្តដែលគេបានដាក់បំផ្ទុះនៅទីស្នាក់ការប៉ូលីសក្នុងទីក្រុង ហ្កា​ហ្សៀន​តិប (Gaziantep) ប្រទេស​ទួរគី​កាល​ពី​ព្រឹក​ម្សិល​មិញនេះ បាន​សម្លាប់​មន្ត្រី​ប៉ូលិស​ចំនួន​ពីរ​នាក់ និងអ្នករងរបួសជាងម្ភៃនាក់ផ្សេងទៀត។",
+  "ref": "A car bomb detonated at police headquarters in Gaziantep, Turkey yesterday morning killed two police officers and injured more than twenty other people.",
+  "answers": {
+   "sol": "A car bomb detonated at police headquarters in Gaziantep, Turkey, yesterday morning killed two police officers and injured more than 20 others.",
+   "flash": "A car bomb detonated at the police headquarters in the city of Gaziantep, Turkey, yesterday morning, killing two police officers and injuring more than twenty others.",
+   "gemma": "A car bomb detonated at a police station in Gaziantep, Turkey, yesterday morning, killing two police officers and injuring more than twenty others.",
+   "azure": "A car bomb detonated at police headquarters in Gaziantep, Turkey, yesterday morning killed two police officers and injured more than twenty others."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 18,
+  "src": "km",
+  "tgt": "en",
+  "said": "ផ្ទាំងទស្សនីយភាពត្រូវ​បញ្ចាំង​ទៅលើពីរ៉ាមីតទាំងឡាយ ហើយពីរ៉ាមីតដទៃទៀត ក៏ត្រូវបាន​បំភ្លឺភ្លើង​ដែរ។",
+  "ref": "The scenes are displayed on the pyramids and the different pyramids are lit up.",
+  "answers": {
+   "sol": "Images were projected onto the pyramids, and the other pyramids were lit up too.",
+   "flash": "The spectacle was projected onto the pyramids, and other pyramids were also illuminated.",
+   "gemma": "Images were projected onto the pyramids, and other pyramids were also illuminated.",
+   "azure": "The spectacle was projected onto the pyramids, and the other pyramids were also illuminated."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 19,
+  "src": "km",
+  "tgt": "en",
+  "said": "នៅ​ក្នុង​អាកាសធាតុក្តៅនៃ​មជ្ឈិម​បូព៌ា ផ្ទះ​មិន​សូវ​សំខាន់​ទេ។",
+  "ref": "In the warm climate of the Middle East, the house was not so important.",
+  "answers": {
+   "sol": "In the hot climate of the Middle East, houses aren’t very important.",
+   "flash": "In the hot climate of the Middle East, houses are not very important.",
+   "gemma": "In the hot climate of the Middle East, houses are not very important.",
+   "azure": "In the hot climate of the Middle East, homes are less important."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 20,
+  "src": "km",
+  "tgt": "en",
+  "said": "កុំបំផ្លាញកន្លែងទស្សនាដោយការគូសចំណាំ កោសឆ្កូត ឬ គូរគំនូរនៅលើសំណង់តាមទីសាធារណៈ។",
+  "ref": "Do not deface the site by marking or scratching graffiti into structures.",
+  "answers": {
+   "sol": "Don’t damage tourist sites by marking, scratching, or drawing on structures in public places.",
+   "flash": "Do not ruin tourist sites by marking, scratching, or drawing on public structures.",
+   "gemma": "Do not damage the sightseeing areas by marking, scratching, or drawing on public structures.",
+   "azure": "Do not damage the visitor space by sketching, scratching, or painting graffiti on public streets."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 21,
+  "src": "km",
+  "tgt": "en",
+  "said": "គ្រាន់តែ​ក្នុងរយៈពេល​ពីរសប្តាហ៍ប៉ុណ្ណោះ កងទ័ពអាមេរិក និងកងទ័ពសេរី​របស់បារាំង​បានចូលទៅរំដោះភាគខាងត្បូងប្រទេសបារាំង ហើយបានត្រឡប់​ឆ្ពោះ​ទៅកាន់​ប្រទេសអាល្លឺម៉ង់វិញ។",
+  "ref": "In just two weeks the Americans and Free French forces had liberated southern France and were turning towards Germany.",
+  "answers": {
+   "sol": "In just two weeks, American and Free French forces moved in to liberate southern France, then headed back toward Germany.",
+   "flash": "In just two weeks, American troops and Free French forces liberated southern France and headed back towards Germany.",
+   "gemma": "In just two weeks, American troops and the Free French forces entered to liberate southern France and headed back toward Germany.",
+   "azure": "In just two weeks, American troops and the Free French Army entered southern France and returned to Germany."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": true
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 22,
+  "src": "km",
+  "tgt": "en",
+  "said": "ភាគច្រើននៃអគារ​នៅលើគែមដ៏ស្មុគស្មាញត្រូវបាន​គេសាងសង់ឡើងវិញ​ដើម្បីផ្តល់ឱ្យអ្នកទេសចរនូវគំនិត​កាន់តែប្រសើរឡើង​អំពីរបៀបដែលអគារនេះវាបានផុសខ្លួនចេញមកដំបូង។",
+  "ref": "Most of the buildings on the edges of the complex have been rebuilt in order to give tourists a better idea of how they originally appeared.",
+  "answers": {
+   "sol": "Most of the buildings around the edge of the complex have been reconstructed to give visitors a better idea of what they originally looked like.",
+   "flash": "Most of the buildings on the edge of the complex have been reconstructed to give tourists a better idea of how they originally looked.",
+   "gemma": "Most of the buildings on the complex edge were rebuilt to give tourists a better idea of how the buildings originally appeared.",
+   "azure": "Most of the buildings on the edge of the complex have been reconstructed to give visitors a better idea of how the building came to be in the first place."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:ref",
+  "i": 23,
+  "src": "km",
+  "tgt": "en",
+  "said": "ប្រឡោះបញ្ឈរនៅក្រោមស្ពានគឺមានកម្ពស់ 15 ម៉ែត្រ។ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហាឆ្នាំ 2011 ហើយការធ្វើចរាចរនឹងត្រូវបានផ្អាករហូតដល់ខែមីនាឆ្នាំ 2017 ។",
+  "ref": "The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011, it didn't open to traffic until March 2017.",
+  "answers": {
+   "sol": "The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011, and traffic will be suspended until March 2017.",
+   "flash": "The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011, and traffic will be suspended until March 2017.",
+   "gemma": "The vertical clearance under the bridge is 15 meters. Construction was completed in April 2011, and traffic will be suspended until March 2017.",
+   "azure": "Construction was completed in August 2011 and traffic will be suspended until March 2017."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 0,
+  "src": "km",
+  "tgt": "en",
+  "said": "ទីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង Nyiragongo រួមជាមួយនឹងការតាមMountain Gorilla ដែលមានតម្លៃថោកបំផុតនៅអាហ្វ្រិក។",
+  "ref": "The city is also the base to climb the Nyiragongo volcano along with some of the cheapest Mountain Gorilla tracking in Africa.",
+  "answers": {
+   "sol": "This city is also a base for climbing the Nyiragongo volcano and tracking mountain gorillas, which is the cheapest in Africa.",
+   "flash": "This city is also a base for climbing the Nyiragongo volcano, along with gorilla trekking, which is the cheapest in Africa.",
+   "gemma": "This city is also a base for climbing volcanoes. Nyiragongo, along with tracking mountain gorillas, is among the cheapest in Africa.",
+   "azure": "The city is also the base to climb the volcano."
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 1,
+  "src": "km",
+  "tgt": "en",
+  "said": "ការរកឃើញថ្មីនេះក៏ផ្តល់ជាការយល់ដឹងដ៏ទូលំទូលាយអំពី​ការវិវឌ្ឍន៍​ស្លាប​របស់​បក្សីផងដែរ។",
+  "ref": "The find also grants insight into the evolution of feathers in birds.",
+  "answers": {
+   "sol": "This new discovery also provides a broader understanding of the evolution of bird feathers.",
+   "flash": "This new discovery also provides broad insights into the evolution of bird wings.",
+   "gemma": "This new discovery also provides a broad understanding of the evolution of bird wings.",
+   "azure": "The new findings also provide comprehensive insight into the evolution of birds' wings"
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 2,
+  "src": "km",
+  "tgt": "en",
+  "said": "Sundarbans គឺ​ជា​ខ្សែ​ក្រវាត់ដើម​កោង​កាង​ធំ​ជាង​គេ​នៅ​ក្នុង​ពិភព​លោក​ ដែល​លាត​សន្ធឹង​ប្រវែង​ 80 គម (50 ម៉ាយល៍) ចូល​ទៅ​ក្នុង​ដី​គោក​នៃ​ប្រទេស​បង់ក្លាដេស និង​ឥណ្ឌា​ ពី​តំបន់​មាត់​ឆ្នេរ​។​",
+  "ref": "The Sundarbans are the largest littoral mangrove belt in the world, stretching 80 km (50 mi) into the Bangladeshi and Indian hinterland from the coast.",
+  "answers": {
+   "sol": "The Sundarbans are the world’s largest mangrove forest, stretching kilometers inland from the coast of Bangladesh and India.",
+   "flash": "The Sundarbans is the largest mangrove belt in the world, stretching kilometers inland into Bangladesh and India from the coastal area.",
+   "gemma": "The Sundarbans is the largest mangrove forest belt in the world, extending for kilometers inland into Bangladesh and India from the coastal region.",
+   "azure": "Sundan is the largest mangrove belt in the world, which extends kilometers long into the mainland of Bangladesh and India from coastal areas"
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 3,
+  "src": "km",
+  "tgt": "en",
+  "said": "ប្រជាជន​ក្រុង​ប៉ារីស​មាន​កេរ្តិ៍ឈ្មោះ​ថា ជា​មនុស្ស​អាត្ម័ន អួតអាង និង​ក្រអឺត​ក្រ​ទម។",
+  "ref": "Parisians have a reputation for being egocentric, rude and arrogant.",
+  "answers": {
+   "sol": "Parisians have a reputation for being selfish, boastful, and arrogant.",
+   "flash": "The people of Paris have a reputation for being selfish, boastful, and arrogant.",
+   "gemma": "People of Paris are known to be arrogant, boastful, and stingy.",
+   "azure": "The Parisians had a reputation for being arrogant, arrogant, and arrogant."
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 4,
+  "src": "km",
+  "tgt": "en",
+  "said": "អ្នកថតរូប​ក្រោយមក​យកកន្លែងរបស់​ស្ត្រីវ័យចំណាស់ម្នាក់​​ ខណៈដែលគាត់ទៅបន្ទប់ទឹក។ Mendoza ត្រូវបានគេបាញ់សម្លាប់។",
+  "ref": "The photographers later took the place of an aged lady as she needed the lavatory. Mendoza was gunned down.",
+  "answers": {
+   "sol": "The photographer later took the place of an elderly woman he had just photographed. Mendoza was shot dead.",
+   "flash": "A photographer later took the place of an elderly woman before Mendoza was shot dead.",
+   "gemma": "The photographer then took a photo of an elderly woman who had just held back the water, but Doha was shot dead.",
+   "azure": "Photographers later took the place of an elderly woman who had just drowned before being shot dead."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "gemma": {
+     "score": 0,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "sol": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 5,
+  "src": "km",
+  "tgt": "en",
+  "said": "កាល​ពី​សប្ដាហ៍​មុន​ METI បាន​ប្រកាស​ថា​ ក្រុមហ៊ុន Apple បាន​ជូនដំណឹង​ដល់​ខ្លួន​អំពី​គ្រោះ​ថ្នាក់​ចំនួន​ 34 ករណី​បន្ថែម​ទៀត​ អំពី​ការ​ឡើង​កំដៅ​ខ្លាំង​​ ដែល​ក្រុមហ៊ុន​ហៅ​ករណី​នេះ​ថា​ “មិន​មែនជាករណី​ធ្ងន់ធ្ងរ​”​។",
+  "ref": "Last week, METI announced that Apple had informed it of 34 additional overheating incidents, which the company called \"non-serious.\"",
+  "answers": {
+   "sol": "Last week, the agency announced that Apple had notified it of 34 additional overheating incidents, which the company said were not serious.",
+   "flash": "Last week, METI announced that Apple had informed it of 34 additional cases of overheating, which the company described as not serious.",
+   "gemma": "Last week, the MTI announced that Apple had notified them of 34 additional cases of overheating, which the company stated were not serious.",
+   "azure": "Last week, Apple announced that it had notified itself of thirty-four more cases of extreme warming, which the company said were not serious cases."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 6,
+  "src": "km",
+  "tgt": "en",
+  "said": "អឺរ៉ុបខាងលិចបានចាប់ផ្តើមអភិវឌ្ឍរចនាបថរបស់ខ្លួនឆ្ពោះទៅចុងបញ្ចប់នៃយុគសម័យកណ្តាល។ ការវិវឌ្ឃន៍ដ៏ធំបំផុតបានកើតឡើង នៅពេលដែលប្រជាជនបានចាប់ផ្តើមប្រើឡេវដើម្បីភ្ជាប់សម្លៀកបំពាក់។",
+  "ref": "towards the end of the Middle Ages western Europe began to develop their own style. one of the biggest developments of the time as a result of the crusades people began to use buttons to fasten clothing.",
+  "answers": {
+   "sol": "Western Europe began developing its own style toward the end of the Middle Ages. The biggest change came when people started using buttons to fasten their clothes.",
+   "flash": "Western Europe began developing its own style towards the end of the Middle Ages, with the biggest development occurring when people started using buttons to fasten clothing.",
+   "gemma": "Western Europe began developing its own style toward the end of the Middle Ages; the greatest evolution occurred when people began using buttons to fasten their clothing.",
+   "azure": "Western Europe began to develop its style, towards the end of the Middle Ages, the biggest evolution occurred when people began to use lace to attach clothing."
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 7,
+  "src": "km",
+  "tgt": "en",
+  "said": "ពួកយើងមិនច្បាស់ដែរ ប៉ុន្តែវាប្រហែលជាមានពងបែកនៅអណ្តាត។ ចំនីរបស់វាជាសត្វអណ្តើក ត្រីធំៗ សត្វ mosasaurs ផ្សេងទៀត ហើយពេលខ្លះវាស៊ីគ្នាវាផងដែរ។",
+  "ref": "We don't know for sure, but it may have had a forked tongue. Its diet included turtles, large fish, other mosasaurs, and it may even have been a cannibal.",
+  "answers": {
+   "sol": "We’re not sure, but it probably had a forked tongue. It ate sea turtles, large fish, and other mosasaurs, and sometimes even ate its own kind.",
+   "flash": "We aren't sure either, but it probably has floating egg masses. Its food consists of plankton, large fish, other medusae, and sometimes they even eat each other.",
+   "gemma": "We aren't sure, but it probably has eggs floating in its food—it's a floating animal, with big fish, mosquitoes, and other things, and sometimes it even eats its own kind.",
+   "azure": "We're not sure, but it probably has a broken egg in its feeding turtle, a large fish, other insects, and sometimes it feeds on it as well."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": true
+    },
+    "flash": {
+     "score": 1,
+     "critical": true
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 0,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 8,
+  "src": "km",
+  "tgt": "en",
+  "said": "កោះហុងកុង ផ្តល់ឈ្មោះ​នេះឱ្យទឹកដីហុងកុងតែ​ម្ដង​​ និងជាកន្លែងដែលភ្ញៀវទេសចរជាច្រើន ចាត់ទុកថា​ជាកន្លែង​​សំខាន់។",
+  "ref": "Hong Kong Island gives the territory of Hong Kong its name and is the place that many tourists regard as the main focus.",
+  "answers": {
+   "sol": "Hong Kong Island gave its name to the territory of Hong Kong and is a place many tourists consider important.",
+   "flash": "Hong Kong Island gives its name to the territory of Hong Kong itself and is considered an important location by many tourists.",
+   "gemma": "Hong Kong also gave this name to the Hong Kong territory, and it is a place that many tourists consider important.",
+   "azure": "Hong Kong gives this name only to Hong Kong territory and is considered an important place by many tourists."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 9,
+  "src": "km",
+  "tgt": "en",
+  "said": "ASUS Eee PC ជា​កម្មវិធី​ដែល​បាន​ដាក់ឲ្យ​ប្រើប្រាស់​នៅ​ទូទាំង​ពិភព​លោកដើម្បីការ​សន្សំ​សំចៃ​លើ​ការចំណាយ​ និង​កត្តា​មុខ​ងារ​របស់​វា​ បាន​ក្លាយ​ជា​ប្រធាន​បទ​ក្ដៅៗ​នៅ​ក្នុង​សន្និសីទ​ព័ត៌មាន​វិទ្យា​ប្រចាំ​ខែ​នៅ​ទីក្រុង​តៃបិ ឆ្នាំ 2007។",
+  "ref": "ASUS Eee PC, earlier launched world-wide for cost-saving and functionality factors, became a hot topic in 2007 Taipei IT Month.",
+  "answers": {
+   "sol": "The ASUS Eee PC, launched worldwide for its affordability and features, became a hot topic at this year’s IT conference in Taipei.",
+   "flash": "The ASUS Eee PC, which was launched worldwide for cost savings and its functional features, became a hot topic at the annual IT conference in Taipei this year.",
+   "gemma": "ASUS EPC is a program launched worldwide to save on costs, and its functionality has become a hot topic at the monthly IT conference in Taipei.",
+   "azure": "ASUS EPC, a software deployed worldwide to save on its cost and functional factors, became a hot topic at the annual IT conference in Taipei."
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 10,
+  "src": "km",
+  "tgt": "en",
+  "said": "ការនំដុតរបស់អាឡឺម៉ង់ជាច្រើនក៏មានដាក់គ្រាប់អាល់ម៉ុន ហេសលណាត់ និងគ្រាប់ផ្លែឈើដទៃទៀត។ នំដែលពេញនិយមតែងតែត្រូវគ្នាយ៉ាងពិសេសជាមួយកាហ្វេចាស់មួយកែវ។",
+  "ref": "Many German baked goods also feature almonds, hazelnuts, and other tree nuts. Popular cakes often pair particularly well with a cup of strong coffee.",
+  "answers": {
+   "sol": "Many German baked goods also contain almonds, hazelnuts, and other nuts. Popular cakes go especially well with a cup of old coffee.",
+   "flash": "Many German baked goods also contain almonds, hazelnuts, and other nuts, and popular pastries pair especially well with a cup of strong coffee.",
+   "gemma": "Many German baked goods contain almonds, hazelnuts, and other nuts; these popular pastries pair especially well with a cup of strong coffee.",
+   "azure": "Many German baking also consisted of german, hessein, and other fruit nuts, the most popular cakes always paired especially with an old cup of coffee."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 11,
+  "src": "km",
+  "tgt": "en",
+  "said": "សំបករបស់វាមានកម្រាស់ប្រហែលជា 70 គីឡូម៉ែត្រនៅផ្នែកជិត និង 100គីឡូម៉ែត្រនៅផ្នែកឆ្ងាយ។",
+  "ref": "The crust is about 70 km thick on the near side and 100 km thick on the far side.",
+  "answers": {
+   "sol": "Its crust is about 70 kilometers thick on the near side and is measured in kilometers on the far side.",
+   "flash": "Its crust is about 70 kilometers thick on the near side and kilometers on the far side.",
+   "gemma": "Its thickness is about 20 millimeters at the near part and 10 millimeters at the far part.",
+   "azure": "Its crusts are perhaps seventy kilometers thick on the near side and kilometers on the far side."
+  },
+  "grades": {
+   "1": {
+    "flash": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "sol": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 0,
+     "critical": true
+    },
+    "sol": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 12,
+  "src": "km",
+  "tgt": "en",
+  "said": "ការ​ចែករំលែក​អំពី​ការ​ធ្វើ​ដំណើរ​ទស្សនកិច្ច​សិក្សា​ដោយ​ផ្ទាល់​ ក៏​ជា​វិធី​ដ៏​ល្អ​មួយ​ដើម្បី​ឆ្លុះ​បញ្ចាំង​ពី​ការ​ធ្វើ​ដំណើរ​ និ​ង​ចែក​រំលែក​បទ​ពិសោធន៍​សម្រាប់​ថ្នាក់​រៀន​ទៅ​ថ្ងៃ​អនាគតដែរ។",
+  "ref": "Sharing a field trip virtually is also a great way to reflect a on a trip and share experiences with future classes.",
+  "answers": {
+   "sol": "Sharing your firsthand experience of a study trip is also a good way to reflect on the trip and share what you learned with future classes.",
+   "flash": "Sharing about a firsthand field trip is also a great way to reflect on the journey and share experiences for future classes.",
+   "gemma": "Sharing about the study tour is also a great way to reflect on the trip and share experiences for future classes.",
+   "azure": "Sharing about in-person learning visits is also a great way to reflect on the journey and share experiences for classrooms in future days."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 13,
+  "src": "km",
+  "tgt": "en",
+  "said": "ជីអានខាឡូ ហ្វីស៊ីឆែលឡា (Giancarlo Fisichella) បានបញ្ជាឡានរបស់គាត់លែងកើត ហើយបានបញ្ចប់ការប្រកួតភ្លាមៗគ្រាន់តែចាប់ផ្តើមបានបន្តិច។",
+  "ref": "Giancarlo Fisichella lost control of his car and ended the race very soon after the start.",
+  "answers": {
+   "sol": "Giancarlo Fis lost control of his car and was out of the race almost as soon as it began.",
+   "flash": "Giancarlo Fisichella lost control of his car and ended the race immediately, just shortly after it started.",
+   "gemma": "Gian Carlo Fisichella lost control of his car and retired from the race immediately, shortly after starting.",
+   "azure": "Jim Claude Heath ordered his car out and immediately ended the game, just a little started."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 14,
+  "src": "km",
+  "tgt": "en",
+  "said": "Lakkha Singh (ឡាក់​កាស៊ីង)​ក៏បានបង្ហាញ chhappan bhog bhajan ផងដែរ។ តារា​ចម្រៀង​លោក Raju Khandelwal (រ៉ាជូ ខាន់ដេវ៉ាល់) បាន​អមដំណើរ​ជាមួយ​នឹងគាត់។",
+  "ref": "Lakkha Singh presented the chhappan bhog bhajan as well. Singer, Raju Khandelwal was accompanying him.",
+  "answers": {
+   "sol": "Lak Kasing also showed off his ping-pong skills. Singer Raju Khandelwal accompanied him.",
+   "flash": "Lucky Singh also showed off his ping-pong skills, accompanied by singer Raju Khandelwal.",
+   "gemma": "Luckasing also showed up with Pin Bong Kav, and the singer Raju Khan Dewal accompanied him.",
+   "azure": "Lakkash Singh also presented a pong pongkow, singer Raju Khandewal accompanied him"
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 1,
+     "critical": true
+    },
+    "flash": {
+     "score": 1,
+     "critical": true
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 1,
+     "critical": true
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 1,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 15,
+  "src": "km",
+  "tgt": "en",
+  "said": "ដោយសារតែស្លាបដាយណូស័រមិនមានការលូតលាស់ល្អ ហើយត្រូវបានគេហៅថាឆ្នឹងខ្នង (rachis) ប៉ុន្តែមានលក្ខណៈពិសេសផ្សេងទៀតរបស់ស្លាប - រោម និង រោមល្អិតៗ - អ្នកស្រាវជ្រាវបានរកឃើញថា ឆ្នឹងខ្នងទំនងជាការវិវត្តនៅពេលក្រោយដែលវាមានលក្ខណៈពិសេសទាំងនេះ។",
+  "ref": "Because the dinosaur feathers do not have a well-developed shaft, called a rachis, but do have other features of feathers — barbs and barbules — the researchers inferred the rachis was likely a later evolutionary development that these other features.",
+  "answers": {
+   "sol": "Because the fossil’s wings were underdeveloped, yet it had other wing features, including feathers and fine down, researchers concluded that its bones likely evolved later than those features.",
+   "flash": "Because dinosaur wings were not well developed and were called backbones, but had other wing features such as feathers and fine feathers, researchers found that the inner bones likely evolved later to have these features.",
+   "gemma": "Because the humerus did not develop well and was referred to as the \"white backbone,\" but there were other distinct characteristics of the wing, researchers found that the internal bones were likely a later evolution that possessed these features.",
+   "azure": "Because the wings don't grow well and are called white vertebrae, but have other features of wings, feathers, and feathers, the researchers found that the inner bone was likely to evolve later as it had these features."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 1,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "sol": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 1,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "gemma": {
+     "score": 0,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 16,
+  "src": "km",
+  "tgt": "en",
+  "said": "បើយោងទៅតាមការបែកធ្លាយឯកសារនេះ គឺមានសេចក្តីយោងទៅលើជម្លោះព្រំដែន ដែល​ប៉ាឡេស្ទីន​ចង់បាន ដោយផ្អែក​លើព្រំដែនជាច្រើន មុនពេលកើតសង្គ្រាមនៅ​មជ្ឈិមបូព៌ា​ឆ្នាំ 1967។",
+  "ref": "The document, according to the leak, will refer to the borders dispute, which Palestine wants based on the borders before the 1967 Mideast War.",
+  "answers": {
+   "sol": "According to this leaked document, it refers to the borders Palestine wants, based on the boundaries that existed before the 1967 war in the Middle East.",
+   "flash": "According to these leaked documents, there is a reference to the border dispute that Palestine wants, based on the borders prior to the 1967 Middle East War.",
+   "gemma": "According to these leaked documents, there is a reference to the border disputes that Palestine desired, based on several territorial boundaries before the war in the Middle East in 1967.",
+   "azure": "According to the bombing, the ideology is a reference to the border dispute that the Palestinians wanted based on several territorial disputes before the outbreak of war in the Middle East."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": true
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 17,
+  "src": "km",
+  "tgt": "en",
+  "said": "គ្រាប់បែកនៅក្នុងរថយន្តដែលគេបានដាក់បំផ្ទុះនៅទីស្នាក់ការប៉ូលីសក្នុងទីក្រុង ហ្កា​ហ្សៀន​តិប (Gaziantep) ប្រទេស​ទួរគី​កាល​ពី​ព្រឹក​ម្សិល​មិញនេះ បាន​សម្លាប់​មន្ត្រី​ប៉ូលិស​ចំនួន​ពីរ​នាក់ និងអ្នករងរបួសជាងម្ភៃនាក់ផ្សេងទៀត។",
+  "ref": "A car bomb detonated at police headquarters in Gaziantep, Turkey yesterday morning killed two police officers and injured more than twenty other people.",
+  "answers": {
+   "sol": "A car bomb exploded at police headquarters in Gaziantep, Turkey, this morning, killing two police officers and injuring more than 20 others.",
+   "flash": "A car bomb that was planted exploded at police headquarters in the city of Gaziantep, Turkey, this morning, killing two police officers and injuring over twenty others.",
+   "gemma": "A car bomb detonated at a police station in the city of Gaziantep, Turkey, this morning, killing two police officers and injuring more than twenty others.",
+   "azure": "A car bomb detonated at police headquarters in Kahandab, Turkey, yesterday morning killed two police officers and injured more than twenty others."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 18,
+  "src": "km",
+  "tgt": "en",
+  "said": "ផ្ទាំងទស្សនីយភាពត្រូវ​បញ្ចាំង​ទៅលើពីរ៉ាមីតទាំងឡាយ ហើយពីរ៉ាមីតដទៃទៀត ក៏ត្រូវបាន​បំភ្លឺភ្លើង​ដែរ។",
+  "ref": "The scenes are displayed on the pyramids and the different pyramids are lit up.",
+  "answers": {
+   "sol": "A visual display was projected onto the pyramids, and the other pyramids were lit up too.",
+   "flash": "Visuals were projected onto the pyramids, and other pyramids were also illuminated.",
+   "gemma": "The panoramas were projected onto the pyramids, and other pyramids were also illuminated.",
+   "azure": "Spectacle panels are projected on all pyramids and other pyramids are also illuminated"
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 19,
+  "src": "km",
+  "tgt": "en",
+  "said": "នៅ​ក្នុង​អាកាសធាតុក្តៅនៃ​មជ្ឈិម​បូព៌ា ផ្ទះ​មិន​សូវ​សំខាន់​ទេ។",
+  "ref": "In the warm climate of the Middle East, the house was not so important.",
+  "answers": {
+   "sol": "In the hot climate of the Middle East, houses aren’t very important.",
+   "flash": "In the hot climate of the Middle East, houses are not very important.",
+   "gemma": "In the hot weather of the Middle East, houses are not very important.",
+   "azure": "In the warmer climate of the home medium is less important."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 0,
+     "critical": true
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 0,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 20,
+  "src": "km",
+  "tgt": "en",
+  "said": "កុំបំផ្លាញកន្លែងទស្សនាដោយការគូសចំណាំ កោសឆ្កូត ឬ គូរគំនូរនៅលើសំណង់តាមទីសាធារណៈ។",
+  "ref": "Do not deface the site by marking or scratching graffiti into structures.",
+  "answers": {
+   "sol": "Don’t vandalize tourist attractions by carving marks, scratching, or drawing on structures in public places.",
+   "flash": "Do not deface tourist sites by making marks, scratching, or drawing graffiti on public structures.",
+   "gemma": "Do not damage the sightseeing areas by carving, scratching, or drawing on public structures.",
+   "azure": "Don't ruin the viewing spot by knocking down notes, stickers, or graffiti on public spaces."
+  },
+  "grades": {
+   "1": {
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 21,
+  "src": "km",
+  "tgt": "en",
+  "said": "គ្រាន់តែ​ក្នុងរយៈពេល​ពីរសប្តាហ៍ប៉ុណ្ណោះ កងទ័ពអាមេរិក និងកងទ័ពសេរី​របស់បារាំង​បានចូលទៅរំដោះភាគខាងត្បូងប្រទេសបារាំង ហើយបានត្រឡប់​ឆ្ពោះ​ទៅកាន់​ប្រទេសអាល្លឺម៉ង់វិញ។",
+  "ref": "In just two weeks the Americans and Free French forces had liberated southern France and were turning towards Germany.",
+  "answers": {
+   "sol": "In just two weeks, American and Free French forces entered and liberated southern France, then headed back toward Germany.",
+   "flash": "In just two weeks, American troops and Free French forces liberated southern France and headed back toward Germany.",
+   "gemma": "In just two weeks, the American and Free French forces entered to liberate southern France and then headed back toward Germany.",
+   "azure": "In just two weeks, American troops and the French Free Army entered southern France and returned toward Germany."
+  },
+  "grades": {
+   "1": {
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "gemma": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 22,
+  "src": "km",
+  "tgt": "en",
+  "said": "ភាគច្រើននៃអគារ​នៅលើគែមដ៏ស្មុគស្មាញត្រូវបាន​គេសាងសង់ឡើងវិញ​ដើម្បីផ្តល់ឱ្យអ្នកទេសចរនូវគំនិត​កាន់តែប្រសើរឡើង​អំពីរបៀបដែលអគារនេះវាបានផុសខ្លួនចេញមកដំបូង។",
+  "ref": "Most of the buildings on the edges of the complex have been rebuilt in order to give tourists a better idea of how they originally appeared.",
+  "answers": {
+   "sol": "Most of the buildings at the complex have been reconstructed to give visitors a better idea of what they originally looked like.",
+   "flash": "Most of the buildings at the complex have been reconstructed to give tourists a better idea of how they originally appeared.",
+   "gemma": "Most of the buildings in the complex were reconstructed to give tourists a better idea of how these buildings originally looked.",
+   "azure": "Most of the buildings on the complex have been rebuilt to give tourists a better idea of how the building came to be in the first place."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 2,
+     "critical": false
+    }
+   },
+   "2": {
+    "flash": {
+     "score": 2,
+     "critical": false
+    },
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    }
+   }
+  }
+ },
+ {
+  "set": "km-en:transcribe",
+  "i": 23,
+  "src": "km",
+  "tgt": "en",
+  "said": "ប្រឡោះបញ្ឈរនៅក្រោមស្ពានគឺមានកម្ពស់ 15 ម៉ែត្រ។ ការសាងសង់ត្រូវបានបញ្ចប់នៅខែសីហាឆ្នាំ 2011 ហើយការធ្វើចរាចរនឹងត្រូវបានផ្អាករហូតដល់ខែមីនាឆ្នាំ 2017 ។",
+  "ref": "The vertical clearance under the bridge is 15 meters. Construction was completed in August 2011, it didn't open to traffic until March 2017.",
+  "answers": {
+   "sol": "The vertical clearance beneath the bridge is 15 meters. Construction was completed in August 2011, and traffic would be suspended until March 2017.",
+   "flash": "The vertical clearance under the bridge is 15 meters high, construction was completed in August 2011, and traffic will be suspended until March 2017.",
+   "gemma": "The vertical gap under the bridge is fifteen meters high. Construction was completed in August 2011, and traffic will be suspended until March 2017.",
+   "azure": "The vertical gate under the bridge is fifteen meters high, construction is completed in August, two thousand eleven, and traffic will be suspended until March, two thousand seventeen."
+  },
+  "grades": {
+   "1": {
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    },
+    "azure": {
+     "score": 1,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    }
+   },
+   "2": {
+    "azure": {
+     "score": 2,
+     "critical": false
+    },
+    "gemma": {
+     "score": 2,
+     "critical": false
+    },
+    "flash": {
+     "score": 3,
+     "critical": false
+    },
+    "sol": {
+     "score": 3,
+     "critical": false
+    }
+   }
+  }
+ }
+]
