@@ -1,0 +1,161 @@
+{
+ "batch": {
+  "openrouter/scribe-v2": {
+   "n": 24,
+   "cer": 15.3,
+   "s_p50": 1.775,
+   "empty": 0,
+   "not_khmer_script": 0
+  },
+  "elevenlabs/scribe-v2": {
+   "n": 24,
+   "cer": 17.3,
+   "s_p50": 1.57,
+   "empty": 0,
+   "not_khmer_script": 0
+  },
+  "elevenlabs/scribe-v3": {
+   "n": 24,
+   "cer": 14.6,
+   "s_p50": 1.85,
+   "empty": 0,
+   "not_khmer_script": 0
+  },
+  "openrouter/gpt-transcribe (auto)": {
+   "n": 24,
+   "cer": 23.7,
+   "s_p50": 1.14,
+   "empty": 0,
+   "not_khmer_script": 0
+  },
+  "openrouter/gpt-4o-transcribe (auto)": {
+   "n": 24,
+   "cer": 30.0,
+   "s_p50": 1.79,
+   "empty": 0,
+   "not_khmer_script": 0
+  },
+  "openrouter/whisper-large-v3 (km)": {
+   "n": 24,
+   "cer": 100.0,
+   "s_p50": 5.1,
+   "empty": 24,
+   "not_khmer_script": 0
+  },
+  "openrouter/whisper-large-v3 (auto)": {
+   "n": 24,
+   "cer": 98.1,
+   "s_p50": 1.4,
+   "empty": 2,
+   "not_khmer_script": 21
+  },
+  "openrouter/whisper-large-v3-turbo (km)": {
+   "n": 24,
+   "cer": 97.5,
+   "s_p50": 1.9849999999999999,
+   "empty": 19,
+   "not_khmer_script": 0
+  }
+ },
+ "realtime_first5": {
+  "scribe_v2_realtime vad": {
+   "cer": 48.4,
+   "first_partial_s_p50": 3.1,
+   "final_after_end_s_p50": 0.1
+  },
+  "scribe_v2_realtime manual": {
+   "cer": 57.8,
+   "first_partial_s_p50": 2.94,
+   "final_after_end_s_p50": 0.41
+  },
+  "scribe_v3_live vad": {
+   "cer": 31.5,
+   "first_partial_s_p50": 2.73,
+   "final_after_end_s_p50": 0.15
+  },
+  "scribe_v3_live manual": {
+   "cer": 38.7,
+   "first_partial_s_p50": 2.68,
+   "final_after_end_s_p50": 0.57
+  },
+  "scribe_v2 batch (same 5)": {
+   "cer": 19.1
+  },
+  "scribe_v3 batch (same 5)": {
+   "cer": 18.2
+  }
+ },
+ "sol": {
+  "perfect": {
+   "sol": 94.4,
+   "r1": 94.4,
+   "r2": 94.4,
+   "critical_per_round": 0.0
+  },
+  "transcribe": {
+   "sol": 78.5,
+   "r1": 77.8,
+   "r2": 79.2,
+   "critical_per_round": 1.0
+  },
+  "azure": {
+   "sol": 64.6,
+   "r1": 65.3,
+   "r2": 63.9,
+   "critical_per_round": 3.0
+  },
+  "tha": {
+   "sol": 82.6,
+   "r1": 81.9,
+   "r2": 83.3,
+   "critical_per_round": 2.0
+  },
+  "gemini": {
+   "sol": 77.8,
+   "r1": 77.8,
+   "r2": 77.8,
+   "critical_per_round": 4.0
+  },
+  "scribe": {
+   "sol": 81.9,
+   "r1": 81.9,
+   "r2": 81.9,
+   "critical_per_round": 2.5
+  },
+  "scribe-v3": {
+   "sol": 75.7,
+   "r1": 75.0,
+   "r2": 76.4,
+   "critical_per_round": 2.0
+  },
+  "gpt-transcribe": {
+   "sol": 52.8,
+   "r1": 54.2,
+   "r2": 51.4,
+   "critical_per_round": 6.5
+  }
+ },
+ "paired": {
+  "scribe - transcribe": {
+   "diff": 3.5,
+   "ci95": [
+    -5.6,
+    12.5
+   ]
+  },
+  "scribe-v3 - transcribe": {
+   "diff": -2.8,
+   "ci95": [
+    -14.6,
+    8.3
+   ]
+  },
+  "tha - transcribe": {
+   "diff": 4.2,
+   "ci95": [
+    -8.3,
+    16.0
+   ]
+  }
+ }
+}
