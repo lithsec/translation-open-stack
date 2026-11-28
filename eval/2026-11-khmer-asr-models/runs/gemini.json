@@ -1,0 +1,602 @@
+[
+ {
+  "file": "10048035477515208691.wav",
+  "hyp": "ទីក្រុងនេះក៏ជាមូលដ្ឋានដើម្បីឡើងភ្នំភ្លើង នីរ៉ាហ្គោនហ្គោ (Nyiragongo) រួមជាមួយនឹងការតាម Mountain Gorilla ដែលមានតម្លៃថ្លៃបំផុតនៅអាហ្វ្រិក។",
+  "s": 1.84,
+  "audio_s": 18.36,
+  "usage": {
+   "total_tokens": 514,
+   "total_input_tokens": 460,
+   "input_tokens_by_modality": [
+    {
+     "modality": "audio",
+     "tokens": 459
+    },
+    {
+     "modality": "text",
+     "tokens": 1
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 54,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 460
+  }
+ },
+ {
+  "file": "10295509089508365521.wav",
+  "hyp": "ការរកឃើញថ្មីនេះ ក៏ផ្តល់ជាការយល់ដឹងដ៏ទូលំទូលាយអំពីការវិវត្តស្លាបរបស់បក្សីផងដែរ។",
+  "s": 1.4,
+  "audio_s": 7.92,
+  "usage": {
+   "total_tokens": 235,
+   "total_input_tokens": 199,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 198
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 36,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 199
+  }
+ },
+ {
+  "file": "1056560214110056794.wav",
+  "hyp": "Sundarbans គឺជាខ្សែក្រវាត់ដីកោងកាងធំជាងគេនៅក្នុងពិភពលោក ដែលលាតសន្ធឹងប្រវែង 80 គីឡូម៉ែត្រ (50 ម៉ាយល៍) ចូលទៅក្នុងដីគោកនៃប្រទេសបង់ក្លាដែស និងឥណ្ឌាពីតំបន់មាត់ឆ្នេរ។",
+  "s": 1.88,
+  "audio_s": 22.62,
+  "usage": {
+   "total_tokens": 649,
+   "total_input_tokens": 567,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 566
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 82,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 567
+  }
+ },
+ {
+  "file": "1152778219813003811.wav",
+  "hyp": "ប្រជាជនក្រុងប៉ារីសមានកេរ្តិ៍ឈ្មោះថាជាមនុស្សអាត្ម័ន អួតអាង និងក្រអឺតក្រទម។",
+  "s": 1.57,
+  "audio_s": 10.98,
+  "usage": {
+   "total_tokens": 313,
+   "total_input_tokens": 276,
+   "input_tokens_by_modality": [
+    {
+     "modality": "audio",
+     "tokens": 275
+    },
+    {
+     "modality": "text",
+     "tokens": 1
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 37,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 276
+  }
+ },
+ {
+  "file": "11587156179425131174.wav",
+  "hyp": "អ្នកថតរូបក្រៅម៉ោង និងជាស្ត្រីម្នាក់ ខណៈដែលគាត់ទៅបន្ទប់ទឹក ម៉េនដូហ្សា (Mendoza) ត្រូវបានគេបាញ់សម្លាប់។",
+  "s": 1.48,
+  "audio_s": 9.66,
+  "usage": {
+   "total_tokens": 286,
+   "total_input_tokens": 243,
+   "input_tokens_by_modality": [
+    {
+     "modality": "audio",
+     "tokens": 242
+    },
+    {
+     "modality": "text",
+     "tokens": 1
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 43,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 243
+  }
+ },
+ {
+  "file": "11816235727638018684.wav",
+  "hyp": "កាលពីសប្តាហ៍មុន មេទីបានប្រកាសថា ក្រុមហ៊ុន Apple បានជួនដំណឹងដល់ខ្លួនអំពីគ្រោះថ្នាក់ចំនួន 34 ករណីបន្ថែមទៀត អំពីការឡើងកំដៅខ្លាំង ដែលក្រុមហ៊ុនហៅករណីនេះថា មិនមែនជាករណីធ្ងន់ធ្ងរ។",
+  "s": 1.63,
+  "audio_s": 21.78,
+  "usage": {
+   "total_tokens": 626,
+   "total_input_tokens": 546,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 545
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 80,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 546
+  }
+ },
+ {
+  "file": "1182096156445117157.wav",
+  "hyp": "អឺរ៉ុប​ខាង​លិច​បាន​ចាប់​ផ្តើម​អភិវឌ្ឍ​រចនាសម្ព័ន្ធ​របស់​ខ្លួន​ឆ្ពោះ​ទៅ​ចុង​បញ្ចប់​នៃ​យុគសម័យ​កណ្តال។ ការ​វិវត្ត​ដ៏​ធំ​បំផុត​បាន​កើត​ឡើង​នៅ​ពេល​ដែល​ប្រជាជន​បាន​ចាប់​ផ្តើម​ប្រើ​ឡេវ​ដើម្បី​ភ្ជាប់​សំលៀកបំពាក់។",
+  "s": 1.8,
+  "audio_s": 19.26,
+  "usage": {
+   "total_tokens": 597,
+   "total_input_tokens": 483,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 482
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 114,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 483
+  }
+ },
+ {
+  "file": "11947191252691563382.wav",
+  "hyp": "ពួក​យើង​មិន​ច្បាស់​ដែរ ប៉ុន្តែ​វា​ប្រហែល​ជា​មាន​ពង​បែក​នៅ​អណ្តាត។ ចំណី​របស់​វា​ជា​សត្វ​ល្អិត​ត្រូវ​ធំៗ សត្វ​មូសាសូ (musasso) ផ្សេង​ទៀត ហើយ​ពេល​ខ្លះ​វា​ស៊ី​គ្នា​វា​ផង​ដែរ។",
+  "s": 1.63,
+  "audio_s": 11.64,
+  "usage": {
+   "total_tokens": 387,
+   "total_input_tokens": 292,
+   "input_tokens_by_modality": [
+    {
+     "modality": "audio",
+     "tokens": 291
+    },
+    {
+     "modality": "text",
+     "tokens": 1
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 95,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 292
+  }
+ },
+ {
+  "file": "12279878938735341023.wav",
+  "hyp": "កោះហុងកុងផ្ដល់ឈ្មោះនេះឱ្យទឹកដីហុងកុងតែម្ដង និងជាកន្លែងដែលភ្ញៀវទេសចរជាច្រើនចាត់ទុកថាជាកន្លែងសំខាន់។",
+  "s": 1.67,
+  "audio_s": 7.32,
+  "usage": {
+   "total_tokens": 233,
+   "total_input_tokens": 184,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 183
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 49,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 184
+  }
+ },
+ {
+  "file": "12425453336259212572.wav",
+  "hyp": "Asus Eee PC ជាកម្មវិធីដែលបានដាក់ឱ្យប្រើប្រាស់នៅទូទាំងពិភពលោកដើម្បីការសន្សំសំចៃលើការចំណាយ និងកត្តាមុខងាររបស់វា បានក្លាយជាប្រធានបទក្តៅៗនៅក្នុងសន្និសីទព័ត៌មានវិទ្យាប្រចាំខែនៅទីក្រុងតៃប៉ិឆ្នាំ 2007។",
+  "s": 1.47,
+  "audio_s": 18.84,
+  "usage": {
+   "total_tokens": 560,
+   "total_input_tokens": 472,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 471
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 88,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 472
+  }
+ },
+ {
+  "file": "12446295134578084285.wav",
+  "hyp": "ការដុតនំរបស់អាល្លឺម៉ង់ជាច្រើនក៏មានដាក់គ្រាប់អាល់ម៉ុន (hazelnut) និងគ្រាប់ផ្លែឈើដទៃទៀត នំដែលពេញនិយមតែងតែត្រូវគ្នាយ៉ាងពិសេសជាមួយកាហ្វេចាស់មួយកែវ។",
+  "s": 1.67,
+  "audio_s": 16.98,
+  "usage": {
+   "total_tokens": 490,
+   "total_input_tokens": 426,
+   "input_tokens_by_modality": [
+    {
+     "modality": "audio",
+     "tokens": 425
+    },
+    {
+     "modality": "text",
+     "tokens": 1
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 64,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 426
+  }
+ },
+ {
+  "file": "12917324367887406450.wav",
+  "hyp": "សំបករបស់វាមានកម្រាស់ប្រហែលជា 70 គីឡូម៉ែត្រនៅផ្នែកជិត និង 100 គីឡូម៉ែត្រនៅផ្នែកឆ្ងាយ។",
+  "s": 1.34,
+  "audio_s": 7.2,
+  "usage": {
+   "total_tokens": 229,
+   "total_input_tokens": 181,
+   "input_tokens_by_modality": [
+    {
+     "modality": "audio",
+     "tokens": 180
+    },
+    {
+     "modality": "text",
+     "tokens": 1
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 48,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 181
+  }
+ },
+ {
+  "file": "14724004405072446392.wav",
+  "hyp": "ការចែករំលែកអំពីការធ្វើដំណើរទស្សនកិច្ចសិក្សាដោយផ្ទាល់ ក៏ជាវិធីដ៏ល្អមួយដើម្បីឆ្លុះបញ្ចាំងពីការធ្វើដំណើរ និងចែករំលែកបទពិសោធន៍សម្រាប់ថ្នាក់រៀននៅថ្ងៃអនាគតដែរ។",
+  "s": 1.48,
+  "audio_s": 12.84,
+  "usage": {
+   "total_tokens": 385,
+   "total_input_tokens": 322,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 321
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 63,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 322
+  }
+ },
+ {
+  "file": "14954751001214450853.wav",
+  "hyp": "Giancarlo Fisichella បានបញ្ជាឡានរបស់គាត់លែងកើត ហើយបានបញ្ចប់ការប្រកួតភ្លាមៗ គ្រាន់តែចាប់ផ្តើមបានបន្តិច។",
+  "s": 1.34,
+  "audio_s": 15.06,
+  "usage": {
+   "total_tokens": 415,
+   "total_input_tokens": 378,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 377
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 37,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 378
+  }
+ },
+ {
+  "file": "1545030375155054236.wav",
+  "hyp": "លោក កាស៊ីង (Lax Singh) ក៏បានបង្ហាញ ឈីបភិន ប៊ុងហ្គាវេន (Chippin Bungaraven) ផងដែរ។ តារាចម្រៀង លោក រ៉ាជូ ខាន់ ដេវ៉ាល់ (Raju Khan Deval) បានអមដំណើរជាមួយនឹងគាត់។",
+  "s": 1.82,
+  "audio_s": 14.64,
+  "usage": {
+   "total_tokens": 442,
+   "total_input_tokens": 367,
+   "input_tokens_by_modality": [
+    {
+     "modality": "audio",
+     "tokens": 366
+    },
+    {
+     "modality": "text",
+     "tokens": 1
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 75,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 367
+  }
+ },
+ {
+  "file": "15722257726241229397.wav",
+  "hyp": "ដោយសារ​តែ​ស្លាប​ដាយណូស័រ​មិន​មាន​ការ​លូតលាស់​ល្អ​ ហើយ​ត្រូវ​បាន​គេ​ហៅ​ថា​ឆ្អឹង​ខ្នង (rachis) ប៉ុន្តែ​មាន​លក្ខណៈ​ពិសេស​ផ្សេង​ទៀត​របស់​ស្លាប​រោម​ និង​រោម​ល្អិតៗ អ្នក​ស្រាវជ្រាវ​បាន​រក​ឃើញ​ថា​ឆ្អឹង​ខ្នង​ទំនង​ជា​ការ​វិវត្តន៍​នៅ​ពេល​ក្រោយ​ ដែល​វា​មាន​លក្ខណៈ​ពិសេស​ទាំង​នេះ។",
+  "s": 1.89,
+  "audio_s": 19.08,
+  "usage": {
+   "total_tokens": 616,
+   "total_input_tokens": 478,
+   "input_tokens_by_modality": [
+    {
+     "modality": "audio",
+     "tokens": 477
+    },
+    {
+     "modality": "text",
+     "tokens": 1
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 138,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 478
+  }
+ },
+ {
+  "file": "15755944503949234220.wav",
+  "hyp": "បើ​យោង​ទៅ​តាម​ការ​បែកធ្លាយ​ឯកសារ​នេះ​គឺ​មាន​សេចក្តី​យោង​ទៅ​លើ​ជម្លោះ​ព្រំដែน​ដែល​ប៉ាឡេស្ទីន​ចង់​បាន​ដោយ​ផ្អែក​លើ​ព្រំដែน​ជា​ច្រើន​មុន​ពេល​ការ​សង្គ្រាម​នៅ​មជ្ឈិមបូព៌ា​ឆ្នាំ 1967។",
+  "s": 1.66,
+  "audio_s": 12.48,
+  "usage": {
+   "total_tokens": 425,
+   "total_input_tokens": 313,
+   "input_tokens_by_modality": [
+    {
+     "modality": "audio",
+     "tokens": 312
+    },
+    {
+     "modality": "text",
+     "tokens": 1
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 112,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 313
+  }
+ },
+ {
+  "file": "16429230897749743027.wav",
+  "hyp": "គ្រាប់បែកនៅក្នុងរថយន្តដែលគេបានដាក់បំប៉ោងនៅទីស្នាក់ការប៉ូលីសក្នុងទីក្រុងហ្គាហ្សៀនទីប (Gaziantep) ប្រទេសទួរគីកាលពីព្រឹកមិញនេះ បានសម្លាប់មន្ត្រីប៉ូលីសចំនួនពីរនាក់ និងអ្នករងរបួសជាង 20 នាក់ផ្សេងទៀត។",
+  "s": 1.77,
+  "audio_s": 19.56,
+  "usage": {
+   "total_tokens": 583,
+   "total_input_tokens": 490,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 489
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 93,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 490
+  }
+ },
+ {
+  "file": "16522796559467381431.wav",
+  "hyp": "ផ្ទាំងទស្សនីយភាពត្រូវ​បាន​បង្ហាញ​នៅ​លើ​ពីរ៉ាមីត​ទាំងឡាយ ហើយ​ពីរ៉ាមីត​ដទៃ​ទៀត​ក៏​ត្រូវ​បាន​បំភ្លឺ​ភ្លើង​ដែរ។",
+  "s": 1.28,
+  "audio_s": 6.54,
+  "usage": {
+   "total_tokens": 221,
+   "total_input_tokens": 165,
+   "input_tokens_by_modality": [
+    {
+     "modality": "audio",
+     "tokens": 164
+    },
+    {
+     "modality": "text",
+     "tokens": 1
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 56,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 165
+  }
+ },
+ {
+  "file": "1692217833740270983.wav",
+  "hyp": "នៅ​ក្នុង​អាកាសធាតុ​ក្តៅ​និង​មធ្យម​បំពង់​ផ្ទះ​មិន​សូវ​សំខាន់​ទេ។",
+  "s": 1.35,
+  "audio_s": 6.78,
+  "usage": {
+   "total_tokens": 207,
+   "total_input_tokens": 171,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 170
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 36,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 171
+  }
+ },
+ {
+  "file": "16973042666083280319.wav",
+  "hyp": "កុំ​បំផ្លាញ​កន្លែង​ទស្សនា​ដោយ​ការ​គូស​ចំណាំ​កោស​ឆ្កូត ឬ​គូស​គំនូរ​លើ​សំណង់​តាម​ទី​សាធារណៈ។",
+  "s": 1.64,
+  "audio_s": 14.1,
+  "usage": {
+   "total_tokens": 412,
+   "total_input_tokens": 354,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 353
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 58,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 354
+  }
+ },
+ {
+  "file": "17067596142348880536.wav",
+  "hyp": "គ្រាន់តែក្នុងរយៈពេលពីរ​សប្តាហ៍​ប៉ុណ្ណោះ កងទ័ពអាមេរិក និងកងទ័ពសេរី​របស់បារាំង បានចូលទៅរំដោះភាគខាងត្បូង​ប្រទេសបារាំង ហើយបានត្រឡប់​ឆ្ពោះទៅកាន់ប្រទេសអាល្លឺម៉ង់វិញ។",
+  "s": 1.93,
+  "audio_s": 18.78,
+  "usage": {
+   "total_tokens": 549,
+   "total_input_tokens": 471,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 470
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 78,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 471
+  }
+ },
+ {
+  "file": "17687170701567868860.wav",
+  "hyp": "ភាគច្រើននៃអាគារនៅលើកោះដាប់បូកស្មាញ (Double Island) ត្រូវបានគេសាងសង់ឡើងវិញ ដើម្បីផ្តល់ឱ្យអ្នកទេសចរនូវគំនិតកាន់តែប្រសើរឡើងអំពីរបៀបដែលអាគារនេះវាបានផុសខ្លួនចេញមកពីដំបូង។",
+  "s": 1.76,
+  "audio_s": 15.54,
+  "usage": {
+   "total_tokens": 456,
+   "total_input_tokens": 390,
+   "input_tokens_by_modality": [
+    {
+     "modality": "audio",
+     "tokens": 389
+    },
+    {
+     "modality": "text",
+     "tokens": 1
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 66,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 390
+  }
+ },
+ {
+  "file": "18133540955883432349.wav",
+  "hyp": "ប្រឡោះ​បញ្ឈរ​នៅ​ក្រោម​ស្ពាន​គឺ​មាន​កម្ពស់ ១៥ ម៉ែត្រ។ ការ​សាងសង់​ត្រូវ​បាន​បញ្ចប់​នៅ​ខែ​សីហា ឆ្នាំ ២០១១ ហើយ​ការ​ធ្វើ​ចរាចរណ៍​ត្រូវ​បាន​ផ្អាក​រហូត​ដល់​ខែ​មីនា ឆ្នាំ ២០១៧។",
+  "s": 1.66,
+  "audio_s": 18.06,
+  "usage": {
+   "total_tokens": 549,
+   "total_input_tokens": 453,
+   "input_tokens_by_modality": [
+    {
+     "modality": "text",
+     "tokens": 1
+    },
+    {
+     "modality": "audio",
+     "tokens": 452
+    }
+   ],
+   "total_cached_tokens": 0,
+   "total_output_tokens": 96,
+   "total_tool_use_tokens": 0,
+   "total_thought_tokens": 0,
+   "initial_input_tokens": 453
+  }
+ }
+]
